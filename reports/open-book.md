@@ -108,7 +108,7 @@ Run every command in this section from the top folder of the bench. None of them
 Each context run sends a song's catalog entry, and then its title. The entry comes from the song's row in `data/songs.tsv`. [data/README.md](../data/README.md) shows the row behind the entry:
 
 ```sh
-jq -r '.records[0].input' functions/annotate/annotate-context.jsonl | tail -4
+jq -r '.records[0].input' examples/annotate/annotate-context.jsonl | tail -4
 ```
 
 ```text
@@ -126,8 +126,8 @@ Seven examples ask the same cases twice, cold and with the entry. [`scripts/scor
 
 ```sh
 for ex in decide choose score filter find annotate audit; do
-  cat functions/$ex/*-cold.jsonl functions/$ex/*-context.jsonl |
-    jq -sc --arg ex "$ex" --slurpfile out "functions/$ex/outputs.jsonl" -f scripts/score/context.jq
+  cat examples/$ex/*-cold.jsonl examples/$ex/*-context.jsonl |
+    jq -sc --arg ex "$ex" --slurpfile out "examples/$ex/outputs.jsonl" -f scripts/score/context.jq
 done
 ```
 
@@ -143,12 +143,12 @@ done
 
 With the entry, every answer is right in every example. The misses it fixes are these:
 
-- [decide](../functions/decide/): A Day in the Life, sure it is on Abbey Road from memory.
-- [choose](../functions/choose/): She Loves You, split between John, Paul, and the duet.
-- [score](../functions/score/): Revolution 9 and A Day in the Life, a level off.
-- [filter](../functions/filter/): A Day in the Life again.
-- [annotate](../functions/annotate/): the album and year of Octopus's Garden, left not sure.
-- [audit](../functions/audit/) and [diff](../functions/diff/): 20 wrong yeses of 70.
+- [decide](../examples/decide/): A Day in the Life, sure it is on Abbey Road from memory.
+- [choose](../examples/choose/): She Loves You, split between John, Paul, and the duet.
+- [score](../examples/score/): Revolution 9 and A Day in the Life, a level off.
+- [filter](../examples/filter/): A Day in the Life again.
+- [annotate](../examples/annotate/): the album and year of Octopus's Garden, left not sure.
+- [audit](../examples/audit/) and [diff](../examples/diff/): 20 wrong yeses of 70.
 
 An annotate field counts as right only when it is filled and right. A score counts as right when its likeliest level names the whole minute nearest the real length. The `find` pick was right both times. With the entry it grew surer.
 

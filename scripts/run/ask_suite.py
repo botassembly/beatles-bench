@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Ask every case in questions/functions/ through the ThinkThen command and write RUN/outputs.jsonl.
+"""Ask every case in questions/suite/ through the ThinkThen command and write RUN/outputs.jsonl.
 
-usage: functions.py live RUN_DIR | replay RUN_DIR [OUT_DIR]
+usage: ask_suite.py live RUN_DIR | replay RUN_DIR [OUT_DIR]
   live    --cache RUN_DIR/recording: answers from the recording where it can, asks the backend for the rest.
   replay  --replay RUN_DIR/recording: answers from the recording alone. No key, no connection. Writes OUT_DIR
           (default: RUN_DIR/replay/).
@@ -22,7 +22,7 @@ Environment:
   THINKTHEN_BIN            the command (default: thinkthen on PATH)
   BEATLES_BENCH_MODEL      the model (default: jev-latest)
   BENCH_WORKERS            calls in flight (default 4)
-  BENCH_FUNCTIONS          the case folder (default: questions/functions)
+  BENCH_FUNCTIONS          the case folder (default: questions/suite)
   BENCH_TESTS              the case files to ask, comma-separated names without .jsonl (default: the suite's eight)
   BENCH_MAX_INPUT_TOKENS   live mode stops starting calls once new requests have reported this many input tokens
                            (unset: no cap; 0 or below: start no call)
@@ -89,8 +89,8 @@ def limit(mode):
 def main(mode, run, out=None):
     global FOLDER
     if out is not None and mode != "replay":
-        sys.exit("usage: functions.py live RUN_DIR | replay RUN_DIR [OUT_DIR]")
-    FOLDER = Path(os.environ.get("BENCH_FUNCTIONS", ROOT / "questions" / "functions")).resolve()
+        sys.exit("usage: ask_suite.py live RUN_DIR | replay RUN_DIR [OUT_DIR]")
+    FOLDER = Path(os.environ.get("BENCH_FUNCTIONS", ROOT / "questions" / "suite")).resolve()
     run = Path(run).resolve()
     rec = run / "recording"
     out = Path(out).resolve() if out else run if mode == "live" else run / "replay"

@@ -5,9 +5,9 @@ All the code, one folder per stage. The pipeline runs in this order: harvest, ge
 | Folder | Stage | Main scripts |
 | --- | --- | --- |
 | `harvest/` | Fetch pinned Wikipedia pages, page views, and Wikidata answers, then write `data/`. | `harvest.py`, `wikitext.py`, and the Wikidata queries (`*.rq`, `reversal/`) |
-| `generate/` | Turn `data/` into `questions/`, `questions/functions/`, and the cases in `functions/`. | `generate.py`, `functions.py`, `examples.py` |
-| `run/` | Ask every question and record each exchange in `results/runs/RUN/`. | `thinkthen.sh` (wraps `ask.py`), `functions.sh`, `example.sh`, `rad_pipeline.sh`, `chat.py`, `baselines.py`, `relation_vectors.py`, `catalog.py`, `rad.py`, `gaps.py`, `model_time.py`, `in_text_check.py` |
-| `score/` | Score the runs into `results/tables/` and `results/history.tsv`. | `analyze.py`, `functions.py`, `table.py`, `score.py`, `stats.py`, `open_book.py`, `rad_table.py`, `prices.tsv`, `tune.sh`, `context_diff.sh`, `diff_guard.sh`, `context.jq` |
+| `generate/` | Turn `data/` into `questions/`, `questions/suite/`, and the cases in `examples/`. | `generate.py`, `make_suite.py`, `examples.py` |
+| `run/` | Ask every question and record each exchange in `results/runs/RUN/`. | `thinkthen.sh` (wraps `ask.py`), `ask_suite.sh`, `example.sh`, `rad_pipeline.sh`, `chat.py`, `baselines.py`, `relation_vectors.py`, `catalog.py`, `rad.py`, `gaps.py`, `model_time.py`, `in_text_check.py` |
+| `score/` | Score the runs into `results/tables/` and `results/history.tsv`. | `analyze.py`, `score_suite.py`, `table.py`, `score.py`, `stats.py`, `open_book.py`, `rad_table.py`, `prices.tsv`, `tune.sh`, `context_diff.sh`, `diff_guard.sh`, `context.jq` |
 | `figures/` | Draw `reports/figures/` from `results/tables/` with kuva. | `all.sh`, `common.py`, one numbered script per figure |
 
 ## Set up
@@ -16,20 +16,20 @@ Python 3.12. The harvest, the generators, the scoring, and the Jev replays need 
 
 ## Replay
 
-`./run.sh` at the repository root replays the newest `results/runs/DATE-thinkthen-jev` with no key and compares `replay/answers.jsonl` with the committed answers. It then replays every folder in `functions/` and compares each replayed file with the committed one. Last, it runs `analyze.py` and `table.py`. `./run.sh NAME` replays the newest `DATE-thinkthen-NAME` and the newest `DATE-examples-NAME` instead.
+`./run.sh` at the repository root replays the newest `results/runs/DATE-thinkthen-jev` with no key and compares `replay/answers.jsonl` with the committed answers. It then replays every folder in `examples/` and compares each replayed file with the committed one. Last, it runs `analyze.py` and `table.py`. `./run.sh NAME` replays the newest `DATE-thinkthen-NAME` and the newest `DATE-examples-NAME` instead.
 
 A replay writes `RUN/replay/` and leaves the committed files alone. It passes `--replay RUN/recording` with no key, so the command answers from the recording alone and stops on any request the recording lacks. Each step also runs on its own:
 
 ```sh
 env -u THINKTHEN_API_KEY scripts/run/thinkthen.sh replay "$(python3 scripts/score/score.py newest thinkthen-jev)"
-env -u THINKTHEN_API_KEY scripts/run/functions.sh replay "$(python3 scripts/score/score.py newest functions-jev)"
-env -u THINKTHEN_API_KEY scripts/run/example.sh decide replay        # functions/decide/replay/
+env -u THINKTHEN_API_KEY scripts/run/ask_suite.sh replay "$(python3 scripts/score/score.py newest functions-jev)"
+env -u THINKTHEN_API_KEY scripts/run/example.sh decide replay        # examples/decide/replay/
 env -u ZAI_API_KEY .venv/bin/python scripts/run/chat.py replay results/runs/2026-09-23-glm-5.3-flash
 python3 scripts/score/analyze.py                      # results/tables/
 python3 scripts/score/table.py                        # the results tables
 ```
 
-`scripts/run/example.sh NAME replay [OUT] [FROM]` replays one function folder. The cases come from `functions/NAME/`. The recording comes from FROM, a run folder, or else from the folder's own `recording/`. The replay writes to OUT, by default the folder's `replay/`. For `audit`, `example.sh` then runs `score/tune.sh` for the audit files. `score/context_diff.sh [IN [OUT]]` runs `diff` on the audit rows in `IN`, by default `functions/audit`.
+`scripts/run/example.sh NAME replay [OUT] [FROM]` replays one function folder. The cases come from `examples/NAME/`. The recording comes from FROM, a run folder, or else from the folder's own `recording/`. The replay writes to OUT, by default the folder's `replay/`. For `audit`, `example.sh` then runs `score/tune.sh` for the audit files. `score/context_diff.sh [IN [OUT]]` runs `diff` on the audit rows in `IN`, by default `examples/audit`.
 
 The open-book and section-picking runs replay the same way. [reports/open-book.md](../reports/open-book.md) and [reports/rad.md](../reports/rad.md) give the commands that print their tables. The Laya runs replay with no Mac: `tests/test_replay_laya.py` replays them from their recordings.
 
@@ -66,7 +66,7 @@ The rest of the pipeline rebuilds offline:
 
 ```sh
 python3 scripts/harvest/harvest.py --offline          # rebuilds data/ from data/raw/ and data/pins/
-python3 scripts/generate/generate.py && python3 scripts/generate/functions.py
+python3 scripts/generate/generate.py && python3 scripts/generate/make_suite.py
 .venv/bin/python scripts/run/baselines.py 2026-09-23  # the four baseline runs
 ```
 

@@ -1,6 +1,6 @@
 # Questions
 
-The benchmark: 1,501 questions in 15 categories, one JSONL file per category. `scripts/generate/generate.py` writes them from `data/`, and `scripts/generate/functions.py` writes the function suite in `functions/`. Every draw uses a fixed seed, so a rebuild gives the same bytes.
+The benchmark: 1,501 questions in 15 categories, one JSONL file per category. `scripts/generate/generate.py` writes them from `data/`, and `scripts/generate/make_suite.py` writes the function suite in `suite/`. Every draw uses a fixed seed, so a rebuild gives the same bytes.
 
 ## Categories
 
@@ -48,4 +48,4 @@ Each line is one JSON object.
 
 ## The function suite
 
-`functions/` holds the tests for the other eight functions: tag, score, filter, rank, find, annotate, recognize, and relate. Each JSONL line carries the command's arguments and its records. The JSON files hold the question sets the arguments name. A recognize case holds one sentence and its names as character offsets. The relate case holds the whole entity set, and `relate-suite.json` holds its two relations.
+`suite/` holds the tests for the other eight functions: tag, score, filter, rank, find, annotate, recognize, and relate. Each JSONL line carries the command's arguments and its records. The JSON files hold the question sets the arguments name. A recognize case holds one sentence and its names as character offsets. The relate case holds the whole entity set, and `relate-suite.json` holds its two relations.

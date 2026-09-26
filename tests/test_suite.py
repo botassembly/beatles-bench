@@ -1,5 +1,5 @@
-"""The function suite: scripts/generate/functions.py writes questions/functions/ from data/ alone, scripts/run/functions.py asks every
-case through the command and records it, and scripts/score/functions.py scores it. No network: the runner test uses a fake
+"""The function suite: scripts/generate/make_suite.py writes questions/suite/ from data/ alone, scripts/run/ask_suite.py asks every
+case through the command and records it, and scripts/score/score_suite.py scores it. No network: the runner test uses a fake
 command, and the replay test answers from the committed recording with the key unset."""
 import csv
 import json
@@ -17,9 +17,9 @@ sys.path.insert(0, str(ROOT / "tests"))
 from published import JEV_FUNCTIONS, JEV_RUN  # noqa: E402
 import importlib.util  # noqa: E402
 
-import functions as gen  # noqa: E402
+import make_suite as gen  # noqa: E402
 
-spec = importlib.util.spec_from_file_location("fscore", ROOT / "scripts" / "score" / "functions.py")
+spec = importlib.util.spec_from_file_location("fscore", ROOT / "scripts" / "score" / "score_suite.py")
 fscore = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(fscore)
 
@@ -34,7 +34,7 @@ def songs():
 
 
 def cases(name):
-    return [json.loads(l) for l in open(ROOT / "questions" / "functions" / f"{name}.jsonl", encoding="utf-8")]
+    return [json.loads(l) for l in open(ROOT / "questions" / "suite" / f"{name}.jsonl", encoding="utf-8")]
 
 
 class GenerateTest(unittest.TestCase):
@@ -52,7 +52,7 @@ class GenerateTest(unittest.TestCase):
         gen.main(ROOT / "data", out)
         for p in out.rglob("*"):
             if p.is_file():
-                self.assertEqual(p.read_bytes(), (ROOT / "questions" / "functions" / p.relative_to(out)).read_bytes(), str(p))
+                self.assertEqual(p.read_bytes(), (ROOT / "questions" / "suite" / p.relative_to(out)).read_bytes(), str(p))
 
     def test_every_test_has_cases_with_truth_and_source_fields(self):
         for name in TESTS:
@@ -133,7 +133,7 @@ class TableTest(unittest.TestCase):
         for suite, core, table in ((JEV_FUNCTIONS, JEV_RUN, "functions.tsv"),
                                    (runs / "2026-09-23-functions-laya", runs / "2026-09-23-thinkthen-laya", "functions-laya.tsv"),
                                    (runs / "2026-09-23-functions-glm-5.3-flash", runs / "2026-09-23-glm-5.3-flash", "functions-glm.tsv")):
-            subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "functions.py"), "table", str(suite),
+            subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
                             str(core), str(out / table)], check=True, capture_output=True)
             self.assertEqual((out / table).read_bytes(), (ROOT / "results" / "tables" / table).read_bytes(), table)
 
@@ -264,13 +264,13 @@ class RunTest(unittest.TestCase):
         same = {**cases("tag")[0], "id": "tag-again"}
         with open(qdir / "tag.jsonl", "a") as f:  # the same request again: answered from the recording
             f.write(json.dumps(same, ensure_ascii=False) + "\n")
-        for p in (ROOT / "questions" / "functions").glob("*.json"):
+        for p in (ROOT / "questions" / "suite").glob("*.json"):
             shutil.copy(p, qdir / p.name)
         run = Path(tempfile.mkdtemp())
         env = {**os.environ, "THINKTHEN_BIN": str(ROOT / "tests" / "fixtures" / "fake-thinkthen-functions"),
                "BENCH_FUNCTIONS": str(qdir), "BENCH_WORKERS": "1"}
         env.pop("THINKTHEN_API_KEY", None)
-        script = ROOT / "scripts" / "run" / "functions.py"
+        script = ROOT / "scripts" / "run" / "ask_suite.py"
         subprocess.run([sys.executable, str(script), "live", str(run)], check=True, env=env)
         out = [json.loads(l) for l in open(run / "outputs.jsonl")]
         self.assertEqual([o["id"] for o in out], [cases("tag")[0]["id"], same["id"]] + [cases(n)[0]["id"] for n in TESTS[1:]])
@@ -291,7 +291,7 @@ class RunTest(unittest.TestCase):
         env = {**os.environ, "THINKTHEN_BIN": str(ROOT / "tests" / "fixtures" / "fake-thinkthen-functions"),
                "BENCH_FUNCTIONS": str(qdir), "BENCH_TESTS": "tag", "BENCH_MAX_INPUT_TOKENS": "0"}
         env.pop("THINKTHEN_API_KEY", None)
-        done = subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "functions.py"), "live", str(run)], env=env,
+        done = subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "live", str(run)], env=env,
                               capture_output=True, text=True)
         self.assertNotEqual(done.returncode, 0)
         self.assertIn("functions: stopped at 0 new input tokens (cap 0); 1 cases unasked.", done.stderr)
@@ -301,14 +301,14 @@ class RunTest(unittest.TestCase):
         qdir = Path(tempfile.mkdtemp())
         for name in ["tag", "annotate"]:
             (qdir / f"{name}.jsonl").write_text(json.dumps(cases(name)[0], ensure_ascii=False) + "\n")
-        for p in (ROOT / "questions" / "functions").glob("*.json"):
+        for p in (ROOT / "questions" / "suite").glob("*.json"):
             shutil.copy(p, qdir / p.name)
         run = Path(tempfile.mkdtemp())
         refused = cases("annotate")[0]
         env = {**os.environ, "THINKTHEN_BIN": str(ROOT / "tests" / "fixtures" / "fake-thinkthen-functions"),
                "BENCH_FUNCTIONS": str(qdir), "BENCH_WORKERS": "1", "FAKE_REFUSE": refused["records"][0]["id"]}
         env.pop("THINKTHEN_API_KEY", None)
-        script = ROOT / "scripts" / "run" / "functions.py"
+        script = ROOT / "scripts" / "run" / "ask_suite.py"
         subprocess.run([sys.executable, str(script), "live", str(run)], check=True, env=env)
         out = {o["id"]: o for o in map(json.loads, open(run / "outputs.jsonl"))}
         gap = out[refused["id"]]
@@ -332,7 +332,7 @@ class ReplayTest(unittest.TestCase):
         shutil.copy(RUN / "timing.tsv", tmp / "timing.tsv")
         env = {**os.environ, "THINKTHEN_BIN": BIN}
         env.pop("THINKTHEN_API_KEY", None)
-        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "functions.py"), "replay", str(tmp)], check=True, env=env)
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (RUN / "outputs.jsonl").read_text())
         for p in sorted((RUN / "lists").glob("*.jsonl")):
             self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)

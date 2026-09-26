@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Print the README's two results tables in Markdown from results/tables/ (scripts/score/analyze.py and scripts/score/functions.py
+"""Print the README's two results tables in Markdown from results/tables/ (scripts/score/analyze.py and scripts/score/score_suite.py
 write them).
 
 usage: table.py

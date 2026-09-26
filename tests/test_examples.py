@@ -1,4 +1,4 @@
-"""functions/ holds one folder per function, then audit and diff. The site links each folder by its name. Each folder
+"""examples/ holds one folder per function, then audit and diff. The site links each folder by its name. Each folder
 replays with no key. Each page quotes only numbers its committed answers or its own blocks hold, and each command on a
 page prints the block below it. The pages are each folder's README.md, data/README.md, and the section "Context and cost"
 of reports/open-book.md. The website holds the longer walkthroughs.
@@ -15,13 +15,13 @@ from decimal import Decimal
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-FUNCTIONS = ROOT / "functions"
+EXAMPLES = ROOT / "examples"
 FOLDERS = ["annotate", "audit", "choose", "decide", "diff", "filter", "find", "rank", "recognize", "relate", "score", "tag"]
 TUNING = ["audit", "diff"]  # only thinkthen main at e70bddab or later has audit and diff
 RUN = ("README.md", "slide.png", "run", "outputs.jsonl", "timing.tsv", "recording")
 PARTS = {"audit": RUN + ("key.jsonl", "audit-context.jsonl", "rows.jsonl", "rows-context.jsonl", "audit-asrun.json"),
          "diff": ("README.md", "slide.png", "run", "diff.jsonl")}
-# Pages outside functions/ whose commands run from the top folder, each with the sections the checks read: the sections
+# Pages outside examples/ whose commands run from the top folder, each with the sections the checks read: the sections
 # that once formed the pages "The data" and "Context and cost".
 MERGED = [(ROOT / "data" / "README.md", ["## One row", "## From a row to a question", "## How Jev answered it", "## The catalog"]),
           (ROOT / "reports" / "open-book.md", ["## Context and cost"])]
@@ -42,7 +42,7 @@ import examples as gen  # noqa: E402
 def answers(folder):
     """Every committed file a page may quote: the answers and the lists, or what audit and diff wrote from them."""
     if folder.name == "diff":
-        return [folder / "diff.jsonl", *answers(FUNCTIONS / "audit")]
+        return [folder / "diff.jsonl", *answers(EXAMPLES / "audit")]
     tuned = []
     if folder.name == "audit":
         tuned = [folder / "rows.jsonl", folder / "rows-context.jsonl", *sorted(folder.glob("audit-*.json"))]
@@ -58,7 +58,7 @@ def pairs(text):
 
 def folder(page):
     """The function folder a README belongs to, or None for another page."""
-    return page.parent if page.parent.parent == FUNCTIONS else None
+    return page.parent if page.parent.parent == EXAMPLES else None
 
 
 def checked(page, headings):
@@ -78,7 +78,7 @@ def pages():
     """Every page whose commands the tests run, as (page, folder its commands run in, the text checked): the merged
     pages, then each folder's README."""
     return ([(p, ROOT, checked(p, h)) for p, h in MERGED]
-            + [(p, p.parent, checked(p, None)) for p in (FUNCTIONS / n / "README.md" for n in FOLDERS)])
+            + [(p, p.parent, checked(p, None)) for p in (EXAMPLES / n / "README.md" for n in FOLDERS)])
 
 
 def tunes(bin):
@@ -88,17 +88,17 @@ def tunes(bin):
 
 class ExamplesTest(unittest.TestCase):
     def test_one_folder_per_function_each_complete(self):
-        self.assertEqual(sorted(p.name for p in FUNCTIONS.iterdir()), FOLDERS)
+        self.assertEqual(sorted(p.name for p in EXAMPLES.iterdir()), FOLDERS)
         for name in FOLDERS:
             for part in PARTS.get(name, RUN):
-                self.assertTrue((FUNCTIONS / name / part).exists(), f"{name}/{part}")
+                self.assertTrue((EXAMPLES / name / part).exists(), f"{name}/{part}")
 
     def test_the_committed_cases_are_the_generator_output(self):
         out = Path(tempfile.mkdtemp())
         gen.main(out)
         for p in out.rglob("*"):
             if p.is_file():
-                self.assertEqual(p.read_bytes(), (FUNCTIONS / p.relative_to(out)).read_bytes(), str(p))
+                self.assertEqual(p.read_bytes(), (EXAMPLES / p.relative_to(out)).read_bytes(), str(p))
 
     def test_every_json_block_on_a_page_sits_below_the_command_that_prints_it(self):
         for page, _, text in pages():
@@ -135,7 +135,7 @@ class ExamplesTest(unittest.TestCase):
     def test_each_readme_links_its_site_page_and_states_both_lessons(self):
         """The site links each folder by name, and each README links back to its page."""
         for name in FOLDERS:
-            text = (FUNCTIONS / name / "README.md").read_text(encoding="utf-8")
+            text = (EXAMPLES / name / "README.md").read_text(encoding="utf-8")
             self.assertIn(f"]({SITE.format(name)})", text, name)
             for lesson in LESSONS:
                 self.assertIn(lesson, text, name)
@@ -149,18 +149,18 @@ class ArgumentTest(unittest.TestCase):
 
     def test_a_live_example_run_without_an_output_folder_refuses_and_writes_nothing(self):
         for name in [n for n in FOLDERS if n != "diff"]:
-            before = sorted((p, p.stat().st_mtime_ns) for p in (FUNCTIONS / name).rglob("*"))
+            before = sorted((p, p.stat().st_mtime_ns) for p in (EXAMPLES / name).rglob("*"))
             done = subprocess.run([str(EXAMPLE), name, "live"], env=self.env, capture_output=True, text=True)
             self.assertEqual(done.returncode, 2, name)
             self.assertIn("live needs an output folder", done.stderr, name)
-            self.assertEqual(sorted((p, p.stat().st_mtime_ns) for p in (FUNCTIONS / name).rglob("*")), before, name)
+            self.assertEqual(sorted((p, p.stat().st_mtime_ns) for p in (EXAMPLES / name).rglob("*")), before, name)
 
     def test_run_refuses_what_it_does_not_take_with_its_usage(self):
         bad = [(n, args) for n in FOLDERS for args in (["bogus"], ["threshold"], ["live", "threshold"],
                                                          ["threshold", "high"], ["threshold", "0.5 --no-cache"])]
         bad += [(n, ["threshold", "0.3:0.7"]) for n in ("score", "rank", "find", "annotate")]  # one cut only
         for name, args in bad:
-            done = subprocess.run([str(FUNCTIONS / name / "run"), *args], env=self.env, capture_output=True, text=True)
+            done = subprocess.run([str(EXAMPLES / name / "run"), *args], env=self.env, capture_output=True, text=True)
             self.assertEqual((done.returncode, done.stdout), (2, ""), f"{name} {args}")
             self.assertTrue(done.stderr.startswith("usage: ./run "), f"{name} {args}: {done.stderr}")
 
@@ -195,7 +195,7 @@ class ExampleReplayTest(unittest.TestCase):
     def test_each_example_replays_with_no_key_byte_for_byte(self):
         env = self.env
         for name in [n for n in FOLDERS if n not in TUNING]:
-            here = FUNCTIONS / name
+            here = EXAMPLES / name
             shutil.rmtree(here / "replay", ignore_errors=True)
             subprocess.run([str(EXAMPLE), name, "replay"], check=True, env=env, capture_output=True)
             for committed in answers(here):
@@ -207,7 +207,7 @@ class ExampleReplayTest(unittest.TestCase):
     def test_audit_replays_and_regrades_with_no_key_byte_for_byte(self):
         if not tunes(BIN):
             self.skipTest("this thinkthen has no audit or diff")
-        here = FUNCTIONS / "audit"
+        here = EXAMPLES / "audit"
         shutil.rmtree(here / "replay", ignore_errors=True)
         subprocess.run([str(EXAMPLE), "audit", "replay"], check=True, env=self.env, capture_output=True)
         self.assertEqual(sorted(p.name for p in (here / "replay").glob("audit-*.json")),
@@ -219,9 +219,9 @@ class ExampleReplayTest(unittest.TestCase):
     def test_diff_writes_the_committed_flips_with_no_key(self):
         if not tunes(BIN):
             self.skipTest("this thinkthen has no audit or diff")
-        here = FUNCTIONS / "diff"
+        here = EXAMPLES / "diff"
         shutil.rmtree(here / "replay", ignore_errors=True)
-        subprocess.run([str(ROOT / "scripts" / "score" / "context_diff.sh"), str(FUNCTIONS / "audit"), str(here / "replay")],
+        subprocess.run([str(ROOT / "scripts" / "score" / "context_diff.sh"), str(EXAMPLES / "audit"), str(here / "replay")],
                        check=True, env=self.env, capture_output=True)
         self.assertEqual((here / "replay" / "diff.jsonl").read_bytes(), (here / "diff.jsonl").read_bytes())
 

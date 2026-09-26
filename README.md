@@ -45,7 +45,7 @@ cd beatles-bench
 ./run.sh
 ```
 
-With no backend address set, `./run.sh` replays the newest recorded Jev run and every function folder in `functions/`. It needs no key, no network, and no spend. It checks every replayed answer and example file against the committed ones, byte for byte. It then rescores every run into `results/tables/` and prints the results tables.
+With no backend address set, `./run.sh` replays the newest recorded Jev run and every function folder in `examples/`. It needs no key, no network, and no spend. It checks every replayed answer and example file against the committed ones, byte for byte. It then rescores every run into `results/tables/` and prints the results tables.
 
 To ask your own backend:
 
@@ -59,13 +59,13 @@ export THINKTHEN_API_KEY=...
 
 `./run.sh NAME` with no address replays that run the same way. It sends the base URL and model the live run saved in `backend.txt`, never a key.
 
-Each folder in `functions/` also runs by hand. `./run` in the folder answers its question from the recording with no key. [scripts/README.md](scripts/README.md) covers every stage from harvest to figures. [tests/README.md](tests/README.md) says how to run the tests.
+Each folder in `examples/` also runs by hand. `./run` in the folder answers its question from the recording with no key. [scripts/README.md](scripts/README.md) covers every stage from harvest to figures. [tests/README.md](tests/README.md) says how to run the tests.
 
 ## What's new
 
 - 2026-09-26: The walkthroughs moved to the website. Superseded runs moved to `results/archive/runs/`. `./run.sh NAME` names and replays a run of any backend.
 - 2026-09-26: Every Jev run was asked again from an empty recording. `recognize` and `relate` are scored from the shipped commands, and the function table gained top pick rows.
-- 2026-09-25: Each function has its own folder in `functions/`, with its slide, its cases, and its recording.
+- 2026-09-25: Each function has its own folder in `examples/`, with its slide, its cases, and its recording.
 - 2026-09-24: `audit` and `diff` landed on thinkthen main. They grade a run and compare two runs with no model call.
 - 2026-09-23: The audited 1,501 questions, with the GLM-5.3 Flash, Laya, and search runs.
 
@@ -83,7 +83,7 @@ The website's Beatles Bench section walks through each function and the open-boo
 
 - [data/](data/README.md): the harvested tables, the pins, the sources, and the licenses.
 - [questions/](questions/README.md): the benchmark itself, one file per category, plus the function suite.
-- `functions/`: one folder per function, as the ThinkThen talk shows it: [decide](functions/decide/), [choose](functions/choose/), [tag](functions/tag/), [score](functions/score/), [filter](functions/filter/), [rank](functions/rank/), [find](functions/find/), [annotate](functions/annotate/), [recognize](functions/recognize/), [relate](functions/relate/), [audit](functions/audit/), and [diff](functions/diff/).
+- `examples/`: one folder per function, as the ThinkThen talk shows it: [decide](examples/decide/), [choose](examples/choose/), [tag](examples/tag/), [score](examples/score/), [filter](examples/filter/), [rank](examples/rank/), [find](examples/find/), [annotate](examples/annotate/), [recognize](examples/recognize/), [relate](examples/relate/), [audit](examples/audit/), and [diff](examples/diff/).
 - [scripts/](scripts/README.md): all the code, by stage: harvest, generate, run, score, and figures.
 - [results/](results/README.md): every run with its recording, the scored tables, and the archive. [results/runs/README.md](results/runs/README.md) explains the run names.
 - [reports/](reports/README.md): the write-ups and the figures.

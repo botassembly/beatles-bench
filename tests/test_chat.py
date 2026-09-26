@@ -56,7 +56,7 @@ class FunctionsTest(unittest.TestCase):
         run, sent = Path(tempfile.mkdtemp()), []
         env = {"ZAI_API_KEY": KEY, "CHAT_BASE_URL": "http://127.0.0.1/fake/v4", "CHAT_LIMIT": "3", "CHAT_WORKERS": "1"}
         with mock.patch.dict(os.environ, env):
-            chat.main("functions", "live", run, inner=generic(sent))
+            chat.main("suite", "live", run, inner=generic(sent))
         out = {o["id"]: o for o in map(json.loads, open(run / "outputs.jsonl"))}
         self.assertEqual(len(out), 3 * len(chat.CHAT_TESTS))
         self.assertEqual(len(sent), len(out))
@@ -74,7 +74,7 @@ class FunctionsTest(unittest.TestCase):
             self.assertNotIn(KEY, f.read_text())
         with mock.patch.dict(os.environ, {**env, "ZAI_API_KEY": ""}):
             os.environ.pop("ZAI_API_KEY")
-            chat.main("functions", "replay", run)
+            chat.main("suite", "replay", run)
         self.assertEqual((run / "replay" / "outputs.jsonl").read_bytes(), (run / "outputs.jsonl").read_bytes())
         self.assertEqual(len(sent), len(out))
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 # Run the bench with one command, then score every run and print the tables.
 #   ./run.sh [NAME]   with THINKTHEN_BASE_URL unset: replay the newest results/runs/DATE-thinkthen-NAME run with no key and
-#                     no network. With NAME jev (the default), then replay every function folder in functions/ and the
+#                     no network. With NAME jev (the default), then replay every function folder in examples/ and the
 #                     newest results/runs/DATE-examples-jev when one exists. With another NAME, replay the newest
 #                     results/runs/DATE-examples-NAME when one exists. Each replay is checked byte for byte.
 #   ./run.sh [NAME]   with THINKTHEN_BASE_URL set: ask that backend into results/runs/<today>-thinkthen-NAME, then ask
@@ -12,7 +12,7 @@
 # two back, because a recording binds to both.
 # A live run stops when its folders hold a file git tracks, so it never writes into a committed run. Outside a git
 # checkout, such as a ZIP download, it stops when a folder already holds files.
-# BENCH_WORKERS and BENCH_MAX_INPUT_TOKENS pass through to scripts/run/ask.py and scripts/run/functions.py.
+# BENCH_WORKERS and BENCH_MAX_INPUT_TOKENS pass through to scripts/run/ask.py and scripts/run/ask_suite.py.
 # BENCH_MAX_INPUT_TOKENS caps each step on its own: the 1,501 questions, then each example. No budget passes from one
 # step to the next.
 # This script never reads the key. The thinkthen command reads THINKTHEN_API_KEY itself.
@@ -92,8 +92,8 @@ if [ -z "${THINKTHEN_BASE_URL:-}" ]; then
   echo "replayed $run: all answers match its answers.jsonl"
   if [ "$name" = jev ]; then
     for n in $FUNCTIONS; do
-      example "$n" "functions/$n" "" "functions/$n"
-      echo "replayed functions/$n: every file matches the committed folder"
+      example "$n" "examples/$n" "" "examples/$n"
+      echo "replayed examples/$n: every file matches the committed folder"
     done
   fi
   ex=$(newest "examples-$name")

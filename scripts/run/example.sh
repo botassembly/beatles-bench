@@ -1,9 +1,9 @@
 #!/bin/sh
-# Ask one function folder's cases through scripts/run/functions.sh, the way ./run.sh checks and reruns them.
+# Ask one function folder's cases through scripts/run/ask_suite.sh, the way ./run.sh checks and reruns them.
 # live OUT asks every case into OUT, a fresh run folder with its own recording. live refuses without OUT, so a live run
 # never writes into the committed folder. replay answers from a recording alone and writes to OUT (default: replay/ in
 # the folder). FROM names the run folder whose recording answers, such as a live run's OUT. It defaults to the folder
-# itself. The cases always come from functions/NAME. For audit, scripts/score/tune.sh then writes the rows and the audit
+# itself. The cases always come from examples/NAME. For audit, scripts/score/tune.sh then writes the rows and the audit
 # files into OUT. diff asks nothing. scripts/score/context_diff.sh compares audit's rows.
 # usage: scripts/run/example.sh NAME live OUT | replay [OUT] [FROM]
 set -eu
@@ -18,8 +18,8 @@ case $name in
   audit) tests=audit-cold,audit-context ;;
   *) usage ;;
 esac
-here=$root/functions/$name
-run=$root/scripts/run/functions.sh
+here=$root/examples/$name
+run=$root/scripts/run/ask_suite.sh
 export BENCH_FUNCTIONS="$here" BENCH_TESTS="$tests"
 case $1:$# in
   live:2) "$run" live "$2"; out=$2 ;;

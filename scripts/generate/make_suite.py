@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Turn data/ into questions/functions/: one test per ThinkThen function beyond choose and decide. Deterministic.
+"""Turn data/ into questions/suite/: one test per ThinkThen function beyond choose and decide. Deterministic.
 
-usage: functions.py [DATA OUT]   (defaults: data/ questions/functions/)
+usage: make_suite.py [DATA OUT]   (defaults: data/ questions/suite/)
 
 Each case is one command call. Every case but relate sends one request. A case holds id, function, test, args (the
 command's arguments after the function name, less --details, --model, and the recording flags), records (the JSONL
@@ -56,7 +56,7 @@ TEMPLATES = ["{person} sang lead on {song} from the album {album} in {year}",
 RECOGNIZE = ["song", "person", "album", "--jsonl", "--field", "/input"]
 # relate: one choice per song over the people, and one over the albums. The relations are the function folder's, less
 # its threshold of 0.01. The case passes --threshold 0.5.
-RELATE = {"version": 1, "relate": json.loads((ROOT / "functions" / "relate" / "relate.json").read_text(encoding="utf-8"))["relate"]}
+RELATE = {"version": 1, "relate": json.loads((ROOT / "examples" / "relate" / "relate.json").read_text(encoding="utf-8"))["relate"]}
 PROFILE = {"schema": "thinkthen.backend-profile/1", "name": "request-96000", "max_request_bytes": 96000}
 
 
@@ -189,7 +189,7 @@ class Suite:
                                "fields": [x for s in self.songs for x in f(s, "lead_vocals", "first_album")]}]
 
 
-def main(data=ROOT / "data", out=ROOT / "questions" / "functions"):
+def main(data=ROOT / "data", out=ROOT / "questions" / "suite"):
     data, out = Path(data), Path(out)
     suite = Suite(data)
     suite.qsets = {}

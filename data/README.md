@@ -91,7 +91,7 @@ jq -c 'select(.id == "forward-year-030")' questions/forward.jsonl |
 - `--field /input` sends only the song title. The rest of the record stays on the machine.
 - `--options /options` reads the options from the record.
 
-Jev picks 1967 at 0.47, and it is wrong. The right year, 1969, gets 0.09. Jev gets the singer of Octopus's Garden right in [the choose example](../functions/choose/). It misses the year here and the album in [the annotate example](../functions/annotate/).
+Jev picks 1967 at 0.47, and it is wrong. The right year, 1969, gets 0.09. Jev gets the singer of Octopus's Garden right in [the choose example](../examples/choose/). It misses the year here and the album in [the annotate example](../examples/annotate/).
 
 ## The catalog
 
@@ -105,7 +105,7 @@ grep -F "Octopus's Garden (" results/runs/2026-09-26-thinkthen-jev-open-book/cat
 Octopus's Garden (lead: Starr; written: Starkey; 2:51; released 1969-09-26)
 ```
 
-The line carries `lead_vocals`, `songwriters`, `length_s` as minutes and seconds, and `release_date`. The album header above it, "Abbey Road (1969-09-26)", gives `first_album`. The examples in `functions/` send one song's header and line, and they add "first album:" to the line. [Context and cost](../reports/open-book.md#context-and-cost) in the open-book report shows one.
+The line carries `lead_vocals`, `songwriters`, `length_s` as minutes and seconds, and `release_date`. The album header above it, "Abbey Road (1969-09-26)", gives `first_album`. The examples in `examples/` send one song's header and line, and they add "first album:" to the line. [Context and cost](../reports/open-book.md#context-and-cost) in the open-book report shows one.
 
 ## Where it comes from
 

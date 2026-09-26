@@ -41,7 +41,7 @@ class RunShTest(unittest.TestCase):
         self.assertEqual(done.returncode, 0, done.stderr)
         replayed = [l.split(":")[0] for l in done.stdout.splitlines() if l.startswith("replayed ")]
         functions = "decide choose tag score filter rank find annotate recognize relate audit diff".split()
-        self.assertEqual(replayed[1:], [f"replayed functions/{n}" for n in functions])
+        self.assertEqual(replayed[1:], [f"replayed examples/{n}" for n in functions])
         row = next(l for l in done.stdout.splitlines() if l.startswith("| Jev |"))
         self.assertTrue(row.startswith(f"| Jev | {share:.1%} ("), row)
         self.assertEqual(dirty(), "")

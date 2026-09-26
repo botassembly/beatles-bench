@@ -16,9 +16,9 @@ The tests that replay a recording need the `thinkthen` command with `audit` and 
 | `test_replay_laya.py` | every test | no `thinkthen` to replay the Laya recordings |
 | `test_rad_pipeline.py` | the pipeline replay | no `thinkthen` |
 | `test_in_text_check.py` | the Jev replay | no `thinkthen` |
-| `test_function_folders.py` | `ExampleReplayTest` | no `thinkthen` to replay each folder in `functions/` |
+| `test_examples.py` | `ExampleReplayTest` | no `thinkthen` to replay each folder in `examples/` |
 | `test_run_sh.py` | `RunShTest` | no `thinkthen` for the full `./run.sh` replay |
-| `test_functions.py` | the recorded suite replay and Laya's rows | no `thinkthen` |
+| `test_suite.py` | the recorded suite replay and Laya's rows | no `thinkthen` |
 
 Two more skip for other reasons. `test_harvest.py` rebuilds `data/` only when `data/raw/` holds the page cache that `scripts/harvest/harvest.py` fills. `test_chat.py` needs the venv from `requirements.txt` ([../scripts/README.md](../scripts/README.md), "Set up").
 

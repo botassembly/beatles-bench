@@ -42,7 +42,7 @@ class LayaReplayTest(unittest.TestCase):
 
     def test_the_function_suite_replays_to_the_committed_outputs(self):
         """Laya's six tests whose cases are unchanged. Its recognize and relate rows answer cases the suite no longer asks."""
-        out = replay(SUITE, "functions.py", {**ENV, "BENCH_TESTS": ",".join(SIX)})
+        out = replay(SUITE, "ask_suite.py", {**ENV, "BENCH_TESTS": ",".join(SIX)})
         kept = [l for l in (SUITE / "outputs.jsonl").read_text().splitlines(True) if json.loads(l)["id"].split("-")[0] in SIX]
         self.assertEqual((out / "outputs.jsonl").read_text(), "".join(kept))
         for p in sorted((SUITE / "lists").glob("*.jsonl")):

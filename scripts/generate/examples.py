@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Write the case files of functions/: one worked example per function, as the ThinkThen talk shows them.
+"""Write the case files of examples/: one worked example per function, as the ThinkThen talk shows them.
 
-usage: examples.py [OUT_DIR]   (default: functions/)
-Each folder functions/FUNCTION/ gets its case files (one JSONL per case set) and any card a case names.
-functions/audit/ also gets key.jsonl, the answer key audit and diff read: {"id": title, "value": "yes"|"no"}. The song
+usage: examples.py [OUT_DIR]   (default: examples/)
+Each folder examples/FUNCTION/ gets its case files (one JSONL per case set) and any card a case names.
+examples/audit/ also gets key.jsonl, the answer key audit and diff read: {"id": title, "value": "yes"|"no"}. The song
 lists and the question wording are the talk's. A cold record sends the title alone. A context record sends
 "Catalog:\\n<entry>\\nText: <title>", the shape scripts/run/ask.py sends, where the entry comes from
 scripts/run/catalog.py. Each case carries its truth from data/songs.tsv where the table has one.
@@ -18,7 +18,7 @@ import catalog  # noqa: E402
 
 SONGS = {s["title"]: s for s in catalog.read("songs.tsv")}
 ALBUMS = catalog.read("albums.tsv")
-OUT = ROOT / "functions"  # main() may point it elsewhere
+OUT = ROOT / "examples"  # main() may point it elsewhere
 COLD = "The text is the title of a song by the Beatles. "
 CONTEXT = "The text gives a catalog entry and then names a song by the Beatles. "
 RECORD = ["--jsonl", "--field", "/input"]
@@ -104,7 +104,7 @@ def card(prefix):
 
 def main(out=None):
     global OUT
-    OUT = Path(out) if out else ROOT / "functions"
+    OUT = Path(out) if out else ROOT / "examples"
     on_abbey = lambda t: SONGS[t]["first_album"] == "Abbey Road"
     singer = lambda t: SINGER[SONGS[t]["lead_vocals"]]
     write("decide", "decide-love.jsonl", one_each("decide-love", "decide", [COLD + "It is a love song.", *RECORD], LOVE, False, None, ["title"]))

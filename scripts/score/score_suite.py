@@ -2,9 +2,9 @@
 """Score the function suite. Calls no model.
 
 usage:
-  functions.py table RUN [CORE_RUN [OUT]]   write OUT (default results/tables/functions.tsv) and print the README table
-  functions.py history RUN DATE [CORE_RUN]   append one row per main measure to results/history.tsv
-RUN holds outputs.jsonl and lists/ from scripts/run/functions.py. CORE_RUN holds the answers.jsonl of a run over
+  score_suite.py table RUN [CORE_RUN [OUT]]   write OUT (default results/tables/functions.tsv) and print the README table
+  score_suite.py history RUN DATE [CORE_RUN]   append one row per main measure to results/history.tsv
+RUN holds outputs.jsonl and lists/ from scripts/run/ask_suite.py. CORE_RUN holds the answers.jsonl of a run over
 questions/*.jsonl (scripts/run/thinkthen.sh); its decide and choose questions give those two functions' rows. CORE_RUN
 defaults to the newest results/runs/DATE-thinkthen-jev folder (score.newest).
 
@@ -27,7 +27,7 @@ sys.path.insert(0, str(HERE))
 import stats  # noqa: E402
 import score as core_score  # noqa: E402
 
-FOLDER = ROOT / "questions" / "functions"
+FOLDER = ROOT / "questions" / "suite"
 TESTS = ["tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
 CUTS = [0.3, 0.5, 0.7, 0.9]
 PEELED = ".!?,:;"  # the marks thinkthen's tokenizer peels from the end of a word (specification/recognize.md, "Names")

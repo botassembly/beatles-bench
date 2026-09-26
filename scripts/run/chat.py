@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 """Ask every question in questions/*.jsonl through a chat model with structured outputs and write RUN/answers.jsonl.
 
-usage: chat.py [functions] live|replay RUN_DIR
+usage: chat.py [suite] live|replay RUN_DIR
   live       answers from RUN_DIR/recording where it can, and asks the backend for the rest, recording each exchange.
   replay     answers from RUN_DIR/recording alone. No key, no connection. Writes RUN_DIR/replay/.
-  functions  asks the function suite (questions/functions/) instead of questions/*.jsonl: see functions() below.
+  suite      asks the function suite (questions/suite/) instead of questions/*.jsonl: see functions() below.
 
 Instructor asks for one answer from an enum of the question's options (yes or no for decide) and a stated
 probability from 0 to 1 that the answer is right, at temperature 0. The run records each request body and response
@@ -171,7 +171,7 @@ def ask(client, rec, q, cfg):
 # A chat model answers the tests whose question it can read as written: tag, score, filter, rank, find, and annotate.
 # recognize and relate are not asked. The suite asks them through `thinkthen recognize` and `thinkthen relate`, and a
 # chat model does not stand behind those commands. Each case is one request. outputs.jsonl and lists/ follow
-# scripts/run/functions.py, so scripts/score/functions.py scores them the same way.
+# scripts/run/ask_suite.py, so scripts/score/score_suite.py scores them the same way.
 CHAT_TESTS = ["tag", "score", "filter", "rank", "find", "annotate"]
 YES_NO = {"yes": "yes", "no": "no"}
 
@@ -216,7 +216,7 @@ def spread_texts(texts, chosen, p):
 
 
 def answer_case(client, c, folder, cfg):
-    """The rows the command would print for case c, with value, input, and answer as scripts/score/functions.py reads them."""
+    """The rows the command would print for case c, with value, input, and answer as scripts/score/score_suite.py reads them."""
     text = lambda question, body: f"{question}\n\nText: {body}\n\n"
     rec = c["records"][0]
     fn = c["function"]
@@ -266,7 +266,7 @@ def answer_case(client, c, folder, cfg):
 
 
 def functions(mode, run, client, rec, cfg, workers):
-    folder = ROOT / "questions" / "functions"
+    folder = ROOT / "questions" / "suite"
     limit = int(os.environ.get("CHAT_LIMIT", "0"))  # a pilot: N cases spread over each test
     cases = [c for t in CHAT_TESTS for c in pick([json.loads(l) for l in open(folder / f"{t}.jsonl", encoding="utf-8")], limit)]
     seen, lock = set(), threading.Lock()
@@ -328,7 +328,7 @@ def pick(questions, limit):
 
 
 def main(*args, inner=None):
-    suite = args[0] == "functions"
+    suite = args[0] == "suite"
     mode, run = args[1:] if suite else args
     run = Path(run).resolve()
     cfg = {"base": os.environ.get("CHAT_BASE_URL", ZAI), "model": os.environ.get("CHAT_MODEL", "glm-5.3-flash"),
