@@ -1,6 +1,6 @@
 # 0002 Give vector search a fair try with relation-conditioned queries
 
-Ticket: [0002](../tickets/0002-relation-conditioned-vector-search.md). Branch `ticket/0002-relation-vectors`. Built 2026-09-24 by a Claude build session on Blink.
+Ticket: [0002](../tickets/0002-relation-conditioned-vector-search.md). Branch `ticket/0002-relation-vectors`. Built 2026-09-24 by the builder on a local machine.
 
 ## What landed
 
@@ -38,4 +38,4 @@ Verdict: no method clears the bar. Vector search leaves the README table.
 
 - The deck lives outside this repo. Its owner drops vector search there.
 - `reports/figures/` and `reports/results.md` still draw embeddings as the baseline. They report a measured result, so they stay.
-- Code review: a fresh reviewer returned ACCEPT at ab9b643. It checked the reranker prompt, token ids, left padding, and batching against the model card, and found the George sweep comes from the model. A rerun of the bge relation arm with the card's query prefix gave the same 2 and 5. The 13 new tests passed.
+- Code review: a fresh reviewer returned ACCEPT at an earlier commit. It checked the reranker prompt, token ids, left padding, and batching against the model card, and found the George sweep comes from the model. A rerun of the bge relation arm with the card's query prefix gave the same 2 and 5. The 13 new tests passed.

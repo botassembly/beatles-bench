@@ -1,6 +1,6 @@
 # 0012 Calibration sums the tie shares
 
-Owner: Claude marketing session. Status: done 2026-09-25. Record gives the numbers. The ticket review is done: review 1 returned four findings, and all four are taken. It fixes issue `2026-09-25-calibration-counts-a-tie-holding-the-key-as-fully-right.md`.
+Owner: the queue owner. Status: done 2026-09-25. Record gives the numbers. The ticket review is done: review 1 returned four findings, and all four are taken. It fixes issue `2026-09-25-calibration-counts-a-tie-holding-the-key-as-fully-right.md`.
 
 ## Why
 
@@ -8,14 +8,14 @@ Owner: Claude marketing session. Status: done 2026-09-25. Record gives the numbe
 
 ## Prior evidence
 
-- Experiment 263 (`experiments/263-audit-vs-bench-methods/`, item 6) found the gap. It ran the bench's own Python on committed runs and made no model call. It gave the 2026-09-23 Jev ECE as 0.0202 now and 0.0182 with shares.
+- A local experiment (item 6) found the gap. It ran the bench's own Python on committed runs and made no model call. It gave the 2026-09-23 Jev ECE as 0.0202 now and 0.0182 with shares.
 - `scripts/score/analyze.py` builds each calibration pair as `(confidence(r), credit(r))`. `score.credit` returns a float: 1.0, 0.0, or 1/k for a tie that holds the key.
 - `analyze.py` writes `k` into the `right` column of `calibration.tsv` as it comes. `accuracy.tsv` writes its `right` as `round(k, 2)`, so it prints `1062.0`.
 - `score.py calibration` (`score.buckets`) grades each answer as run with `default()`. A tie there is wrong. `score.py report`, `sweep`, and `history` grade as run too. That report is consistent with itself, and this ticket leaves it alone.
 - The author reran `analyze.py`'s tables in memory on the committed runs, with the calibration sum swapped. Only BM25, Word overlap, Hybrid, GLM-5.3 Flash, and Jev move. Embeddings and Laya have no tie that holds the key.
 - `tests/test_audit_contract.py` covers no calibration cell. ECE, its interval, and the bins sit under thinkthen issue `2026-09-25-audit-calibration-differs-from-the-benchs-ece-and-its-interval.md`. Its coverage cannot change.
 - `reports/results.md` line 27 quotes the ECEs. It also says "A second Jev run over the same questions moved its error by 0.023." That sentence dates from 2026-09-23 (commit 98725536). No committed answer file reproduces it: the old recording's superseded first pass has no answer file. The 2026-09-23 and 2026-09-25 Jev runs are two committed runs over the same 1,501 questions.
-- `reports/figures/3-calibration.svg` and `.png` print each model's ECE and interval in the legend and draw the bins with 10 or more answers. `scripts/figures/3_calibration.py` draws it with `kuva`. `kuva` sits at `~/.cargo/bin/kuva` on this machine. The legend formats the four-place `ece.tsv` values with `:.3f`. A stored 0.0305 is a float just below 0.0305, so `:.3f` prints 0.030.
+- `reports/figures/3-calibration.svg` and `.png` print each model's ECE and interval in the legend and draw the bins with 10 or more answers. `scripts/figures/3_calibration.py` draws it with `kuva`. `kuva` sits in Cargo's bin folder on this machine. The legend formats the four-place `ece.tsv` values with `:.3f`. A stored 0.0305 is a float just below 0.0305, so `:.3f` prints 0.030.
 - The talk deck quotes the Jev bin from 0.9 to 1.0 (368 of 378 right), the Jev and GLM ECEs, and the 0.023 sentence. It reads `results/tables/` at build time and checks some cells as strings.
 
 ## Change
@@ -62,12 +62,12 @@ Every other `right` cell in a bin with answers changes form only, from `368` to 
 ## Proof
 
 - Before any change, `3_calibration.py` redraws figure 3 from the committed tables. The SVG and PNG match the committed files byte for byte, or the record names the `kuva` version and the difference.
-- `python3 -m unittest discover -s tests` passes without `THINKTHEN_BIN` and with `THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen`.
+- `python3 -m unittest discover -s tests` passes without `THINKTHEN_BIN` and with `THINKTHEN_BIN` set to a local build.
 - `./run.sh` passes with `THINKTHEN_API_KEY` and `THINKTHEN_BASE_URL` unset.
 - A second `analyze.py` run leaves `git status` clean.
 - `git diff --stat main -- results reports` names only `ece.tsv`, `calibration.tsv`, `reports/results.md`, and figure 3's SVG and PNG.
 - The record lists every moved cell, old and new, from `git diff` of the two tables.
-- `git status` is clean after the suite. `workspace repos --dirty` lists nothing for this repository.
+- `git status` is clean after the suite. A check for uncommitted work lists nothing for this repository.
 
 ## Owner's decisions (Ian can overturn each)
 

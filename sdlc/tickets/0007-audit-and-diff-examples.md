@@ -1,6 +1,6 @@
 # 0007 Worked examples for audit and diff
 
-Owner: Claude marketing session. Status: done. Ticket review 1 returned eight findings. This version takes all eight.
+Owner: the queue owner. Status: done. Ticket review 1 returned eight findings. This version takes all eight.
 
 ## Why
 
@@ -8,7 +8,7 @@ Ian asked on 2026-09-25 for the audit and diff examples to live in the bench, ea
 
 ## Prior evidence
 
-The marketing session ran both commands by hand in scratch on 2026-09-25, with a thinkthen build of main at e70bddab. Only that build has audit and diff. The 2026-09-24 release build does not.
+The queue owner ran both commands by hand outside the repository on 2026-09-25, with a thinkthen build of main at e70bddab. Only that build has audit and diff. The 2026-09-24 release build does not.
 
 - The saved answers: `decide "It appears on the album Abbey Road."` over 70 hand-picked titles, all in `data/songs.tsv`. Seven are on Abbey Road.
 - The key: `{"id": title, "value": "yes"|"no"}` from `first_album`.
@@ -58,7 +58,7 @@ Everything ticket 0006 landed stays as it is. The ten folders, their recordings,
    - With `THINKTHEN_BIN` set, `11-audit` replays with no key. Its `outputs.jsonl`, `rows.jsonl`, and audit files match the committed files byte for byte.
    - With `THINKTHEN_BIN` set, `12-diff/run.sh` writes a `diff.jsonl` that matches the committed file byte for byte.
    - If `$THINKTHEN_BIN audit --help` exits nonzero, the audit and diff checks skip with the reason "this thinkthen has no audit or diff".
-5. Add `slide.png` to each folder. The scratch source is the marketing session's `gen6.py` and its HTML pages. Point it at the committed `11-audit/outputs.jsonl`, `key.jsonl`, audit files, and `12-diff/diff.jsonl`, then render. If the numbers moved, the slide shows the new ones.
+5. Add `slide.png` to each folder. The source is the deck's slide source. Point it at the committed `11-audit/outputs.jsonl`, `key.jsonl`, audit files, and `12-diff/diff.jsonl`, then render. If the numbers moved, the slide shows the new ones.
 
 ## Limits
 
@@ -88,7 +88,7 @@ The proof passes, a fresh reviewer accepts, and the work is committed and pushed
 5. The run flow is now stated for both folders.
 6. The test compares fresh audit and diff output against the committed files, and it names its skip rule.
 7. The bar list is fixed, plus audit's suggested cut.
-8. The slide source is named as `gen6.py`, pointed at the committed files.
+8. The slide source is named as the deck's slide source, pointed at the committed files.
 
 ## Amendment 1 (2026-09-25, Ian): diff compares cold with context
 
@@ -103,7 +103,7 @@ This amendment replaces these earlier parts: Design "diff output" and "Run flow"
   - The audit files still grade `rows.jsonl`, the cold run alone.
 - **diff.** `12-diff/diff.sh` maps both row files to the title with one filter, `jq -c '.input = {id: (.input.input | split("\nText: ") | last)}'`. It writes them to `DIR/a.jsonl` and `DIR/b.jsonl`, which are not committed. It then runs `thinkthen diff DIR/a.jsonl DIR/b.jsonl --threshold 0.5 --key ../11-audit/key.jsonl` into `diff.jsonl`. It no longer reads `audit-asrun.json`.
 - **Page.** `12-diff/README.md` explains diff as "what changed between two runs". It says diff needs no key, and that with a key it marks each flip fixed or broken. It shows the flips and the summary.
-- **Slide.** `12-diff/slide.png` shows each flipped song with its cold score, its context score, and fixed or broken. The marketing session supplies `11-audit/slide.png` from its table design.
+- **Slide.** `12-diff/slide.png` shows each flipped song with its cold score, its context score, and fixed or broken. The queue owner supplies `11-audit/slide.png` from its table design.
 - **Limit.** The run goes through the `sdlc/scripts/live` guard with `BENCH_MAX_INPUT_TOKENS=40000`. Ticket 0006's context records averaged about 350 input tokens each, which predicts about 25,000 for this run.
 - **Tests.**
   - `PARTS["11-audit"]` adds `audit-context.jsonl` and `rows-context.jsonl`.
@@ -111,7 +111,7 @@ This amendment replaces these earlier parts: Design "diff output" and "Run flow"
   - The generator test picks up `audit-context.jsonl` with no change.
   - The `12-diff` byte-for-byte test stays.
 - **Proof added.**
-  - `rows.jsonl` and every `audit-*.json` match commit 390dbc9c byte for byte.
+  - `rows.jsonl` and every `audit-*.json` match an earlier commit byte for byte.
   - The cold lines of `outputs.jsonl` keep their text and order, and the new lines are only appended.
 
 ## Amendment 1 review (fresh reviewer, 2026-09-25): six findings, all taken

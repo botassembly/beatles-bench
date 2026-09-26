@@ -1,6 +1,6 @@
 # 0012 Calibration sums the tie shares: record
 
-Built on 2026-09-25 on `ticket/0012-calibration-sums-tie-shares` from main at 430c8749. No model call ran. No key was set or read.
+Built on 2026-09-25 on `ticket/0012-calibration-sums-tie-shares` from main at an earlier commit. No model call ran. No key was set or read.
 
 ## Result
 
@@ -57,7 +57,7 @@ Figure 3: the Jev legend moved from "ECE 0.028, 0.012 to 0.044" to "ECE 0.023, 0
 
 ## Checks
 
-- `python3 -m unittest discover -s tests` passes with no key: without `THINKTHEN_BIN`, and with `THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen`.
+- `python3 -m unittest discover -s tests` passes with no key: without `THINKTHEN_BIN`, and with `THINKTHEN_BIN` set to a local build.
 - `./run.sh` with the key and address unset and `THINKTHEN_BIN` set to the pinned binary exits 0. Its `analyze.py` run left `git status` unchanged.
 - `git diff --stat main -- results reports` names only `ece.tsv`, `calibration.tsv`, `reports/results.md`, and figure 3's SVG and PNG.
 

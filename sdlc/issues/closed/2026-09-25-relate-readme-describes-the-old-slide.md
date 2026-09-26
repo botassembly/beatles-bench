@@ -1,6 +1,6 @@
 # The relate README describes the old slide
 
-Status: Closed 2026-09-25. Ticket 0010 fixed the text around the 0.5 cut. A Quick Fix with `2026-09-25-example-pages-describe-the-older-talk-slides.md` copied the current relate slide from the talk deck's repo at `538b217` and rewrote "The slide" to describe it.
+Status: Closed 2026-09-25. Ticket 0010 fixed the text around the 0.5 cut. A Quick Fix with `2026-09-25-example-pages-describe-the-older-talk-slides.md` copied the current relate slide from a talk deck repository commit and rewrote "The slide" to describe it.
 
 Found 2026-09-25 by the code review of a talk deck's relate slide.
 

@@ -1,17 +1,17 @@
 # 0006 One worked example per function, cold and with context
 
-Owner: Claude marketing session. Status: done. Ticket review 1 returned nine findings, and review 2 returned six. This version takes all fifteen.
+Owner: the queue owner. Status: done. Ticket review 1 returned nine findings, and review 2 returned six. This version takes all fifteen.
 
 ## Why
 
 Ian asked on 2026-09-25 for each function slide in the ThinkThen talk to store its query and its output here, in the bench. A section of the ThinkThen docs site will then walk through each slide. Each page shows the picture, the code, and the output. Each page also shows how context fills that function's gap.
 
-The slides currently run in a scratch folder of the marketing session. The session made live Jev calls by hand (jev-1.13.0, `--no-cache`) and noted every source. No recording replays them.
+The slides currently run from the deck's slide source. The queue owner made live Jev calls by hand (jev-1.13.0, `--no-cache`) and noted every source. No recording replays them.
 
 ## Prior evidence
 
 - The scratch notes give each slide's command, question wording, input list, and truth check against `data/songs.tsv`.
-- Workspace experiment 258 scored all 276 songs that have a length:
+- A local experiment scored all 276 songs that have a length:
   - Cold: mean error 0.65 minutes. 217 of 276 land within a minute. Spearman 0.52.
   - With the song's catalog line as context: all 276 land in the right one-minute band. Spearman 0.91.
 - Three cold misses flipped once the song's Wikipedia article went in as context:

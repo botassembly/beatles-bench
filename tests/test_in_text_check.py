@@ -1,4 +1,4 @@
-"""scripts/run/in_text_check.py jev replays results/in-text-check/jev-recording with no key and no backend, and writes
+"""scripts/run/in_text_check.py jev replays results/archive/in-text-check/jev-recording with no key and no backend, and writes
 the committed RESULTS-jev.tsv byte for byte. Skips without the thinkthen command."""
 import os
 import shutil
@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
-RESULTS = ROOT / "results" / "in-text-check" / "RESULTS-jev.tsv"
+RESULTS = ROOT / "results" / "archive" / "in-text-check" / "RESULTS-jev.tsv"
 
 
 @unittest.skipUnless(BIN and Path(BIN).exists(), "the thinkthen command is missing")

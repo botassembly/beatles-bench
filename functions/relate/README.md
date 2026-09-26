@@ -53,6 +53,5 @@ A lower bar shows the edges under `0.5`. Here are Yesterday's:
 - `relate.json`: the two relations.
 - `relate-cold.jsonl`: the case, with its names.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- [The walkthrough](../../docs/walkthroughs/relate.md) shows how the example was built and why each answer is right or wrong.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/relate](https://thinkthen.dev/learn/beatles-bench/relate/).

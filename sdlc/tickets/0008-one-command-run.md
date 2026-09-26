@@ -1,6 +1,6 @@
 # 0008 One command runs the bench
 
-Owner: Claude marketing session. Status: done. Ticket review 1 returned six findings, and code review 1 returned three. The work takes all nine.
+Owner: the queue owner. Status: done. Ticket review 1 returned six findings, and code review 1 returned three. The work takes all nine.
 
 ## Why
 

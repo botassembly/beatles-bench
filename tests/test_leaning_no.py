@@ -1,4 +1,4 @@
-"""reports/leaning-no.md reproduced with thinkthen audit and thinkthen diff on experiment 249's replayed answers in
+"""reports/leaning-no.md reproduced with thinkthen audit and thinkthen diff on a local experiment's replayed answers in
 tests/fixtures/audit/249/. No network, no model, no key. Skips without a thinkthen that has audit."""
 import json
 import os

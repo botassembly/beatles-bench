@@ -386,7 +386,7 @@ def personnel_leads(text):
     """The Beatles the Personnel section of a song's own article names on lead vocal, joined by + in list order, or ""
     when the article has no Personnel section or names no lead. A role counts as lead when it holds "vocal" and no
     backing, harmony, falsetto, additional, spoken, shouted, chorus, or ad-lib part, or when it says "lead vocal" not
-    after "backing" or "harmony". Follows the audit rule of experiment 249."""
+    after "backing" or "harmony". Follows the audit rule of a local experiment."""
     m = re.search(r"==+\s*Personnel\s*==+(.*?)(\n==[^=]|\Z)", text, flags=re.S | re.I)
     if not m:
         return ""

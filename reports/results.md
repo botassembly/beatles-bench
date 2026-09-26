@@ -93,7 +93,7 @@ Every question type ran through `choose` or `decide` with per-record options (`-
 
 ## An in-text check
 
-`scripts/run/in_text_check.py` asks 20 short customer-service questions whose answer is written in the text. It checks the wiring. Laya answers 18 of 20 right. Jev's recording holds 12 of the 20 requests, and it answers all 12 right. The results and recordings sit in `results/in-text-check/`.
+`scripts/run/in_text_check.py` asks 20 short customer-service questions whose answer is written in the text. It checks the wiring. Laya answers 18 of 20 right. Jev's recording holds 12 of the 20 requests, and it answers all 12 right. The results and recordings sit in `results/archive/in-text-check/`.
 
 ## Laya
 

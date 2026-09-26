@@ -1,8 +1,8 @@
 ## 2026-09-26T11:48:29Z job: pipeline
-pinned binary check: experiments/259-talk-claims/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 445408429 remaining_tokens 30591571 
-command: live --max-tokens 136000 scripts/run/rad_pipeline.sh live results/runs/2026-09-26-pipeline-jev ; no token stop (fixed case list), BENCH_WORKERS=4, THINKTHEN_BIN=experiments/259-talk-claims/thinkthen
+command: live --max-tokens 136000 scripts/run/rad_pipeline.sh live results/runs/2026-09-26-pipeline-jev ; no token stop (fixed case list), BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 101879
 spent this attempt: 101879

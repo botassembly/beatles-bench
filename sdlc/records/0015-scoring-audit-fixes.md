@@ -1,6 +1,6 @@
 # 0015 Fix five scoring findings from the 2026-09-26 audit: record
 
-Built on 2026-09-26 on `ticket/0015-scoring-audit-fixes` from main at b4d54c4c. No model call ran. No key was set or read. The spend is $0.
+Built on 2026-09-26 on `ticket/0015-scoring-audit-fixes` from main at an earlier commit. No model call ran. No key was set or read. The spend is $0.
 
 ## Result
 

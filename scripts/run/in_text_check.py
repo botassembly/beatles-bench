@@ -13,7 +13,7 @@ import subprocess
 import sys
 from pathlib import Path
 
-HERE = Path(__file__).resolve().parents[2] / "results" / "in-text-check"
+HERE = Path(__file__).resolve().parents[2] / "results" / "archive" / "in-text-check"
 TT = os.environ.get("THINKTHEN_BIN", "thinkthen")
 JEV = HERE / "jev-recording"
 REFUND, COMPLAINT, URGENT = "Does the customer ask for a refund?", "Is this a complaint?", "Is this urgent?"

@@ -1,6 +1,6 @@
 # 0014 Score recognize and relate from the shipped commands, then rerun every Jev run
 
-Owner: Claude marketing session. Status: done 2026-09-26. Ticket review 1 returned ten findings, review 2 returned nine, and review 3 returned eight and three wording nits. All are taken.
+Owner: the queue owner. Status: done 2026-09-26. Ticket review 1 returned ten findings, review 2 returned nine, and review 3 returned eight and three wording nits. All are taken.
 
 ## Why
 
@@ -10,7 +10,7 @@ A diagnosis on 2026-09-26 found that the function suite breaks the rule for reco
 
 Ticket 0011 said that `functions.py` "calls the function's own command once per record". That was wrong for recognize and relate. This ticket audits every function and fixes each one found.
 
-Ian widened the scope on 2026-09-26. The coordinator relayed it. After the move, the whole bench reruns fresh against Jev: the function suite, the 1,501-question run, and the RAD and open-book runs. Other models are not rerun. Rerunning every model waits for the 0.1 release candidate. The spend stays within this ticket's $1.00 cap. Each job is dry-run first, and the work stops and reports if the total would pass the cap.
+Ian widened the scope on 2026-09-26. The queue owner relayed it. After the move, the whole bench reruns fresh against Jev: the function suite, the 1,501-question run, and the RAD and open-book runs. Other models are not rerun. Rerunning every model waits for the 0.1 release candidate. The spend stays within this ticket's $1.00 cap. Each job is dry-run first, and the work stops and reports if the total would pass the cap.
 
 ## Prior evidence
 
@@ -20,7 +20,7 @@ Ian widened the scope on 2026-09-26. The coordinator relayed it. After the move,
 - The Laya run of 2026-09-23 asked the same annotate cases. Its recognize rows are 0 of 94 songs, and the shim refused relate with status 422. Laya runs only on a Mac through a local shim. It cannot run here.
 - GLM-5.3 Flash never asked recognize or relate (`scripts/run/chat.py`, `CHAT_TESTS`).
 - The function folders already call the shipped commands. `functions/recognize/run` runs `thinkthen recognize person song album place`, and `functions/relate/run` runs `thinkthen relate @relate.json`. Their cases use `"function": "recognize"` and `"function": "relate"`.
-- The pinned binary `experiments/259-talk-claims/thinkthen` has SHA-256 `eb4a571370527ec56c5fe0e10aec410ae906799c05b4de3d9a97ba6eaf48e255`. Every 2026-09-25 `run.txt` names that SHA-256: a release build of thinkthen main at 02dc0b96. So the pinned binary is the build that made every 2026-09-25 recording. The experiment's `RESULTS.md` still names e70bddab. That line predates the binary's replacement at 17:15 that day. The 2026-09-25 ledgers ran `THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen`. That path held the same SHA-256 then. It was replaced at 22:44 that day and now hashes `60712648…`, and its README still names `eb4a5713…`. The matching SHA-256 in each `run.txt` proves the 259 copy is the build that made the recordings. The 264 path is not used.
+- The pinned binary, a local build, has SHA-256 `eb4a571370527ec56c5fe0e10aec410ae906799c05b4de3d9a97ba6eaf48e255`. Every 2026-09-25 `run.txt` names that SHA-256: a release build of thinkthen main at 02dc0b96. So the pinned binary is the build that made every 2026-09-25 recording. The experiment's `RESULTS.md` still names e70bddab. That line predates the binary's replacement at 17:15 that day. The 2026-09-25 ledgers ran a second local build path. That path held the same SHA-256 then. It was replaced at 22:44 that day and now hashes `60712648…`, and its README still names `eb4a5713…`. The matching SHA-256 in each `run.txt` proves the first copy is the build that made the recordings. The second path is not used.
 - Recognize on the pinned build (02dc0b96) against thinkthen origin/main 0f255579: `core/recognize.rs` is the same. `engine/facade/recognize.rs` differs by one added `None` argument, so request planning is the same. `cli/recognize/dry_run.rs` differs. The pinned `--dry-run` prints only `tokens`, `detection_questions`, `kind_questions`, and `requests`, for the first record. Main prints `words`, `request_count`, and every request body.
 - The tokenizer peels `.`, `!`, `?`, `,`, `:`, and `;` from the end of each word, each as its own token (`split_piece()` in `recognize.rs`, and `specification/recognize.md`, "Names"). A name is one run of `IN` tokens, so a name may keep or drop a peeled mark. Thirteen of the 144 true names end in one of those marks or hold one: `Help!` (six times), `Why Don't We Do It in the Road?`, `Back in the U.S.S.R.`, `Here, There and Everywhere`, and `Sgt. Pepper's Lonely Hearts Club Band` (four times).
 - One pinned `recognize song person album --dry-run` per sentence prints one request each, 48 in all, over 878 tokens. To measure bytes, the author sent each sentence from the pinned build to a local listener at 127.0.0.1 with a dummy key. The listener answered status 500. The 48 requests hold 977,190 bytes. The largest holds 30,162. The same capture of the `functions/recognize` example gives 29,227 bytes, and its recording reports 8,092 input tokens: 0.277 tokens a byte. So the suite needs about 270,700 input tokens, and the largest request about 8,400.
@@ -105,7 +105,7 @@ Two paths are rebuilt: recognize and relate in the function suite. The graders t
 
 ## The run
 
-This is a paid run under Ian's approval for testing everything through ThinkThen. On 2026-09-26 the coordinator relayed Ian's raise of this ticket's cap from $0.25 to $1.00, and then the wider scope.
+This is a paid run under Ian's approval for testing everything through ThinkThen. On 2026-09-26 the queue owner relayed Ian's raise of this ticket's cap from $0.25 to $1.00, and then the wider scope.
 
 - **Cap.** The ticket stops at $1.00: 23,809,523 input tokens at $0.042 per million.
 - **Dry run.** Before any paid call, each job's requests are checked with no key. The pinned `--dry-run` plans only the first record, so it cannot total a job. So the check replays each 2026-09-25 folder with the pinned build and the current code. A replay answers only a request that matches a recorded one byte for byte. Each replay that passes proves its job sends the same requests, and the 2026-09-25 recording gives its exact tokens. The RAD answers depend on the fresh picks. Their estimate is the 2026-09-25 spend. Recognize and relate are measured above. The work stops before any paid call if a replay fails or the total passes the cap.
@@ -155,7 +155,7 @@ Each file below is regenerated from the fresh folders, or rewritten to quote the
 - `sha256sum -c inputs.sha256` passes in each fresh folder. Every `run.txt` names the pinned binary's SHA-256.
 - Each regenerated table equals the committed one when `analyze.py` and `functions.py table` run again on the fresh folders.
 - The generator writes the committed bytes twice.
-- A one-off check compares each sentence's text, names, and kinds with `recognize-sentences.json` at 716360eb, and each relate truth edge and skipped song with the three old cases. The record gives its output.
+- A one-off check compares each sentence's text, names, and kinds with `recognize-sentences.json` at an earlier commit, and each relate truth edge and skipped song with the three old cases. The record gives its output.
 - `git grep -n -E "spans\(|CONNECTORS|FLIP_BAR|T_EDGE|recognize-sentences|window\(" -- scripts tests questions` prints nothing.
 - `git grep -n -i "lacks" -- scripts/generate/functions.py` prints nothing.
 - `grep -r -i -l -E "authorization|bearer|api.key|x-api" results/runs/2026-09-26-*` prints nothing. The fresh `ledger.txt` and `run.txt` files are in that search.
@@ -216,5 +216,5 @@ The proof passes, a fresh reviewer accepts the code, the run stays under its cap
 5. `COVERED_FILES["Jev"]` in `tests/test_audit_contract.py` follows the fresh 1,501 answers.
 6. A test with no output for its case ids gives no rows. `TableTest` covers the Laya run.
 7. The `scripts/run/functions.py` docstring joins Changes 8.
-8. The binary history names the 264 path the 2026-09-25 ledgers used.
+8. The binary history names the second local build path the 2026-09-25 ledgers used.
 - Three trailing clauses are split. The `Abbey Road.` row gives the tokenizer's general case. The Proof line names no local path.

@@ -1,109 +1,109 @@
 # 2026-09-25T21:28:04Z a runner fault (arguments not split) stopped all eleven example jobs before the guard call. No charge; guard charged_tokens stayed 439079495.
 ## 2026-09-25T21:28:19Z job: example 01-decide
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439079495 remaining_tokens 36920505 
-command: live --max-tokens 6972 examples/01-decide/run.sh live results/runs/2026-09-25-examples-jev/01-decide ; BENCH_MAX_INPUT_TOKENS=5500, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 6972 examples/01-decide/run.sh live results/runs/2026-09-25-examples-jev/01-decide ; BENCH_MAX_INPUT_TOKENS=5500, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 4973
 spent this attempt: 4973
 guard status after: limit_tokens 476000000 charged_tokens 439086467 remaining_tokens 36913533 
 ## 2026-09-25T21:28:20Z end: example 01-decide
 ## 2026-09-25T21:28:20Z job: example 02-choose
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439086467 remaining_tokens 36913533 
-command: live --max-tokens 5564 examples/02-choose/run.sh live results/runs/2026-09-25-examples-jev/02-choose ; BENCH_MAX_INPUT_TOKENS=4000, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 5564 examples/02-choose/run.sh live results/runs/2026-09-25-examples-jev/02-choose ; BENCH_MAX_INPUT_TOKENS=4000, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 3561
 spent this attempt: 3561
 guard status after: limit_tokens 476000000 charged_tokens 439092031 remaining_tokens 36907969 
 ## 2026-09-25T21:28:21Z end: example 02-choose
 ## 2026-09-25T21:28:21Z job: example 03-tag
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439092031 remaining_tokens 36907969 
-command: live --max-tokens 4988 examples/03-tag/run.sh live results/runs/2026-09-25-examples-jev/03-tag ; BENCH_MAX_INPUT_TOKENS=3100, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 4988 examples/03-tag/run.sh live results/runs/2026-09-25-examples-jev/03-tag ; BENCH_MAX_INPUT_TOKENS=3100, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 2818
 spent this attempt: 2818
 guard status after: limit_tokens 476000000 charged_tokens 439097019 remaining_tokens 36902981 
 ## 2026-09-25T21:28:22Z end: example 03-tag
 ## 2026-09-25T21:28:22Z job: example 04-score
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439097019 remaining_tokens 36902981 
-command: live --max-tokens 9148 examples/04-score/run.sh live results/runs/2026-09-25-examples-jev/04-score ; BENCH_MAX_INPUT_TOKENS=7300, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 9148 examples/04-score/run.sh live results/runs/2026-09-25-examples-jev/04-score ; BENCH_MAX_INPUT_TOKENS=7300, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 6630
 spent this attempt: 6630
 guard status after: limit_tokens 476000000 charged_tokens 439106167 remaining_tokens 36893833 
 ## 2026-09-25T21:28:24Z end: example 04-score
 ## 2026-09-25T21:28:24Z job: example 05-filter
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439106167 remaining_tokens 36893833 
-command: live --max-tokens 9972 examples/05-filter/run.sh live results/runs/2026-09-25-examples-jev/05-filter ; BENCH_MAX_INPUT_TOKENS=8500, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 9972 examples/05-filter/run.sh live results/runs/2026-09-25-examples-jev/05-filter ; BENCH_MAX_INPUT_TOKENS=8500, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 7683
 spent this attempt: 7683
 guard status after: limit_tokens 476000000 charged_tokens 439116139 remaining_tokens 36883861 
 ## 2026-09-25T21:28:26Z end: example 05-filter
 ## 2026-09-25T21:28:26Z job: example 06-rank
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439116139 remaining_tokens 36883861 
-command: live --max-tokens 5072 examples/06-rank/run.sh live results/runs/2026-09-25-examples-jev/06-rank ; BENCH_MAX_INPUT_TOKENS=3900, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 5072 examples/06-rank/run.sh live results/runs/2026-09-25-examples-jev/06-rank ; BENCH_MAX_INPUT_TOKENS=3900, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 3487
 spent this attempt: 3487
 guard status after: limit_tokens 476000000 charged_tokens 439121211 remaining_tokens 36878789 
 ## 2026-09-25T21:28:27Z end: example 06-rank
 ## 2026-09-25T21:28:27Z job: example 07-find
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439121211 remaining_tokens 36878789 
-command: live --max-tokens 6616 examples/07-find/run.sh live results/runs/2026-09-25-examples-jev/07-find ; BENCH_MAX_INPUT_TOKENS=1900, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 6616 examples/07-find/run.sh live results/runs/2026-09-25-examples-jev/07-find ; BENCH_MAX_INPUT_TOKENS=1900, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 1716
 spent this attempt: 1716
 guard status after: limit_tokens 476000000 charged_tokens 439127827 remaining_tokens 36872173 
 ## 2026-09-25T21:28:28Z end: example 07-find
 ## 2026-09-25T21:28:28Z job: example 08-annotate
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439127827 remaining_tokens 36872173 
-command: live --max-tokens 5420 examples/08-annotate/run.sh live results/runs/2026-09-25-examples-jev/08-annotate ; BENCH_MAX_INPUT_TOKENS=2800, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 5420 examples/08-annotate/run.sh live results/runs/2026-09-25-examples-jev/08-annotate ; BENCH_MAX_INPUT_TOKENS=2800, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 2461
 spent this attempt: 2461
 guard status after: limit_tokens 476000000 charged_tokens 439133247 remaining_tokens 36866753 
 ## 2026-09-25T21:28:28Z end: example 08-annotate
 ## 2026-09-25T21:28:28Z job: example 09-recognize
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439133247 remaining_tokens 36866753 
-command: live --max-tokens 41368 examples/09-recognize/run.sh live results/runs/2026-09-25-examples-jev/09-recognize ; BENCH_MAX_INPUT_TOKENS=9000, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 41368 examples/09-recognize/run.sh live results/runs/2026-09-25-examples-jev/09-recognize ; BENCH_MAX_INPUT_TOKENS=9000, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 8092
 spent this attempt: 8092
 guard status after: limit_tokens 476000000 charged_tokens 439174615 remaining_tokens 36825385 
 ## 2026-09-25T21:28:29Z end: example 09-recognize
 ## 2026-09-25T21:28:29Z job: example 10-relate
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439174615 remaining_tokens 36825385 
-command: live --max-tokens 10960 examples/10-relate/run.sh live results/runs/2026-09-25-examples-jev/10-relate ; BENCH_MAX_INPUT_TOKENS=3800, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 10960 examples/10-relate/run.sh live results/runs/2026-09-25-examples-jev/10-relate ; BENCH_MAX_INPUT_TOKENS=3800, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 3453
 spent this attempt: 3453
 guard status after: limit_tokens 476000000 charged_tokens 439185575 remaining_tokens 36814425 
 ## 2026-09-25T21:28:29Z end: example 10-relate
 ## 2026-09-25T21:28:29Z job: example 11-audit
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 439185575 remaining_tokens 36814425 
-command: live --max-tokens 51204 examples/11-audit/run.sh live results/runs/2026-09-25-examples-jev/11-audit ; BENCH_MAX_INPUT_TOKENS=49700, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 51204 examples/11-audit/run.sh live results/runs/2026-09-25-examples-jev/11-audit ; BENCH_MAX_INPUT_TOKENS=49700, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 44414
 spent this attempt: 44414

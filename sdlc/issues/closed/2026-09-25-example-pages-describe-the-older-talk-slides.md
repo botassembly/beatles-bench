@@ -1,6 +1,6 @@
 # The example pages describe the older talk slides
 
-Status: Closed 2026-09-25. A Quick Fix copied the ten function slides and the audit and diff slides from the talk deck's repo at `538b217` into `examples/*/slide.png`. Each "The slide" paragraph now describes its image. `README.md`, `reports/results.md`, and `paper/notes.md` now name the recorded load of the 2026-09-25 run. Two phrase checks in the talk deck's build quote the removed text. The talk deck's repo tracks them in `sdlc/issues/2026-09-25-deck-build-quotes-old-bench-slide-text.md`.
+Status: Closed 2026-09-25. A Quick Fix copied the ten function slides and the audit and diff slides from a talk deck repository commit into `examples/*/slide.png`. Each "The slide" paragraph now describes its image. `README.md`, `reports/results.md`, and `paper/notes.md` now name the recorded load of the 2026-09-25 run. Two phrase checks in the talk deck's build quote the removed text. The talk deck's repo tracks them in `sdlc/issues/2026-09-25-deck-build-quotes-old-bench-slide-text.md`.
 
 Found 2026-09-25 after the talk deck moved to the fresh bench run. The deck's ticket 0029 landed on the deck repo's main at `8839419`.
 

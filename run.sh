@@ -1,13 +1,20 @@
 #!/bin/sh
 # Run the bench with one command, then score every run and print the tables.
-#   ./run.sh          with THINKTHEN_BASE_URL unset: replay the newest results/runs/DATE-thinkthen-jev run and every
-#                     function folder in functions/ with no key and no network, each checked byte for byte
-#   ./run.sh [NAME]   with THINKTHEN_BASE_URL set: ask that backend into results/runs/<today>-<NAME>, then ask each
-#                     function folder's cases into results/runs/<today>-examples-<NAME>/<function>/
-# NAME names the folders only. It defaults to BEATLES_BENCH_MODEL, else jev-latest.
-# BEATLES_BENCH_MODEL, BENCH_WORKERS, and BENCH_MAX_INPUT_TOKENS pass through to scripts/run/ask.py and
-# scripts/run/functions.py. BENCH_MAX_INPUT_TOKENS caps each step on its own: the 1,501 questions, then each example.
-# No budget passes from one step to the next.
+#   ./run.sh [NAME]   with THINKTHEN_BASE_URL unset: replay the newest results/runs/DATE-thinkthen-NAME run with no key and
+#                     no network. With NAME jev (the default), then replay every function folder in functions/ and the
+#                     newest results/runs/DATE-examples-jev when one exists. With another NAME, replay the newest
+#                     results/runs/DATE-examples-NAME when one exists. Each replay is checked byte for byte.
+#   ./run.sh [NAME]   with THINKTHEN_BASE_URL set: ask that backend into results/runs/<today>-thinkthen-NAME, then ask
+#                     each function folder's cases into results/runs/<today>-examples-NAME/<function>/
+# NAME comes from the argument alone and defaults to jev. BEATLES_BENCH_MODEL sets only the model each request carries.
+# A live run with BEATLES_BENCH_MODEL set must name the run, so another model never lands in the Jev folders.
+# A live run writes backend.txt into both folders: the base URL and the model, never the key. The replay passes the same
+# two back, because a recording binds to both.
+# A live run stops when its folders hold a file git tracks, so it never writes into a committed run. Outside a git
+# checkout, such as a ZIP download, it stops when a folder already holds files.
+# BENCH_WORKERS and BENCH_MAX_INPUT_TOKENS pass through to scripts/run/ask.py and scripts/run/functions.py.
+# BENCH_MAX_INPUT_TOKENS caps each step on its own: the 1,501 questions, then each example. No budget passes from one
+# step to the next.
 # This script never reads the key. The thinkthen command reads THINKTHEN_API_KEY itself.
 set -eu
 cd "$(dirname -- "$0")"
@@ -20,55 +27,103 @@ command -v "$TT" >/dev/null 2>&1 || {
   echo "run.sh: this thinkthen has no audit command. Install a build from thinkthen main at 02dc0b96 or later." >&2
   exit 2
 }
-# same DIR FILE...: each file in DIR/replay/ equals the committed one in DIR, byte for byte.
+[ $# -le 1 ] || { echo "usage: ./run.sh [NAME]" >&2; exit 2; }
+# same DIR OUT FILE...: each file in OUT equals the one in DIR, byte for byte.
 same() {
-  dir=$1; shift
+  dir=$1 out=$2; shift 2
   for f; do
-    cmp -s "$dir/$f" "$dir/replay/$f" || { echo "run.sh: $dir/replay/$f differs from the committed $dir/$f." >&2; exit 1; }
+    cmp -s "$dir/$f" "$out/$f" || { echo "run.sh: $out/$f differs from $dir/$f." >&2; exit 1; }
   done
 }
 # names DIR PATTERN: the names under DIR matching PATTERN, one per line, empty when none.
 names() { (cd "$1" 2>/dev/null && for f in $2; do [ -e "$f" ] && echo "$f"; done) || true; }
+# newest LABEL: the newest results/runs/DATE-LABEL folder, empty when none.
+newest() { python3 scripts/score/score.py newest "$1" 2>/dev/null | sed 's|.*/results/runs/|results/runs/|' || true; }
+# quiet DIR CMD...: run CMD with no key, and with the base URL and model DIR/backend.txt names (the defaults when none).
+quiet() {
+  dir=$1; shift
+  (
+    unset THINKTHEN_API_KEY THINKTHEN_BASE_URL BEATLES_BENCH_MODEL
+    if [ -f "$dir/backend.txt" ]; then
+      THINKTHEN_BASE_URL=$(sed -n 's/^THINKTHEN_BASE_URL=//p' "$dir/backend.txt")
+      BEATLES_BENCH_MODEL=$(sed -n 's/^BEATLES_BENCH_MODEL=//p' "$dir/backend.txt")
+      export THINKTHEN_BASE_URL BEATLES_BENCH_MODEL
+    fi
+    exec "$@"
+  ) > /dev/null
+}
+# example NAME SRC FROM BACKEND: replay one example into SRC/replay and check it against SRC, the folder that holds its
+# answers. FROM is the run folder whose recording answers, empty for the committed folder. BACKEND holds backend.txt.
+example() {
+  n=$1 src=$2 from=$3 backend=$4 out=$2/replay
+  rm -rf "$out"
+  if [ "$n" = diff ]; then  # diff asks nothing: it compares audit's rows
+    quiet "$backend" scripts/score/context_diff.sh "${src%/diff}/audit" "$out"
+    same "$src" "$out" diff.jsonl
+  else
+    quiet "$backend" scripts/run/example.sh "$n" replay "$out" ${from:+"$from"}
+    [ "$(names "$src" 'lists/* audit-*.json')" = "$(names "$out" 'lists/* audit-*.json')" ] || {
+      echo "run.sh: the replay in $out writes other files than $src." >&2
+      exit 1
+    }
+    # shellcheck disable=SC2046
+    same "$src" "$out" outputs.jsonl $(names "$src" 'lists/* rows.jsonl rows-context.jsonl audit-*.json')
+  fi
+}
+# examples EX: replay each example folder a live run wrote into EX.
+examples() {
+  for n in $FUNCTIONS; do
+    [ -d "$1/$n" ] || continue
+    example "$n" "$1/$n" "$1/$n" "$1"
+    echo "replayed $1/$n: every file matches the live run"
+  done
+}
 # The function folders in the talk's order. diff comes after audit, because it compares audit's answers.
 FUNCTIONS="decide choose tag score filter rank find annotate recognize relate audit diff"
 if [ -z "${THINKTHEN_BASE_URL:-}" ]; then
-  [ $# -eq 0 ] || { echo "usage: ./run.sh (replay), or set THINKTHEN_BASE_URL and run ./run.sh [NAME]" >&2; exit 2; }
-  run=$(python3 scripts/score/score.py newest thinkthen-jev)
-  run=results/runs/$(basename "$run")
-  (unset THINKTHEN_API_KEY THINKTHEN_BASE_URL BEATLES_BENCH_MODEL; exec scripts/run/thinkthen.sh replay "$run")
+  name=$(printf '%s' "${1:-jev}" | tr '/ ' '--')
+  run=$(newest "thinkthen-$name")
+  [ -n "$run" ] || { echo "run.sh: no results/runs/DATE-thinkthen-$name run to replay." >&2; exit 2; }
+  quiet "$run" scripts/run/thinkthen.sh replay "$run"
   cmp -s "$run/replay/answers.jsonl" "$run/answers.jsonl" || {
-    echo "run.sh: the replay in $run/replay/ differs from the committed answers." >&2
+    echo "run.sh: the replay in $run/replay/ differs from $run/answers.jsonl." >&2
     exit 1
   }
-  echo "replayed $run: all answers match the committed run"
-  for n in $FUNCTIONS; do
-    d=functions/$n
-    rm -rf "$d/replay"
-    if [ "$n" = diff ]; then  # diff asks nothing: it compares the committed audit rows
-      (unset THINKTHEN_API_KEY THINKTHEN_BASE_URL BEATLES_BENCH_MODEL; exec scripts/score/context_diff.sh functions/audit "$d/replay") > /dev/null
-    else
-      (unset THINKTHEN_API_KEY THINKTHEN_BASE_URL BEATLES_BENCH_MODEL; exec scripts/run/example.sh "$n" replay) > /dev/null
-    fi
-    if [ "$n" = diff ]; then
-      same "$d" diff.jsonl
-    else
-      [ "$(names "$d" 'lists/* audit-*.json')" = "$(names "$d/replay" 'lists/* audit-*.json')" ] || {
-        echo "run.sh: the replay in $d/replay/ writes other files than the committed ones." >&2
-        exit 1
-      }
-      # shellcheck disable=SC2046
-      same "$d" outputs.jsonl $(names "$d" 'lists/* rows.jsonl rows-context.jsonl audit-*.json')
-    fi
-    echo "replayed $d: every file matches the committed folder"
-  done
+  echo "replayed $run: all answers match its answers.jsonl"
+  if [ "$name" = jev ]; then
+    for n in $FUNCTIONS; do
+      example "$n" "functions/$n" "" "functions/$n"
+      echo "replayed functions/$n: every file matches the committed folder"
+    done
+  fi
+  ex=$(newest "examples-$name")
+  if [ -n "$ex" ]; then
+    examples "$ex"
+  fi
 else
-  [ $# -le 1 ] || { echo "usage: ./run.sh [NAME]" >&2; exit 2; }
-  name=$(printf '%s' "${1:-${BEATLES_BENCH_MODEL:-jev-latest}}" | tr '/ ' '--')
+  if [ $# -eq 0 ] && [ -n "${BEATLES_BENCH_MODEL:-}" ]; then
+    echo "run.sh: name the run: ./run.sh NAME" >&2
+    exit 2
+  fi
+  name=$(printf '%s' "${1:-jev}" | tr '/ ' '--')
   day=$(date +%F)
-  run=results/runs/$day-$name
+  run=results/runs/$day-thinkthen-$name
+  ex=results/runs/$day-examples-$name
+  if [ "$(git rev-parse --show-toplevel 2>/dev/null || true)" = "$(pwd -P)" ]; then
+    [ -z "$(git ls-files -- "$run" "$ex")" ] || {
+      echo "run.sh: $run or $ex holds a file git tracks. A live run never writes into a committed run." >&2
+      exit 2
+    }
+  else  # no git history to read, such as a ZIP download
+    for d in "$run" "$ex"; do
+      [ -z "$(ls -A "$d" 2>/dev/null)" ] || { echo "run.sh: $d already holds files." >&2; exit 2; }
+    done
+  fi
+  mkdir -p "$run" "$ex"
+  printf 'THINKTHEN_BASE_URL=%s\nBEATLES_BENCH_MODEL=%s\n' "$THINKTHEN_BASE_URL" "${BEATLES_BENCH_MODEL:-jev-latest}" > "$run/backend.txt"
+  cp "$run/backend.txt" "$ex/backend.txt"
   scripts/run/thinkthen.sh live "$run"
   echo "answers in $run"
-  ex=results/runs/$day-examples-$name
   for n in $FUNCTIONS; do
     if [ "$n" = diff ]; then
       scripts/score/context_diff.sh "$ex/audit" "$ex/diff" > /dev/null

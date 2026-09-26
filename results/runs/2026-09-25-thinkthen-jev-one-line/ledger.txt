@@ -1,8 +1,8 @@
 ## 2026-09-25T21:24:24Z job: one line, 38 questions
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 437174326 remaining_tokens 38825674 
-command: live --max-tokens 16648 scripts/run/thinkthen.sh live results/runs/2026-09-25-thinkthen-jev-one-line ; BENCH_MAX_INPUT_TOKENS=15000, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 16648 scripts/run/thinkthen.sh live results/runs/2026-09-25-thinkthen-jev-one-line ; BENCH_MAX_INPUT_TOKENS=15000, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 13171
 spent this attempt: 13171

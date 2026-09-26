@@ -38,6 +38,5 @@ The slide fills in a form for two songs: the singer, the first album, and the ye
 - `annotate-cold.jsonl` and `annotate-context.jsonl`: the cases, cold and with each song's catalog entry.
 - `annotate-cold-card.json` and `annotate-context-card.json`: the forms.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- [The walkthrough](../../docs/walkthroughs/annotate.md) shows how the example was built and why each answer is right or wrong.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/annotate](https://thinkthen.dev/learn/beatles-bench/annotate/).

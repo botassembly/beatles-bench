@@ -1,6 +1,6 @@
 # 0005 Test Laya with one catalog line as context
 
-Ticket: [0005](../tickets/0005-laya-with-one-line-of-context.md). Branch `ticket/0005-laya-one-line`. Built 2026-09-24 by a Claude build session on the local Linux machine. Not merged. The fresh review is still to come.
+Ticket: [0005](../tickets/0005-laya-with-one-line-of-context.md). Branch `ticket/0005-laya-one-line`. Built 2026-09-24 by the builder on the local Linux machine. Not merged. The fresh review is still to come.
 
 ## What landed
 
@@ -20,7 +20,7 @@ Ticket: [0005](../tickets/0005-laya-with-one-line-of-context.md). Branch `ticket
 ## Commands and results
 
 - Red: `python3 -m unittest tests.test_run` failed on the new test. The request carried "Something" in place of "Catalog:\nSomething (lead: Harrison)\nText: Something".
-- Green: the same command ran 6 tests, OK. Pushed as 06c98e8.
+- Green: the same command ran 6 tests, OK. Pushed as an earlier commit.
 - Red for the replay test: without copying `questions.jsonl`, the one-line replay test failed with an error. Green after restoring the copy.
 - Fit check: Laya's own tokenizer on the Mac counted at most 88 tokens of text, question, and options. The shim reported at most 111 input tokens. All 38 fit in 512. None was dropped.
 - Laya run: `THINKTHEN_BIN=.../thinkthen/target/release/thinkthen THINKTHEN_BASE_URL=http://127.0.0.1:8791 THINKTHEN_API_KEY=local BENCH_MODEL=laya-mlx BENCH_WORKERS=1 scripts/run/thinkthen.sh live results/runs/2026-09-24-thinkthen-laya-one-line`. 38 answers, no gaps, 3,549 input tokens, median 0.043 s a call. `model_time.py` paired every call with the shim log.
@@ -41,7 +41,7 @@ Laya's gain mixes reading with a change of lean. With the line it said yes to 27
 ## The Mac
 
 - Reached from the local Linux machine over ssh, key login, no password.
-- Found: no shim running, nothing on port 8791, the experiment folder `experiments/220-thinkthen-second-backend` with its venv and the cached model. Nothing was installed.
+- Found: no shim running, nothing on port 8791, the local experiment folder with its venv and the cached model. Nothing was installed.
 - Started: `.venv/bin/python shim.py --port 8791 --log /tmp/bb0005-shim.log > /tmp/bb0005-shim.out` (pid 27174), and a local tunnel `ssh -f -N -L 8791:127.0.0.1:8791 MAC`. The fit check ran one short Python process that read the tokenizer and exited.
 - Stopped: the tunnel, then `kill 27174`, then `rm -f /tmp/bb0005-shim.log /tmp/bb0005-shim.out` after copying the log into the run folder.
 - Check after: `pgrep -fl "shim.py"` on the Mac printed nothing, `lsof -iTCP:8791` printed nothing, `ps -axo pid,command | grep -i -E "shim|laya|8791"` showed only an unrelated macOS process (AmbientDisplayAgent). Both temporary files tested gone. The experiment folder listing and the md5 of its `shim.log` and `shim.out` match the listing taken before. On the local Linux machine, `pgrep -a ssh | grep 8791` and `ss -ltn | grep 8791` printed nothing.
@@ -53,4 +53,4 @@ Laya's gain mixes reading with a change of lean. With the line it said yes to 27
 
 ## Review
 
-A fresh reviewer accepted at 2a9e043 with one finding: name the 7 dropped questions. They are reverse-singer-to-song-002, -011, -012, -018, -025, -026, and -035, all of kind singer-to-song. Each names four songs, so no single song's line serves it.
+A fresh reviewer accepted at an earlier commit with one finding: name the 7 dropped questions. They are reverse-singer-to-song-002, -011, -012, -018, -025, -026, and -035, all of kind singer-to-song. Each names four songs, so no single song's line serves it.

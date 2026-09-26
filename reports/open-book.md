@@ -4,11 +4,11 @@ Written 2026-09-23. Model: Jev 1.13.0 from TypeSafe, called through the `thinkth
 
 ## Setup
 
-`scripts/run/catalog.py` writes every song in `data/songs.tsv` as one line under its first album, in release order, with songs first out on a single under "Singles". Each line gives the lead singer, the credited writers, the length, the first release date, and for singles the first album. The catalog holds 306 songs in 30,098 characters. Jev counts it as about 11,850 input tokens. In open-book mode, `scripts/run/ask.py` sends "Catalog:", the catalog, and then "Text:" with the question's own input. The question wording stays the same. The catalog covers 1,075 questions: every Beatles-only question except the event questions and the reversal pairs about producers and subjects. The budget allowed 196 calls. `scripts/score/open_book.py pick` drew 134 of the 342 covered questions Jev missed closed book and 62 of the 733 it got right, each spread over the topics in proportion with a fixed seed. The run lives in `results/runs/2026-09-23-thinkthen-jev-open-book/`, with its catalog, its question list, its recording, and its timing. A replay with no key gives the same answers byte for byte.
+`scripts/run/catalog.py` writes every song in `data/songs.tsv` as one line under its first album, in release order, with songs first out on a single under "Singles". Each line gives the lead singer, the credited writers, the length, the first release date, and for singles the first album. The catalog holds 306 songs in 30,098 characters. Jev counts it as about 11,850 input tokens. In open-book mode, `scripts/run/ask.py` sends "Catalog:", the catalog, and then "Text:" with the question's own input. The question wording stays the same. The catalog covers 1,075 questions: every Beatles-only question except the event questions and the reversal pairs about producers and subjects. The budget allowed 196 calls. `scripts/score/open_book.py pick` drew 134 of the 342 covered questions Jev missed closed book and 62 of the 733 it got right, each spread over the topics in proportion with a fixed seed. The run lives in `results/archive/runs/2026-09-23-thinkthen-jev-open-book/`, with its catalog, its question list, its recording, and its timing. A replay with no key gives the same answers byte for byte.
 
 ## Results
 
-Same 196 questions. A tie at the top counts as wrong here. `python3 scripts/score/open_book.py compare results/runs/2026-09-23-thinkthen-jev results/runs/2026-09-23-thinkthen-jev-open-book` prints this table.
+Same 196 questions. A tie at the top counts as wrong here. `python3 scripts/score/open_book.py compare results/archive/runs/2026-09-23-thinkthen-jev results/archive/runs/2026-09-23-thinkthen-jev-open-book` prints this table.
 
 | Topic | n | closed right | open right | misses fixed | hits broken |
 | --- | --- | --- | --- | --- | --- |
@@ -96,3 +96,89 @@ Ticket 0014 asked every Jev run again from an empty recording (`sdlc/records/001
 | all | 196 | 68 (35%) | 184 (94%) | 117 of 128 | 1 of 68 |
 
 Open book moved from 186 on 2026-09-25 to 184. Closed book moved from 76 to 68 on these 196. The open-book run sent 2,394,007 input tokens, the same as before, about 0.10 dollars. Its median time was 0.28 s per call. The fresh one-line Jev run got 37 of 38 right, the same as on 2026-09-25, with no answer changed. It sent 13,171 input tokens.
+
+## Context and cost
+
+From memory, Jev gets about two in three Beatles questions right. Put the facts in the text, and it reads them. This section shows what one catalog entry fixes in the function examples and what each kind of context costs in input tokens. The section "Fresh run of 2026-09-26" above shows what the whole catalog fixes.
+
+Run every command in this section from the top folder of the bench. None of them sends a request.
+
+### What the catalog entry is
+
+Each context run sends a song's catalog entry, and then its title. The entry comes from the song's row in `data/songs.tsv`. [data/README.md](../data/README.md) shows the row behind the entry:
+
+```sh
+jq -r '.records[0].input' functions/annotate/annotate-context.jsonl | tail -4
+```
+
+```text
+Catalog:
+Abbey Road (1969-09-26)
+Octopus's Garden (lead: Starr; written: Starkey; 2:51; released 1969-09-26; first album: Abbey Road)
+Text: Octopus's Garden
+```
+
+The question opens "The text gives a catalog entry and then names a song by the Beatles." The rest of it stays the same.
+
+### What the entry fixes in the examples
+
+Seven examples ask the same cases twice, cold and with the entry. [`scripts/score/context.jq`](../scripts/score/context.jq) marks each answer against its case's `truth` and adds up the input tokens of each side:
+
+```sh
+for ex in decide choose score filter find annotate audit; do
+  cat functions/$ex/*-cold.jsonl functions/$ex/*-context.jsonl |
+    jq -sc --arg ex "$ex" --slurpfile out "functions/$ex/outputs.jsonl" -f scripts/score/context.jq
+done
+```
+
+```json
+{"example":"decide","cold":{"right":5,"of":6,"input_tokens":1729},"context":{"right":6,"of":6,"input_tokens":2101}}
+{"example":"choose","cold":{"right":4,"of":5,"input_tokens":1632},"context":{"right":5,"of":5,"input_tokens":1929}}
+{"example":"score","cold":{"right":6,"of":8,"input_tokens":3063},"context":{"right":8,"of":8,"input_tokens":3567}}
+{"example":"filter","cold":{"right":11,"of":12,"input_tokens":3469},"context":{"right":12,"of":12,"input_tokens":4214}}
+{"example":"find","cold":{"right":1,"of":1,"input_tokens":537},"context":{"right":1,"of":1,"input_tokens":1179}}
+{"example":"annotate","cold":{"right":4,"of":6,"input_tokens":1158},"context":{"right":6,"of":6,"input_tokens":1303}}
+{"example":"audit","cold":{"right":50,"of":70,"input_tokens":19543},"context":{"right":70,"of":70,"input_tokens":24871}}
+```
+
+With the entry, every answer is right in every example. The misses it fixes are these:
+
+- [decide](../functions/decide/): A Day in the Life, sure it is on Abbey Road from memory.
+- [choose](../functions/choose/): She Loves You, split between John, Paul, and the duet.
+- [score](../functions/score/): Revolution 9 and A Day in the Life, a level off.
+- [filter](../functions/filter/): A Day in the Life again.
+- [annotate](../functions/annotate/): the album and year of Octopus's Garden, left not sure.
+- [audit](../functions/audit/) and [diff](../functions/diff/): 20 wrong yeses of 70.
+
+An annotate field counts as right only when it is filled and right. A score counts as right when its likeliest level names the whole minute nearest the real length. The `find` pick was right both times. With the entry it grew surer.
+
+One entry adds tens of input tokens to each question. In the audit example, 70 questions went from 19,543 input tokens to 24,871.
+
+### What it costs
+
+The whole catalog is large. Each open-book question carries it, so each costs far more. This command adds up the input tokens of each run. It prices them at Jev's 0.042 dollars per million input tokens, from `results/tables/cost.tsv`:
+
+```sh
+for run in 2026-09-26-thinkthen-jev 2026-09-26-thinkthen-jev-open-book; do
+  jq -sc --arg run "$run" '(map(.input_tokens) | add) as $t
+    | {run: $run, answers: length, input_tokens: $t, tokens_per_answer: ($t / length | round),
+       dollars_per_1000_answers: ($t / length * 0.042 | round / 1000)}' "results/runs/$run/answers.jsonl"
+done
+```
+
+```json
+{"run":"2026-09-26-thinkthen-jev","answers":1501,"input_tokens":534901,"tokens_per_answer":356,"dollars_per_1000_answers":0.015}
+{"run":"2026-09-26-thinkthen-jev-open-book","answers":196,"input_tokens":2394007,"tokens_per_answer":12214,"dollars_per_1000_answers":0.513}
+```
+
+From memory, 1,000 answers cost about 0.015 dollars. With the whole catalog, they cost about 0.513 dollars. The catalog costs more than 30 times the tokens, and it moves the right answers from 68 to 184 of these 196.
+
+Two ways cut that cost:
+
+- **Send only the entry you need.** The worked examples send one song's entry, tens of tokens. That works when you know which song the question is about.
+- **Let Jev pick the sections.** [rad.md](rad.md) has Jev choose which parts of the catalog to read, then answer from those parts alone.
+
+### What this section leaves out
+
+- **The cache.** `--cache DIR` answers a repeated request from disk, so a repeat sends nothing. No example here shows it, because a cache hit needs a live first call.
+- **relate with the catalog.** The whole catalog beside a set of names passes Jev's input limit.

@@ -1,6 +1,6 @@
 # 0013 One folder per function
 
-Owner: Claude marketing session. Status: done 2026-09-26. Ticket review 1 returned nine findings. All are taken, one in part. Code review 1 returned seven findings, and code review 2 returned two. All are fixed. The record gives the proof.
+Owner: the queue owner. Status: done 2026-09-26. Ticket review 1 returned nine findings. All are taken, one in part. Code review 1 returned seven findings, and code review 2 returned two. All are fixed. The record gives the proof.
 
 ## Why
 
@@ -10,7 +10,7 @@ The repository then serves two readers. One runs the whole bench with `./run.sh`
 
 The thinkthen.dev pages will link to `https://github.com/botassembly/beatles-bench/tree/main/functions/<name>`. Those paths are fixed by this ticket.
 
-The unlanded branch `preview/site-pages` (worktree `worktrees/beatles-bench-site-pages`, commit `48ac3f25`) holds the first preview's pages. Ian rejected that direction. This ticket supersedes it and builds from main. The branch stays as it is.
+The unlanded branch `preview/site-pages`, in its own worktree at an earlier commit, holds the first preview's pages. Ian rejected that direction. This ticket supersedes it and builds from main. The branch stays as it is.
 
 ## Prior evidence
 
@@ -22,7 +22,7 @@ The unlanded branch `preview/site-pages` (worktree `worktrees/beatles-bench-site
 - `scripts/generate/examples.py` writes the case files into `examples/NN-name/`.
 - The talk deck `decks/2026-09-24-thinkthen-beatles` reads the bench. `build-functions.py` quotes sections and phrases of `examples/01-decide/README.md` to `10-relate/README.md`. `build.sh` replays those ten through their `run.sh`. `build-graph.py` reads `examples/11-audit/`. `build-open.py` and `jev_facts_test.py` read `examples/02-choose/outputs.jsonl`. `build-end.py` quotes the top README, including "every example in `examples/`".
 - thinkthen `score`, `rank`, `find`, and `annotate` take no `--threshold`. `annotate` keeps a bar per field in its card. `decide`, `choose`, `tag`, `filter`, `recognize`, and `relate` take `--threshold`. `audit` and `diff` read standard input as `-`.
-- The suite on main passes with the thinkthen build at `experiments/259-talk-claims/thinkthen`: 173 tests, one skipped. The build at `experiments/264-bench-rerun/bin/thinkthen` now prints precision and F1 in audit's output, and five tests fail with it. It no longer matches its README's commit `02dc0b96`.
+- The suite on main passes with a local thinkthen build: 173 tests, one skipped. A second local build now prints precision and F1 in audit's output, and five tests fail with it. It no longer matches its README's commit `02dc0b96`.
 
 ## Retained behavior
 
@@ -76,9 +76,9 @@ The unlanded branch `preview/site-pages` (worktree `worktrees/beatles-bench-site
 ## Proof
 
 - `python3 -m unittest discover -s tests` passes with no `THINKTHEN_BIN` and no network.
-- With `THINKTHEN_BIN=experiments/259-talk-claims/thinkthen` and no key, the suite passes. That build passes on main today.
+- With `THINKTHEN_BIN` set to the first local build and no key, the suite passes. That build passes on main today.
 - `./run.sh` with no address and no key passes and prints `replayed functions/<name>` for all twelve.
-- Every `./run` and `./run threshold X` in replay prints what its README shows. The test above proves it. The audit and diff blocks match the `259-talk-claims` build. A build whose audit prints precision and F1 changes them.
+- Every `./run` and `./run threshold X` in replay prints what its README shows. The test above proves it. The audit and diff blocks match the first local build. A build whose audit prints precision and F1 changes them.
 - `git log --follow` on one moved recording file and one moved long page reaches its pre-move history.
 - `git diff --stat -M main` shows every data file as a rename with no change.
 - The generator writes the committed bytes.
@@ -89,7 +89,7 @@ The unlanded branch `preview/site-pages` (worktree `worktrees/beatles-bench-site
 
 ## The deck
 
-Before landing, the record lists every bench path and quote the talk deck reads, each with its new path or the reason it stays. A Quick Fix in the deck repo's worktree `worktrees/<deck repo>-qf-bench-function-folders` on `ticket/qf-bench-function-folders` makes the matching change. The known reads:
+Before landing, the record lists every bench path and quote the talk deck reads, each with its new path or the reason it stays. A Quick Fix in the deck repository's own worktree on `ticket/qf-bench-function-folders` makes the matching change. The known reads:
 
 | Deck file | Reads | After this ticket |
 | --- | --- | --- |
@@ -99,7 +99,7 @@ Before landing, the record lists every bench path and quote the talk deck reads,
 | `build-open.py`, `jev_facts_test.py` | `examples/02-choose/outputs.jsonl` | `functions/choose/outputs.jsonl` |
 | `build-end.py` | the top README's "Run it yourself" commands and its replay sentence | the new replay sentence |
 | `build-end.py`, `build-cache.py` | the `scripts/README.md` sentence on reruns | stays word for word |
-| `build-sql.py` | `examples/05-filter/recording` at bench `f6065388`, in its notes | stays. It names a past commit. |
+| `build-sql.py` | `examples/05-filter/recording` at an earlier bench commit, in its notes | stays. It names a past commit. |
 | `talking-points.md` | the reminder naming `examples/01-decide` to `examples/10-relate` | `functions/decide` to `functions/relate` |
 
 The deck build must pass with 28 slides against the new bench commit. The deck change lands right after the bench.
@@ -113,13 +113,13 @@ The deck build must pass with 28 slides against the new bench commit. The deck c
 - The unknown-subcommand table and the README link check stay. Ticket review 1 asked to drop the README check. The README link is the folder's contract with the site. One check guards it.
 - For a function with no bar option, `./run threshold X` marks the answers in `jq`. That shows a program owns the bar.
 - New live runs keep the `examples-<NAME>` run folder name. They then sit beside the committed ones.
-- The proof uses the `259-talk-claims` build. The 9c609296 build the last preview needed has no known binary, and this one passes on main.
+- The proof uses the first local build. The 9c609296 build the last preview needed has no known binary, and this one passes on main.
 
 ## Deferred
 
 - The thinkthen.dev pages behind the README links. The site does not serve them yet.
 - Moving the bench to a thinkthen build whose audit prints precision and F1. The audit files and the audit and diff README blocks then need regenerating.
-- The `264-bench-rerun` binary no longer matches its README's commit. The fix belongs in that workspace experiment's README.
+- The second local build no longer matches its README's commit. The fix belongs in that local experiment's README.
 - `preview/site-pages` stays unlanded and superseded.
 
 ## Done when

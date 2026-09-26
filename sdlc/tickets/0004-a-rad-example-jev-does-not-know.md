@@ -1,6 +1,6 @@
 # 0004 Find a RAD example Jev does not already know, and test the grounding check on wrong answers
 
-Owner: Claude marketing session. Status: landed 2026-09-24. Code review ACCEPT after two doc fixes at 68b908b.
+Owner: the queue owner. Status: landed 2026-09-24. Code review ACCEPT after two doc fixes at an earlier commit.
 
 ## Why
 

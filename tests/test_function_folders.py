@@ -1,9 +1,9 @@
 """functions/ holds one folder per function, then audit and diff. The site links each folder by its name. Each folder
 replays with no key. Each page quotes only numbers its committed answers or its own blocks hold, and each command on a
-page prints the block below it. The pages are each folder's README.md and the walkthroughs docs/README.md lists in order.
+page prints the block below it. The pages are each folder's README.md, data/README.md, and the section "Context and cost"
+of reports/open-book.md. The website holds the longer walkthroughs.
 
-The number check reads every fenced json block in those pages, and the prose of every page. docs/context-article.md is
-the one exception: its runs keep no recording, because a recording would store Wikipedia text (data/SOURCES.md)."""
+The number check reads every fenced json block in those pages, and the prose of every page."""
 import os
 import re
 import shutil
@@ -21,12 +21,13 @@ TUNING = ["audit", "diff"]  # only thinkthen main at e70bddab or later has audit
 RUN = ("README.md", "slide.png", "run", "outputs.jsonl", "timing.tsv", "recording")
 PARTS = {"audit": RUN + ("key.jsonl", "audit-context.jsonl", "rows.jsonl", "rows-context.jsonl", "audit-asrun.json"),
          "diff": ("README.md", "slide.png", "run", "diff.jsonl")}
-DOCS = ROOT / "docs"
-WALKS = DOCS / "walkthroughs"
+# Pages outside functions/ whose commands run from the top folder, each with the sections the checks read: the sections
+# that once formed the pages "The data" and "Context and cost".
+MERGED = [(ROOT / "data" / "README.md", ["## One row", "## From a row to a question", "## How Jev answered it", "## The catalog"]),
+          (ROOT / "reports" / "open-book.md", ["## Context and cost"])]
 EXAMPLE = ROOT / "scripts" / "run" / "example.sh"
 SITE = "https://thinkthen.dev/learn/beatles-bench/{}/"
 LESSONS = ("- **You control the bar.** ", "- **The number is the number.** ")
-FORM = ["## The files", "## Run it", "## Read it", "## With context", "## What can go wrong", "## The slide", "## Related"]
 FENCE = re.compile(r"^```(\w*)\n(.*?)^```\n?", re.S | re.M)
 CODE = re.compile(r"`[^`\n]+`")
 BUILD = re.compile(r"(?:^|[\s|])thinkthen\s|run\.sh|example\.sh|^\./run\b")  # a command that runs the thinkthen command
@@ -55,23 +56,29 @@ def pairs(text):
             if a[1] == "sh" and b[1] in ("json", "text") and not text[a.end():b.start()].strip()]
 
 
-def listed():
-    """Every page of the docs section, from docs/README.md, in order."""
-    links = re.findall(r"^\d+\. \[[^]]+\]\(([^)]+)\)", (DOCS / "README.md").read_text(encoding="utf-8"), re.M)
-    return [(DOCS / link).resolve() for link in links]
-
-
 def folder(page):
-    """The function folder a README or a walkthrough belongs to, or None for another page."""
-    if page.parent == WALKS:
-        return FUNCTIONS / page.stem
+    """The function folder a README belongs to, or None for another page."""
     return page.parent if page.parent.parent == FUNCTIONS else None
 
 
+def checked(page, headings):
+    """The part of a page the checks read: all of it, or the named sections, each up to the next heading of its level."""
+    text = page.read_text(encoding="utf-8")
+    if headings is None:
+        return text
+    parts = []
+    for heading in headings:
+        part = text[text.index(heading + "\n"):]
+        end = part.find("\n" + heading.split(" ")[0] + " ", 1)
+        parts.append(part if end == -1 else part[:end + 1])
+    return "".join(parts)
+
+
 def pages():
-    """Every page whose commands the tests run, as (page, folder its commands run in): the docs section, then each
-    folder's README."""
-    return [(p, folder(p) or ROOT) for p in listed() + [FUNCTIONS / n / "README.md" for n in FOLDERS]]
+    """Every page whose commands the tests run, as (page, folder its commands run in, the text checked): the merged
+    pages, then each folder's README."""
+    return ([(p, ROOT, checked(p, h)) for p, h in MERGED]
+            + [(p, p.parent, checked(p, None)) for p in (FUNCTIONS / n / "README.md" for n in FOLDERS)])
 
 
 def tunes(bin):
@@ -94,8 +101,7 @@ class ExamplesTest(unittest.TestCase):
                 self.assertEqual(p.read_bytes(), (FUNCTIONS / p.relative_to(out)).read_bytes(), str(p))
 
     def test_every_json_block_on_a_page_sits_below_the_command_that_prints_it(self):
-        for page, _ in pages():
-            text = page.read_text(encoding="utf-8")
+        for page, _, text in pages():
             printed = [block for _, block, _ in pairs(text)]
             for m in FENCE.finditer(text):
                 if m[1] == "json":
@@ -103,12 +109,12 @@ class ExamplesTest(unittest.TestCase):
 
     def test_every_number_thinkthen_prints_on_a_page_is_in_its_answers(self):
         """The command check runs thinkthen only when a build is present. This check needs none."""
-        for page, cwd in pages():
+        for page, cwd, page_text in pages():
             if folder(page) is None:
                 continue
             text = "".join(p.read_text(encoding="utf-8") for p in answers(cwd))
             said = set(DECIMAL.findall(text)) | {format(Decimal(x), "f") for x in EXPONENT.findall(text)}
-            for command, block, kind in pairs(page.read_text(encoding="utf-8")):
+            for command, block, kind in pairs(page_text):
                 if kind == "json" and BUILD.search(command):
                     for number in DECIMAL.findall(block):
                         self.assertTrue(number in said, f"{page.relative_to(ROOT)} quotes {number}")
@@ -116,10 +122,7 @@ class ExamplesTest(unittest.TestCase):
     def test_every_number_in_a_pages_prose_is_shown_in_a_block_or_code_on_it(self):
         """A decimal, or a whole number with thousands commas, in a page's prose must appear in a fenced block or a code
         span on the same page. The blocks are proven by the command check, so the prose cannot drift from the run."""
-        for page, _ in pages():
-            if page == ROOT / "README.md":
-                continue  # the front page's numbers are checked against table.py in test_table.py
-            text = page.read_text(encoding="utf-8")
+        for page, _, text in pages():
             prose = FENCE.sub("", text)
             shown = "".join(m[0] for m in FENCE.finditer(text)) + "".join(CODE.findall(prose))
             known = set(DECIMAL.findall(shown)) | {format(Decimal(x), "f") for x in EXPONENT.findall(shown)}
@@ -128,17 +131,6 @@ class ExamplesTest(unittest.TestCase):
             for number in GROUPED.findall(CODE.sub("", prose)):
                 self.assertTrue(number in shown or number.replace(",", "") in shown,
                                 f"{page.relative_to(ROOT)} says {number}")
-
-    def test_the_docs_list_names_every_walkthrough_and_each_has_the_form(self):
-        pages_listed = listed()
-        for p in pages_listed:
-            self.assertTrue(p.exists(), p)
-        for name in FOLDERS:
-            page = WALKS / f"{name}.md"
-            self.assertIn(page, pages_listed)
-            text = page.read_text(encoding="utf-8")
-            self.assertTrue(text.startswith("# How to "), name)
-            self.assertEqual([h for h in text.splitlines() if h in FORM], FORM, name)
 
     def test_each_readme_links_its_site_page_and_states_both_lessons(self):
         """The site links each folder by name, and each README links back to its page."""
@@ -183,8 +175,8 @@ class ExamplePageTest(unittest.TestCase):
         if BIN and Path(BIN).exists():
             (bin_dir / "thinkthen").symlink_to(Path(BIN).resolve())
         env["PATH"] = f"{bin_dir}{os.pathsep}{env.get('PATH', '')}"
-        for page, cwd in pages():
-            found = pairs(page.read_text(encoding="utf-8"))
+        for page, cwd, text in pages():
+            found = pairs(text)
             if folder(page) is not None:
                 self.assertTrue(found, page)
             for command, block, _ in found:

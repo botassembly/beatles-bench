@@ -43,6 +43,5 @@ With a bar, a pick under it reads null, as not sure:
 
 - `choose-cold.jsonl` and `choose-context.jsonl`: the cases, cold and with each song's catalog entry.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- [The walkthrough](../../docs/walkthroughs/choose.md) shows how the example was built and why each answer is right or wrong.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/choose](https://thinkthen.dev/learn/beatles-bench/choose/).

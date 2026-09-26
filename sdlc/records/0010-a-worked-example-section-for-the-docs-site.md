@@ -1,6 +1,6 @@
 # 0010 A worked-example section for the docs site: record
 
-Ticket: [0010](../tickets/0010-a-worked-example-section-for-the-docs-site.md). Built on 2026-09-25 on `ticket/0010-worked-example-docs` from main f6065388. The pinned thinkthen build is ticket 0009's: main 02dc0b96, SHA-256 `eb4a5713...e255`. No paid call was made. Every page command ran with the key and the address unset.
+Ticket: [0010](../tickets/0010-a-worked-example-section-for-the-docs-site.md). Built on 2026-09-25 on `ticket/0010-worked-example-docs` from main at an earlier commit. The pinned thinkthen build is ticket 0009's: main 02dc0b96, SHA-256 `eb4a5713...e255`. No paid call was made. Every page command ran with the key and the address unset.
 
 ## What landed
 

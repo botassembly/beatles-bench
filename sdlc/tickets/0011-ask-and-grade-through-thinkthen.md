@@ -1,10 +1,10 @@
 # 0011 Ask and grade through thinkthen
 
-Owner: Claude marketing session. Status: done. The ticket review is done: three reviews. Review 1 returned 14 findings, review 2 returned 8 plus one test that does not earn its place, and review 3 returned one finding. All are fixed. It lands before ticket 0009, which reruns the bench on these paths.
+Owner: the queue owner. Status: done. The ticket review is done: three reviews. Review 1 returned 14 findings, review 2 returned 8 plus one test that does not earn its place, and review 3 returned one finding. All are fixed. It lands before ticket 0009, which reruns the bench on these paths.
 
 ## Why
 
-Ian ruled in the marketing session's 2026-09-25 conversation: "Rerun everything and validate that everything passes, making sure that we get the same result every single time, so we can use the audit and the diff tools as well." He added the same day: "Yes test everything with thinkthen. Create new issues if necessary."
+Ian ruled in a 2026-09-25 conversation with the queue owner: "Rerun everything and validate that everything passes, making sure that we get the same result every single time, so we can use the audit and the diff tools as well." He added the same day: "Yes test everything with thinkthen. Create new issues if necessary."
 
 Ian added a rule on 2026-09-25: every bench script works against any ThinkThen-compliant server, not just Jev. Every backend address and model comes from `THINKTHEN_BASE_URL`, the model setting, or an argument. A hard-coded one that is simple to fix is fixed here. One that needs a thinkthen change gets a thinkthen issue.
 
@@ -26,11 +26,11 @@ The drivers keep what the bench needs:
 
 - `ask.py` builds `[TT, function, question, "--jsonl", "--field", "/input", "--details", ...]` for each question. `functions.py` does the same for each record.
 - `scripts/run/in_text_check.py` and `tests/fixtures/audit/249/make.py` fix the binary to a path under the author's home. `reports/rad.md` line 110 gives a relative build path.
-- `scripts/tools/measure.py` prototypes audit and diff. thinkthen records 0113 and 0114 landed the Rust `audit` and `diff` on 2026-09-24. Record 0114 reads the held-out half of experiment 249 as the prototype does: 87 right at 0.5 and 89 at the cut of 0.42.
+- `scripts/tools/measure.py` prototypes audit and diff. thinkthen records 0113 and 0114 landed the Rust `audit` and `diff` on 2026-09-24. Record 0114 reads the held-out half of a local experiment as the prototype does: 87 right at 0.5 and 89 at the cut of 0.42.
 - `thinkthen audit` grades `decide` and `choose` only (thinkthen `specification/audit.md`, "The verb"). Its `--by` groups by answer name, question text, or verb.
 - A `choose` answer's `value` is the option label. The Jev row for `comparison-longer-001` has `"value":"a"`, and its question has `"truth": "a"`.
 - The questions are 1,273 `choose` and 228 `decide`. No key file exists for them.
-- The author ran `thinkthen audit` (thinkthen 0.0.1, the experiment 259 build) over the 2026-09-23 Jev run with a key built from `truth`, no key and no network. Lead-set John gave 26 rows, 11 right at 0.5, yes recall 0.368421, AUC 0.56391, and mean p(yes) 0.466923. `decide.tsv` prints 11, 0.3684, 0.564, and 0.4669. All 1,501 gave 903 `choose` and 155 `decide` right, with 15 ties. `accuracy.tsv` prints 1062.0. The gap of 4.0 is the tie share. The calibration errors differ by method.
+- The author ran `thinkthen audit` (thinkthen 0.0.1, a local build) over the 2026-09-23 Jev run with a key built from `truth`, no key and no network. Lead-set John gave 26 rows, 11 right at 0.5, yes recall 0.368421, AUC 0.56391, and mean p(yes) 0.466923. `decide.tsv` prints 11, 0.3684, 0.564, and 0.4669. All 1,501 gave 903 `choose` and 155 `decide` right, with 15 ties. `accuracy.tsv` prints 1062.0. The gap of 4.0 is the tie share. The calibration errors differ by method.
 - `decide.tsv` has seven Jev sets. Five have one question text each: lead-set george, john, paul, and ringo, and shared-lead. multi-hop same-month spans 51 texts and reverse singer-yes-no spans 2, so audit cannot group them without a record field.
 - `results/tables/functions.tsv` takes its decide and choose rows from the 1,501. The decide row is 228 questions at 0.680, with TP FP TN FN of 98 89 35 6 at 0.3 and 43 12 112 61 at 0.5.
 - Laya overall is 537.0 of 1,501 with no ties.

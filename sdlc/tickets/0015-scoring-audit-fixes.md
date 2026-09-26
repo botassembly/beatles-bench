@@ -1,10 +1,10 @@
 # 0015 Fix five scoring findings from the 2026-09-26 audit
 
-Owner: Claude marketing session. Status: done 2026-09-26. Ticket review 1 returned eight findings. All are taken.
+Owner: the queue owner. Status: done 2026-09-26. Ticket review 1 returned eight findings. All are taken.
 
 ## Why
 
-A correctness audit of the function suite on 2026-09-26 returned five findings. The coordinator relayed them with Ian's authority for paid calls up to $0.15:
+A correctness audit of the function suite on 2026-09-26 returned five findings. The queue owner relayed them with Ian's authority for paid calls up to $0.15:
 
 1. **Relate wording.** The relate suite asks "appears on" but scores only the first album. So a song on a later album, such as "Yellow Submarine", counts wrong. The questions should read "first appeared on the album", as the relate example does.
 2. **Duets.** relate asks one pick per song for the lead singer. It cannot score a duet fully. About 12 songs have two lead singers. The fix either asks for singers in a way that lets more than one be right, or reports duets as their own row. The simpler one wins, with its reason.
@@ -16,7 +16,7 @@ A correctness audit of the function suite on 2026-09-26 returned five findings. 
 
 - Ticket 0014 moved relate onto the shipped `thinkthen relate`. `scripts/generate/functions.py` `RELATE` sets `appears_on` to read "first appeared on the album". `questions/functions/relate-suite.json` holds that reading. `functions/relate/relate.json` holds the same two relations and readings, plus its own threshold of 0.01.
 - The fresh relate call of 2026-09-26 sent that wording. Every `appears_on` question in its three recorded requests reads "Item N (song "...") first appeared on the album ___?". The request's `state.relation` also carries the name `appears_on`, as the example's does.
-- The 2026-09-25 relate cases were built from `annotate` and read "appears on" (`RULES` at 716360eb). Ticket 0014 removed them. So finding 1 describes the suite before 0014.
+- The 2026-09-25 relate cases were built from `annotate` and read "appears on" (`RULES` at an earlier commit). Ticket 0014 removed them. So finding 1 describes the suite before 0014.
 - `git grep -n -i -w "lacks"` finds no line outside `sdlc/` that says the command lacks recognize. Ticket 0014 removed the generator docstring's claim, and its proof grep holds. So finding 5 describes the suite before 0014 too.
 - relate plans a `choice` question from each song to the four Beatles plus none (thinkthen `specification/relate.md` at 02dc0b96, "Different-kind relations use a choice"). The probabilities of one choice sum to 1. A probability equal to the cut is accepted. So two singers reach 0.5 only in an exact tie at 0.5, and a duet almost always gains at most one of its two edges.
 - The relate truth holds 158 songs with a settled lead. Twelve are duets of Lennon and McCartney: Baby's in Black, Birthday, Drive My Car, Every Little Thing, I've Got a Feeling, Little Child, Love Me Do, Misery, There's a Place, Two of Us, Wait, and Words of Love. The tag and annotate tests hold the same 12 among their 158 songs.

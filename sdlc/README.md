@@ -1,6 +1,8 @@
 # sdlc/
 
-The system of record for Beatles Bench. The Claude marketing session owns this queue (Ian, 2026-09-24).
+The system of record for Beatles Bench. One agent owns this queue under Ian (Ian, 2026-09-24).
+
+This folder is public. It is the repository's only record of what was decided, built, and checked. ThinkThen keeps its own `sdlc/` public the same way.
 
 | Folder | What it is |
 | --- | --- |
@@ -15,6 +17,6 @@ The system of record for Beatles Bench. The Claude marketing session owns this q
 
 ## Budgets
 
-A live Jev run within a ticket's cap needs no further approval. A new outside service needs Ian's approval through `notes/todos/`.
+A live Jev run within a ticket's cap needs no further approval. A new outside service needs Ian's approval on his todo list.
 
-Asks for the ThinkThen team collect in the marketing session's queue first. An ask moves to the ThinkThen repository's `sdlc/issues/` once its evidence is in and it names one change.
+Asks for the ThinkThen team collect in the queue owner's queue first. An ask moves to the ThinkThen repository's `sdlc/issues/` once its evidence is in and it names one change.

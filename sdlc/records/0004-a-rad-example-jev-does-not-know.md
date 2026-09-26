@@ -1,6 +1,6 @@
 # 0004 Find a RAD example Jev does not already know, and test the grounding check on wrong answers
 
-Ticket: [0004](../tickets/0004-a-rad-example-jev-does-not-know.md). Branch `ticket/0004-rad-example`. Built 2026-09-24 by a Claude build session on the local Linux machine.
+Ticket: [0004](../tickets/0004-a-rad-example-jev-does-not-know.md). Branch `ticket/0004-rad-example`. Built 2026-09-24 by the builder on the local Linux machine.
 
 ## What landed
 
@@ -29,7 +29,7 @@ Ian can overturn either one.
 - Replay: with `THINKTHEN_BIN` set and the key unset, `python3 -m unittest tests.test_rad_pipeline` ran 2 tests, OK.
 - Full suite: `env -u THINKTHEN_BIN python3 -m unittest discover -s tests` ran 170 tests, OK, 8 skipped. With `THINKTHEN_BIN` set and the key unset it ran 170, OK, 2 skipped.
 
-- The ticket 0001 run `2026-09-24-pipeline-jev/` still replays with the script at origin/main 48d9be7, before this ticket. The reviewer replayed it that way with no key, and its `scores.tsv` matched exactly. The new run `2026-09-24-pipeline-jev2/` reproduces every number in the "With shipped commands" table.
+- The ticket 0001 run `2026-09-24-pipeline-jev/` still replays with the script at an earlier commit on main, before this ticket. The reviewer replayed it that way with no key, and its `scores.tsv` matched exactly. The new run `2026-09-24-pipeline-jev2/` reproduces every number in the "With shipped commands" table.
 
 ## Tokens spent
 

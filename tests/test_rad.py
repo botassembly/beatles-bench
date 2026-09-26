@@ -9,7 +9,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "run"))
 import rad  # noqa: E402
 
-OPEN = ROOT / "results" / "runs" / "2026-09-23-thinkthen-jev-open-book"
+OPEN = ROOT / "results" / "archive" / "runs" / "2026-09-23-thinkthen-jev-open-book"
 QS = {json.loads(l)["id"]: json.loads(l) for f in (ROOT / "questions").glob("*.jsonl") for l in open(f, encoding="utf-8")}
 
 

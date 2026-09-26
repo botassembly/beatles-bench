@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "score"))
 import open_book  # noqa: E402
 
-CLOSED = ROOT / "results" / "runs" / "2026-09-23-thinkthen-jev"
+CLOSED = ROOT / "results" / "archive" / "runs" / "2026-09-23-thinkthen-jev"
 
 
 class OpenBookTest(unittest.TestCase):

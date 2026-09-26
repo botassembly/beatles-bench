@@ -1,8 +1,8 @@
 ## 2026-09-25T21:24:33Z job: function suite
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 437190974 remaining_tokens 38809026 
-command: live --max-tokens 1264200 scripts/run/functions.sh live results/runs/2026-09-25-functions-jev ; BENCH_MAX_INPUT_TOKENS=1071000, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 1264200 scripts/run/functions.sh live results/runs/2026-09-25-functions-jev ; BENCH_MAX_INPUT_TOKENS=1071000, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 1
 recording input tokens after: 775879
 spent this attempt: 775879
@@ -12,10 +12,10 @@ guard status after: limit_tokens 476000000 charged_tokens 438455174 remaining_to
 # The timed-out request may have been billed without a recording; at most one request of the largest size, 48,300 tokens.
 # Owner's decision: resume into the same folder with the cap minus spent, 1,071,000 - 775,879 = 295,121.
 ## 2026-09-25T21:27:11Z job: function suite, resume 1
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 775879
 guard status before: limit_tokens 476000000 charged_tokens 438455174 remaining_tokens 37544826 
-command: live --max-tokens 488321 scripts/run/functions.sh live results/runs/2026-09-25-functions-jev ; BENCH_MAX_INPUT_TOKENS=295121, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 488321 scripts/run/functions.sh live results/runs/2026-09-25-functions-jev ; BENCH_MAX_INPUT_TOKENS=295121, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 933854
 spent this attempt: 157975

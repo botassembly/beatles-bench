@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Rebuild the experiment 249 fixtures: thinkthen's own --details rows, replayed from the experiment's recordings with
+"""Rebuild the fixtures of a local experiment: thinkthen's own --details rows, replayed from the experiment's recordings with
 every key unset. No network, no model call. Reads the experiment folder read-only.
 
 usage: make.py EXPERIMENT [THINKTHEN]
-EXPERIMENT is the folder of workspace experiment 249-jev-answer-audit.
+EXPERIMENT is the folder of that local experiment, a Jev answer audit.
 THINKTHEN defaults to THINKTHEN_BIN, else thinkthen on PATH.
 
 Writes, beside this file:

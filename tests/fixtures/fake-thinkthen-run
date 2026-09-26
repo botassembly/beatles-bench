@@ -1,0 +1,77 @@
+#!/usr/bin/env python3
+"""A stand-in for the thinkthen command in the ./run.sh tests. It serves both steps of a live run and their replays,
+with no network.
+
+- audit --help succeeds. audit ROWS KEY prints JSON with suggested.cut, as scripts/score/tune.sh reads it.
+- diff A B prints one summary line that pairs every row of A, as scripts/score/diff_guard.sh reads it.
+- choose answers itself, from --options /options or from the options after the question, and records each record.
+- Every other verb goes to fake-thinkthen-functions when it knows the verb, else to fake-thinkthen.
+- A recording binds to THINKTHEN_BASE_URL and --model: --cache writes both into the folder, and --replay stops unless
+  both match, as a real recording answers only the backend and model it recorded.
+FAKE_LOG, when set, gets one JSON line per call: {"args": the arguments after the command name, "base_url": ...}."""
+import hashlib
+import json
+import os
+import runpy
+import sys
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+argv = sys.argv[1:]
+verb = argv[0]
+base = os.environ.get("THINKTHEN_BASE_URL", "")
+if os.environ.get("FAKE_LOG"):
+    with open(os.environ["FAKE_LOG"], "a", encoding="utf-8") as log:
+        log.write(json.dumps({"args": argv, "base_url": base}) + "\n")
+os.environ.pop("FAKE_LOG", None)  # the fake this call goes to logs nothing more
+
+if verb == "audit":
+    if "--help" in argv:
+        sys.exit(0)
+    rows = sum(1 for l in open(argv[1], encoding="utf-8") if l.strip())
+    bar = float(argv[argv.index("--threshold") + 1]) if "--threshold" in argv else 0.5
+    print(json.dumps({"records": rows, "threshold": bar, "suggested": {"cut": 0.7}}))
+    sys.exit(0)
+if verb == "diff":
+    rows = sum(1 for l in open(argv[1], encoding="utf-8") if l.strip())
+    print(json.dumps({"summary": {"records": rows, "only_a": 0, "only_b": 0}}))
+    sys.exit(0)
+
+flag = "--cache" if "--cache" in argv else "--replay"
+folder = Path(argv[argv.index(flag) + 1])
+model = argv[argv.index("--model") + 1] if "--model" in argv else ""
+bound = folder / "fake-backend.json"
+backend = json.dumps({"base_url": base, "model": model})
+if flag == "--cache":
+    folder.mkdir(parents=True, exist_ok=True)
+    if not bound.exists():  # calls run in parallel, so the file appears whole or not at all
+        tmp = folder / f".fake-backend.{os.getpid()}"
+        tmp.write_text(backend, encoding="utf-8")
+        os.replace(tmp, bound)
+    if bound.read_text(encoding="utf-8") != backend:
+        sys.exit("fake: this recording holds another backend or model")
+elif not bound.exists() or bound.read_text(encoding="utf-8") != backend:
+    sys.exit("fake: not recorded for this backend and model")
+
+if verb == "choose":
+    ask = argv[1:argv.index("--details")]
+    records = [json.loads(l) for l in sys.stdin if l.strip()]
+    for rec in records:
+        payload = rec["input"] if isinstance(rec["input"], str) else json.dumps(rec["input"])
+        key = folder / ("choose-" + hashlib.sha256(json.dumps([ask, payload]).encode()).hexdigest())
+        if flag == "--cache":
+            key.write_text("x", encoding="utf-8")
+        elif not key.exists():
+            sys.exit("fake: not recorded")
+        labels = list(rec["options"]) if "--options" in argv else argv[2:argv.index("--jsonl")]
+        probs = {k: (0.7 if i == 0 else round(0.3 / (len(labels) - 1), 4)) for i, k in enumerate(labels)}
+        meta = {"tool": "fake", "url": base or "http://127.0.0.1/fake", "model": model or "fake-1",
+                "usage": {"input_tokens": 10, "output_tokens": 3}, "requests_sent": 0 if flag == "--replay" else 1}
+        print(json.dumps({"value": labels[0], "input": rec, "answer": {"kind": "choice", "pick": labels[0], "probabilities": probs},
+                          "meta": meta}))
+    sys.exit(0)
+
+known = ("tag", "score", "decide", "filter", "rank", "annotate", "recognize", "relate", "find")
+fake = HERE / ("fake-thinkthen-functions" if verb in known else "fake-thinkthen")
+sys.argv = [str(fake), *argv]
+runpy.run_path(str(fake), run_name="__main__")

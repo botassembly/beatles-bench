@@ -1,6 +1,6 @@
 # 0010 A worked-example section for the docs site
 
-Owner: Claude marketing session. Status: done 2026-09-25. The site issue is filed on thinkthen main right after this ticket lands. Ticket 0009 landed at f6065388, so every page shows the fresh run of 2026-09-25. Ticket review 1 returned fourteen findings, all taken. Code review 1 returned eleven, all fixed. Code review 2 confirmed them and returned six prose items, all fixed. The record is `sdlc/records/0010-a-worked-example-section-for-the-docs-site.md`.
+Owner: the queue owner. Status: done 2026-09-25. The site issue is filed on thinkthen main right after this ticket lands. Ticket 0009 landed at an earlier commit, so every page shows the fresh run of 2026-09-25. Ticket review 1 returned fourteen findings, all taken. Code review 1 returned eleven, all fixed. Code review 2 confirmed them and returned six prose items, all fixed. The record is `sdlc/records/0010-a-worked-example-section-for-the-docs-site.md`.
 
 Superseded in part on 2026-09-26. Ian ruled that the site's Beatles Bench pages sit under Learn as short articles that do not walk through bench files, JSONL, pins, or run folders. Ticket 0013 moved the worked examples from `examples/` into `functions/`. The pages this ticket wrote live on as `docs/walkthroughs/`.
 
@@ -82,7 +82,7 @@ The script that wrote each page's result and reading, from the first draft, is d
 - Other backends.
 - `examples/context-article/` keeps no recording, so it does not replay. Page 16 names it and draws no number from it.
 - The cache. A cache hit needs a live first call, so no page shows one.
-- The talk's slides and experiment 259's claim script still use the older run. The talk's ticket owns them.
+- The talk's slides and the local experiment's claim script still use the older run. The talk's ticket owns them.
 - The site's own change sits in the thinkthen issue.
 
 ## Done when
@@ -112,7 +112,7 @@ The pages pass a fresh review, land here, and the thinkthen site issue is filed.
 2. Whole numbers with thousands commas are now checked too.
 3. The form check now covers all seven headings, in order.
 4. Guesses about causes are cut: the score, filter, rank, recognize, and data pages.
-5. Numbers from older runs are cut: the catalog's token count and the workspace experiment.
+5. Numbers from older runs are cut: the catalog's token count and the local experiment.
 6. Internal references are cut from the pages.
 7. The relate page no longer cites the slide's figure. It says an earlier run put the edge over 0.8, and the fresh run puts it at 0.73.
 8. "Files" merged into "The files". The server paragraph links to page 2. The cost command lost a no-op.

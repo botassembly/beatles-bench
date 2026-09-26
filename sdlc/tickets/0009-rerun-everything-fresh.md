@@ -1,10 +1,10 @@
 # 0009 Rerun every Jev run fresh, and show that the replay repeats
 
-Owner: Claude marketing session. Status: done 2026-09-25. Ticket 0011 landed at 4d710c36. The ticket review is done: four reviews. Reviews 1, 2, and 3 returned ten, twelve, and twelve findings. Review 4 returned two. All 36 are fixed. Code review 1 returned six findings, and the builder fixed them. Steps 4 to 8 ran on 2026-09-25. The fresh runs sit in commit 048cfced. The step 7 commit is 4f007ff8. Code review 2 accepted all but two prose findings, and the builder fixed both. Record gives the numbers.
+Owner: the queue owner. Status: done 2026-09-25. Ticket 0011 landed at an earlier commit. The ticket review is done: four reviews. Reviews 1, 2, and 3 returned ten, twelve, and twelve findings. Review 4 returned two. All 36 are fixed. Code review 1 returned six findings, and the builder fixed them. Steps 4 to 8 ran on 2026-09-25. The fresh runs sit in an earlier commit. The step 7 commit is a later one. Code review 2 accepted all but two prose findings, and the builder fixed both. Record gives the numbers.
 
 ## Why
 
-Ian ruled in the marketing session's 2026-09-25 conversation: "Rerun everything and validate that everything passes, making sure that we get the same result every single time, so we can use the audit and the diff tools as well." He authorized the paid rerun in the same conversation. Later that day he set the ceiling: "Yes test everything with thinkthen. Create new issues if necessary $1 approved".
+Ian ruled in a 2026-09-25 conversation with the queue owner: "Rerun everything and validate that everything passes, making sure that we get the same result every single time, so we can use the audit and the diff tools as well." He authorized the paid rerun in the same conversation. Later that day he set the ceiling: "Yes test everything with thinkthen. Create new issues if necessary $1 approved".
 
 The rerun is part of the talk's QA. Every Jev run in scope runs again from an empty recording, on the paths that ticket 0011 settles. The fresh runs then replay the same way every time, and `thinkthen audit` and `thinkthen diff` measure them.
 
@@ -75,9 +75,9 @@ GLM-5.3 Flash, Laya, the four baselines, relation vectors, and the MiniLM and BM
 - `functions.py` names `cached` and `requests_sent` as the only fields a replay reports differently from a live run (`VOLATILE`). `ask.py`'s `details.jsonl` carries `meta.cached` and `meta.requests_sent` too.
 - `scripts/run/gaps.py` treats every exit 4 as a refused question and never asks it again. That includes 401 and 429.
 - `.gitignore` ignores `results/runs/*/replay/`, `examples/*/replay/`, and `examples/12-diff/a.jsonl` and `b.jsonl`. It does not cover folders one level deeper, as in `results/runs/<date>-examples-jev/NN-name/replay/`.
-- Experiment 259's `07-bench-run.sh` line 14 clones the main checkout, not `bench/`.
-- Workspace experiment 259 holds seven claim scripts, `01-ten-functions.sh` to `07-bench-run.sh`. `common.sh` pins the binary and a clone of this repository in `bench/`. Each command's exit code lands in `out/NN-name/LABEL.rc`. Every replay claim passed on 2026-09-25. Three slide images differ from the replay. That is slide work.
-- `scripts/figures/` draws with `kuva` and joins panels with Pillow. On the local machine `kuva` is in `~/.cargo/bin`. The system `python3` has Pillow 10.2.0. The repository's `.venv` has none.
+- The local experiment's `07-bench-run.sh` line 14 clones the main checkout, not `bench/`.
+- A local experiment holds seven claim scripts, `01-ten-functions.sh` to `07-bench-run.sh`. `common.sh` pins the binary and a clone of this repository in `bench/`. Each command's exit code lands in `out/NN-name/LABEL.rc`. Every replay claim passed on 2026-09-25. Three slide images differ from the replay. That is slide work.
+- `scripts/figures/` draws with `kuva` and joins panels with Pillow. On the local machine `kuva` is in Cargo's bin folder. The system `python3` has Pillow 10.2.0. The repository's `.venv` has none.
 - `README.md`'s headline table is pasted from `python3 scripts/score/table.py`. The reports and example READMEs are written by hand. `score.py history` and `functions.py history` append rows to `results/history.tsv`.
 - The divide by zero in `open_book.py compare`, Hey Jude's length, and the diff behavior each have an issue. The audit example asks "The text is the title of a song by the Beatles. It appears on the album Abbey Road." Its README puts it as "is this song on the album Abbey Road?"
 
@@ -85,8 +85,8 @@ GLM-5.3 Flash, Laya, the four baselines, relation vectors, and the MiniLM and BM
 
 1. Ticket 0011 lands on main.
 2. The owner builds the pinned binary from thinkthen main and records its commit and SHA-256.
-3. The builder makes every code change below on `ticket/0009-rerun-fresh` in `worktrees/beatles-bench-0009`. The changes are committed. A fresh reviewer accepts them in code review 1.
-4. The experiment 259 gate passes against that reviewed commit.
+3. The builder makes every code change below on `ticket/0009-rerun-fresh` in the ticket's worktree. The changes are committed. A fresh reviewer accepts them in code review 1.
+4. The local experiment gate passes against that reviewed commit.
 5. The data lockdown passes on that commit.
 6. The paid jobs run in the order of the Scope table. Later jobs read earlier fresh folders. Results are committed on the branch.
 7. The builder swaps the fresh examples in, regenerates the downstream files, and commits them. The record names this commit's hash.
@@ -109,9 +109,9 @@ GLM-5.3 Flash, Laya, the four baselines, relation vectors, and the MiniLM and BM
 7. **`./run.sh`.** Its replay points at the fresh `<date>-thinkthen-jev` and replays every example folder, each checked byte for byte. With an address set, it also asks each example into `results/runs/<date>-examples-<name>/NN-name/`. `BENCH_MAX_INPUT_TOKENS` then applies to each step separately: the 1,501, then each example. The README says so, and says the examples add about 90,000 input tokens to a reader's live run. No budget passes from one step to the next. `tests/test_run_sh.py` follows.
 8. **Token stop test.** One case in `tests/test_run.py` runs `ask.py live` with `tests/fixtures/fake-thinkthen` and `BENCH_MAX_INPUT_TOKENS=15`. The fake reports 10 input tokens a call. The run stops after two calls and says so. Rows for a cap of 0 and of -5 start no call. One case in `tests/test_functions.py` shows `functions.py` starts no call at a cap of 0.
 9. **Ignore rules.** `.gitignore` adds `results/runs/*/*/replay/` and `results/runs/*/12-diff/[ab].jsonl`.
-10. **Clutter.** Remove the ignored folder `results/runs/2026-09-23-thinkthen/`, which holds an empty recording and a stray replay. The agent checkout `.claude/worktrees/agent-ac9982975a687cf2f/` is deferred. `workspace sweep --worktrees-for beatles-bench` does not list it (see Deferred). Its `open-book` branch holds no work that main lacks: the open-book run and report are on main. Move `examples/context-article.md` to `examples/context-article/README.md`, and update the README link and the exception in `tests/test_examples.py`.
+10. **Clutter.** Remove the ignored folder `results/runs/2026-09-23-thinkthen/`, which holds an empty recording and a stray replay. An agent's worktree is deferred. A sweep of leftover worktrees does not list it (see Deferred). Its `open-book` branch holds no work that main lacks: the open-book run and report are on main. Move `examples/context-article.md` to `examples/context-article/README.md`, and update the README link and the exception in `tests/test_examples.py`.
 
-## The experiment 259 gate
+## The local experiment gate
 
 Command, from the experiment folder:
 
@@ -132,7 +132,7 @@ Code change 3 lands before the rerun. From then until step 7 swaps the fresh exa
 
 - the 11-audit replay in `tests/test_examples.py` and in `./run.sh`
 - the 12-diff replay, which reads the 11-audit rows
-- experiment 259's commands in `02-filter-085.sh`, `03-cache-record-replay.sh`, `04-diff.sh`, and `05-audit.sh` that replay the 11-audit recording or read its rows
+- the local experiment's commands in `02-filter-085.sh`, `03-cache-record-replay.sh`, `04-diff.sh`, and `05-audit.sh` that replay the 11-audit recording or read its rows
 
 The gate's pass rule allows these and no others. Code review 1 runs the suite with them named.
 
@@ -144,7 +144,7 @@ The gate's pass rule allows these and no others. Code review 1 runs the suite wi
 
 ## Run record
 
-The pinned binary is `experiments/264-bench-rerun/bin/thinkthen`. It is a release build of thinkthen main at 02dc0b9672dea909d64d6dd0e44820814e93d9de. Its SHA-256 is `eb4a571370527ec56c5fe0e10aec410ae906799c05b4de3d9a97ba6eaf48e255`. Every job checks it before it starts and stops on a mismatch:
+The pinned binary is a local build. It is a release build of thinkthen main at 02dc0b9672dea909d64d6dd0e44820814e93d9de. Its SHA-256 is `eb4a571370527ec56c5fe0e10aec410ae906799c05b4de3d9a97ba6eaf48e255`. Every job checks it before it starts and stops on a mismatch:
 
 ```sh
 echo "eb4a571370527ec56c5fe0e10aec410ae906799c05b4de3d9a97ba6eaf48e255  $THINKTHEN_BIN" | sha256sum -c -
@@ -246,7 +246,7 @@ examples/12-diff/diff.sh
 ## Proof
 
 - Code review 1 accepted the code before the lockdown. The lockdown left `git status` empty before the first paid call.
-- The experiment 259 gate passed by its rule.
+- The local experiment gate passed by its rule.
 - Each job stayed under its cap. The total stayed under $1. The record lists each job's tokens and the total.
 - The names of the committed `examples/11-audit/audit-*.json` files equal the names in the fresh `11-audit` folder.
 - `tests/test_score_rad.py` passes with the 2026-09-23 folders named in it. The contract test and the function-table test pass with `JEV` in `tests/published.py` naming the fresh date, moved in the step 7 commit.
@@ -257,11 +257,11 @@ examples/12-diff/diff.sh
 - Every diff pairs the expected count from the Measure table. The record names every number that moved.
 - `git grep -nE "2026-09-2[34]-(thinkthen-jev|functions-jev|pipeline-jev)" -- scripts run.sh` prints nothing.
 - `./run.sh` with no key passes. `python3 -m unittest discover -s tests` passes with and without `THINKTHEN_BIN`.
-- `git status` is clean after the suite. `workspace repos --dirty` lists nothing for this repository.
+- `git status` is clean after the suite. A check for uncommitted work lists nothing for this repository.
 
 ## Owner's decisions (Ian can overturn each)
 
-- Ian's ruling is cited from the marketing session's 2026-09-25 conversation, as quoted in Why.
+- Ian's ruling is cited from a 2026-09-25 conversation with the queue owner, as quoted in Why.
 - Scope: the Jev runs in the Scope table. GLM, Laya, and the baselines stay at their old dates. No fresh folder starts from a copied recording.
 - Budget: a planned 6.5M input tokens and a cap per guard job. A $1 ceiling covers retries and reruns.
 - `BENCH_MAX_INPUT_TOKENS` is the real stop for each job, tested once with the fake command.
@@ -283,7 +283,7 @@ examples/12-diff/diff.sh
 - `history.tsv` gains rows. None is replaced.
 - Hand-written prose is a hand edit that a named test checks, where a test can.
 - `examples/context-article.md` moves into its own folder.
-- The pinned binary sits in workspace experiment 264, because folder 263 was taken. Code review 1 named 263.
+- The pinned binary sits in a second local experiment folder, because the folder code review 1 named was taken.
 - One test constant names the Jev runs behind the published tables. Step 7 moves it with the tables.
 - A cap of 0 or below starts no call. Spent comes from the recording's token totals in the ledger.
 - The cold audit question is exactly "Is this song on the album Abbey Road?", so the slide's `filter` command replays from the 11-audit recording. The context question keeps the context opening before it: "The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?" The 11-audit and 12-diff READMEs change to the new wording in step 7.
@@ -301,12 +301,12 @@ examples/12-diff/diff.sh
 - GLM, Laya, and the baselines stay at their old dates.
 - No harvest refetch. The pinned revisions stand.
 - The thinkthen audit features planned for 0.1 stay unused. The pinned binary keeps audit's output fixed.
-- Experiment 249's recordings in `tests/fixtures/audit/249/` are not rerun.
+- A local experiment's recordings in `tests/fixtures/audit/249/` are not rerun.
 - The McNemar rule is thinkthen's to settle.
 - The context-article flips are not rerun. They fetch Wikipedia text and keep no recording.
 - Other backends.
-- Which of experiment 259's claim scripts earn a place in this repository's tests.
-- Removing `.claude/worktrees/agent-ac9982975a687cf2f/`. `workspace sweep` lists it as registered but leaves it out: its `open-book` branch landed on main as rewritten commits, so it counts 39 unmerged commits. The open-book run folder matches main. Filed in the workspace tooling repo as `sdlc/issues/2026-09-25-sweep-keeps-a-worktree-whose-work-landed-as-other-commits.md`.
+- Which of the local experiment's claim scripts earn a place in this repository's tests.
+- Removing an agent's worktree. A sweep of leftover worktrees lists it as registered but leaves it out: its `open-book` branch landed on main as rewritten commits, so it counts 39 unmerged commits. The open-book run folder matches main. Filed in Ian's tooling repository.
 
 ## Done when
 
@@ -336,7 +336,7 @@ The proof passes, code review 2 accepts, and the branch is landed on main and pu
 7. The replay loop lists its files by runner, leaves out `times.tsv`, and compares each replay with the live outputs.
 8. The hash list comes from `git ls-files data questions`, the example cases and keys, and the fixed inputs.
 9. Code review 1 comes before the lockdown and the first paid call.
-10. The fresh clone takes the reviewed branch commit, so the proof comes before the push. The 259 gate has a command and a pass rule.
+10. The fresh clone takes the reviewed branch commit, so the proof comes before the push. The local experiment gate has a command and a pass rule.
 11. Slides are deferred. The README table, reports, and example READMEs are hand edits with named checks. `history.tsv` appends. The figures name `kuva` and Pillow.
 12. Deferred names the extra recordings. Each diff pair has an expected count. Tag and annotate use the Python comparison. The README says `./run.sh` live now asks every example.
 
@@ -364,10 +364,10 @@ The reviewer confirmed that spend is bounded, the grep covers every path, the `j
 
 ## Code review 1 (fresh reviewer, 2026-09-25): code sound, six findings, all fixed
 
-1. The pinned binary is copied to workspace experiment 264, with its commit and SHA-256 in Run record. Every job checks `sha256sum` first.
+1. The pinned binary is copied to a local experiment folder, with its commit and SHA-256 in Run record. Every job checks `sha256sum` first.
 2. A cap of 0 or below starts no call in `ask.py` and `functions.py`, with test rows. The ledger logs recording totals before and after each attempt. A resume reserves the remaining cap plus `BENCH_WORKERS` times the largest request.
 3. `JEV` in `tests/published.py` names the runs behind the published tables. Step 7 moves it with the tables.
-4. The builder's departures are recorded under Owner's decisions. The agent checkout cleanup is deferred and filed in the workspace tooling repo.
+4. The builder's departures are recorded under Owner's decisions. The agent worktree cleanup is deferred and filed in Ian's tooling repository.
 5. Replay proof names the example replay commands and the inputs check.
 6. `rad_table.py` takes optional `--closed`, `--open`, and `--first` folders. `reports/rad.md` passes the 2026-09-23 folders.
 
@@ -375,14 +375,14 @@ The reviewer confirmed that spend is bounded, the grep covers every path, the `j
 
 ### Gate (step 4)
 
-The experiment 259 gate ran against 0f106d89 with the pinned binary. Eight `.rc` files changed. All eight sit in the named wording window: seven in `04-diff.sh` and the `./run.sh` replay in `07-bench-run.sh`.
+The local experiment gate ran against an earlier commit with the pinned binary. Eight `.rc` files changed. All eight sit in the named wording window: seven in `04-diff.sh` and the `./run.sh` replay in `07-bench-run.sh`.
 
 - `07-bench-run/R01-run`: 0 to 1. The 11-audit replay has no entry for the new wording. This is the named failure.
 - `04-diff/D01-example`: 0 to 2. `D01-table`, `D04-duplicate`, `D05-only-a`, `D13-two-cuts`, and `D15-no-probabilities` fail after it, and `D07-two-questions-one-file` flips from 2 to 0 on an empty file. All read `d01/a.jsonl`, built from the 11-audit rows. The cause is ticket 0011's change to `12-diff/diff.sh`, which now takes `[IN [OUT]]`. The claim script still passes the output folder first. With the new order, `diff.sh` rebuilds the committed `diff.jsonl` byte for byte and the table diff exits 0. The claim script needs its call updated. That is experiment work.
 
 ### Data lockdown (step 5)
 
-`harvest.py --offline RAW data/pins data`, then `generate.py`, `scripts/generate/functions.py`, and `scripts/generate/examples.py`, left `git status --porcelain` empty. RAW departs from the ticket: the main checkout's `data/raw/` holds 63 of the 302 pinned pages and fails on `1373687907.wiki`. The complete cache sits in `worktrees/beatles-bench-fixes/raw/` (302 pages). An offline harvest from it rebuilt every generated file under `data/` byte for byte. Each fresh folder holds `inputs.sha256`, written before its first paid call.
+`harvest.py --offline RAW data/pins data`, then `generate.py`, `scripts/generate/functions.py`, and `scripts/generate/examples.py`, left `git status --porcelain` empty. RAW departs from the ticket: the main checkout's `data/raw/` holds 63 of the 302 pinned pages and fails on `1373687907.wiki`. The complete cache sits in another worktree's `raw/` folder (302 pages). An offline harvest from it rebuilt every generated file under `data/` byte for byte. Each fresh folder holds `inputs.sha256`, written before its first paid call.
 
 ### Paid jobs (step 6)
 
@@ -411,7 +411,7 @@ Each job checked the pinned binary with `sha256sum -c` first, ran through `sdlc/
 
 ### Measure
 
-The old example files come from 4d710c36. `thinkthen diff` ran through `scripts/score/diff_guard.sh`, with the question keys where the run has them.
+The old example files come from an earlier commit. `thinkthen diff` ran through `scripts/score/diff_guard.sh`, with the question keys where the run has them.
 
 | Old against fresh | Tool | Pairs | Changed | Right, old to new |
 | --- | --- | --- | --- | --- |
@@ -448,11 +448,11 @@ The 11-audit pairs cross wordings, so they compare a new question and measure no
 
 ### Step 7 commit
 
-4f007ff8 swaps in the fresh examples and holds the downstream files. Code review 2 reviews it by this hash.
+The step 7 commit swaps in the fresh examples and holds the downstream files. Code review 2 reviews it by its hash.
 
 ### Replay proof (step 8)
 
-The proof ran with the key and address unset and `THINKTHEN_BIN` set to the pinned binary. It replayed every fresh folder in the worktree and in a fresh clone of 4f007ff8, with the commands in Replay proof. The loop compared the two replays byte for byte, and each replay with the live files once `cached` and `requests_sent` were stripped. It passed for all 19 folders: the five `thinkthen.sh` runs (2 files each), the function suite (11), the pipeline (16), and the twelve examples. `sha256sum -c inputs.sha256` passed in all eight fresh folders in both checkouts. Every `run.txt` names the pinned binary's SHA-256.
+The proof ran with the key and address unset and `THINKTHEN_BIN` set to the pinned binary. It replayed every fresh folder in the worktree and in a fresh clone of the step 7 commit, with the commands in Replay proof. The loop compared the two replays byte for byte, and each replay with the live files once `cached` and `requests_sent` were stripped. It passed for all 19 folders: the five `thinkthen.sh` runs (2 files each), the function suite (11), the pipeline (16), and the twelve examples. `sha256sum -c inputs.sha256` passed in all eight fresh folders in both checkouts. Every `run.txt` names the pinned binary's SHA-256.
 
 ### Code review 2 fixes
 
@@ -461,4 +461,4 @@ Code review 2 accepted the code and the numbers and returned two prose findings.
 ### Gaps for Ian
 
 1. Closed 2026-09-25. The main checkout's `data/raw/` now holds all 302 pinned pages.
-2. The talk's slides for 11-audit and 12-diff and experiment 259's `02-filter-085.sh` use the old cut of 0.85 and the old wording. The talk's ticket owns them.
+2. The talk's slides for 11-audit and 12-diff and the local experiment's `02-filter-085.sh` use the old cut of 0.85 and the old wording. The talk's ticket owns them.

@@ -1,10 +1,10 @@
 # 0002 Give vector search a fair try with relation-conditioned queries
 
-Owner: Claude marketing session. Status: landed 2026-09-24. Code review ACCEPT at ab9b643. Ticket review 1 (fresh reviewer, 2026-09-24) returned seven findings, all taken below.
+Owner: the queue owner. Status: landed 2026-09-24. Code review ACCEPT at an earlier commit. Ticket review 1 (fresh reviewer, 2026-09-24) returned seven findings, all taken below.
 
 ## Why
 
-Ian, 2026-09-24: the embedding baseline scores 37.6% on Beatles-only questions against 31.4% chance. It compares the bare question with bare options, and that may be the wrong way to ask. A note in Ian's vault (`notes/relation-conditioned retrieval.md`) proposes naming the relation in the query ("retrieve the musician who sang lead on this song") and using models built for instructed retrieval. If a small sample shows no gain, the deck and README drop vector search as a comparator.
+Ian, 2026-09-24: the embedding baseline scores 37.6% on Beatles-only questions against 31.4% chance. It compares the bare question with bare options, and that may be the wrong way to ask. A private note proposes naming the relation in the query ("retrieve the musician who sang lead on this song") and using models built for instructed retrieval. If a small sample shows no gain, the deck and README drop vector search as a comparator.
 
 ## Work
 

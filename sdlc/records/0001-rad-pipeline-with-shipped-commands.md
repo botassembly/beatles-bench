@@ -1,6 +1,6 @@
 # 0001 Show retrieval-augmented decisions with shipped ThinkThen commands
 
-Ticket: [0001](../tickets/0001-rad-pipeline-with-shipped-commands.md). Branch `ticket/0001-rad-pipeline`. Built 2026-09-24 by a Claude build session.
+Ticket: [0001](../tickets/0001-rad-pipeline-with-shipped-commands.md). Branch `ticket/0001-rad-pipeline`. Built 2026-09-24 by the builder.
 
 ## What landed
 
@@ -25,6 +25,6 @@ Every flag the ticket names ships in `thinkthen` 0.0.1: `--details`, `--field`, 
 
 ## Open
 
-- Code review: a fresh reviewer returned ACCEPT at a7beabc. It observed 156 tests OK with 8 skipped, and the replay test OK with no key. The context input is dropped in the deck repo's `sdlc/planning/thinkthen-asks.md`.
-- The deck repo's asks file still needs the send-or-drop line. The build session recommends drop and left that file to its owner.
+- Code review: a fresh reviewer returned ACCEPT at an earlier commit. It observed 156 tests OK with 8 skipped, and the replay test OK with no key. The context input is dropped in the deck repo's `sdlc/planning/thinkthen-asks.md`.
+- The deck repo's asks file still needs the send-or-drop line. The builder recommends drop and left that file to its owner.
 - The grounding check saw only right answers. A case with a planted wrong answer would show whether it catches one.

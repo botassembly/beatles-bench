@@ -1,6 +1,6 @@
 # 0014 Score recognize and relate from the shipped commands: record
 
-Built on 2026-09-26 on `ticket/0014-shipped-recognize-and-relate` from main at 716360eb. Every paid call ran on the local Linux machine through thinkthen's `sdlc/scripts/live` guard. `THINKTHEN_BIN` was `experiments/259-talk-claims/thinkthen`, SHA-256 `eb4a5713`, a release build of thinkthen main at 02dc0b96.
+Built on 2026-09-26 on `ticket/0014-shipped-recognize-and-relate` from main at an earlier commit. Every paid call ran on the local Linux machine through thinkthen's `sdlc/scripts/live` guard. `THINKTHEN_BIN` was a local build, SHA-256 `eb4a5713`, a release build of thinkthen main at 02dc0b96.
 
 ## Result
 

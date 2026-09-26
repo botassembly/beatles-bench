@@ -1,6 +1,6 @@
 # 0001 Show retrieval-augmented decisions with shipped ThinkThen commands
 
-Owner: Claude marketing session. Status: landed 2026-09-24. Code review ACCEPT at a7beabc. Ticket review 1 (fresh reviewer, 2026-09-24) returned seven findings, all taken below.
+Owner: the queue owner. Status: landed 2026-09-24. Code review ACCEPT at an earlier commit. Ticket review 1 (fresh reviewer, 2026-09-24) returned seven findings, all taken below.
 
 ## Why
 

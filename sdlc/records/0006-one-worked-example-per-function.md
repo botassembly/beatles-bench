@@ -1,6 +1,6 @@
 # 0006 One worked example per function, cold and with context
 
-Ticket: [0006](../tickets/0006-one-worked-example-per-function.md). Branch `ticket/0006-worked-examples`. Built 2026-09-25 by a Claude build session on the local Linux machine. A fresh review on 2026-09-25 returned three wording and record findings, all taken, and no code finding.
+Ticket: [0006](../tickets/0006-one-worked-example-per-function.md). Branch `ticket/0006-worked-examples`. Built 2026-09-25 by the builder on the local Linux machine. A fresh review on 2026-09-25 returned three wording and record findings, all taken, and no code finding.
 
 ## What landed
 
@@ -58,12 +58,12 @@ The truth for every example comes from `data/songs.tsv`. None was found wrong. T
 
 ## ThinkThen issues found (thinkthen 0.0.1, the release build of 2026-09-24)
 
-For the coordinator to file. None blocked the work.
+For the queue owner to file. None blocked the work.
 
 1. `recognize --dry-run` does not print what would be sent. Command: `printf '%s' "Ringo Starr wrote Octopus's Garden on a boat off Sardinia, and the band recorded it at Abbey Road Studios for the album Abbey Road." | thinkthen recognize person song album place --threshold 0.01 --dry-run`. It printed `{"tokens":26,"detection_questions":26,"kind_questions":26,"requests":1}`. The help says "Print what would be sent and stop." Expected: the request, as `decide --dry-run` prints it, or at least its size. The real request held 52 questions and cost 8,092 input tokens, and nothing in the dry run warned of that.
 2. `find --details` names each line by its place, and the output never lists the places. Command: `jq -c '.records[]' examples/07-find/find-cold.jsonl | thinkthen find 'These are songs by the Beatles. Which one did they release first?' --jsonl --field /input --details`. The records carry ids u01 to u10. The answer keys its probabilities and its pick as u001 to u010, and `value` is the record with id u05. Expected: probabilities keyed by the record's own id, or the details list which line each key means. A reader has to rebuild the map from the input order.
 3. recognize's detection question says the snippet comes "from a news document" and lists organizations, events, and products, whatever kinds the call names. Seen in the recorded request for the command in item 1. Expected: wording that fits any text, and the kinds the user gave.
-4. Not filed. recognize rounds strength unevenly. The same output gives 1.0, 0.99, and 0.97 for three names, and 0.9702 and 0.9455 for Abbey Road Studios and Abbey Road. Expected: one precision throughout. The coordinator checked the spec. It rounds strength to four places, and 0.97 equals 0.9700, so this is not a bug.
+4. Not filed. recognize rounds strength unevenly. The same output gives 1.0, 0.99, and 0.97 for three names, and 0.9702 and 0.9455 for Abbey Road Studios and Abbey Road. Expected: one precision throughout. The queue owner checked the spec. It rounds strength to four places, and 0.97 equals 0.9700, so this is not a bug.
 
 ## Left open
 

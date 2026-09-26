@@ -1,6 +1,6 @@
 # 0011 Ask and grade through thinkthen: record
 
-Built on 2026-09-25 at de25463a on `ticket/0011-ask-and-grade-through-thinkthen`. The pinned thinkthen build is main `02dc0b96`, built from source. Its command code matches `c8ca9a65`.
+Built on 2026-09-25 at an earlier commit on `ticket/0011-ask-and-grade-through-thinkthen`. The pinned thinkthen build is main `02dc0b96`, built from source. Its command code matches `c8ca9a65`.
 
 ## Result
 

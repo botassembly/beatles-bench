@@ -42,6 +42,5 @@ A band reads its middle as not sure:
 - `decide-love.jsonl`: the slide's four cases.
 - `decide-cold.jsonl` and `decide-context.jsonl`: six songs asked about Abbey Road, cold and with each song's catalog entry.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- [The walkthrough](../../docs/walkthroughs/decide.md) shows how the example was built and why each answer is right or wrong.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/decide](https://thinkthen.dev/learn/beatles-bench/decide/).

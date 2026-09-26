@@ -8,7 +8,7 @@ sys.path.insert(0, str(ROOT / "scripts" / "score"))
 import rad_table as score_rad  # noqa: E402
 
 # The numbers below come from these runs, so the tests name them and never take the newest folder.
-RUNS = ROOT / "results" / "runs"
+RUNS = ROOT / "results" / "archive" / "runs"
 RUN, RUN2 = RUNS / "2026-09-23-thinkthen-jev-rad", RUNS / "2026-09-23-thinkthen-jev-rad2"
 CLOSED, OPEN = RUNS / "2026-09-23-thinkthen-jev", RUNS / "2026-09-23-thinkthen-jev-open-book"
 

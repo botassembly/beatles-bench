@@ -1,5 +1,5 @@
 """scripts/score/diff_guard.sh stops thinkthen diff when the pairing cannot support the comparison. Edge cases on ten
-rows of experiment 249's control run. No network, no model, no key. Skips without a thinkthen that has diff."""
+rows of a local experiment's control run. No network, no model, no key. Skips without a thinkthen that has diff."""
 import json
 import os
 import shutil

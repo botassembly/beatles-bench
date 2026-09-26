@@ -1,6 +1,6 @@
 # 0007 Worked examples for audit and diff
 
-Ticket: [0007](../tickets/0007-audit-and-diff-examples.md). Branch `ticket/0007-audit-diff-examples`. Built 2026-09-25 by a Claude build session on the local Linux machine.
+Ticket: [0007](../tickets/0007-audit-and-diff-examples.md). Branch `ticket/0007-audit-diff-examples`. Built 2026-09-25 by the builder on the local Linux machine.
 
 ## What landed
 
@@ -16,7 +16,7 @@ Ticket: [0007](../tickets/0007-audit-and-diff-examples.md). Branch `ticket/0007-
 
 ## Commands and results
 
-- Live: `sdlc/scripts/live --max-tokens 25000 JOB` in the thinkthen checkout. The job was a `#!/bin/sh` script in scratch. It set `THINKTHEN_BIN` to the thinkthen release build of main at e70bddab, `BENCH_WORKERS=4`, and `BENCH_MAX_INPUT_TOKENS=23500`, then ran `examples/11-audit/run.sh live`. The key reached only the command, through the guard.
+- Live: `sdlc/scripts/live --max-tokens 25000 JOB` in the thinkthen checkout. The job was a `#!/bin/sh` script outside the repository. It set `THINKTHEN_BIN` to the thinkthen release build of main at e70bddab, `BENCH_WORKERS=4`, and `BENCH_MAX_INPUT_TOKENS=23500`, then ran `examples/11-audit/run.sh live`. The key reached only the command, through the guard.
 - Ledger before: 427,994,418 charged, 48,005,582 remaining. After: 428,019,418 charged, 47,980,582 remaining. The guard precharges the full 25,000.
 - Spend: 70 calls, 70 requests, 20,313 input and 1,470 output tokens (jev-1.13.0). The scratch run of the same records also cost 20,313 input tokens.
 - `examples/12-diff/diff.sh` wrote the committed `diff.jsonl` with no request.
@@ -48,9 +48,9 @@ Right answers of 70 at each bar, from the committed audit files:
 
 This section describes the first build. Amendment 1 replaced both slides, as its section below says.
 
-- The slide source is a copy of the marketing session's `gen6.py`, `gen.py`, `fn.css`, `deck.css`, `brand/`, and `shot.mjs`, in the build session's scratch folder `b0007/slides/`. The originals are unchanged.
-- The copy reads `11-audit/rows.jsonl` (title from `input.input`), `11-audit/key.jsonl`, `11-audit/audit-asrun.json`, `11-audit/audit-{0.5,0.85}.json`, and `12-diff/diff.jsonl`. The copy of `gen.py` drops its three reads of other scratch runs, which `gen6.py` never uses.
-- Rendered with `python3 gen6.py && node shot.mjs audit diff`, then copied to each folder's `slide.png`.
+- The slide source is a copy of the deck's slide source, outside the repository. The originals are unchanged.
+- The copy reads `11-audit/rows.jsonl` (title from `input.input`), `11-audit/key.jsonl`, `11-audit/audit-asrun.json`, `11-audit/audit-{0.5,0.85}.json`, and `12-diff/diff.jsonl`. The copy drops three reads of other scratch runs that the slides never use.
+- Rendered with the deck's slide source, then copied to each folder's `slide.png`.
 - The audit slide's `SPOT` now labels the four mistakes at 0.85. Martha My Dear is no longer a mistake. Octopus's Garden sits above left, Something below left, The Long and Winding Road below right, and A Day in the Life above right. No label crosses a dot or a bar line.
 - The diff slide has 14 rows. The row height went from 48 to 44 pixels, so the last row ends above the question at the bottom.
 
@@ -64,7 +64,7 @@ This section describes the first build. Amendment 1 replaced both slides, as its
 
 ## Amendment 1: diff compares cold with context
 
-Built 2026-09-25 from the amended ticket at 777269c2.
+Built 2026-09-25 from the amended ticket at an earlier commit.
 
 What changed:
 
@@ -84,8 +84,8 @@ Live run:
 
 Proof:
 
-- `rows.jsonl` and every `audit-*.json` match 390dbc9c byte for byte (`git diff --quiet 390dbc9c`).
-- The first 70 lines of `outputs.jsonl` equal the whole file at 390dbc9c. The 70 context lines follow them. `timing.tsv` only gained rows.
+- `rows.jsonl` and every `audit-*.json` match an earlier commit byte for byte (`git diff --quiet` against it).
+- The first 70 lines of `outputs.jsonl` equal the whole file at that earlier commit. The 70 context lines follow them. `timing.tsv` only gained rows.
 - Suite with no key and no `THINKTHEN_BIN`, proxies pointed at a closed port: 181 tests, OK, 12 skipped.
 - Suite with `THINKTHEN_BIN` set to the e70bddab build and no key, same proxies: 181 tests, OK, 2 skipped. Neither skip is an example test.
 
@@ -97,8 +97,8 @@ Final numbers:
 
 Slides:
 
-- `11-audit/slide.png` is the marketing session's table design, copied unchanged from its scratch `two-slides/audit.png`. Its source `gen8.py` reads the committed cold `rows.jsonl`, `key.jsonl`, and `audit-asrun.json`. The F1 line at 0.75 and the rules on its left are that session's design. audit itself suggests only the most-right-answers bar.
-- `12-diff/slide.png` comes from a new `gen9.py` in the build session's scratch copy. It uses the audit slide's table style. Each changed song shows its cold score, its context score, and fixed or broken. A score is green when it is right at 0.5 and red when it is wrong. The left side gives 56 to 70 right, 14 changed with 14 fixed and 0 broken, and the McNemar p. The question "Is it on Abbey Road?" stays at the bottom. The render has no overlaps.
+- `11-audit/slide.png` is the queue owner's table design, copied unchanged from the deck's slide source. That source reads the committed cold `rows.jsonl`, `key.jsonl`, and `audit-asrun.json`. The F1 line at 0.75 and the rules on its left are the queue owner's design. audit itself suggests only the most-right-answers bar.
+- `12-diff/slide.png` comes from a new page in the deck's slide source. It uses the audit slide's table style. Each changed song shows its cold score, its context score, and fixed or broken. A score is green when it is right at 0.5 and red when it is wrong. The left side gives 56 to 70 right, 14 changed with 14 fixed and 0 broken, and the McNemar p. The question "Is it on Abbey Road?" stays at the bottom. The render has no overlaps.
 
 Changes from the amendment:
 
@@ -114,4 +114,4 @@ Changes from the amendment:
 1. "key" meant both the answer key and the API key. The pages and script comments now say "answer key" or "API key".
 2. The audit page now says audit picks its bar only by the most right answers today. The slide's precision, recall, and F1 lines are worked out by hand. ThinkThen issue `2026-09-25-audit-picks-its-cut-only-by-most-right-answers.md` asks for all four.
 
-The marketing session replaced `11-audit/slide.png` with Ian's four-score design of 2026-09-25. Each dashed line marks the bar that gives one score its best value: precision 100%, accuracy 94%, recall 100% with F1 74%, and the default.
+The queue owner replaced `11-audit/slide.png` with Ian's four-score design of 2026-09-25. Each dashed line marks the bar that gives one score its best value: precision 100%, accuracy 94%, recall 100% with F1 74%, and the default.

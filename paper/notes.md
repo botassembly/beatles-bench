@@ -1,6 +1,6 @@
 # Paper notes
 
-Findings to carry into the Beatles Bench paper. Numbers come from the audited 1,501-question runs of 2026-09-23 (`results/runs/2026-09-23-thinkthen-jev`, `results/runs/2026-09-23-glm-5.3-flash`). Accuracy here is plain share right. The README credits ties, so its figures differ slightly.
+Findings to carry into the Beatles Bench paper. Jev's numbers come from the runs of 2026-09-26 (`results/runs/2026-09-26-thinkthen-jev`, with its open-book and RAD runs). GLM-5.3 Flash's numbers come from its run of 2026-09-23 (`results/runs/2026-09-23-glm-5.3-flash`). A finding with no 2026-09-26 run names its own date. Accuracy here is plain share right. The README credits ties, so its figures differ slightly.
 
 ## The second thesis
 
@@ -13,29 +13,31 @@ The mix does not flatter GLM. Reweighting makes Jev look slightly worse.
 | Topic | Questions | Share | Jev | GLM-5.3 Flash |
 |---|---|---|---|---|
 | First album | 430 | 29% | 73% | 99% |
-| Dates (year, month, order) | 428 | 29% | 59% | 98% |
+| Dates (year, month, order) | 428 | 29% | 57% | 98% |
 | Lead singer | 265 | 18% | 72% | 90% |
-| Non-Beatles people (reversal-general) | 188 | 13% | 94% | 100% |
-| Song length | 60 | 4% | 87% | 98% |
-| Songwriter | 47 | 3% | 68% | 98% |
-| Reversal pairs | 65 | 4% | 64% | 92% |
+| Non-Beatles people (reversal-general) | 188 | 13% | 93% | 100% |
+| Song length | 60 | 4% | 85% | 98% |
+| Songwriter | 47 | 3% | 70% | 98% |
+| Reversal pairs | 65 | 4% | 62% | 92% |
 | Events | 18 | 1% | 0% | 83% |
 
-- Overall: Jev 70.5%, GLM 96.7%.
-- Every category and kind weighted equally: Jev 68.6%, GLM 95.6%.
-- Every topic weighted equally: Jev 64.8%, GLM 94.4%.
+- Overall: Jev 70.0%, GLM 96.7%.
+- Every category and kind weighted equally: Jev 68.4%, GLM 95.6%.
+- Every topic weighted equally: Jev 64.0%, GLM 94.4%.
 - Dates are 29% of the set and Jev's weakest topic. Dropping them lifts Jev to about 75%. The easy non-Beatles set props Jev up by a similar amount.
 - The real tilt is the task type. Every question tests stored knowledge. None puts the answer in the text. A large chat model has read the Wikipedia pages our labels come from. Jev is built to judge the text it is handed.
 
 ## Where Jev misses and GLM does not
 
-- Jev misses 443 questions. GLM gets 416 of them right. The reverse happens 23 times.
-- About 155 are dates, 90 first albums, 55 lead singers, 40 word traps, and 8 song lengths.
+- Jev misses 451 questions on 2026-09-26. GLM got 423 of them right on 2026-09-23. The reverse happens 22 times.
+- Of those 423, 175 are dates, 88 first albums, 64 lead singers, 38 word traps, 23 reversal pairs, 13 songwriters, 13 non-Beatles pairs, and 9 song lengths.
 - Jev's misses are near misses: one year off, a neighboring month, a sibling album.
 - Word traps: given the album *Yellow Submarine*, Jev picks the song "Yellow Submarine" over "It's All Too Much".
-- On those 416 misses, Jev's median top probability is 0.53, and 65% sit under 0.6. A not-sure band catches many of them.
+- On those 423 misses, Jev's median top probability is 0.54, and 66% sit under 0.6. A not-sure band catches many of them.
 
 ## How GLM answers
+
+From the GLM-5.3 Flash run of 2026-09-23.
 
 - From memory. Every recorded request offers one tool, the Answer form. No search tool was offered, thinking is off, and each answer uses about 40 output tokens.
 - Cost: about 344 input tokens (132 cached) and 40 output tokens per question. At $0.15, $0.03, and $0.50 per million tokens, that makes $0.056 per 1,000 questions. The dollars are list price times recorded tokens. The coding-plan endpoint sends no per-token invoice.
@@ -46,9 +48,9 @@ The mix does not flatter GLM. Reweighting makes Jev look slightly worse.
 
 ## Jev time
 
-- Median 0.30 s, middle 80% from 0.24 to 0.39 s, fastest 0.195 s.
+- Median 0.21 s, middle 80% from 0.18 to 0.27 s, fastest 0.16 s, in the run of 2026-09-26. Its load average ran from 3.83 to 7.10 on 16 cores.
 - Each time covers the whole thinkthen command: process start, request, round trip, and parsing. Our own overhead is not yet split out.
-- Jev reports its own time in a header, `x-envoy-upstream-service-time`, in milliseconds. The body has none. Three probe calls on a loaded machine gave server times of 762, 997, and 65 ms, with about 140 ms of network on each. Our recordings keep bodies only, so the bench runs lack this header. ThinkThen issue `2026-09-23-record-the-backends-own-time-for-each-call` asks the command to keep it. The quiet-machine rerun should record it.
+- Jev reports its own time in a header, `x-envoy-upstream-service-time`, in milliseconds. The body has none. Three probe calls on a loaded machine on 2026-09-23 gave server times of 762, 997, and 65 ms, with about 140 ms of network on each. Our recordings keep bodies only, so the bench runs lack this header. ThinkThen issue `2026-09-23-record-the-backends-own-time-for-each-call` asks the command to keep it. The quiet-machine rerun should record it.
 
 ## The vector baseline
 
@@ -58,23 +60,24 @@ The mix does not flatter GLM. Reweighting makes Jev look slightly worse.
 ## Open book
 
 - The thesis (Ian, 2026-09-23): for knowing facts, Jev sits between vector search and a large chat model. The bench locates Jev's accuracy gap in stored detail. Its reading is on par with the chat model's memory.
-- The framing: Jev remembers a lot. It scores about 68% from memory, far above vector search near chance. It misses fine details such as exact dates and first albums. Put the facts in the text, and it reads them fast and well.
-- With a 306-song catalog (about 11,850 tokens) pasted before each input, Jev gets 187 of 196 right. The same questions closed book: 62 of 196. The sample is 134 closed-book misses and 62 hits (`reports/open-book.md`).
-- The catalog fixes 126 of 134 misses and breaks 1 of 62 hits. Weighted back to the 1,075 covered questions, Jev moves from 68% to about 97%. GLM scores 96% from memory.
-- Jev reads well. Its closed-book gap is missing knowledge. Seven of the nine remaining misses are misreads, mostly titles shared with an album or a person.
-- Confidence sharpens: median top probability 0.99 on right answers and 0.62 on wrong ones.
+- The framing: Jev remembers a lot. It scores about 68% from memory on the 1,075 questions the catalog covers, far above vector search near chance. It misses fine details such as exact dates and first albums. Put the facts in the text, and it reads them fast and well.
+- With a 306-song catalog (about 11,850 tokens) pasted before each input, Jev gets 184 of 196 right. The same questions closed book: 68 of 196. The 2026-09-23 run drew the sample: 134 of its closed-book misses and 62 of its hits (`reports/open-book.md`).
+- The catalog fixes 117 of 128 misses and breaks 1 of 68 hits. GLM scores 96% from memory.
+- The run of 2026-09-23 weighs back to the 1,075 covered questions: Jev moves from 68% to about 97%. The fresh run has no weighted figure, because its misses are not the misses the sample was drawn from.
+- Jev reads well. Its closed-book gap is missing knowledge. In the run of 2026-09-23, seven of the nine remaining misses were misreads, mostly titles shared with an album or a person.
+- Confidence sharpens: median top probability 0.99 on right answers and 0.56 on wrong ones.
 - Cost: about 12,200 input tokens per call, 34 times closed book, or 0.51 dollars per 1,000 questions.
 
 ## Retrieval-augmented decisions
 
-- Jev picks two of 28 catalog sections with one `choose` call, then answers with only those. It gets 167 of 196 right at 0.12 dollars per 1,000 questions. The full catalog gets 187 at 0.51 (`reports/rad.md`).
-- BM25 picks get 163 at 0.08. Jev's picks hold the needed lines more often (72% against 61%), but its right answers do not differ from BM25's (p = 0.63). MiniLM picks get 125.
-- Most misses are wrong picks (25 of 29). The pick never sees the options, and title traps move into the pick.
+- Jev picks two of 28 catalog sections with one `choose` call, then answers with only those. It gets 170 of 196 right at 0.12 dollars per 1,000 questions. The full catalog gets 184 at 0.51 (`reports/rad.md`).
+- BM25 picks get 162 at 0.08. Jev's picks hold the needed lines more often (73% against 61%). Its right answers do not differ from BM25's beyond noise: 22 only Jev's arm got right and 14 only BM25's (p = 0.24). MiniLM picks get 127.
+- Most misses are wrong picks (23 of 26). The pick never sees the options, and title traps move into the pick.
 - Falling back to the full catalog when the pick is unsure gets 182 of 196 at 0.22 dollars per 1,000. The cut was tuned on the same questions.
-- A second test added the answer options to the pick text and tuned the fallback cut on one half. On the other 98 questions, the new pick with its fallback got 85 right at 0.13 dollars per 1,000. The full catalog got 94 at 0.51 (p = 0.012), and BM25 with options got 82 (p = 0.66).
-- The options lifted pick recall from 142 to 148 of 196. They also made the pick surer, so the tuned cut sent only 3 held-out questions to the full catalog. The first test's pick with its own tuned cut got 89.
+- A second test added the answer options to the pick text and tuned the fallback cut on one half. On the other 98 questions, the new pick with its fallback got 87 right at 0.14 dollars per 1,000. The full catalog got 91 at 0.51 (p = 0.34), and BM25 with options got 82 (p = 0.36).
+- The options lifted pick recall from 143 to 150 of 196. They also made the pick surer, so the tuned cut sent only 5 held-out questions to the full catalog. The first test's pick with its own tuned cut got 88.
 
 ## Still to add
 
 - A small in-text set, where the answer sits in the text, to test the job Jev is built for. The open-book run covers part of this.
-- A quiet-machine timing run. The main runs of 2026-09-23 recorded no load. The rerun of 2026-09-25 recorded a load average from 1.54 to 6.10 on 16 cores. It did not ask one call at a time on an idle machine. The open-book run ran at a load average near 400. Rerun a fixed sample one call at a time on an idle machine: about 50 questions each for Jev closed book, Jev open book, and GLM-5.3 Flash. Record the load average before and after. Report those medians as the honest times, and label the earlier ones as taken under load.
+- A quiet-machine timing run. The main runs of 2026-09-23 recorded no load. The rerun of 2026-09-26 recorded a load average from 3.83 to 7.10 on 16 cores. It did not ask one call at a time on an idle machine. The open-book run of 2026-09-23 ran at a load average near 400. Rerun a fixed sample one call at a time on an idle machine: about 50 questions each for Jev closed book, Jev open book, and GLM-5.3 Flash. Record the load average before and after. Report those medians as the honest times, and label the earlier ones as taken under load.

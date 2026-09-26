@@ -49,6 +49,5 @@ score has no bar of its own. Here `jq` applies one. A level under the bar reads 
 
 - `score-cold.jsonl` and `score-context.jsonl`: the cases, cold and with each song's catalog entry.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- [The walkthrough](../../docs/walkthroughs/score.md) shows how the example was built and why each answer is right or wrong.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/score](https://thinkthen.dev/learn/beatles-bench/score/).

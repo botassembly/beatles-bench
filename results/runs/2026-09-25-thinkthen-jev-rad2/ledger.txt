@@ -1,18 +1,18 @@
 ## 2026-09-25T21:23:31Z job: RAD2 picks with options
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 0
 guard status before: limit_tokens 476000000 charged_tokens 436348098 remaining_tokens 39651902 
-command: live --max-tokens 253760 scripts/run/thinkthen.sh live results/runs/2026-09-25-thinkthen-jev-rad2 ; BENCH_MAX_INPUT_TOKENS=249000, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 253760 scripts/run/thinkthen.sh live results/runs/2026-09-25-thinkthen-jev-rad2 ; BENCH_MAX_INPUT_TOKENS=249000, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 226302
 spent this attempt: 226302
 guard status after: limit_tokens 476000000 charged_tokens 436601858 remaining_tokens 39398142 
 ## 2026-09-25T21:23:48Z end: RAD2 picks with options
 ## 2026-09-25T21:23:53Z job: RAD2 answers
-pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+pinned binary check: a local build: OK
 recording input tokens before: 226302
 guard status before: limit_tokens 476000000 charged_tokens 436601858 remaining_tokens 39398142 
-command: live --max-tokens 572468 scripts/run/thinkthen.sh live results/runs/2026-09-25-thinkthen-jev-rad2 ; BENCH_MAX_INPUT_TOKENS=560000, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+command: live --max-tokens 572468 scripts/run/thinkthen.sh live results/runs/2026-09-25-thinkthen-jev-rad2 ; BENCH_MAX_INPUT_TOKENS=560000, BENCH_WORKERS=4, THINKTHEN_BIN=a local build
 exit: 0
 recording input tokens after: 732357
 spent this attempt: 506055

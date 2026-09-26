@@ -13,7 +13,7 @@ import common  # noqa: E402
 import table  # noqa: E402
 
 SONGS = {s["title"]: s for s in analyze.read_tsv(ROOT / "data" / "songs.tsv")}
-JEV = ROOT / "results" / "runs" / "2026-09-23-thinkthen-jev"
+JEV = ROOT / "results" / "archive" / "runs" / "2026-09-23-thinkthen-jev"
 
 
 class UnpricedModelTest(unittest.TestCase):
@@ -33,7 +33,7 @@ class UnpricedModelTest(unittest.TestCase):
 
 class ReadmeTableTest(unittest.TestCase):
     """README.md's headline table is pasted by hand from table.py. Each shown cell must equal table.py's: the Beatles-only
-    share, the median time, and the dollars per 1,000 rounded to three places."""
+    share, the median time before its note, and the dollars per 1,000 rounded to three places."""
     NAMES = {"String search (BM25)": "BM25", "Laya, from memory": "Laya", "Jev, from memory": "Jev",
              "GLM-5.3 Flash, from memory": "GLM-5.3 Flash"}
 
@@ -51,7 +51,7 @@ class ReadmeTableTest(unittest.TestCase):
             system, beatles, _, cost, median = printed[self.NAMES[name]]
             with self.subTest(system=system):
                 self.assertEqual(share, beatles.split(" ")[0])
-                self.assertEqual(time, median)
+                self.assertEqual(time.split(" (")[0], median)  # a note on the build and load may follow
                 want = f"{float(cost):.3f}".rstrip("0").rstrip(".")
                 self.assertEqual(dollars.split(" ")[0], want)
 

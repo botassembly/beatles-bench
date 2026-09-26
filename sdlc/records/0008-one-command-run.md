@@ -1,6 +1,6 @@
 # 0008 One command runs the bench
 
-Ticket: [0008](../tickets/0008-one-command-run.md). Branch `ticket/0008-one-command-run`. Built 2026-09-25 by a Claude marketing session on the local Linux machine.
+Ticket: [0008](../tickets/0008-one-command-run.md). Branch `ticket/0008-one-command-run`. Built 2026-09-25 by the queue owner on the local Linux machine.
 
 ## What landed
 

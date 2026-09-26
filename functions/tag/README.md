@@ -45,6 +45,5 @@ A higher bar keeps fewer labels:
 
 - `tag-cold.jsonl`: the cases.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- [The walkthrough](../../docs/walkthroughs/tag.md) shows how the example was built and why each answer is right or wrong.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/tag](https://thinkthen.dev/learn/beatles-bench/tag/).

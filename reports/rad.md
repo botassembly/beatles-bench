@@ -4,7 +4,7 @@ Written 2026-09-23. Model: Jev 1.13.0 from TypeSafe, called through the `thinkth
 
 ## Setup
 
-The open-book catalog splits into 28 sections: one per album, as `scripts/run/catalog.py` groups it, plus "Singles". Each question takes two steps. First a pick ranks the sections. Then one answer call sends the top k sections as the catalog, in catalog order, with the question's own wording and options. In the Jev arm, the pick is one `choose` call. Its text is the question's wording and input, and its options are the 28 section headers. It asks "Which section of the Beatles catalog holds the facts needed to answer the question in the text?" The BM25 arm ranks the sections by BM25 against the same text. The MiniLM arm ranks them by cosine with `sentence-transformers/all-MiniLM-L6-v2`, run at nice 19 on one thread (20 s, 1 GB). The questions are the 196 from the open-book run. `scripts/run/rad.py` builds the picks and answer questions, and `scripts/score/rad_table.py table results/runs/2026-09-23-thinkthen-jev-rad --closed results/runs/2026-09-23-thinkthen-jev --open results/runs/2026-09-23-thinkthen-jev-open-book` prints the table below. A pick holds a question when its sections hold every catalog line the truth rests on, read from the question's `fields`. A tie at the top counts as wrong.
+The open-book catalog splits into 28 sections: one per album, as `scripts/run/catalog.py` groups it, plus "Singles". Each question takes two steps. First a pick ranks the sections. Then one answer call sends the top k sections as the catalog, in catalog order, with the question's own wording and options. In the Jev arm, the pick is one `choose` call. Its text is the question's wording and input, and its options are the 28 section headers. It asks "Which section of the Beatles catalog holds the facts needed to answer the question in the text?" The BM25 arm ranks the sections by BM25 against the same text. The MiniLM arm ranks them by cosine with `sentence-transformers/all-MiniLM-L6-v2`, run at nice 19 on one thread (20 s, 1 GB). The questions are the 196 from the open-book run. `scripts/run/rad.py` builds the picks and answer questions, and `scripts/score/rad_table.py table results/archive/runs/2026-09-23-thinkthen-jev-rad --closed results/archive/runs/2026-09-23-thinkthen-jev --open results/archive/runs/2026-09-23-thinkthen-jev-open-book` prints the table below. A pick holds a question when its sections hold every catalog line the truth rests on, read from the question's `fields`. A tie at the top counts as wrong.
 
 ## Results
 
@@ -40,7 +40,7 @@ Jev's arm missed 29 questions. By the recall rule, 25 are wrong picks and 4 are 
 
 ## Load and cost
 
-Four live jobs ran from 21:24 to 21:27 UTC. The one-minute load average stayed between 2.5 and 5 on 16 cores (`loadavg.txt`). The open-book run ran near 400, so its times are not comparable with these. The jobs sent 932 requests: 1,387,973 input tokens and 98,234 output tokens, or 0.058 dollars. The guard reserved 1,495,000 tokens. A replay with no key gives the same 980 answers byte for byte. The run lives in `results/runs/2026-09-23-thinkthen-jev-rad/`.
+Four live jobs ran from 21:24 to 21:27 UTC. The one-minute load average stayed between 2.5 and 5 on 16 cores (`loadavg.txt`). The open-book run ran near 400, so its times are not comparable with these. The jobs sent 932 requests: 1,387,973 input tokens and 98,234 output tokens, or 0.058 dollars. The guard reserved 1,495,000 tokens. A replay with no key gives the same 980 answers byte for byte. The run lives in `results/archive/runs/2026-09-23-thinkthen-jev-rad/`.
 
 ## Next
 
@@ -52,7 +52,7 @@ Four live jobs ran from 21:24 to 21:27 UTC. The one-minute load average stayed b
 
 Written 2026-09-23. The second test changes two things. The pick text now ends with the answer options: "Options: a; b; c". A yes-or-no question has no options, so its pick text stays the same. The fallback cut is now tuned on one half of the questions and reported on the other.
 
-`scripts/run/rad.py split` splits the 196 questions by topic with the fixed seed "rad2". Each topic splits within one question, and each half holds 98. The tune half picks each cut. The rule takes the lowest cut from 0, 0.05, ..., 1 whose right count comes within two of the full catalog's on the tune half. The full catalog got 93 of the tune half right. The rule chose 0.30 for the new pick and 0.40 for the first test's pick. All rows below cover the held-out half only. The old-pick rows reuse the first test's answers. `scripts/score/rad_table.py second results/runs/2026-09-23-thinkthen-jev-rad2 --closed results/runs/2026-09-23-thinkthen-jev --open results/runs/2026-09-23-thinkthen-jev-open-book --first results/runs/2026-09-23-thinkthen-jev-rad` prints the table and the tests.
+`scripts/run/rad.py split` splits the 196 questions by topic with the fixed seed "rad2". Each topic splits within one question, and each half holds 98. The tune half picks each cut. The rule takes the lowest cut from 0, 0.05, ..., 1 whose right count comes within two of the full catalog's on the tune half. The full catalog got 93 of the tune half right. The rule chose 0.30 for the new pick and 0.40 for the first test's pick. All rows below cover the held-out half only. The old-pick rows reuse the first test's answers. `scripts/score/rad_table.py second results/archive/runs/2026-09-23-thinkthen-jev-rad2 --closed results/archive/runs/2026-09-23-thinkthen-jev --open results/archive/runs/2026-09-23-thinkthen-jev-open-book --first results/archive/runs/2026-09-23-thinkthen-jev-rad` prints the table and the tests.
 
 | Context | Right | Pick recall | Median input tokens | Median time | Dollars per 1,000 |
 | --- | --- | --- | --- | --- | --- |
@@ -91,7 +91,7 @@ The new pick with its fallback missed 13 held-out questions: 10 wrong picks and 
 
 ### Load and cost
 
-Two live jobs ran from 22:09 to 22:11 UTC. The one-minute load average stayed between 6 and 8.4 on 16 cores (`loadavg.txt`). The run folder started from a copy of the first test's recording, so 199 identical requests cost nothing. The jobs sent 290 new requests: 411,549 input tokens and 64,960 output tokens, or 0.017 dollars. The guard reserved 510,000 tokens. A replay with no key gives the same 490 answers byte for byte. The run lives in `results/runs/2026-09-23-thinkthen-jev-rad2/`.
+Two live jobs ran from 22:09 to 22:11 UTC. The one-minute load average stayed between 6 and 8.4 on 16 cores (`loadavg.txt`). The run folder started from a copy of the first test's recording, so 199 identical requests cost nothing. The jobs sent 290 new requests: 411,549 input tokens and 64,960 output tokens, or 0.017 dollars. The guard reserved 510,000 tokens. A replay with no key gives the same 490 answers byte for byte. The run lives in `results/archive/runs/2026-09-23-thinkthen-jev-rad2/`.
 
 ### Verdict
 
@@ -134,7 +134,7 @@ thinkthen annotate scripts/run/rad_pipeline.checks.json --jsonl --details --inpu
 | Abbey Road songs, apart | 18 of 18 | 20,463 | 1.39 s |
 | `annotate` correctness and grounding over the apart answers | 18 of 18 checks agree with the truth | 22,952 | 2.11 s |
 
-- `scores.tsv`, `checks.tsv`, and `times.tsv` in `results/runs/2026-09-24-pipeline-jev/` hold these numbers. That run came from the script before ticket 0004. The current script replays `results/runs/2026-09-24-pipeline-jev2/`, which holds the same answers for these arms. A time covers the whole call for all of an arm's records, with four requests in flight.
+- `scores.tsv`, `checks.tsv`, and `times.tsv` in `results/archive/runs/2026-09-24-pipeline-jev/` hold these numbers. That run came from the script before ticket 0004. The current script replays `results/runs/2026-09-24-pipeline-jev2/`, which holds the same answers for these arms. A time covers the whole call for all of an arm's records, with four requests in flight.
 - The pick gave the White Album 0.44 and Revolver 0.33. Abbey Road got 0.04. The answer still named Starr at 0.90, from memory. The "Jev picks, k = 2" row above shows the same pattern: Jev answered 29 of its 54 wrong picks right. This pair cost 3,296 input tokens against that row's median of 2,656.
 - The Abbey Road section spells out "lead:" for every song. The two context arms are a lookup, so 18 of 18 shows that the context reached the model. It says nothing about harder questions.
 - From memory, Jev added a second or third singer on 13 songs. On Polythene Pam it named McCartney alone.
@@ -154,7 +154,7 @@ Written 2026-09-24, ticket 0004. Octopus's Garden proved nothing: the pick misse
 
 ### Candidates
 
-`scripts/score/rad_table.py candidates results/runs/2026-09-23-thinkthen-jev-rad results/runs/2026-09-23-thinkthen-jev-rad2 --closed results/runs/2026-09-23-thinkthen-jev --open results/runs/2026-09-23-thinkthen-jev-open-book` lists them with no new calls. It joins the closed-book run (`2026-09-23-thinkthen-jev`) with each run on question id. It keeps questions where closed book was wrong, the k = 2 Jev pick held every section `rad.py needed()` names (from `rank-jev.tsv`), and the k = 2 answer was right. 103 questions passed in at least one run. Six singer questions name a song with one lead singer. Five more name songs with a shared lead, and one pick of four singers cannot answer those. The pipeline asks in its own wording, and Jev knew all six from memory in that wording:
+`scripts/score/rad_table.py candidates results/archive/runs/2026-09-23-thinkthen-jev-rad results/archive/runs/2026-09-23-thinkthen-jev-rad2 --closed results/archive/runs/2026-09-23-thinkthen-jev --open results/archive/runs/2026-09-23-thinkthen-jev-open-book` lists them with no new calls. It joins the closed-book run (`2026-09-23-thinkthen-jev`) with each run on question id. It keeps questions where closed book was wrong, the k = 2 Jev pick held every section `rad.py needed()` names (from `rank-jev.tsv`), and the k = 2 answer was right. 103 questions passed in at least one run. Six singer questions name a song with one lead singer. Five more name songs with a shared lead, and one pick of four singers cannot answer those. The pipeline asks in its own wording, and Jev knew all six from memory in that wording:
 
 | Song | Truth | Bench closed book | Pipeline memory | Pipeline pick, top two | Pipeline answer |
 | --- | --- | --- | --- | --- | --- |
