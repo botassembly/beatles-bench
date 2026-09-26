@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Jill Balcon","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Sharon Tate","b":"Plácido Domingo","c":"Frank Sinatra","d":"Daniel Day-Lewis"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.075, "probabilities": {"a": 0.4324, "b": 0.26, "c": 0.1848, "d": 0.1228}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

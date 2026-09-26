@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Good Day Sunshine","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"June 1967","b":"August 1966","c":"July 1967","d":"May 1966"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0324, "probabilities": {"a": 0.3569, "b": 0.2789, "c": 0.2046, "d": 0.1596}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
+}

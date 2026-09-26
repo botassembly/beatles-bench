@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Ralph Fiennes","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Katharine Martha Houghton Hepburn","b":"Jennifer Lash","c":"Rachel Messerer","d":"Jolie Gabor"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.46,"probabilities":{"d":0.0,"a":0.01,"c":0.6,"b":0.39}}},"usage":{"input_tokens":356,"output_tokens":46}}
+}

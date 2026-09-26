@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Two of Us","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"January 1971","b":"April 1970","c":"September 1970","d":"May 1970"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.1059, "probabilities": {"a": 0.3257, "b": 0.4304, "c": 0.1371, "d": 0.1068}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
+}

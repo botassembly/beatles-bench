@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Ringo Starr","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Hold Me Tight","b":"Boys","c":"I Am the Walrus","d":"Oh! Darling"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0694, "probabilities": {"a": 0.4389, "b": 0.2284, "c": 0.1363, "d": 0.1964}}}, "usage": {"input_tokens": 62, "output_tokens": 0}}
+}

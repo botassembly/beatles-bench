@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Rock and Roll Music","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Was it released late in the Beatles' career, nearer 1970 than 1962?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.48}},"usage":{"input_tokens":305,"output_tokens":21}}
+}

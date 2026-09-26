@@ -1,0 +1,41 @@
+relation	famous	obscure	famous_item	obscure_item	famous_title	obscure_title
+building_architect	St. Peter's Basilica	Donato Bramante	Q12512	Q7793	St. Peter's Basilica	Donato Bramante
+building_architect	Doge's Palace	Antonio Rizzo	Q189883	Q604631	Doge's Palace	Antonio Rizzo (architect)
+building_architect	Prague Castle	Benedikt Rejt	Q193369	Q66724	Prague Castle	Benedikt Rejt
+building_architect	Quirinal Palace	Carlo Maderno	Q223079	Q122328	Quirinal Palace	Carlo Maderno
+building_architect	Ulm Minster	Ulrich Ensingen	Q44562	Q85897	Ulm Minster	Ulrich Ensingen
+building_architect	Sydney Opera House	Peter Hall	Q45178	Q64797517	Sydney Opera House	Peter Hall (architect)
+building_architect	Faisal Mosque	Vedat Dalokay	Q500983	Q119339	Faisal Mosque	Vedat Dalokay
+building_architect	United States Capitol	Étienne Sulpice Hallet	Q54109	Q8078495	United States Capitol	Étienne Sulpice Hallet
+building_architect	St. Vitus Cathedral	Matthias of Arras	Q5949	Q388362	St. Vitus Cathedral	Matthias of Arras
+building_architect	Brandenburg Gate	Heinrich Strack	Q82425	Q72120	Brandenburg Gate	Heinrich Strack
+film_composer	2001: A Space Odyssey	György Ligeti	Q103474	Q154331	2001: A Space Odyssey	György Ligeti
+film_composer	Spartacus	Alex North	Q108297	Q349448	Spartacus (film)	Alex North
+film_composer	The Day After Tomorrow	Harald Kloser	Q14320	Q78652	The Day After Tomorrow	Harald Kloser
+film_composer	Lucy	Éric Serra	Q15624215	Q63987	Lucy (2014 film)	Éric Serra
+film_composer	2012	Thomas Wander	Q184605	Q450156	2012 (film)	Thomas Wander
+film_composer	Prometheus	Marc Streitenfeld	Q192686	Q553963	Prometheus (2012 film)	Marc Streitenfeld
+film_composer	Eternal Sunshine of the Spotless Mind	Jon Brion	Q208269	Q540389	Eternal Sunshine of the Spotless Mind	Jon Brion
+film_composer	Eyes Wide Shut	Jocelyn Pook	Q209481	Q445096	Eyes Wide Shut	Jocelyn Pook
+film_composer	Peter Pan	Sammy Fain	Q270470	Q742896	Peter Pan (1953 film)	Sammy Fain
+film_composer	The Three Caballeros	Paul Smith	Q736731	Q1356617	The Three Caballeros	Paul Smith (composer)
+invention_inventor	traveling-wave tube	Rudolf Kompfner	Q1164091	Q94031	Traveling-wave tube	Rudolf Kompfner
+invention_inventor	escalator	Jesse W. Reno	Q15003	Q346015	Escalator	Jesse W. Reno
+invention_inventor	Volksempfänger	Otto Griessing	Q163889	Q105089	Volksempfänger	Otto Griessing
+invention_inventor	cloud chamber	Charles Thomson Rees Wilson	Q214634	Q162900	Cloud chamber	C. T. R. Wilson
+invention_inventor	light-emitting diode	H. J. Round	Q25504	Q1606934	Light-emitting diode	H. J. Round
+invention_inventor	achromatic lens	Chester Moore Hall	Q340600	Q1070737	Achromatic lens	Chester Moore Hall
+invention_inventor	pitot tube	Henri Pitot	Q56218	Q505118	Pitot tube	Henri Pitot
+invention_inventor	slow cooker	Irving Naxon	Q642345	Q115650622	Slow cooker	Irving Naxon
+invention_inventor	shower	François Merry Delabost	Q7863	Q3085359	Shower	François Merry Delabost
+invention_inventor	pyrometer	William Chandler Roberts-Austen	Q903715	Q921502	Pyrometer	William Chandler Roberts-Austen
+song_writer	“Gentleman” by Psy	Yoo Gun Hyung	Q10856905	Q1437092	Gentleman (Psy song)	Yoo Gun-hyung
+song_writer	“Serving” by Miriana Conte	Muxu	Q132183467	Q16233428	Serving (song)	Muxu
+song_writer	“Con te partirò” by Andrea Bocelli	Lucio Quarantotto	Q153202	Q3838932	Con te partirò	Lucio Quarantotto
+song_writer	“Chandelier” by Sia	Jesse Shatkin	Q16028874	Q18217998	Chandelier (song)	Jesse Shatkin
+song_writer	“Firework” by Katy Perry	Sandy Vee	Q163412	Q2026621	Firework (song)	Sandy Vee
+song_writer	“All About That Bass” by Meghan Trainor	Kevin Kadish	Q17489280	Q6396645	All About That Bass	Kevin Kadish
+song_writer	“The Nights” by Avicii	Infinity	Q18786734	Q18351468	The Nights	Infinity (producer)
+song_writer	“Toxic” by Britney Spears	Henrik Jonback	Q379751	Q9002921	Toxic (song)	Henrik Jonback
+song_writer	“What Is Love” by Haddaway	Tony Hendrik	Q550158	Q1322661	What Is Love	Tony Hendrik
+song_writer	“Guantanamera” by The Sandpipers	Joseíto Fernández	Q835454	Q3079985	Guantanamera	Joseíto Fernández

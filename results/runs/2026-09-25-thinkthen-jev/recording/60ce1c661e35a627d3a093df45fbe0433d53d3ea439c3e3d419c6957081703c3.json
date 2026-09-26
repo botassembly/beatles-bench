@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Eric Thompson","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Lindsay Lohan","b":"Matthew Broderick","c":"Emma Thompson","d":"Michael Collins"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.95,"probabilities":{"a":0.01,"c":0.96,"b":0.01,"d":0.02}}},"usage":{"input_tokens":352,"output_tokens":46}}
+}

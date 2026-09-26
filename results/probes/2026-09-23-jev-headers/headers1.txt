@@ -1,0 +1,12 @@
+HTTP/2 200 
+date: Wed, 23 Sep 2026 20:51:17 GMT
+content-type: application/json
+content-length: 190
+server: cloudflare
+x-typesafe-request-id: req_01a0d009777971d88f0152bd3e8f13e0
+x-envoy-upstream-service-time: 762
+cf-cache-status: DYNAMIC
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=VYpEcbLrxduxFbU29A%2Ff%2BqL91oX5rOnYoVB%2Fe9OkAuOXuQDYdUUPzFPCOuA3YvRqVu%2FNdC7IMMSTJdLBO8WekrDvfY2E6DOgLpyK%2F2Bk8p%2FC5Vyg6kgOCLmPiayyBE5PZA%3D%3D"}]}
+cf-ray: a3fc6d2ba9d8c543-ORD
+

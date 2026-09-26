@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"I'll Cry Instead / All You Need Is Love","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"I'll Cry Instead","b":"All You Need Is Love"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0383, "probabilities": {"a": 0.3853, "b": 0.6147}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
+}

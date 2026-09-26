@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Piggies","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Let It Be","b":"Abbey Road","c":"Yellow Submarine","none":"none of these"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0815, "probabilities": {"a": 0.4591, "b": 0.2152, "c": 0.1322, "none": 0.1936}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

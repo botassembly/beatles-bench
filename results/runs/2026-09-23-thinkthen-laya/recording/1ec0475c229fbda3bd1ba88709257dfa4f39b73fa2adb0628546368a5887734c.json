@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Jennifer Lash","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Patrick Swayze","b":"Rita Hayworth","c":"Jennifer Aniston","d":"Ralph Fiennes"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.3919, "probabilities": {"a": 0.0814, "b": 0.1249, "c": 0.7403, "d": 0.0534}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Yellow Submarine","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"A Hard Day's Night","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Revolver","d":"Help!"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.3,"probabilities":{"d":0.28,"b":0.24,"c":0.48,"a":0.0}}},"usage":{"input_tokens":363,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"P.S. I Love You","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"October 1962","b":"July 1962","c":"May 1962","d":"October 1963"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0095, "probabilities": {"a": 0.2669, "b": 0.2139, "c": 0.21, "d": 0.3092}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

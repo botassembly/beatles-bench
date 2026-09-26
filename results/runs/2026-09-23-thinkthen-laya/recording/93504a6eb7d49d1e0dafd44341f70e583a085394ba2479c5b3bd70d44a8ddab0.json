@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"With a Little Help from My Friends","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Revolver","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Help!","d":"Beatles for Sale"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.139, "probabilities": {"a": 0.5121, "b": 0.2525, "c": 0.1123, "d": 0.1231}}}, "usage": {"input_tokens": 64, "output_tokens": 0}}
+}

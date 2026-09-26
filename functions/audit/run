@@ -1,0 +1,20 @@
+#!/bin/sh
+# The audit slide: is each of 70 songs on Abbey Road? audit grades the answers against key.jsonl and suggests a bar.
+#   ./run                  answer from recording/, with no key and no network, then grade
+#   ./run threshold 0.78   grade the same answers at another bar
+#   ./run live             ask the 70 songs of the server THINKTHEN_BASE_URL names, then grade. thinkthen reads the key.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T|LOW:HIGH]" >&2; exit 2; }
+from='--replay recording' bar=
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.:]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answers=$(jq -c '.records[]' audit-cold.jsonl |
+  thinkthen decide 'Is this song on the album Abbey Road?' --jsonl --field /input --details $from)
+printf '%s\n' "$answers" | thinkthen audit - key.jsonl --id /input --table ${bar:+--threshold "$bar"}

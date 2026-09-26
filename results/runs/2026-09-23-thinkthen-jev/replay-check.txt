@@ -1,0 +1,1 @@
+2026-09-23, after the audit fixes: replay with THINKTHEN_API_KEY unset: answers.jsonl byte-identical to the live run (1,501 answers).

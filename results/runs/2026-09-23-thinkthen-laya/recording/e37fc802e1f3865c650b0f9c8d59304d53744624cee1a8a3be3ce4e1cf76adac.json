@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Taxman","b":"I'll Be Back","c":"What Goes On","d":"When I'm Sixty-Four"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0145, "probabilities": {"a": 0.1824, "b": 0.3036, "c": 0.2232, "d": 0.2908}}}, "usage": {"input_tokens": 68, "output_tokens": 0}}
+}

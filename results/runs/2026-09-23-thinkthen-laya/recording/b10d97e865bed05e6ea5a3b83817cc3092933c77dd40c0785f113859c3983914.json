@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"A Hard Day's Night","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"You Never Give Me Your Money","b":"Revolution 1","c":"Any Time at All","d":"Baby It's You"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0455, "probabilities": {"a": 0.4049, "b": 0.2336, "c": 0.1676, "d": 0.1938}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
+}

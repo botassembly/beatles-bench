@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"John Lennon","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Blackbird","b":"Mean Mr. Mustard","c":"What You're Doing","d":"The Long and Winding Road"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0603, "probabilities": {"a": 0.4141, "b": 0.1366, "c": 0.1906, "d": 0.2587}}}, "usage": {"input_tokens": 64, "output_tokens": 0}}
+}

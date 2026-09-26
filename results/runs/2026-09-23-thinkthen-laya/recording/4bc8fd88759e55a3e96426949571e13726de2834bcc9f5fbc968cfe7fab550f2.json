@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"François Merry Delabost","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"slow cooker","b":"cloud chamber","c":"shower","d":"traveling-wave tube"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0446, "probabilities": {"a": 0.1772, "b": 0.2089, "c": 0.2053, "d": 0.4086}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
+}

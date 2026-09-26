@@ -1,0 +1,19 @@
+#!/bin/sh
+# The relate slide: link seven songs to the singers and albums in relate.json.
+#   ./run                  answer from recording/, with no key and no network. It keeps the edges at 0.5 or more.
+#   ./run threshold 0.01   the same answers at another bar
+#   ./run live             ask the server THINKTHEN_BASE_URL names. thinkthen reads the key itself.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T]" >&2; exit 2; }
+from='--replay recording' bar=0.5
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.:]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answers=$(jq -c '.records[]' relate-cold.jsonl | thinkthen relate @relate.json --jsonl --threshold "$bar" $from)
+printf '%s\n' "$answers" | jq -c '[.relation, .source.name, .target.name, .probability]'

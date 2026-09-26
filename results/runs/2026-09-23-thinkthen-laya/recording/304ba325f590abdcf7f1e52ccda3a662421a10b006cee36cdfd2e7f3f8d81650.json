@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Devil in Her Heart","b":"Lucy in the Sky with Diamonds","c":"Magical Mystery Tour","d":"Octopus's Garden"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0551, "probabilities": {"a": 0.1277, "b": 0.1927, "c": 0.3041, "d": 0.3755}}}, "usage": {"input_tokens": 71, "output_tokens": 0}}
+}

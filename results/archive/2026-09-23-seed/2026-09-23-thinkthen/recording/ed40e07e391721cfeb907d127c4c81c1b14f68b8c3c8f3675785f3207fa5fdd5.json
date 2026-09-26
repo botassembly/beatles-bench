@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Christmas Time (Is Here Again)","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who composed it?","criteria":{"a":"Ringo Starr","b":"Lennon–McCartney"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.24,"probabilities":{"b":0.62,"a":0.38}}},"usage":{"input_tokens":331,"output_tokens":32}}
+}

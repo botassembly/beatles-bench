@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"the start of Battle of Hamburger Hill","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Taxman","b":"The Ballad of John and Yoko","c":"The Fool on the Hill","d":"I'm So Tired"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.29,"probabilities":{"d":0.15,"b":0.47000000000000003,"a":0.2,"c":0.18}}},"usage":{"input_tokens":368,"output_tokens":46}}
+}

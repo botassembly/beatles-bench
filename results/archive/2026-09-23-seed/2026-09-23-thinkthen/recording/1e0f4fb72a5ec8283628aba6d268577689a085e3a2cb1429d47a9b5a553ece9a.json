@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Momoko Kōchi","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Nobuhiro Ōkōchi","b":"Peter Watts","c":"Carmine Coppola","d":"Bill Lee"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.86,"probabilities":{"a":0.9,"b":0.07,"c":0.01,"d":0.02}}},"usage":{"input_tokens":355,"output_tokens":46}}
+}

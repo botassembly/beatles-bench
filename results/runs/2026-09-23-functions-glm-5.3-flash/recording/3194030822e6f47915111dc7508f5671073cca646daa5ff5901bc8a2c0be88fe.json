@@ -1,0 +1,109 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text is the title of a song by the Beatles. Which Beatles sang its lead vocal? Name every one who did, since some songs share the lead.\n\nText: What Goes On\n\nFor each person, give the probability that the answer includes them:\n- John Lennon\n- Paul McCartney\n- George Harrison\n- Ringo Starr\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "george": {
+        "description": "The probability, from 0 to 1, that the answer includes George Harrison",
+        "title": "George",
+        "type": "number"
+       },
+       "john": {
+        "description": "The probability, from 0 to 1, that the answer includes John Lennon",
+        "title": "John",
+        "type": "number"
+       },
+       "paul": {
+        "description": "The probability, from 0 to 1, that the answer includes Paul McCartney",
+        "title": "Paul",
+        "type": "number"
+       },
+       "ringo": {
+        "description": "The probability, from 0 to 1, that the answer includes Ringo Starr",
+        "title": "Ringo",
+        "type": "number"
+       }
+      },
+      "required": [
+       "george",
+       "john",
+       "paul",
+       "ringo"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "\"What Goes On\" (Rubber Soul, 1965) is sung on lead by Ringo Starr, with John and Paul providing backing harmonies. The lead vocal is Ringo's.",
+     "reasoning_content": "Ringo lead, with John & Paul harmonies. Lead vocal: Ringo. But \"sang lead\" — officially credited Ringo, Lennon–McCartney backing. Answer: Ringo 0.95, others low ~0.2? Some credit John and Paul harmony. Lead only Ringo.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"george\":0.02,\"john\":0.1,\"paul\":0.1,\"ringo\":0.97}",
+        "name": "Answer"
+       },
+       "id": "call_-7230390560199011362",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790195910,
+  "id": "20260924043822243512701ac4414b",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924043822243512701ac4414b",
+  "usage": {
+   "completion_tokens": 143,
+   "completion_tokens_details": {
+    "reasoning_tokens": 64
+   },
+   "prompt_tokens": 419,
+   "prompt_tokens_details": {
+    "cached_tokens": 320
+   },
+   "total_tokens": 562
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 7.84
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Let It Be","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"I Me Mine","b":"Fixing a Hole","c":"I'm Looking Through You","d":"Carry That Weight"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.027, "probabilities": {"a": 0.3621, "b": 0.1784, "c": 0.253, "d": 0.2065}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
+}

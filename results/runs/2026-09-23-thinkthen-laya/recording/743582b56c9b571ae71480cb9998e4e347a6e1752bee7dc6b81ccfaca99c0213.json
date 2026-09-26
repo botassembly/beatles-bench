@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Eva Green","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Marlène Jobert","b":"Virginia Admiral","c":"Arlyn Phoenix","d":"Minnie Marx"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0076, "probabilities": {"a": 0.2613, "b": 0.2779, "c": 0.2709, "d": 0.1899}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"You're Going to Lose That Girl / I Will","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"You're Going to Lose That Girl","b":"I Will"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.6051, "probabilities": {"a": 0.9221, "b": 0.0779}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
+}

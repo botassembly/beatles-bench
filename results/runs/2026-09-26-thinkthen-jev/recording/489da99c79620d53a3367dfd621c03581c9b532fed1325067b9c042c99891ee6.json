@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Dizzy Miss Lizzy","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Rubber Soul","b":"Beatles for Sale","c":"Help!"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.45,"probabilities":{"a":0.07,"c":0.29,"b":0.64}}},"usage":{"input_tokens":346,"output_tokens":39}}
+}

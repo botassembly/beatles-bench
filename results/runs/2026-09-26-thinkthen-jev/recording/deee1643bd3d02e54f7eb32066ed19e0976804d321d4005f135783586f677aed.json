@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Everybody's Got Something to Hide Except Me and My Monkey","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"The Beatles (White Album)","c":"Rubber Soul"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.59,"probabilities":{"b":0.73,"c":0.18,"a":0.09}}},"usage":{"input_tokens":353,"output_tokens":39}}
+}

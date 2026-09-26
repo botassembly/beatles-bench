@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Till There Was You","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Yellow Submarine","b":"Beatles for Sale","c":"A Hard Day's Night","none":"none of these"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.35,"probabilities":{"none":0.26,"c":0.14,"a":0.09,"b":0.51}}},"usage":{"input_tokens":363,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"I Don't Want to Spoil the Party","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"a":"George Harrison","b":"Ringo Starr","c":"Lennon–McCartney"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.61,"probabilities":{"a":0.14,"c":0.74,"b":0.12}}},"usage":{"input_tokens":349,"output_tokens":39}}
+}

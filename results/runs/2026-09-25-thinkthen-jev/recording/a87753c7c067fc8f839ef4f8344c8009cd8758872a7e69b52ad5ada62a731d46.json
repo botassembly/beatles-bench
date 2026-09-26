@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"She Said She Said","b":"Rocky Raccoon","c":"Lucy in the Sky with Diamonds","d":"Tell Me Why"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.86,"probabilities":{"d":0.89,"c":0.03,"a":0.05,"b":0.03}}},"usage":{"input_tokens":366,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"John Lennon","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"If I Needed Someone","b":"I Me Mine","c":"Here Comes the Sun","d":"I Want You (She's So Heavy)"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.92,"probabilities":{"c":0.0,"b":0.01,"a":0.05,"d":0.94}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

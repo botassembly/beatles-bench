@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs was first released on it?\n\nText: Please Please Me\n\nAllowed answers:\n- Chains\n- A Day in the Life\n- Julia\n- Norwegian Wood (This Bird Has Flown)\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Chains",
+         "A Day in the Life",
+         "Julia",
+         "Norwegian Wood (This Bird Has Flown)"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "The text refers to *Please Please Me*, the Beatles' 1963 debut album. None of the listed songs actually appeared on it — \"Norwegian Wood\" was on *Rubber Soul*, \"Julia\" on *The White Album*, and \"A Day in the Life\" on *Sgt. Pepper's*. However, since I must choose one, I'll pick the one that seems least likely to be intended... this appears to be a trick question, and my best guess with low confidence:",
+     "reasoning_content": "None first released on Please Please Me... but must pick; Julia was on White Album; Norwegian Wood on Rubber Soul. Hmm—none correct. Pick Norwegian Wood? Actually \"Please Please Me\" is also the album. All three others not on it. Least wrong... choose Julia? No basis; probability low.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Norwegian Wood (This Bird Has Flown)\",\"probability\":0.1}",
+        "name": "Answer"
+       },
+       "id": "call_-7230575587390122841",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790182529,
+  "id": "20260924005514c85b1494d334401f",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924005514c85b1494d334401f",
+  "usage": {
+   "completion_tokens": 194,
+   "completion_tokens_details": {
+    "reasoning_tokens": 63
+   },
+   "prompt_tokens": 350,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 544
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 15.128
+}

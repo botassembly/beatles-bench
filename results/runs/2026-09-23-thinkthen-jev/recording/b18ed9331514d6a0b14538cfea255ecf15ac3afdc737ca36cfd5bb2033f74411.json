@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Savoy Truffle","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"September 1969","b":"June 1969","c":"November 1968","d":"April 1969"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.29,"probabilities":{"c":0.16,"b":0.19,"a":0.45999999999999996,"d":0.19}}},"usage":{"input_tokens":369,"output_tokens":46}}
+}

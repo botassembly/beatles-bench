@@ -1,0 +1,1 @@
+{"id": "recognize-cold", "function": "recognize", "args": ["person", "song", "album", "place", "--threshold", "0.01", "--jsonl", "--field", "/input"], "records": [{"id": "recognize-cold", "input": "Ringo Starr wrote Octopus's Garden on a boat off Sardinia, and the band recorded it at Abbey Road Studios for the album Abbey Road."}]}

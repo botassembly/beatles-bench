@@ -1,0 +1,27 @@
+limit_tokens 476000000
+charged_tokens 415854418
+remaining_tokens 60145582
+limit_tokens 476000000
+charged_tokens 416254418
+remaining_tokens 59745582
+# 2026-09-23 rerun after the event rule change (89 changed questions)
+limit_tokens 476000000
+charged_tokens 416404418
+remaining_tokens 59595582
+limit_tokens 476000000
+charged_tokens 416504418
+remaining_tokens 59495582
+# 2026-09-23 rerun for the 152 reversal-general questions
+limit_tokens 476000000
+charged_tokens 416574418
+remaining_tokens 59425582
+limit_tokens 476000000
+charged_tokens 416694418
+remaining_tokens 59305582
+# 2026-09-23 rerun after the Wikidata occurrence event rule and the surname filter
+limit_tokens 476000000
+charged_tokens 416694418
+remaining_tokens 59305582
+limit_tokens 476000000
+charged_tokens 416844418
+remaining_tokens 59155582

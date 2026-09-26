@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Dona Celeste","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Pelé","b":"Donald Trump","c":"Richard Attenborough","d":"Ranbir Kapoor"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0401, "probabilities": {"a": 0.2289, "b": 0.1473, "c": 0.2422, "d": 0.3816}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
+}

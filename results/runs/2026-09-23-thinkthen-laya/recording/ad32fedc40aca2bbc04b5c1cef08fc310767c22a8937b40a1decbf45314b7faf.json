@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"P.S. I Love You / Dizzy Miss Lizzy","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"P.S. I Love You","b":"Dizzy Miss Lizzy"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2279, "probabilities": {"a": 0.7734, "b": 0.2266}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

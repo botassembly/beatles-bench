@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Ulrich Ensingen","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"United States Capitol","b":"Faisal Mosque","c":"Ulm Minster","d":"Prague Castle"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.99,"probabilities":{"d":0.0,"c":1.0,"b":0.0,"a":0.0}}},"usage":{"input_tokens":354,"output_tokens":46}}
+}

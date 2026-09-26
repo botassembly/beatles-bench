@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"I Don't Want to Spoil the Party","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Let It Be","c":"Rubber Soul","none":"none of these"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.15,"probabilities":{"c":0.17,"a":0.36,"b":0.14,"none":0.33}}},"usage":{"input_tokens":364,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Michael D. Horowitz","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Robert De Niro","b":"Maximilian Schell","c":"Winona Ryder","d":"Rita Hayworth"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.34,"probabilities":{"b":0.13,"a":0.3,"d":0.07,"c":0.5}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

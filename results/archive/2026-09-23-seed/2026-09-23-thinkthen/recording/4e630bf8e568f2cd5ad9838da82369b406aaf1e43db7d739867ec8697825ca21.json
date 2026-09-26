@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Paul McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"Rain","b":"Think for Yourself","c":"I Need You","d":"Only a Northern Song"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.94,"probabilities":{"d":0.0,"c":0.02,"a":0.96,"b":0.02}}},"usage":{"input_tokens":353,"output_tokens":46}}
+}

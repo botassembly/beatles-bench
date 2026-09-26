@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"I'm Happy Just to Dance with You","b":"Good Night","c":"All My Loving","d":"Misery"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.78,"probabilities":{"a":0.84,"d":0.04,"b":0.07,"c":0.05}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

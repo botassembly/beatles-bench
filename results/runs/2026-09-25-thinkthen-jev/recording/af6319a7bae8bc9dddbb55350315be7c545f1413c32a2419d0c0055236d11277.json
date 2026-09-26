@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Olivia de Havilland","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Dona Celeste","b":"Lilian Fontaine","c":"Nadia Benois","d":"Patsy Swayze"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.63,"probabilities":{"d":0.01,"a":0.72,"b":0.21,"c":0.06}}},"usage":{"input_tokens":358,"output_tokens":46}}
+}

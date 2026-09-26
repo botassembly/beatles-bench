@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Ringo Starr","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"Revolution 9","b":"I Want You (She's So Heavy)","c":"Can You Dig It?","d":"Ask Me Why"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.61,"probabilities":{"d":0.06,"c":0.7,"a":0.22,"b":0.02}}},"usage":{"input_tokens":363,"output_tokens":46}}
+}

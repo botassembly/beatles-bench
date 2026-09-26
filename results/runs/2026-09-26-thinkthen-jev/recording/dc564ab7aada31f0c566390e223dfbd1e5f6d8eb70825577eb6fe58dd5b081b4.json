@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"I'm a Loser","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"The Beatles (White Album)","c":"Magical Mystery Tour","none":"none of these"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.28,"probabilities":{"b":0.46,"a":0.12,"c":0.27,"none":0.15}}},"usage":{"input_tokens":362,"output_tokens":46}}
+}

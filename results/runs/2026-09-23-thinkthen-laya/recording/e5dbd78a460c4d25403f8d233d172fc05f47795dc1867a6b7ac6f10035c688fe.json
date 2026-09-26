@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"It Won't Be Long","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"August 1964","b":"November 1964","c":"November 1963","d":"July 1964"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.002, "probabilities": {"a": 0.2434, "b": 0.2819, "c": 0.2338, "d": 0.2409}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
+}

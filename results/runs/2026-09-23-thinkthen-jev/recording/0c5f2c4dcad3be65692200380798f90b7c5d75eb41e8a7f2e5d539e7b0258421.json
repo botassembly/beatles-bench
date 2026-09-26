@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Please Please Me","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"There's a Place","b":"Nowhere Man","c":"Don't Pass Me By","d":"Please Mr. Postman"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.88,"probabilities":{"a":0.91,"b":0.01,"c":0.0,"d":0.08}}},"usage":{"input_tokens":362,"output_tokens":46}}
+}

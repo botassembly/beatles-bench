@@ -1,0 +1,21 @@
+#!/bin/sh
+# The tag slide: which of five labels fit each of six songs?
+#   ./run                 answer from recording/, with no key and no network
+#   ./run threshold 0.7   the same answers at another bar
+#   ./run live            ask the server THINKTHEN_BASE_URL names. thinkthen reads the key itself.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T]" >&2; exit 2; }
+from='--replay recording' bar=
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.:]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answers=$(printf '%s\n' Michelle Yesterday 'Eleanor Rigby' 'Penny Lane' "Octopus's Garden" 'Lucy in the Sky with Diamonds' |
+  thinkthen tag 'The text is the title of a song by the Beatles. Which of these describe it?' \
+    'love song' sad psychedelic 'about a place' 'about the sea' --lines --details ${bar:+--threshold "$bar"} $from)
+printf '%s\n' "$answers" | jq -c '{song: .input, tags: .value, p: .answer.probabilities}'

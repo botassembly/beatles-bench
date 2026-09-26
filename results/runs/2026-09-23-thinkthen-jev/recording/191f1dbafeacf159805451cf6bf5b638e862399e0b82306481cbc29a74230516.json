@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Apollo 9","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"June 1969","b":"July 1969","c":"April 1969","d":"March 1969"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.86,"probabilities":{"c":0.06,"b":0.0,"a":0.04,"d":0.9}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

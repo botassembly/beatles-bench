@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Colleen Farrington","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Peter Ustinov","b":"Diane Lane","c":"Ginger Rogers","d":"Gore Vidal"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.1659, "probabilities": {"a": 0.0849, "b": 0.5473, "c": 0.151, "d": 0.2168}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
+}

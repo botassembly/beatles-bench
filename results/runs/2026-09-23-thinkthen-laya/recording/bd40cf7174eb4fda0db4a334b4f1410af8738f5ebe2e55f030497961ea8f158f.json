@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Mercury-Atlas 9","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"May 1962","b":"November 1963","c":"May 1963","d":"July 1963"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0157, "probabilities": {"a": 0.2444, "b": 0.2991, "c": 0.2868, "d": 0.1696}}}, "usage": {"input_tokens": 47, "output_tokens": 0}}
+}

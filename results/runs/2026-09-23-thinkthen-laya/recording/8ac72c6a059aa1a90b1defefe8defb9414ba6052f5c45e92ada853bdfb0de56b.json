@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Let It Be","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. In what year was it first released?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "1969", "confidence": 0.0099, "probabilities": {"1963": 0.1249, "1964": 0.147, "1965": 0.0834, "1966": 0.1262, "1967": 0.0945, "1968": 0.1494, "1969": 0.1586, "1970": 0.1159}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
+}

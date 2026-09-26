@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Please Please Me","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Good Night","b":"Baby It's You","c":"Please Mr. Postman","d":"One After 909"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.27,"probabilities":{"b":0.45,"a":0.08,"d":0.23,"c":0.24}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

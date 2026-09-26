@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs was first released on it?\n\nText: Let It Be\n\nAllowed answers:\n- Only a Northern Song\n- One After 909\n- Honey Pie\n- Everybody's Got Something to Hide Except Me and My Monkey\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Only a Northern Song",
+         "One After 909",
+         "Honey Pie",
+         "Everybody's Got Something to Hide Except Me and My Monkey"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "The text refers to *Let It Be*. Of the options, \"One After 909\" first appeared on the *Let It Be* album (1970); the others were released earlier (Yellow Submarine 1969, The Beatles 1968).",
+     "reasoning_content": "Let It Be album (1970): Only a Northern Song was released on Yellow Submarine 1969. One After 909 on Let It Be. So answer One After 909. But text is just \"Let It Be\" — the song? Either way.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"One After 909\",\"probability\":0.9}",
+        "name": "Answer"
+       },
+       "id": "call_-7230637847236048521",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790177389,
+  "id": "202609232329341f90227862074266",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609232329341f90227862074266",
+  "usage": {
+   "completion_tokens": 134,
+   "completion_tokens_details": {
+    "reasoning_tokens": 57
+   },
+   "prompt_tokens": 361,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 495
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 15.363
+}

@@ -1,0 +1,104 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a person. This person is the father of which of these people?\n\nText: Wolf Albach-Retty\n\nAllowed answers:\n- Romy Schneider\n- Sergio Leone\n- Olivia de Havilland\n- James Earl Jones\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Romy Schneider",
+         "Sergio Leone",
+         "Olivia de Havilland",
+         "James Earl Jones"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Romy Schneider\",\"probability\":0.99}",
+        "name": "Answer"
+       },
+       "id": "call_-7230644272507122858",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790176936,
+  "id": "202609232322072326a64177d94b95",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609232322072326a64177d94b95",
+  "usage": {
+   "completion_tokens": 21,
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "prompt_tokens": 345,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 366
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 9.036
+}

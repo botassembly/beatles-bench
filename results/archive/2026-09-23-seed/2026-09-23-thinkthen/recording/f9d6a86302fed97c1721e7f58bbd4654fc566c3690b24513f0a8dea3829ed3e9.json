@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Ringo Starr","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"Revolution 1","b":"You Can't Do That","c":"Free as a Bird","d":"Every Little Thing"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.34,"probabilities":{"a":0.15,"b":0.03,"c":0.51,"d":0.31}}},"usage":{"input_tokens":358,"output_tokens":46}}
+}

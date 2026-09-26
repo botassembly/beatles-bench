@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"David Duchovny","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Michael Lohan","b":"Paul Ronan","c":"Amram Ducovny","d":"David Bale"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.98,"probabilities":{"c":0.99,"d":0.0,"a":0.0,"b":0.01}}},"usage":{"input_tokens":351,"output_tokens":46}}
+}

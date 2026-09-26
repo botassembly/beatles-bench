@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"“Firework” by Katy Perry","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a song and its performer. Who is a credited writer of it?","criteria":{"a":"Henrik Jonback","b":"Sandy Vee","c":"Joseíto Fernández","d":"Lucio Quarantotto"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.37,"probabilities":{"d":0.01,"c":0.03,"a":0.43,"b":0.53}}},"usage":{"input_tokens":361,"output_tokens":46}}
+}

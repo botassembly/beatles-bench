@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+"""A stand-in for the thinkthen command in tests: answers every record from its arguments, with no network."""
+import json
+import os
+import sys
+
+verb = sys.argv[1]
+assert "--details" in sys.argv and "--jsonl" in sys.argv
+if os.environ.get("FAKE_LOG"):  # one JSON line per call: the arguments after the command name
+    with open(os.environ["FAKE_LOG"], "a", encoding="utf-8") as log:
+        log.write(json.dumps(sys.argv[1:]) + "\n")
+records = open(sys.argv[sys.argv.index("--input") + 1], encoding="utf-8") if "--input" in sys.argv else sys.stdin
+for line in records:
+    rec = json.loads(line)
+    if rec["id"] == os.environ.get("FAKE_REFUSE"):  # the backend refuses: no row, exit 4
+        print("thinkthen: the backend answered with status 422: the backend refused the request as malformed or too large", file=sys.stderr)
+        sys.exit(4)
+    if verb == "choose":
+        labels = list(rec["options"])
+        probs = {k: (0.7 if i == 0 else round(0.3 / (len(labels) - 1), 4)) for i, k in enumerate(labels)}
+        answer, value = {"kind": "choice", "pick": labels[0], "probabilities": probs}, labels[0]
+    elif verb == "tag":  # the first --label fits
+        labels = [b.split("=", 1)[0] for a, b in zip(sys.argv, sys.argv[1:]) if a == "--label"]
+        answer, value = {"kind": "tag", "probabilities": {k: (0.7 if i == 0 else 0.1) for i, k in enumerate(labels)}}, labels[:1]
+    elif verb == "annotate":  # every question in the set answers yes
+        value = {name: True for name in json.load(open(sys.argv[2], encoding="utf-8"))["questions"]}
+        answer = None
+    else:
+        answer, value = {"kind": "yes_no", "probability": 0.7}, True
+    print(json.dumps({"value": value, "input": rec, "answer": answer,
+                      "meta": {"tool": "fake", "url": "http://127.0.0.1/fake", "model": "fake-1", "usage": {"input_tokens": 10, "output_tokens": 3}, "requests_sent": 1}}))

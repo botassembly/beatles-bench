@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"It's All Too Much","b":"With a Little Help from My Friends","c":"For No One","d":"You're Going to Lose That Girl"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.37,"probabilities":{"c":0.03,"b":0.52,"d":0.15,"a":0.3}}},"usage":{"input_tokens":366,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Eminem","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Ella van Heemstra","b":"Birgitta Sahlén","c":"Debbie Nelson","d":"Ethel Marion Milne"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0092, "probabilities": {"a": 0.2909, "b": 0.1882, "c": 0.2744, "d": 0.2464}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

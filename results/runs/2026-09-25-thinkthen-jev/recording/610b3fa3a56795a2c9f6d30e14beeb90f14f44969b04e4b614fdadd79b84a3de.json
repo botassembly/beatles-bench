@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"John Lennon","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Not Guilty","b":"Helter Skelter","c":"Soldier of Love","d":"I'm Happy Just to Dance with You"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.28,"probabilities":{"a":0.47000000000000003,"c":0.19,"d":0.27,"b":0.07}}},"usage":{"input_tokens":367,"output_tokens":46}}
+}

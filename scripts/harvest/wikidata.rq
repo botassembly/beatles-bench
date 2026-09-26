@@ -1,0 +1,8 @@
+# Beatles recordings (performer: the Beatles) with a main subject, namesake, producer, composer, studio, or influence, and the English Wikipedia
+# article of each end. harvest.py keeps a row only when the song is in data/songs.tsv and the other end has an article.
+SELECT ?songArticle ?prop ?other ?otherArticle WHERE {
+  VALUES ?prop { wdt:P921 wdt:P138 wdt:P162 wdt:P86 wdt:P483 wdt:P737 }
+  ?song wdt:P175 wd:Q1299 ; ?prop ?other .
+  ?s schema:about ?song ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?songArticle .
+  OPTIONAL { ?o schema:about ?other ; schema:isPartOf <https://en.wikipedia.org/> ; schema:name ?otherArticle . }
+}

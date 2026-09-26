@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Catalog:\nLet It Be (1970-05-08)\nLet It Be (lead: McCartney; written: Lennon–McCartney; 4:03; released 1970-03-06; first album: Let It Be)\nText: Let It Be","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. It appears on the album Abbey Road."}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.04}},"usage":{"input_tokens":355,"output_tokens":21}}
+}

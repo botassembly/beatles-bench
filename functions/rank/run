@@ -1,0 +1,23 @@
+#!/bin/sh
+# The rank slide: sort twelve songs by how likely each is one of the Beatles' biggest hits.
+#   ./run                 answer from recording/, with no key and no network. over marks a yes of 0.8 or more.
+#   ./run threshold 0.5   the same order, with over marked at another bar
+#   ./run live            ask the server THINKTHEN_BASE_URL names. thinkthen reads the key itself.
+# rank takes no bar of its own, so jq applies it here, the way a program would.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T]" >&2; exit 2; }
+from='--replay recording' bar=0.8
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answers=$(printf '%s\n' Something 'Hey Jude' Blackbird 'Help!' "Octopus's Garden" 'She Loves You' Piggies Yesterday \
+    'Penny Lane' 'Her Majesty' "Can't Buy Me Love" 'Good Night' |
+  thinkthen rank "The text is the title of a song by the Beatles. It is one of the Beatles' biggest hits." \
+    --lines --details $from)
+printf '%s\n' "$answers" | jq -c --argjson bar "$bar" '{song: .input, yes: .answer.probability, over: (.answer.probability >= $bar)}'

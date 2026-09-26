@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"You Can't Do That","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who composed it?","criteria":{"a":"John Lennon","b":"George Harrison","c":"Ringo Starr","d":"Lennon–McCartney"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.46,"probabilities":{"d":0.6,"c":0.04,"b":0.08,"a":0.28}}},"usage":{"input_tokens":355,"output_tokens":46}}
+}

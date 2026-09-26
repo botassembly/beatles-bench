@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Shulamit Lapid","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Nina Hagen","b":"J. J. Abrams","c":"Jane Birkin","d":"Yair Lapid"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.1575, "probabilities": {"a": 0.1439, "b": 0.0988, "c": 0.2127, "d": 0.5446}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
+}

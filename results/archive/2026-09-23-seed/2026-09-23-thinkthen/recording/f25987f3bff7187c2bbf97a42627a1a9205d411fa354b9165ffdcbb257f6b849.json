@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"George Harrison","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"Because","b":"Piggies","c":"I Wanna Be Your Man","d":"That Means a Lot"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.88,"probabilities":{"c":0.0,"a":0.09,"d":0.0,"b":0.91}}},"usage":{"input_tokens":352,"output_tokens":46}}
+}

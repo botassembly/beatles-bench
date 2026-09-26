@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Antonio Rizzo","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"St. Peter's Basilica","b":"Doge's Palace","c":"St. Vitus Cathedral","d":"United States Capitol"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.98,"probabilities":{"b":0.98,"c":0.0,"d":0.0,"a":0.02}}},"usage":{"input_tokens":358,"output_tokens":46}}
+}

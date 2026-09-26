@@ -1,0 +1,10 @@
+## 2026-09-25T21:21:24Z job: open book, 196 questions
+pinned binary check: experiments/264-bench-rerun/bin/thinkthen: OK
+recording input tokens before: 0
+guard status before: limit_tokens 476000000 charged_tokens 432101294 remaining_tokens 43898706 
+command: live --max-tokens 2689268 scripts/run/thinkthen.sh live results/runs/2026-09-25-thinkthen-jev-open-book ; BENCH_MAX_INPUT_TOKENS=2640000, BENCH_WORKERS=4, THINKTHEN_BIN=experiments/264-bench-rerun/bin/thinkthen
+exit: 0
+recording input tokens after: 2394007
+spent this attempt: 2394007
+guard status after: limit_tokens 476000000 charged_tokens 434790562 remaining_tokens 41209438 
+## 2026-09-25T21:21:46Z end: open book, 196 questions

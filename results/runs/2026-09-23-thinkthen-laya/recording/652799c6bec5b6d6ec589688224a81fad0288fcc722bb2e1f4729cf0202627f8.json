@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Paul McCartney","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Sure to Fall (in Love with You)","b":"I'm Only Sleeping","c":"I Just Don't Understand","d":"Dig a Pony"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0371, "probabilities": {"a": 0.315, "b": 0.3361, "c": 0.203, "d": 0.1458}}}, "usage": {"input_tokens": 72, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Revolution 1","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"Revolver","c":"The Beatles (White Album)","d":"Rubber Soul"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0754, "probabilities": {"a": 0.2962, "b": 0.2972, "c": 0.3313, "d": 0.0753}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"With a Little Help from My Friends","b":"Roll Over Beethoven","c":"I've Got a Feeling","d":"I Need You"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.6,"probabilities":{"a":0.69,"d":0.17,"c":0.02,"b":0.12}}},"usage":{"input_tokens":361,"output_tokens":46}}
+}

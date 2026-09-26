@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Think for Yourself","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Rubber Soul","b":"Please Please Me","c":"Sgt. Pepper's Lonely Hearts Club Band","d":"The Beatles (White Album)"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.5,"probabilities":{"a":0.63,"c":0.03,"d":0.34,"b":0.0}}},"usage":{"input_tokens":365,"output_tokens":46}}
+}

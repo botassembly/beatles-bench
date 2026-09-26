@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Don't Want to Spoil the Party","b":"Roll Over Beethoven","c":"Run for Your Life","d":"Within You Without You"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.95,"probabilities":{"b":0.01,"d":0.96,"c":0.01,"a":0.02}}},"usage":{"input_tokens":373,"output_tokens":46}}
+}

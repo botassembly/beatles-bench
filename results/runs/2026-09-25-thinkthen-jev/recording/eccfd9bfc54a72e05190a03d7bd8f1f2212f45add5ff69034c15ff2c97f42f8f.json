@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Me Mine","b":"I'll Be Back","c":"It's Only Love","d":"I'm a Loser"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.06,"probabilities":{"a":0.25,"c":0.24,"b":0.22,"d":0.29}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

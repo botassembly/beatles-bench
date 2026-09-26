@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Ethel Marion Milne","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Judy Garland","b":"Ralph Fiennes","c":"Diane Lane","d":"Daniel Day-Lewis"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.17,"probabilities":{"d":0.3,"b":0.18,"c":0.14,"a":0.38}}},"usage":{"input_tokens":358,"output_tokens":46}}
+}

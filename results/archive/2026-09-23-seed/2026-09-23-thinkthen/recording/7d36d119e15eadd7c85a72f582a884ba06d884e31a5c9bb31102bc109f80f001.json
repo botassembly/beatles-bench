@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Being for the Benefit of Mr. Kite!","b":"Cry Baby Cry","c":"It's Only Love","d":"Rocky Raccoon"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.24,"probabilities":{"c":0.43,"d":0.18,"b":0.15,"a":0.24}}},"usage":{"input_tokens":363,"output_tokens":46}}
+}

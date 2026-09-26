@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a songwriter. Which of these songs by the Beatles did this person compose?\n\nText: Lennon–McCartney\n\nAllowed answers:\n- If You've Got Trouble\n- 12-Bar Original\n- The Continuing Story of Bungalow Bill\n- Tomorrow Never Knows\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "If You've Got Trouble",
+         "12-Bar Original",
+         "The Continuing Story of Bungalow Bill",
+         "Tomorrow Never Knows"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Lennon–McCartney song... \"Tomorrow Never Knows\" is Lennon. \"12-Bar Original\" is Lennon–McCartney credited. \"If You've Got Trouble\" is Starr? Actually credited Lennon–McCartney too. Hmm. But the songwriter named — Lennon–McCartney is a duo; the person would be Lennon. \"Tomorrow Never Knows\" was composed by Lennon alone. Best answer.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Tomorrow Never Knows\",\"probability\":0.7}",
+        "name": "Answer"
+       },
+       "id": "call_-7230657123049274840",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790177245,
+  "id": "20260923232713db39c50ac1c7465c",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260923232713db39c50ac1c7465c",
+  "usage": {
+   "completion_tokens": 108,
+   "completion_tokens_details": {
+    "reasoning_tokens": 86
+   },
+   "prompt_tokens": 356,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 464
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 11.938
+}

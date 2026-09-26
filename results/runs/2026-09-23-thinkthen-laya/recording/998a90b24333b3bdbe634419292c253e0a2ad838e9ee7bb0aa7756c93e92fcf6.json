@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Dig a Pony / Fixing a Hole","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Dig a Pony","b":"Fixing a Hole"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.7413, "probabilities": {"a": 0.9564, "b": 0.0436}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
+}

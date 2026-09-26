@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Gemini 4","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"November 1964","b":"May 1966","c":"February 1966","d":"June 1965"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0072, "probabilities": {"a": 0.2621, "b": 0.272, "c": 0.2749, "d": 0.191}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
+}

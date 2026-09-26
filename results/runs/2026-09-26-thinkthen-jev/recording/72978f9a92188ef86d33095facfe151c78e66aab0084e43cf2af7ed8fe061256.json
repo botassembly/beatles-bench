@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Lucy","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Sammy Fain","b":"Éric Serra","c":"Jon Brion","d":"Alex North"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.87,"probabilities":{"d":0.02,"b":0.9,"a":0.01,"c":0.07}}},"usage":{"input_tokens":344,"output_tokens":46}}
+}

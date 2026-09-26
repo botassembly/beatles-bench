@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Let It Be","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Dear Prudence","b":"One After 909","c":"Love You To","d":"Tell Me Why"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.57,"probabilities":{"c":0.01,"b":0.67,"a":0.19,"d":0.13}}},"usage":{"input_tokens":358,"output_tokens":46}}
+}

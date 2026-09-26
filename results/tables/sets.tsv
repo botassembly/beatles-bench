@@ -1,0 +1,8 @@
+system	songs	exact	exact_accuracy	lo	hi	true_singers	said_yes	recall	false_yes
+BM25	26	0	0.0	0.0	0.1287	42	0	0.0	0
+Embeddings	26	0	0.0	0.0	0.1287	42	6	0.1429	4
+Hybrid	26	0	0.0	0.0	0.1287	42	0	0.0	0
+Word overlap	26	0	0.0	0.0	0.1287	42	0	0.0	0
+GLM-5.3 Flash	26	19	0.7308	0.5392	0.863	42	39	0.9286	5
+Laya	26	0	0.0	0.0	0.1287	42	0	0.0	1
+Jev	26	9	0.3462	0.1941	0.5378	42	21	0.5	5

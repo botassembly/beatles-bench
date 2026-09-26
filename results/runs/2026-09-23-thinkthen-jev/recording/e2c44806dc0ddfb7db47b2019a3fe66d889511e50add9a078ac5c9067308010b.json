@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Assassination of John F. Kennedy","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Magical Mystery Tour","b":"Hold Me Tight","c":"The Ballad of John and Yoko","d":"Revolution"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.04,"probabilities":{"c":0.28,"b":0.26,"a":0.26,"d":0.2}}},"usage":{"input_tokens":367,"output_tokens":46}}
+}

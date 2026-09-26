@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Ringo Starr","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Misery","b":"Mean Mr. Mustard","c":"Dig It","d":"I'm Down"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.63,"probabilities":{"d":0.07,"b":0.72,"c":0.18,"a":0.03}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

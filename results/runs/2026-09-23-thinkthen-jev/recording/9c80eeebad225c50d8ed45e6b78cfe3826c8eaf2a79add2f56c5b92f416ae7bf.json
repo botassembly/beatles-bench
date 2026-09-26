@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Sexy Sadie","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"May 1969","b":"November 1967","c":"November 1968","d":"February 1968"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.79,"probabilities":{"b":0.05,"a":0.04,"d":0.06,"c":0.85}}},"usage":{"input_tokens":367,"output_tokens":46}}
+}

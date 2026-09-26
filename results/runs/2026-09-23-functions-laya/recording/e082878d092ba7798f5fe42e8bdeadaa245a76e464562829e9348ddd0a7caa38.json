@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"appeared on [[Rubber]] Soul in","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The snippet shows five consecutive words from a sentence; the word in question is wrapped in [[ ]]. <BEGINNING> marks the start of the sentence and <END> the end. Decide whether the wrapped word is part of the name of a song, a person, or an album. Ordinary words, dates, and numbers are not part of a name.","criteria":{"IN":"This word is part of a name.","OUT":"This word is not part of any name."}},"q2":{"type":"choice","instructions":"The snippet shows five consecutive words from a sentence; the word in question is wrapped in [[ ]]. <BEGINNING> marks the start of the sentence and <END> the end. If the wrapped word is part of a name, which kind of name is it part of? Answer for every word; the answer only matters when the word is part of a name.","criteria":{"song":"Part of the title of a song.","person":"Part of a person's name.","album":"Part of the title of an album."}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "OUT", "confidence": 0.0117, "probabilities": {"IN": 0.4363, "OUT": 0.5637}}, "q2": {"type": "choice", "choice": "song", "confidence": 0.4725, "probabilities": {"song": 0.7789, "person": 0.0137, "album": 0.2074}}}, "usage": {"input_tokens": 237, "output_tokens": 0}}
+}

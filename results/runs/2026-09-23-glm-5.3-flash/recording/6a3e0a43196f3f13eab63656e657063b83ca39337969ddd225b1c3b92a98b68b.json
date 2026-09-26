@@ -1,0 +1,103 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text is the title of a song by the Beatles. Does George Harrison sing a lead vocal on it?\n\nText: I'll Be on My Way\n\nAllowed answers:\n- yes\n- no\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "yes",
+         "no"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "\"I'll Be on My Way\" — a Lennon–McCartney song recorded by The Hollies (Graham Nash) in 1964; a Beatles demo exists (BBC, \"From Us to You\"). Sung by John (and Paul?). Harrison didn't sing lead.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"no\",\"probability\":0.8}",
+        "name": "Answer"
+       },
+       "id": "call_-7230570089831988196",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790182462,
+  "id": "202609240054186e0a49068c3d4cb7",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609240054186e0a49068c3d4cb7",
+  "usage": {
+   "completion_tokens": 75,
+   "completion_tokens_details": {
+    "reasoning_tokens": 56
+   },
+   "prompt_tokens": 318,
+   "prompt_tokens_details": {
+    "cached_tokens": 256
+   },
+   "total_tokens": 393
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 3.95
+}

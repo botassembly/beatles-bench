@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Ask Me Why","b":"Drive My Car","c":"And I Love Her","d":"What You're Doing"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.12,"probabilities":{"c":0.34,"b":0.17,"a":0.19,"d":0.3}}},"usage":{"input_tokens":361,"output_tokens":46}}
+}

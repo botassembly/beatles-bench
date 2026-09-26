@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Phil Spector","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"I Got to Find My Baby","b":"Doctor Robert","c":"I've Got a Feeling","d":"It Won't Be Long"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1733, "probabilities": {"a": 0.5531, "b": 0.0895, "c": 0.2265, "d": 0.1309}}}, "usage": {"input_tokens": 60, "output_tokens": 0}}
+}

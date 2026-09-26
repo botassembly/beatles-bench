@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"The Beatles (White Album)","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"One After 909","b":"Come Together","c":"Lovely Rita","d":"Honey Pie"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.75,"probabilities":{"d":0.81,"c":0.09,"b":0.03,"a":0.07}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

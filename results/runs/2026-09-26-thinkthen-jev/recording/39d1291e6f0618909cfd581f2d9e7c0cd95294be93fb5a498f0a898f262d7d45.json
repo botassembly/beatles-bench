@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Yellow Submarine","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"While My Guitar Gently Weeps","b":"All Together Now","c":"Wait","d":"A Day in the Life"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.62,"probabilities":{"d":0.12,"b":0.72,"c":0.08,"a":0.08}}},"usage":{"input_tokens":362,"output_tokens":46}}
+}

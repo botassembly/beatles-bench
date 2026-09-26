@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Death of Marilyn Monroe","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"July 1962","b":"August 1962","c":"May 1963","d":"June 1963"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.74,"probabilities":{"a":0.07,"c":0.05,"b":0.8,"d":0.08}}},"usage":{"input_tokens":361,"output_tokens":46}}
+}

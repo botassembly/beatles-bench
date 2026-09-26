@@ -1,0 +1,35 @@
+category	kind	n	2026-09-23-thinkthen	2026-09-23-baseline-overlap	2026-09-23-baseline-bm25	2026-09-23-baseline-embed	2026-09-23-baseline-hybrid
+forward	all	132	0.67	0.21	0.21	0.27	0.23
+forward	album	30	0.77	0.27	0.27	0.37	0.23
+forward	singer	40	0.65	0.25	0.25	0.23	0.23
+forward	songwriter	32	0.72	0.31	0.31	0.31	0.31
+forward	year	30	0.57	0.00	0.00	0.17	0.17
+reverse	all	72	0.79	0.33	0.33	0.39	0.35
+reverse	album-to-song	20	0.80	0.20	0.20	0.25	0.25
+reverse	singer-to-song	20	0.75	0.20	0.20	0.20	0.20
+reverse	singer-yes-no	32	0.81	0.50	0.50	0.59	0.50
+multi-hop	all	85	0.47	0.40	0.40	0.41	0.39
+multi-hop	album-year	25	0.28	0.16	0.16	0.12	0.12
+multi-hop	before-after	30	0.57	0.50	0.50	0.53	0.50
+multi-hop	same-month	30	0.53	0.50	0.50	0.53	0.50
+comparison	all	30	0.83	0.33	0.30	0.50	0.30
+shared-lead	all	30	0.60	0.53	0.53	0.60	0.53
+near-neighbor	all	30	0.77	0.43	0.43	0.60	0.43
+lexical-trap	all	30	0.50	0.03	0.20	0.27	0.17
+lexical-trap	album-to-song	12	0.58	0.00	0.08	0.08	0.00
+lexical-trap	event-to-song	9	0.11	0.00	0.11	0.22	0.11
+lexical-trap	song-to-album	9	0.78	0.11	0.44	0.56	0.44
+reversal	all	68	0.53	0.44	0.47	0.25	0.44
+reversal	forward	34	0.62	0.35	0.41	0.24	0.32
+reversal	reverse	34	0.44	0.53	0.53	0.26	0.56
+reversal-general	all	152	0.88	0.32	0.32	0.37	0.36
+reversal-general	forward	76	0.88	0.32	0.32	0.32	0.36
+reversal-general	reverse	76	0.88	0.33	0.33	0.42	0.37
+total	all	629	0.69	0.33	0.34	0.37	0.34
+
+AUC (yes/no)	kind	n	2026-09-23-thinkthen	2026-09-23-baseline-overlap	2026-09-23-baseline-bm25	2026-09-23-baseline-embed	2026-09-23-baseline-hybrid
+reverse	singer-yes-no	32	0.90	0.50	0.50	0.50	0.50
+multi-hop	same-month	30	0.66	0.50	0.50	0.55	0.55
+shared-lead	shared-lead	30	0.79	0.53	0.53	0.51	0.51
+
+mean p(truth)			0.627	0.312	0.318	0.314	0.311

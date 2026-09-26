@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Back in the U.S.S.R.","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. What is it about?","criteria":{"a":"Elizabeth II","b":"Soviet Union"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.5348, "probabilities": {"a": 0.0988, "b": 0.9012}}}, "usage": {"input_tokens": 45, "output_tokens": 0}}
+}

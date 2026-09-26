@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Everybody's Got Something to Hide Except Me and My Monkey","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who composed it?","criteria":{"a":"Ringo Starr","b":"Paul McCartney","c":"George Harrison","d":"Lennon–McCartney"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.62,"probabilities":{"a":0.05,"b":0.15,"d":0.72,"c":0.08}}},"usage":{"input_tokens":363,"output_tokens":46}}
+}

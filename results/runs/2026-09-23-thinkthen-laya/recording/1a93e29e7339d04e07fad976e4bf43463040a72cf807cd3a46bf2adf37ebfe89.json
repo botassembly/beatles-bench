@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"A Hard Day's Night","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Can't Buy Me Love","b":"For You Blue","c":"What You're Doing","d":"I Want You (She's So Heavy)"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2826, "probabilities": {"a": 0.6685, "b": 0.125, "c": 0.0846, "d": 0.1219}}}, "usage": {"input_tokens": 64, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"The Three Caballeros","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Paul Smith","b":"Thomas Wander","c":"Jon Brion","d":"Marc Streitenfeld"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.92,"probabilities":{"d":0.01,"a":0.94,"c":0.01,"b":0.04}}},"usage":{"input_tokens":347,"output_tokens":46}}
+}

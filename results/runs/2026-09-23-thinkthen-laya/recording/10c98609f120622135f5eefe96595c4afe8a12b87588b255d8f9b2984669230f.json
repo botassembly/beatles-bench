@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"A Day in the Life","b":"Magical Mystery Tour","c":"The Night Before","d":"All My Loving"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.2511, "probabilities": {"a": 0.1414, "b": 0.1332, "c": 0.084, "d": 0.6413}}}, "usage": {"input_tokens": 68, "output_tokens": 0}}
+}

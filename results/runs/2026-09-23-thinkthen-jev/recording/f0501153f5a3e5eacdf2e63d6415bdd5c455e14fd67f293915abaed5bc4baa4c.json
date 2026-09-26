@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Kent State shootings","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"June 1970","b":"May 1970","c":"September 1969","d":"May 1971"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":1.0,"probabilities":{"a":0.0,"c":0.0,"d":0.0,"b":1.0}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

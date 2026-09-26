@@ -1,0 +1,21 @@
+#!/bin/sh
+# The choose slide: who sings the lead vocal on each of five songs?
+#   ./run                 answer from recording/, with no key and no network
+#   ./run threshold 0.5   the same answers with a bar the pick must reach
+#   ./run live            ask the server THINKTHEN_BASE_URL names. thinkthen reads the key itself.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T]" >&2; exit 2; }
+from='--replay recording' bar=
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.:]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answers=$(printf '%s\n' 'Come Together' 'Yesterday' 'Something' "Octopus's Garden" 'She Loves You' |
+  thinkthen choose 'The text is the title of a song by the Beatles. Who sings the lead vocal on it?' \
+    John Paul George Ringo 'John and Paul duet' --lines --details ${bar:+--threshold "$bar"} $from)
+printf '%s\n' "$answers" | jq -c '{song: .input, value, p: .answer.probabilities}'

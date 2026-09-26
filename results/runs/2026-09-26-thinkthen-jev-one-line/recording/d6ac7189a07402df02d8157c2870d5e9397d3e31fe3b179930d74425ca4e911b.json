@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Catalog:\nDig a Pony (lead: Lennon; written: Lennon–McCartney; 3:54; released 1970-05-08)\nText: Dig a Pony","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Does Paul McCartney sing a lead vocal on it?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.04}},"usage":{"input_tokens":332,"output_tokens":21}}
+}

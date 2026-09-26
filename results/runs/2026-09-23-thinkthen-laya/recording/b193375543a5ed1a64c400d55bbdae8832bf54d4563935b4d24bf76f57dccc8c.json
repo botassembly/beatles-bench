@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Adrien Brody","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Dona Celeste","b":"Bice Waleran","c":"Nelle Wilson Reagan","d":"Sylvia Plachy"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0346, "probabilities": {"a": 0.3872, "b": 0.1811, "c": 0.2253, "d": 0.2063}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
+}

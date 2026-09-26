@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Beatles for Sale","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Baby's in Black","b":"When I'm Sixty-Four","c":"A Hard Day's Night","d":"Getting Better"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.5,"probabilities":{"b":0.33,"d":0.01,"c":0.04,"a":0.62}}},"usage":{"input_tokens":365,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"achromatic lens","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"H. J. Round","b":"Otto Griessing","c":"Jesse W. Reno","d":"Chester Moore Hall"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":1.0,"probabilities":{"c":0.0,"b":0.0,"d":1.0,"a":0.0}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

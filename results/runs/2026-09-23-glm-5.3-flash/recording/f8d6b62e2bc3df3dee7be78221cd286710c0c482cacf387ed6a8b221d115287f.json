@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a composer. This person composed the music for which of these films?\n\nText: Marc Streitenfeld\n\nAllowed answers:\n- 2001: A Space Odyssey\n- Prometheus\n- The Three Caballeros\n- Peter Pan\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "2001: A Space Odyssey",
+         "Prometheus",
+         "The Three Caballeros",
+         "Peter Pan"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "Marc Streitenfeld is known for scoring Ridley Scott films like *Prometheus* (2012, co-composed with Harry Gregson-Williams).",
+     "reasoning_content": "Marc Streitenfeld scored Prometheus? He scored Prometheus (2012) with Harry Gregson-Williams. Yes.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Prometheus\",\"probability\":0.85}",
+        "name": "Answer"
+       },
+       "id": "call_-7230515182970071833",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790186417,
+  "id": "20260924020006ff5ed25be5064a3e",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924020006ff5ed25be5064a3e",
+  "usage": {
+   "completion_tokens": 73,
+   "completion_tokens_details": {
+    "reasoning_tokens": 23
+   },
+   "prompt_tokens": 345,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 418
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 10.635
+}

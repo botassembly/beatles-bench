@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Kansas City/Hey-Hey-Hey-Hey!","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Does Ringo Starr sing the lead vocal on it, alone or with another Beatle?"}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.2642}}, "usage": {"input_tokens": 69, "output_tokens": 0}}
+}

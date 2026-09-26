@@ -1,0 +1,9 @@
+# Actors (occupation Q33999) with more than 60 sitelinks and a father (P22) or mother (P25) on Wikidata.
+# harvest.py adds each item's English Wikipedia title and keeps a pair only when both ends have one.
+SELECT ?child ?prop ?parent WHERE {
+  { SELECT ?child ?prop ?parent WHERE {
+      VALUES ?prop { wdt:P22 wdt:P25 }
+      ?child ?prop ?parent ; wdt:P106 wd:Q33999 ; wikibase:sitelinks ?sl .
+      FILTER(?sl > 60)
+  } }
+}

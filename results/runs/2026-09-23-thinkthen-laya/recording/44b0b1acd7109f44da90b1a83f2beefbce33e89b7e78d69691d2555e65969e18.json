@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Lilo Pempeit","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Eva Green","b":"Joan Fontaine","c":"Rita Hayworth","d":"Rainer Werner Fassbinder"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0973, "probabilities": {"a": 0.3955, "b": 0.2034, "c": 0.3254, "d": 0.0757}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
+}

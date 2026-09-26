@@ -1,0 +1,103 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names two songs by the Beatles. Which one is longer?\n\nText: Getting Better / Dig It\n\nAllowed answers:\n- Getting Better\n- Dig It\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Getting Better",
+         "Dig It"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Getting Better ~2:47; Dig It ~2:26 (LP version 4:17? Album \"Dig It\" is 2:26). Getting Better is longer.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Getting Better\",\"probability\":0.7}",
+        "name": "Answer"
+       },
+       "id": "call_-7230681209225866510",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790176502,
+  "id": "202609232314481c74dbd067634410",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609232314481c74dbd067634410",
+  "usage": {
+   "completion_tokens": 57,
+   "completion_tokens_details": {
+    "reasoning_tokens": 37
+   },
+   "prompt_tokens": 313,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 370
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 14.312
+}

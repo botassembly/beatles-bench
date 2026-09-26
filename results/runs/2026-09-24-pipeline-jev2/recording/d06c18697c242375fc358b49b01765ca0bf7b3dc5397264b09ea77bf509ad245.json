@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Question: Who sang lead on the Beatles song \"Dizzy Miss Lizzy\"?","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"Who sang lead on the Beatles song \"Dizzy Miss Lizzy\"?","criteria":{"lennon":"John Lennon","mccartney":"Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"lennon","confidence":0.34,"probabilities":{"lennon":0.5,"harrison":0.08,"mccartney":0.34,"starr":0.08}}},"usage":{"input_tokens":371,"output_tokens":56}}
+}

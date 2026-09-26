@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Tell Me Why","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: 1964 Summer Olympics?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"before","confidence":0.4,"probabilities":{"before":0.7,"after":0.3}}},"usage":{"input_tokens":341,"output_tokens":32}}
+}

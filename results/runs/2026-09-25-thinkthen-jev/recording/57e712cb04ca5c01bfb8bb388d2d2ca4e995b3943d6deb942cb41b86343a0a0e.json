@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Hold Me Tight / Ticket to Ride","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Hold Me Tight","b":"Ticket to Ride"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.36,"probabilities":{"b":0.32,"a":0.68}}},"usage":{"input_tokens":325,"output_tokens":32}}
+}

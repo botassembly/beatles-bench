@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"“The Nights” by Avicii","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a song and its performer. Who is a credited writer of it?","criteria":{"a":"Kevin Kadish","b":"Henrik Jonback","c":"Infinity","d":"Tony Hendrik"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0268, "probabilities": {"a": 0.2356, "b": 0.1649, "c": 0.3568, "d": 0.2426}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
+}

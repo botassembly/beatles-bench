@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Beyoncé","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Thane Bettany","b":"Mathew Knowles","c":"Francis Avent Gumm","d":"Paul Belmondo"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.214, "probabilities": {"a": 0.6103, "b": 0.1502, "c": 0.1438, "d": 0.0957}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
+}

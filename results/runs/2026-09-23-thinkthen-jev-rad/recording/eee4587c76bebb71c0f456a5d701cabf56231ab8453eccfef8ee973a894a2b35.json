@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Catalog:\nThe Beatles Bootleg Recordings 1963\nBad to Me (lead: Lennon; written: Lennon, McCartney; released 2013)\nI'm in Love (lead: Lennon; written: Lennon, McCartney; released 2013)\n\n1967–1970\nNow and Then (lead: Lennon, McCartney; written: Lennon, McCartney, Harrison, Starkey; released 2023)\n\nText: Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"February 1965","b":"February 1966","c":"October 1965","d":"July 1965"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.72,"probabilities":{"d":0.79,"c":0.18,"a":0.03,"b":0.0}}},"usage":{"input_tokens":475,"output_tokens":46}}
+}

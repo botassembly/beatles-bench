@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Beatles for Sale","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. In what year was it first released?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "1964", "confidence": 0.0231, "probabilities": {"1963": 0.1593, "1964": 0.1923, "1965": 0.0915, "1966": 0.1397, "1967": 0.1068, "1968": 0.1223, "1969": 0.1281, "1970": 0.06}}}, "usage": {"input_tokens": 60, "output_tokens": 0}}
+}

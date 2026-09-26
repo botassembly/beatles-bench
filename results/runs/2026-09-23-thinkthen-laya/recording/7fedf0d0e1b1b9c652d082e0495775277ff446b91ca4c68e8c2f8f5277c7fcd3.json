@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Devil in Her Heart","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"With the Beatles","b":"Beatles for Sale","c":"Help!","d":"Revolver"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0615, "probabilities": {"a": 0.1885, "b": 0.1216, "c": 0.3076, "d": 0.3822}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

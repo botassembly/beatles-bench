@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Where is my package? Tracking has not moved in a week.","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"Which team owns this?","criteria":{"billing":"Invoices, fees, and refunds.","shipping":"Parcels and delivery.","account":"Logins and passwords."}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "shipping", "confidence": 0.8218, "probabilities": {"billing": 0.0225, "shipping": 0.9599, "account": 0.0176}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

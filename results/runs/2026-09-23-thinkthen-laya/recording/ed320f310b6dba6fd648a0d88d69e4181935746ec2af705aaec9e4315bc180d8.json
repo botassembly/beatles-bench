@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Björk","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Stephen Gyllenhaal","b":"Robert Earl Jones","c":"Guðmundur Gunnarsson","d":"Abraham Quintanilla"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.049, "probabilities": {"a": 0.3968, "b": 0.183, "c": 0.2654, "d": 0.1548}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
+}

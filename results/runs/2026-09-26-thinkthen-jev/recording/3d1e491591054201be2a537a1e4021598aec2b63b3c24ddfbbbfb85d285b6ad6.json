@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Hold Me Tight","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Let It Be","d":"Help!"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.48,"probabilities":{"d":0.35,"c":0.03,"b":0.01,"a":0.61}}},"usage":{"input_tokens":361,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Baby's in Black","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"December 1964","b":"May 1965","c":"February 1965","d":"December 1963"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.24,"probabilities":{"b":0.08,"a":0.43,"d":0.29,"c":0.2}}},"usage":{"input_tokens":368,"output_tokens":46}}
+}

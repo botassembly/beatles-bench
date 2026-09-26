@@ -1,0 +1,201 @@
+system	scope	n	right	accuracy	lo	hi	ties
+BM25	overall	1501	525.12	0.3499	0.3261	0.3743	905
+BM25	beatles-only	1313	443.62	0.3379	0.3128	0.3639	779
+BM25	forward	224	52.67	0.2351	0.1843	0.2948	192
+BM25	forward:album	60	20.25	0.3375	0.2309	0.4637	29
+BM25	forward:singer	57	14.25	0.25	0.1558	0.3757	57
+BM25	forward:songwriter	47	11.5	0.2447	0.1442	0.3837	46
+BM25	forward:year	60	6.67	0.1111	0.0539	0.2151	60
+BM25	reverse	112	36.75	0.3281	0.2481	0.4195	75
+BM25	multi-hop	180	67.5	0.375	0.3076	0.4476	60
+BM25	single-hop	248	72.96	0.2942	0.241	0.3537	215
+BM25	comparison	60	24.0	0.4	0.2857	0.5263	2
+BM25	shared-lead	32	17.0	0.5312	0.3645	0.6913	0
+BM25	lead-set	104	62.0	0.5962	0.5001	0.6854	0
+BM25	near-neighbor	60	29.0	0.4833	0.3618	0.6069	42
+BM25	near-neighbor-control	60	26.67	0.4444	0.3259	0.5697	35
+BM25	lexical-trap	54	3.5	0.0648	0.024	0.1634	6
+BM25	lexical-trap-control	54	14.0	0.2593	0.1612	0.3893	48
+BM25	none-of-these	60	16.75	0.2792	0.1816	0.4033	39
+BM25	reversal	65	20.83	0.3205	0.2198	0.4412	65
+BM25	reversal:forward	37	9.75	0.2635	0.1488	0.4227	37
+BM25	reversal:reverse	28	11.08	0.3958	0.2381	0.5787	28
+BM25	reversal-general	146	39.5	0.2705	0.2051	0.3478	126
+BM25	reversal-general:forward	73	20.0	0.274	0.1849	0.3856	64
+BM25	reversal-general:reverse	73	19.5	0.2671	0.1792	0.3784	62
+BM25	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+Embeddings	overall	1501	597.0	0.3977	0.3733	0.4227	0
+Embeddings	beatles-only	1313	494.0	0.3762	0.3504	0.4028	0
+Embeddings	forward	224	59.0	0.2634	0.21	0.3247	0
+Embeddings	forward:album	60	22.0	0.3667	0.2562	0.4932	0
+Embeddings	forward:singer	57	13.0	0.2281	0.1384	0.3521	0
+Embeddings	forward:songwriter	47	15.0	0.3191	0.204	0.4617	0
+Embeddings	forward:year	60	9.0	0.15	0.081	0.2611	0
+Embeddings	reverse	112	39.0	0.3482	0.2663	0.4401	0
+Embeddings	multi-hop	180	71.0	0.3944	0.326	0.4673	0
+Embeddings	single-hop	248	74.0	0.2984	0.2449	0.3581	0
+Embeddings	comparison	60	34.0	0.5667	0.441	0.6843	0
+Embeddings	shared-lead	32	19.0	0.5938	0.4226	0.7448	0
+Embeddings	lead-set	104	64.0	0.6154	0.5194	0.7032	0
+Embeddings	near-neighbor	60	38.0	0.6333	0.5068	0.7438	0
+Embeddings	near-neighbor-control	60	27.0	0.45	0.3309	0.5751	0
+Embeddings	lexical-trap	54	10.0	0.1852	0.1038	0.3084	0
+Embeddings	lexical-trap-control	54	18.0	0.3333	0.2224	0.4664	0
+Embeddings	none-of-these	60	12.0	0.2	0.1183	0.3178	0
+Embeddings	reversal	65	29.0	0.4462	0.3317	0.5666	0
+Embeddings	reversal:forward	37	13.0	0.3514	0.2183	0.5124	0
+Embeddings	reversal:reverse	28	16.0	0.5714	0.3907	0.7349	0
+Embeddings	reversal-general	146	61.0	0.4178	0.3409	0.4989	0
+Embeddings	reversal-general:forward	73	29.0	0.3973	0.2929	0.5119	0
+Embeddings	reversal-general:reverse	73	32.0	0.4384	0.3305	0.5524	0
+Embeddings	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+Hybrid	overall	1501	563.5	0.3754	0.3513	0.4002	256
+Hybrid	beatles-only	1313	472.0	0.3595	0.334	0.3858	228
+Hybrid	forward	224	61.5	0.2746	0.2203	0.3364	53
+Hybrid	forward:album	60	22.0	0.3667	0.2562	0.4932	4
+Hybrid	forward:singer	57	14.5	0.2544	0.1594	0.3804	47
+Hybrid	forward:songwriter	47	15.0	0.3191	0.204	0.4617	0
+Hybrid	forward:year	60	10.0	0.1667	0.0931	0.2803	2
+Hybrid	reverse	112	37.5	0.3348	0.2542	0.4264	15
+Hybrid	multi-hop	180	70.0	0.3889	0.3207	0.4617	9
+Hybrid	single-hop	248	77.5	0.3125	0.258	0.3727	41
+Hybrid	comparison	60	29.0	0.4833	0.3618	0.6069	30
+Hybrid	shared-lead	32	17.0	0.5312	0.3645	0.6913	0
+Hybrid	lead-set	104	62.0	0.5962	0.5001	0.6854	0
+Hybrid	near-neighbor	60	34.0	0.5667	0.441	0.6843	13
+Hybrid	near-neighbor-control	60	25.0	0.4167	0.3006	0.5427	12
+Hybrid	lexical-trap	54	6.0	0.1111	0.0519	0.2219	7
+Hybrid	lexical-trap-control	54	16.5	0.3056	0.1991	0.4379	11
+Hybrid	none-of-these	60	12.5	0.2083	0.1247	0.327	17
+Hybrid	reversal	65	23.5	0.3615	0.2555	0.483	20
+Hybrid	reversal:forward	37	9.5	0.2568	0.1437	0.4156	10
+Hybrid	reversal:reverse	28	14.0	0.5	0.3263	0.6737	10
+Hybrid	reversal-general	146	49.5	0.339	0.2673	0.4191	28
+Hybrid	reversal-general:forward	73	24.5	0.3356	0.2379	0.4497	14
+Hybrid	reversal-general:reverse	73	25.0	0.3425	0.2439	0.4567	14
+Hybrid	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+Word overlap	overall	1501	512.71	0.3416	0.318	0.3659	982
+Word overlap	beatles-only	1313	435.71	0.3318	0.3069	0.3578	847
+Word overlap	forward	224	52.67	0.2351	0.1843	0.2948	193
+Word overlap	forward:album	60	20.25	0.3375	0.2309	0.4637	29
+Word overlap	forward:singer	57	14.25	0.25	0.1558	0.3757	57
+Word overlap	forward:songwriter	47	11.5	0.2447	0.1442	0.3837	47
+Word overlap	forward:year	60	6.67	0.1111	0.0539	0.2151	60
+Word overlap	reverse	112	36.5	0.3259	0.2461	0.4172	70
+Word overlap	multi-hop	180	67.5	0.375	0.3076	0.4476	120
+Word overlap	single-hop	248	65.38	0.2636	0.2127	0.3217	222
+Word overlap	comparison	60	25.5	0.425	0.3082	0.5509	15
+Word overlap	shared-lead	32	17.0	0.5312	0.3645	0.6913	0
+Word overlap	lead-set	104	62.0	0.5962	0.5001	0.6854	0
+Word overlap	near-neighbor	60	28.67	0.4778	0.3566	0.6017	41
+Word overlap	near-neighbor-control	60	26.67	0.4444	0.3259	0.5697	36
+Word overlap	lexical-trap	54	1.0	0.0185	0.0033	0.0977	5
+Word overlap	lexical-trap-control	54	14.75	0.2731	0.1724	0.404	47
+Word overlap	none-of-these	60	16.75	0.2792	0.1816	0.4033	39
+Word overlap	reversal	65	21.33	0.3282	0.2265	0.4491	59
+Word overlap	reversal:forward	37	10.25	0.277	0.1592	0.4368	31
+Word overlap	reversal:reverse	28	11.08	0.3958	0.2381	0.5787	28
+Word overlap	reversal-general	146	39.0	0.2671	0.202	0.3442	127
+Word overlap	reversal-general:forward	73	20.0	0.274	0.1849	0.3856	64
+Word overlap	reversal-general:reverse	73	19.0	0.2603	0.1734	0.3711	63
+Word overlap	reversal-general-shared-name	42	38.0	0.9048	0.7793	0.9623	8
+GLM-5.3 Flash	overall	1501	1451.33	0.9669	0.9566	0.9748	1
+GLM-5.3 Flash	beatles-only	1313	1263.33	0.9622	0.9504	0.9712	1
+GLM-5.3 Flash	forward	224	218.0	0.9732	0.9428	0.9877	0
+GLM-5.3 Flash	forward:album	60	60.0	1.0	0.9398	1.0	0
+GLM-5.3 Flash	forward:singer	57	53.0	0.9298	0.833	0.9724	0
+GLM-5.3 Flash	forward:songwriter	47	46.0	0.9787	0.8889	0.9962	0
+GLM-5.3 Flash	forward:year	60	59.0	0.9833	0.9114	0.9971	0
+GLM-5.3 Flash	reverse	112	102.33	0.9137	0.847	0.9529	1
+GLM-5.3 Flash	multi-hop	180	175.0	0.9722	0.9366	0.9881	0
+GLM-5.3 Flash	single-hop	248	245.0	0.9879	0.965	0.9959	0
+GLM-5.3 Flash	comparison	60	59.0	0.9833	0.9114	0.9971	0
+GLM-5.3 Flash	shared-lead	32	27.0	0.8438	0.6825	0.9314	0
+GLM-5.3 Flash	lead-set	104	96.0	0.9231	0.8555	0.9605	0
+GLM-5.3 Flash	near-neighbor	60	60.0	1.0	0.9398	1.0	0
+GLM-5.3 Flash	near-neighbor-control	60	60.0	1.0	0.9398	1.0	0
+GLM-5.3 Flash	lexical-trap	54	50.0	0.9259	0.8245	0.9708	0
+GLM-5.3 Flash	lexical-trap-control	54	53.0	0.9815	0.9023	0.9967	0
+GLM-5.3 Flash	none-of-these	60	59.0	0.9833	0.9114	0.9971	0
+GLM-5.3 Flash	reversal	65	59.0	0.9077	0.8129	0.957	0
+GLM-5.3 Flash	reversal:forward	37	32.0	0.8649	0.7202	0.9409	0
+GLM-5.3 Flash	reversal:reverse	28	27.0	0.9643	0.8229	0.9937	0
+GLM-5.3 Flash	reversal-general	146	146.0	1.0	0.9744	1.0	0
+GLM-5.3 Flash	reversal-general:forward	73	73.0	1.0	0.95	1.0	0
+GLM-5.3 Flash	reversal-general:reverse	73	73.0	1.0	0.95	1.0	0
+GLM-5.3 Flash	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+Laya	overall	1501	537.0	0.3578	0.3339	0.3823	0
+Laya	beatles-only	1313	460.0	0.3503	0.325	0.3766	0
+Laya	forward	224	51.0	0.2277	0.1776	0.2869	0
+Laya	forward:album	60	22.0	0.3667	0.2562	0.4932	0
+Laya	forward:singer	57	13.0	0.2281	0.1384	0.3521	0
+Laya	forward:songwriter	47	15.0	0.3191	0.204	0.4617	0
+Laya	forward:year	60	1.0	0.0167	0.0029	0.0886	0
+Laya	reverse	112	38.0	0.3393	0.2582	0.431	0
+Laya	multi-hop	180	70.0	0.3889	0.3207	0.4617	0
+Laya	single-hop	248	78.0	0.3145	0.2599	0.3748	0
+Laya	comparison	60	27.0	0.45	0.3309	0.5751	0
+Laya	shared-lead	32	17.0	0.5312	0.3645	0.6913	0
+Laya	lead-set	104	61.0	0.5865	0.4905	0.6765	0
+Laya	near-neighbor	60	26.0	0.4333	0.3157	0.559	0
+Laya	near-neighbor-control	60	29.0	0.4833	0.3618	0.6069	0
+Laya	lexical-trap	54	9.0	0.1667	0.0902	0.2874	0
+Laya	lexical-trap-control	54	9.0	0.1667	0.0902	0.2874	0
+Laya	none-of-these	60	21.0	0.35	0.2417	0.4764	0
+Laya	reversal	65	24.0	0.3692	0.2623	0.4908	0
+Laya	reversal:forward	37	11.0	0.2973	0.1749	0.4578	0
+Laya	reversal:reverse	28	13.0	0.4643	0.2953	0.6419	0
+Laya	reversal-general	146	47.0	0.3219	0.2515	0.4014	0
+Laya	reversal-general:forward	73	23.0	0.3151	0.22	0.4286	0
+Laya	reversal-general:reverse	73	24.0	0.3288	0.2319	0.4427	0
+Laya	reversal-general-shared-name	42	30.0	0.7143	0.5643	0.8283	0
+Jev	overall	1501	1054.0	0.7022	0.6786	0.7248	14
+Jev	beatles-only	1313	879.0	0.6695	0.6436	0.6944	14
+Jev	forward	224	152.5	0.6808	0.6171	0.7384	1
+Jev	forward:album	60	47.0	0.7833	0.6638	0.8688	0
+Jev	forward:singer	57	39.5	0.693	0.5643	0.7973	1
+Jev	forward:songwriter	47	33.0	0.7021	0.5602	0.8135	0
+Jev	forward:year	60	33.0	0.55	0.4249	0.6691	0
+Jev	reverse	112	82.5	0.7366	0.6482	0.8094	1
+Jev	multi-hop	180	90.5	0.5028	0.4304	0.575	5
+Jev	single-hop	248	171.5	0.6915	0.6315	0.7457	1
+Jev	comparison	60	51.0	0.85	0.7389	0.919	0
+Jev	shared-lead	32	20.0	0.625	0.4525	0.7707	0
+Jev	lead-set	104	78.0	0.75	0.6589	0.8233	0
+Jev	near-neighbor	60	45.5	0.7583	0.6366	0.8489	2
+Jev	near-neighbor-control	60	48.5	0.8083	0.6915	0.8881	1
+Jev	lexical-trap	54	27.0	0.5	0.3711	0.6289	0
+Jev	lexical-trap-control	54	38.0	0.7037	0.5717	0.8086	0
+Jev	none-of-these	60	33.5	0.5583	0.433	0.6767	1
+Jev	reversal	65	40.5	0.6231	0.5015	0.7309	2
+Jev	reversal:forward	37	21.5	0.5811	0.4219	0.725	2
+Jev	reversal:reverse	28	19.0	0.6786	0.4934	0.8207	0
+Jev	reversal-general	146	133.0	0.911	0.8536	0.9472	0
+Jev	reversal-general:forward	73	68.0	0.9315	0.8495	0.9704	0
+Jev	reversal-general:reverse	73	65.0	0.8904	0.7984	0.9434	0
+Jev	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+chance	overall	1501	459.38	0.306			0
+chance	beatles-only	1313	412.38	0.3141			0
+chance	forward	224	47.67	0.2128			0
+chance	forward:album	60	15.0	0.25			0
+chance	forward:singer	57	14.25	0.25			0
+chance	forward:songwriter	47	11.75	0.25			0
+chance	forward:year	60	6.67	0.1111			0
+chance	reverse	112	36.0	0.3214			0
+chance	multi-hop	180	67.5	0.375			0
+chance	single-hop	248	60.38	0.2434			0
+chance	comparison	60	30.0	0.5			0
+chance	shared-lead	32	16.0	0.5			0
+chance	lead-set	104	52.0	0.5			0
+chance	near-neighbor	60	20.0	0.3333			0
+chance	near-neighbor-control	60	20.0	0.3333			0
+chance	lexical-trap	54	13.5	0.25			0
+chance	lexical-trap-control	54	13.5	0.25			0
+chance	none-of-these	60	15.0	0.25			0
+chance	reversal	65	20.83	0.3205			0
+chance	reversal:forward	37	9.75	0.2635			0
+chance	reversal:reverse	28	11.08	0.3958			0
+chance	reversal-general	146	36.5	0.25			0
+chance	reversal-general:forward	73	18.25	0.25			0
+chance	reversal-general:reverse	73	18.25	0.25			0
+chance	reversal-general-shared-name	42	10.5	0.25			0

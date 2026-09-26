@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Yellow Submarine","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"You Like Me Too Much","b":"A Day in the Life","c":"Hey Bulldog","d":"Fixing a Hole"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.06,"probabilities":{"a":0.18,"b":0.29,"c":0.24,"d":0.29}}},"usage":{"input_tokens":364,"output_tokens":46}}
+}

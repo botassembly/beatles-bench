@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Getting Better","b":"With a Little Help from My Friends","c":"I've Just Seen a Face","d":"While My Guitar Gently Weeps"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.39,"probabilities":{"b":0.55,"a":0.04,"d":0.31,"c":0.1}}},"usage":{"input_tokens":366,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Meghan, Duchess of Sussex","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Tony Tarantino","b":"Henry Churchill de Mille","c":"Dominic Holland","d":"Thomas Markle"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0576, "probabilities": {"a": 0.2725, "b": 0.1362, "c": 0.1882, "d": 0.4031}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"which first [[appeared]] on The","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The snippet shows five consecutive words from a sentence; the word in question is wrapped in [[ ]]. <BEGINNING> marks the start of the sentence and <END> the end. Decide whether the wrapped word is part of the name of a song, a person, or an album. Ordinary words, dates, and numbers are not part of a name.","criteria":{"IN":"This word is part of a name.","OUT":"This word is not part of any name."}},"q2":{"type":"choice","instructions":"The snippet shows five consecutive words from a sentence; the word in question is wrapped in [[ ]]. <BEGINNING> marks the start of the sentence and <END> the end. If the wrapped word is part of a name, which kind of name is it part of? Answer for every word; the answer only matters when the word is part of a name.","criteria":{"song":"Part of the title of a song.","person":"Part of a person's name.","album":"Part of the title of an album."}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"OUT","confidence":0.99,"probabilities":{"OUT":0.99,"IN":0.01}},"q2":{"type":"choice","choice":"album","confidence":0.4,"probabilities":{"song":0.2,"album":0.6,"person":0.2}}},"usage":{"input_tokens":546,"output_tokens":68}}
+}

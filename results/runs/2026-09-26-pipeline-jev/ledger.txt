@@ -1,0 +1,10 @@
+## 2026-09-26T11:48:29Z job: pipeline
+pinned binary check: experiments/259-talk-claims/thinkthen: OK
+recording input tokens before: 0
+guard status before: limit_tokens 476000000 charged_tokens 445408429 remaining_tokens 30591571 
+command: live --max-tokens 136000 scripts/run/rad_pipeline.sh live results/runs/2026-09-26-pipeline-jev ; no token stop (fixed case list), BENCH_WORKERS=4, THINKTHEN_BIN=experiments/259-talk-claims/thinkthen
+exit: 0
+recording input tokens after: 101879
+spent this attempt: 101879
+guard status after: limit_tokens 476000000 charged_tokens 445544429 remaining_tokens 30455571 
+## 2026-09-26T11:48:37Z end: pipeline

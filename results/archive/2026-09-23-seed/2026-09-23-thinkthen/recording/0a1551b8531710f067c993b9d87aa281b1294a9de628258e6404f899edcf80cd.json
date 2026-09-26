@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Please Please Me","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Please Mr. Postman","b":"Honey Pie","c":"It's Only Love","d":"Misery"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.82,"probabilities":{"d":0.86,"c":0.06,"a":0.08,"b":0.0}}},"usage":{"input_tokens":356,"output_tokens":46}}
+}

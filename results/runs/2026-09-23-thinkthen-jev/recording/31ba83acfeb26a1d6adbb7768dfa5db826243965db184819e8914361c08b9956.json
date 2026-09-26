@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Roberto Roberti","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Christian Bale","b":"Robert De Niro","c":"Sergio Leone","d":"Orlando Bloom"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.85,"probabilities":{"d":0.02,"b":0.88,"a":0.04,"c":0.06}}},"usage":{"input_tokens":354,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"pitot tube","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Charles Thomson Rees Wilson","b":"Rudolf Kompfner","c":"Otto Griessing","d":"Henri Pitot"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":1.0,"probabilities":{"a":0.0,"d":1.0,"b":0.0,"c":0.0}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

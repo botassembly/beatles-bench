@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Jocelyn Pook","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"Eternal Sunshine of the Spotless Mind","b":"2012","c":"Eyes Wide Shut","d":"2001: A Space Odyssey"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.24,"probabilities":{"c":0.43,"b":0.42,"a":0.13,"d":0.02}}},"usage":{"input_tokens":365,"output_tokens":46}}
+}

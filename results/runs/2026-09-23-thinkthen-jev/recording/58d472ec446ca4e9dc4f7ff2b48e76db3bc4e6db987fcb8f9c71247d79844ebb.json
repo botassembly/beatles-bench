@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Emma Thompson","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Judy Campbell","b":"Italia Coppola","c":"Phyllida Law","d":"Lee-Lee Chan"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.51,"probabilities":{"d":0.03,"b":0.01,"a":0.34,"c":0.62}}},"usage":{"input_tokens":349,"output_tokens":46}}
+}

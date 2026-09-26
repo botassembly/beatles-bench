@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"My Bonnie","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "lennon-mccartney", "confidence": 0.0751, "probabilities": {"lennon-mccartney": 0.3804, "harrison": 0.3392, "starr": 0.1611, "other": 0.1193}}}, "usage": {"input_tokens": 70, "output_tokens": 0}}
+}

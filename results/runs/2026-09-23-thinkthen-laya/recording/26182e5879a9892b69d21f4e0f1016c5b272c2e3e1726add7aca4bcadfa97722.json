@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"The Beatles (White Album)","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"The End","b":"Yer Blues","c":"Money (That's What I Want)","d":"Please Please Me"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0057, "probabilities": {"a": 0.3053, "b": 0.2265, "c": 0.2354, "d": 0.2329}}}, "usage": {"input_tokens": 60, "output_tokens": 0}}
+}

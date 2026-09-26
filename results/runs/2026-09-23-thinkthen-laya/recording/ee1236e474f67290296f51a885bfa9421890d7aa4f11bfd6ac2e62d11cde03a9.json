@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"The Beatles (White Album)","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"One After 909","b":"Honey Pie","c":"Come Together","d":"Lovely Rita"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0219, "probabilities": {"a": 0.2717, "b": 0.2739, "c": 0.3036, "d": 0.1508}}}, "usage": {"input_tokens": 58, "output_tokens": 0}}
+}

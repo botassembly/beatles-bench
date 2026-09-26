@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Mr. Moonlight","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Let It Be","b":"Beatles for Sale","c":"Abbey Road"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.145, "probabilities": {"a": 0.5143, "b": 0.0997, "c": 0.386}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
+}

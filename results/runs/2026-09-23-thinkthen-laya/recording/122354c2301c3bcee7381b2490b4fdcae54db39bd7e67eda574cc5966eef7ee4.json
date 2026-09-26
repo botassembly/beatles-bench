@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Tomorrow Never Knows / Rocky Raccoon","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Tomorrow Never Knows","b":"Rocky Raccoon"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0959, "probabilities": {"a": 0.6803, "b": 0.3197}}}, "usage": {"input_tokens": 45, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Shaquille O'Neal","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Werner Lindemann","b":"Amram Ducovny","c":"John Shakespeare","d":"Joe Toney"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.59,"probabilities":{"d":0.69,"c":0.01,"b":0.03,"a":0.27}}},"usage":{"input_tokens":354,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Paul McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"Now and Then","b":"12-Bar Original","c":"You Know What to Do","d":"She Came In Through the Bathroom Window"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.79,"probabilities":{"d":0.84,"a":0.07,"b":0.06,"c":0.03}}},"usage":{"input_tokens":361,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"1970 Tonghai earthquake","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"February 1969","b":"April 1970","c":"May 1969","d":"January 1970"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.1765, "probabilities": {"a": 0.1694, "b": 0.5769, "c": 0.121, "d": 0.1326}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
+}

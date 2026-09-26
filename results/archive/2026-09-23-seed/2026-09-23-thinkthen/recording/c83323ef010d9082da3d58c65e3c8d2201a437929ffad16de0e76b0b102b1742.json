@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"The Day After Tomorrow","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Thomas Wander","b":"György Ligeti","c":"Harald Kloser","d":"Alex North"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.44,"probabilities":{"a":0.42,"b":0.0,"c":0.58,"d":0.0}}},"usage":{"input_tokens":349,"output_tokens":46}}
+}

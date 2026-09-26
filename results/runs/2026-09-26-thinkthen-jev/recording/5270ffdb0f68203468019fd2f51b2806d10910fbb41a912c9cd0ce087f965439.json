@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"John L. Nelson","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Prince","b":"Bryan Cranston","c":"John Lithgow","d":"Keira Knightley"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.25,"probabilities":{"c":0.13,"b":0.37,"a":0.44,"d":0.06}}},"usage":{"input_tokens":355,"output_tokens":46}}
+}

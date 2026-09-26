@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?\n\nText: Lennon–McCartney\n\nAllowed answers:\n- Yes It Is\n- For You Blue\n- I Need You\n- Only a Northern Song\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Yes It Is",
+         "For You Blue",
+         "I Need You",
+         "Only a Northern Song"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Only a Northern Song is Harrison. Yes It Is, I Need You Lennon? I Need You is Harrison! Yes It Is is Lennon–McCartney. For You Blue is Harrison. Answer: Yes It Is.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Yes It Is\",\"probability\":0.9}",
+        "name": "Answer"
+       },
+       "id": "call_-7230563561481691808",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790184107,
+  "id": "202609240121393ca014dbd2d04ed3",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609240121393ca014dbd2d04ed3",
+  "usage": {
+   "completion_tokens": 65,
+   "completion_tokens_details": {
+    "reasoning_tokens": 44
+   },
+   "prompt_tokens": 348,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 413
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 7.959
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"John Lennon","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Cayenne","b":"What's the New Mary Jane","c":"If I Needed Someone","d":"Here Comes the Sun"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0157, "probabilities": {"a": 0.2227, "b": 0.1795, "c": 0.3064, "d": 0.2915}}}, "usage": {"input_tokens": 64, "output_tokens": 0}}
+}

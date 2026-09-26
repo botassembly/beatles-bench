@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Bruce Lee","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Ricardo Joel Gomez","b":"Lee Hoi-chuen","c":"Ferdinand Schell","d":"Harry Bloom"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2137, "probabilities": {"a": 0.5953, "b": 0.1504, "c": 0.0685, "d": 0.1859}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
+}

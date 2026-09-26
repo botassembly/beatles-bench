@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Catalog:\nSingles\nStrawberry Fields Forever (lead: Lennon; written: Lennon–McCartney; 4:05; released 1967-02-13; first album: Magical Mystery Tour)\nText: Strawberry Fields Forever","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.04}},"usage":{"input_tokens":345,"output_tokens":21}}
+}

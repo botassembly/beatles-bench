@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Thomas Wander","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"Eyes Wide Shut","b":"Spartacus","c":"2012","d":"2001: A Space Odyssey"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.019, "probabilities": {"a": 0.272, "b": 0.1594, "c": 0.3087, "d": 0.2599}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
+}

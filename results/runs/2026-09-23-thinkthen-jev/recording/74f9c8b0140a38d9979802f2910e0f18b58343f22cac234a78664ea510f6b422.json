@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Abbey Road","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"The Long and Winding Road","b":"Honey Pie","c":"You Never Give Me Your Money","d":"Not a Second Time"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.3,"probabilities":{"d":0.03,"c":0.48,"b":0.13,"a":0.36}}},"usage":{"input_tokens":361,"output_tokens":46}}
+}

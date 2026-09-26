@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"A Hard Day's Night","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"When I'm Sixty-Four","b":"Twist and Shout","c":"Honey Don't","d":"When I Get Home"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2744, "probabilities": {"a": 0.6616, "b": 0.139, "c": 0.0879, "d": 0.1114}}}, "usage": {"input_tokens": 64, "output_tokens": 0}}
+}

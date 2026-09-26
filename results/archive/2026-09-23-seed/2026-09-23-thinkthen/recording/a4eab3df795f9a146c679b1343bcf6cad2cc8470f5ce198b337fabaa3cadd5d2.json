@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Thomas Wander","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"2001: A Space Odyssey","b":"2012","c":"Prometheus","d":"Spartacus"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.55,"probabilities":{"a":0.09,"b":0.17,"c":0.67,"d":0.07}}},"usage":{"input_tokens":357,"output_tokens":46}}
+}

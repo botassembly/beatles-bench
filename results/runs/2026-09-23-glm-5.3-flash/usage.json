@@ -1,0 +1,15 @@
+{
+ "questions": 1501,
+ "requests": 1502,
+ "failed": 0,
+ "input_tokens": 516073,
+ "cached_input_tokens": 198656,
+ "output_tokens": 59550,
+ "usd": 0.083347,
+ "price_per_million": {
+  "input": 0.15,
+  "cached_input": 0.03,
+  "output": 0.5
+ },
+ "median_wall_s": 8.237
+}

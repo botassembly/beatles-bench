@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Help!","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Ticket to Ride","b":"Anna (Go to Him)","c":"Mr. Moonlight","d":"The End"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.3508, "probabilities": {"a": 0.718, "b": 0.1173, "c": 0.0894, "d": 0.0753}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
+}

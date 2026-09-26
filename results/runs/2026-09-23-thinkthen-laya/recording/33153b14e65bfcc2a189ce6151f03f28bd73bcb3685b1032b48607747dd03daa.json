@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"1968 Winter Olympics","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"May 1967","b":"September 1968","c":"February 1967","d":"February 1968"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.017, "probabilities": {"a": 0.247, "b": 0.2289, "c": 0.3375, "d": 0.1866}}}, "usage": {"input_tokens": 43, "output_tokens": 0}}
+}

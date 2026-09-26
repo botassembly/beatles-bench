@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Javier Bardem","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Pilar Bardem","b":"Elaine Madsen","c":"Galina Jovovich","d":"Virginia Admiral"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.99,"probabilities":{"d":0.0,"b":0.0,"c":0.0,"a":1.0}}},"usage":{"input_tokens":353,"output_tokens":46}}
+}

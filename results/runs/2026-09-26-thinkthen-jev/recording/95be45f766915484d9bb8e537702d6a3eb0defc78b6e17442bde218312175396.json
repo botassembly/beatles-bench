@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"With a Little Help from My Friends","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: 30 September Movement?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"after","confidence":0.09,"probabilities":{"after":0.55,"before":0.45}}},"usage":{"input_tokens":343,"output_tokens":32}}
+}

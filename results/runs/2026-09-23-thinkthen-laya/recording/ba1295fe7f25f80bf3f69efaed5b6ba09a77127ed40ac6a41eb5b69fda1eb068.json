@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"While My Guitar Gently Weeps","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Magical Mystery Tour","b":"Yellow Submarine","c":"Rubber Soul","d":"The Beatles (White Album)"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.2452, "probabilities": {"a": 0.1051, "b": 0.1171, "c": 0.1377, "d": 0.6402}}}, "usage": {"input_tokens": 64, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Question: Which album first included the Beatles song \"And I Love Her\"?","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"Which album first included the Beatles song \"And I Love Her\"?","criteria":{"sgt_pepper_s_lonely_hearts_club_band":"Sgt. Pepper's Lonely Hearts Club Band","please_please_me":"Please Please Me","magical_mystery_tour":"Magical Mystery Tour","a_hard_day_s_night":"A Hard Day's Night"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a_hard_day_s_night","confidence":0.82,"probabilities":{"please_please_me":0.06,"sgt_pepper_s_lonely_hearts_club_band":0.02,"a_hard_day_s_night":0.86,"magical_mystery_tour":0.06}}},"usage":{"input_tokens":396,"output_tokens":79}}
+}

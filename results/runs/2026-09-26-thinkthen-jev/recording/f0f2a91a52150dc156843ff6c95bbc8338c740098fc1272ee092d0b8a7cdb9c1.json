@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Sylvia Plachy","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Christina Applegate","b":"Adrien Brody","c":"Cecil B. DeMille","d":"Christopher Plummer"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.54,"probabilities":{"a":0.17,"c":0.02,"d":0.15,"b":0.66}}},"usage":{"input_tokens":363,"output_tokens":46}}
+}

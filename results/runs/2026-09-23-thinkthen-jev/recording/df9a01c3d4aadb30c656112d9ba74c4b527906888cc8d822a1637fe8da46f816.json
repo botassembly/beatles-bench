@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"A Day in the Life","b":"With a Little Help from My Friends","c":"When I Get Home","d":"Lucy in the Sky with Diamonds"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.55,"probabilities":{"b":0.28,"a":0.02,"d":0.03,"c":0.66}}},"usage":{"input_tokens":369,"output_tokens":46}}
+}

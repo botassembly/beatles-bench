@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"1969 EC-121 shootdown incident","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"May 1968","b":"April 1969","c":"July 1968","d":"June 1968"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.98,"probabilities":{"a":0.0,"d":0.01,"c":0.01,"b":0.98}}},"usage":{"input_tokens":371,"output_tokens":46}}
+}

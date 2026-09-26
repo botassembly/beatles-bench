@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Sigourney Weaver","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Gladys Pearl Baker","b":"Line Marsa","c":"Carol Ann Abrams","d":"Elizabeth Inglis"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.52,"probabilities":{"c":0.65,"a":0.01,"b":0.31,"d":0.03}}},"usage":{"input_tokens":351,"output_tokens":46}}
+}

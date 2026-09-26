@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Martha My Dear","b":"In My Life","c":"Within You Without You","d":"Mean Mr. Mustard"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0314, "probabilities": {"a": 0.2472, "b": 0.2989, "c": 0.3172, "d": 0.1367}}}, "usage": {"input_tokens": 64, "output_tokens": 0}}
+}

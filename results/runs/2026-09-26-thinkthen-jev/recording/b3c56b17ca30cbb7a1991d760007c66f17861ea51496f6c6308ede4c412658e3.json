@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Mercury-Atlas 9","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"May 1963","b":"May 1962","c":"November 1963","d":"July 1963"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.38,"probabilities":{"c":0.09,"b":0.29,"d":0.1,"a":0.52}}},"usage":{"input_tokens":364,"output_tokens":46}}
+}

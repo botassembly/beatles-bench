@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Lee Hoi-chuen","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Bruce Lee","b":"John Lithgow","c":"Olivia Wilde","d":"Olivia de Havilland"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0343, "probabilities": {"a": 0.3447, "b": 0.1654, "c": 0.3057, "d": 0.1842}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

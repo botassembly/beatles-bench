@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Everybody's Got Something to Hide Except Me and My Monkey","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Magical Mystery Tour","b":"Rubber Soul","c":"Beatles for Sale","none":"none of these"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "none", "confidence": 0.5171, "probabilities": {"a": 0.0917, "b": 0.0541, "c": 0.0388, "none": 0.8154}}}, "usage": {"input_tokens": 64, "output_tokens": 0}}
+}

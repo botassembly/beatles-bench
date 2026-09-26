@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"“Toxic” by Britney Spears","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a song and its performer. Who is a credited writer of it?","criteria":{"a":"Lucio Quarantotto","b":"Henrik Jonback","c":"Tony Hendrik","d":"Infinity"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.71,"probabilities":{"d":0.1,"b":0.78,"a":0.06,"c":0.06}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

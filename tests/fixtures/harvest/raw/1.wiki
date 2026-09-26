@@ -1,0 +1,42 @@
+Synthetic fixture shaped like the list page. Written by hand for the harvest test.
+==Main songs==
+{| class="wikitable sortable sticky-header-multi"
+! Song !! Release !! Writers !! Lead vocals !! Year
+|-
+! scope="row" | "[[Alpha Song]]"
+| ''[[Album One]]''
+| Lennon–McCartney
+| Lennon
+| 1963
+|-
+! scope="row" | "[[Beta Song (song)|Beta Song]]"{{hash-tag}}
+| Non-album single<br />(A-side of "Gamma Tune")
+| Lennon–McCartney
+| McCartney<br />Lennon
+| 1963
+|-
+! scope="row" | "[[Gamma Tune]]"
+| style="background:#CCFFFF" | ''[[Album One]]''
+| Other Writer
+| Starr
+| 1963
+|}
+==Other released songs==
+{| class="wikitable sortable sticky-header-multi"
+! Song !! Release !! Writers !! Lead vocals !! Recorded !! Year
+|-
+! scope="row" | "[[Delta Take]]"
+| ''[[Album Two]]''
+| Harrison
+| Harrison
+| 1963
+| 1995
+|-
+! scope="row" | "[[Alpha Song|Alpha Song (Take 2)]]"
+| ''[[Album Two]]''
+| Lennon–McCartney
+| Lennon (with McCartney)
+| 1963
+| 1995
+|}
+==Film/documentary songs==

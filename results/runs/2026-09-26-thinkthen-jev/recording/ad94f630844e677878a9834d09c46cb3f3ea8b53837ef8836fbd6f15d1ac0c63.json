@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Ringo Starr","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Till There Was You","b":"Honey Don't","c":"Chains","d":"Mailman, Bring Me No More Blues"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.22,"probabilities":{"d":0.41,"b":0.37,"c":0.1,"a":0.12}}},"usage":{"input_tokens":367,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Judy Garland","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Judy Campbell","b":"Ethel Marion Milne","c":"Line Marsa","d":"Irmelin Indenbirken"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.91,"probabilities":{"a":0.05,"c":0.01,"b":0.93,"d":0.01}}},"usage":{"input_tokens":354,"output_tokens":46}}
+}

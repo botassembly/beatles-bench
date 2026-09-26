@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs was first released on it?\n\nText: Let It Be\n\nAllowed answers:\n- And Your Bird Can Sing\n- For You Blue\n- Everybody's Got Something to Hide Except Me and My Monkey\n- Honey Pie\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "And Your Bird Can Sing",
+         "For You Blue",
+         "Everybody's Got Something to Hide Except Me and My Monkey",
+         "Honey Pie"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "For You Blue is on Let It Be.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"For You Blue\",\"probability\":0.95}",
+        "name": "Answer"
+       },
+       "id": "call_-7230558579319630257",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790184304,
+  "id": "20260924012455d75e476df21c40ee",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924012455d75e476df21c40ee",
+  "usage": {
+   "completion_tokens": 30,
+   "completion_tokens_details": {
+    "reasoning_tokens": 9
+   },
+   "prompt_tokens": 359,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 389
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 8.558
+}

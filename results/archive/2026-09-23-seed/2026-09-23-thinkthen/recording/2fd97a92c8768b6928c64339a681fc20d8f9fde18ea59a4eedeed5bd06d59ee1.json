@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Grace Kelly","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Jack Kelly Sr.","b":"Ricardo Joel Gomez","c":"Thomas Markle","d":"William Close"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.97,"probabilities":{"d":0.02,"b":0.0,"a":0.98,"c":0.0}}},"usage":{"input_tokens":349,"output_tokens":46}}
+}

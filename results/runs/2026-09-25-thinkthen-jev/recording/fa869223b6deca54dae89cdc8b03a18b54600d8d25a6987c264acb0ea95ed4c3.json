@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"I'm So Tired","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"The Beatles (White Album)","c":"A Hard Day's Night","d":"Rubber Soul"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.13,"probabilities":{"b":0.33999999999999997,"d":0.21,"c":0.16,"a":0.29}}},"usage":{"input_tokens":362,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Adrien Brody","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Judy Campbell","b":"Pilar Bardem","c":"Jennifer Lash","d":"Sylvia Plachy"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.63,"probabilities":{"a":0.16,"b":0.0,"c":0.11,"d":0.73}}},"usage":{"input_tokens":351,"output_tokens":46}}
+}

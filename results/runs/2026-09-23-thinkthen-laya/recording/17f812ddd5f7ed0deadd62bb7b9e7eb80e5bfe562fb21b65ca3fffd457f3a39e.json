@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Taxman","b":"When I'm Sixty-Four","c":"I'll Be Back","d":"What Goes On"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0888, "probabilities": {"a": 0.1556, "b": 0.1394, "c": 0.2407, "d": 0.4642}}}, "usage": {"input_tokens": 65, "output_tokens": 0}}
+}

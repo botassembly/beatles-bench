@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Jill Balcon","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Charlie Chaplin","b":"Christopher Plummer","c":"Daniel Day-Lewis","d":"Mary Pickford"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.66,"probabilities":{"b":0.16,"a":0.07,"d":0.02,"c":0.75}}},"usage":{"input_tokens":356,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"United States Capitol","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a building or structure. Who was an architect of it?","criteria":{"a":"Heinrich Strack","b":"Étienne Sulpice Hallet","c":"Antonio Rizzo","d":"Benedikt Rejt"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.81,"probabilities":{"c":0.01,"b":0.86,"d":0.0,"a":0.13}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

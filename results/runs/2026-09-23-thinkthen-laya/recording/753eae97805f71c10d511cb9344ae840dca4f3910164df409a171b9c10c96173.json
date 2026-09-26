@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Julia","b":"Things We Said Today","c":"Lovely Rita","d":"Here, There and Everywhere"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0199, "probabilities": {"a": 0.2164, "b": 0.2958, "c": 0.1726, "d": 0.3152}}}, "usage": {"input_tokens": 66, "output_tokens": 0}}
+}

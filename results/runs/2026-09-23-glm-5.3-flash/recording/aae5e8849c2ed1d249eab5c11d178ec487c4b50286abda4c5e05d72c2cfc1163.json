@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs did it include before any other album did?\n\nText: Sgt. Pepper's Lonely Hearts Club Band\n\nAllowed answers:\n- Taxman\n- I'll Be Back\n- What Goes On\n- When I'm Sixty-Four\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Taxman",
+         "I'll Be Back",
+         "What Goes On",
+         "When I'm Sixty-Four"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "When I'm Sixty-Four is on Sgt. Pepper's.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"When I'm Sixty-Four\",\"probability\":0.99}",
+        "name": "Answer"
+       },
+       "id": "call_-7230522398515131738",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790186769,
+  "id": "20260924020600f22e79fe5c244226",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924020600f22e79fe5c244226",
+  "usage": {
+   "completion_tokens": 39,
+   "completion_tokens_details": {
+    "reasoning_tokens": 14
+   },
+   "prompt_tokens": 356,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 395
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 9.374
+}

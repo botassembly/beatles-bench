@@ -1,0 +1,9 @@
+# 2026-09-23 RAD run. Guard ledger before the first job: charged_tokens 425544418.
+# Picks: reserved 200,000 with a stop at 185,000, then 5,000 with a stop at 4,000 for the last two; 169 requests (27 picks repeat another's text) used 191,308 input tokens.
+# Jev k=2 and BM25 k=2 answers: reserved 720,000 with a stop at 700,000; 379 requests used 678,534 input tokens.
+# MiniLM k=2 and Jev k=1 answers: reserved 570,000 with a stop at 555,000; 384 requests used 518,131 input tokens.
+# In all: 932 requests, 1,387,973 input and 98,234 output tokens, 0.058 dollars at 0.042 per million input tokens. Reserved 1,495,000 of the 1,500,000 cap.
+# Jev k=3 was not asked: its new answers needed about 440,000 more tokens.
+limit_tokens 476000000
+charged_tokens 427039418
+remaining_tokens 48960582

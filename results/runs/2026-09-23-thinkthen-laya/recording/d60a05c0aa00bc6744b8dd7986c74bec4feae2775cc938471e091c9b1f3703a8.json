@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Sydney Opera House","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a building or structure. Who was an architect of it?","criteria":{"a":"Vedat Dalokay","b":"Benedikt Rejt","c":"Heinrich Strack","d":"Peter Hall"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0518, "probabilities": {"a": 0.4107, "b": 0.2177, "c": 0.1466, "d": 0.2251}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

@@ -1,0 +1,1 @@
+SELECT ?s ?pL WHERE { VALUES ?s { <song subjects> } ?s wdt:P175 ?p. ?p rdfs:label ?pL. FILTER(lang(?pL) = "en") }

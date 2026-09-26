@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?\n\nText: Paul McCartney\n\nAllowed answers:\n- I'm So Tired\n- I'm Gonna Sit Right Down and Cry (Over You)\n- Dig a Pony\n- All My Loving\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "I'm So Tired",
+         "I'm Gonna Sit Right Down and Cry (Over You)",
+         "Dig a Pony",
+         "All My Loving"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "All My Loving: McCartney sole lead. I'm So Tired — Lennon. Dig a Pony — Lennon. I'm Gonna Sit Right Down — McCartney too? It's sung by McCartney (with Lennon harmonies?). At the BBC, McCartney lead. But \"All My Loving\" is clearly sole lead.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"All My Loving\",\"probability\":0.9}",
+        "name": "Answer"
+       },
+       "id": "call_-7230522707752777087",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790186672,
+  "id": "2026092402041503052d4ff8664b28",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "2026092402041503052d4ff8664b28",
+  "usage": {
+   "completion_tokens": 83,
+   "completion_tokens_details": {
+    "reasoning_tokens": 62
+   },
+   "prompt_tokens": 367,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 450
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 16.804
+}

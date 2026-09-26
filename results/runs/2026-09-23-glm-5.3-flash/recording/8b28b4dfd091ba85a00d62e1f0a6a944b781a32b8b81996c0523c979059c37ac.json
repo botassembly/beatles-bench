@@ -1,0 +1,104 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs did it include before any other album did?\n\nText: Sgt. Pepper's Lonely Hearts Club Band\n\nAllowed answers:\n- A Day in the Life\n- Magical Mystery Tour\n- The Night Before\n- All My Loving\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "A Day in the Life",
+         "Magical Mystery Tour",
+         "The Night Before",
+         "All My Loving"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"A Day in the Life\",\"probability\":0.97}",
+        "name": "Answer"
+       },
+       "id": "call_-7230517519432281965",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790185519,
+  "id": "20260924014512e9ab01e07ddf4fb8",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924014512e9ab01e07ddf4fb8",
+  "usage": {
+   "completion_tokens": 23,
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "prompt_tokens": 353,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 376
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 7.779
+}

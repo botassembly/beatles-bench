@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an event. Which of these songs by the Beatles was first released in the same month?\n\nText: I Have a Dream\n\nAllowed answers:\n- Good Morning Good Morning\n- All Things Must Pass\n- I'll Get You\n- I Should Have Known Better\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Good Morning Good Morning",
+         "All Things Must Pass",
+         "I'll Get You",
+         "I Should Have Known Better"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "\"I Have a Dream\" speech: August 1963. \"She Loves You\" Aug 1963... but options: \"I'll Get You\" released August 1963? \"She Loves You\"/\"I'll Get You\" single released August 1963. Yes.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"I'll Get You\",\"probability\":0.8}",
+        "name": "Answer"
+       },
+       "id": "call_-7230677876331245586",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790176722,
+  "id": "20260923231828b0abb294b15a4ed7",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260923231828b0abb294b15a4ed7",
+  "usage": {
+   "completion_tokens": 79,
+   "completion_tokens_details": {
+    "reasoning_tokens": 57
+   },
+   "prompt_tokens": 353,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 432
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 14.919
+}

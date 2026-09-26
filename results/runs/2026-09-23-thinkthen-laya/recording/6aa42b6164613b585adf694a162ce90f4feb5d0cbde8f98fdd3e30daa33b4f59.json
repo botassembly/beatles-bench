@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Maxwell's Silver Hammer","b":"Yellow Submarine","c":"Getting Better","d":"If I Needed Someone"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0918, "probabilities": {"a": 0.1468, "b": 0.1897, "c": 0.182, "d": 0.4814}}}, "usage": {"input_tokens": 67, "output_tokens": 0}}
+}

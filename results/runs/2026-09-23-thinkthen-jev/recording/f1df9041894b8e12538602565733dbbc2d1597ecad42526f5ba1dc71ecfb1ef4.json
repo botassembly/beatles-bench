@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"It's All Too Much","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"January 1969","b":"October 1969","c":"March 1969","d":"May 1969"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.04,"probabilities":{"d":0.28,"c":0.27,"a":0.22,"b":0.23}}},"usage":{"input_tokens":369,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Neetu Kapoor","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Joan Fontaine","b":"Ranbir Kapoor","c":"Charlie Chaplin","d":"Maya Plisetskaya"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.3109, "probabilities": {"a": 0.0855, "b": 0.6863, "c": 0.0827, "d": 0.1454}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
+}

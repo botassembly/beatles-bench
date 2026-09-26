@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Yer Blues","model":"laya-mlx","questions":{"q1":{"type":"score","instructions":"The text is the title of a song by the Beatles. How well known is it today?","criteria":["Almost unknown.","Known mostly to fans.","Well known.","Very well known.","One of the most famous songs ever recorded."]}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "score", "score": 2.1453, "confidence": 0.1496, "legend": {"0": "Almost unknown.", "1": "Known mostly to fans.", "2": "Well known.", "3": "Very well known.", "4": "One of the most famous songs ever recorded."}, "probabilities": {"0": 0.0265, "1": 0.2308, "2": 0.4218, "3": 0.2126, "4": 0.1083}}}, "usage": {"input_tokens": 73, "output_tokens": 0}}
+}

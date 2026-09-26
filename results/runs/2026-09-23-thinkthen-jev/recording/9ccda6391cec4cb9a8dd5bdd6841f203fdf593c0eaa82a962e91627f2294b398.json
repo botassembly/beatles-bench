@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"When I Get Home","b":"When I'm Sixty-Four","c":"Twist and Shout","d":"Honey Don't"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.88,"probabilities":{"b":0.06,"d":0.02,"a":0.91,"c":0.01}}},"usage":{"input_tokens":364,"output_tokens":46}}
+}

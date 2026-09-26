@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Roberto Roberti","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Lindsay Lohan","b":"David Duchovny","c":"Sergio Leone","d":"Olivia de Havilland"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.64,"probabilities":{"a":0.08,"d":0.1,"c":0.72,"b":0.1}}},"usage":{"input_tokens":361,"output_tokens":46}}
+}

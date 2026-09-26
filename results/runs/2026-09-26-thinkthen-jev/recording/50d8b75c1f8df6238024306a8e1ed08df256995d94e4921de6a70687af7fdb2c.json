@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"I Don't Want to Spoil the Party","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"1964","confidence":0.14,"probabilities":{"1962":0.04,"1970":0.01,"1963":0.11,"1967":0.11,"1965":0.17,"1969":0.06,"1966":0.14,"1964":0.24000000000000002,"1968":0.12}}},"usage":{"input_tokens":467,"output_tokens":111}}
+}

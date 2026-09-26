@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"1964 Summer Olympics","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"November 1964","b":"November 1963","c":"October 1964","d":"March 1964"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.98,"probabilities":{"a":0.01,"c":0.99,"d":0.0,"b":0.0}}},"usage":{"input_tokens":363,"output_tokens":46}}
+}

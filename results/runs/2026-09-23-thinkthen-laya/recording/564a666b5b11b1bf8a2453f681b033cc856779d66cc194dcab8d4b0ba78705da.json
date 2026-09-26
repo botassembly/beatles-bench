@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"I've Just Seen a Face","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"With the Beatles","c":"Abbey Road","d":"Help!"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0767, "probabilities": {"a": 0.3188, "b": 0.0798, "c": 0.3523, "d": 0.2492}}}, "usage": {"input_tokens": 63, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Andrew Cockburn","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Olivia Wilde","b":"Meghan, Duchess of Sussex","c":"Bryan Cranston","d":"Hugh Laurie"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.31,"probabilities":{"a":0.49,"b":0.28,"c":0.08,"d":0.15}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

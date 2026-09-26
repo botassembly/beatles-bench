@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Revolution 9","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Was it first released in the same month as this event: Assassination of Robert F. Kennedy?"}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.026}}, "usage": {"input_tokens": 62, "output_tokens": 0}}
+}

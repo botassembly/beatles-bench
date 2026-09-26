@@ -1,0 +1,21 @@
+{"id":"A Day in the Life","name":null,"from":"yes","to":"no","probability":[0.97,0.12],"key":"no","effect":"gained"}
+{"id":"The Long and Winding Road","name":null,"from":"yes","to":"no","probability":[0.92,0.18],"key":"no","effect":"gained"}
+{"id":"Martha My Dear","name":null,"from":"yes","to":"no","probability":[0.79,0.02],"key":"no","effect":"gained"}
+{"id":"Piggies","name":null,"from":"yes","to":"no","probability":[0.75,0.02],"key":"no","effect":"gained"}
+{"id":"Lovely Rita","name":null,"from":"yes","to":"no","probability":[0.81,0.02],"key":"no","effect":"gained"}
+{"id":"The Ballad of John and Yoko","name":null,"from":"yes","to":"no","probability":[0.72,0.33],"key":"no","effect":"gained"}
+{"id":"Get Back","name":null,"from":"yes","to":"no","probability":[0.66,0.11],"key":"no","effect":"gained"}
+{"id":"Good Night","name":null,"from":"yes","to":"no","probability":[0.52,0.02],"key":"no","effect":"gained"}
+{"id":"In My Life","name":null,"from":"yes","to":"no","probability":[0.59,0.06],"key":"no","effect":"gained"}
+{"id":"Julia","name":null,"from":"yes","to":"no","probability":[0.64,0.02],"key":"no","effect":"gained"}
+{"id":"Taxman","name":null,"from":"yes","to":"no","probability":[0.77,0.03],"key":"no","effect":"gained"}
+{"id":"Back in the U.S.S.R.","name":null,"from":"yes","to":"no","probability":[0.58,0.02],"key":"no","effect":"gained"}
+{"id":"Don't Pass Me By","name":null,"from":"yes","to":"no","probability":[0.67,0.02],"key":"no","effect":"gained"}
+{"id":"Glass Onion","name":null,"from":"yes","to":"no","probability":[0.62,0.02],"key":"no","effect":"gained"}
+{"id":"Penny Lane","name":null,"from":"yes","to":"no","probability":[0.58,0.06],"key":"no","effect":"gained"}
+{"id":"Eleanor Rigby","name":null,"from":"yes","to":"no","probability":[0.52,0.04],"key":"no","effect":"gained"}
+{"id":"Let It Be","name":null,"from":"yes","to":"no","probability":[0.51,0.1],"key":"no","effect":"gained"}
+{"id":"Ob-La-Di, Ob-La-Da","name":null,"from":"yes","to":"no","probability":[0.57,0.02],"key":"no","effect":"gained"}
+{"id":"Michelle","name":null,"from":"yes","to":"no","probability":[0.63,0.03],"key":"no","effect":"gained"}
+{"id":"Ticket to Ride","name":null,"from":"yes","to":"no","probability":[0.57,0.02],"key":"no","effect":"gained"}
+{"summary":{"records":70,"changed":20,"only_a":0,"only_b":0,"moves":[{"from":"yes","to":"no","count":20}],"labeled":70,"right_a":50,"right_b":70,"gained":20,"lost":0,"mcnemar_on":"right answers","mcnemar_p":2e-6,"compare":"runs","a":0.5,"b":0.5}}

@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a composer. This person composed the music for which of these films?\n\nText: Paul Smith\n\nAllowed answers:\n- 2001: A Space Odyssey\n- Lucy\n- Spartacus\n- The Three Caballeros\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "2001: A Space Odyssey",
+         "Lucy",
+         "Spartacus",
+         "The Three Caballeros"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Paul Smith composed for The Three Caballeros? Paul J. Smith composed Disney scores including The Three Caballeros.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"The Three Caballeros\",\"probability\":0.85}",
+        "name": "Answer"
+       },
+       "id": "call_-7230532122321087825",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790186406,
+  "id": "20260924015957350b30bb589b47e8",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924015957350b30bb589b47e8",
+  "usage": {
+   "completion_tokens": 47,
+   "completion_tokens_details": {
+    "reasoning_tokens": 24
+   },
+   "prompt_tokens": 344,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 391
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 9.172
+}

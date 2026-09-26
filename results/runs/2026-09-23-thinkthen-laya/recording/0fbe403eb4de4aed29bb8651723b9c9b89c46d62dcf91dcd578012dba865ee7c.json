@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Romy Schneider","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Charles H. Cooper","b":"John Swinton of Kimmerghame","c":"Edmund Bacon","d":"Wolf Albach-Retty"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.3986, "probabilities": {"a": 0.7513, "b": 0.0849, "c": 0.0879, "d": 0.0759}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

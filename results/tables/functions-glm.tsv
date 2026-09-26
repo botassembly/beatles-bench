@@ -1,0 +1,38 @@
+function	test	measure	main	n	value	lo	hi	requests	input_tokens	usd	median_s	p90_s
+decide	yes/no questions	accuracy at 0.5	yes	228	0.904	0.858	0.935	228	72890	0.00994	5.019	7.512
+decide	yes/no questions	TP FP TN FN at 0.3		228	94 18 106 10							
+decide	yes/no questions	TP FP TN FN at 0.5		228	93 11 113 11							
+decide	yes/no questions	TP FP TN FN at 0.7		228	92 9 115 12							
+decide	yes/no questions	TP FP TN FN at 0.9		228	67 6 118 37							
+choose	pick-one questions	accuracy	yes	1273	0.978	0.969	0.985	1273	443183	0.07341	8.738	13.528
+choose	pick-one questions	coverage and accuracy at 0.3		1273	0.999 0.979							
+choose	pick-one questions	coverage and accuracy at 0.5		1273	0.998 0.980							
+choose	pick-one questions	coverage and accuracy at 0.7		1273	0.976 0.989							
+choose	pick-one questions	coverage and accuracy at 0.9		1273	0.904 0.994							
+tag	lead singers	exact-set match	yes	158	0.937	0.887	0.965	158	66367	0.00794	4.718	5.837
+tag	lead singers	top pick right	yes	158	0.997	0.970	1.000					
+tag	lead singers	top label right, single-lead songs		146	1.000	0.974	1.000					
+tag	lead singers	john precision		74	0.973	0.907	0.993					
+tag	lead singers	john recall		72	1.000	0.949	1.000					
+tag	lead singers	paul precision		71	0.887	0.793	0.942					
+tag	lead singers	paul recall		63	1.000	0.943	1.000					
+tag	lead singers	george precision		28	0.893	0.728	0.963					
+tag	lead singers	george recall		25	1.000	0.867	1.000					
+tag	lead singers	ringo precision		11	0.909	0.623	0.984					
+tag	lead singers	ringo recall		10	1.000	0.722	1.000					
+score	popularity	Spearman with 2024 page views	yes	171	0.774	0.704	0.830	171	59502	0.00607	4.414	5.911
+filter	lead singer or album	F1	yes	240	0.891	0.828	0.940	240	73987	0.00783	2.271	4.914
+filter	lead singer or album	precision		73	0.836	0.734	0.903					
+filter	lead singer or album	recall		64	0.953	0.871	0.984					
+filter	singer	F1		120	0.861	0.764	0.935					
+filter	album	F1		120	0.923	0.851	0.985					
+rank	popularity	Spearman with 2024 page views	yes	171	0.774	0.704	0.829	171	51807	0.00589	2.204	4.450
+rank	popularity	Kendall tau-b with 2024 page views		171	0.576	0.505	0.639					
+rank	date	Spearman with release date	yes	182	0.893	0.858	0.920	183	57567	0.00828	2.509	4.636
+rank	date	Kendall tau-b with release date		182	0.732	0.684	0.774					
+find	album	exact match	yes	52	0.981	0.899	0.997	52	19906	0.00348	11.488	12.788
+annotate	card	singer accuracy	yes	158	0.924	0.872	0.956	182	175468	0.02062	5.159	5.916
+annotate	card	singer top pick right	yes	158	0.965	0.924	0.984					
+annotate	card	singer top label right, single-lead songs		146	0.966	0.922	0.985					
+annotate	card	album accuracy	yes	182	0.978	0.945	0.991					
+annotate	card	year accuracy	yes	182	0.989	0.961	0.997					

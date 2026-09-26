@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Elizabeth II","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a subject. Which of these songs by the Beatles is about it?","criteria":{"a":"Her Majesty","b":"Back in the U.S.S.R."}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.6511, "probabilities": {"a": 0.9345, "b": 0.0655}}}, "usage": {"input_tokens": 45, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Drive My Car","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year did the album that first carried it come out?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "1967", "confidence": 0.0271, "probabilities": {"1963": 0.0539, "1964": 0.1296, "1965": 0.0789, "1966": 0.1495, "1967": 0.1842, "1968": 0.1624, "1969": 0.1322, "1970": 0.1092}}}, "usage": {"input_tokens": 67, "output_tokens": 0}}
+}

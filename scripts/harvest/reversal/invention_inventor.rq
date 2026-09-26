@@ -1,0 +1,10 @@
+SELECT DISTINCT ?s ?sL ?sa ?o ?oL ?oa ?sl WHERE {
+  VALUES ?top { wd:Q11019 wd:Q39546 wd:Q1183543 wd:Q16798631 wd:Q42889 wd:Q334166 }
+  ?s wdt:P61 ?o; wikibase:sitelinks ?sl. FILTER(?sl > 25)
+  ?s wdt:P279/wdt:P279* ?top.
+  ?o wdt:P31 wd:Q5.
+  ?sa schema:about ?s; schema:isPartOf <https://en.wikipedia.org/>.
+  ?oa schema:about ?o; schema:isPartOf <https://en.wikipedia.org/>.
+  ?s rdfs:label ?sL. FILTER(lang(?sL) = "en")
+  ?o rdfs:label ?oL. FILTER(lang(?oL) = "en")
+} ORDER BY DESC(?sl) ?s ?o LIMIT 400

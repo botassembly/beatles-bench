@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs was first released on it?\n\nText: Help!\n\nAllowed answers:\n- Not a Second Time\n- You're Going to Lose That Girl\n- She Said She Said\n- Nowhere Man\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Not a Second Time",
+         "You're Going to Lose That Girl",
+         "She Said She Said",
+         "Nowhere Man"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Help! album includes \"You're Going to Lose That Girl\".",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"You're Going to Lose That Girl\",\"probability\":0.95}",
+        "name": "Answer"
+       },
+       "id": "call_-7230665266307263785",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790177388,
+  "id": "20260923232934ad3cf195f3a64f3a",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260923232934ad3cf195f3a64f3a",
+  "usage": {
+   "completion_tokens": 38,
+   "completion_tokens_details": {
+    "reasoning_tokens": 13
+   },
+   "prompt_tokens": 350,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 388
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 13.634
+}

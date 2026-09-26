@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Gulf of Tonkin Resolution","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1963","b":"August 1964","c":"March 1965","d":"August 1963"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2134, "probabilities": {"a": 0.5626, "b": 0.0778, "c": 0.0883, "d": 0.2713}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
+}

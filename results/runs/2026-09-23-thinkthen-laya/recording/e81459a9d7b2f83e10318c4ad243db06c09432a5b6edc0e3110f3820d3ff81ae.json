@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Abbey Road","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Dizzy Miss Lizzy","b":"Carry That Weight","c":"Baby's in Black","d":"Fixing a Hole"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0497, "probabilities": {"a": 0.3823, "b": 0.2778, "c": 0.2077, "d": 0.1322}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
+}

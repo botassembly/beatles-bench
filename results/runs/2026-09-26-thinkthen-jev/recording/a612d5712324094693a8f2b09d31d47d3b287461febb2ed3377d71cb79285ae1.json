@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Why Don't We Do It in the Road?","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"Let It Be","c":"Help!","d":"The Beatles (White Album)"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.46,"probabilities":{"d":0.6,"c":0.19,"a":0.09,"b":0.12}}},"usage":{"input_tokens":367,"output_tokens":46}}
+}

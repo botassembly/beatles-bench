@@ -1,0 +1,90 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text is the title of a song by the Beatles. Was it released late in the Beatles' career, nearer 1970 than 1962?\n\nText: I'm Looking Through You\n\nAllowed answers:\n- yes\n- no\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "yes",
+         "no"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "stop",
+    "index": 0,
+    "message": {
+     "content": "\"I'm Looking Through You\" was released in 1965 (Rubber Soul). 1965 is 3 years from 1962 but 5 years from 1970, so it's nearer 1962.\n\nNo, 0.9",
+     "reasoning_content": "Rubber Soul, 1965 — but \"nearer 1970 than 1962\"? 1965 midpoint is 1966... 1965 is nearer 1962? 1962–1965=3, 1965–1970=5. So no.",
+     "role": "assistant"
+    }
+   }
+  ],
+  "created": 1790196311,
+  "id": "20260924044508cdd7b28eafa847b5",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924044508cdd7b28eafa847b5",
+  "usage": {
+   "completion_tokens": 115,
+   "completion_tokens_details": {
+    "reasoning_tokens": 61
+   },
+   "prompt_tokens": 315,
+   "prompt_tokens_details": {
+    "cached_tokens": 256
+   },
+   "total_tokens": 430
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 3.299
+}

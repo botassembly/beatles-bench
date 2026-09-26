@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Marc Streitenfeld","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"Prometheus","b":"2001: A Space Odyssey","c":"The Three Caballeros","d":"Peter Pan"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0352, "probabilities": {"a": 0.3313, "b": 0.2181, "c": 0.3093, "d": 0.1413}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

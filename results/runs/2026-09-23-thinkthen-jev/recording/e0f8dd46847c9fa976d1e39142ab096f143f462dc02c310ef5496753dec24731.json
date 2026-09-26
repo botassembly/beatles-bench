@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Beatles for Sale","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"You Won't See Me","b":"Hold Me Tight","c":"A Hard Day's Night","d":"Mr. Moonlight"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.3,"probabilities":{"a":0.05,"b":0.47,"c":0.01,"d":0.47}}},"usage":{"input_tokens":362,"output_tokens":46}}
+}

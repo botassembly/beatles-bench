@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Words of Love","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Help!","b":"Beatles for Sale","c":"A Hard Day's Night"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1686, "probabilities": {"a": 0.6163, "b": 0.1328, "c": 0.2509}}}, "usage": {"input_tokens": 49, "output_tokens": 0}}
+}

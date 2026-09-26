@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Dona Celeste","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Donald Trump","b":"Diane Lane","c":"Pelé","d":"Eva Green"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.64,"probabilities":{"d":0.07,"b":0.07,"a":0.13,"c":0.73}}},"usage":{"input_tokens":350,"output_tokens":46}}
+}

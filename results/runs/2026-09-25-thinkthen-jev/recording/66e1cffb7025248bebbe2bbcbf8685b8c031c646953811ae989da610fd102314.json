@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Francis Ford Coppola","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Lilian Fontaine","b":"Grace Ho","c":"Patsy Swayze","d":"Italia Coppola"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.97,"probabilities":{"c":0.0,"b":0.01,"a":0.01,"d":0.98}}},"usage":{"input_tokens":354,"output_tokens":46}}
+}

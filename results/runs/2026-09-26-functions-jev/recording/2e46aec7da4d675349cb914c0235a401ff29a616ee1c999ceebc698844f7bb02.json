@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Back in the U.S.S.R.","model":"jev-latest","questions":{"q1":{"type":"score","instructions":"The text is the title of a song by the Beatles. How well known is it today?","criteria":["Almost unknown.","Known mostly to fans.","Well known.","Very well known.","One of the most famous songs ever recorded."]}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"score","score":2.09,"confidence":0.43,"legend":{"0":"Almost unknown.","1":"Known mostly to fans.","2":"Well known.","3":"Very well known.","4":"One of the most famous songs ever recorded."},"probabilities":{"0":0.0,"1":0.3,"2":0.34,"3":0.33,"4":0.03}}},"usage":{"input_tokens":348,"output_tokens":18}}
+}

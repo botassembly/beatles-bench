@@ -1,0 +1,8 @@
+system	questions	right	input_tokens	cached_input_tokens	output_tokens	usd	usd_per_1000_questions	usd_per_1000_right	median_s	p90_s	timed	price_source
+BM25	1501	525.125	0	0	0	0.0	0.0	0.0	0.0001	0.0003	1501	no model call
+Embeddings	1501	597.0	0	0	0	0.0	0.0	0.0	0.0026	0.0027	1501	no model call
+Hybrid	1501	563.5	0	0	0	0.0	0.0	0.0	0.0005	0.0006	1501	no model call
+Word overlap	1501	512.7083333333334	0	0	0	0.0	0.0	0.0	0.0001	0.0003	1501	no model call
+GLM-5.3 Flash	1501	1451.3333333333333	516073	198656	59550	0.083347	0.055528	0.057428	8.237	12.787	1501	https://docs.z.ai/guides/overview/pricing, read 2026-09-23
+Laya	1501	537.0	85793	0	0	0.0	0.0	0.0	0.072	0.153	1501	Laya runs on a local Mac through a local shim; no per-token charge
+Jev	1501	1054.0	534901	0	69290	0.022466	0.014967	0.021315	0.215	0.271	1501	Ian Maurer, 2026-09-23: Jev costs $0.042 per million input tokens, and output is free

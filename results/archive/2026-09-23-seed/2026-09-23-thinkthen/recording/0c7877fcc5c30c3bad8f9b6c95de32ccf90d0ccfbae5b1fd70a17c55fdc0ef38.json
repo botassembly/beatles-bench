@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Benedikt Rejt","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"Doge's Palace","b":"Ulm Minster","c":"Prague Castle","d":"Brandenburg Gate"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.88,"probabilities":{"d":0.0,"a":0.04,"c":0.91,"b":0.05}}},"usage":{"input_tokens":356,"output_tokens":46}}
+}

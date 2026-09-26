@@ -1,0 +1,14 @@
+Synthetic song page. Another artist's recording comes first, as on some real song pages.
+{{Infobox song
+| name = Alpha Song
+| artist = Someone Else
+| released = {{Start date|1962|1|1}}
+}}
+{{Infobox song
+| name = Alpha Song
+| artist = [[the Beatles]]
+| released = 1 March 1963 (US)<br />22 March 1963 (UK)
+}}
+==Personnel==
+* [[John Lennon]] – lead vocal, rhythm guitar
+* [[Paul McCartney]] – backing vocal, bass

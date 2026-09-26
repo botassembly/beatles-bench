@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"H. J. Round","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"traveling-wave tube","b":"shower","c":"slow cooker","d":"light-emitting diode"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.025, "probabilities": {"a": 0.2402, "b": 0.1703, "c": 0.2342, "d": 0.3554}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
+}

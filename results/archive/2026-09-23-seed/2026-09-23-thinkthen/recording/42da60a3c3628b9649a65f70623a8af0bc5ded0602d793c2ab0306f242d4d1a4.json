@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Phil Spector","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"Lovely Rita","b":"It Won't Be Long","c":"Maggie Mae","d":"Wild Honey Pie"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.31,"probabilities":{"c":0.2,"a":0.48,"d":0.12,"b":0.2}}},"usage":{"input_tokens":357,"output_tokens":46}}
+}

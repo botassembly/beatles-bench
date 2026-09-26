@@ -1,0 +1,358 @@
+a	b	scope	n	a_right	b_right	a_only	b_only	p
+BM25	Embeddings	overall	1501	524	597	163	236	0.000302
+BM25	Embeddings	beatles-only	1313	441	494	148	201	0.005303
+BM25	Embeddings	forward	224	51	59	21	29	0.322236
+BM25	Embeddings	reverse	112	36	39	14	17	0.7201
+BM25	Embeddings	multi-hop	180	71	71	17	17	1.0
+BM25	Embeddings	single-hop	248	71	74	39	42	0.824313
+BM25	Embeddings	comparison	60	24	34	10	20	0.098737
+BM25	Embeddings	shared-lead	32	17	19	2	4	0.6875
+BM25	Embeddings	lead-set	104	62	64	4	6	0.753906
+BM25	Embeddings	near-neighbor	60	28	38	5	15	0.041389
+BM25	Embeddings	near-neighbor-control	60	26	27	8	9	1.0
+BM25	Embeddings	lexical-trap	54	4	10	1	7	0.070312
+BM25	Embeddings	lexical-trap-control	54	14	18	9	13	0.523467
+BM25	Embeddings	none-of-these	60	15	12	6	3	0.507812
+BM25	Embeddings	reversal	65	22	29	12	19	0.281042
+BM25	Embeddings	reversal-general	146	41	61	15	35	0.0066
+BM25	Embeddings	reversal-general-shared-name	42	42	42	0	0	1.0
+BM25	Hybrid	overall	1501	524	553	40	69	0.007041
+BM25	Hybrid	beatles-only	1313	441	465	35	59	0.01721
+BM25	Hybrid	forward	224	51	63	3	15	0.007538
+BM25	Hybrid	reverse	112	36	38	5	7	0.774414
+BM25	Hybrid	multi-hop	180	71	67	4	0	0.125
+BM25	Hybrid	single-hop	248	71	79	8	16	0.15159
+BM25	Hybrid	comparison	60	24	24	0	0	1.0
+BM25	Hybrid	shared-lead	32	17	17	0	0	1.0
+BM25	Hybrid	lead-set	104	62	62	0	0	1.0
+BM25	Hybrid	near-neighbor	60	28	33	2	7	0.179688
+BM25	Hybrid	near-neighbor-control	60	26	25	3	2	1.0
+BM25	Hybrid	lexical-trap	54	4	5	0	1	1.0
+BM25	Hybrid	lexical-trap-control	54	14	15	5	6	1.0
+BM25	Hybrid	none-of-these	60	15	14	1	0	1.0
+BM25	Hybrid	reversal	65	22	23	4	5	1.0
+BM25	Hybrid	reversal-general	146	41	46	5	10	0.301758
+BM25	Hybrid	reversal-general-shared-name	42	42	42	0	0	1.0
+BM25	Word overlap	overall	1501	524	517	17	10	0.247789
+BM25	Word overlap	beatles-only	1313	441	437	14	10	0.541256
+BM25	Word overlap	forward	224	51	51	0	0	1.0
+BM25	Word overlap	reverse	112	36	37	0	1	1.0
+BM25	Word overlap	multi-hop	180	71	71	0	0	1.0
+BM25	Word overlap	single-hop	248	71	65	6	0	0.03125
+BM25	Word overlap	comparison	60	24	26	4	6	0.753906
+BM25	Word overlap	shared-lead	32	17	17	0	0	1.0
+BM25	Word overlap	lead-set	104	62	62	0	0	1.0
+BM25	Word overlap	near-neighbor	60	28	28	0	0	1.0
+BM25	Word overlap	near-neighbor-control	60	26	26	0	0	1.0
+BM25	Word overlap	lexical-trap	54	4	1	3	0	0.25
+BM25	Word overlap	lexical-trap-control	54	14	15	0	1	1.0
+BM25	Word overlap	none-of-these	60	15	15	0	0	1.0
+BM25	Word overlap	reversal	65	22	23	1	2	1.0
+BM25	Word overlap	reversal-general	146	41	41	0	0	1.0
+BM25	Word overlap	reversal-general-shared-name	42	42	39	3	0	0.25
+BM25	GLM-5.3 Flash	overall	1501	524	1451	14	941	0.0
+BM25	GLM-5.3 Flash	beatles-only	1313	441	1263	14	836	0.0
+BM25	GLM-5.3 Flash	forward	224	51	218	0	167	0.0
+BM25	GLM-5.3 Flash	reverse	112	36	102	4	70	0.0
+BM25	GLM-5.3 Flash	multi-hop	180	71	175	1	105	0.0
+BM25	GLM-5.3 Flash	single-hop	248	71	245	0	174	0.0
+BM25	GLM-5.3 Flash	comparison	60	24	59	0	35	0.0
+BM25	GLM-5.3 Flash	shared-lead	32	17	27	2	12	0.012939
+BM25	GLM-5.3 Flash	lead-set	104	62	96	5	39	0.0
+BM25	GLM-5.3 Flash	near-neighbor	60	28	60	0	32	0.0
+BM25	GLM-5.3 Flash	near-neighbor-control	60	26	60	0	34	0.0
+BM25	GLM-5.3 Flash	lexical-trap	54	4	50	0	46	0.0
+BM25	GLM-5.3 Flash	lexical-trap-control	54	14	53	0	39	0.0
+BM25	GLM-5.3 Flash	none-of-these	60	15	59	0	44	0.0
+BM25	GLM-5.3 Flash	reversal	65	22	59	2	39	0.0
+BM25	GLM-5.3 Flash	reversal-general	146	41	146	0	105	0.0
+BM25	GLM-5.3 Flash	reversal-general-shared-name	42	42	42	0	0	1.0
+BM25	Laya	overall	1501	524	537	154	167	0.503063
+BM25	Laya	beatles-only	1313	441	460	135	154	0.289664
+BM25	Laya	forward	224	51	51	24	24	1.0
+BM25	Laya	reverse	112	36	38	7	9	0.803619
+BM25	Laya	multi-hop	180	71	70	34	33	1.0
+BM25	Laya	single-hop	248	71	78	17	24	0.348889
+BM25	Laya	comparison	60	24	27	16	19	0.735879
+BM25	Laya	shared-lead	32	17	17	1	1	1.0
+BM25	Laya	lead-set	104	62	61	1	0	1.0
+BM25	Laya	near-neighbor	60	28	26	10	8	0.814529
+BM25	Laya	near-neighbor-control	60	26	29	6	9	0.607239
+BM25	Laya	lexical-trap	54	4	9	4	9	0.266846
+BM25	Laya	lexical-trap-control	54	14	9	8	3	0.226562
+BM25	Laya	none-of-these	60	15	21	4	10	0.179565
+BM25	Laya	reversal	65	22	24	3	5	0.726562
+BM25	Laya	reversal-general	146	41	47	7	13	0.263176
+BM25	Laya	reversal-general-shared-name	42	42	30	12	0	0.000488
+BM25	Jev	overall	1501	524	1050	72	598	0.0
+BM25	Jev	beatles-only	1313	441	875	71	505	0.0
+BM25	Jev	forward	224	51	152	6	107	0.0
+BM25	Jev	reverse	112	36	82	3	49	0.0
+BM25	Jev	multi-hop	180	71	90	16	35	0.010974
+BM25	Jev	single-hop	248	71	171	17	117	0.0
+BM25	Jev	comparison	60	24	51	5	32	7e-06
+BM25	Jev	shared-lead	32	17	20	3	6	0.507812
+BM25	Jev	lead-set	104	62	78	5	21	0.002494
+BM25	Jev	near-neighbor	60	28	45	3	20	0.000488
+BM25	Jev	near-neighbor-control	60	26	48	1	23	3e-06
+BM25	Jev	lexical-trap	54	4	27	0	23	0.0
+BM25	Jev	lexical-trap-control	54	14	38	4	28	1.9e-05
+BM25	Jev	none-of-these	60	15	33	1	19	4e-05
+BM25	Jev	reversal	65	22	40	7	25	0.002102
+BM25	Jev	reversal-general	146	41	133	1	93	0.0
+BM25	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
+Embeddings	Hybrid	overall	1501	597	553	175	131	0.013834
+Embeddings	Hybrid	beatles-only	1313	494	465	150	121	0.08878
+Embeddings	Hybrid	forward	224	59	63	18	22	0.635828
+Embeddings	Hybrid	reverse	112	39	38	12	11	1.0
+Embeddings	Hybrid	multi-hop	180	71	67	17	13	0.584665
+Embeddings	Hybrid	single-hop	248	74	79	27	32	0.602923
+Embeddings	Hybrid	comparison	60	34	24	20	10	0.098737
+Embeddings	Hybrid	shared-lead	32	19	17	4	2	0.6875
+Embeddings	Hybrid	lead-set	104	64	62	6	4	0.753906
+Embeddings	Hybrid	near-neighbor	60	38	33	8	3	0.226562
+Embeddings	Hybrid	near-neighbor-control	60	27	25	7	5	0.774414
+Embeddings	Hybrid	lexical-trap	54	10	5	6	1	0.125
+Embeddings	Hybrid	lexical-trap-control	54	18	15	8	5	0.581055
+Embeddings	Hybrid	none-of-these	60	12	14	3	5	0.726562
+Embeddings	Hybrid	reversal	65	29	23	14	8	0.286279
+Embeddings	Hybrid	reversal-general	146	61	46	25	10	0.016674
+Embeddings	Hybrid	reversal-general-shared-name	42	42	42	0	0	1.0
+Embeddings	Word overlap	overall	1501	597	517	240	160	7.4e-05
+Embeddings	Word overlap	beatles-only	1313	494	437	202	145	0.002595
+Embeddings	Word overlap	forward	224	59	51	29	21	0.322236
+Embeddings	Word overlap	reverse	112	39	37	16	14	0.855536
+Embeddings	Word overlap	multi-hop	180	71	71	17	17	1.0
+Embeddings	Word overlap	single-hop	248	74	65	47	38	0.385669
+Embeddings	Word overlap	comparison	60	34	26	17	9	0.168638
+Embeddings	Word overlap	shared-lead	32	19	17	4	2	0.6875
+Embeddings	Word overlap	lead-set	104	64	62	6	4	0.753906
+Embeddings	Word overlap	near-neighbor	60	38	28	15	5	0.041389
+Embeddings	Word overlap	near-neighbor-control	60	27	26	9	8	1.0
+Embeddings	Word overlap	lexical-trap	54	10	1	9	0	0.003906
+Embeddings	Word overlap	lexical-trap-control	54	18	15	12	9	0.663624
+Embeddings	Word overlap	none-of-these	60	12	15	3	6	0.507812
+Embeddings	Word overlap	reversal	65	29	23	18	12	0.361595
+Embeddings	Word overlap	reversal-general	146	61	41	35	15	0.0066
+Embeddings	Word overlap	reversal-general-shared-name	42	42	39	3	0	0.25
+Embeddings	GLM-5.3 Flash	overall	1501	597	1451	19	873	0.0
+Embeddings	GLM-5.3 Flash	beatles-only	1313	494	1263	19	788	0.0
+Embeddings	GLM-5.3 Flash	forward	224	59	218	2	161	0.0
+Embeddings	GLM-5.3 Flash	reverse	112	39	102	4	67	0.0
+Embeddings	GLM-5.3 Flash	multi-hop	180	71	175	2	106	0.0
+Embeddings	GLM-5.3 Flash	single-hop	248	74	245	0	171	0.0
+Embeddings	GLM-5.3 Flash	comparison	60	34	59	1	26	0.0
+Embeddings	GLM-5.3 Flash	shared-lead	32	19	27	2	10	0.038574
+Embeddings	GLM-5.3 Flash	lead-set	104	64	96	4	36	0.0
+Embeddings	GLM-5.3 Flash	near-neighbor	60	38	60	0	22	0.0
+Embeddings	GLM-5.3 Flash	near-neighbor-control	60	27	60	0	33	0.0
+Embeddings	GLM-5.3 Flash	lexical-trap	54	10	50	0	40	0.0
+Embeddings	GLM-5.3 Flash	lexical-trap-control	54	18	53	0	35	0.0
+Embeddings	GLM-5.3 Flash	none-of-these	60	12	59	0	47	0.0
+Embeddings	GLM-5.3 Flash	reversal	65	29	59	4	34	1e-06
+Embeddings	GLM-5.3 Flash	reversal-general	146	61	146	0	85	0.0
+Embeddings	GLM-5.3 Flash	reversal-general-shared-name	42	42	42	0	0	1.0
+Embeddings	Laya	overall	1501	597	537	274	214	0.007504
+Embeddings	Laya	beatles-only	1313	494	460	228	194	0.108073
+Embeddings	Laya	forward	224	59	51	26	18	0.291215
+Embeddings	Laya	reverse	112	39	38	16	15	1.0
+Embeddings	Laya	multi-hop	180	71	70	38	37	1.0
+Embeddings	Laya	single-hop	248	74	78	40	44	0.743644
+Embeddings	Laya	comparison	60	34	27	17	10	0.247789
+Embeddings	Laya	shared-lead	32	19	17	3	1	0.625
+Embeddings	Laya	lead-set	104	64	61	7	4	0.548828
+Embeddings	Laya	near-neighbor	60	38	26	21	9	0.042774
+Embeddings	Laya	near-neighbor-control	60	27	29	11	13	0.83882
+Embeddings	Laya	lexical-trap	54	10	9	9	8	1.0
+Embeddings	Laya	lexical-trap-control	54	18	9	14	5	0.063568
+Embeddings	Laya	none-of-these	60	12	21	7	16	0.09314
+Embeddings	Laya	reversal	65	29	24	19	14	0.48685
+Embeddings	Laya	reversal-general	146	61	47	34	20	0.075905
+Embeddings	Laya	reversal-general-shared-name	42	42	30	12	0	0.000488
+Embeddings	Jev	overall	1501	597	1050	105	558	0.0
+Embeddings	Jev	beatles-only	1313	494	875	103	484	0.0
+Embeddings	Jev	forward	224	59	152	7	100	0.0
+Embeddings	Jev	reverse	112	39	82	7	50	0.0
+Embeddings	Jev	multi-hop	180	71	90	17	36	0.01266
+Embeddings	Jev	single-hop	248	74	171	20	117	0.0
+Embeddings	Jev	comparison	60	34	51	7	24	0.003327
+Embeddings	Jev	shared-lead	32	19	20	5	6	1.0
+Embeddings	Jev	lead-set	104	64	78	8	22	0.016125
+Embeddings	Jev	near-neighbor	60	38	45	5	12	0.143463
+Embeddings	Jev	near-neighbor-control	60	27	48	4	25	0.000104
+Embeddings	Jev	lexical-trap	54	10	27	3	20	0.000488
+Embeddings	Jev	lexical-trap-control	54	18	38	6	26	0.000535
+Embeddings	Jev	none-of-these	60	12	33	1	22	6e-06
+Embeddings	Jev	reversal	65	29	40	13	24	0.098872
+Embeddings	Jev	reversal-general	146	61	133	2	74	0.0
+Embeddings	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
+Hybrid	Word overlap	overall	1501	553	517	85	49	0.002372
+Hybrid	Word overlap	beatles-only	1313	465	437	72	44	0.01185
+Hybrid	Word overlap	forward	224	63	51	15	3	0.007538
+Hybrid	Word overlap	reverse	112	38	37	6	5	1.0
+Hybrid	Word overlap	multi-hop	180	67	71	0	4	0.125
+Hybrid	Word overlap	single-hop	248	79	65	22	8	0.016125
+Hybrid	Word overlap	comparison	60	24	26	4	6	0.753906
+Hybrid	Word overlap	shared-lead	32	17	17	0	0	1.0
+Hybrid	Word overlap	lead-set	104	62	62	0	0	1.0
+Hybrid	Word overlap	near-neighbor	60	33	28	7	2	0.179688
+Hybrid	Word overlap	near-neighbor-control	60	25	26	2	3	1.0
+Hybrid	Word overlap	lexical-trap	54	5	1	4	0	0.125
+Hybrid	Word overlap	lexical-trap-control	54	15	15	6	6	1.0
+Hybrid	Word overlap	none-of-these	60	14	15	0	1	1.0
+Hybrid	Word overlap	reversal	65	23	23	6	6	1.0
+Hybrid	Word overlap	reversal-general	146	46	41	10	5	0.301758
+Hybrid	Word overlap	reversal-general-shared-name	42	42	39	3	0	0.25
+Hybrid	GLM-5.3 Flash	overall	1501	553	1451	16	914	0.0
+Hybrid	GLM-5.3 Flash	beatles-only	1313	465	1263	16	814	0.0
+Hybrid	GLM-5.3 Flash	forward	224	63	218	1	156	0.0
+Hybrid	GLM-5.3 Flash	reverse	112	38	102	5	69	0.0
+Hybrid	GLM-5.3 Flash	multi-hop	180	67	175	1	109	0.0
+Hybrid	GLM-5.3 Flash	single-hop	248	79	245	0	166	0.0
+Hybrid	GLM-5.3 Flash	comparison	60	24	59	0	35	0.0
+Hybrid	GLM-5.3 Flash	shared-lead	32	17	27	2	12	0.012939
+Hybrid	GLM-5.3 Flash	lead-set	104	62	96	5	39	0.0
+Hybrid	GLM-5.3 Flash	near-neighbor	60	33	60	0	27	0.0
+Hybrid	GLM-5.3 Flash	near-neighbor-control	60	25	60	0	35	0.0
+Hybrid	GLM-5.3 Flash	lexical-trap	54	5	50	0	45	0.0
+Hybrid	GLM-5.3 Flash	lexical-trap-control	54	15	53	0	38	0.0
+Hybrid	GLM-5.3 Flash	none-of-these	60	14	59	0	45	0.0
+Hybrid	GLM-5.3 Flash	reversal	65	23	59	2	38	0.0
+Hybrid	GLM-5.3 Flash	reversal-general	146	46	146	0	100	0.0
+Hybrid	GLM-5.3 Flash	reversal-general-shared-name	42	42	42	0	0	1.0
+Hybrid	Laya	overall	1501	553	537	205	189	0.449877
+Hybrid	Laya	beatles-only	1313	465	460	178	173	0.830972
+Hybrid	Laya	forward	224	63	51	35	23	0.148006
+Hybrid	Laya	reverse	112	38	38	13	13	1.0
+Hybrid	Laya	multi-hop	180	67	70	31	34	0.804317
+Hybrid	Laya	single-hop	248	79	78	30	29	1.0
+Hybrid	Laya	comparison	60	24	27	16	19	0.735879
+Hybrid	Laya	shared-lead	32	17	17	1	1	1.0
+Hybrid	Laya	lead-set	104	62	61	1	0	1.0
+Hybrid	Laya	near-neighbor	60	33	26	15	8	0.21004
+Hybrid	Laya	near-neighbor-control	60	25	29	7	11	0.480682
+Hybrid	Laya	lexical-trap	54	5	9	5	9	0.42395
+Hybrid	Laya	lexical-trap-control	54	15	9	12	6	0.237885
+Hybrid	Laya	none-of-these	60	14	21	4	11	0.118469
+Hybrid	Laya	reversal	65	23	24	8	9	1.0
+Hybrid	Laya	reversal-general	146	46	47	15	16	1.0
+Hybrid	Laya	reversal-general-shared-name	42	42	30	12	0	0.000488
+Hybrid	Jev	overall	1501	553	1050	85	582	0.0
+Hybrid	Jev	beatles-only	1313	465	875	82	492	0.0
+Hybrid	Jev	forward	224	63	152	12	101	0.0
+Hybrid	Jev	reverse	112	38	82	6	50	0.0
+Hybrid	Jev	multi-hop	180	67	90	12	35	0.001089
+Hybrid	Jev	single-hop	248	79	171	21	113	0.0
+Hybrid	Jev	comparison	60	24	51	5	32	7e-06
+Hybrid	Jev	shared-lead	32	17	20	3	6	0.507812
+Hybrid	Jev	lead-set	104	62	78	5	21	0.002494
+Hybrid	Jev	near-neighbor	60	33	45	3	15	0.007538
+Hybrid	Jev	near-neighbor-control	60	25	48	1	24	2e-06
+Hybrid	Jev	lexical-trap	54	5	27	1	23	3e-06
+Hybrid	Jev	lexical-trap-control	54	15	38	4	27	3.4e-05
+Hybrid	Jev	none-of-these	60	14	33	1	20	2.1e-05
+Hybrid	Jev	reversal	65	23	40	8	25	0.004551
+Hybrid	Jev	reversal-general	146	46	133	3	90	0.0
+Hybrid	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
+Word overlap	GLM-5.3 Flash	overall	1501	517	1451	15	949	0.0
+Word overlap	GLM-5.3 Flash	beatles-only	1313	437	1263	15	841	0.0
+Word overlap	GLM-5.3 Flash	forward	224	51	218	0	167	0.0
+Word overlap	GLM-5.3 Flash	reverse	112	37	102	4	69	0.0
+Word overlap	GLM-5.3 Flash	multi-hop	180	71	175	1	105	0.0
+Word overlap	GLM-5.3 Flash	single-hop	248	65	245	0	180	0.0
+Word overlap	GLM-5.3 Flash	comparison	60	26	59	1	34	0.0
+Word overlap	GLM-5.3 Flash	shared-lead	32	17	27	2	12	0.012939
+Word overlap	GLM-5.3 Flash	lead-set	104	62	96	5	39	0.0
+Word overlap	GLM-5.3 Flash	near-neighbor	60	28	60	0	32	0.0
+Word overlap	GLM-5.3 Flash	near-neighbor-control	60	26	60	0	34	0.0
+Word overlap	GLM-5.3 Flash	lexical-trap	54	1	50	0	49	0.0
+Word overlap	GLM-5.3 Flash	lexical-trap-control	54	15	53	0	38	0.0
+Word overlap	GLM-5.3 Flash	none-of-these	60	15	59	0	44	0.0
+Word overlap	GLM-5.3 Flash	reversal	65	23	59	2	38	0.0
+Word overlap	GLM-5.3 Flash	reversal-general	146	41	146	0	105	0.0
+Word overlap	GLM-5.3 Flash	reversal-general-shared-name	42	39	42	0	3	0.25
+Word overlap	Laya	overall	1501	517	537	150	170	0.28816
+Word overlap	Laya	beatles-only	1313	437	460	131	154	0.192427
+Word overlap	Laya	forward	224	51	51	24	24	1.0
+Word overlap	Laya	reverse	112	37	38	7	8	1.0
+Word overlap	Laya	multi-hop	180	71	70	34	33	1.0
+Word overlap	Laya	single-hop	248	65	78	17	30	0.078941
+Word overlap	Laya	comparison	60	26	27	13	14	1.0
+Word overlap	Laya	shared-lead	32	17	17	1	1	1.0
+Word overlap	Laya	lead-set	104	62	61	1	0	1.0
+Word overlap	Laya	near-neighbor	60	28	26	10	8	0.814529
+Word overlap	Laya	near-neighbor-control	60	26	29	6	9	0.607239
+Word overlap	Laya	lexical-trap	54	1	9	1	9	0.021484
+Word overlap	Laya	lexical-trap-control	54	15	9	8	2	0.109375
+Word overlap	Laya	none-of-these	60	15	21	4	10	0.179565
+Word overlap	Laya	reversal	65	23	24	5	6	1.0
+Word overlap	Laya	reversal-general	146	41	47	7	13	0.263176
+Word overlap	Laya	reversal-general-shared-name	42	39	30	12	3	0.035156
+Word overlap	Jev	overall	1501	517	1050	74	607	0.0
+Word overlap	Jev	beatles-only	1313	437	875	73	511	0.0
+Word overlap	Jev	forward	224	51	152	6	107	0.0
+Word overlap	Jev	reverse	112	37	82	4	49	0.0
+Word overlap	Jev	multi-hop	180	71	90	16	35	0.010974
+Word overlap	Jev	single-hop	248	65	171	17	123	0.0
+Word overlap	Jev	comparison	60	26	51	4	29	1.1e-05
+Word overlap	Jev	shared-lead	32	17	20	3	6	0.507812
+Word overlap	Jev	lead-set	104	62	78	5	21	0.002494
+Word overlap	Jev	near-neighbor	60	28	45	3	20	0.000488
+Word overlap	Jev	near-neighbor-control	60	26	48	1	23	3e-06
+Word overlap	Jev	lexical-trap	54	1	27	0	26	0.0
+Word overlap	Jev	lexical-trap-control	54	15	38	5	28	6.6e-05
+Word overlap	Jev	none-of-these	60	15	33	1	19	4e-05
+Word overlap	Jev	reversal	65	23	40	8	25	0.004551
+Word overlap	Jev	reversal-general	146	41	133	1	93	0.0
+Word overlap	Jev	reversal-general-shared-name	42	39	42	0	3	0.25
+GLM-5.3 Flash	Laya	overall	1501	1451	537	931	17	0.0
+GLM-5.3 Flash	Laya	beatles-only	1313	1263	460	820	17	0.0
+GLM-5.3 Flash	Laya	forward	224	218	51	169	2	0.0
+GLM-5.3 Flash	Laya	reverse	112	102	38	68	4	0.0
+GLM-5.3 Flash	Laya	multi-hop	180	175	70	106	1	0.0
+GLM-5.3 Flash	Laya	single-hop	248	245	78	167	0	0.0
+GLM-5.3 Flash	Laya	comparison	60	59	27	33	1	0.0
+GLM-5.3 Flash	Laya	shared-lead	32	27	17	11	1	0.006348
+GLM-5.3 Flash	Laya	lead-set	104	96	61	40	5	0.0
+GLM-5.3 Flash	Laya	near-neighbor	60	60	26	34	0	0.0
+GLM-5.3 Flash	Laya	near-neighbor-control	60	60	29	31	0	0.0
+GLM-5.3 Flash	Laya	lexical-trap	54	50	9	42	1	0.0
+GLM-5.3 Flash	Laya	lexical-trap-control	54	53	9	44	0	0.0
+GLM-5.3 Flash	Laya	none-of-these	60	59	21	38	0	0.0
+GLM-5.3 Flash	Laya	reversal	65	59	24	37	2	0.0
+GLM-5.3 Flash	Laya	reversal-general	146	146	47	99	0	0.0
+GLM-5.3 Flash	Laya	reversal-general-shared-name	42	42	30	12	0	0.000488
+GLM-5.3 Flash	Jev	overall	1501	1451	1050	423	22	0.0
+GLM-5.3 Flash	Jev	beatles-only	1313	1263	875	410	22	0.0
+GLM-5.3 Flash	Jev	forward	224	218	152	67	1	0.0
+GLM-5.3 Flash	Jev	reverse	112	102	82	26	6	0.000535
+GLM-5.3 Flash	Jev	multi-hop	180	175	90	87	2	0.0
+GLM-5.3 Flash	Jev	single-hop	248	245	171	74	0	0.0
+GLM-5.3 Flash	Jev	comparison	60	59	51	9	1	0.021484
+GLM-5.3 Flash	Jev	shared-lead	32	27	20	10	3	0.092285
+GLM-5.3 Flash	Jev	lead-set	104	96	78	23	5	0.000912
+GLM-5.3 Flash	Jev	near-neighbor	60	60	45	15	0	6.1e-05
+GLM-5.3 Flash	Jev	near-neighbor-control	60	60	48	12	0	0.000488
+GLM-5.3 Flash	Jev	lexical-trap	54	50	27	23	0	0.0
+GLM-5.3 Flash	Jev	lexical-trap-control	54	53	38	15	0	6.1e-05
+GLM-5.3 Flash	Jev	none-of-these	60	59	33	26	0	0.0
+GLM-5.3 Flash	Jev	reversal	65	59	40	23	4	0.000311
+GLM-5.3 Flash	Jev	reversal-general	146	146	133	13	0	0.000244
+GLM-5.3 Flash	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
+Laya	Jev	overall	1501	537	1050	100	613	0.0
+Laya	Jev	beatles-only	1313	460	875	99	514	0.0
+Laya	Jev	forward	224	51	152	9	110	0.0
+Laya	Jev	reverse	112	38	82	4	48	0.0
+Laya	Jev	multi-hop	180	70	90	29	49	0.030786
+Laya	Jev	single-hop	248	78	171	19	112	0.0
+Laya	Jev	comparison	60	27	51	7	31	0.000116
+Laya	Jev	shared-lead	32	17	20	4	7	0.548828
+Laya	Jev	lead-set	104	61	78	5	22	0.001514
+Laya	Jev	near-neighbor	60	26	45	4	23	0.000311
+Laya	Jev	near-neighbor-control	60	29	48	3	22	0.000157
+Laya	Jev	lexical-trap	54	9	27	3	21	0.000277
+Laya	Jev	lexical-trap-control	54	9	38	3	32	0.0
+Laya	Jev	none-of-these	60	21	33	4	16	0.011818
+Laya	Jev	reversal	65	24	40	5	21	0.002494
+Laya	Jev	reversal-general	146	47	133	1	87	0.0
+Laya	Jev	reversal-general-shared-name	42	30	42	0	12	0.000488

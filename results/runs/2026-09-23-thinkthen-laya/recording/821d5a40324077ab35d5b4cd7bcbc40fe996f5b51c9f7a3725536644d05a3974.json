@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"1966 FIFA World Cup","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1965","b":"July 1965","c":"June 1966","d":"July 1966"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0799, "probabilities": {"a": 0.0977, "b": 0.1871, "c": 0.3752, "d": 0.3399}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
+}

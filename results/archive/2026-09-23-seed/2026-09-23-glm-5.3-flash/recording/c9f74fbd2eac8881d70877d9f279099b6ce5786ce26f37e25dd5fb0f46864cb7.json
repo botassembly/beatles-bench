@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a songwriter. Which of these songs by the Beatles did this person compose?\n\nText: Ringo Starr\n\nAllowed answers:\n- Revolution 1\n- You Can't Do That\n- Free as a Bird\n- Every Little Thing\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Revolution 1",
+         "You Can't Do That",
+         "Free as a Bird",
+         "Every Little Thing"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Ringo wrote none of these... but he composed? None. \"Free as a Bird\" written by Lennon. Hmm, trick: Ringo didn't write any. But must pick one... The question: text names songwriter Ringo Starr; which Beatles song did he compose? Actually none—but pick least wrong? \"Every Little Thing\" is Lennon-McCartney. Hmm. All four are Beatles songs he didn't compose. Answer with lowest probability? Perhaps \"Free as a Bird\"—credited to Lennon despite demo... I'll answer with low probability.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Free as a Bird\",\"probability\":0.2}",
+        "name": "Answer"
+       },
+       "id": "call_-7230661899052900678",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790177287,
+  "id": "2026092323274801eb0fc6d7654299",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "2026092323274801eb0fc6d7654299",
+  "usage": {
+   "completion_tokens": 134,
+   "completion_tokens_details": {
+    "reasoning_tokens": 112
+   },
+   "prompt_tokens": 346,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 480
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 18.796
+}

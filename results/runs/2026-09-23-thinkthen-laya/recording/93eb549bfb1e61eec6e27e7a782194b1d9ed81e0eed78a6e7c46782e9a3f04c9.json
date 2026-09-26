@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Guðmundur Gunnarsson","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Yair Lapid","b":"Olivia de Havilland","c":"Jake Gyllenhaal","d":"Björk"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.459, "probabilities": {"a": 0.7871, "b": 0.0834, "c": 0.0629, "d": 0.0666}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
+}

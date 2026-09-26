@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Don't Pass Me By","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Let It Be","c":"The Beatles (White Album)","d":"A Hard Day's Night"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.059, "probabilities": {"a": 0.1322, "b": 0.2527, "c": 0.4115, "d": 0.2037}}}, "usage": {"input_tokens": 62, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Catalog:\nTwo of Us (lead: McCartney, Lennon; written: Lennon–McCartney; 3:36; released 1970-05-08)\nText: Two of Us","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Does Ringo Starr sing a lead vocal on it?"}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.7576}}, "usage": {"input_tokens": 93, "output_tokens": 0}}
+}

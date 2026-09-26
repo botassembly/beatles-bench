@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Catalog:\nHelp! (1965-08-06)\nTicket to Ride (lead: Lennon; written: Lennon–McCartney; 3:09; released 1965-04-09; first album: Help!)\nText: Ticket to Ride","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.02}},"usage":{"input_tokens":351,"output_tokens":21}}
+}

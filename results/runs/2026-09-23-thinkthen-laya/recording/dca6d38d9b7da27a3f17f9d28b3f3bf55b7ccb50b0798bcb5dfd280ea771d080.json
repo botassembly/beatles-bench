@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"I Don't Want to Spoil the Party","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Let It Be","c":"Rubber Soul","none":"none of these"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.009, "probabilities": {"a": 0.218, "b": 0.3112, "c": 0.2598, "none": 0.2111}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
+}

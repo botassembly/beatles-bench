@@ -1,0 +1,18 @@
+thinkthen: thinkthen 0.0.1, release build of thinkthen main at 02dc0b9672dea909d64d6dd0e44820814e93d9de
+THINKTHEN_BIN SHA-256: eb4a571370527ec56c5fe0e10aec410ae906799c05b4de3d9a97ba6eaf48e255
+model the backend reported: jev-1.13.0 
+machine: a local Linux machine, 16 cores
+date: 2026-09-25
+guard jobs (thinkthen sdlc/scripts/live), BENCH_WORKERS=4:
+  example 01-decide: --max-tokens 6972, BENCH_MAX_INPUT_TOKENS=5500, exit 0, input tokens sent 4973
+  example 02-choose: --max-tokens 5564, BENCH_MAX_INPUT_TOKENS=4000, exit 0, input tokens sent 3561
+  example 03-tag: --max-tokens 4988, BENCH_MAX_INPUT_TOKENS=3100, exit 0, input tokens sent 2818
+  example 04-score: --max-tokens 9148, BENCH_MAX_INPUT_TOKENS=7300, exit 0, input tokens sent 6630
+  example 05-filter: --max-tokens 9972, BENCH_MAX_INPUT_TOKENS=8500, exit 0, input tokens sent 7683
+  example 06-rank: --max-tokens 5072, BENCH_MAX_INPUT_TOKENS=3900, exit 0, input tokens sent 3487
+  example 07-find: --max-tokens 6616, BENCH_MAX_INPUT_TOKENS=1900, exit 0, input tokens sent 1716
+  example 08-annotate: --max-tokens 5420, BENCH_MAX_INPUT_TOKENS=2800, exit 0, input tokens sent 2461
+  example 09-recognize: --max-tokens 41368, BENCH_MAX_INPUT_TOKENS=9000, exit 0, input tokens sent 8092
+  example 10-relate: --max-tokens 10960, BENCH_MAX_INPUT_TOKENS=3800, exit 0, input tokens sent 3453
+  example 11-audit: --max-tokens 51204, BENCH_MAX_INPUT_TOKENS=49700, exit 0, input tokens sent 44414
+input tokens sent in all: 89288

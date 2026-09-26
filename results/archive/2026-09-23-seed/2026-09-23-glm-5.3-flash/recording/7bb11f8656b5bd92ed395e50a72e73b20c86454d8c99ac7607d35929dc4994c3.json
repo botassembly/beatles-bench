@@ -1,0 +1,103 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text is the title of a song by the Beatles. Do two or more Beatles share the lead vocal on it?\n\nText: Some Other Guy\n\nAllowed answers:\n- yes\n- no\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "yes",
+         "no"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "\"Some Other Guy\" is a Richie Barrett song; the Beatles' version—did they record it? It was recorded at the Cavern (BBC/star club?). Beatles recorded \"Some Other Guy\" at the Star-Club 1962, BBC? Beatles at the BBC included it? John and Paul? I believe Beatles' recorded version... At the BBC features \"Some Other Guy\" with John on lead vocal? Actually BBC version—John Lennon lead vocal. Shared? Likely John sang lead; answer no.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"no\",\"probability\":0.6}",
+        "name": "Answer"
+       },
+       "id": "call_-7230640664734591463",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790177444,
+  "id": "202609232330383f688f1c3bf24da7",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609232330383f688f1c3bf24da7",
+  "usage": {
+   "completion_tokens": 121,
+   "completion_tokens_details": {
+    "reasoning_tokens": 102
+   },
+   "prompt_tokens": 317,
+   "prompt_tokens_details": {
+    "cached_tokens": 256
+   },
+   "total_tokens": 438
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 6.338
+}

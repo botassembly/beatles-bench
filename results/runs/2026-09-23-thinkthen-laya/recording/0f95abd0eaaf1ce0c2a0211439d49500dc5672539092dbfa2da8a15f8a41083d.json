@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Italia Coppola","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Jeff Bridges","b":"Jane Birkin","c":"Emilia Clarke","d":"Francis Ford Coppola"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0615, "probabilities": {"a": 0.097, "b": 0.3588, "c": 0.2914, "d": 0.2527}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

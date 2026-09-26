@@ -1,0 +1,22 @@
+#!/bin/sh
+# The annotate slide: fill in the singer, album, and year of two songs.
+#   ./run                 answer from recording/, with no key and no network. The card sets each field's bar to 0.8.
+#   ./run threshold 0.5   the same answers with every field's bar set to 0.5
+#   ./run live            ask the server THINKTHEN_BASE_URL names. thinkthen reads the key itself.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T]" >&2; exit 2; }
+from='--replay recording' card=annotate-cold-card.json
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.]*) usage ;; esac; card=$tmp/card.json
+      jq --argjson bar "$2" '.questions[].threshold = $bar' annotate-cold-card.json > "$card"; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answers=$(printf '%s\n' Blackbird "Octopus's Garden" | thinkthen annotate "$card" --lines --details $from)
+printf '%s\n' "$answers" | jq -c '{song: .input, value, p: (.answers | map_values(.answer.probabilities))}'

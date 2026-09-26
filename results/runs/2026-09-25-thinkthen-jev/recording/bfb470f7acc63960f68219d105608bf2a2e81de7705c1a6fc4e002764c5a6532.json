@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"David I. Arkin","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"David Duchovny","b":"Gary Cooper","c":"Alan Arkin","d":"Ronald Reagan"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.93,"probabilities":{"b":0.0,"c":0.96,"a":0.04,"d":0.0}}},"usage":{"input_tokens":355,"output_tokens":46}}
+}

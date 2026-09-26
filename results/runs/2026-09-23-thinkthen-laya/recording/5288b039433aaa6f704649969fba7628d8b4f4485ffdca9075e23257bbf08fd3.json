@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"George Martin","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"Two of Us","b":"Dig It","c":"I Call Your Name","d":"I've Got a Feeling"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0027, "probabilities": {"a": 0.2411, "b": 0.2833, "c": 0.2525, "d": 0.2231}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

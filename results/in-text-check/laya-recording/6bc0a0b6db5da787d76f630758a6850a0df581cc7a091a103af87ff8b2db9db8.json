@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"I forgot the email I log in with.","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"Which team owns this?","criteria":{"billing":"Invoices, fees, and refunds.","shipping":"Parcels and delivery.","account":"Logins and passwords."}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "account", "confidence": 0.347, "probabilities": {"billing": 0.1954, "shipping": 0.064, "account": 0.7406}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
+}

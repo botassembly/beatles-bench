@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Baby's in Black","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"May 1965","b":"February 1965","c":"December 1964","d":"December 1963"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0061, "probabilities": {"a": 0.2097, "b": 0.2957, "c": 0.2631, "d": 0.2315}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
+}

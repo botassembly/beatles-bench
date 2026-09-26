@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"The Beatles (White Album)","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"There's a Place","b":"You've Got to Hide Your Love Away","c":"I've Just Seen a Face","d":"I'm So Tired"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0054, "probabilities": {"a": 0.2416, "b": 0.2071, "c": 0.2601, "d": 0.2912}}}, "usage": {"input_tokens": 68, "output_tokens": 0}}
+}

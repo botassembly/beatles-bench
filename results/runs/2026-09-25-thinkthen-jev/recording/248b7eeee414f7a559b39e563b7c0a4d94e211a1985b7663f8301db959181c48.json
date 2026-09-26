@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Yellow Submarine","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Not a Second Time","b":"Till There Was You","c":"Anna (Go to Him)","d":"It's All Too Much"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.91,"probabilities":{"b":0.01,"c":0.01,"d":0.93,"a":0.04}}},"usage":{"input_tokens":366,"output_tokens":46}}
+}

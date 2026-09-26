@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"38th Academy Awards","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"April 1965","b":"April 1966","c":"August 1965","d":"July 1965"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0271, "probabilities": {"a": 0.2985, "b": 0.3298, "c": 0.211, "d": 0.1607}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Everybody's Got Something to Hide Except Me and My Monkey","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Yellow Submarine","b":"Abbey Road","c":"The Beatles (White Album)"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.66,"probabilities":{"c":0.78,"b":0.06,"a":0.16}}},"usage":{"input_tokens":354,"output_tokens":39}}
+}

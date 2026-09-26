@@ -1,0 +1,104 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?\n\nText: Ringo Starr\n\nAllowed answers:\n- Julia\n- Not a Second Time\n- If You've Got Trouble\n- Baby It's You\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Julia",
+         "Not a Second Time",
+         "If You've Got Trouble",
+         "Baby It's You"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "Ringo Starr's only lead vocal among these is \"If You've Got Trouble.\"",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"If You've Got Trouble\",\"probability\":0.95}",
+        "name": "Answer"
+       },
+       "id": "call_-7230656916890837957",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790177362,
+  "id": "20260923232906249d17da22e34f81",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260923232906249d17da22e34f81",
+  "usage": {
+   "completion_tokens": 40,
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "prompt_tokens": 351,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 391
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 16.766
+}

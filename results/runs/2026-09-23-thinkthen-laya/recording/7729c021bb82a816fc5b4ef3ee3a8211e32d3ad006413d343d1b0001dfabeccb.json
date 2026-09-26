@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Ask Me Why","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"Revolver","c":"Beatles for Sale","none":"none of these"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1439, "probabilities": {"a": 0.5383, "b": 0.2012, "c": 0.1263, "none": 0.1342}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

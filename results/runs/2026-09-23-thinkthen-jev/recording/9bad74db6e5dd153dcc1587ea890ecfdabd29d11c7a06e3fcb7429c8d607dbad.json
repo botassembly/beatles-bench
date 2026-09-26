@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Nadia Benois","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Eva Green","b":"Buster Keaton","c":"Peter Ustinov","d":"Rob Reiner"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.47,"probabilities":{"b":0.06,"c":0.28,"d":0.06,"a":0.6}}},"usage":{"input_tokens":354,"output_tokens":46}}
+}

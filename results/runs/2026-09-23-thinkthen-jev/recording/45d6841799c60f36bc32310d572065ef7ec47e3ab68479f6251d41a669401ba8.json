@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"P.S. I Love You / Dizzy Miss Lizzy","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"P.S. I Love You","b":"Dizzy Miss Lizzy"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.89,"probabilities":{"a":0.05,"b":0.95}}},"usage":{"input_tokens":336,"output_tokens":32}}
+}

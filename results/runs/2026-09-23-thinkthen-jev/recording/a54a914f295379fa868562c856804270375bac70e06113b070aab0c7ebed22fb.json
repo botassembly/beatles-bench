@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"What You're Doing","b":"Another Girl","c":"All I've Got to Do","d":"Here Comes the Sun"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.24,"probabilities":{"c":0.14,"a":0.36,"d":0.07,"b":0.43}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

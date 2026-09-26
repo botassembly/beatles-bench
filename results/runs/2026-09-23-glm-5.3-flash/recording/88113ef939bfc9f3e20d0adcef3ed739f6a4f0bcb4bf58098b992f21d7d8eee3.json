@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs was first released on it?\n\nText: The Beatles (White Album)\n\nAllowed answers:\n- Maxwell's Silver Hammer\n- Good Morning Good Morning\n- And I Love Her\n- Dear Prudence\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Maxwell's Silver Hammer",
+         "Good Morning Good Morning",
+         "And I Love Her",
+         "Dear Prudence"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Maxwell's and Dear Prudence both on White Album; Maxwell's first released there, as is Dear Prudence. Both... pick Maxwell's? Both qualify. Dear Prudence also first on White Album. Hmm—need one; Maxwell's Silver Hammer.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Maxwell's Silver Hammer\",\"probability\":0.6}",
+        "name": "Answer"
+       },
+       "id": "call_-7230550504781117468",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790184324,
+  "id": "20260924012513d14756a03d9a495b",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924012513d14756a03d9a495b",
+  "usage": {
+   "completion_tokens": 75,
+   "completion_tokens_details": {
+    "reasoning_tokens": 52
+   },
+   "prompt_tokens": 349,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 424
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 11.564
+}

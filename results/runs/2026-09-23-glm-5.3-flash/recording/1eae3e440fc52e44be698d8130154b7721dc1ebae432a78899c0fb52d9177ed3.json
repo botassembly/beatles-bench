@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a record producer. Which of these songs by the Beatles did this person produce?\n\nText: George Martin\n\nAllowed answers:\n- What You're Doing\n- One After 909\n- I've Got a Feeling\n- Dig It\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "What You're Doing",
+         "One After 909",
+         "I've Got a Feeling",
+         "Dig It"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Dig It was Martin? Phil Spector produced Let It Be tracks except... Dig It was produced by George Martin actually. Let It Be: two were Spector, one was Paul (Maggie Mae?). Dig It credited to Martin. One After 909, I've Got a Feeling, Dig It — Glyn Johns/Martin. Dig It commonly credited George Martin. What You're Doing is Beatles self-produced. Dig It is the answer.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Dig It\",\"probability\":0.6}",
+        "name": "Answer"
+       },
+       "id": "call_-7230545419539834958",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790184166,
+  "id": "2026092401223557146bc73d244945",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "2026092401223557146bc73d244945",
+  "usage": {
+   "completion_tokens": 111,
+   "completion_tokens_details": {
+    "reasoning_tokens": 91
+   },
+   "prompt_tokens": 347,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 458
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 10.537
+}

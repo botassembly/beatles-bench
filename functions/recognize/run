@@ -1,0 +1,20 @@
+#!/bin/sh
+# The recognize slide: find the people, songs, albums, and places in one sentence.
+#   ./run                 answer from recording/ at a bar of 0.01, with no key and no network
+#   ./run threshold 0.99  the same answer at another bar
+#   ./run live            ask the server THINKTHEN_BASE_URL names. thinkthen reads the key itself.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T]" >&2; exit 2; }
+from='--replay recording' bar=0.01
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.:]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answer=$(printf '%s' "Ringo Starr wrote Octopus's Garden on a boat off Sardinia, and the band recorded it at Abbey Road Studios for the album Abbey Road." |
+  thinkthen recognize person song album place --threshold "$bar" $from)
+printf '%s\n' "$answer" | jq -c '.entities[]'

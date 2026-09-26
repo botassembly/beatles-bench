@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Catalog:\nEvery Little Thing (lead: Lennon, McCartney; written: Lennon–McCartney; 2:04; released 1964-12-04)\nText: Every Little Thing","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Does Ringo Starr sing a lead vocal on it?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.02}},"usage":{"input_tokens":335,"output_tokens":21}}
+}

@@ -1,0 +1,5 @@
+{{Infobox song
+| name = Beta Song
+| artist = [[the Beatles]]
+| released = {{Start date|1963|11|29}} (UK)<br />{{Start date|1963|12|26}} (US)
+}}

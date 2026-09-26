@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs did it include before any other album did?\n\nText: Help!\n\nAllowed answers:\n- Getting Better\n- It Won't Be Long\n- I've Just Seen a Face\n- While My Guitar Gently Weeps\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Getting Better",
+         "It Won't Be Long",
+         "I've Just Seen a Face",
+         "While My Guitar Gently Weeps"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "The *Help!* album (1965) included \"I've Just Seen a Face,\" which debuted there. \"It Won't Be Long\" came earlier (With the Beatles), and the other two came later.",
+     "reasoning_content": "Help! album: \"I've Just Seen a Face\" first appeared there; \"It Won't Be Long\" was on With the Beatles, earlier. \"Getting Better\" and \"While My Guitar Gently Weeps\" on Sgt. Pepper/White Album later. So I've Just Seen a Face.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"I've Just Seen a Face\",\"probability\":0.97}",
+        "name": "Answer"
+       },
+       "id": "call_-7230534561862516216",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790185500,
+  "id": "202609240144469e92b401a93d46aa",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609240144469e92b401a93d46aa",
+  "usage": {
+   "completion_tokens": 129,
+   "completion_tokens_details": {
+    "reasoning_tokens": 62
+   },
+   "prompt_tokens": 357,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 486
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 14.249
+}

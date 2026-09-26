@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"“The Nights” by Avicii","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a song and its performer. Who is a credited writer of it?","criteria":{"a":"Henrik Jonback","b":"Infinity","c":"Lucio Quarantotto","d":"Joseíto Fernández"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.68,"probabilities":{"a":0.76,"b":0.07,"c":0.07,"d":0.1}}},"usage":{"input_tokens":357,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Emma Thompson","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Eric Thompson","b":"Lee Hoi-chuen","c":"Will Knightley","d":"Michael D. Horowitz"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.96,"probabilities":{"b":0.01,"d":0.02,"c":0.01,"a":0.96}}},"usage":{"input_tokens":352,"output_tokens":46}}
+}

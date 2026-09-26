@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Paul McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"I Want You (She's So Heavy)","b":"The Word","c":"Not Guilty","d":"Ooh! My Soul"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.43,"probabilities":{"c":0.13,"a":0.13,"d":0.57,"b":0.17}}},"usage":{"input_tokens":368,"output_tokens":46}}
+}

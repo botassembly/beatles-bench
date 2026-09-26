@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Rocky Raccoon","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "1962", "confidence": 0.017, "probabilities": {"1962": 0.1664, "1963": 0.0753, "1964": 0.128, "1965": 0.0734, "1966": 0.1252, "1967": 0.1252, "1968": 0.1112, "1969": 0.1238, "1970": 0.0715}}}, "usage": {"input_tokens": 68, "output_tokens": 0}}
+}

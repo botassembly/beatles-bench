@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?\n\nText: Paul McCartney\n\nAllowed answers:\n- Blue Jay Way\n- For You Blue\n- Only a Northern Song\n- Dig It\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Blue Jay Way",
+         "For You Blue",
+         "Only a Northern Song",
+         "Dig It"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Dig It is credited to all four Beatles... Hmm, Paul McCartney named — Dig It credited to Lennon/McCartney/Harrison/Starkey. But among options, \"For You Blue\" is Harrison, \"Blue Jay Way\" Harrison, \"Only a Northern Song\" Harrison. Dig It is the only one with McCartney's name.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Dig It\",\"probability\":0.9}",
+        "name": "Answer"
+       },
+       "id": "call_-7230555349504224888",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790184134,
+  "id": "20260924012206f6afe498d5b949aa",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924012206f6afe498d5b949aa",
+  "usage": {
+   "completion_tokens": 88,
+   "completion_tokens_details": {
+    "reasoning_tokens": 68
+   },
+   "prompt_tokens": 343,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 431
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 7.989
+}

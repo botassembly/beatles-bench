@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Beatles for Sale","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Rocky Raccoon","b":"I'll Follow the Sun","c":"Lovely Rita","d":"Let It Be"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1036, "probabilities": {"a": 0.4955, "b": 0.1589, "c": 0.1454, "d": 0.2002}}}, "usage": {"input_tokens": 60, "output_tokens": 0}}
+}

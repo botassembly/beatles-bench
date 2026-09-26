@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"traveling-wave tube","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Irving Naxon","b":"H. J. Round","c":"Rudolf Kompfner","d":"François Merry Delabost"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1654, "probabilities": {"a": 0.5373, "b": 0.2433, "c": 0.1342, "d": 0.0852}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
+}

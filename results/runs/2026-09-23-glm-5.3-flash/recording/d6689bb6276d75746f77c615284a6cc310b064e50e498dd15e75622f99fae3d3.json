@@ -1,0 +1,103 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text is the title of a song by the Beatles. Was it first released before or after this event: Assassination of Malcolm X?\n\nText: Yes It Is\n\nAllowed answers:\n- first released before the event\n- first released after the event\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "first released before the event",
+         "first released after the event"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Yes It Is: Feb 1965 single B-side, before Feb 21, 1965? Released Feb 12, 1965 (US) / Feb 23 UK... Actually UK release April 9, 1965? \"Yes It Is\" released as B-side of \"Ticket to Ride\" — UK April 9, 1965, after Malcolm X (Feb 21). US Feb 23, 1965, also after.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"first released after the event\",\"probability\":0.85}",
+        "name": "Answer"
+       },
+       "id": "call_-7230568921600884442",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790182895,
+  "id": "20260924010127e6854533f60b4591",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924010127e6854533f60b4591",
+  "usage": {
+   "completion_tokens": 117,
+   "completion_tokens_details": {
+    "reasoning_tokens": 94
+   },
+   "prompt_tokens": 337,
+   "prompt_tokens_details": {
+    "cached_tokens": 256
+   },
+   "total_tokens": 454
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 7.654
+}

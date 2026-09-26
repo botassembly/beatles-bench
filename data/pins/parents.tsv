@@ -1,0 +1,364 @@
+child_item	child_title	property	parent_item	parent_title
+Q101797	Winona Ryder	P22	Q6831238	Michael D. Horowitz
+Q102124	Sigourney Weaver	P22	Q3247520	Pat Weaver
+Q102124	Sigourney Weaver	P25	Q441889	Elizabeth Inglis
+Q103157	Kurt Russell	P22	Q863742	Bing Russell
+Q103578	Macaulay Culkin	P22	Q3815699	Kit Culkin
+Q103646	Ron Howard	P22	Q2004409	Rance Howard
+Q103646	Ron Howard	P25	Q5249301	Jean Speegle Howard
+Q103846	Groucho Marx	P22	Q7108924	Sam Marx
+Q103846	Groucho Marx	P25	Q328891	Minnie Marx
+Q103946	Kiefer Sutherland	P22	Q103784	Donald Sutherland
+Q103946	Kiefer Sutherland	P25	Q460062	Shirley Douglas
+Q103949	Buster Keaton	P22	Q1557810	Joe Keaton
+Q103949	Buster Keaton	P25	Q3331486	Myra Keaton
+Q104081	Mickey Rooney	P22	Q3180219	Joe Yule
+Q104109	Mary Pickford	P25	Q2960982	Charlotte Hennessey
+Q104183	Lillian Gish	P25	Q12735108	Mary Gish
+Q104358	Billie Holiday	P22	Q470204	Clarence Holiday
+Q104514	Adrien Brody	P25	Q1293014	Sylvia Plachy
+Q104859	Michael Collins (astronaut)	P22	Q1680699	James Lawton Collins
+Q105825	William Hurt	P22	Q173869	Alfred, Lord Tennyson
+Q106175	John Cusack	P22	Q3706943	Dick Cusack
+Q106255	Jean-Paul Belmondo	P22	Q1145608	Paul Belmondo (sculptor)
+Q1063412	Ranbir Kapoor	P22	Q258820	Rishi Kapoor
+Q1063412	Ranbir Kapoor	P25	Q12069158	Neetu Kapoor
+Q106514	River Phoenix	P25	Q4792445	Arlyn Phoenix
+Q106942	Candice Bergen	P22	Q721957	Edgar Bergen
+Q106942	Candice Bergen	P25	Q535012	Frances Bergen
+Q106997	Jamie Lee Curtis	P22	Q162389	Tony Curtis
+Q106997	Jamie Lee Curtis	P25	Q205314	Janet Leigh
+Q10738	Dwayne Johnson	P22	Q1356412	Rocky Johnson
+Q107656	Jean Simmons	P22	Q3440831	Charles Simmons (gymnast)
+Q108283	Alan Arkin	P22	Q5235310	David I. Arkin
+Q108941	Carrie Fisher	P22	Q363708	Eddie Fisher
+Q108941	Carrie Fisher	P25	Q263696	Debbie Reynolds
+Q109232	Rosanna Arquette	P22	Q960993	Lewis Arquette
+Q110462	Julie Delpy	P22	Q1569147	Albert Delpy
+Q11459	Serena Williams	P22	Q1959913	Richard Williams (tennis coach)
+Q11459	Serena Williams	P25	Q7099217	Oracene Price
+Q11637	Judy Garland	P22	Q98100256	Francis Avent Gumm
+Q11637	Judy Garland	P25	Q98100273	Ethel Marion Milne
+Q11662	Steffi Graf	P22	Q2075239	Peter Graf
+Q11975	Britney Spears	P22	Q96816262	Jamie Spears
+Q11975	Britney Spears	P25	Q3036419	Lynne Spears
+Q119798	Michael Douglas	P22	Q104027	Kirk Douglas
+Q119798	Michael Douglas	P25	Q436789	Diana Douglas
+Q12003	Cher	P25	Q4348188	Georgia Holt
+Q1203	John Lennon	P22	Q3646297	Alfred Lennon
+Q1203	John Lennon	P25	Q2982766	Julia Lennon
+Q125017	Uma Thurman	P22	Q1377791	Robert Thurman
+Q125017	Uma Thurman	P25	Q623962	Nena von Schlebrügge
+Q126513	Steve Irwin	P22	Q4932895	Bob Irwin
+Q12897	Pelé	P22	Q2502098	Dondinho
+Q12897	Pelé	P25	Q126868954	Dona Celeste
+Q130853	Plácido Domingo	P22	Q16620466	Plácido Domingo Ferrer
+Q130853	Plácido Domingo	P25	Q8336441	Pepita Embil
+Q131324	Janet Jackson	P22	Q361297	Joe Jackson (talent manager)
+Q131324	Janet Jackson	P25	Q238402	Katherine Jackson
+Q132616	Naomi Watts	P22	Q7177620	Peter Watts (manager)
+Q133313	Jake Gyllenhaal	P22	Q469233	Stephen Gyllenhaal
+Q133313	Jake Gyllenhaal	P25	Q270150	Naomi Foner Gyllenhaal
+Q134895	Javier Bardem	P25	Q451828	Pilar Bardem
+Q136209	Cuba Gooding Jr.	P22	Q705748	Cuba Gooding Sr.
+Q1375057	Kendall Jenner	P22	Q365144	Caitlyn Jenner
+Q1375057	Kendall Jenner	P25	Q1138235	Kris Jenner
+Q13909	Angelina Jolie	P22	Q167520	Jon Voight
+Q13909	Angelina Jolie	P25	Q235845	Marcheline Bertrand
+Q1395624	Cara Delevingne	P22	Q24565725	Charles Delevingne
+Q1396120	Yair Lapid	P22	Q471751	Tommy Lapid
+Q1396120	Yair Lapid	P25	Q1572259	Shulamit Lapid
+Q14441	Liza Minnelli	P22	Q51535	Vincente Minnelli
+Q14441	Liza Minnelli	P25	Q11637	Judy Garland
+Q146929	Ajay Devgn	P22	Q7918225	Veeru Devgan
+Q15055683	Shraddha Kapoor	P22	Q312789	Shakti Kapoor
+Q153018	Maximilian Schell	P22	Q1611050	Ferdinand Schell
+Q154852	Till Lindemann	P22	Q70869	Werner Lindemann
+Q156796	Michelle Williams (actress)	P22	Q6491001	Larry R. Williams
+Q159099	Nina Hagen	P22	Q1581554	Hans Oliva-Hagen
+Q159099	Nina Hagen	P25	Q443387	Eva-Maria Hagen
+Q159178	Deepika Padukone	P22	Q1391342	Prakash Padukone
+Q160318	Norodom Sihanouk	P22	Q1779614	Norodom Suramarit
+Q160318	Norodom Sihanouk	P25	Q4926056	Sisowath Kossamak
+Q161916	Owen Wilson	P25	Q6499562	Laura Wilson (photographer)
+Q162959	Blake Lively	P22	Q4253122	Ernie Lively
+Q1631	Édith Piaf	P22	Q3262015	Louis Alphonse Gassion
+Q1631	Édith Piaf	P25	Q3241476	Line Marsa
+Q16390	Humphrey Bogart	P25	Q15452283	Maud Humphrey
+Q16397	Bruce Lee	P22	Q712093	Lee Hoi-chuen
+Q16397	Bruce Lee	P25	Q23034463	Grace Ho
+Q164562	Sergio Leone	P22	Q3436964	Roberto Roberti
+Q164562	Sergio Leone	P25	Q3639720	Bice Waleran
+Q165219	Robert Downey Jr.	P22	Q587102	Robert Downey Sr.
+Q166389	Daniel Day-Lewis	P22	Q954383	Cecil Day-Lewis
+Q166389	Daniel Day-Lewis	P25	Q3178689	Jill Balcon
+Q167821	Gore Vidal	P22	Q5407466	Eugene Luther Vidal
+Q167821	Gore Vidal	P25	Q27948806	Nina S. Gore
+Q168724	Emma Thompson	P22	Q1351697	Eric Thompson
+Q168724	Emma Thompson	P25	Q432357	Phyllida Law
+Q168763	Liv Tyler	P22	Q194045	Steven Tyler
+Q168763	Liv Tyler	P22	Q364875	Todd Rundgren
+Q168763	Liv Tyler	P25	Q275593	Bebe Buell
+Q169352	Zeami Motokiyo	P22	Q1291653	Kan'ami
+Q169452	Shaquille O'Neal	P22	Q20642039	Joe Toney
+Q169946	Kate Hudson	P22	Q2742575	Bill Hudson (singer)
+Q169946	Kate Hudson	P25	Q188459	Goldie Hawn
+Q170428	Helena Bonham Carter	P22	Q7298604	Raymond Bonham Carter
+Q170574	Helen Hunt	P22	Q3110904	Gordon Hunt (director)
+Q170576	Milla Jovovich	P25	Q1089261	Galina Jovovich
+Q171758	Matthew Perry	P22	Q3097804	John Bennett Perry
+Q174311	Christopher Reeve	P22	Q5423738	F. D. Reeve
+Q174843	Jeff Bridges	P22	Q317817	Lloyd Bridges
+Q174843	Jeff Bridges	P25	Q2791780	Dorothy Bridges
+Q176455	Melanie Griffith	P25	Q142546	Tippi Hedren
+Q179414	Kate Beckinsale	P22	Q678439	Richard Beckinsale
+Q179414	Kate Beckinsale	P25	Q6304510	Judy Loe
+Q180224	Lenny Kravitz	P25	Q456903	Roxie Roker
+Q180914	John Wilkes Booth	P22	Q684358	Junius Brutus Booth
+Q182658	Harper Lee	P22	Q4740374	Amasa Coleman Lee
+Q184885	Kareena Kapoor	P22	Q2700318	Randhir Kapoor
+Q184885	Kareena Kapoor	P25	Q2877914	Babita
+Q185140	Joaquin Phoenix	P25	Q4792445	Arlyn Phoenix
+Q185165	Olivia Newton-John	P22	Q849718	Brinley Newton-John
+Q186304	Kim Kardashian	P22	Q1816737	Robert Kardashian
+Q186304	Kim Kardashian	P25	Q1138235	Kris Jenner
+Q187058	Abhishek Bachchan	P22	Q9570	Amitabh Bachchan
+Q187058	Abhishek Bachchan	P25	Q464932	Jaya Bachchan
+Q188137	J. J. Abrams	P22	Q5549650	Gerald W. Abrams
+Q188137	J. J. Abrams	P25	Q5044228	Carol Ann Abrams
+Q188280	Christina Applegate	P25	Q4378126	Nancy Priddy
+Q189400	Brooke Shields	P22	Q5479968	Francis Alexander Shields
+Q189400	Brooke Shields	P25	Q265726	Teri Shields
+Q189526	Brian De Palma	P22	Q4772377	Anthony F. DePalma
+Q190523	Christopher Plummer	P25	Q28883412	Isabella Mary Abbott
+Q190998	Anjelica Huston	P22	Q51575	John Huston
+Q190998	Anjelica Huston	P25	Q18211504	Enrica Soma
+Q191644	Eva Green	P25	Q272183	Marlène Jobert
+Q191719	Zooey Deschanel	P22	Q49020	Caleb Deschanel
+Q191719	Zooey Deschanel	P25	Q1290421	Mary Jo Deschanel
+Q193146	Anthony Perkins	P22	Q7106548	Osgood Perkins (actor, born 1892)
+Q193426	Nancy Reagan	P25	Q5338605	Edith Luckett Davis
+Q193628	Sofia Coppola	P22	Q56094	Francis Ford Coppola
+Q193628	Sofia Coppola	P25	Q4943414	Eleanor Coppola
+Q200355	Olivia Wilde	P22	Q4756634	Andrew Cockburn
+Q200355	Olivia Wilde	P25	Q6530712	Leslie Cockburn
+Q200534	Tilda Swinton	P22	Q15968693	John Swinton of Kimmerghame
+Q201279	Woody Harrelson	P22	Q2194178	Charles Harrelson
+Q2023710	Tom Holland	P22	Q5290554	Dominic Holland
+Q202381	Maggie Gyllenhaal	P22	Q469233	Stephen Gyllenhaal
+Q202381	Maggie Gyllenhaal	P25	Q270150	Naomi Foner Gyllenhaal
+Q202725	Mia Farrow	P22	Q547495	John Farrow
+Q202725	Mia Farrow	P25	Q230084	Maureen O'Sullivan
+Q203215	Max von Sydow	P22	Q930614	Carl Wilhelm von Sydow
+Q203840	Isabella Rossellini	P22	Q53003	Roberto Rossellini
+Q203840	Isabella Rossellini	P25	Q43247	Ingrid Bergman
+Q203960	James Earl Jones	P22	Q2004418	Robert Earl Jones
+Q206856	Angela Lansbury	P22	Q5337337	Edgar Lansbury (politician)
+Q206856	Angela Lansbury	P25	Q510507	Moyna Macgill
+Q207405	Zsa Zsa Gabor	P25	Q2025349	Jolie Gabor
+Q208026	Tom Hardy	P22	Q28925095	Chips Hardy
+Q210059	Neil Gaiman	P22	Q5233971	David Gaiman
+Q210148	Peter Fonda	P22	Q19155	Henry Fonda
+Q210148	Peter Fonda	P25	Q10961701	Frances Ford Seymour
+Q212026	Mira Sorvino	P22	Q447892	Paul Sorvino
+Q212801	Arundhati Roy	P25	Q6780651	Mary Roy
+Q212873	Jane Birkin	P25	Q730110	Judy Campbell
+Q212886	Stephen Colbert	P22	Q24069531	James William Colbert Jr.
+Q213574	Rutger Hauer	P22	Q2364552	Arend Hauer
+Q213864	Paul Walker	P22	Q123194353	Paul William Walker III
+Q214601	David Tennant	P22	Q7417369	Sandy McDonald
+Q215976	Patricia Arquette	P22	Q960993	Lewis Arquette
+Q21914464	Dua Lipa	P22	Q103844320	Dukagjin Lipa
+Q220584	Michael Madsen	P25	Q19666286	Elaine Madsen
+Q220901	Laura Dern	P22	Q357001	Bruce Dern
+Q220901	Laura Dern	P25	Q234080	Diane Ladd
+Q220918	Emilio Estevez	P22	Q184572	Martin Sheen
+Q220918	Emilio Estevez	P25	Q1642230	Janet Sheen
+Q222071	Courtney Love	P25	Q6551441	Linda Carroll
+Q2239218	Max Verstappen	P22	Q173145	Jos Verstappen
+Q2239218	Max Verstappen	P25	Q17986878	Sophie Kumpen
+Q22686	Donald Trump	P22	Q3752663	Fred Trump
+Q22686	Donald Trump	P25	Q22952511	Mary Anne MacLeod Trump
+Q228598	Emma Roberts	P22	Q207969	Eric Roberts
+Q228603	Saoirse Ronan	P22	Q16196236	Paul Ronan
+Q228607	Anouk Aimée	P25	Q3100697	Geneviève Sorya
+Q228645	Ashley Judd	P25	Q3246911	Naomi Judd
+Q228699	Sharon Tate	P25	Q5297996	Doris Tate
+Q229184	Lily Collins	P22	Q144622	Phil Collins
+Q229230	Evan Rachel Wood	P22	Q6066018	Ira David Wood III
+Q229258	Gena Rowlands	P22	Q5346682	Edwin Myrwyn Rowlands
+Q229258	Gena Rowlands	P25	Q16014493	Lady Rowlands
+Q2315802	Dakota Johnson	P22	Q309788	Don Johnson
+Q2315802	Dakota Johnson	P25	Q176455	Melanie Griffith
+Q233619	Hrithik Roshan	P22	Q1373377	Rakesh Roshan
+Q23466	Chris Pine	P22	Q1139435	Robert Pine
+Q23466	Chris Pine	P25	Q5623885	Gwynne Gilford
+Q234679	Charlotte Rampling	P22	Q1381872	Godfrey Rampling
+Q235132	Emilia Clarke	P25	Q136704284	Jennifer Dodd Clarke
+Q23543	Selena	P22	Q4669138	Abraham Quintanilla
+Q23547	Bryan Cranston	P22	Q102259740	Joseph Cranston (actor)
+Q237659	Penny Marshall	P22	Q106967275	Anthony W. Marshall
+Q23844	George Clooney	P22	Q3138805	Nick Clooney
+Q242707	Paul Bettany	P22	Q7710234	Thane Bettany
+Q244674	Benedict Cumberbatch	P22	Q2435149	Timothy Carlton
+Q244674	Benedict Cumberbatch	P25	Q519165	Wanda Ventham
+Q252290	Saif Ali Khan	P22	Q983454	Mansoor Ali Khan Pataudi
+Q252290	Saif Ali Khan	P25	Q465830	Sharmila Tagore
+Q255070	Diane Lane	P25	Q4493829	Colleen Farrington
+Q2685	Arnold Schwarzenegger	P22	Q3288486	Gustav Schwarzenegger
+Q276005	Charlotte Gainsbourg	P22	Q1698	Serge Gainsbourg
+Q276005	Charlotte Gainsbourg	P25	Q212873	Jane Birkin
+Q284636	Jason Bateman	P22	Q5418796	Kent Bateman
+Q28493	Ralph Fiennes	P22	Q6767604	Mark Fiennes
+Q28493	Ralph Fiennes	P25	Q1490388	Jennifer Lash
+Q28755	Matthew Broderick	P22	Q718691	James Broderick
+Q28755	Matthew Broderick	P25	Q7145485	Patricia Broderick
+Q287607	Rob Reiner	P22	Q287793	Carl Reiner
+Q287607	Rob Reiner	P25	Q519374	Estelle Reiner
+Q3074303	Momoko Kōchi	P22	Q23453198	Nobuhiro Ōkōchi
+Q3099714	Justin Trudeau	P22	Q8619	Pierre Trudeau
+Q3099714	Justin Trudeau	P25	Q3290526	Margaret Trudeau
+Q310394	Alan Alda	P22	Q2061166	Robert Alda
+Q311271	John Lithgow	P22	Q4799532	Arthur Lithgow
+Q313013	Brian Wilson	P22	Q629216	Murry Wilson
+Q313956	Anil Kapoor	P22	Q2213723	Surinder Kapoor
+Q315087	Garry Marshall	P22	Q106967275	Anthony W. Marshall
+Q32522	Jennifer Aniston	P22	Q439841	John Aniston
+Q32522	Jennifer Aniston	P25	Q11833910	Nancy Dow
+Q3304418	Meghan, Duchess of Sussex	P22	Q43918214	Thomas Markle
+Q3304418	Meghan, Duchess of Sussex	P25	Q43918160	Doria Ragland
+Q33605	Kesha	P25	Q766374	Pebe Sebert
+Q337276	Sacha Guitry	P22	Q1225727	Lucien Guitry
+Q34389	Whitney Houston	P25	Q465702	Cissy Houston
+Q34460	Gwyneth Paltrow	P22	Q991765	Bruce Paltrow
+Q34460	Gwyneth Paltrow	P25	Q40064	Blythe Danner
+Q3454165	Kevin Bacon	P22	Q1285964	Edmund Bacon (architect)
+Q347879	Vanessa Redgrave	P22	Q318263	Michael Redgrave
+Q347879	Vanessa Redgrave	P25	Q289364	Rachel Kempson
+Q34851	Elizabeth Taylor	P22	Q5481721	Francis Lenn Taylor
+Q34851	Elizabeth Taylor	P25	Q7421777	Sara Sothern
+Q36153	Beyoncé	P22	Q3043962	Mathew Knowles
+Q36153	Beyoncé	P25	Q2623520	Tina Knowles
+Q36949	Robert De Niro	P22	Q951321	Robert De Niro Sr.
+Q36949	Robert De Niro	P25	Q7815833	Virginia Admiral
+Q36970	Jackie Chan	P22	Q4261937	Charles Chan (Jackie Chan's father)
+Q36970	Jackie Chan	P25	Q21535085	Lee-Lee Chan
+Q372311	Glenn Close	P22	Q8006910	William Close
+Q372460	Måns Zelmerlöw	P25	Q4976476	Birgitta Sahlén
+Q37459	Nicole Kidman	P22	Q18016920	Antony Kidman
+Q3772	Quentin Tarantino	P22	Q4818309	Tony Tarantino
+Q38111	Leonardo DiCaprio	P22	Q5538516	George DiCaprio
+Q38111	Leonardo DiCaprio	P25	Q22984557	Irmelin Indenbirken (actress)
+Q3925	Grace Kelly	P22	Q1334513	Jack Kelly Sr. (rower)
+Q3925	Grace Kelly	P25	Q18715802	Margaret Majer
+Q40912	Frank Sinatra	P22	Q4773028	Anthony Martin Sinatra
+Q40912	Frank Sinatra	P25	Q21078200	Dolly Sinatra
+Q41142	Jane Fonda	P22	Q19155	Henry Fonda
+Q41142	Jane Fonda	P25	Q10961701	Frances Ford Seymour
+Q41148	Martin Scorsese	P22	Q1066037	Charles Scorsese
+Q41148	Martin Scorsese	P25	Q441713	Catherine Scorsese
+Q41396	Josh Brolin	P22	Q315051	James Brolin
+Q42229	Mel Gibson	P22	Q11863866	Hutton Gibson
+Q4235	Miley Cyrus	P22	Q231259	Billy Ray Cyrus
+Q4235	Miley Cyrus	P25	Q4405278	Tish Cyrus
+Q42455	Björk	P22	Q5623170	Guðmundur Gunnarsson
+Q42581	Keira Knightley	P22	Q327831	Will Knightley
+Q42581	Keira Knightley	P25	Q449569	Sharman Macdonald
+Q42745	Rita Hayworth	P22	Q5340551	Eduardo Cansino
+Q42745	Rita Hayworth	P25	Q7940166	Volga Hayworth
+Q42786	Audrey Hepburn	P25	Q16010942	Ella van Heemstra
+Q42869	Nicolas Cage	P22	Q4820677	August Coppola
+Q43994	Matt Groening	P22	Q5901299	Homer Groening
+Q44221	Sean Penn	P22	Q1283268	Leo Penn
+Q44221	Sean Penn	P25	Q438537	Eileen Ryan
+Q44301	Jim Morrison	P22	Q464313	George Stephen Morrison
+Q44426	Rainer Werner Fassbinder	P25	Q96540	Lilo Pempeit
+Q44467	Orlando Bloom	P22	Q2271322	Harry Bloom
+Q44903	Lindsay Lohan	P22	Q4267518	Michael Lohan
+Q44903	Lindsay Lohan	P25	Q4116923	Dina Lohan
+Q45772	Christian Bale	P22	Q1443125	David Bale
+Q460756	Maya Plisetskaya	P22	Q4365094	Mikhail Plisetski
+Q460756	Maya Plisetskaya	P25	Q4291291	Rachel Messerer
+Q4616	Marilyn Monroe	P25	Q96200519	Gladys Pearl Baker
+Q4617	Corbin Bleu	P22	Q1176300	David Reivers
+Q464578	Karisma Kapoor	P22	Q2700318	Randhir Kapoor
+Q464578	Karisma Kapoor	P25	Q2877914	Babita
+Q465335	Elizabeth Cady Stanton	P22	Q2655209	Daniel Cady
+Q47100	Ben Stiller	P22	Q316857	Jerry Stiller
+Q47100	Ben Stiller	P25	Q257217	Anne Meara
+Q47122	Enrique Iglesias	P22	Q122003	Julio Iglesias
+Q47122	Enrique Iglesias	P25	Q437710	Isabel Preysler
+Q47899	Paris Hilton	P22	Q948705	Richard Hilton
+Q47899	Paris Hilton	P25	Q269846	Kathy Hilton
+Q483325	Ellen DeGeneres	P25	Q656219	Betty DeGeneres
+Q483907	Jack Black	P25	Q37888317	Judith Love Cohen
+Q484365	David Duchovny	P22	Q22959026	Amram Ducovny
+Q485557	Rani Mukerji	P22	Q7288530	Ram Mukherjee
+Q49004	Patrick Swayze	P25	Q15429447	Patsy Swayze
+Q49017	Hugh Laurie	P22	Q935532	Ran Laurie
+Q494596	Philipp Kirkorov	P22	Q4221511	Bedros Kirkorov
+Q50713	Jean Renoir	P22	Q39931	Pierre-Auguste Renoir
+Q50713	Jean Renoir	P25	Q4520512	Aline Charigot
+Q51506	Richard Attenborough	P22	Q5497282	Frederick Attenborough
+Q51506	Richard Attenborough	P25	Q75414092	Mary Attenborough
+Q51566	Spike Lee	P22	Q862263	Bill Lee (musician)
+Q51575	John Huston	P22	Q162621	Walter Huston
+Q549981	Norah Jones	P22	Q103774	Ravi Shankar
+Q550778	John de Lancie	P22	Q3182814	John de Lancie (oboist)
+Q55207	Nikita Mikhalkov	P22	Q208116	Sergey Mikhalkov
+Q55208	Andrei Konchalovsky	P22	Q208116	Sergey Mikhalkov
+Q55407	Raj Kapoor	P22	Q560197	Prithviraj Kapoor
+Q55796	Peter Ustinov	P22	Q215338	Jona von Ustinov
+Q55796	Peter Ustinov	P25	Q3334825	Nadia Benois
+Q56016	Katharine Hepburn	P25	Q6376213	Katharine Martha Houghton Hepburn
+Q5608	Eminem	P25	Q47108853	Debbie Nelson
+Q56094	Francis Ford Coppola	P22	Q658614	Carmine Coppola
+Q56094	Francis Ford Coppola	P25	Q16016103	Italia Coppola
+Q57319	Norodom Sihamoni	P22	Q160318	Norodom Sihanouk
+Q57319	Norodom Sihamoni	P25	Q4919438	Norodom Monineath
+Q58735	Lily Allen	P22	Q725519	Keith Allen (actor)
+Q58735	Lily Allen	P25	Q516645	Alison Owen
+Q6107	Tupac Shakur	P22	Q3394760	Mutulu Shakur
+Q6107	Tupac Shakur	P25	Q2273636	Afeni Shakur
+Q633	Neil Young	P22	Q1780491	Scott Young (writer)
+Q676094	Drew Barrymore	P22	Q962932	John Drew Barrymore
+Q692	William Shakespeare	P22	Q719706	John Shakespeare
+Q692	William Shakespeare	P25	Q467805	Mary Shakespeare
+Q714	Stevie Wonder	P25	Q6702757	Lula Mae Hardaway
+Q72267	Cecil B. DeMille	P22	Q3784910	Henry Churchill de Mille
+Q72267	Cecil B. DeMille	P25	Q3637241	Beatrice deMille
+Q7241	Rabindranath Tagore	P22	Q3020852	Debendranath Tagore
+Q7542	Prince (musician)	P22	Q6243659	John L. Nelson
+Q7546	Ingmar Bergman	P22	Q5388489	Erik Bergman (Lutheran minister)
+Q76498	Michael Ende	P22	Q697071	Edgar Ende
+Q76711	Nastassja Kinski	P22	Q55419	Klaus Kinski
+Q7742	Louis XIV	P22	Q737533	Louis XIII
+Q7742	Louis XIV	P25	Q151209	Anne of Austria
+Q78469	Romy Schneider	P22	Q38302	Wolf Albach-Retty
+Q78469	Romy Schneider	P25	Q62327	Magda Schneider
+Q8003	Sergei Eisenstein	P22	Q463464	Mikhail Eisenstein
+Q83287	Selena Gomez	P22	Q129679486	Ricardo Joel Gomez
+Q83287	Selena Gomez	P25	Q3285611	Mandy Teefey
+Q853	Andrei Tarkovsky	P22	Q777997	Arseny Tarkovsky
+Q8704	Walt Disney	P22	Q5251625	Elias Disney
+Q873	Meryl Streep	P25	Q17711441	Mary Wilkinson Streep
+Q882	Charlie Chaplin	P22	Q4391952	Charles Chaplin Sr.
+Q882	Charlie Chaplin	P25	Q153658	Hannah Chaplin
+Q8877	Steven Spielberg	P22	Q15784029	Arnold Spielberg
+Q913872	Bridget Fonda	P22	Q210148	Peter Fonda
+Q93188	Errol Flynn	P22	Q7782072	Theodore Thomson Flynn
+Q93341	Miles Davis	P22	Q6851410	Miles Dewey Davis Jr.
+Q93957	Gary Cooper	P22	Q15727499	Charles H. Cooper
+Q95019	Norma Shearer	P22	Q66011744	Andrew Shearer (lumber merchant)
+Q95048	Tim Robbins	P22	Q5560604	Gil Robbins
+Q95068	Olivia de Havilland	P22	Q18716255	Walter de Havilland
+Q95068	Olivia de Havilland	P25	Q3240900	Lilian Fontaine
+Q95076	Joan Fontaine	P22	Q18716255	Walter de Havilland
+Q95076	Joan Fontaine	P25	Q3240900	Lilian Fontaine
+Q95089	Ginger Rogers	P25	Q60675411	Lela E. Rogers
+Q9543	Salman Khan	P22	Q7404563	Salim Khan
+Q9557	Aamir Khan	P22	Q7534647	Tahir Hussain
+Q9570	Amitabh Bachchan	P22	Q9575	Harivansh Rai Bachchan
+Q9570	Amitabh Bachchan	P25	Q2723530	Teji Bachchan
+Q9960	Ronald Reagan	P22	Q6114763	Jack Reagan
+Q9960	Ronald Reagan	P25	Q6990072	Nelle Wilson Reagan

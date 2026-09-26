@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"David Bale","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"David Duchovny","b":"Dua Lipa","c":"Helen Hunt","d":"Christian Bale"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.2133, "probabilities": {"a": 0.1363, "b": 0.1728, "c": 0.0863, "d": 0.6046}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
+}

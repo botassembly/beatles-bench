@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Jackie Chan","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Dona Celeste","b":"Eva-Maria Hagen","c":"Lee-Lee Chan","d":"Teji Bachchan"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0459, "probabilities": {"a": 0.2422, "b": 0.1609, "c": 0.4018, "d": 0.1952}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
+}

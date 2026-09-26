@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Ella van Heemstra","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Audrey Hepburn","b":"Zsa Zsa Gabor","c":"Adrien Brody","d":"Olivia Wilde"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.4982, "probabilities": {"a": 0.8053, "b": 0.0865, "c": 0.0361, "d": 0.0721}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
+}

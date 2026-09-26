@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Eyes Wide Shut","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Sammy Fain","b":"Thomas Wander","c":"Marc Streitenfeld","d":"Jocelyn Pook"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.045, "probabilities": {"a": 0.3689, "b": 0.2834, "c": 0.2146, "d": 0.1331}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Winona Ryder","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Michael D. Horowitz","b":"James Lawton Collins","c":"Joe Toney","d":"Alfred Lennon"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1335, "probabilities": {"a": 0.5265, "b": 0.1938, "c": 0.1655, "d": 0.1142}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
+}

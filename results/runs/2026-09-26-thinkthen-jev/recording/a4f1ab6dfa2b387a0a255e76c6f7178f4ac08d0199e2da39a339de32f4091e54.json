@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Daniel Day-Lewis","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Dorothy Bridges","b":"Jill Balcon","c":"Teri Shields","d":"Linda Carroll"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.93,"probabilities":{"a":0.02,"d":0.03,"b":0.95,"c":0.0}}},"usage":{"input_tokens":351,"output_tokens":46}}
+}

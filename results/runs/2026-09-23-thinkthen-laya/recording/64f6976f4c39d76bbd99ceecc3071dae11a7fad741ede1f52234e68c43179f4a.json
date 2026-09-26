@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Paul McCartney","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"With a Little Help from My Friends","b":"Here Comes the Sun","c":"I'm Looking Through You","d":"You've Got to Hide Your Love Away"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0315, "probabilities": {"a": 0.3558, "b": 0.2353, "c": 0.2588, "d": 0.1501}}}, "usage": {"input_tokens": 73, "output_tokens": 0}}
+}

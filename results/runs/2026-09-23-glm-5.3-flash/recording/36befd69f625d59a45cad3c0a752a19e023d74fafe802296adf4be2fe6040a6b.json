@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text is the title of a song by the Beatles. In which month was it first released?\n\nText: And I Love Her\n\nAllowed answers:\n- July 1964\n- December 1963\n- September 1963\n- February 1964\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "July 1964",
+         "December 1963",
+         "September 1963",
+         "February 1964"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "\"And I Love Her\" was first released in July 1964 (on the UK album *A Hard Day's Night* and as a US single).",
+     "reasoning_content": "A Hard Day's Night album UK: July 1964; US single Capitol released July 1964.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"July 1964\",\"probability\":0.95}",
+        "name": "Answer"
+       },
+       "id": "call_-7230515698366149501",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790187283,
+  "id": "2026092402143217bc8e6d9f914082",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "2026092402143217bc8e6d9f914082",
+  "usage": {
+   "completion_tokens": 75,
+   "completion_tokens_details": {
+    "reasoning_tokens": 22
+   },
+   "prompt_tokens": 350,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 425
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 10.499
+}

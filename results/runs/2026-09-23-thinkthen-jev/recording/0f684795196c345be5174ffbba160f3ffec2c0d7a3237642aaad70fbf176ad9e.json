@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"“Guantanamera” by The Sandpipers","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a song and its performer. Who is a credited writer of it?","criteria":{"a":"Sandy Vee","b":"Joseíto Fernández","c":"Henrik Jonback","d":"Lucio Quarantotto"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.97,"probabilities":{"a":0.01,"b":0.98,"d":0.01,"c":0.0}}},"usage":{"input_tokens":365,"output_tokens":46}}
+}

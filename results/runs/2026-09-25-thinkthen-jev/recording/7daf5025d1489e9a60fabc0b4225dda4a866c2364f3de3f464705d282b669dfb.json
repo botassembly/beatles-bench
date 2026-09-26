@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"All Together Now","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Help!","c":"Yellow Submarine","d":"Please Please Me"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.74,"probabilities":{"b":0.18,"c":0.81,"d":0.0,"a":0.01}}},"usage":{"input_tokens":358,"output_tokens":46}}
+}

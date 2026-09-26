@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?\n\nText: Paul McCartney\n\nAllowed answers:\n- I Forgot to Remember to Forget\n- Sweet Little Sixteen\n- I Call Your Name\n- Let It Be\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "I Forgot to Remember to Forget",
+         "Sweet Little Sixteen",
+         "I Call Your Name",
+         "Let It Be"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "\"I Forgot to Remember to Forget\" is a Carl Perkins song covered by Beatles with John lead? Actually Beatles didn't record it officially... \"I Call Your Name\" — John lead only. Let It Be — Paul lead, matches Paul. Answer: Let It Be.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Let It Be\",\"probability\":0.95}",
+        "name": "Answer"
+       },
+       "id": "call_-7230516969676470561",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790186655,
+  "id": "202609240204017693d4daf49d4093",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609240204017693d4daf49d4093",
+  "usage": {
+   "completion_tokens": 75,
+   "completion_tokens_details": {
+    "reasoning_tokens": 54
+   },
+   "prompt_tokens": 355,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 430
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 15.173
+}

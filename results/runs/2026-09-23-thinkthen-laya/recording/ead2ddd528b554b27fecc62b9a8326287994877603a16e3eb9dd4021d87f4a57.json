@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Dizzy Miss Lizzy / You Know My Name (Look Up the Number)","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Dizzy Miss Lizzy","b":"You Know My Name (Look Up the Number)"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.7524, "probabilities": {"a": 0.9588, "b": 0.0412}}}, "usage": {"input_tokens": 60, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Harper Lee","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Charles Delevingne","b":"Joe Toney","c":"F. D. Reeve","d":"Amasa Coleman Lee"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":1.0,"probabilities":{"a":0.0,"d":1.0,"c":0.0,"b":0.0}}},"usage":{"input_tokens":354,"output_tokens":46}}
+}

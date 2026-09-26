@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Yesterday","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Rubber Soul","b":"Help!","c":"Beatles for Sale"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1984, "probabilities": {"a": 0.6009, "b": 0.313, "c": 0.0861}}}, "usage": {"input_tokens": 45, "output_tokens": 0}}
+}

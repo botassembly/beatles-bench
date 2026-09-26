@@ -1,0 +1,106 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "Each unit is the title of a song by the Beatles. Which one was first released on the album With the Beatles?\n\nUnits:\n- All Together Now\n- Can't Buy Me Love\n- Oh! Darling\n- All I've Got to Do\n- Help!\n- And Your Bird Can Sing\n- Strawberry Fields Forever\n- What Goes On\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "All Together Now",
+         "Can't Buy Me Love",
+         "Oh! Darling",
+         "All I've Got to Do",
+         "Help!",
+         "And Your Bird Can Sing",
+         "Strawberry Fields Forever",
+         "What Goes On"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "\"All I've Got to Do\" is from With the Beatles (1963).",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"All I've Got to Do\",\"probability\":0.99}",
+        "name": "Answer"
+       },
+       "id": "call_-7230411382200460121",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790196343,
+  "id": "202609240445311c66c8a8743942c2",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609240445311c66c8a8743942c2",
+  "usage": {
+   "completion_tokens": 40,
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "prompt_tokens": 378,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 418
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 12.075
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Emma Thompson","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Judy Campbell","b":"Italia Coppola","c":"Phyllida Law","d":"Lee-Lee Chan"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1341, "probabilities": {"a": 0.5192, "b": 0.1509, "c": 0.2215, "d": 0.1084}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
+}

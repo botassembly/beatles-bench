@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I'm a Loser","b":"You've Got to Hide Your Love Away","c":"A Hard Day's Night","d":"With a Little Help from My Friends"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.19,"probabilities":{"d":0.2,"c":0.06,"a":0.35,"b":0.39}}},"usage":{"input_tokens":369,"output_tokens":46}}
+}

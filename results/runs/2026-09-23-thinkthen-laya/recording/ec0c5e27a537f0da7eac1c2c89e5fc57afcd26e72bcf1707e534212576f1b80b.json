@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Spike Lee","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Peter Graf","b":"James Broderick","c":"Paul William Walker III","d":"Bill Lee"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0348, "probabilities": {"a": 0.3283, "b": 0.1297, "c": 0.2785, "d": 0.2634}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
+}

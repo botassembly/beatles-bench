@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Yellow Submarine","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Only a Northern Song","b":"Yellow Submarine","c":"Wild Honey Pie","d":"I Will"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.72,"probabilities":{"a":0.05,"b":0.79,"d":0.02,"c":0.14}}},"usage":{"input_tokens":356,"output_tokens":46}}
+}

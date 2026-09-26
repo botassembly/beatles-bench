@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Assassination of Malcolm X","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"February 1966","b":"February 1965","c":"April 1964","d":"December 1965"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0829, "probabilities": {"a": 0.112, "b": 0.4471, "c": 0.2105, "d": 0.2304}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
+}

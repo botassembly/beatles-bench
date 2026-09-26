@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Moyna Macgill","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Rob Reiner","b":"Angela Lansbury","c":"Anouk Aimée","d":"Pelé"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.2,"probabilities":{"d":0.1,"a":0.4,"b":0.28,"c":0.22}}},"usage":{"input_tokens":357,"output_tokens":46}}
+}

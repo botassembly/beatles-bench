@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Birthday","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Please Please Me","c":"Sgt. Pepper's Lonely Hearts Club Band","none":"none of these"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "none", "confidence": 0.0522, "probabilities": {"a": 0.1803, "b": 0.169, "c": 0.234, "none": 0.4167}}}, "usage": {"input_tokens": 62, "output_tokens": 0}}
+}

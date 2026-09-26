@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text is the title of a song by the Beatles. In which month was it first released?\n\nText: Rock and Roll Music\n\nAllowed answers:\n- January 1965\n- December 1964\n- October 1964\n- May 1964\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "January 1965",
+         "December 1964",
+         "October 1964",
+         "May 1964"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Rock and Roll Music on Beatles for Sale, December 1964.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"December 1964\",\"probability\":0.9}",
+        "name": "Answer"
+       },
+       "id": "call_-7230548821153931294",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790185010,
+  "id": "20260924013641a42f6e4d8b144dfe",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924013641a42f6e4d8b144dfe",
+  "usage": {
+   "completion_tokens": 36,
+   "completion_tokens_details": {
+    "reasoning_tokens": 14
+   },
+   "prompt_tokens": 350,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 386
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 8.716
+}

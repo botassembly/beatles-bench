@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Hold Me Tight","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Help!","b":"Yellow Submarine","c":"With the Beatles","none":"none of these"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0439, "probabilities": {"a": 0.3983, "b": 0.2473, "c": 0.1784, "none": 0.176}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

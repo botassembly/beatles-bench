@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Helter Skelter","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "1962", "confidence": 0.0208, "probabilities": {"1962": 0.1735, "1963": 0.0714, "1964": 0.1113, "1965": 0.0715, "1966": 0.1194, "1967": 0.1227, "1968": 0.118, "1969": 0.1432, "1970": 0.0691}}}, "usage": {"input_tokens": 68, "output_tokens": 0}}
+}

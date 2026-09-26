@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?\n\nText: Paul McCartney\n\nAllowed answers:\n- All Things Must Pass\n- (You're So Square) Baby I Don't Care\n- Twist and Shout\n- Long, Long, Long\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "All Things Must Pass",
+         "(You're So Square) Baby I Don't Care",
+         "Twist and Shout",
+         "Long, Long, Long"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Paul: \"Long, Long, Long\" is George. Wait text names Paul; Paul sang lead on... which song is Paul's only lead singer? Twist and Shout is John; Baby I Don't Care is Elvis, Beatles? Long Long Long is George. Hmm, none? All Things Must Pass is George solo. Beatles songs: \"Baby I Don't Care\"? Not a Beatles song... Actually Beatles covered it? No. Twist and Shout—John. Long, Long, Long—George lead. Hmm. Actually George sang Long Long Long. So maybe none... but must pick one. Wait maybe the Beatles version of \"Twist and Shout\" — John only. Paul-only: none listed. But the question says \"this member as its only lead singer\" — perhaps Baby I Don't Care? Not Beatles. Long Long Long is George. So answer Twist and Shout? That's John. Hmm—maybe I'm wrong: Beatles' Long, Long Long — George sings lead, yes. Best: Twist and Shout, probability low.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Twist and Shout\",\"probability\":0.2}",
+        "name": "Answer"
+       },
+       "id": "call_-7230522501594344603",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790186662,
+  "id": "20260924020400da2729c1b1064150",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924020400da2729c1b1064150",
+  "usage": {
+   "completion_tokens": 239,
+   "completion_tokens_details": {
+    "reasoning_tokens": 216
+   },
+   "prompt_tokens": 369,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 608
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 22.561
+}

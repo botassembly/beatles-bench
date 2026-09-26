@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"I Have a Dream","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Good Morning Good Morning","b":"All Things Must Pass","c":"I'll Get You","d":"I Should Have Known Better"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.19,"probabilities":{"c":0.25,"a":0.29,"d":0.39,"b":0.07}}},"usage":{"input_tokens":362,"output_tokens":46}}
+}

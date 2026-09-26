@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"And Your Bird Can Sing","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"A Hard Day's Night","c":"Please Please Me","none":"none of these"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"none","confidence":0.88,"probabilities":{"b":0.03,"none":0.91,"a":0.06,"c":0.0}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

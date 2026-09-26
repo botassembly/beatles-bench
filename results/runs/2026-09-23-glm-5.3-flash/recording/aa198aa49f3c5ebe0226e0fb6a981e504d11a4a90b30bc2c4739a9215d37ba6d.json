@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?\n\nText: John Lennon\n\nAllowed answers:\n- Ooh! My Soul\n- Everybody's Got Something to Hide Except Me and My Monkey\n- Clarabella\n- Bésame Mucho\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Ooh! My Soul",
+         "Everybody's Got Something to Hide Except Me and My Monkey",
+         "Clarabella",
+         "Bésame Mucho"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Bésame Mucho is Ringo? No, Bésame Mucho is Ringo on Live at the BBC... actually sung by Ringo? Ringo sang \"Bésame Mucho\" at Decca audition? \"Clarabella\" is Ringo. \"Bésame Mucho\" — Ringo sang it at the Star Club? Actually Bésame Mucho lead vocals: Ringo (Star Club). Clarabella — Ringo. Ooh! My Soul — Ringo. Everybody's Got Something... — John solo lead.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Everybody's Got Something to Hide Except Me and My Monkey\",\"probability\":0.9}",
+        "name": "Answer"
+       },
+       "id": "call_-7230524391379956925",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790186609,
+  "id": "20260924020313d520c65793754480",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924020313d520c65793754480",
+  "usage": {
+   "completion_tokens": 140,
+   "completion_tokens_details": {
+    "reasoning_tokens": 111
+   },
+   "prompt_tokens": 367,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 507
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 16.974
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Joaquin Phoenix","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Dorothy Bridges","b":"Arlyn Phoenix","c":"Volga Hayworth","d":"Irmelin Indenbirken"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.86,"probabilities":{"b":0.9,"d":0.09,"a":0.0,"c":0.01}}},"usage":{"input_tokens":354,"output_tokens":46}}
+}

@@ -1,0 +1,11 @@
+limit_tokens 476000000
+charged_tokens 427569418
+remaining_tokens 48430582
+2026-09-24T13:29:14Z
+2026-09-24T13:29:20Z
+limit_tokens 476000000
+charged_tokens 427769418
+remaining_tokens 48230582
+job: live --max-tokens 200000 scripts/run/rad_pipeline.sh live (THINKTHEN_BIN = thinkthen target/release, thinkthen 0.0.1), model jev-1.13.0
+backend reported: 92 requests, 75,467 input and 5,054 output tokens, $0.0032 at $0.042 per million input tokens. The guard reserved 200,000.
+one-minute load 14.5 on 16 cores before and after the job, from other work on this machine

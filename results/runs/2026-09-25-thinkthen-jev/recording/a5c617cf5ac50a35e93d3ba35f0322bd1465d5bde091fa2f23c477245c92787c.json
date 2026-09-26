@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Little Child","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Revolver","b":"A Hard Day's Night","c":"Beatles for Sale","d":"With the Beatles"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.14,"probabilities":{"a":0.18,"b":0.13,"c":0.34,"d":0.35}}},"usage":{"input_tokens":359,"output_tokens":46}}
+}

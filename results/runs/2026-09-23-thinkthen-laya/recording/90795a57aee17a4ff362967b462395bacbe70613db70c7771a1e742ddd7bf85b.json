@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Yellow Submarine","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Yellow Submarine","b":"Please Mr. Postman","c":"Twist and Shout","d":"Only a Northern Song"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.6355, "probabilities": {"a": 0.8768, "b": 0.0302, "c": 0.0401, "d": 0.0529}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
+}

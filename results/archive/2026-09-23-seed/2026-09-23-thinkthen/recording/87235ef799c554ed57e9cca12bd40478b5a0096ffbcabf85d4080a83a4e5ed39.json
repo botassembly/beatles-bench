@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Phil Spector","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"Can You Take Me Back?","b":"One After 909","c":"Doctor Robert","d":"I Call Your Name"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.27,"probabilities":{"c":0.11,"b":0.35,"a":0.45,"d":0.09}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

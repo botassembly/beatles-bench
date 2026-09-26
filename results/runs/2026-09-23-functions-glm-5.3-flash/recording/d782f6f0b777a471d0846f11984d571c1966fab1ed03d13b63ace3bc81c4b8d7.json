@@ -1,0 +1,107 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "Each unit is the title of a song by the Beatles. Which one was first released on the album Yellow Submarine?\n\nUnits:\n- Love Me Do\n- All Together Now\n- Julia\n- I Am the Walrus\n- Fixing a Hole\n- If I Needed Someone\n- Mean Mr. Mustard\n- A Hard Day's Night\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Love Me Do",
+         "All Together Now",
+         "Julia",
+         "I Am the Walrus",
+         "Fixing a Hole",
+         "If I Needed Someone",
+         "Mean Mr. Mustard",
+         "A Hard Day's Night"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "All Together Now is on Yellow Submarine album. I Am the Walrus also appeared on Yellow Submarine (1969), but first released on Magical Mystery Tour (1967). So All Together Now.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"All Together Now\",\"probability\":0.9}",
+        "name": "Answer"
+       },
+       "id": "call_-7230408289824007125",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790196412,
+  "id": "202609240446382cb1b119e1ab40df",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609240446382cb1b119e1ab40df",
+  "usage": {
+   "completion_tokens": 62,
+   "completion_tokens_details": {
+    "reasoning_tokens": 41
+   },
+   "prompt_tokens": 379,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 441
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 14.052
+}

@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?\n\nText: Paul McCartney\n\nAllowed answers:\n- Don't Bother Me\n- Savoy Truffle\n- You Know What to Do\n- You'll Be Mine\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Don't Bother Me",
+         "Savoy Truffle",
+         "You Know What to Do",
+         "You'll Be Mine"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "Paul McCartney credited songs: \"You Know What to Do\" is Lennon/McCartney. \"You'll Be Mine\" is McCartney/Harries? Actually \"You'll Be Mine\" credited to Paul McCartney and Len Garry? It's a Quarrymen home recording credited... \"You Know What to Do\" credited Lennon/McCartney. Most likely that.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"You Know What to Do\",\"probability\":0.6}",
+        "name": "Answer"
+       },
+       "id": "call_-7230545660058004478",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790184134,
+  "id": "20260924012206c90a652b1b2d417a",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924012206c90a652b1b2d417a",
+  "usage": {
+   "completion_tokens": 97,
+   "completion_tokens_details": {
+    "reasoning_tokens": 74
+   },
+   "prompt_tokens": 356,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 453
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 8.151
+}

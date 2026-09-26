@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Owen Wilson","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Laura Wilson","b":"Sara Sothern","c":"Myra Keaton","d":"Nelle Wilson Reagan"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.72,"probabilities":{"d":0.06,"c":0.05,"b":0.11,"a":0.78}}},"usage":{"input_tokens":350,"output_tokens":46}}
+}

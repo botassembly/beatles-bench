@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"William Close","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Michelle Williams","b":"Michael Ende","c":"Glenn Close","d":"Romy Schneider"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.2644, "probabilities": {"a": 0.2015, "b": 0.0796, "c": 0.6354, "d": 0.0835}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
+}

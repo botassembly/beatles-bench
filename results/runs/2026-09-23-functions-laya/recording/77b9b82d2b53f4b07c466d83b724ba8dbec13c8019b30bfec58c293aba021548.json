@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"If I Fell\"},{\"id\":\"u002\",\"evidence\":\"Glass Onion\"},{\"id\":\"u003\",\"evidence\":\"Because\"},{\"id\":\"u004\",\"evidence\":\"Nowhere Man\"},{\"id\":\"u005\",\"evidence\":\"Hey Bulldog\"},{\"id\":\"u006\",\"evidence\":\"I Need You\"},{\"id\":\"u007\",\"evidence\":\"Boys\"},{\"id\":\"u008\",\"evidence\":\"Your Mother Should Know\"}]","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album The Beatles (White Album)?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "u001", "confidence": 0.3118, "probabilities": {"u001": 0.5515, "u002": 0.0392, "u003": 0.0745, "u004": 0.0126, "u005": 0.0171, "u006": 0.0352, "u007": 0.1436, "u008": 0.1263}}}, "usage": {"input_tokens": 156, "output_tokens": 0}}
+}

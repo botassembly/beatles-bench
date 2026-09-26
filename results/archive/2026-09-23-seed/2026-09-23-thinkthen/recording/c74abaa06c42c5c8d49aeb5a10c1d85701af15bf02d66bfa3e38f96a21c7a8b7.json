@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Nancy Reagan","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Hannah Chaplin","b":"Edith Luckett Davis","c":"Virginia Admiral","d":"Nelle Wilson Reagan"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.52,"probabilities":{"a":0.01,"c":0.05,"d":0.64,"b":0.3}}},"usage":{"input_tokens":352,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"William Shakespeare","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Nancy Priddy","b":"Beatrice deMille","c":"Sophie Kumpen","d":"Mary Shakespeare"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.1302, "probabilities": {"a": 0.3395, "b": 0.1113, "c": 0.1033, "d": 0.4459}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
+}

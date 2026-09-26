@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Getting Better","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Magical Mystery Tour","b":"Revolver","c":"Sgt. Pepper's Lonely Hearts Club Band"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.24,"probabilities":{"c":0.14,"a":0.36,"b":0.5}}},"usage":{"input_tokens":348,"output_tokens":39}}
+}

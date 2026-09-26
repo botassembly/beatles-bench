@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Nina Hagen","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Hans Oliva-Hagen","b":"Eric Thompson","c":"Sandy McDonald","d":"Ran Laurie"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.99,"probabilities":{"d":0.0,"b":0.0,"a":1.0,"c":0.0}}},"usage":{"input_tokens":351,"output_tokens":46}}
+}

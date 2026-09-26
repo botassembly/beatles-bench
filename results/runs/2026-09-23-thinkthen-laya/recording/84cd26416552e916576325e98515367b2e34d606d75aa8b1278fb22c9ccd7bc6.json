@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Irving Naxon","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"shower","b":"slow cooker","c":"achromatic lens","d":"Volksempfänger"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0673, "probabilities": {"a": 0.1148, "b": 0.2989, "c": 0.1917, "d": 0.3947}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

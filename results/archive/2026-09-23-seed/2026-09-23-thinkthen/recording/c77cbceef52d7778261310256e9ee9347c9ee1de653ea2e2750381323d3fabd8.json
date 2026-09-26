@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"George Martin","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"One After 909","b":"Dig a Pony","c":"Honey Pie","d":"I've Got a Feeling"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.3,"probabilities":{"b":0.07,"a":0.48,"d":0.16,"c":0.29}}},"usage":{"input_tokens":358,"output_tokens":46}}
+}

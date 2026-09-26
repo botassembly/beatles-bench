@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Junius Brutus Booth","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"David Duchovny","b":"John Wilkes Booth","c":"Cara Delevingne","d":"Elizabeth Taylor"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.6143, "probabilities": {"a": 0.0537, "b": 0.8675, "c": 0.0344, "d": 0.0444}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
+}

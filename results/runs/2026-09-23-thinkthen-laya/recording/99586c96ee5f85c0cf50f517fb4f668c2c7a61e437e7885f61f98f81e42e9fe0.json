@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Ram Mukherjee","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Julie Delpy","b":"Saoirse Ronan","c":"Rani Mukerji","d":"Steffi Graf"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1362, "probabilities": {"a": 0.5168, "b": 0.2177, "c": 0.172, "d": 0.0935}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
+}

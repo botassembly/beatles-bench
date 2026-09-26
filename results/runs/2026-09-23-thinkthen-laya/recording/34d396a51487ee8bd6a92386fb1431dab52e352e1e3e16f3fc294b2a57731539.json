@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Ella van Heemstra","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Charlie Chaplin","b":"Patrick Swayze","c":"Audrey Hepburn","d":"Rita Hayworth"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0977, "probabilities": {"a": 0.1355, "b": 0.1118, "c": 0.39, "d": 0.3627}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
+}

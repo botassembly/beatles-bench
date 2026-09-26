@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Tomorrow Never Knows","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: May 1966 lunar eclipse?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "after", "confidence": 0.0262, "probabilities": {"before": 0.4051, "after": 0.5949}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

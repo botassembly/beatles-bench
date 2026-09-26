@@ -1,0 +1,18 @@
+{
+ "plain": {
+  "load_s": 5.762,
+  "score_s": 9.265
+ },
+ "relation": {
+  "load_s": 1.449,
+  "score_s": 6.013
+ },
+ "qwen-embed": {
+  "load_s": 1.221,
+  "score_s": 18.004
+ },
+ "qwen-rerank": {
+  "load_s": 1.451,
+  "score_s": 60.933
+ }
+}

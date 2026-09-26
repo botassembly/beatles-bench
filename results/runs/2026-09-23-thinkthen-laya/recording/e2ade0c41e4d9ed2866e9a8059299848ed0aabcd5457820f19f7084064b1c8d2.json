@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Cuban Missile Crisis","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"October 1962","b":"January 1962","c":"May 1962","d":"May 1963"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0375, "probabilities": {"a": 0.2791, "b": 0.1424, "c": 0.3591, "d": 0.2194}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
+}

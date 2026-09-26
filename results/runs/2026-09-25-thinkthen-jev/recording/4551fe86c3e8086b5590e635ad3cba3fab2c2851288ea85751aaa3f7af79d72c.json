@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"You Never Give Me Your Money","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"The Beatles (White Album)","c":"Abbey Road","d":"Rubber Soul"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.7,"probabilities":{"c":0.76,"b":0.22,"d":0.01,"a":0.01}}},"usage":{"input_tokens":362,"output_tokens":46}}
+}

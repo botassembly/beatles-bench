@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Arthur Lithgow","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Naomi Watts","b":"Olivia Wilde","c":"John Lithgow","d":"Steffi Graf"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.2898, "probabilities": {"a": 0.148, "b": 0.0794, "c": 0.6707, "d": 0.102}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
+}

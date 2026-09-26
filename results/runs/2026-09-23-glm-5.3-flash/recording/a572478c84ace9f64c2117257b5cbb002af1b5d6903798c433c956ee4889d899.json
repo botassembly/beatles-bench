@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs did it include before any other album did?\n\nText: Please Please Me\n\nAllowed answers:\n- Good Night\n- Baby It's You\n- Please Mr. Postman\n- One After 909\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Good Night",
+         "Baby It's You",
+         "Please Mr. Postman",
+         "One After 909"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "The album *Please Please Me* included covers of both \"Baby It's You\" and \"Please Mr. Postman\" before other albums had them, but the standout answer here is the Marvelettes' \"Please Mr. Postman,\" which debuted on this album.",
+     "reasoning_content": "Please Please Me includes \"Baby It's You\" and \"Please Mr. Postman\" — Please Mr. Postman first appeared here; Baby It's You also first on Please Please Me? \"Baby It's You\" appeared on Please Please Me before \"It's You\" ... Both debuted there. \"Please Mr. Postman\" is Carpenters later. \"One After 909\" was Let It Be. \"Good Night\" White Album. Baby It's You was also on Please Please Me. Hmm, which one? Both included before other albums. But Baby It's You was a Beatles album? Yes both. Choose Please Mr. Postman (well-known cover debut). Actually Baby It's You also debut on Please Please Me. Ambiguous; pick one, maybe \"Baby It's You\" because Please Mr. Postman also appeared later... Both only debut there. I'll pick Please Mr. Postman.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Please Mr. Postman\",\"probability\":0.55}",
+        "name": "Answer"
+       },
+       "id": "call_-7230535214697545209",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790185742,
+  "id": "20260924014822f8cd14ac900148a6",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924014822f8cd14ac900148a6",
+  "usage": {
+   "completion_tokens": 267,
+   "completion_tokens_details": {
+    "reasoning_tokens": 189
+   },
+   "prompt_tokens": 351,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 618
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 40.271
+}

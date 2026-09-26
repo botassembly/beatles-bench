@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Angela Lansbury","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Timothy Carlton","b":"Edgar Lansbury","c":"Nobuhiro Ōkōchi","d":"Amasa Coleman Lee"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.99,"probabilities":{"b":0.99,"a":0.01,"d":0.0,"c":0.0}}},"usage":{"input_tokens":358,"output_tokens":46}}
+}

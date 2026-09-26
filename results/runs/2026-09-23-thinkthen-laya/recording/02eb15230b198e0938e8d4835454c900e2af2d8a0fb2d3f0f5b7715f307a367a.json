@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Ringo Starr","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Don't Let Me Down","b":"I Wanna Be Your Man","c":"Here, There and Everywhere","d":"The Fool on the Hill"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.052, "probabilities": {"a": 0.3813, "b": 0.2998, "c": 0.154, "d": 0.165}}}, "usage": {"input_tokens": 71, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"David I. Arkin","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"David Duchovny","b":"Gary Cooper","c":"Ronald Reagan","d":"Alan Arkin"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.3233, "probabilities": {"a": 0.1226, "b": 0.0943, "c": 0.0839, "d": 0.6992}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"I'll Cry Instead / Magical Mystery Tour","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"I'll Cry Instead","b":"Magical Mystery Tour"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.91,"probabilities":{"b":0.95,"a":0.05}}},"usage":{"input_tokens":328,"output_tokens":32}}
+}

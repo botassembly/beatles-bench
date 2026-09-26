@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"I Me Mine","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"May 1970","b":"January 1970","c":"February 1971","d":"May 1969"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.62,"probabilities":{"b":0.14,"a":0.72,"d":0.08,"c":0.06}}},"usage":{"input_tokens":367,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Sexy Sadie","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Abbey Road","b":"Revolver","c":"The Beatles (White Album)","none":"none of these"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0512, "probabilities": {"a": 0.4205, "b": 0.1718, "c": 0.2044, "none": 0.2032}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
+}

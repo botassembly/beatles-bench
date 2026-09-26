@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Devil in Her Heart","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Beatles for Sale","c":"Help!","d":"Sgt. Pepper's Lonely Hearts Club Band"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.47,"probabilities":{"c":0.11,"d":0.02,"a":0.6,"b":0.27}}},"usage":{"input_tokens":365,"output_tokens":46}}
+}

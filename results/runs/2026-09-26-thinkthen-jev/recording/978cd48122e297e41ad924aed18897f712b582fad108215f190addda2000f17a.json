@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Love Me Do","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"October 1962","b":"January 1963","c":"November 1962","d":"September 1962"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.36,"probabilities":{"d":0.52,"a":0.42,"b":0.0,"c":0.06}}},"usage":{"input_tokens":367,"output_tokens":46}}
+}

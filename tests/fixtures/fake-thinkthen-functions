@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+"""A stand-in for the thinkthen command in the function-suite tests. Answers from its arguments, with no network.
+It honours --cache and --replay with a file per request named by the record's id, so a replay needs the recording."""
+import hashlib
+import json
+import os
+import sys
+from pathlib import Path
+
+verb, argv = sys.argv[1], sys.argv
+assert "--details" in argv and "--jsonl" in argv
+folder = Path(argv[argv.index("--cache" if "--cache" in argv else "--replay") + 1])
+meta = {"tool": "fake", "url": "http://127.0.0.1/fake", "model": "fake-1", "usage": {"input_tokens": 10, "output_tokens": 3},
+        "requests_sent": 1, "cached": False}
+records = [json.loads(l) for l in sys.stdin if l.strip()]
+if os.environ.get("FAKE_REFUSE") in [r.get("id") for r in records if "id" in r]:  # the backend refuses: no row, exit 4
+    print("thinkthen: the backend answered with status 422: the backend refused the request as malformed or too large", file=sys.stderr)
+    sys.exit(4)
+
+
+def answer(rec):
+    if verb == "tag":
+        return {"value": ["john"], "answer": {"kind": "tag", "probabilities": {"john": 0.9, "paul": 0.1}}}
+    if verb == "score":
+        return {"value": 1.5, "answer": {"kind": "score", "probabilities": {}}}
+    if verb in ("decide", "filter", "rank"):
+        return {"value": False, "answer": {"kind": "yes_no", "probability": 0.3}}
+    if verb == "annotate":
+        return {"value": {}, "answers": {}}
+    if verb == "recognize":
+        return {"value": {"entities": []}, "answer": {"tokens": []}}
+    raise SystemExit(f"fake: no verb {verb}")
+
+
+if verb == "relate":  # one result for the whole entity set
+    rows = [{"value": [], "answer": {"questions": []}, "meta": meta}]
+    keys = ["relate-" + hashlib.sha256(json.dumps(records).encode()).hexdigest()]
+elif verb == "find":
+    rows = [{"value": records[0], "answer": {"kind": "find", "pick": "u001", "probabilities": {"u001": 1.0}}, "meta": meta}]
+    keys = ["find-" + records[0]["id"]]
+else:
+    rows = [{**answer(r), "input": r, "meta": meta} for r in records]
+    if verb == "filter":  # filter prints only the kept records, and at 0.3 it keeps none
+        rows = []
+    # a request is named by what it sends: the question's arguments and the record's text. decide, filter, and rank send
+    # the same request, so the verb is not part of the name.
+    ask = argv[2:argv.index("--details")]
+    keys = [hashlib.sha256(json.dumps([ask, r["input"]]).encode()).hexdigest() for r in records]
+if "--replay" in argv:
+    if not all((folder / k).exists() for k in keys):
+        sys.exit("fake: not recorded")
+    for r in rows:
+        r["meta"] = {**r["meta"], "requests_sent": 0, "cached": True}
+else:
+    folder.mkdir(parents=True, exist_ok=True)
+    for k, r in zip(keys, rows):
+        if (folder / k).exists():
+            r["meta"] = {**r["meta"], "requests_sent": 0, "cached": True}
+        (folder / k).write_text("x")
+for r in rows:
+    print(json.dumps(r))

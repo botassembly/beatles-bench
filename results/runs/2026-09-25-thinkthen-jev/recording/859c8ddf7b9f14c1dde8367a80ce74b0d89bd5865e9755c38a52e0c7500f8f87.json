@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"The Fool on the Hill","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Magical Mystery Tour","b":"With the Beatles","c":"Help!","d":"The Beatles (White Album)"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.79,"probabilities":{"c":0.04,"a":0.84,"b":0.0,"d":0.12}}},"usage":{"input_tokens":361,"output_tokens":46}}
+}

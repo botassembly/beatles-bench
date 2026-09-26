@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Soviet Union","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a subject. Which of these songs by the Beatles is about it?","criteria":{"a":"Back in the U.S.S.R.","b":"Her Majesty"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":1.0,"probabilities":{"b":0.0,"a":1.0}}},"usage":{"input_tokens":329,"output_tokens":32}}
+}

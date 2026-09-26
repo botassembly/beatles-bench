@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Rubber Soul","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Drive My Car","b":"Revolution 9","c":"When I'm Sixty-Four","d":"I Want You (She's So Heavy)"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.97,"probabilities":{"d":0.0,"c":0.02,"b":0.0,"a":0.98}}},"usage":{"input_tokens":366,"output_tokens":46}}
+}

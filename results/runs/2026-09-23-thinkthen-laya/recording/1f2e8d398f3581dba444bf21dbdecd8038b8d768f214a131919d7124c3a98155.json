@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Harlem riot of 1964","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"July 1964","b":"July 1963","c":"August 1963","d":"June 1965"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.4683, "probabilities": {"a": 0.7894, "b": 0.0939, "c": 0.072, "d": 0.0446}}}, "usage": {"input_tokens": 45, "output_tokens": 0}}
+}

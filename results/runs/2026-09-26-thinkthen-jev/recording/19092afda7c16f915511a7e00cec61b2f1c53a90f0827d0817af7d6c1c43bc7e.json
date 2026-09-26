@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Irving Naxon","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"achromatic lens","b":"shower","c":"light-emitting diode","d":"slow cooker"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":1.0,"probabilities":{"b":0.0,"a":0.0,"d":1.0,"c":0.0}}},"usage":{"input_tokens":357,"output_tokens":46}}
+}

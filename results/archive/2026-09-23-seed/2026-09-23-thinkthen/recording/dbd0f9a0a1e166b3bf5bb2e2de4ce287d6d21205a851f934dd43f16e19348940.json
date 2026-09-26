@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Eight Days a Week","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Beatles for Sale","b":"Revolver","c":"A Hard Day's Night","d":"Rubber Soul"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.42,"probabilities":{"b":0.02,"a":0.5700000000000001,"d":0.11,"c":0.3}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"She Said She Said","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"March 1967","b":"January 1967","c":"August 1966","d":"January 1966"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0117, "probabilities": {"a": 0.3215, "b": 0.2431, "c": 0.2406, "d": 0.1947}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
+}

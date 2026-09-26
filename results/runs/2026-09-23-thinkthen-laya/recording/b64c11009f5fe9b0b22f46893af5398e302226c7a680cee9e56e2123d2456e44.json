@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"I Call Your Name","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"June 1964","b":"May 1965","c":"September 1963","d":"March 1964"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0502, "probabilities": {"a": 0.269, "b": 0.1167, "c": 0.2459, "d": 0.3684}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
+}

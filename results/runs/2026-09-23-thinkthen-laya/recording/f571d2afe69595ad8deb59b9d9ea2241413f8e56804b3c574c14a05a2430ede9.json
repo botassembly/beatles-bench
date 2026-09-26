@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"I Have a Dream","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Honey Pie","b":"I'll Be on My Way","c":"I'll Get You","d":"Don't Let Me Down"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2108, "probabilities": {"a": 0.5979, "b": 0.1804, "c": 0.144, "d": 0.0777}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
+}

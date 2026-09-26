@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs did it include before any other album did?\n\nText: Yellow Submarine\n\nAllowed answers:\n- Not a Second Time\n- Yellow Submarine\n- Anna (Go to Him)\n- It's All Too Much\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Not a Second Time",
+         "Yellow Submarine",
+         "Anna (Go to Him)",
+         "It's All Too Much"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "The Yellow Submarine album (1969) was the first to include \"It's All Too Much\"; the song \"Yellow Submarine\" had already appeared on Revolver, and the other two songs are earlier Beatles tracks.",
+     "reasoning_content": "Yellow Submarine album first included \"It's All Too Much\" and \"Yellow Submarine\" (song was on Revolver actually). \"Yellow Submarine\" song was on Revolver first. So first-appearance on Yellow Submarine album: \"It's All Too Much\".",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"It's All Too Much\",\"probability\":0.95}",
+        "name": "Answer"
+       },
+       "id": "call_-7230541983566003075",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790185598,
+  "id": "202609240146284e96fdc1b01c4eeb",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "202609240146284e96fdc1b01c4eeb",
+  "usage": {
+   "completion_tokens": 124,
+   "completion_tokens_details": {
+    "reasoning_tokens": 56
+   },
+   "prompt_tokens": 353,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 477
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 10.18
+}

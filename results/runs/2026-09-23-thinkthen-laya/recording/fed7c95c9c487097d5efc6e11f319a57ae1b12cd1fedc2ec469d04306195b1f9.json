@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Revolver","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Good Day Sunshine","b":"Honey Pie","c":"It's Only Love","d":"Wild Honey Pie"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0385, "probabilities": {"a": 0.3594, "b": 0.2861, "c": 0.2106, "d": 0.144}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
+}

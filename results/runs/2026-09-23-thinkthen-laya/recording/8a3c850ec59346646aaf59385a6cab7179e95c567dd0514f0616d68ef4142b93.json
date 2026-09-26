@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Olivia Wilde","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Hans Oliva-Hagen","b":"Stephen Gyllenhaal","c":"Andrew Cockburn","d":"Francis Alexander Shields"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0246, "probabilities": {"a": 0.363, "b": 0.2058, "c": 0.1922, "d": 0.2389}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
+}

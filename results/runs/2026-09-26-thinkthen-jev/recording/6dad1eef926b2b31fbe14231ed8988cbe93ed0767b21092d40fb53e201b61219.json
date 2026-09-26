@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Pacific Air Lines Flight 773","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"October 1963","b":"August 1963","c":"July 1964","d":"May 1964"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.09,"probabilities":{"c":0.19,"b":0.32,"a":0.3,"d":0.19}}},"usage":{"input_tokens":365,"output_tokens":46}}
+}

@@ -1,0 +1,104 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs was first released on it?\n\nText: The Beatles (White Album)\n\nAllowed answers:\n- The End\n- Yer Blues\n- Money (That's What I Want)\n- Please Please Me\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "The End",
+         "Yer Blues",
+         "Money (That's What I Want)",
+         "Please Please Me"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "Both \"The End\" and \"Yer Blues\" are on the White Album, but \"Yer Blues\" is the correct pick among these since both appear there—however, only one answer allowed: \"Yer Blues\" was first released on the White Album (as was \"The End\"). Choosing \"Yer Blues\".",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Yer Blues\",\"probability\":0.5}",
+        "name": "Answer"
+       },
+       "id": "call_-7230551329414839658",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790184324,
+  "id": "2026092401251300d50e7047214876",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "2026092401251300d50e7047214876",
+  "usage": {
+   "completion_tokens": 87,
+   "completion_tokens_details": {
+    "reasoning_tokens": 0
+   },
+   "prompt_tokens": 348,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 435
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 11.256
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Run for Your Life","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Gemini 9A?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "after", "confidence": 0.0283, "probabilities": {"before": 0.4013, "after": 0.5987}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Please refund my order. It arrived broken.","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"Does the customer ask for a refund?"}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.9357}}, "usage": {"input_tokens": 43, "output_tokens": 0}}
+}

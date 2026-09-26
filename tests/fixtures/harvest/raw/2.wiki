@@ -1,0 +1,10 @@
+{{Infobox album
+| name = Album One
+| released = {{Start date|1963|3|22|df=y}}
+}}
+{{Track listing
+| title1 = Alpha Song
+| length1 = 2:10
+| title2 = Gamma Tune
+| length2 = 3:05
+}}

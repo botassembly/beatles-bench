@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"A Hard Day's Night","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Wanna Be Your Man","b":"I'll Cry Instead","c":"I've Just Seen a Face","d":"Ask Me Why"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.27, "probabilities": {"a": 0.6602, "b": 0.0953, "c": 0.12, "d": 0.1245}}}, "usage": {"input_tokens": 66, "output_tokens": 0}}
+}

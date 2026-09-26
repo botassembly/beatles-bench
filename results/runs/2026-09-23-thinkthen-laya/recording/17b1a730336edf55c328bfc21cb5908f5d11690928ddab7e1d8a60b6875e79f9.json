@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"1970 Pakistani general election","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"July 1971","b":"December 1971","c":"December 1970","d":"September 1971"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0508, "probabilities": {"a": 0.2088, "b": 0.1807, "c": 0.4207, "d": 0.1897}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
+}

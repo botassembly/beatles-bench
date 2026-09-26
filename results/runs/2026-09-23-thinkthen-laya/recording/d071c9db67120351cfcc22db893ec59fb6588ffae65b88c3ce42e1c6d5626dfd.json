@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Think for Yourself / I'll Cry Instead","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Think for Yourself","b":"I'll Cry Instead"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.4361, "probabilities": {"a": 0.1324, "b": 0.8676}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
+}

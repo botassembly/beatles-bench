@@ -1,0 +1,255 @@
+relation	famous	obscure	famous_views_2024	obscure_views_2024	not_forward	not_reverse
+building architect	Brandenburg Gate	Heinrich Strack	641949	1445		
+building architect	Doge's Palace	Antonio Rizzo	133992	2332		
+building architect	Faisal Mosque	Vedat Dalokay	126867	8807		
+building architect	Prague Castle	Benedikt Rejt	237208	1651	Matthias of Arras	
+building architect	St. Peter's Basilica	Donato Bramante	1010842	41045	Carlo Maderno	
+building architect	St. Vitus Cathedral	Matthias of Arras	133733	3579		Prague Castle
+building architect	Sydney Opera House	Peter Hall	571855	13378		
+building architect	Ulm Minster	Ulrich Ensingen	253260	1123		
+building architect	United States Capitol	Étienne Sulpice Hallet	621495	1027		
+father	Alan Arkin	David I. Arkin	989133	39815		
+father	Andrei Tarkovsky	Arseny Tarkovsky	599156	28450		
+father	Angela Lansbury	Edgar Lansbury	1751931	60982		
+father	Anthony Perkins	Osgood Perkins	1245605	0		
+father	Arnold Schwarzenegger	Gustav Schwarzenegger	5571342	295382		
+father	Benedict Cumberbatch	Timothy Carlton	2118706	187414		
+father	Beyoncé	Mathew Knowles	6354644	517825		
+father	Billie Holiday	Clarence Holiday	978039	23349		
+father	Björk	Guðmundur Gunnarsson	1607130	75839		
+father	Brian De Palma	Anthony F. DePalma	730897	4198		
+father	Brian Wilson	Murry Wilson	1810807	99455		
+father	Britney Spears	Jamie Spears	3218929	208827		
+father	Brooke Shields	Francis Alexander Shields	3185479	191709		
+father	Bruce Lee	Lee Hoi-chuen	3459265	159042		
+father	Bryan Cranston	Joseph Cranston	2377986	3		
+father	Buster Keaton	Joe Keaton	784237	42821		
+father	Cara Delevingne	Charles Delevingne	1760513	142771		
+father	Cecil B. DeMille	Henry Churchill de Mille	418944	12613		
+father	Charlie Chaplin	Charles Chaplin Sr.	3068082	97055		
+father	Charlotte Rampling	Godfrey Rampling	1003378	27332		
+father	Christian Bale	David Bale	3008149	276284		
+father	Christopher Reeve	F. D. Reeve	4768996	173170		
+father	Daniel Day-Lewis	Cecil Day-Lewis	2751935	214147		
+father	David Duchovny	Amram Ducovny	1351364	92432		
+father	David Tennant	Sandy McDonald	2136214	77552		
+father	Dua Lipa	Dukagjin Lipa	8179883	394		
+father	Elizabeth Cady Stanton	Daniel Cady	169928	4120		
+father	Elizabeth Taylor	Francis Lenn Taylor	3582089	94217		
+father	Emma Thompson	Eric Thompson	2333745	134989		
+father	Errol Flynn	Theodore Thomson Flynn	1192781	21806		
+father	Evan Rachel Wood	Ira David Wood III	1477765	60606		
+father	Francis Ford Coppola	Carmine Coppola	3200975	304978		
+father	Frank Sinatra	Anthony Martin Sinatra	3549371	87344		
+father	Garry Marshall	Anthony W. Marshall	478900	37385		Penny Marshall
+father	Gary Cooper	Charles H. Cooper	954863	20009		
+father	Gena Rowlands	Edwin Myrwyn Rowlands	1501431	41921		
+father	Glenn Close	William Close	1830492	92334		
+father	Gore Vidal	Eugene Luther Vidal	831674	28020		
+father	Grace Kelly	Jack Kelly Sr.	2290161	193503		
+father	Groucho Marx	Sam Marx	647280	47562		
+father	Harper Lee	Amasa Coleman Lee	870879	28829		
+father	Helen Hunt	Gordon Hunt	1747811	75009		
+father	Helena Bonham Carter	Raymond Bonham Carter	2982990	149196		
+father	Hugh Laurie	Ran Laurie	2276448	132146		
+father	Ingmar Bergman	Erik Bergman	635488	14899		
+father	J. J. Abrams	Gerald W. Abrams	1840395	177795		
+father	Jackie Chan	Charles Chan	2984043	118		
+father	Jake Gyllenhaal	Stephen Gyllenhaal	5276708	474596		Maggie Gyllenhaal
+father	James Earl Jones	Robert Earl Jones	5153296	369101		
+father	Jason Bateman	Kent Bateman	2682215	205115		
+father	Jean Simmons	Charles Simmons	729564	17750		
+father	Jean-Paul Belmondo	Paul Belmondo	345357	15943		
+father	Jim Morrison	George Stephen Morrison	2043391	149493		
+father	John Lennon	Alfred Lennon	4001970	148974		
+father	John Lithgow	Arthur Lithgow	1552991	11595		
+father	John Wilkes Booth	Junius Brutus Booth	1819168	66768		
+father	John de Lancie	John de Lancie	254398	15062		
+father	Judy Garland	Francis Avent Gumm	4459915	5824		
+father	Julie Delpy	Albert Delpy	417887	15819		
+father	Keira Knightley	Will Knightley	3755322	267120		
+father	Kevin Bacon	Edmund Bacon	2294227	110024		
+father	Leonardo DiCaprio	George DiCaprio	5525121	450618		
+father	Lindsay Lohan	Michael Lohan	4313730	198007		
+father	Martin Scorsese	Charles Scorsese	3063168	128258		
+father	Matt Groening	Homer Groening	813272	73019		
+father	Matthew Broderick	James Broderick	2098698	193498		
+father	Max von Sydow	Carl Wilhelm von Sydow	749339	25594		
+father	Maximilian Schell	Ferdinand Schell	276332	174		
+father	Maya Plisetskaya	Mikhail Plisetski	51524	2310		
+father	Meghan, Duchess of Sussex	Thomas Markle	2852360	93472		
+father	Mel Gibson	Hutton Gibson	3540381	187325		
+father	Mia Farrow	John Farrow	2055099	150820		
+father	Michael Collins	James Lawton Collins	516206	16520		
+father	Michael Ende	Edgar Ende	85193	4946		
+father	Michelle Williams	Larry R. Williams	2330326	108355		
+father	Mickey Rooney	Joe Yule	1249258	46094		
+father	Miles Davis	Miles Dewey Davis Jr.	1050977	7345		
+father	Momoko Kōchi	Nobuhiro Ōkōchi	23742	858		
+father	Naomi Watts	Peter Watts	2895867	0		
+father	Neil Gaiman	David Gaiman	1709648	16559		
+father	Neil Young	Scott Young	1750559	43914		
+father	Nicolas Cage	August Coppola	4626274	336362		
+father	Nicole Kidman	Antony Kidman	6336433	249444		
+father	Nina Hagen	Hans Oliva-Hagen	199571	6111		
+father	Norma Shearer	Andrew Shearer	301470	9887		
+father	Olivia Newton-John	Brinley Newton-John	1914945	8339		
+father	Olivia Wilde	Andrew Cockburn	2762439	99556		
+father	Olivia de Havilland	Walter de Havilland	1012712	63156		Joan Fontaine
+father	Orlando Bloom	Harry Bloom	3237363	44898		
+father	Paul Bettany	Thane Bettany	1641415	82093		
+father	Paul Walker	Paul William Walker III	2779181	246		
+father	Pelé	Dondinho	2017865	92224		
+father	Penny Marshall	Anthony W. Marshall	832713	37385		Garry Marshall
+father	Peter Ustinov	Jona von Ustinov	561906	25400		
+father	Plácido Domingo	Plácido Domingo Ferrer	259016	2565		
+father	Prince	John L. Nelson	4119018	218068		
+father	Quentin Tarantino	Tony Tarantino	3276587	181009		
+father	Rabindranath Tagore	Debendranath Tagore	1765099	79792		
+father	Ralph Fiennes	Mark Fiennes	2956197	171328		
+father	Rani Mukerji	Ram Mukherjee	1040217	99375		
+father	Richard Attenborough	Frederick Attenborough	1465384	142718		
+father	Rita Hayworth	Eduardo Cansino	1477806	58137		
+father	Robert De Niro	Robert De Niro Sr.	4577995	277305		
+father	Romy Schneider	Wolf Albach-Retty	1001534	32885		
+father	Ronald Reagan	Jack Reagan	6860117	130132		
+father	Rutger Hauer	Arend Hauer	769446	21734		
+father	Saoirse Ronan	Paul Ronan	3132449	203823		
+father	Sean Penn	Leo Penn	2345518	179885		
+father	Selena	Abraham Quintanilla	2722475	192691		
+father	Selena Gomez	Ricardo Joel Gomez	5624854	10		
+father	Sergei Eisenstein	Mikhail Eisenstein	204288	8819		
+father	Sergio Leone	Roberto Roberti	514224	10667		
+father	Shaquille O'Neal	Joe Toney	4524646	206		
+father	Sigourney Weaver	Pat Weaver	2298582	123100		
+father	Spike Lee	Bill Lee	1180915	59764		
+father	Steffi Graf	Peter Graf	1153160	208		
+father	Stephen Colbert	James William Colbert Jr.	1192275	81772		
+father	Steven Spielberg	Arnold Spielberg	3306136	191290		
+father	Tilda Swinton	John Swinton of Kimmerghame	1717664	107416		
+father	Till Lindemann	Werner Lindemann	736947	42474		
+father	Tim Robbins	Gil Robbins	1677894	11542		
+father	Tom Hardy	Chips Hardy	3909644	332865		
+father	Tom Holland	Dominic Holland	4408816	361309		
+father	Tupac Shakur	Mutulu Shakur	4654165	248369		
+father	Uma Thurman	Robert Thurman	2472457	231962		
+father	Walt Disney	Elias Disney	2663397	122391		
+father	William Shakespeare	John Shakespeare	4255296	83411		
+father	Winona Ryder	Michael D. Horowitz	3947702	5191		
+father	Yair Lapid	Tommy Lapid	478132	26387		
+father	Édith Piaf	Louis Alphonse Gassion	879196	15432		
+film composer	2001: A Space Odyssey	György Ligeti	1370179	96424		Eyes Wide Shut
+film composer	2012	Thomas Wander	988092	3524	Harald Kloser	
+film composer	Eternal Sunshine of the Spotless Mind	Jon Brion	1693053	127777		
+film composer	Eyes Wide Shut	Jocelyn Pook	1885518	22475	György Ligeti	
+film composer	Lucy	Éric Serra	832626	33016		
+film composer	Peter Pan	Sammy Fain	352647	17595		
+film composer	Prometheus	Marc Streitenfeld	2750631	47820		
+film composer	Spartacus	Alex North	557423	41830		
+film composer	The Day After Tomorrow	Harald Kloser	978326	18554		2012
+film composer	The Three Caballeros	Paul Smith	192001	12081		
+invention inventor	Volksempfänger	Otto Griessing	34948	1696		
+invention inventor	achromatic lens	Chester Moore Hall	35065	1449		
+invention inventor	cloud chamber	Charles Thomson Rees Wilson	117847	1220		
+invention inventor	escalator	Jesse W. Reno	136803	5922		
+invention inventor	light-emitting diode	H. J. Round	698923	10486		
+invention inventor	pitot tube	Henri Pitot	148555	4811		
+invention inventor	shower	François Merry Delabost	121214	943		
+invention inventor	slow cooker	Irving Naxon	83970	2145		
+invention inventor	traveling-wave tube	Rudolf Kompfner	45166	1888		
+mother	Adrien Brody	Sylvia Plachy	1959823	113989		
+mother	Amitabh Bachchan	Teji Bachchan	2736618	202299		
+mother	Angela Lansbury	Moyna Macgill	1751931	78672		
+mother	Anjelica Huston	Enrica Soma	1417028	133166		
+mother	Anouk Aimée	Geneviève Sorya	389255	8788		
+mother	Arundhati Roy	Mary Roy	599010	39956		
+mother	Audrey Hepburn	Ella van Heemstra	3103057	109350		
+mother	Britney Spears	Lynne Spears	3218929	128695		
+mother	Brooke Shields	Teri Shields	3185479	251410		
+mother	Bruce Lee	Grace Ho	3459265	155610		
+mother	Buster Keaton	Myra Keaton	784237	25295		
+mother	Candice Bergen	Frances Bergen	1060649	95480		
+mother	Cecil B. DeMille	Beatrice deMille	418944	6166		
+mother	Charlie Chaplin	Hannah Chaplin	3068082	112818		
+mother	Christina Applegate	Nancy Priddy	3087170	148809		
+mother	Christopher Plummer	Isabella Mary Abbott	1607945	26070		
+mother	Courtney Love	Linda Carroll	1991744	134445		
+mother	Daniel Day-Lewis	Jill Balcon	2751935	110024		
+mother	Diane Lane	Colleen Farrington	2597063	190674		
+mother	Donald Trump	Mary Anne MacLeod Trump	27138039	1190144		
+mother	Elizabeth Taylor	Sara Sothern	3582089	94464		
+mother	Ellen DeGeneres	Betty DeGeneres	1934968	141618		
+mother	Emilia Clarke	Jennifer Dodd Clarke	3176870	0		
+mother	Eminem	Debbie Nelson	8678542	33854		
+mother	Emma Thompson	Phyllida Law	2333745	224180		
+mother	Eva Green	Marlène Jobert	1903761	172884		
+mother	Francis Ford Coppola	Italia Coppola	3200975	129475		
+mother	Frank Sinatra	Dolly Sinatra	3549371	86444		
+mother	Gena Rowlands	Lady Rowlands	1501431	91883		
+mother	Ginger Rogers	Lela E. Rogers	601292	34646		
+mother	Gore Vidal	Nina S. Gore	831674	30667		
+mother	Grace Kelly	Margaret Majer	2290161	55255		
+mother	Groucho Marx	Minnie Marx	647280	45042		
+mother	Humphrey Bogart	Maud Humphrey	1671475	47480		
+mother	J. J. Abrams	Carol Ann Abrams	1840395	124330		
+mother	Jackie Chan	Lee-Lee Chan	2984043	607		
+mother	Jake Gyllenhaal	Naomi Foner Gyllenhaal	5276708	275660		Maggie Gyllenhaal
+mother	Jane Birkin	Judy Campbell	987270	67768		
+mother	Javier Bardem	Pilar Bardem	3008030	174157		
+mother	Jeff Bridges	Dorothy Bridges	2166778	189668		
+mother	Jennifer Aniston	Nancy Dow	4228562	414140		
+mother	Joan Fontaine	Lilian Fontaine	604038	59124		Olivia de Havilland
+mother	Joaquin Phoenix	Arlyn Phoenix	4726309	436760		River Phoenix
+mother	John Lennon	Julia Lennon	4001970	202200		
+mother	Judy Garland	Ethel Marion Milne	4459915	4933		
+mother	Katharine Hepburn	Katharine Martha Houghton Hepburn	1745457	86753		
+mother	Keira Knightley	Sharman Macdonald	3755322	235333		
+mother	Kesha	Pebe Sebert	1310995	94075		
+mother	Leonardo DiCaprio	Irmelin Indenbirken	5525121	3		
+mother	Lillian Gish	Mary Gish	373080	16604		
+mother	Lindsay Lohan	Dina Lohan	4313730	172228		
+mother	Marilyn Monroe	Gladys Pearl Baker	4625447	305527		
+mother	Martin Scorsese	Catherine Scorsese	3063168	181362		
+mother	Mary Pickford	Charlotte Hennessey	456548	12976		
+mother	Matthew Broderick	Patricia Broderick	2098698	80027		
+mother	Max Verstappen	Sophie Kumpen	4043359	37826		
+mother	Maya Plisetskaya	Rachel Messerer	51524	4147		
+mother	Meryl Streep	Mary Wilkinson Streep	3845794	89993		
+mother	Michael Madsen	Elaine Madsen	907593	52297		
+mother	Milla Jovovich	Galina Jovovich	1936302	89874		
+mother	Måns Zelmerlöw	Birgitta Sahlén	71985	1437		
+mother	Nancy Reagan	Edith Luckett Davis	812086	30276		
+mother	Nina Hagen	Eva-Maria Hagen	199571	13723		
+mother	Olivia Wilde	Leslie Cockburn	2762439	75991		
+mother	Olivia de Havilland	Lilian Fontaine	1012712	59124		Joan Fontaine
+mother	Owen Wilson	Laura Wilson	2224422	178151		
+mother	Patrick Swayze	Patsy Swayze	3192607	182854		
+mother	Pelé	Dona Celeste	2017865	0		
+mother	Peter Ustinov	Nadia Benois	561906	11340		
+mother	Plácido Domingo	Pepita Embil	259016	2374		
+mother	Rainer Werner Fassbinder	Lilo Pempeit	248536	0		
+mother	Ralph Fiennes	Jennifer Lash	2956197	103905		
+mother	Ranbir Kapoor	Neetu Kapoor	2214917	15027		
+mother	Richard Attenborough	Mary Attenborough	1465384	0		
+mother	Rita Hayworth	Volga Hayworth	1477806	58972		
+mother	Rob Reiner	Estelle Reiner	1358504	108196		
+mother	Robert De Niro	Virginia Admiral	4577995	146774		
+mother	Romy Schneider	Magda Schneider	1001534	58383		
+mother	Ronald Reagan	Nelle Wilson Reagan	6860117	97327		
+mother	Sean Penn	Eileen Ryan	2345518	161837		
+mother	Selena Gomez	Mandy Teefey	5624854	1571		
+mother	Sergio Leone	Bice Waleran	514224	1897		
+mother	Sharon Tate	Doris Tate	2879643	67516		
+mother	Sigourney Weaver	Elizabeth Inglis	2298582	132560		
+mother	Stevie Wonder	Lula Mae Hardaway	2596419	96737		
+mother	Vanessa Redgrave	Rachel Kempson	1722870	135995		
+mother	William Shakespeare	Mary Shakespeare	4255296	39141		
+mother	Yair Lapid	Shulamit Lapid	478132	9706		
+mother	Zsa Zsa Gabor	Jolie Gabor	1195650	87760		
+mother	Édith Piaf	Line Marsa	879196	14502		
+song writer	“All About That Bass” by Meghan Trainor	Kevin Kadish	137158	10752		
+song writer	“Con te partirò” by Andrea Bocelli	Lucio Quarantotto	227202	5219		
+song writer	“Firework” by Katy Perry	Sandy Vee	134584	10766		
+song writer	“Guantanamera” by The Sandpipers	Joseíto Fernández	136551	6435		
+song writer	“Toxic” by Britney Spears	Henrik Jonback	274328	10948		
+song writer	“What Is Love” by Haddaway	Tony Hendrik	289717	17809		

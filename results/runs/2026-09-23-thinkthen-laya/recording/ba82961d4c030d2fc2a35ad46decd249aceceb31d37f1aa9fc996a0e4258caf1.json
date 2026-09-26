@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"I Feel Fine","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"November 1965","b":"March 1964","c":"March 1965","d":"November 1964"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0114, "probabilities": {"a": 0.2399, "b": 0.3132, "c": 0.2576, "d": 0.1894}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
+}

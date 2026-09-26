@@ -1,0 +1,103 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text is the title of a song by the Beatles. Does John Lennon sing a lead vocal on it?\n\nText: Some Other Guy\n\nAllowed answers:\n- yes\n- no\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "yes",
+         "no"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "The Beatles recorded \"Some Other Guy\" (a Richie Barrett song) for the BBC, and John Lennon sang lead vocal on it.",
+     "reasoning_content": "\"Some Other Guy\" is a Ritchie Barrett song, covered by Beatles at BBC (with Lennon? actually John sang lead on it? The Beatles' version had John on lead vocal, yes—Live at the BBC, Lennon sang lead). Yes.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"yes\",\"probability\":0.8}",
+        "name": "Answer"
+       },
+       "id": "call_-7230577339736783670",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790182348,
+  "id": "20260924005219c8dbc7fa650443ad",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924005219c8dbc7fa650443ad",
+  "usage": {
+   "completion_tokens": 96,
+   "completion_tokens_details": {
+    "reasoning_tokens": 50
+   },
+   "prompt_tokens": 315,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 411
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 8.4
+}

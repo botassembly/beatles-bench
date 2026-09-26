@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"What You're Doing\"},{\"id\":\"u002\",\"evidence\":\"You Can't Do That\"},{\"id\":\"u003\",\"evidence\":\"Ask Me Why\"},{\"id\":\"u004\",\"evidence\":\"The Fool on the Hill\"},{\"id\":\"u005\",\"evidence\":\"Within You Without You\"},{\"id\":\"u006\",\"evidence\":\"Only a Northern Song\"},{\"id\":\"u007\",\"evidence\":\"I Want to Tell You\"},{\"id\":\"u008\",\"evidence\":\"Here Comes the Sun\"}]","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album A Hard Day's Night?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "u001", "confidence": 0.5624, "probabilities": {"u001": 0.7844, "u002": 0.0189, "u003": 0.0371, "u004": 0.0108, "u005": 0.029, "u006": 0.0391, "u007": 0.0643, "u008": 0.0163}}}, "usage": {"input_tokens": 167, "output_tokens": 0}}
+}

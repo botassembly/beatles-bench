@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"George Harrison","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"Can You Dig It?","b":"Baby, You're a Rich Man","c":"Octopus's Garden","d":"Day Tripper"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.99,"probabilities":{"b":0.0,"d":0.0,"a":0.01,"c":0.99}}},"usage":{"input_tokens":360,"output_tokens":46}}
+}

@@ -1,0 +1,22 @@
+system	kind	n	right	both_hops_right	wrong_with_both_hops	gap
+BM25	album-year	60	11	3	0	0.0
+BM25	before-after	60	30	4	4	1.0
+BM25	same-month	60	30	6	4	0.6667
+Embeddings	album-year	60	10	7	5	0.7143
+Embeddings	before-after	60	32	6	2	0.3333
+Embeddings	same-month	60	29	4	2	0.5
+Hybrid	album-year	60	7	4	1	0.25
+Hybrid	before-after	60	30	6	4	0.6667
+Hybrid	same-month	60	30	8	5	0.625
+Word overlap	album-year	60	11	3	0	0.0
+Word overlap	before-after	60	30	3	3	1.0
+Word overlap	same-month	60	30	6	4	0.6667
+GLM-5.3 Flash	album-year	60	60	60	0	0.0
+GLM-5.3 Flash	before-after	60	58	59	2	0.0339
+GLM-5.3 Flash	same-month	60	57	56	3	0.0536
+Laya	album-year	60	11	5	4	0.8
+Laya	before-after	60	30	4	0	0.0
+Laya	same-month	60	29	5	3	0.6
+Jev	album-year	60	22	41	23	0.561
+Jev	before-after	60	35	23	10	0.4348
+Jev	same-month	60	33	26	13	0.5

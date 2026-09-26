@@ -1,0 +1,29 @@
+#!/bin/sh
+# The diff slide: which of 70 answers change when each song comes with its catalog entry?
+#   ./run                     answer both runs from ../audit/recording/, with no key and no network, then compare at 0.5
+#   ./run threshold 0.2:0.8   compare the same answers at another bar
+#   ./run live                ask both runs of the server THINKTHEN_BASE_URL names, then compare. thinkthen reads the key.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T|LOW:HIGH]" >&2; exit 2; }
+from='--replay ../audit/recording' bar=0.5
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.:]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+tmp=$(mktemp -d)
+trap 'rm -rf "$tmp"' EXIT
+# The context run sends the entry before the title. Each answer's id becomes the title, so the two runs pair.
+title='.input = {id: (.input.input | split("\nText: ") | last)}'
+q='Is this song on the album Abbey Road?'
+jq -c '.records[]' ../audit/audit-cold.jsonl |
+  thinkthen decide "$q" --jsonl --field /input --details $from > "$tmp/cold"
+jq -c '.records[]' ../audit/audit-context.jsonl |
+  thinkthen decide "The text gives a catalog entry and then names a song by the Beatles. $q" --jsonl --field /input --details $from > "$tmp/context"
+jq -c "$title" "$tmp/cold" > "$tmp/a.jsonl"
+jq -c "$title" "$tmp/context" > "$tmp/b.jsonl"
+thinkthen diff "$tmp/a.jsonl" "$tmp/b.jsonl" --threshold "$bar" --key ../audit/key.jsonl --table

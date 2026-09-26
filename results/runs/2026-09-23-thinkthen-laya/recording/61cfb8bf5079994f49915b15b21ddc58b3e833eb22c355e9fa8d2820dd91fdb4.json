@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Help!","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Revolver","b":"Help!","c":"Yellow Submarine","d":"Let It Be"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.8554, "probabilities": {"a": 0.0247, "b": 0.961, "c": 0.0073, "d": 0.0071}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
+}

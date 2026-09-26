@@ -1,0 +1,8 @@
+{{Infobox album
+| name = Album Two
+| released = 20 November 1995<ref>a note</ref>
+}}
+{{Track listing
+| title1 = Delta Take
+| length1 = 1:59
+}}

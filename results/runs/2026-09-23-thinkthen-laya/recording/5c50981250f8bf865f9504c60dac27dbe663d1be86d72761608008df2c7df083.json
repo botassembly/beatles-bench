@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Blue Jay Way","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"February 1968","b":"December 1966","c":"November 1967","d":"May 1968"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0252, "probabilities": {"a": 0.3654, "b": 0.1897, "c": 0.2337, "d": 0.2111}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
+}

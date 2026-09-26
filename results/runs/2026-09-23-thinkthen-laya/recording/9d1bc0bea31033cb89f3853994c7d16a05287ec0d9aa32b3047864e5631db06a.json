@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"What You're Doing","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Beatles for Sale","b":"Help!","c":"A Hard Day's Night"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0086, "probabilities": {"a": 0.2716, "b": 0.3783, "c": 0.3501}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
+}

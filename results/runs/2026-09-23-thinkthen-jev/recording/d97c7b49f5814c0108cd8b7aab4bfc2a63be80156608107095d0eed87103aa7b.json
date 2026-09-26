@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Joe Toney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Bryan Cranston","b":"Gary Cooper","c":"Jason Bateman","d":"Shaquille O'Neal"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.12,"probabilities":{"b":0.15,"d":0.35000000000000003,"a":0.23,"c":0.27}}},"usage":{"input_tokens":357,"output_tokens":46}}
+}

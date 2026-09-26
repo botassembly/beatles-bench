@@ -1,0 +1,12 @@
+SELECT DISTINCT ?s ?sL ?sa ?o ?oL ?oa ?sl WHERE {
+  VALUES ?cls { wd:Q7366 wd:Q134556 }
+  ?s wdt:P31 ?cls; wdt:P175 ?p; wikibase:sitelinks ?sl. FILTER(?sl > 15)
+  { ?s wdt:P86 ?o } UNION { ?s wdt:P676 ?o }
+  FILTER NOT EXISTS { ?s wdt:P175 ?p2. FILTER(?p2 != ?p) }
+  FILTER(?o != ?p) FILTER NOT EXISTS { ?o wdt:P463 ?p } FILTER NOT EXISTS { ?p wdt:P527 ?o }
+  ?o wdt:P31 wd:Q5.
+  ?sa schema:about ?s; schema:isPartOf <https://en.wikipedia.org/>.
+  ?oa schema:about ?o; schema:isPartOf <https://en.wikipedia.org/>.
+  ?s rdfs:label ?sL. FILTER(lang(?sL) = "en")
+  ?o rdfs:label ?oL. FILTER(lang(?oL) = "en")
+} ORDER BY DESC(?sl) ?s ?o LIMIT 400

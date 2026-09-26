@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Peter Hall","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"United States Capitol","b":"Prague Castle","c":"Ulm Minster","d":"Sydney Opera House"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.8,"probabilities":{"a":0.14,"b":0.01,"c":0.01,"d":0.84}}},"usage":{"input_tokens":353,"output_tokens":46}}
+}

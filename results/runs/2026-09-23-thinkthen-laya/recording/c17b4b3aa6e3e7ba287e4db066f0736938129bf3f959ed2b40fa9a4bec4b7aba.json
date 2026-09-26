@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"My Lai massacre","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"February 1969","b":"December 1968","c":"March 1968","d":"June 1967"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.1338, "probabilities": {"a": 0.1072, "b": 0.5246, "c": 0.1783, "d": 0.1899}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
+}

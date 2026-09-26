@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Julia","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"Abbey Road","c":"The Beatles (White Album)","d":"With the Beatles"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0796, "probabilities": {"a": 0.3915, "b": 0.297, "c": 0.2241, "d": 0.0875}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
+}

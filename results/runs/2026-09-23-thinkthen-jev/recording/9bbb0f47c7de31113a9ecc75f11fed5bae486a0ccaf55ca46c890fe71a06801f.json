@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"George Harrison","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Lovely Rita","b":"All Things Must Pass","c":"P.S. I Love You","d":"Another Girl"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.95,"probabilities":{"d":0.97,"a":0.0,"c":0.02,"b":0.01}}},"usage":{"input_tokens":362,"output_tokens":46}}
+}

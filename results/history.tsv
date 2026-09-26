@@ -1,0 +1,96 @@
+date	backend	model	tool	total	median_s	p90_s	usd_per_1000_questions	forward	forward:singer	forward:album	forward:songwriter	forward:year	reverse	multi-hop	comparison	shared-lead	near-neighbor	lexical-trap	reversal	reversal-general	single-hop	lead-set	near-neighbor-control	lexical-trap-control	none-of-these	reversal-general-shared-name	function	test	measure	value
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1	437/629				89/132	26/40	23/30	23/32	17/30	57/72	40/85	25/30	18/30	23/30	15/30	36/68	134/152										
+2026-09-23	local	overlap	run/baselines.py	205/629				28/132	10/40	8/30	10/32	0/30	24/72	34/85	10/30	16/30	13/30	1/30	30/68	49/152										
+2026-09-23	local	bm25	run/baselines.py	211/629				28/132	10/40	8/30	10/32	0/30	24/72	34/85	9/30	16/30	13/30	6/30	32/68	49/152										
+2026-09-23	local	embed BAAI/bge-large-en-v1.5	run/baselines.py	230/629				35/132	9/40	11/30	10/32	5/30	28/72	35/85	15/30	18/30	18/30	8/30	17/68	56/152										
+2026-09-23	local	hybrid BAAI/bge-large-en-v1.5	run/baselines.py	217/629				31/132	9/40	7/30	10/32	5/30	25/72	33/85	9/30	16/30	13/30	5/30	30/68	55/152										
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools	580/629				125/132	35/40	30/30	30/32	30/30	63/72	80/85	29/30	23/30	30/30	30/30	49/68	151/152										
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1	1058/1501	0.289	0.388	0.01497	150/224	39/57	45/60	32/47	34/60	82/112	94/180	52/60	20/32	48/60	26/54	42/65	134/146	170/248	76/104	49/60	37/54	36/60	42/42				
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools	1451/1501	8.237	12.787	0.05553	218/224	53/57	60/60	46/47	59/60	102/112	175/180	59/60	27/32	60/60	50/54	59/65	146/146	245/248	96/104	60/60	53/54	59/60	42/42				
+2026-09-23	local	overlap	run/baselines.py	517/1501	0.000	0.000	0.00000	51/224	15/57	21/60	15/47	0/60	37/112	71/180	26/60	17/32	28/60	1/54	23/65	41/146	65/248	62/104	26/60	15/54	15/60	39/42				
+2026-09-23	local	overlap + article	run/baselines.py	729/1501	0.003	0.004	0.00000	69/224	27/57	20/60	22/47	0/60	56/112	72/180	32/60	16/32	28/60	23/54	37/65	115/146	113/248	72/104	27/60	29/54	13/60	27/42				
+2026-09-23	local	bm25	run/baselines.py	524/1501	0.000	0.000	0.00000	51/224	15/57	21/60	15/47	0/60	36/112	71/180	24/60	17/32	28/60	4/54	22/65	41/146	71/248	62/104	26/60	14/54	15/60	42/42				
+2026-09-23	local	bm25 + article	run/baselines.py	862/1501	0.002	0.003	0.00000	124/224	37/57	27/60	23/47	37/60	51/112	98/180	32/60	14/32	34/60	31/54	38/65	119/146	155/248	56/104	37/60	29/54	15/60	29/42				
+2026-09-23	local	embed BAAI/bge-large-en-v1.5	run/baselines.py	597/1501	0.000	0.000	0.00000	59/224	13/57	22/60	15/47	9/60	39/112	71/180	34/60	19/32	38/60	10/54	29/65	61/146	74/248	64/104	27/60	18/54	12/60	42/42				
+2026-09-23	local	embed BAAI/bge-large-en-v1.5 + article	run/baselines.py	955/1501	0.003	0.005	0.00000	151/224	42/57	38/60	23/47	48/60	60/112	113/180	25/60	18/32	45/60	32/54	31/65	126/146	157/248	58/104	44/60	36/54	25/60	34/42				
+2026-09-23	local	hybrid BAAI/bge-large-en-v1.5	run/baselines.py	553/1501	0.000	0.000	0.00000	63/224	16/57	22/60	15/47	10/60	38/112	67/180	24/60	17/32	33/60	5/54	23/65	46/146	79/248	62/104	25/60	15/54	14/60	42/42				
+2026-09-23	local	hybrid BAAI/bge-large-en-v1.5 + article	run/baselines.py	934/1501	0.002	0.003	0.00000	149/224	39/57	41/60	28/47	41/60	53/112	105/180	32/60	18/32	41/60	37/54	37/65	122/146	162/248	53/104	42/60	33/54	17/60	33/42				
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.317	0.396	0.01238																				decide	yes/no questions	accuracy at 0.5	0.629
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.322	0.422	0.01541																				choose	pick-one questions	accuracy	0.716
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.297	0.377	0.02257																				tag	lead singers	exact-set match	0.280
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.271	0.329	0.01446																				score	popularity	Spearman with 2024 page views	0.695
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.281	0.349	0.01249																				filter	lead singer or album	F1	0.667
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.338	0.411	0.01223																				rank	popularity	Spearman with 2024 page views	0.639
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.356	0.469	0.01283																				rank	date	Spearman with release date	0.804
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.278	0.348	0.02096																				find	album	exact match	0.635
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.302	0.389	0.03416																				annotate	card	singer accuracy	0.280
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.297	0.374	0.02299																				recognize	names	song precision	0.226
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.891	0.968	1.60691																				relate	song to singer and album	edge F1	0.711
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1	547/1549	0.115	0.220	0.00000	48/224	13/57	19/60	15/47	1/60	34/112	66/180	27/60	33/60	24/60	9/54	24/65	46/150	79/248	67/120	26/60	11/54	20/60	33/42				
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.105	0.213	0.00000																				decide	yes/no questions	accuracy at 0.5	0.533
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.117	0.220	0.00000																				choose	pick-one questions	accuracy	0.315
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.123	0.246	0.00000																				tag	lead singers	exact-set match	0.000
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.145	0.242	0.00000																				score	popularity	Spearman with 2024 page views	0.123
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.144	0.232	0.00000																				filter	lead singer or album	F1	0.190
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.154	0.251	0.00000																				rank	popularity	Spearman with 2024 page views	0.199
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.146	0.267	0.00000																				rank	date	Spearman with release date	-0.055
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.147	0.408	0.00000																				find	album	exact match	0.115
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.164	0.332	0.00000																				annotate	card	singer accuracy	0.000
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.154	0.291	0.00000																				recognize	names	song precision	0.000
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.317	0.527	0.00000																				relate	song to singer and album	edge F1	
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1	537/1501	0.072	0.153	0.00000	51/224	13/57	22/60	15/47	1/60	38/112	70/180	27/60	17/32	26/60	9/54	24/65	47/146	78/248	61/104	29/60	9/54	21/60	30/42				
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.298	0.377	0.01238																				decide	yes/no questions	accuracy at 0.5	0.680
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.288	0.393	0.01543																				choose	pick-one questions	accuracy	0.712
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.297	0.369	0.02257																				tag	lead singers	exact-set match	0.291
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.271	0.329	0.01446																				score	popularity	Spearman with 2024 page views	0.695
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.293	0.394	0.01248																				filter	lead singer or album	F1	0.627
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.338	0.411	0.01223																				rank	popularity	Spearman with 2024 page views	0.639
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.356	0.469	0.01283																				rank	date	Spearman with release date	0.804
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.278	0.348	0.02096																				find	album	exact match	0.635
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.302	0.389	0.03416																				annotate	card	singer accuracy	0.278
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.297	0.374	0.02299																				recognize	names	song precision	0.226
+2026-09-23	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.891	0.968	1.60691																				relate	song to singer and album	edge F1	0.719
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.090	0.178	0.00000																				decide	yes/no questions	accuracy at 0.5	0.539
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.066	0.148	0.00000																				choose	pick-one questions	accuracy	0.325
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.123	0.254	0.00000																				tag	lead singers	exact-set match	0.000
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.145	0.242	0.00000																				score	popularity	Spearman with 2024 page views	0.123
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.106	0.213	0.00000																				filter	lead singer or album	F1	0.128
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.154	0.251	0.00000																				rank	popularity	Spearman with 2024 page views	0.199
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.146	0.267	0.00000																				rank	date	Spearman with release date	-0.055
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.147	0.408	0.00000																				find	album	exact match	0.115
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.164	0.332	0.00000																				annotate	card	singer accuracy	0.000
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.154	0.291	0.00000																				recognize	names	song precision	0.000
+2026-09-23	http://127.0.0.1:8791/systemone	laya-mlx	thinkthen 0.0.1		0.317	0.527	0.00000																				relate	song to singer and album	edge F1	
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools		5.019	7.512	0.04359																				decide	yes/no questions	accuracy at 0.5	0.904
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools		8.738	13.528	0.05767																				choose	pick-one questions	accuracy	0.978
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools		4.718	5.837	0.05025																				tag	lead singers	exact-set match	0.937
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools		4.414	5.911	0.03552																				score	popularity	Spearman with 2024 page views	0.774
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools		2.271	4.914	0.03262																				filter	lead singer or album	F1	0.891
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools		2.204	4.450	0.03444																				rank	popularity	Spearman with 2024 page views	0.774
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools		2.509	4.636	0.04548																				rank	date	Spearman with release date	0.893
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools		11.488	12.788	0.06690																				find	album	exact match	0.981
+2026-09-23	https://api.z.ai/api/coding/paas/v4	glm-5.3-flash thinking=off	run/chat.py instructor 1.17.0 tools		5.159	5.916	0.11332																				annotate	card	singer accuracy	0.924
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1	1061/1501	0.319	0.381	0.01497	152/224	39/57	47/60	33/47	33/60	84/112	96/180	51/60	20/32	44/60	26/54	41/65	132/146	175/248	80/104	50/60	36/54	32/60	42/42				
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.314	0.355	0.01238																				decide	yes/no questions	accuracy at 0.5	0.693
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.320	0.384	0.01543																				choose	pick-one questions	accuracy	0.715
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.305	0.342	0.02257																				tag	lead singers	exact-set match	0.272
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.309	0.347	0.01446																				score	popularity	Spearman with 2024 page views	0.683
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.310	0.345	0.01248																				filter	lead singer or album	F1	0.644
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.310	0.343	0.01223																				rank	popularity	Spearman with 2024 page views	0.636
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.326	0.399	0.01283																				rank	date	Spearman with release date	0.811
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.369	0.395	0.02096																				find	album	exact match	0.654
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.361	0.420	0.03416																				annotate	card	singer accuracy	0.304
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.313	0.345	0.02299																				recognize	names	song precision	0.194
+2026-09-25	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.754	0.812	1.60691																				relate	song to singer and album	edge F1	0.704
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1	1050/1501	0.215	0.271	0.01497	152/224	39/57	47/60	33/47	33/60	82/112	90/180	51/60	20/32	45/60	27/54	40/65	133/146	171/248	78/104	48/60	38/54	33/60	42/42				
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.214	0.271	0.01238																				decide	yes/no questions	accuracy at 0.5	0.689
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.215	0.270	0.01543																				choose	pick-one questions	accuracy	0.705
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.210	0.252	0.02257																				tag	lead singers	exact-set match	0.291
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.209	0.242	0.01446																				score	popularity	Spearman with 2024 page views	0.696
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.234	0.289	0.01248																				filter	lead singer or album	F1	0.639
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.209	0.247	0.01223																				rank	popularity	Spearman with 2024 page views	0.638
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.213	0.251	0.01283																				rank	date	Spearman with release date	0.805
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.221	0.256	0.02096																				find	album	exact match	0.654
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.223	0.269	0.03416																				annotate	card	singer accuracy	0.310
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.251	0.288	0.23897																				recognize	names	song precision	0.959
+2026-09-26	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		1.719	1.719	1.77601																				relate	song to singer and album	edge F1	0.719

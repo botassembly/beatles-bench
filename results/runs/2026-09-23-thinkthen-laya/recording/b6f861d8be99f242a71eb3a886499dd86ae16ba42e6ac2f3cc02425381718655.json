@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Let It Be","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Fixing a Hole","b":"I'm Looking Through You","c":"Carry That Weight","d":"I Me Mine"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0048, "probabilities": {"a": 0.2668, "b": 0.2341, "c": 0.2124, "d": 0.2867}}}, "usage": {"input_tokens": 60, "output_tokens": 0}}
+}

@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an event. Which of these songs by the Beatles was first released in the same month?\n\nText: Assassination of John F. Kennedy\n\nAllowed answers:\n- Magical Mystery Tour\n- Hold Me Tight\n- Rock and Roll Music\n- Revolution\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Magical Mystery Tour",
+         "Hold Me Tight",
+         "Rock and Roll Music",
+         "Revolution"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "JFK assassination Nov 1963. Magical Mystery Tour: Nov 1967 (US EP/single \"Magical Mystery Tour\" released Nov 27, 1967? Yes, US MMT album Nov 27, 1967). Rock and Roll Music single was... Beatles' version released? \"Rock and Roll Music\" single released Nov 1964? Actually Beatles cover released 1964? It was on Beatles for Sale (Dec 1964); single in US? Hmm. Hold Me Tight: With the Beatles, Nov 22, 1963! Released same month. Answer: Hold Me Tight.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Hold Me Tight\",\"probability\":0.85}",
+        "name": "Answer"
+       },
+       "id": "call_-7230585929671373461",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790182598,
+  "id": "20260924005627b959dbca1c504c9d",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260924005627b959dbca1c504c9d",
+  "usage": {
+   "completion_tokens": 147,
+   "completion_tokens_details": {
+    "reasoning_tokens": 126
+   },
+   "prompt_tokens": 346,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 493
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 11.366
+}

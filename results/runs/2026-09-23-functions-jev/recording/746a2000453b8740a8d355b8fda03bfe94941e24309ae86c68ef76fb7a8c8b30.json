@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band (Reprise)","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Does John Lennon sing the lead vocal on it, alone or with another Beatle?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.46}},"usage":{"input_tokens":309,"output_tokens":21}}
+}

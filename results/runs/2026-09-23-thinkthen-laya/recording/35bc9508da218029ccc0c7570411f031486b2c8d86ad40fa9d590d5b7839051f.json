@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Pilar Bardem","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Javier Bardem","b":"Elizabeth Taylor","c":"Leonardo DiCaprio","d":"Sigourney Weaver"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.3802, "probabilities": {"a": 0.7324, "b": 0.1335, "c": 0.0654, "d": 0.0686}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

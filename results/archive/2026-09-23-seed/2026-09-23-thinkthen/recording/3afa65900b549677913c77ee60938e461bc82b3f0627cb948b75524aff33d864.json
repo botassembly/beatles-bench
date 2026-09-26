@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Henrik Jonback","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“Guantanamera” by The Sandpipers","b":"“Firework” by Katy Perry","c":"“Toxic” by Britney Spears","d":"“All About That Bass” by Meghan Trainor"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.39,"probabilities":{"a":0.01,"d":0.05,"c":0.4,"b":0.54}}},"usage":{"input_tokens":380,"output_tokens":46}}
+}

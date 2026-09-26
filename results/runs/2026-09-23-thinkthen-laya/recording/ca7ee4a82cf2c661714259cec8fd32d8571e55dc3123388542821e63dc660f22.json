@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"May 1966 lunar eclipse","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"November 1965","b":"February 1966","c":"May 1966","d":"May 1967"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.5926, "probabilities": {"a": 0.0322, "b": 0.0788, "c": 0.8534, "d": 0.0356}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
+}

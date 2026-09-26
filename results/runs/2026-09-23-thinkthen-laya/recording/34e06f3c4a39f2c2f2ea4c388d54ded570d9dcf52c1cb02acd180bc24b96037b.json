@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Lennon–McCartney","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Yes It Is","b":"For You Blue","c":"I Need You","d":"Only a Northern Song"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0621, "probabilities": {"a": 0.4388, "b": 0.1954, "c": 0.2, "d": 0.1658}}}, "usage": {"input_tokens": 63, "output_tokens": 0}}
+}

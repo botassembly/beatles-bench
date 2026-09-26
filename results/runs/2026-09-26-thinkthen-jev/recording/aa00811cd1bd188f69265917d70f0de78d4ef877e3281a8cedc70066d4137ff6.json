@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Paul McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Clarabella","b":"Ticket to Ride","c":"Circles","d":"The Ballad of John and Yoko"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.64,"probabilities":{"d":0.07,"a":0.73,"b":0.03,"c":0.17}}},"usage":{"input_tokens":365,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Jill Balcon","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Sharon Tate","b":"Plácido Domingo","c":"Frank Sinatra","d":"Daniel Day-Lewis"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.72,"probabilities":{"d":0.8,"b":0.01,"a":0.18,"c":0.01}}},"usage":{"input_tokens":355,"output_tokens":46}}
+}

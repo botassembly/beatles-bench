@@ -1,0 +1,12 @@
+/data/raw
+__pycache__/
+*.pyc
+results/runs/*/replay/
+results/runs/*/*/replay/
+results/runs/*/12-diff/[ab].jsonl
+results/runs/*/diff/[ab].jsonl
+.venv/
+/cache/
+functions/*/replay/
+functions/diff/a.jsonl
+functions/diff/b.jsonl

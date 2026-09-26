@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Catalog:\nPenny Lane (lead: McCartney; written: Lennon–McCartney; 3:00; released 1967-02-13; first album: Magical Mystery Tour)\nText: Penny Lane","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Do two or more Beatles share the lead vocal on it?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.16}},"usage":{"input_tokens":340,"output_tokens":21}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Civil Rights Act of 1964","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"You Can't Do That","b":"It Won't Be Long","c":"Bésame Mucho","d":"That's All Right (Mama)"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.42,"probabilities":{"b":0.3,"c":0.09,"a":0.5700000000000001,"d":0.04}}},"usage":{"input_tokens":373,"output_tokens":46}}
+}

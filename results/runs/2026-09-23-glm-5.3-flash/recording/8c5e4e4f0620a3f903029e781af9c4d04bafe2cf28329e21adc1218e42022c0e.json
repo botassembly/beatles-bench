@@ -1,0 +1,103 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text is the title of a song by the Beatles. Was it first released in the same month as this event: Pan Am Flight 214?\n\nText: Hold Me Tight\n\nAllowed answers:\n- yes\n- no\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "yes",
+         "no"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "Pan Am Flight 214 crashed on December 8, 1963. \"Hold Me Tight\" first appeared on the album *With The Beatles*, released November 22, 1963 — a different month.",
+     "reasoning_content": "Pan Am Flight 214 crashed Dec 8, 1963. \"Hold Me Tight\" on With Beatles, released Nov 22, 1963. Single \"All My Loving\" Jan 1964. So no.",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"no\",\"probability\":0.85}",
+        "name": "Answer"
+       },
+       "id": "call_-7230571636020210183",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790182937,
+  "id": "2026092401021421bceb7ef3e74de4",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "2026092401021421bceb7ef3e74de4",
+  "usage": {
+   "completion_tokens": 108,
+   "completion_tokens_details": {
+    "reasoning_tokens": 46
+   },
+   "prompt_tokens": 323,
+   "prompt_tokens_details": {
+    "cached_tokens": 256
+   },
+   "total_tokens": 431
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 3.429
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Mary Gish","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Gena Rowlands","b":"Mary Pickford","c":"Gore Vidal","d":"Lillian Gish"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0333, "probabilities": {"a": 0.1839, "b": 0.2158, "c": 0.2147, "d": 0.3856}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
+}

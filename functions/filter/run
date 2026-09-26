@@ -1,0 +1,22 @@
+#!/bin/sh
+# The filter slide: which of twelve songs are on Abbey Road? filter keeps each song whose yes reaches the bar.
+#   ./run                 answer from recording/ at the slide's bar of 0.7, with no key and no network
+#   ./run threshold 0.9   the same answers at another bar
+#   ./run live            ask the server THINKTHEN_BASE_URL names. thinkthen reads the key itself.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T]" >&2; exit 2; }
+from='--replay recording' bar=0.7
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.:]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answers=$(printf '%s\n' "Octopus's Garden" 'Yellow Submarine' 'Something' 'Here Comes the Sun' 'Yesterday' 'Come Together' \
+    'Hey Jude' 'Penny Lane' 'A Day in the Life' 'Her Majesty' 'Let It Be' "Maxwell's Silver Hammer" |
+  thinkthen filter 'The text is the title of a song by the Beatles. It appears on the album Abbey Road.' \
+    --threshold "$bar" --lines --details $from)
+printf '%s\n' "$answers" | jq -c '{kept: .input, yes: .answer.probability}'

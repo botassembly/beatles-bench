@@ -1,0 +1,13 @@
+The tables in data/, the pins in data/pins/, the questions in questions/, and the results in results/ are licensed
+under the Creative Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0):
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Attribution:
+
+  Song, album, and event facts compiled from English Wikipedia (List of songs recorded by the Beatles, the Beatles'
+  album and single articles, the Beatles' song articles, and the year articles 1962 to 1970) at the revisions listed
+  in data/pins/pages.tsv, CC BY-SA 4.0. Page view counts from the Wikimedia Pageviews API. Song relations, event
+  dates, and the reversal-general pairs from Wikidata, CC0. Photo credits from Wikimedia Commons; each photo keeps
+  its own license.
+
+The code in this repository is MIT licensed (LICENSE at the repository root).

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Only a Northern Song","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"a":"George Harrison","b":"John Lennon","c":"Lennon–McCartney","d":"Ringo Starr"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1643, "probabilities": {"a": 0.521, "b": 0.2767, "c": 0.0968, "d": 0.1055}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
+}

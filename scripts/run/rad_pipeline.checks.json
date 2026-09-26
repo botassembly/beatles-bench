@@ -1,0 +1,7 @@
+{
+  "version": 1,
+  "questions": {
+    "correct": {"decide": "Does the output name exactly the lead singers the gold answer names for the song?", "on": ["/song", "/gold", "/output"]},
+    "grounded": {"decide": "Is every claim in the output supported by the context?", "on": ["/context", "/output"]}
+  }
+}

@@ -1,0 +1,20 @@
+#!/bin/sh
+# The decide slide: is each of four songs a love song?
+#   ./run                     answer from recording/, with no key and no network
+#   ./run threshold 0.3:0.7   the same answers at another bar
+#   ./run live                ask the server THINKTHEN_BASE_URL names. thinkthen reads the key itself.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T|LOW:HIGH]" >&2; exit 2; }
+from='--replay recording' bar=
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.:]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answers=$(printf '%s\n' 'She Loves You' 'Michelle' 'Yesterday' 'Taxman' |
+  thinkthen decide 'The text is the title of a song by the Beatles. It is a love song.' --lines --details ${bar:+--threshold "$bar"} $from)
+printf '%s\n' "$answers" | jq -c '{song: .input, value, yes: .answer.probability}'

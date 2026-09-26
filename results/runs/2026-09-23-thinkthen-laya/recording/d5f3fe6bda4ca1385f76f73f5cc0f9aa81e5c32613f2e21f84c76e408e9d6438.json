@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Hallelujah, I Love Her So","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Do two or more Beatles share the lead vocal on it?"}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.1074}}, "usage": {"input_tokens": 58, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Bice Waleran","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Robert De Niro","b":"Leonardo DiCaprio","c":"Eva Green","d":"Sergio Leone"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.2602, "probabilities": {"a": 0.0832, "b": 0.1107, "c": 0.6463, "d": 0.1598}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
+}

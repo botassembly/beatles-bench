@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Nowhere Man","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"Rubber Soul","c":"Sgt. Pepper's Lonely Hearts Club Band","d":"Beatles for Sale"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0563, "probabilities": {"a": 0.3545, "b": 0.1906, "c": 0.331, "d": 0.1239}}}, "usage": {"input_tokens": 62, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"With the Beatles","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Devil in Her Heart","b":"Come Together","c":"Savoy Truffle","d":"Can't Buy Me Love"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.72,"probabilities":{"c":0.01,"a":0.79,"b":0.0,"d":0.2}}},"usage":{"input_tokens":362,"output_tokens":46}}
+}

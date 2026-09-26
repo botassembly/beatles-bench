@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"In My Life","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"July 1966","b":"December 1965","c":"October 1965","d":"January 1965"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0582, "probabilities": {"a": 0.3413, "b": 0.3284, "c": 0.2246, "d": 0.1058}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"I Will","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Rubber Soul","c":"Let It Be","none":"none of these"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "none", "confidence": 0.0173, "probabilities": {"a": 0.1814, "b": 0.2181, "c": 0.2756, "none": 0.3248}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
+}

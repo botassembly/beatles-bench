@@ -1,0 +1,105 @@
+{
+ "request": {
+  "messages": [
+   {
+    "content": "You answer a question about a short text from what you know. Pick one of the allowed answers. Give the probability, from 0 to 1, that your answer is right.",
+    "role": "system"
+   },
+   {
+    "content": "The text names an album by the Beatles. Which of these songs was first released on it?\n\nText: Yellow Submarine\n\nAllowed answers:\n- Yellow Submarine\n- Only a Northern Song\n- Sgt. Pepper's Lonely Hearts Club Band (Reprise)\n- Taxman\n",
+    "role": "user"
+   }
+  ],
+  "model": "glm-5.3-flash",
+  "temperature": 0,
+  "thinking": {
+   "type": "disabled"
+  },
+  "tool_choice": {
+   "function": {
+    "name": "Answer"
+   },
+   "type": "function"
+  },
+  "tools": [
+   {
+    "function": {
+     "description": "Correctly extracted `Answer` with all the required parameters with correct types",
+     "name": "Answer",
+     "parameters": {
+      "properties": {
+       "answer": {
+        "description": "One of the allowed answers, exactly as written",
+        "enum": [
+         "Yellow Submarine",
+         "Only a Northern Song",
+         "Sgt. Pepper's Lonely Hearts Club Band (Reprise)",
+         "Taxman"
+        ],
+        "title": "Answer",
+        "type": "string"
+       },
+       "probability": {
+        "description": "The probability, from 0 to 1, that the answer is right",
+        "maximum": 1,
+        "minimum": 0,
+        "title": "Probability",
+        "type": "number"
+       }
+      },
+      "required": [
+       "answer",
+       "probability"
+      ],
+      "type": "object"
+     }
+    },
+    "type": "function"
+   }
+  ]
+ },
+ "response": {
+  "choices": [
+   {
+    "finish_reason": "tool_calls",
+    "index": 0,
+    "message": {
+     "content": "",
+     "reasoning_content": "\"Yellow Submarine\" album (1969) first released \"Only a Northern Song\".",
+     "role": "assistant",
+     "tool_calls": [
+      {
+       "function": {
+        "arguments": "{\"answer\":\"Only a Northern Song\",\"probability\":0.95}",
+        "name": "Answer"
+       },
+       "id": "call_-7230669252036917295",
+       "index": 0,
+       "type": "function"
+      }
+     ]
+    }
+   }
+  ],
+  "created": 1790176740,
+  "id": "20260923231849d55894d207704f63",
+  "model": "glm-5.3-flash",
+  "object": "chat.completion",
+  "request_id": "20260923231849d55894d207704f63",
+  "usage": {
+   "completion_tokens": 40,
+   "completion_tokens_details": {
+    "reasoning_tokens": 18
+   },
+   "prompt_tokens": 357,
+   "prompt_tokens_details": {
+    "cached_tokens": 64
+   },
+   "total_tokens": 397
+  }
+ },
+ "schema": "beatles-bench.chat-recording/1",
+ "status": 200,
+ "url": "https://api.z.ai/api/coding/paas/v4/chat/completions",
+ "wall_s": 11.353
+}

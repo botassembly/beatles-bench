@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8791/systemone",
+  "request": {"state":"Anna (Go to Him)","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Magical Mystery Tour","b":"Abbey Road","c":"Please Please Me","d":"A Hard Day's Night"}}}},
+  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0447, "probabilities": {"a": 0.18, "b": 0.3984, "c": 0.25, "d": 0.1716}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
+}

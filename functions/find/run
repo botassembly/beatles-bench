@@ -1,0 +1,23 @@
+#!/bin/sh
+# The find slide: which of ten songs did the Beatles release first?
+#   ./run                 answer from recording/, with no key and no network
+#   ./run threshold 0.7   the same answer. A pick whose probability is under the bar reads null, as not sure.
+#   ./run live            ask the server THINKTHEN_BASE_URL names. thinkthen reads the key itself.
+# find takes no bar of its own, so jq applies it here, the way a program would.
+set -eu
+cd "$(dirname -- "$0")"
+usage() { echo "usage: ./run [live] [threshold T]" >&2; exit 2; }
+from='--replay recording' bar=0
+while [ $# -gt 0 ]; do
+  case $1 in
+    live) from=--no-cache ;;
+    threshold) [ $# -ge 2 ] || usage; case $2 in ''|*[!0-9.]*) usage ;; esac; bar=$2; shift ;;
+    *) usage ;;
+  esac
+  shift
+done
+answers=$(printf '%s\n' 'She Loves You' 'I Saw Her Standing There' 'From Me to You' 'All My Loving' 'Love Me Do' \
+    'I Want to Hold Your Hand' 'Please Please Me' "Can't Buy Me Love" "A Hard Day's Night" 'I Feel Fine' |
+  thinkthen find 'These are songs by the Beatles. Which one did they release first?' --details $from)
+printf '%s\n' "$answers" | jq -c --argjson bar "$bar" '([.answer.probabilities[]] | max) as $p
+  | {pick: (if $p >= $bar then .value else null end), p: $p}'

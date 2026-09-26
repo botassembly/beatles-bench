@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"Nancy Reagan","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Katharine Martha Houghton Hepburn","b":"Nancy Dow","c":"Edith Luckett Davis","d":"Nelle Wilson Reagan"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.62,"probabilities":{"c":0.24,"b":0.04,"a":0.01,"d":0.71}}},"usage":{"input_tokens":356,"output_tokens":46}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"One After 909","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Yellow Submarine","b":"Let It Be","c":"Abbey Road"}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.22,"probabilities":{"a":0.21,"b":0.31,"c":0.48}}},"usage":{"input_tokens":345,"output_tokens":39}}
+}
