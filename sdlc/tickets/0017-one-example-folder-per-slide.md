@@ -1,6 +1,6 @@
 # 0017 Rename the three "functions" folders and give each slide one example folder
 
-Owner: the queue owner. Status: open. Waits for ticket 0016 to land. Ticket review 1 covered 0016 and 0017 together. Its findings 12 to 17 and the 0017 parts of 11 apply here. Review 2 findings 5 to 7, review 4 finding 2, and review 5 finding 3 apply here. All are taken. Review 8 returned ACCEPT for both tickets.
+Owner: the queue owner. Status: done. Waits for ticket 0016 to land. Ticket review 1 covered 0016 and 0017 together. Its findings 12 to 17 and the 0017 parts of 11 apply here. Review 2 findings 5 to 7, review 4 finding 2, and review 5 finding 3 apply here. All are taken. Review 8 returned ACCEPT for both tickets.
 
 ## Why
 

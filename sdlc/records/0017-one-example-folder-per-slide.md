@@ -72,3 +72,5 @@ The `functions` subcommand of `scripts/run/chat.py` is now `suite`. `.gitignore`
 - The ThinkThen issue does not name `tests/test_examples.py` and `tests/test_suite.py`.
 
 ## Reviews
+
+- Code review 1 checked the moves, the paths, the unchanged data, the recordings, the `run.txt` files, the name checks on every commit, each slide claim against its source, the suite both ways, and the replay. It returned one finding: the Renames bullet counted 22 added files, and HEAD holds 23 with this record. The bullet now says the counts came before the record commit. Code review 2 returned ACCEPT.
