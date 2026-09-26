@@ -131,3 +131,4 @@ The recognize and relate cases changed on 2026-09-26, when ticket 0014 scored th
   3. The record used a phrase the internal-word check matches. It now says "local folder paths".
   4. Result 10 named the examples subfolder `NAME`. It now says `<function>`.
   5. The deck issue missed two stale lines in the bench-run slide notes. The issue now lists them.
+- Code review 2 verified the five fixes. It returned one finding: the deck issue still said its two build changes were the only ones the deck needs. The issue now says the build catches only those two. Code review 3 returned ACCEPT.
