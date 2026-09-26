@@ -13,7 +13,7 @@ from pathlib import Path
 sys.path.insert(0, "scripts/score")
 import open_book  # noqa: E402
 
-OPEN = Path("results/runs/2026-09-23-thinkthen-jev-open-book")
+OPEN = Path("results/archive/runs/2026-09-23-thinkthen-jev-open-book")
 ids = set((OPEN / "ids.txt").read_text().split())
 lines = (OPEN / "catalog.txt").read_text().splitlines()
 out = []

@@ -6,16 +6,16 @@ The work lands in two commits. The first changes the text and the code. The seco
 
 ## Result
 
-1. **Internal words.** Every tracked text file outside the recordings now uses plain words for sessions, agents, experiment paths, workspace paths, the private note, the deck's slide source, and the machine nickname. Every ticket's Owner line reads "Owner: the queue owner." A ledger's binary path reads "a local build", and its SHA-256 stays. A bench hash that no longer resolves reads "an earlier commit". A deck repository hash reads "a deck repository commit". `sdlc/README.md` says one agent owns the queue under Ian, and it says why `sdlc/` is public.
+1. **Internal words.** Every tracked text file outside the recordings now uses plain words for sessions, agents, experiment paths, local folder paths, the private note, the deck's slide source, and the machine nickname. Every ticket's Owner line reads "Owner: the queue owner." A ledger's binary path reads "a local build", and its SHA-256 stays. A bench hash that no longer resolves reads "an earlier commit". A deck repository hash reads "a deck repository commit". `sdlc/README.md` says one agent owns the queue under Ian, and it says why `sdlc/` is public.
 2. **Pages leave for the website.** `docs/walkthroughs/`, `docs/run-it-for-free.md`, `docs/context-article.md`, and `docs/README.md` are deleted. The README's "Learn more" links https://thinkthen.dev/learn/beatles-bench/. The function folder READMEs keep their site link and drop the walkthrough link.
 3. **Pages merge.** `data/README.md` takes the four sections of `docs/the-data.md`: one row, from a row to a question, how Jev answered it, and the catalog. `reports/open-book.md` ends with "Context and cost". Its whole-catalog subsection repeated the fresh-run section and was dropped. `docs/context.jq` moved to `scripts/score/context.jq`. `docs/` no longer exists. `tests/test_function_folders.py` checks the commands in the merged sections.
 4. **Top README.** The README follows the ticket's order. The Jev numbers come from 2026-09-26. GLM, Laya, and the baselines come from 2026-09-23. The GLM and Laya times read "build and load not recorded". The Jev time names its load average, 3.83 to 7.10 on 16 cores. "What's new" has five dated lines.
 5. **New READMEs.** `tests/README.md` gives the suite command and the `THINKTHEN_BIN` rule, and it lists nine files that skip and why. `paper/README.md` names the runs the notes use. `results/runs/README.md` gives each label with its system, its questions, and its report. It also names the two labels `./run.sh NAME` writes.
 6. **scripts/README.md.** The page keeps five sections: set up, replay, rerun, add a backend, and draw figures. Both sentences the deck checks stay word for word. The Laya section moved to "How the Laya runs were made" below. Kev now runs through `./run.sh kev`.
-7. **Archive.** `results/archive/runs/` holds 14 folders. Five are the 2026-09-23 Jev folders, one is `2026-09-24-pipeline-jev`, seven are the superseded 2026-09-25 folders, and the last is `2026-09-25-examples-jev`. `results/archive/probes/` and `results/archive/in-text-check/` hold the two folders of those names. `results/runs/` keeps 19 runs. `results/README.md` describes each part of the archive.
+7. **Archive.** `results/archive/runs/` holds 14 folders. Five are the 2026-09-23 Jev folders, one is `2026-09-24-pipeline-jev`, seven are the superseded 2026-09-25 folders, and the last is `2026-09-25-examples-jev`. `results/archive/probes/` and `results/archive/in-text-check/` hold the two folders of those names. `results/runs/` keeps 19 runs. `results/README.md` describes each part of the archive. The Laya one-line folder's `table.py` and `build.py` now read the 2026-09-23 Jev runs from the archive. `table.py` prints the same tables as before the move, and `build.py` writes the same bytes.
 8. **Reports.** Every link and plain-text mention of a moved run now names its archive path.
 9. **Paper notes.** `paper/notes.md` takes the 2026-09-26 Jev numbers. GLM keeps its 2026-09-23 numbers. A finding with no fresh run keeps its number and names its date.
-10. **run.sh.** `./run.sh [NAME]` takes the name from its argument alone and defaults to `jev`. A live run writes `results/runs/DATE-thinkthen-NAME/` and `results/runs/DATE-examples-NAME/NAME/`. Both folders get `backend.txt` with the base URL and the model. A replay reads `backend.txt` and sends the same base URL and model with no key. A replay of `jev` replays the committed function folders. Any name then replays its newest examples folder when one exists. `scripts/run/example.sh NAME replay [OUT] [FROM]` takes the FROM folder. A live run stops with exit 2 in three cases:
+10. **run.sh.** `./run.sh [NAME]` takes the name from its argument alone and defaults to `jev`. A live run writes `results/runs/DATE-thinkthen-NAME/` and `results/runs/DATE-examples-NAME/<function>/`. Both folders get `backend.txt` with the base URL and the model. A replay reads `backend.txt` and sends the same base URL and model with no key. A replay of `jev` replays the committed function folders. Any name then replays its newest examples folder when one exists. `scripts/run/example.sh NAME replay [OUT] [FROM]` takes the FROM folder. A live run stops with exit 2 in three cases:
    - The model is set and the run has no name.
    - A folder holds a file git tracks.
    - Outside git, a folder already holds files.
@@ -83,7 +83,7 @@ The one-line runs ask each lead-singer question of the open-book sample with onl
   ```
 
   Both are one exception. `aac6fef` is part of the Laya model id `aac6fef/laya-mlx`. The token names no commit, and it stays.
-- **Links.** A checker resolves every relative link in every tracked Markdown file against the working tree, with anchors checked against headings. It printed "129 relative links, 0 broken". The count was 229 before the change, because the deleted pages held 100 links.
+- **Links.** A checker resolves every relative link in every tracked Markdown file against the working tree. It also checks each `#anchor` against the target page's headings. It printed "130 relative links and anchors, 0 broken". Before the change, the checker counted 229 links, because the deleted pages held about 100. Code review found one stale anchor in `reports/open-book.md`. It now points to `scripts/README.md#rerun`, and the checker prints one broken link with the old anchor put back.
 
 ### Archived 2026-09-25 Jev runs
 
@@ -115,7 +115,7 @@ The recognize and relate cases changed on 2026-09-26, when ticket 0014 scored th
 - **The talk deck.** The deck built against the branch stops at its first bench check: `docs/walkthroughs/decide.md is missing`. A copy of the branch with the pre-ticket `docs/walkthroughs/` and `paper/notes.md` restored built all 30 pages with exit 0. A copy with only `docs/walkthroughs/` restored stops at the notes phrase "Numbers come from the audited 1,501-question runs of 2026-09-23". Of the phrases the deck quotes from the notes, the refresh also changes "Every topic weighted equally: Jev 64.8%, GLM 94.4%.". Every other bench path and phrase the deck reads holds on the branch. The deck issue lists each change the deck needs.
 - **Issues filed.** Each issue sits on its repository's main:
   - ThinkThen: `sdlc/issues/2026-09-26-the-beatles-bench-section-keeps-its-own-copy.md`. It revises the worked-examples issue of 2026-09-25, records 7d246844 as the source of the site's copy, drops the older issue's dead bench pin, and gives ticket 0017's path map.
-  - The talk deck: `sdlc/issues/2026-09-26-beatles-bench-0016-moves-pages-the-deck-reads.md`. It lists the deleted walkthroughs, the two changed notes phrases, the archived runs, the kept lines, and the 2cdb6445 pin.
+  - The talk deck: `sdlc/issues/2026-09-26-beatles-bench-0016-moves-pages-the-deck-reads.md`. It lists the deleted walkthroughs, the two changed notes phrases, two stale lines in the bench-run slide notes, the archived runs, the kept lines, and the 2cdb6445 pin.
 
 ## Deferred
 
@@ -125,4 +125,9 @@ The recognize and relate cases changed on 2026-09-26, when ticket 0014 scored th
 
 ## Reviews
 
-The code review section follows the review.
+- Code review 1 recomputed every `paper/notes.md` figure from the 2026-09-26 runs and found each one right. It reran the suite both ways, the move-commit check, the site-file diff, the name checks, and the archive replays, and each matched this record. It returned five findings. All are fixed:
+  1. The Laya one-line folder's `table.py` and `build.py` read the 2026-09-23 Jev runs at their old paths. Both now read the archive.
+  2. `reports/open-book.md` linked a `scripts/README.md` anchor that the trim removed. It now links `#rerun`, and the link checker now checks anchors.
+  3. The record used a phrase the internal-word check matches. It now says "local folder paths".
+  4. Result 10 named the examples subfolder `NAME`. It now says `<function>`.
+  5. The deck issue missed two stale lines in the bench-run slide notes. The issue now lists them.

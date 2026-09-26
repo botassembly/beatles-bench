@@ -15,9 +15,9 @@ print("| Model | context | right of 38 | median input tokens |")
 print("| --- | --- | --- | --- |")
 for name, closed, opened, ctx in (("Laya", "2026-09-23-thinkthen-laya", None, "none"),
                                   ("Laya", "2026-09-23-thinkthen-laya", "2026-09-24-thinkthen-laya-one-line", "one line"),
-                                  ("Jev", "2026-09-23-thinkthen-jev", None, "none"),
-                                  ("Jev", "2026-09-23-thinkthen-jev", "2026-09-24-thinkthen-jev-one-line", "one line"),
-                                  ("Jev", "2026-09-23-thinkthen-jev", "2026-09-23-thinkthen-jev-open-book", "whole catalog")):
+                                  ("Jev", "../archive/runs/2026-09-23-thinkthen-jev", None, "none"),
+                                  ("Jev", "../archive/runs/2026-09-23-thinkthen-jev", "2026-09-24-thinkthen-jev-one-line", "one line"),
+                                  ("Jev", "../archive/runs/2026-09-23-thinkthen-jev", "../archive/runs/2026-09-23-thinkthen-jev-open-book", "whole catalog")):
     rs = rows(closed, opened)
     ok = sum(right(r) for r in rs)
     toks = sorted(a["input_tokens"] for _, a in rs)
@@ -27,8 +27,8 @@ print("| Model | context | who sings (of 7) | yes/no, truth yes (of 16) | yes/no
 print("| --- | --- | --- | --- | --- |")
 for name, closed, opened, ctx in (("Laya", "2026-09-23-thinkthen-laya", None, "none"),
                                   ("Laya", "2026-09-23-thinkthen-laya", "2026-09-24-thinkthen-laya-one-line", "one line"),
-                                  ("Jev", "2026-09-23-thinkthen-jev", None, "none"),
-                                  ("Jev", "2026-09-23-thinkthen-jev", "2026-09-24-thinkthen-jev-one-line", "one line")):
+                                  ("Jev", "../archive/runs/2026-09-23-thinkthen-jev", None, "none"),
+                                  ("Jev", "../archive/runs/2026-09-23-thinkthen-jev", "2026-09-24-thinkthen-jev-one-line", "one line")):
     rs = rows(closed, opened)
     part = lambda f: sum(right(r) for r in rs if f(r[0]))
     print(f"| {name} | {ctx} | {part(lambda q: q['function'] == 'choose')} | "
@@ -36,7 +36,7 @@ for name, closed, opened, ctx in (("Laya", "2026-09-23-thinkthen-laya", None, "n
           f"{part(lambda q: q['function'] == 'decide' and q['truth'] == 'no')} |")
 print()
 for name, closed, opened in (("Laya", "2026-09-23-thinkthen-laya", "2026-09-24-thinkthen-laya-one-line"),
-                             ("Jev", "2026-09-23-thinkthen-jev", "2026-09-24-thinkthen-jev-one-line")):
+                             ("Jev", "../archive/runs/2026-09-23-thinkthen-jev", "2026-09-24-thinkthen-jev-one-line")):
     c, o = rows(closed), rows(closed, opened)
     fixed = sum(not right(a) and right(b) for a, b in zip(c, o)); miss = sum(not right(a) for a in c)
     broke = sum(right(a) and not right(b) for a, b in zip(c, o)); hit = sum(right(a) for a in c)
