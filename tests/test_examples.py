@@ -1,9 +1,12 @@
-"""examples/ holds one folder per function, then audit and diff. The site links each folder by its name. Each folder
-replays with no key. Each page quotes only numbers its committed answers or its own blocks hold, and each command on a
+"""examples/ holds one folder per talk slide that shows bench data. Twelve hold a function example: one per function,
+then audit and diff. The site links each of those by its name. Each function folder replays with no key. The other ten
+hold a README.md that names the slide's claims, their sources, their check, and their build. examples/README.md indexes
+every slide of the talk in its order. Each page quotes only numbers its committed answers or its own blocks hold, and each command on a
 page prints the block below it. The pages are each folder's README.md, data/README.md, and the section "Context and cost"
 of reports/open-book.md. The website holds the longer walkthroughs.
 
 The number check reads every fenced json block in those pages, and the prose of every page."""
+import json
 import os
 import re
 import shutil
@@ -17,6 +20,13 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 EXAMPLES = ROOT / "examples"
 FOLDERS = ["annotate", "audit", "choose", "decide", "diff", "filter", "find", "rank", "recognize", "relate", "score", "tag"]
+SLIDES = ["bench", "bench-run", "catches", "jev", "know-this", "open-book", "recognize-how", "sql", "strings", "what-jev-knows"]
+# The talk's slides in its order on 2026-09-26. The index gives one row to each.
+TALK = ["title", "strings", "jev", "bench", "runs-in", "decide", "choose", "tag", "score", "filter", "filter-live", "rank",
+        "find", "annotate", "recognize", "recognize-how", "relate", "audit", "diff", "scripting", "systems", "sql", "frames",
+        "what-jev-knows", "catches", "open-book", "know-this", "bench-run", "backends", "close"]
+ROW = re.compile(r"^\| (\d+) \| ([a-z-]+) \| [^|]+ \| ([^|]+) \|", re.M)
+SHA = re.compile(r"^THINKTHEN_BIN SHA-256: [0-9a-f]{64}$", re.M)
 TUNING = ["audit", "diff"]  # only thinkthen main at e70bddab or later has audit and diff
 RUN = ("README.md", "slide.png", "run", "outputs.jsonl", "timing.tsv", "recording")
 PARTS = {"audit": RUN + ("key.jsonl", "audit-context.jsonl", "rows.jsonl", "rows-context.jsonl", "audit-asrun.json"),
@@ -88,10 +98,37 @@ def tunes(bin):
 
 class ExamplesTest(unittest.TestCase):
     def test_one_folder_per_function_each_complete(self):
-        self.assertEqual(sorted(p.name for p in EXAMPLES.iterdir()), FOLDERS)
+        self.assertEqual(sorted(p.name for p in EXAMPLES.iterdir()), sorted(FOLDERS + SLIDES + ["README.md"]))
         for name in FOLDERS:
             for part in PARTS.get(name, RUN):
                 self.assertTrue((EXAMPLES / name / part).exists(), f"{name}/{part}")
+        for name in SLIDES:
+            self.assertEqual([p.name for p in (EXAMPLES / name).iterdir()], ["README.md"], name)
+
+    def test_the_index_gives_each_slide_one_row_in_the_talks_order(self):
+        rows = ROW.findall((EXAMPLES / "README.md").read_text(encoding="utf-8"))
+        self.assertEqual([(int(n), name) for n, name, _ in rows], list(enumerate(TALK, 1)))
+        linked = {}
+        for _, name, cell in rows:
+            m = re.fullmatch(r"\[([a-z-]+)/\]\(([a-z-]+)/\)", cell.strip())
+            if m:
+                self.assertEqual((m[1], m[2]), (name, name), name)
+                self.assertTrue((EXAMPLES / name / "README.md").exists(), name)
+                linked[name] = linked.get(name, 0) + 1
+            else:
+                self.assertIn(cell.strip(), ("the deck holds it", "no bench data"), name)
+        self.assertEqual(linked, {n: 1 for n in FOLDERS + SLIDES})
+
+    def test_each_recorded_folder_names_its_build(self):
+        recorded = [n for n in FOLDERS if (EXAMPLES / n / "recording").is_dir()]
+        self.assertEqual(len(recorded), 11)
+        for name in recorded:
+            text = (EXAMPLES / name / "run.txt").read_text(encoding="utf-8")
+            self.assertRegex(text, SHA, name)
+            self.assertRegex(text, r"(?m)^thinkthen: thinkthen ", name)
+            self.assertRegex(text, r"(?m)^model the backend reported: \S+$", name)
+            self.assertRegex(text, r"(?m)^date: \d{4}-\d{2}-\d{2}$", name)
+        self.assertIn("../audit/run.txt", (EXAMPLES / "diff" / "README.md").read_text(encoding="utf-8"))
 
     def test_the_committed_cases_are_the_generator_output(self):
         out = Path(tempfile.mkdtemp())
@@ -224,6 +261,50 @@ class ExampleReplayTest(unittest.TestCase):
         subprocess.run([str(ROOT / "scripts" / "score" / "context_diff.sh"), str(EXAMPLES / "audit"), str(here / "replay")],
                        check=True, env=self.env, capture_output=True)
         self.assertEqual((here / "replay" / "diff.jsonl").read_bytes(), (here / "diff.jsonl").read_bytes())
+
+
+@unittest.skipUnless(BIN and Path(BIN).exists(), "the thinkthen command is missing")
+class RecognizeHowTest(unittest.TestCase):
+    """The recognize-how slide: each word's answers and the names they join into, from a replay with --details."""
+
+    def run_recognize(self, *args):
+        here = EXAMPLES / "recognize"
+        case = json.loads((here / "recognize-cold.jsonl").read_text(encoding="utf-8").splitlines()[0])
+        env = {k: v for k, v in os.environ.items() if k not in ("THINKTHEN_API_KEY", "THINKTHEN_BASE_URL")}
+        done = subprocess.run([BIN, "recognize", "person", "song", "album", "place", "--threshold", "0.01", *args],
+                              input=case["records"][0]["input"], cwd=here, env=env, capture_output=True, text=True, check=True)
+        return json.loads(done.stdout.splitlines()[0])
+
+    def test_the_page_shows_the_replayed_words_names_and_tokens(self):
+        page = (EXAMPLES / "recognize-how" / "README.md").read_text(encoding="utf-8")
+        got = self.run_recognize("--replay", "recording", "--details")
+        kinds = list(got["question"]["kinds"])
+        words = []
+        for i, t in enumerate(got["answer"]["tokens"], 1):
+            kp = t["kind_probabilities"]
+            self.assertEqual(sorted(kp)[-1] > sorted(kp)[-2], True, t["token"])  # one top kind
+            words.append((t["token"], t["detection_probability"], kinds[kp.index(max(kp))]))
+            self.assertIn(f"| {i} | {words[-1][0]} | {words[-1][1]} | {words[-1][2]} |\n", page)
+        self.assertEqual(len(re.findall(r"(?m)^\| \d+ \| ", page)), len(words))
+        names, i = [], 0
+        while i < len(words):  # each run of words above one half is one name, of its most common kind
+            if words[i][1] <= 0.5:
+                i += 1
+                continue
+            j = i
+            while j + 1 < len(words) and words[j + 1][1] > 0.5:
+                j += 1
+            ks = [w[2] for w in words[i:j + 1]]
+            names.append((" ".join(w[0] for w in words[i:j + 1]), max(ks, key=ks.count)))
+            i = j + 1
+        self.assertEqual(names, [(e["name"], e["kind"]) for e in got["value"]["entities"]])
+        for name, kind in names:
+            self.assertIn(f"| {name} | {kind} |\n", page)
+        usage = got["meta"]["usage"]
+        self.assertIn(f"`{usage['input_tokens']}` input tokens and `{usage['output_tokens']}` output tokens", page)
+        self.assertIn(f"`{got['meta']['model']}`", page)
+        plan = self.run_recognize("--dry-run")
+        self.assertEqual(plan.get("request_count", plan.get("requests")), 1)
 
 
 if __name__ == "__main__":

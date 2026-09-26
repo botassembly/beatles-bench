@@ -56,5 +56,6 @@ Is this song on the album Abbey Road?  (decide, 70 rows, 70 labeled, 0 failed, r
 - `key.jsonl`: the right answers, from `data/songs.tsv`.
 - `rows.jsonl`, `rows-context.jsonl`, and `audit-*.json`: the answers and audit's reports.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
+- `run.txt`: the thinkthen build and the model that recorded the answers.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/audit](https://thinkthen.dev/learn/beatles-bench/audit/).

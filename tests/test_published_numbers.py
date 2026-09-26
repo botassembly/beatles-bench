@@ -1,6 +1,7 @@
 """Each number a reader or the talk quotes from the pages must equal its source. One row per claim: the page, the text
 it quotes with {} where the number sits, and the source that computes the number from the data, the questions, or the
 runs. Needs no thinkthen command and no network."""
+import csv
 import json
 import sys
 import unittest
@@ -37,6 +38,121 @@ def results(system):
     return row.strip("|").split("|")[1].strip().split(" ")[0]
 
 
+def tsv(path, **match):
+    """The one row of a results table whose columns equal match."""
+    got = [r for r in csv.DictReader(open(ROOT / path, encoding="utf-8"), delimiter="\t", quoting=csv.QUOTE_NONE)
+           if all(r[k] == v for k, v in match.items())]
+    assert len(got) == 1, (path, match, len(got))
+    return got[0]
+
+
+def cell(path, column, **match):
+    return tsv(path, **match)[column]
+
+
+def load(line, field):
+    """A load average of the 2026-09-26 Jev run: the second start line, the one that finished, or the end line."""
+    lines = (published.JEV_RUN / "loadavg.txt").read_text(encoding="utf-8").splitlines()
+    return {"start": [l for l in lines if l.startswith("start ")][-1], "end": lines[-1]}[line].split()[field]
+
+
+def output(folder, case):
+    """The answer row of one case in an example folder's outputs.jsonl."""
+    for l in open(ROOT / "examples" / folder / "outputs.jsonl", encoding="utf-8"):
+        r = json.loads(l)
+        if r["id"] == case:
+            return r["rows"][0]
+    raise KeyError(case)
+
+
+def jev(qid, option):
+    """Jev's probability for one option of a bench question, named by its text, in the 2026-09-26 Jev run."""
+    q = next(json.loads(l) for f in sorted((ROOT / "questions").glob("*.jsonl")) for l in open(f, encoding="utf-8")
+             if json.loads(l)["id"] == qid)
+    a = next(json.loads(l) for l in open(published.JEV_RUN / "answers.jsonl", encoding="utf-8") if json.loads(l)["id"] == qid)
+    key = option.lower() if q["options"] is None else next(k for k, v in q["options"].items() if v == option)
+    return a["probabilities"][key]
+
+
+def band(p, low=0.3, high=0.7):
+    """decide under a band: yes at or above the high side, no below the low side, else not sure (SQL NULL)."""
+    return "1" if p >= high else "0" if p < low else "NULL"
+
+
+def sql_rows():
+    """The sql slide's rows: each cold filter song, its probability, and its answer at the band 0.3:0.7."""
+    out = []
+    for l in open(ROOT / "examples" / "filter" / "outputs.jsonl", encoding="utf-8"):
+        r = json.loads(l)
+        if r["id"].startswith("filter-cold-"):
+            row = r["rows"][0]
+            p = row["answer"]["probability"]
+            out.append((row["input"]["input"], p, band(p)))
+    return out
+
+
+def chained(kind):
+    row = tsv("results/tables/composition.tsv", system="Jev", kind=kind)
+    return str(int(row["both_hops_right"]) - int(row["wrong_with_both_hops"]))
+
+
+COST = "results/tables/cost.tsv"
+ACC = "results/tables/accuracy.tsv"
+CHOOSE = lambda option: lambda: output("choose", "choose-cold-04")["answer"]["probabilities"][option]
+EX = "examples/{}/README.md".format
+# The slide folders of examples/: each row names a folder's page, the text it quotes, and the source of the value.
+SLIDE_CLAIMS = [
+    (EX("strings"), "| `lead_vocals` `{}` |", lambda: cell("data/songs.tsv", "lead_vocals", title="Octopus's Garden")),
+    (EX("strings"), "| `first_album` `{}` |", lambda: cell("data/songs.tsv", "first_album", title="Octopus's Garden")),
+    (EX("strings"), "| A random guess | `{}` |", lambda: results("Chance")),
+    (EX("strings"), "| Vector search | `{}` |", lambda: results("Embeddings")),
+    (EX("jev"), "| John for Octopus's Garden | `{}` |", CHOOSE("John")),
+    (EX("jev"), "| Paul for Octopus's Garden | `{}` |", CHOOSE("Paul")),
+    (EX("jev"), "| George for Octopus's Garden | `{}` |", CHOOSE("George")),
+    (EX("jev"), "| Ringo for Octopus's Garden | `{}` |", CHOOSE("Ringo")),
+    (EX("jev"), "| John and Paul duet for Octopus's Garden | `{}` |", CHOOSE("John and Paul duet")),
+    (EX("jev"), "`median_s` `{}`", lambda: cell(COST, "median_s", system="Jev")),
+    (EX("jev"), "`usd` `{}`", lambda: cell(COST, "usd", system="Jev")),
+    (EX("jev"), "| The load at the start of the run | `{}` |", lambda: load("start", 2)),
+    (EX("jev"), "| The load at the end of the run | `{}` |", lambda: load("end", 2)),
+    (EX("jev"), "`usd_per_m_input` `{}`", lambda: cell("scripts/score/prices.tsv", "usd_per_m_input", model_prefix="jev")),
+    (EX("bench"), "| Songs | `{}` |", lambda: rows("songs.tsv")),
+    (EX("bench"), "| Albums | `{}` |", lambda: rows("albums.tsv")),
+    (EX("bench"), "| Questions | `{}` |", questions),
+    (EX("sql"), "{}", lambda: "".join(f"| {s} | {p} | {a} |\n" for s, p, a in sql_rows())),
+    (EX("what-jev-knows"), "| Random guess | `{}` |", lambda: results("Chance")),
+    (EX("what-jev-knows"), "| Vector search | `{}` |", lambda: cell(ACC, "accuracy", system="Embeddings", scope="beatles-only")),
+    (EX("what-jev-knows"), "| Jev from memory | `{}` |", lambda: cell(ACC, "accuracy", system="Jev", scope="beatles-only")),
+    (EX("what-jev-knows"), "| Big chat model | `{}` |", lambda: cell(ACC, "accuracy", system="GLM-5.3 Flash", scope="beatles-only")),
+    (EX("what-jev-knows"), "the `{}` Beatles-only questions", lambda: questions(beatles_only=True)),
+    (EX("catches"), "| John Lennon | `{}` |", lambda: jev("forward-singer-033", "John Lennon")),
+    (EX("catches"), "| George Harrison | `{}` |", lambda: jev("forward-singer-033", "George Harrison")),
+    (EX("catches"), "| Yellow Submarine | `{}` |", lambda: jev("lexical-trap-album-to-song-001", "Yellow Submarine")),
+    (EX("catches"), "| It's All Too Much | `{}` |", lambda: jev("lexical-trap-album-to-song-001", "It's All Too Much")),
+    (EX("catches"), "| No | `{}` |", lambda: jev("multi-hop-same-month-050", "No")),
+    (EX("catches"), "| Yes | `{}` |", lambda: jev("multi-hop-same-month-050", "Yes")),
+    (EX("catches"), "| Least viewed quarter of songs | `{}` |", lambda: cell("results/tables/popularity.tsv", "accuracy", system="Jev", bin="1")),
+    (EX("catches"), "| Most viewed quarter of songs | `{}` |", lambda: cell("results/tables/popularity.tsv", "accuracy", system="Jev", bin="4")),
+    (EX("catches"), "| Word traps right | `{}` of", lambda: cell("results/tables/controls.tsv", "test_right", system="Jev", test="lexical-trap")),
+    (EX("catches"), "| Their controls right | `{}` of", lambda: cell("results/tables/controls.tsv", "control_right", system="Jev", test="lexical-trap")),
+    (EX("catches"), "of `{}` |", lambda: cell("results/tables/controls.tsv", "n", system="Jev", test="lexical-trap")),
+    (EX("catches"), "| Same-month questions with both hops right | `{}` |", lambda: cell("results/tables/composition.tsv", "both_hops_right", system="Jev", kind="same-month")),
+    (EX("catches"), "| Of those, chained right | `{}` |", lambda: chained("same-month")),
+    (EX("open-book"), "| From memory | `{}` |", lambda: open_book_all(2)),
+    (EX("open-book"), "| With the catalog | `{}` |", lambda: open_book_all(3)),
+    (EX("open-book"), "the same `{}` questions", lambda: open_book_all(1)),
+    (EX("know-this"), "| Jev's price per million input tokens | `{}` |", lambda: cell("scripts/score/prices.tsv", "usd_per_m_input", model_prefix="jev")),
+    (EX("know-this"), "`usd_per_m_output` `{}`", lambda: cell("scripts/score/prices.tsv", "usd_per_m_output", model_prefix="jev")),
+    (EX("know-this"), "`usd` `{}`", lambda: cell(COST, "usd", system="Jev")),
+    (EX("bench-run"), "| Questions | `{}` |", lambda: f"{int(cell(COST, 'questions', system='Jev')):,}"),
+    (EX("bench-run"), "`usd` `{}`", lambda: cell(COST, "usd", system="Jev")),
+    (EX("bench-run"), "`median_s` `{}`", lambda: cell(COST, "median_s", system="Jev")),
+    (EX("bench-run"), "| Jev per 1,000 questions | `usd_per_1000_questions` `{}` |", lambda: cell(COST, "usd_per_1000_questions", system="Jev")),
+    (EX("bench-run"), "| GLM-5.3 Flash per 1,000 questions | `usd_per_1000_questions` `{}` |", lambda: cell(COST, "usd_per_1000_questions", system="GLM-5.3 Flash")),
+    (EX("bench-run"), "| The load at the start of the run | `{}` |", lambda: load("start", 2)),
+    (EX("bench-run"), "| The load at the end of the run | `{}` |", lambda: load("end", 2)),
+]
+
 CLAIMS = [
     ("README.md", "{} Beatles songs", lambda: rows("songs.tsv")),
     ("README.md", "{} albums", lambda: rows("albums.tsv")),
@@ -59,6 +175,27 @@ class PublishedNumbersTest(unittest.TestCase):
         for page, quote, source in CLAIMS:
             with self.subTest(page=page, quote=quote):
                 self.assertIn(quote.format(source()), (ROOT / page).read_text(encoding="utf-8"))
+
+    def test_each_slide_folder_quotes_its_source(self):
+        for page, quote, source in SLIDE_CLAIMS:
+            with self.subTest(page=page, quote=quote):
+                self.assertIn(quote.format(source()), (ROOT / page).read_text(encoding="utf-8"))
+
+    def test_the_slide_values_are_the_ones_the_talk_shows(self):
+        """The talk shows these values. A change here changes a slide."""
+        self.assertEqual([cell(COST, c, system="Jev") for c in ("median_s", "usd")], ["0.215", "0.022466"])
+        self.assertEqual([load("start", 2), load("end", 2)], ["3.83", "7.10"])
+        self.assertEqual([CHOOSE(o)() for o in ("John", "Paul", "George", "Ringo", "John and Paul duet")],
+                         [0.01, 0.02, 0.13, 0.84, 0.0])
+        self.assertEqual([jev("forward-singer-033", "John Lennon"), jev("forward-singer-033", "George Harrison"),
+                          jev("lexical-trap-album-to-song-001", "Yellow Submarine"),
+                          jev("lexical-trap-album-to-song-001", "It's All Too Much"),
+                          jev("multi-hop-same-month-050", "No"), jev("multi-hop-same-month-050", "Yes")],
+                         [0.34, 0.14, 0.58, 0.31, 0.69, 0.31])
+        self.assertEqual([a for _, _, a in sql_rows()], "1 0 1 1 0 1 0 NULL 1 1 0 1".split())
+        truth = {s: cell("data/songs.tsv", "first_album", title=s) == "Abbey Road" for s, _, _ in sql_rows()}
+        wrong = [s for s, _, a in sql_rows() if a != "NULL" and (a == "1") != truth[s]]
+        self.assertEqual(wrong, ["A Day in the Life"])
 
     def test_the_numbers_are_the_ones_the_talk_shows(self):
         """The talk quotes these values. A change here changes a slide."""

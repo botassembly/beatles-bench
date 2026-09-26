@@ -55,5 +55,6 @@ A -> B (at 0.2:0.8 and 0.2:0.8): 48 of 70 changed; unresolved -> no 44; yes -> n
 
 - `diff.jsonl`: the committed comparison at `0.5`.
 - The answers, the recording, and the key are in [`../audit`](../audit/).
+- The build that recorded audit's answers is in [`../audit/run.txt`](../audit/run.txt). `diff` itself calls no model.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/diff](https://thinkthen.dev/learn/beatles-bench/diff/).

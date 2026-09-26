@@ -58,5 +58,6 @@ rank has no bar of its own. Here `jq` applies one, and `over` marks each song at
 - `rank-cold.jsonl`: the cases.
 - `lists/`: the ranked list.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
+- `run.txt`: the thinkthen build and the model that recorded the answers.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/rank](https://thinkthen.dev/learn/beatles-bench/rank/).

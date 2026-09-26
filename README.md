@@ -59,10 +59,11 @@ export THINKTHEN_API_KEY=...
 
 `./run.sh NAME` with no address replays that run the same way. It sends the base URL and model the live run saved in `backend.txt`, never a key.
 
-Each folder in `examples/` also runs by hand. `./run` in the folder answers its question from the recording with no key. [scripts/README.md](scripts/README.md) covers every stage from harvest to figures. [tests/README.md](tests/README.md) says how to run the tests.
+Each function folder in `examples/` also runs by hand. `./run` in the folder answers its question from the recording with no key. [scripts/README.md](scripts/README.md) covers every stage from harvest to figures. [tests/README.md](tests/README.md) says how to run the tests.
 
 ## What's new
 
+- 2026-09-26: The function folders moved to `examples/`, and each slide of the ThinkThen talk that shows bench data has a folder there. The function suite moved to `questions/suite/`.
 - 2026-09-26: The walkthroughs moved to the website. Superseded runs moved to `results/archive/runs/`. `./run.sh NAME` names and replays a run of any backend.
 - 2026-09-26: Every Jev run was asked again from an empty recording. `recognize` and `relate` are scored from the shipped commands, and the function table gained top pick rows.
 - 2026-09-25: Each function has its own folder in `examples/`, with its slide, its cases, and its recording.
@@ -83,7 +84,7 @@ The website's Beatles Bench section walks through each function and the open-boo
 
 - [data/](data/README.md): the harvested tables, the pins, the sources, and the licenses.
 - [questions/](questions/README.md): the benchmark itself, one file per category, plus the function suite.
-- `examples/`: one folder per function, as the ThinkThen talk shows it: [decide](examples/decide/), [choose](examples/choose/), [tag](examples/tag/), [score](examples/score/), [filter](examples/filter/), [rank](examples/rank/), [find](examples/find/), [annotate](examples/annotate/), [recognize](examples/recognize/), [relate](examples/relate/), [audit](examples/audit/), and [diff](examples/diff/).
+- [examples/](examples/README.md): one folder for each slide of the ThinkThen talk that shows bench data, indexed in the talk's order. Twelve hold a function example: [decide](examples/decide/), [choose](examples/choose/), [tag](examples/tag/), [score](examples/score/), [filter](examples/filter/), [rank](examples/rank/), [find](examples/find/), [annotate](examples/annotate/), [recognize](examples/recognize/), [relate](examples/relate/), [audit](examples/audit/), and [diff](examples/diff/).
 - [scripts/](scripts/README.md): all the code, by stage: harvest, generate, run, score, and figures.
 - [results/](results/README.md): every run with its recording, the scored tables, and the archive. [results/runs/README.md](results/runs/README.md) explains the run names.
 - [reports/](reports/README.md): the write-ups and the figures.

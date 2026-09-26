@@ -40,5 +40,6 @@ A higher bar keeps fewer names:
 
 - `recognize-cold.jsonl`: the case.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
+- `run.txt`: the thinkthen build and the model that recorded the answers.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/recognize](https://thinkthen.dev/learn/beatles-bench/recognize/).

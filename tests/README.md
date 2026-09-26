@@ -16,7 +16,7 @@ The tests that replay a recording need the `thinkthen` command with `audit` and 
 | `test_replay_laya.py` | every test | no `thinkthen` to replay the Laya recordings |
 | `test_rad_pipeline.py` | the pipeline replay | no `thinkthen` |
 | `test_in_text_check.py` | the Jev replay | no `thinkthen` |
-| `test_examples.py` | `ExampleReplayTest` | no `thinkthen` to replay each folder in `examples/` |
+| `test_examples.py` | `ExampleReplayTest` and `RecognizeHowTest` | no `thinkthen` to replay each function folder in `examples/` |
 | `test_run_sh.py` | `RunShTest` | no `thinkthen` for the full `./run.sh` replay |
 | `test_suite.py` | the recorded suite replay and Laya's rows | no `thinkthen` |
 
