@@ -37,7 +37,7 @@ A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-26-think
 
 ## Run it
 
-Install the `thinkthen` command first. `./run.sh` needs a build with `audit`: thinkthen main at 02dc0b96 or later, until a release carries it. Then:
+Install the `thinkthen` command first. `./run.sh` needs a build with `audit`. The bench pins thinkthen main at 02dc0b96. That build wrote the committed outputs. The pin holds until a release carries `audit`. Then:
 
 ```sh
 git clone https://github.com/botassembly/beatles-bench
@@ -45,7 +45,7 @@ cd beatles-bench
 ./run.sh
 ```
 
-With no backend address set, `./run.sh` replays the newest recorded Jev run and every function folder in `examples/`. It needs no key, no network, and no spend. It checks every replayed answer and example file against the committed ones, byte for byte. It then rescores every run into `results/tables/` and prints the results tables.
+With no backend address set, `./run.sh` replays the newest recorded Jev run and every function folder in `examples/`. It needs no key, no network, and no spend. It checks every replayed answer and example file against the committed ones, byte for byte. That check holds for the pinned build. A later build can replay every answer and still change an output's bytes. At thinkthen 411cb67a, `audit` added a `by_bin` array, so `./run.sh` stops at `examples/audit/replay/audit-0.5.json`. It then rescores every run into `results/tables/` and prints the results tables.
 
 To ask your own backend:
 

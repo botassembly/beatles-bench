@@ -148,7 +148,7 @@ class NoAuditTest(unittest.TestCase):
         done = subprocess.run(["./run.sh"], cwd=ROOT, env={**env, "THINKTHEN_BIN": str(stub)}, capture_output=True, text=True)
         self.assertNotEqual(done.returncode, 0)
         self.assertEqual(done.stderr.strip(), "run.sh: this thinkthen has no audit command. "
-                                              "Install a build from thinkthen main at 02dc0b96 or later.")
+                                              "Install the pinned build, thinkthen main at 02dc0b96.")
 
 
 if __name__ == "__main__":

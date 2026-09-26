@@ -6,7 +6,7 @@ The suite needs no network and no key. Run it from the top folder of the bench w
 env -u THINKTHEN_API_KEY python3 -m unittest discover -s tests
 ```
 
-The tests that replay a recording need the `thinkthen` command with `audit` and `diff`: thinkthen main at 02dc0b96 or later. The suite takes the command from `THINKTHEN_BIN`, or else from `thinkthen` on `PATH`. With neither, these tests skip and the rest still run:
+The tests that replay a recording need the `thinkthen` command with `audit` and `diff`. They pass with the pinned build, thinkthen main at 02dc0b96. A later build can change an output's bytes. At 411cb67a, `audit` added a `by_bin` array. The suite takes the command from `THINKTHEN_BIN`, or else from `thinkthen` on `PATH`. With neither, these tests skip and the rest still run:
 
 | File | What skips | Why |
 | --- | --- | --- |

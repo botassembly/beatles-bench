@@ -24,7 +24,7 @@ command -v "$TT" >/dev/null 2>&1 || {
   exit 2
 }
 "$TT" audit --help >/dev/null 2>&1 || {
-  echo "run.sh: this thinkthen has no audit command. Install a build from thinkthen main at 02dc0b96 or later." >&2
+  echo "run.sh: this thinkthen has no audit command. Install the pinned build, thinkthen main at 02dc0b96." >&2
   exit 2
 }
 [ $# -le 1 ] || { echo "usage: ./run.sh [NAME]" >&2; exit 2; }
