@@ -1,6 +1,6 @@
 # 0016 Clean the repository for public launch
 
-Owner: the queue owner. Status: open. Ticket review 1 returned seventeen findings across 0016 and 0017, review 2 returned nine, review 3 returned four, review 4 returned two, review 5 returned five, review 6 returned two, and review 7 returned one. All are taken. Review 8 returned ACCEPT.
+Owner: the queue owner. Status: done 2026-09-26. Ticket review 1 returned seventeen findings across 0016 and 0017, review 2 returned nine, review 3 returned four, review 4 returned two, review 5 returned five, review 6 returned two, and review 7 returned one. All are taken. Review 8 returned ACCEPT.
 
 ## Why
 
