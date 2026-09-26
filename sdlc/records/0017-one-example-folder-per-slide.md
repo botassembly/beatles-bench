@@ -49,7 +49,7 @@ The `functions` subcommand of `scripts/run/chat.py` is now `suite`. `.gitignore`
   - With `THINKTHEN_BIN` set to the 02dc0b96 build (SHA-256 `eb4a5713`), the venv from `requirements.txt`, and a local `data/raw/`: 193 tests, OK, none skipped.
   - With no `THINKTHEN_BIN`, no `thinkthen` on `PATH`, and the system Python: 189 tests, OK, 22 skipped. `test_chat.py` skips as one module there.
 - **Replay.** `./run.sh` with no key and no address exited 0. It printed "replayed results/runs/2026-09-26-thinkthen-jev: all answers match its answers.jsonl" and 12 lines of "replayed examples/NAME: every file matches the committed folder", from decide to diff in the talk's order. `git status` was clean after it.
-- **Renames.** `git diff -M --name-status main HEAD` gives 338 files at R100, 18 moved files with changed bytes, 20 modified files, and 22 added files. The moved files with changed bytes:
+- **Renames.** Before the record commit, `git diff -M --name-status main HEAD` gave 338 files at R100, 18 moved files with changed bytes, 20 modified files, and 22 added files. This record is the 23rd added file. The moved files with changed bytes:
   - The twelve function READMEs. Each gains one line about `run.txt`.
   - `scripts/generate/make_suite.py`, `scripts/run/ask_suite.py`, `scripts/run/ask_suite.sh`, and `scripts/score/score_suite.py`. Their usage lines and paths changed.
   - `tests/test_examples.py` and `tests/test_suite.py`. Their paths changed, and `test_examples.py` gained the new tests.
