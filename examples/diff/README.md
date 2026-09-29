@@ -44,6 +44,8 @@ The slide reads both runs at a band:
 A -> B (at 0.2:0.8 and 0.2:0.8): 48 of 70 changed; unresolved -> no 44; yes -> no 3; unresolved -> yes 1; gained 3, lost 0 (20 -> 68 right of 70); McNemar p 0.250 on right answers
 ```
 
+The pinned build prints `unresolved` for a not sure answer. ThinkThen main at ce04682c prints `unsure`, as in `unsure -> no 44`.
+
 `./run live` asks your own server. It sends 140 calls.
 
 ## The lessons

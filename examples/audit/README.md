@@ -41,6 +41,8 @@ Is this song on the album Abbey Road?  (decide, 70 rows, 70 labeled, 0 failed, r
   agreement 0.943 (95% 0.862 to 0.978): 66 right, 4 wrong, 0 unresolved, 0 tied
 ```
 
+The pinned build prints `unresolved` for a not sure answer. ThinkThen main at ce04682c prints `0 not sure` in this count.
+
 `./run threshold` also takes a band such as `0.3:0.7`.
 
 `./run live` asks your own server. It sends 70 calls.

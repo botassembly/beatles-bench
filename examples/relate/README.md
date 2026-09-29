@@ -4,6 +4,8 @@
 
 The slide links seven songs to singers and albums. `relate.json` names the two relations, `sung_by` and `appears_on`. `relate` gives each possible edge a probability. `./run` keeps the edges at `0.5` or more, as the slide does.
 
+These answers are historical. The pinned build, thinkthen main at 02dc0b96, recorded them with relate's old choice planner. ThinkThen ticket 0167 replaced that planner. relate now asks one yes or no question for each pair a rule allows. The [relate page](https://thinkthen.dev/learn/beatles-bench/relate/) shows the pair planner.
+
 ## Run it
 
 ```sh
