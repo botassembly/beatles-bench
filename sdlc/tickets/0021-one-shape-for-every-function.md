@@ -34,7 +34,7 @@ Ian asked on 2026-09-30 for more questions, round numbers, and a consistent shap
    - About 15% of find sets have no right unit and run with `--none`.
    - score, rank and annotate take no control.
 4. **recognize and relate.** recognize grows to 300 name sentences and 100 relation sentences, from the 0018 generators, with level `text`. relate grows to 100 entity sets from the 0019 groups, with level `memory`.
-5. **One catalog.** `questions/catalog.jsonl` lists every question in the bench, knowledge and suite alike: id, file, function, test, level, category, and truth. A script writes it, and a test checks it against the question files.
+5. **One catalog.** `questions/catalog/catalog.jsonl`, in a subfolder the `questions/*.jsonl` readers never glob, lists every question in the bench, knowledge and suite alike: id, file, function, test, level, category, and truth. A script writes it, and a test checks it against the question files.
 6. `questions/README.md` gives the counts in one table.
 
 ## Proof
