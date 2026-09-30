@@ -1,0 +1,28 @@
+{
+ "version": 1,
+ "questions": {
+  "writers": {
+   "choose": "The text is the title of a song by the Beatles. Who is credited with writing it?",
+   "options": [
+    "John Lennon and Paul McCartney",
+    "George Harrison",
+    "Ringo Starr",
+    "a songwriter outside the Beatles"
+   ]
+  },
+  "cover": {
+   "choose": "The text is the title of a song by the Beatles. Is it a cover of another artist's song, or one they wrote themselves?",
+   "options": [
+    "a cover of another artist's song",
+    "a song the Beatles wrote themselves"
+   ]
+  },
+  "length": {
+   "choose": "The text is the title of a song by the Beatles. How long does it run?",
+   "options": [
+    "under three minutes",
+    "three minutes or longer"
+   ]
+  }
+ }
+}
