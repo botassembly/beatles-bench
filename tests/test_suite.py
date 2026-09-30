@@ -61,8 +61,8 @@ def same_build(run):
 class GenerateTest(unittest.TestCase):
     def test_writes_identical_bytes_twice(self):
         a, b = Path(tempfile.mkdtemp()), Path(tempfile.mkdtemp())
-        gen.main(ROOT / "data", a)
-        gen.main(ROOT / "data", b)
+        gen.main(ROOT / "data", a, a / "catalog.jsonl")
+        gen.main(ROOT / "data", b, b / "catalog.jsonl")
         files = sorted(p.relative_to(a) for p in a.rglob("*") if p.is_file())
         self.assertTrue(files)
         for p in files:
@@ -70,10 +70,13 @@ class GenerateTest(unittest.TestCase):
 
     def test_the_committed_questions_are_the_generator_output(self):
         out = Path(tempfile.mkdtemp())
-        gen.main(ROOT / "data", out)
+        gen.main(ROOT / "data", out, out / "catalog.jsonl")
         for p in out.rglob("*"):
-            if p.is_file():
-                self.assertEqual(p.read_bytes(), (ROOT / "questions" / "suite" / p.relative_to(out)).read_bytes(), str(p))
+            if not p.is_file():
+                continue
+            want = (ROOT / "questions" / "catalog" / "catalog.jsonl" if p.name == "catalog.jsonl"
+                    else ROOT / "questions" / "suite" / p.relative_to(out))
+            self.assertEqual(p.read_bytes(), want.read_bytes(), str(p))
 
     def test_every_test_has_cases_with_truth_and_source_fields(self):
         for name in TESTS:
@@ -87,20 +90,24 @@ class GenerateTest(unittest.TestCase):
     def test_tag_truth_is_the_lead_vocal_column(self):
         data = songs()
         for c in cases("tag"):
+            if c["test"] not in ("lead", "lead-context"):
+                continue
             s = data[c["records"][0]["input"].split("\n")[0]]  # a reading input starts with the bare title
             self.assertEqual(c["truth"], sorted(gen.LEADS[x] for x in s["lead_vocals"].split("+")))
-        duets = [c for c in cases("tag") if len(c["truth"]) > 1]
+        duets = [c for c in cases("tag") if c["test"] == "lead" and len(c["truth"]) > 1]
         self.assertGreaterEqual(len(duets), 10)
 
     def test_lead_tests_ask_and_score_only_songs_whose_lead_is_settled(self):
         data = songs()
         settled = {t for t, s in data.items() if gen.settled_lead(s)}
         title = lambda c: c["records"][0]["input"].split("\n")[0]
-        self.assertTrue(all(title(c) in settled for c in cases("tag")))
-        self.assertTrue(all(title(c) in settled for c in cases("filter") if c["test"] == "singer"))
+        self.assertTrue(all(title(c) in settled for c in cases("tag")
+                            if c["test"] in ("lead", "lead-context")))
+        self.assertTrue(all(title(c) in settled for c in cases("filter")
+                            if c["test"] in ("singer", "singer-context")))
         self.assertTrue(all(title(c) in settled for c in cases("filter") if c["test"] == "reading"
                             and c["key"] in ("john", "paul", "george", "ringo")))
-        cards = cases("annotate")
+        cards = [c for c in cases("annotate") if c["test"] in ("card", "card-context")]
         self.assertEqual({title(c) for c in cards if c["truth"]["singer"] is None},
                          {title(c) for c in cards} - settled)
         self.assertIn("Cry Baby Cry", {title(c) for c in cards} - settled)
@@ -125,11 +132,26 @@ class GenerateTest(unittest.TestCase):
             want = gen.LEAD_OF[c["key"]] in s["lead_vocals"].split("+") if c["key"] in gen.LEAD_OF else s["first_album"] == c["key"]
             self.assertEqual(c["truth"], want, c["id"])
 
-    def test_each_find_set_holds_exactly_one_song_from_the_album(self):
+    def test_each_find_set_holds_exactly_one_song_that_answers(self):
+        """An album set's only unit first released on the album is the truth; a singer set's only unit with the
+        named Beatle on lead is the truth; a --none set holds none. lead_vocals or article_lead both count, as the
+        generator's pools rule."""
         data = songs()
         for c in cases("find"):
-            hits = [r["id"] for r in c["records"] if data[r["input"].split("\n")[0]]["first_album"] == c["key"]]
-            self.assertEqual(hits, [c["truth"]], c["id"])
+            title = lambda r: r["input"].split("\n")[0]
+            if c["key"] in gen.LEAD_OF:
+                name = gen.LEAD_OF[c["key"]]
+                hits = [r["id"] for r in c["records"]
+                        if name in data[title(r)]["lead_vocals"].split("+")
+                        or name in data[title(r)]["article_lead"].split("+")]
+            else:
+                hits = [r["id"] for r in c["records"] if data[title(r)]["first_album"] == c["key"]]
+            if c["truth"] == "none":
+                self.assertEqual(hits, [], c["id"])
+                self.assertIn("--none", c["args"], c["id"])
+            else:
+                self.assertEqual(hits, [c["truth"]], c["id"])
+                self.assertNotIn("--none", c["args"], c["id"])
 
     def test_each_reading_card_holds_the_facts_its_truth_needs(self):
         """A reading case's record holds the input text, then one card per song it names. Each card is that song's
@@ -143,6 +165,7 @@ class GenerateTest(unittest.TestCase):
                "views_2024": lambda s: s["views_2024"] or "unknown"}
         questions = {q["id"]: q for f in sorted((ROOT / "questions").glob("*.jsonl"))
                      for q in map(json.loads, open(f, encoding="utf-8"))}
+        suite_mem = {c["id"]: c for name in TESTS for c in cases(name) if c["level"] == "memory"}
         count = {}
         for name in TESTS:
             for c in cases(name):
@@ -157,16 +180,22 @@ class GenerateTest(unittest.TestCase):
                     for col in c["needs"]:
                         self.assertIn(fmt[col](s), card, (c["id"], col))
                 if "source" in c:
-                    q = questions[c["source"]]
-                    self.assertEqual((c["args"][0], c["truth"]), (q["question"], q["truth"]), c["id"])
-                    if c["function"] == "choose":
-                        self.assertEqual(c["records"][0]["options"], q["options"], c["id"])
+                    if c["source"] in questions:
+                        q = questions[c["source"]]
+                        self.assertEqual((c["args"][0], c["truth"]), (q["question"], q["truth"]), c["id"])
+                        if c["function"] == "choose":
+                            self.assertEqual(c["records"][0]["options"], q["options"], c["id"])
+                    else:  # a memory suite case the card reuses: same ask and truth
+                        src = suite_mem[c["source"]]
+                        self.assertEqual((c["args"], c["truth"]), (src["args"], src["truth"]), c["id"])
         self.assertEqual({f for f, _ in count}, {"decide", "choose", "tag", "score", "filter", "rank", "find", "annotate"})
         self.assertTrue(all(n <= 100 for n in count.values()), count)
 
     def test_each_recognize_name_is_its_slice_of_the_sentence(self):
         groups = {"names-template": 48, "varied": 36, "song-or-album": 14, "short-names": 16, "case": 12,
-                  "no-names": 10, "paragraphs": 10, "punctuation": 14, "relations": 40}
+                  "no-names": 10, "paragraphs": 10, "punctuation": 14, "relations": 40,
+                  "varied-more": 60, "paragraphs-more": 24, "short-names-more": 24, "case-more": 12,
+                  "punctuation-more": 20, "relations-more": 60}
         seen = {}
         for c in cases("recognize"):
             seen[c["test"]] = seen.get(c["test"], 0) + 1
@@ -178,9 +207,9 @@ class GenerateTest(unittest.TestCase):
                 self.assertEqual(text[start:end], name, c["id"])
         self.assertEqual(seen, groups)
         for c in cases("recognize"):
-            if c["test"] in ("names-template", "varied"):
+            if c["test"] in ("names-template", "varied", "varied-more"):
                 self.assertEqual(sorted(k for _, _, k, _ in c["truth"]), ["album", "person", "song"], c["id"])
-            if c["test"] == "short-names":
+            if c["test"] in ("short-names", "short-names-more"):
                 self.assertTrue(all(" " not in n for _, _, k, n in c["truth"] if k == "person"), c["id"])
 
     def test_the_recognize_groups_hold_what_they_name(self):
@@ -193,9 +222,9 @@ class GenerateTest(unittest.TestCase):
             if c["test"] == "no-names":
                 self.assertEqual(c["truth"], [], c["id"])
                 self.assertFalse(any(n in text for n in names), c["id"])
-            if c["test"] == "paragraphs":
+            if c["test"] in ("paragraphs", "paragraphs-more"):
                 self.assertGreaterEqual(len(text.split()), 40, c["id"])
-            if c["test"] == "punctuation":
+            if c["test"] in ("punctuation", "punctuation-more"):
                 self.assertTrue(any(m in n for _, _, _, n in c["truth"] for m in gen.PEELED + "-'"), c["id"])
             if c["test"] == "song-or-album":
                 dual = {n for _, _, _, n in c["truth"]} & set(data) & set(albums)
@@ -205,7 +234,7 @@ class GenerateTest(unittest.TestCase):
     def test_recognize_relations_edges_match_the_tables(self):
         data = songs()
         for c in cases("recognize"):
-            if c["test"] != "relations":
+            if c["test"] not in ("relations", "relations-more"):
                 continue
             text = c["records"][0]["input"]
             self.assertIn("--relation", c["args"])
@@ -224,7 +253,8 @@ class GenerateTest(unittest.TestCase):
         links = {(r["song"], r["relation"], r["other_article"])
                  for r in csv.DictReader(open(ROOT / "data" / "links.tsv", encoding="utf-8"), delimiter="\t")}
         to_link = {"composed_by": "composer", "produced_by": "producer"}
-        counts = {"song to singer and album": 1, "solo": 16, "duet": 6, "wrong-album-only": 16, "links": 8}
+        counts = {"song to singer and album": 1, "solo": 16, "duet": 6, "wrong-album-only": 16, "links": 8,
+                  "more-solo": 20, "more-duet": 7, "more-wrong-album-only": 16, "more-links": 10}
         seen = {}
         for c in cases("relate"):
             seen[c["test"]] = seen.get(c["test"], 0) + 1
@@ -249,7 +279,8 @@ class GenerateTest(unittest.TestCase):
     def test_relate_small_sets_hold_what_they_name(self):
         data = songs()
         for c in cases("relate"):
-            if c["test"] not in ("solo", "duet", "wrong-album-only"):
+            kind = c["test"].removeprefix("more-")
+            if kind not in ("solo", "duet", "wrong-album-only"):
                 continue
             picked = [r["name"] for r in c["records"] if r["kind"] == "song"]
             albums = {r["name"] for r in c["records"] if r["kind"] == "album"}
@@ -258,38 +289,156 @@ class GenerateTest(unittest.TestCase):
             self.assertEqual(len(albums), 3, c["id"])
             self.assertTrue(all(gen.settled_lead(data[s]) for s in picked), c["id"])
             right = {data[s]["first_album"] for s in picked}
-            if c["test"] == "wrong-album-only":
+            if kind == "wrong-album-only":
                 self.assertFalse(right & albums, c["id"])
                 self.assertFalse([e for e in c["truth"] if e[0] == "appears_on"], c["id"])
             else:
                 self.assertEqual(len(right), 1, c["id"])  # the case's songs share one first album
                 self.assertEqual(len(right & albums), 1, c["id"])
                 self.assertTrue(any(e[0] == "appears_on" for e in c["truth"]), c["id"])
-            if c["test"] == "duet":
+            if kind == "duet":
                 self.assertTrue(all(len(data[s]["lead_vocals"].split("+")) == 2 for s in picked), c["id"])
-            if c["test"] == "solo":
+            if kind == "solo":
                 self.assertTrue(all(len(data[s]["lead_vocals"].split("+")) == 1 for s in picked), c["id"])
 
     def test_relate_links_sets_come_from_links_tsv(self):
         links = [r for r in csv.DictReader(open(ROOT / "data" / "links.tsv", encoding="utf-8"), delimiter="\t")
                  if r["relation"] in gen.LINK_REL]
         people = {r["other_article"] for r in links}
-        covered = set()
+        covered = {"links": set(), "more-links": set()}
         for c in cases("relate"):
-            if c["test"] != "links":
+            if c["test"] not in covered:
                 continue
             self.assertIn("@relate-links.json", c["args"], c["id"])
             ents = {(r["name"], r["kind"]) for r in c["records"]}
             self.assertLessEqual(len(ents), 21, c["id"])
             self.assertEqual({n for n, k in ents if k == "person"}, people, c["id"])
             songs_ = {n for n, k in ents if k == "song"}
-            self.assertFalse(covered & songs_)
-            covered |= songs_
+            self.assertFalse(covered[c["test"]] & songs_)
+            covered[c["test"]] |= songs_
             truth = {tuple(e) for e in c["truth"]}
             want = {(gen.LINK_REL[r["relation"]], r["song"], r["other_article"]) for r in links
                     if r["song"] in songs_}
             self.assertEqual(truth, {tuple(e) for e in want}, c["id"])
-        self.assertEqual(covered, {r["song"] for r in links})
+        for test, songs_ in covered.items():
+            self.assertEqual(songs_, {r["song"] for r in links}, test)
+
+
+class LevelsTest(unittest.TestCase):
+    """Ticket 0021: every suite case carries a level, and the eight card-answerable functions ask each of their
+    300 questions at memory and context, 100 of them at card."""
+    EIGHT = ("decide", "choose", "tag", "score", "filter", "rank", "find", "annotate")
+
+    def test_every_case_carries_a_level(self):
+        for name in TESTS:
+            levels = {c["level"] for c in cases(name)}
+            want = {"text"} if name == "recognize" else {"memory"} if name == "relate" \
+                else {"card", "context"} if name == "choose" else {"memory", "card", "context"}
+            self.assertEqual(levels, want, name)
+
+    def test_each_function_holds_300_questions_at_their_levels(self):
+        """300 questions a function, each at memory and context, 100 at card. Exceptions: decide and choose draw
+        their memory asks from the main questions (decide adds 132 album asks of its own), and rank keeps all 353
+        of its asks and 200 card cases — the recorded 2026-09-26 rank lists let none of them drop."""
+        for name in self.EIGHT:
+            with self.subTest(name):
+                cs = cases(name)
+                card = [c for c in cs if c["level"] == "card"]
+                ctx = [c for c in cs if c["level"] == "context"]
+                mem = [c for c in cs if c["level"] == "memory"]
+                want = {"decide": (132, 100, 300), "choose": (0, 100, 300), "rank": (353, 200, 353)} \
+                    .get(name, (300, 100, 300))
+                self.assertEqual((len(mem), len(card), len(ctx)), want, name)
+
+    def test_memory_card_and_context_ask_the_same_questions(self):
+        """Each context case's source names the memory question it pairs with: same arguments and truth. The 100
+        card cases pick distinct memory asks."""
+        mains = {q["id"]: q for f in sorted((ROOT / "questions").glob("*.jsonl"))
+                 for q in map(json.loads, open(f, encoding="utf-8"))}
+        for name in self.EIGHT:
+            with self.subTest(name):
+                cs = cases(name)
+                mem = {c["id"]: c for c in cs if c["level"] == "memory"}
+                card_src = {c["source"] for c in cs if c["level"] == "card"}
+                self.assertEqual(len(card_src), 200 if name == "rank" else 100, name)
+                ctx_src = [c["source"] for c in cs if c["level"] == "context"]
+                self.assertEqual(len(ctx_src), len(set(ctx_src)), name)
+                for c in cs:
+                    if c["level"] != "context":
+                        continue
+                    src = mem.get(c["source"]) or mains.get(c["source"])
+                    self.assertIsNotNone(src, c["id"])
+                    self.assertEqual(c["truth"], src["truth"], c["id"])
+                    self.assertEqual(c["args"][0], src["args"][0] if "args" in src else src["question"], c["id"])
+                self.assertEqual({c["source"] for c in cs if c["level"] == "context" and c["source"] in mem},
+                                 set(mem), name)
+
+    def test_the_controls_hold_their_shares(self):
+        dec = cases("decide")
+        mem_ids = {c["id"] for c in dec}  # decide's 300 questions: the album asks and the main asks at context
+        qs = [c for c in dec if c["test"] == "album" or (c["level"] == "context" and c["source"] not in mem_ids)]
+        self.assertEqual(len(qs), 300)
+        self.assertEqual(sum(c["truth"] == "yes" for c in qs), 150)
+        self.assertEqual(sum(c["truth"] == "no" for c in qs), 150)
+        ch = [c for c in cases("choose") if c["level"] == "context"]
+        self.assertEqual(sum(c["truth"] == "none" for c in ch), 30)
+        tr = [c for c in cases("tag") if c["test"] == "traits"]
+        self.assertEqual(sum(not c["truth"] for c in tr), 21)
+        ff = [c for c in cases("find") if c["level"] == "memory"]
+        self.assertEqual(sum(c["truth"] == "none" for c in ff), 45)
+        self.assertTrue(all("--none" in c["args"] for c in ff if c["truth"] == "none"))
+
+    def test_a_context_record_holds_20_cards_and_each_needed_fact_once(self):
+        """The record is the input text, then 20 cards. Each card opens with Title: and carries the needs lines.
+        Every song songs names appears once, and for find every filler would make no right unit."""
+        data = songs()
+        fmt = {"lead_vocals": lambda s: " and ".join(gen.FULL.get(x, x) for x in s["lead_vocals"].split("+") if x) or "unknown",
+               "songwriters": lambda s: s["songwriters"], "first_album": lambda s: s["first_album"],
+               "year": lambda s: s["year"], "release_date": lambda s: s["release_date"],
+               "length_s": lambda s: f"{int(s['length_s']) // 60}:{int(s['length_s']) % 60:02d}" if s["length_s"] else "unknown",
+               "views_2024": lambda s: s["views_2024"] or "unknown",
+               "cover": lambda s: s["cover"] or "unknown"}
+        for name in self.EIGHT:
+            for c in cases(name):
+                if c["level"] != "context":
+                    continue
+                if c["function"] == "find":
+                    self.assertEqual(len(c["records"]), 20, c["id"])
+                    titles = [r["input"].split("\n")[0] for r in c["records"]]
+                else:
+                    parts = c["records"][0]["input"].split("\n\n")
+                    self.assertEqual(len(parts), 21, c["id"])
+                    titles = [p.splitlines()[0][len("Title: "):] for p in parts[1:]]
+                self.assertEqual(len(titles), len(set(titles)), c["id"])
+                self.assertTrue(set(c["songs"]) <= set(titles), c["id"])
+                self.assertTrue(all(titles.count(t) == 1 for t in c["songs"]), c["id"])  # each needed card once
+                for t in titles:
+                    s = data[t]
+                    card = next(r["input"] for r in c["records"] if r["input"].split("\n")[0] == t) \
+                        if c["function"] == "find" else \
+                        next(p for p in c["records"][0]["input"].split("\n\n") if p.startswith(f"Title: {t}\n"))
+                    for col in c["needs"]:
+                        self.assertIn(fmt[col](s), card, (c["id"], col))
+
+    def test_the_catalog_lists_every_question(self):
+        cat = [json.loads(l) for l in open(ROOT / "questions" / "catalog" / "catalog.jsonl", encoding="utf-8")]
+        self.assertTrue(all(set(r) == {"id", "file", "function", "test", "level", "category", "truth"}
+                            for r in cat))
+        seen = {}
+        main_cat = {}
+        for f in sorted((ROOT / "questions").glob("*.jsonl")):
+            for q in map(json.loads, open(f, encoding="utf-8")):
+                main_cat[q["id"]] = q["category"]
+                seen[q["id"]] = {"file": f.name, "function": q["function"], "test": q["kind"],
+                                 "level": "memory", "category": q["category"], "truth": q["truth"]}
+        mem_test = {c["id"]: c["test"] for name in TESTS for c in cases(name) if c["level"] == "memory"}
+        for name in TESTS:
+            for c in cases(name):
+                cat_ = mem_test.get(c.get("source")) or main_cat.get(c.get("source")) or c["test"]
+                seen[c["id"]] = {"file": f"suite/{name}.jsonl", "function": c["function"], "test": c["test"],
+                                 "level": c["level"], "category": cat_, "truth": c["truth"]}
+        self.assertEqual(len(cat), len(seen))
+        self.assertEqual({r["id"]: {k: r[k] for k in r if k != "id"} for r in cat}, seen)
 
 
 class TableTest(unittest.TestCase):
