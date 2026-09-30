@@ -81,31 +81,28 @@ EOF
 
 ### Two runs on the same cases
 
-Where Jev's memory run was right and where GLM's was, on the questions both answered:
+Where Jev and GLM disagree on a pick-one question: a self-join on the id. `report.py` uses the same join
+per function and level for its head-to-head table.
 
 ```sh
 duckdb -c "
-SELECT j.function, count(*) n,
-       sum(CASE WHEN j.\"right\" = 1.0 THEN 1 ELSE 0 END) jev_right,
-       sum(CASE WHEN g.\"right\" = 1.0 THEN 1 ELSE 0 END) glm_right
+SELECT j.id, j.answer jev, g.answer glm
 FROM read_json_auto('results/answers.jsonl', format='newline_delimited') j
 JOIN read_json_auto('results/answers.jsonl', format='newline_delimited') g ON g.id = j.id
 WHERE j.run = '2026-09-26-thinkthen-jev' AND g.run = '2026-09-23-glm-5.3-flash'
-  AND j.\"right\" IS NOT NULL AND j.function IN ('decide','choose')
-GROUP BY j.function ORDER BY j.function;"
+  AND j.function = 'choose' AND j.\"right\" != g.\"right\"
+ORDER BY j.id;"
 ```
 
 ```sh
 python3 - <<'EOF'
 db = load()
 for row in db.execute("""
-    SELECT j.function, count(*) n,
-           sum(CASE WHEN j."right" = 1.0 THEN 1 ELSE 0 END) jev_right,
-           sum(CASE WHEN g."right" = 1.0 THEN 1 ELSE 0 END) glm_right
+    SELECT j.id, j.answer jev, g.answer glm
     FROM answers j JOIN answers g ON g.id = j.id
     WHERE j.run = '2026-09-26-thinkthen-jev' AND g.run = '2026-09-23-glm-5.3-flash'
-      AND j."right" IS NOT NULL AND j.function IN ('decide','choose')
-    GROUP BY j.function ORDER BY j.function"""):
+      AND j.function = 'choose' AND j."right" != g."right"
+    ORDER BY j.id"""):
     print(row)
 EOF
 ```
