@@ -125,7 +125,7 @@ def row(run, build, qid, meta, q, base=None):
            "output_tokens": base.get("output_tokens"), "ms": base.get("ms"),
            "requests": base.get("requests")}
     if out["level"] is None:
-        out["level"] = level_of(q) if "test" in q else "memory"
+        out["level"] = level_of(q) if "test" in q else ("text" if fn == "recognize" else "memory")
     return out
 
 

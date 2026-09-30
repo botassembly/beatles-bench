@@ -50,7 +50,10 @@ def tracked(path):
     so a file that was never committed stays out of every table. Outside a checkout, such as a ZIP download, every
     file on disk counts: a copy holds committed files only."""
     path = Path(path)
-    rel = path.relative_to(ROOT) if path.is_absolute() else path
+    try:
+        rel = path.relative_to(ROOT) if path.is_absolute() else path
+    except ValueError:
+        rel = path
     try:
         out = subprocess.run(["git", "ls-files", "-z", "--", str(rel)], cwd=ROOT,
                              capture_output=True, check=True).stdout
