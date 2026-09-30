@@ -289,7 +289,7 @@ def by_function(db, order):
     scores, units, values = query(db, "scores"), query(db, "units"), query(db, "values")
     lines = ["# By function",
              "",
-             "Each function's main measure per level and model backend, from `results/answers.jsonl`. "
+             "Each function's main measure per level and system, from `results/answers.jsonl`. "
              "The interval is 95%: Wilson for a share, a seeded bootstrap of 1,000 draws for Spearman and "
              "F1. `—` means the system did not cover that measure.",
              "",
