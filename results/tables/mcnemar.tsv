@@ -84,22 +84,22 @@ BM25	Laya	none-of-these	60	15	21	4	10	0.179565
 BM25	Laya	reversal	65	22	24	3	5	0.726562
 BM25	Laya	reversal-general	146	41	47	7	13	0.263176
 BM25	Laya	reversal-general-shared-name	42	42	30	12	0	0.000488
-BM25	Jev	overall	1501	524	1050	72	598	0.0
-BM25	Jev	beatles-only	1313	441	875	71	505	0.0
-BM25	Jev	forward	224	51	152	6	107	0.0
-BM25	Jev	reverse	112	36	82	3	49	0.0
-BM25	Jev	multi-hop	180	71	90	16	35	0.010974
-BM25	Jev	single-hop	248	71	171	17	117	0.0
-BM25	Jev	comparison	60	24	51	5	32	7e-06
-BM25	Jev	shared-lead	32	17	20	3	6	0.507812
-BM25	Jev	lead-set	104	62	78	5	21	0.002494
-BM25	Jev	near-neighbor	60	28	45	3	20	0.000488
-BM25	Jev	near-neighbor-control	60	26	48	1	23	3e-06
-BM25	Jev	lexical-trap	54	4	27	0	23	0.0
-BM25	Jev	lexical-trap-control	54	14	38	4	28	1.9e-05
-BM25	Jev	none-of-these	60	15	33	1	19	4e-05
-BM25	Jev	reversal	65	22	40	7	25	0.002102
-BM25	Jev	reversal-general	146	41	133	1	93	0.0
+BM25	Jev	overall	1501	524	1053	65	594	0.0
+BM25	Jev	beatles-only	1313	441	880	64	503	0.0
+BM25	Jev	forward	224	51	149	6	104	0.0
+BM25	Jev	reverse	112	36	78	7	49	0.0
+BM25	Jev	multi-hop	180	71	99	13	41	0.000175
+BM25	Jev	single-hop	248	71	171	13	113	0.0
+BM25	Jev	comparison	60	24	49	5	30	2.2e-05
+BM25	Jev	shared-lead	32	17	21	2	6	0.289062
+BM25	Jev	lead-set	104	62	79	1	18	7.6e-05
+BM25	Jev	near-neighbor	60	28	49	4	25	0.000104
+BM25	Jev	near-neighbor-control	60	26	50	2	26	3e-06
+BM25	Jev	lexical-trap	54	4	26	1	23	3e-06
+BM25	Jev	lexical-trap-control	54	14	36	4	26	5.9e-05
+BM25	Jev	none-of-these	60	15	33	0	18	8e-06
+BM25	Jev	reversal	65	22	40	6	24	0.001431
+BM25	Jev	reversal-general	146	41	131	1	91	0.0
 BM25	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
 Embeddings	Hybrid	overall	1501	597	553	175	131	0.013834
 Embeddings	Hybrid	beatles-only	1313	494	465	150	121	0.08878
@@ -169,22 +169,22 @@ Embeddings	Laya	none-of-these	60	12	21	7	16	0.09314
 Embeddings	Laya	reversal	65	29	24	19	14	0.48685
 Embeddings	Laya	reversal-general	146	61	47	34	20	0.075905
 Embeddings	Laya	reversal-general-shared-name	42	42	30	12	0	0.000488
-Embeddings	Jev	overall	1501	597	1050	105	558	0.0
-Embeddings	Jev	beatles-only	1313	494	875	103	484	0.0
-Embeddings	Jev	forward	224	59	152	7	100	0.0
-Embeddings	Jev	reverse	112	39	82	7	50	0.0
-Embeddings	Jev	multi-hop	180	71	90	17	36	0.01266
+Embeddings	Jev	overall	1501	597	1053	104	560	0.0
+Embeddings	Jev	beatles-only	1313	494	880	101	487	0.0
+Embeddings	Jev	forward	224	59	149	8	98	0.0
+Embeddings	Jev	reverse	112	39	78	8	47	0.0
+Embeddings	Jev	multi-hop	180	71	99	15	43	0.000307
 Embeddings	Jev	single-hop	248	74	171	20	117	0.0
-Embeddings	Jev	comparison	60	34	51	7	24	0.003327
-Embeddings	Jev	shared-lead	32	19	20	5	6	1.0
-Embeddings	Jev	lead-set	104	64	78	8	22	0.016125
-Embeddings	Jev	near-neighbor	60	38	45	5	12	0.143463
-Embeddings	Jev	near-neighbor-control	60	27	48	4	25	0.000104
-Embeddings	Jev	lexical-trap	54	10	27	3	20	0.000488
-Embeddings	Jev	lexical-trap-control	54	18	38	6	26	0.000535
+Embeddings	Jev	comparison	60	34	49	8	23	0.010674
+Embeddings	Jev	shared-lead	32	19	21	4	6	0.753906
+Embeddings	Jev	lead-set	104	64	79	5	20	0.004077
+Embeddings	Jev	near-neighbor	60	38	49	4	15	0.019211
+Embeddings	Jev	near-neighbor-control	60	27	50	4	27	3.4e-05
+Embeddings	Jev	lexical-trap	54	10	26	4	20	0.001544
+Embeddings	Jev	lexical-trap-control	54	18	36	8	26	0.002935
 Embeddings	Jev	none-of-these	60	12	33	1	22	6e-06
-Embeddings	Jev	reversal	65	29	40	13	24	0.098872
-Embeddings	Jev	reversal-general	146	61	133	2	74	0.0
+Embeddings	Jev	reversal	65	29	40	12	23	0.089531
+Embeddings	Jev	reversal-general	146	61	131	3	73	0.0
 Embeddings	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
 Hybrid	Word overlap	overall	1501	553	517	85	49	0.002372
 Hybrid	Word overlap	beatles-only	1313	465	437	72	44	0.01185
@@ -237,22 +237,22 @@ Hybrid	Laya	none-of-these	60	14	21	4	11	0.118469
 Hybrid	Laya	reversal	65	23	24	8	9	1.0
 Hybrid	Laya	reversal-general	146	46	47	15	16	1.0
 Hybrid	Laya	reversal-general-shared-name	42	42	30	12	0	0.000488
-Hybrid	Jev	overall	1501	553	1050	85	582	0.0
-Hybrid	Jev	beatles-only	1313	465	875	82	492	0.0
-Hybrid	Jev	forward	224	63	152	12	101	0.0
-Hybrid	Jev	reverse	112	38	82	6	50	0.0
-Hybrid	Jev	multi-hop	180	67	90	12	35	0.001089
-Hybrid	Jev	single-hop	248	79	171	21	113	0.0
-Hybrid	Jev	comparison	60	24	51	5	32	7e-06
-Hybrid	Jev	shared-lead	32	17	20	3	6	0.507812
-Hybrid	Jev	lead-set	104	62	78	5	21	0.002494
-Hybrid	Jev	near-neighbor	60	33	45	3	15	0.007538
-Hybrid	Jev	near-neighbor-control	60	25	48	1	24	2e-06
-Hybrid	Jev	lexical-trap	54	5	27	1	23	3e-06
-Hybrid	Jev	lexical-trap-control	54	15	38	4	27	3.4e-05
-Hybrid	Jev	none-of-these	60	14	33	1	20	2.1e-05
-Hybrid	Jev	reversal	65	23	40	8	25	0.004551
-Hybrid	Jev	reversal-general	146	46	133	3	90	0.0
+Hybrid	Jev	overall	1501	553	1053	75	575	0.0
+Hybrid	Jev	beatles-only	1313	465	880	73	488	0.0
+Hybrid	Jev	forward	224	63	149	12	98	0.0
+Hybrid	Jev	reverse	112	38	78	8	48	0.0
+Hybrid	Jev	multi-hop	180	67	99	9	41	6e-06
+Hybrid	Jev	single-hop	248	79	171	19	111	0.0
+Hybrid	Jev	comparison	60	24	49	5	30	2.2e-05
+Hybrid	Jev	shared-lead	32	17	21	2	6	0.289062
+Hybrid	Jev	lead-set	104	62	79	1	18	7.6e-05
+Hybrid	Jev	near-neighbor	60	33	49	4	20	0.001544
+Hybrid	Jev	near-neighbor-control	60	25	50	2	27	2e-06
+Hybrid	Jev	lexical-trap	54	5	26	2	23	1.9e-05
+Hybrid	Jev	lexical-trap-control	54	15	36	3	24	4.9e-05
+Hybrid	Jev	none-of-these	60	14	33	0	19	4e-06
+Hybrid	Jev	reversal	65	23	40	6	23	0.002316
+Hybrid	Jev	reversal-general	146	46	131	2	87	0.0
 Hybrid	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
 Word overlap	GLM-5.3 Flash	overall	1501	517	1451	15	949	0.0
 Word overlap	GLM-5.3 Flash	beatles-only	1313	437	1263	15	841	0.0
@@ -288,22 +288,22 @@ Word overlap	Laya	none-of-these	60	15	21	4	10	0.179565
 Word overlap	Laya	reversal	65	23	24	5	6	1.0
 Word overlap	Laya	reversal-general	146	41	47	7	13	0.263176
 Word overlap	Laya	reversal-general-shared-name	42	39	30	12	3	0.035156
-Word overlap	Jev	overall	1501	517	1050	74	607	0.0
-Word overlap	Jev	beatles-only	1313	437	875	73	511	0.0
-Word overlap	Jev	forward	224	51	152	6	107	0.0
-Word overlap	Jev	reverse	112	37	82	4	49	0.0
-Word overlap	Jev	multi-hop	180	71	90	16	35	0.010974
-Word overlap	Jev	single-hop	248	65	171	17	123	0.0
-Word overlap	Jev	comparison	60	26	51	4	29	1.1e-05
-Word overlap	Jev	shared-lead	32	17	20	3	6	0.507812
-Word overlap	Jev	lead-set	104	62	78	5	21	0.002494
-Word overlap	Jev	near-neighbor	60	28	45	3	20	0.000488
-Word overlap	Jev	near-neighbor-control	60	26	48	1	23	3e-06
-Word overlap	Jev	lexical-trap	54	1	27	0	26	0.0
-Word overlap	Jev	lexical-trap-control	54	15	38	5	28	6.6e-05
-Word overlap	Jev	none-of-these	60	15	33	1	19	4e-05
-Word overlap	Jev	reversal	65	23	40	8	25	0.004551
-Word overlap	Jev	reversal-general	146	41	133	1	93	0.0
+Word overlap	Jev	overall	1501	517	1053	66	602	0.0
+Word overlap	Jev	beatles-only	1313	437	880	65	508	0.0
+Word overlap	Jev	forward	224	51	149	6	104	0.0
+Word overlap	Jev	reverse	112	37	78	8	49	0.0
+Word overlap	Jev	multi-hop	180	71	99	13	41	0.000175
+Word overlap	Jev	single-hop	248	65	171	13	119	0.0
+Word overlap	Jev	comparison	60	26	49	4	27	3.4e-05
+Word overlap	Jev	shared-lead	32	17	21	2	6	0.289062
+Word overlap	Jev	lead-set	104	62	79	1	18	7.6e-05
+Word overlap	Jev	near-neighbor	60	28	49	4	25	0.000104
+Word overlap	Jev	near-neighbor-control	60	26	50	2	26	3e-06
+Word overlap	Jev	lexical-trap	54	1	26	0	25	0.0
+Word overlap	Jev	lexical-trap-control	54	15	36	5	26	0.000192
+Word overlap	Jev	none-of-these	60	15	33	0	18	8e-06
+Word overlap	Jev	reversal	65	23	40	7	24	0.003327
+Word overlap	Jev	reversal-general	146	41	131	1	91	0.0
 Word overlap	Jev	reversal-general-shared-name	42	39	42	0	3	0.25
 GLM-5.3 Flash	Laya	overall	1501	1451	537	931	17	0.0
 GLM-5.3 Flash	Laya	beatles-only	1313	1263	460	820	17	0.0
@@ -322,37 +322,37 @@ GLM-5.3 Flash	Laya	none-of-these	60	59	21	38	0	0.0
 GLM-5.3 Flash	Laya	reversal	65	59	24	37	2	0.0
 GLM-5.3 Flash	Laya	reversal-general	146	146	47	99	0	0.0
 GLM-5.3 Flash	Laya	reversal-general-shared-name	42	42	30	12	0	0.000488
-GLM-5.3 Flash	Jev	overall	1501	1451	1050	423	22	0.0
-GLM-5.3 Flash	Jev	beatles-only	1313	1263	875	410	22	0.0
-GLM-5.3 Flash	Jev	forward	224	218	152	67	1	0.0
-GLM-5.3 Flash	Jev	reverse	112	102	82	26	6	0.000535
-GLM-5.3 Flash	Jev	multi-hop	180	175	90	87	2	0.0
+GLM-5.3 Flash	Jev	overall	1501	1451	1053	419	21	0.0
+GLM-5.3 Flash	Jev	beatles-only	1313	1263	880	404	21	0.0
+GLM-5.3 Flash	Jev	forward	224	218	149	70	1	0.0
+GLM-5.3 Flash	Jev	reverse	112	102	78	29	5	3.9e-05
+GLM-5.3 Flash	Jev	multi-hop	180	175	99	77	1	0.0
 GLM-5.3 Flash	Jev	single-hop	248	245	171	74	0	0.0
-GLM-5.3 Flash	Jev	comparison	60	59	51	9	1	0.021484
-GLM-5.3 Flash	Jev	shared-lead	32	27	20	10	3	0.092285
-GLM-5.3 Flash	Jev	lead-set	104	96	78	23	5	0.000912
-GLM-5.3 Flash	Jev	near-neighbor	60	60	45	15	0	6.1e-05
-GLM-5.3 Flash	Jev	near-neighbor-control	60	60	48	12	0	0.000488
-GLM-5.3 Flash	Jev	lexical-trap	54	50	27	23	0	0.0
-GLM-5.3 Flash	Jev	lexical-trap-control	54	53	38	15	0	6.1e-05
+GLM-5.3 Flash	Jev	comparison	60	59	49	11	1	0.006348
+GLM-5.3 Flash	Jev	shared-lead	32	27	21	9	3	0.145996
+GLM-5.3 Flash	Jev	lead-set	104	96	79	22	5	0.001514
+GLM-5.3 Flash	Jev	near-neighbor	60	60	49	11	0	0.000977
+GLM-5.3 Flash	Jev	near-neighbor-control	60	60	50	10	0	0.001953
+GLM-5.3 Flash	Jev	lexical-trap	54	50	26	25	1	1e-06
+GLM-5.3 Flash	Jev	lexical-trap-control	54	53	36	17	0	1.5e-05
 GLM-5.3 Flash	Jev	none-of-these	60	59	33	26	0	0.0
 GLM-5.3 Flash	Jev	reversal	65	59	40	23	4	0.000311
-GLM-5.3 Flash	Jev	reversal-general	146	146	133	13	0	0.000244
+GLM-5.3 Flash	Jev	reversal-general	146	146	131	15	0	6.1e-05
 GLM-5.3 Flash	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
-Laya	Jev	overall	1501	537	1050	100	613	0.0
-Laya	Jev	beatles-only	1313	460	875	99	514	0.0
-Laya	Jev	forward	224	51	152	9	110	0.0
-Laya	Jev	reverse	112	38	82	4	48	0.0
-Laya	Jev	multi-hop	180	70	90	29	49	0.030786
-Laya	Jev	single-hop	248	78	171	19	112	0.0
-Laya	Jev	comparison	60	27	51	7	31	0.000116
-Laya	Jev	shared-lead	32	17	20	4	7	0.548828
-Laya	Jev	lead-set	104	61	78	5	22	0.001514
-Laya	Jev	near-neighbor	60	26	45	4	23	0.000311
-Laya	Jev	near-neighbor-control	60	29	48	3	22	0.000157
-Laya	Jev	lexical-trap	54	9	27	3	21	0.000277
-Laya	Jev	lexical-trap-control	54	9	38	3	32	0.0
+Laya	Jev	overall	1501	537	1053	96	612	0.0
+Laya	Jev	beatles-only	1313	460	880	92	512	0.0
+Laya	Jev	forward	224	51	149	12	110	0.0
+Laya	Jev	reverse	112	38	78	8	48	0.0
+Laya	Jev	multi-hop	180	70	99	22	51	0.000914
+Laya	Jev	single-hop	248	78	171	18	111	0.0
+Laya	Jev	comparison	60	27	49	7	29	0.000313
+Laya	Jev	shared-lead	32	17	21	3	7	0.34375
+Laya	Jev	lead-set	104	61	79	1	19	4e-05
+Laya	Jev	near-neighbor	60	26	49	4	27	3.4e-05
+Laya	Jev	near-neighbor-control	60	29	50	4	25	0.000104
+Laya	Jev	lexical-trap	54	9	26	2	19	0.000221
+Laya	Jev	lexical-trap-control	54	9	36	3	30	1e-06
 Laya	Jev	none-of-these	60	21	33	4	16	0.011818
-Laya	Jev	reversal	65	24	40	5	21	0.002494
-Laya	Jev	reversal-general	146	47	133	1	87	0.0
+Laya	Jev	reversal	65	24	40	4	20	0.001544
+Laya	Jev	reversal-general	146	47	131	4	88	0.0
 Laya	Jev	reversal-general-shared-name	42	30	42	0	12	0.000488

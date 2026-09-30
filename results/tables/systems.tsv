@@ -5,4 +5,4 @@ Hybrid	2026-09-23-baseline-hybrid	vector search (question vs. options)	hybrid BA
 Word overlap	2026-09-23-baseline-overlap	vector search (question vs. options)	overlap, template question	none	1501
 GLM-5.3 Flash	2026-09-23-glm-5.3-flash	model	glm-5.3-flash thinking=off	https://api.z.ai/api/coding/paas/v4	1501
 Laya	2026-09-23-thinkthen-laya	model	laya-mlx	http://127.0.0.1:8791/systemone	1501
-Jev	2026-09-26-thinkthen-jev	model	jev-1.13.0	https://api.typesafe.ai/v1/systemone	1501
+Jev	2026-09-30-all-jev	model	jev-1.13.0	https://api.typesafe.ai/v1/systemone	1501
