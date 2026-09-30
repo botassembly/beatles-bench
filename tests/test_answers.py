@@ -440,11 +440,13 @@ class Recompute(unittest.TestCase):
         self.annotate(pub, pool, "context", "context")
         self.recognize(pub, pool)
         self.relate(pub, pool)
-        for r in pub:  # a whole refused test prints a gap row: refused (N cases: message)
-            if str(r.get("value") or "").startswith("refused"):
+        for r in pub:  # a whole refused test prints an empty main row and a "cases refused" count row
+            if r["measure"] == "cases refused by the backend":
                 sel = [x for x in pool.values() if x.get("test") == r["test"] and x.get("gap")]
-                self.check(pub, r["function"], r["test"], r["measure"], len(sel),
-                           f"refused ({len(sel)} cases: {sel[0]['gap']})")
+                self.check(pub, r["function"], r["test"], r["measure"], len(sel), 1.0,
+                           *stats.wilson(len(sel), len(sel)))
+                main_measure = fscore.GAP_MEASURE[r["function"]]
+                self.check(pub, r["function"], r["test"], main_measure, 0, "")
         return pub
 
     def test_functions_jev(self):
