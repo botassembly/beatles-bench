@@ -1,6 +1,6 @@
 # 0021 Give every function one shape: memory, card and context
 
-Owner: the queue owner. Status: accepted after ticket review 1; its findings are taken below.
+Owner: the queue owner. Status: done on 2026-09-30. rank keeps 353 questions and choose has 10% none-of-these controls; the record says why.
 
 ## Why
 

@@ -59,13 +59,13 @@ The eight card-answerable functions each hold 300 distinct questions, asked the 
 | tag | 300 | 100 | 300 | — | 700 |
 | score | 300 | 100 | 300 | — | 700 |
 | filter | 300 | 100 | 300 | — | 700 |
-| rank | 300 | 100 | 300 | — | 800 |
+| rank | 353 | 200 | 353 | — | 906 |
 | find | 300 | 100 | 300 | — | 700 |
 | annotate | 300 | 100 | 300 | — | 700 |
 | recognize | — | — | — | 400 | 400 |
 | relate | 100 | — | — | — | 100 |
 
-`decide` holds its 168 card-answerable main questions plus 132 album asks; `rank` samples 100 memory asks per ask kind for its two card tests, hence 200 card cases. Controls: decide runs half yes, half no; filter keeps its kept/dropped mix; 30 of choose's 300 questions are `none of these`; 21 of tag's 142 trait asks have an empty truth; 45 of find's 300 sets hold no right unit and run with `--none`.
+`decide` holds its 168 card-answerable main questions plus 132 album asks; `rank` keeps all 353 of its asks at memory and context, because the committed 2026-09-26 run scores each ask as one full ordered list, and samples 100 per ask kind for its two card tests, hence 200 card cases. Controls: decide runs half yes, half no; filter keeps its kept/dropped mix; 30 of choose's 300 questions are `none of these`; 21 of tag's 142 trait asks have an empty truth; 45 of find's 300 sets hold no right unit and run with `--none`.
 
 A `reading` test is a card case: it reuses a memory case's question and truth but writes the facts into the record — the input text, then one short card per song it names: the song's title, lead singers, first album, year, and length, plus the writers, release date, cover flag, or 2024 page views where the truth needs them. A find set's records carry one card each. A case's `needs` lists the `songs.tsv` columns its truth needs. Cases whose truth needs another table (world events, pairs outside the Beatles, album dates) are not eligible.
 

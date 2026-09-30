@@ -12,7 +12,7 @@ Every suite case carries a `level`, and the eight card-answerable functions shar
 - One new ask kind per function that had fewer than 300, each a small generator of its own: tag `traits` (a cover, runs over four minutes, a Lennon–McCartney credit), score `length` (a five-level scale), filter `album-more` (two more albums), find `singer` (the unit with a named Beatle on lead), annotate `details` (writers, cover and length, `annotate-details.json`), decide `album` (did the song first appear on this album). choose needed none: its 300 questions are main-bench chooses.
 - decide and choose memory asks stay in `questions/*.jsonl`: decide's 300 are its 168 card-answerable mains plus the 132 album asks; choose's are a seeded 300 of its eligible mains.
 - recognize grows to 400 sentences — 300 name sentences and 100 relation sentences — at level `text`; relate grows to 100 entity sets at level `memory`.
-- `questions/catalog/catalog.jsonl` lists all 7,392 questions — the 1,501 mains and every suite case — as `{id, file, function, test, level, category, truth}`. The generator writes it; `tests/test_suite.py` checks it against the files row for row.
+- `questions/catalog/catalog.jsonl` lists all 7,339 questions — the 1,501 mains and every suite case — as `{id, file, function, test, level, category, truth}`. The generator writes it; `tests/test_suite.py` checks it against the files row for row.
 
 ## Counts
 

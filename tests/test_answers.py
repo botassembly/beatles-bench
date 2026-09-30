@@ -114,7 +114,7 @@ class Build(unittest.TestCase):
         self.assertEqual((r["test"], r["level"]), ("k", "memory"))
 
     def test_catalog_reads_the_subfolder_and_fails_loud(self):
-        self.assertEqual(build.catalog(), {})  # ticket 0021 has not landed it yet
+        self.assertTrue(build.catalog())  # ticket 0021 writes questions/catalog/catalog.jsonl
         import tempfile
         with tempfile.TemporaryDirectory() as d:
             f = Path(d) / "catalog.jsonl"
