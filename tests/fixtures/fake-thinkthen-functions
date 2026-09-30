@@ -9,6 +9,9 @@ from pathlib import Path
 
 verb, argv = sys.argv[1], sys.argv
 assert "--details" in argv and "--jsonl" in argv
+if os.environ.get("FAKE_LOG"):  # one JSON line per call: the arguments after the command name
+    with open(os.environ["FAKE_LOG"], "a", encoding="utf-8") as log:
+        log.write(json.dumps(argv[1:]) + "\n")
 folder = Path(argv[argv.index("--cache" if "--cache" in argv else "--replay") + 1])
 meta = {"tool": "fake", "url": "http://127.0.0.1/fake", "model": "fake-1", "usage": {"input_tokens": 10, "output_tokens": 3},
         "requests_sent": 1, "cached": False}

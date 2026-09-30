@@ -123,5 +123,17 @@ class RunTest(unittest.TestCase):
             self.assertIn(message, done.stderr, cap)
             self.assertFalse((run / "answers.jsonl").exists(), cap)
 
+    def test_bench_thinkthen_args_appends_extra_flags(self):
+        own = [{"id": "q0", "function": "decide", "question": "Is it?", "input": "Carol", "options": None}]
+        run = Path(tempfile.mkdtemp())
+        (run / "questions.jsonl").write_text(json.dumps(own[0]) + "\n", encoding="utf-8")
+        log = run / "calls.jsonl"
+        env = {**os.environ, "THINKTHEN_BIN": str(ROOT / "tests" / "fixtures" / "fake-thinkthen"),
+               "FAKE_LOG": str(log), "BENCH_THINKTHEN_ARGS": "--backend other --timeout 90"}
+        env.pop("THINKTHEN_API_KEY", None)
+        subprocess.run([str(ROOT / "scripts" / "run" / "thinkthen.sh"), "live", str(run)], check=True, env=env)
+        argv = json.loads(log.read_text().splitlines()[0])
+        self.assertEqual(argv[-4:], ["--backend", "other", "--timeout", "90"])
+
 if __name__ == "__main__":
     unittest.main()

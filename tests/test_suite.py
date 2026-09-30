@@ -687,6 +687,23 @@ class RunTest(unittest.TestCase):
         self.assertIn("functions: stopped at 0 new input tokens (cap 0); 1 cases unasked.", done.stderr)
         self.assertEqual(list((run / "recording").glob("*")) if (run / "recording").exists() else [], [])
 
+    def test_extra_args_append_and_a_cases_own_flag_wins(self):
+        qdir = Path(tempfile.mkdtemp())
+        c = {**cases("tag")[0], "args": [*cases("tag")[0]["args"], "--timeout", "180"]}
+        (qdir / "tag.jsonl").write_text(json.dumps(c, ensure_ascii=False) + "\n")
+        run = Path(tempfile.mkdtemp())
+        log = run / "calls.jsonl"
+        env = {**os.environ, "THINKTHEN_BIN": str(ROOT / "tests" / "fixtures" / "fake-thinkthen-functions"),
+               "BENCH_FUNCTIONS": str(qdir), "BENCH_TESTS": "tag", "BENCH_WORKERS": "1", "FAKE_LOG": str(log),
+               "BENCH_THINKTHEN_ARGS": "--backend other --timeout 90"}
+        env.pop("THINKTHEN_API_KEY", None)
+        script = ROOT / "scripts" / "run" / "ask_suite.py"
+        subprocess.run([sys.executable, str(script), "live", str(run)], check=True, env=env)
+        argv = json.loads(log.read_text().splitlines()[0])
+        self.assertEqual(argv.count("--timeout"), 1)
+        self.assertEqual(argv[argv.index("--timeout") + 1], "180")  # the case's own timeout stands
+        self.assertEqual(argv[-2:], ["--backend", "other"])
+
     def test_a_refused_case_is_a_gap_and_replays_without_a_call(self):
         qdir = Path(tempfile.mkdtemp())
         for name in ["tag", "annotate"]:
