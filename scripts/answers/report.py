@@ -69,7 +69,7 @@ def systems(answers):
     pools, backend_model = {}, {}
     for name in sorted(knowledge):
         lab = label(name)
-        pools[lab] = {r["id"]: r for r in sorted(by_run[name], key=lambda r: r["id"])}
+        pools[lab] = {r["id"]: r for r in by_run[name]}  # file order, like the scorer's case order
         first = next(iter(pools[lab].values()))
         backend_model[lab] = (first["backend"], first["model"])
     suite_ids = {json.loads(l)["id"] for fn in fscore.TESTS
@@ -82,7 +82,7 @@ def systems(answers):
         lab = next((l for l, k in backend_model.items() if k == key), None) or label(run.name)
         pool = pools.setdefault(lab, {})
         backend_model.setdefault(lab, key)
-        for r in sorted(got, key=lambda r: r["id"]):
+        for r in got:
             if r["id"].split(":")[0] in suite_ids:  # a case the suite no longer names stays unscoreable
                 pool[r["id"]] = r  # the newer folder's answer wins for a case both asked
     return pools
@@ -112,7 +112,8 @@ def load_db(answers, pools, catalog):
                   truth, answer)""")
     db.execute("CREATE TABLE units(system, function, level, test, id, seq, tp, fp, fn, meta)")
     db.execute("""CREATE TABLE answers(run, date, backend, model, build, id, function, test, level,
-                  category, truth, answer, right, counts, value, probability, input_tokens, ms, gap)""")
+                  category, truth, answer, right, counts, value, probability, input_tokens,
+                  cached_input_tokens, output_tokens, ms, requests, gap)""")
     db.execute("CREATE TABLE questions(id, function, test, level, category, truth)")
     for lab, pool in pools.items():
         for r in pool.values():
@@ -131,12 +132,13 @@ def load_db(answers, pools, catalog):
                            (lab, r["function"], r["level"], r["test"], r["id"], i, u["tp"], u["fp"], u["fn"],
                             json.dumps(meta, ensure_ascii=False)))
     for r in answers:
-        db.execute("INSERT INTO answers VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        db.execute("INSERT INTO answers VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                    (r["run"], r["date"], r["backend"], r["model"], r["build"], r["id"], r["function"],
                     r["test"], r["level"], r["category"], json.dumps(r["truth"], ensure_ascii=False),
                     json.dumps(r["answer"], ensure_ascii=False), r["right"],
                     json.dumps(r["counts"], ensure_ascii=False), r["value"], r["probability"],
-                    r["input_tokens"], r["ms"], int(bool(r.get("gap")))))
+                    r["input_tokens"], r["cached_input_tokens"], r["output_tokens"], r["ms"],
+                    r["requests"], int(bool(r.get("gap")))))
     qs = dict(catalog)
     for r in answers:  # a run-only question the catalog does not name yet
         if r["id"] not in qs and r["function"] is not None:

@@ -23,9 +23,12 @@ queries in `queries/`, computes intervals and tests in Python, and writes `repor
 - `value` is the number the measure needs: the score answer, rank's negated print position, decide's
   p(yes), choose's top tie width.
 - `probability` is the probability the backend gave its answer. It is null for recognize, whose strength
-  is not a probability, and for relate, a set of edges.
+  is not a probability, and for relate, whose answer is the edges with each one's probability (and the
+  case's skipped songs, so an audited cut's said set re-derives the way the scorer's does).
 - `id` is the case id; annotate's fields get one row each as `case:field`. `gap` marks a case the backend
   refused.
+- `input_tokens`, `cached_input_tokens`, `output_tokens`, `ms` and `requests` are the recorded cost, where
+  the run recorded it, so the tables' usage columns recompute.
 
 ## Read the file
 
@@ -38,14 +41,16 @@ def load(path="results/answers.jsonl"):
     import json, sqlite3
     db = sqlite3.connect(":memory:")
     db.execute("""CREATE TABLE answers(run, date, backend, model, build, id, function, test, level,
-                  category, truth, answer, right, counts, value, probability, input_tokens, ms)""")
+                  category, truth, answer, right, counts, value, probability, input_tokens,
+                  cached_input_tokens, output_tokens, ms, requests)""")
     for l in open(path, encoding="utf-8"):
         r = json.loads(l)
-        db.execute("INSERT INTO answers VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        db.execute("INSERT INTO answers VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
                    (r["run"], r["date"], r["backend"], r["model"], r["build"], r["id"], r["function"],
                     r["test"], r["level"], r["category"], json.dumps(r["truth"]),
                     json.dumps(r["answer"]), r["right"], json.dumps(r["counts"]), r["value"],
-                    r["probability"], r["input_tokens"], r["ms"]))
+                    r["probability"], r["input_tokens"], r["cached_input_tokens"], r["output_tokens"],
+                    r["ms"], r["requests"]))
     return db
 ```
 

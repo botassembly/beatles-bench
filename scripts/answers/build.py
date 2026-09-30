@@ -23,11 +23,14 @@ names the run, the backend, the model, the build, the date, and the case, and ho
   is not a probability, and for relate, a set of edges.
 - `answer`: the answer itself — the option or verdict, tag's said labels with its pick and top labels,
   find's picked id, each annotate field's value, recognize's trimmed names and relations, and relate's
-  every returned edge with its probability.
+  edges with each one's probability beside the case's skipped songs (the cut's said set re-derives).
 - `truth`, `function`, `test`, `level`, `category`: the case's own fields, or the catalog's once
   questions/catalog.jsonl exists. Level defaults to "memory" for the knowledge questions; a suite case
   keeps its own `level`, and before ticket 0021 adds one it derives from the test — "reading" for the
   reading tests, "text" for recognize, "memory" otherwise.
+- `input_tokens`, `cached_input_tokens`, `output_tokens`, `ms`, `requests`: the recorded cost of the
+  answer, where the run recorded it — so the published usage columns recompute too. `requests` is the
+  suite run's per-case request count; a knowledge run sends one request per question and records none.
 
 annotate writes one row per field, with the field in the id as `case:field`. A case the backend refused
 keeps a row with `gap` true and no measures. A case a run never asked has no row.
@@ -118,7 +121,9 @@ def row(run, build, qid, meta, q, base=None):
            "test": field_of(meta, q, "test", "kind"), "level": field_of(meta, q, "level"),
            "category": field_of(meta, q, "category"), "truth": field_of(meta, q, "truth"),
            "answer": None, "right": None, "counts": None, "value": None, "probability": None,
-           "input_tokens": base.get("input_tokens"), "ms": base.get("ms")}
+           "input_tokens": base.get("input_tokens"), "cached_input_tokens": base.get("cached_input_tokens"),
+           "output_tokens": base.get("output_tokens"), "ms": base.get("ms"),
+           "requests": base.get("requests")}
     if out["level"] is None:
         out["level"] = level_of(q) if "test" in q else "memory"
     return out
@@ -253,9 +258,10 @@ def recognize_fields(r, c, o, r0):
 
 def relate_fields(r, c, o, r0):
     edges = r0.get("value") or []
-    r["answer"] = [[e["relation"], e["source"]["name"], e["target"]["name"], e.get("probability")]
-                   for e in edges]
     skip = set(c.get("skip") or [])
+    r["answer"] = {"edges": [[e["relation"], e["source"]["name"], e["target"]["name"], e.get("probability")]
+                             for e in edges],
+                   "skip": sorted(skip)}  # kept so an audited cut's edges recompute like the scorer's
     said = {(e["relation"], e["source"]["name"], e["target"]["name"]) for e in edges
             if e.get("probability", 1) >= suite.SCORE_CUT}
     said = {e for e in said if not (e[0] == "sung_by" and e[1] in skip)}
@@ -299,7 +305,10 @@ def knowledge_rows(run, cat, qs):
     for a in load_jsonl(path):
         q = local.get(a["id"]) or qs.get(a["id"]) or {}
         r = row(run, build, a["id"], cat.get(a["id"], {}), q,
-                {"backend": a.get("backend"), "model": a.get("model"), "input_tokens": a.get("input_tokens"),
+                {"backend": a.get("backend"), "model": a.get("model"),
+                 "input_tokens": a.get("input_tokens"),
+                 "cached_input_tokens": a.get("cached_input_tokens"),
+                 "output_tokens": a.get("output_tokens"),
                  "ms": round(a["wall_s"] * 1000) if isinstance(a.get("wall_s"), (int, float)) else None})
         fn = r["function"]
         if a.get("probabilities") is None:
@@ -324,7 +333,11 @@ def suite_rows(run, cat, cases):
         r = row(run, build, o["id"], cat.get(o["id"], {}), c,
                 {"backend": meta.get("url"), "model": meta.get("model"),
                  "input_tokens": o.get("input_tokens"),
-                 "ms": round(o["wall_s"] * 1000) if isinstance(o.get("wall_s"), (int, float)) else None})
+                 "cached_input_tokens": o.get("cached_input_tokens"),
+                 "output_tokens": o.get("output_tokens"),
+                 "ms": round(o["wall_s"] * 1000) if isinstance(o.get("wall_s"), (int, float)) else None,
+                 "requests": len({k for x in o.get("rows") or []
+                                  for k in (x.get("meta") or {}).get("requests") or []}) or 1})
         if "gap" in o:
             r["gap"] = True
         elif c.get("function") not in suite.TESTS:  # a case the current suite no longer names
