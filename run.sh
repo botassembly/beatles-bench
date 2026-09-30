@@ -133,5 +133,8 @@ else
     echo "answers in $ex/$n"
   done
 fi
+# The steps that follow read the bench's own files only: no key, no network.
 python3 scripts/score/analyze.py >/dev/null
 python3 scripts/score/table.py
+python3 scripts/answers/build.py >/dev/null
+python3 scripts/answers/report.py >/dev/null
