@@ -36,18 +36,19 @@ annotate	card	singer top pick right	yes	158	0.734	0.660	0.797
 annotate	card	singer top label right, single-lead songs		146	0.733	0.656	0.798					
 annotate	card	album accuracy	yes	182	0.582	0.510	0.652					
 annotate	card	year accuracy	yes	182	0.407	0.338	0.479					
-recognize	names	song precision	yes	49	0.959	0.863	0.989	48	273108	0.01147	0.251	0.288
-recognize	names	song recall	yes	48	0.979	0.891	0.996					
-recognize	names	person precision	yes	48	1.000	0.926	1.000					
-recognize	names	person recall	yes	48	1.000	0.926	1.000					
-recognize	names	album precision	yes	47	1.000	0.924	1.000					
-recognize	names	album recall	yes	48	0.979	0.891	0.996					
-recognize	names	song overlap precision		49	1.000	0.927	1.000					
-recognize	names	song overlap recall		48	1.000	0.926	1.000					
-recognize	names	person overlap precision		48	1.000	0.926	1.000					
-recognize	names	person overlap recall		48	1.000	0.926	1.000					
-recognize	names	album overlap precision		47	1.000	0.924	1.000					
-recognize	names	album overlap recall		48	0.979	0.891	0.996					
+recognize	names-template	song precision	yes	49	0.959	0.863	0.989	48	273108	0.01147	0.251	0.288
+recognize	names-template	song recall	yes	48	0.979	0.891	0.996					
+recognize	names-template	person precision	yes	48	1.000	0.926	1.000					
+recognize	names-template	person recall	yes	48	1.000	0.926	1.000					
+recognize	names-template	album precision	yes	47	1.000	0.924	1.000					
+recognize	names-template	album recall	yes	48	0.979	0.891	0.996					
+recognize	names-template	song overlap precision		49	1.000	0.927	1.000					
+recognize	names-template	song overlap recall		48	1.000	0.926	1.000					
+recognize	names-template	person overlap precision		48	1.000	0.926	1.000					
+recognize	names-template	person overlap recall		48	1.000	0.926	1.000					
+recognize	names-template	album overlap precision		47	1.000	0.924	1.000					
+recognize	names-template	album overlap recall		48	0.979	0.891	0.996					
+recognize	names-template	names said		48	144							
 relate	song to singer and album	edge F1	yes	352	0.719	0.673	0.766	3	126858	0.00533	1.719	1.719
 relate	song to singer and album	edge precision	yes	249	0.867	0.820	0.904					
 relate	song to singer and album	edge recall	yes	352	0.614	0.562	0.663					

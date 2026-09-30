@@ -60,7 +60,8 @@ class GenerateTest(unittest.TestCase):
                 cs = cases(name)
                 self.assertTrue(cs)
                 self.assertEqual(len({c["id"] for c in cs}), len(cs))
-                self.assertTrue(all(c["function"] in gen.FUNCTIONS and c["records"] and "truth" in c and c["fields"] for c in cs))
+                ok = lambda c: c["function"] in gen.FUNCTIONS and c["records"] and "truth" in c and (c["fields"] or not c["truth"])
+                self.assertTrue(all(map(ok, cs)))
 
     def test_tag_truth_is_the_lead_vocal_column(self):
         data = songs()
@@ -107,12 +108,59 @@ class GenerateTest(unittest.TestCase):
             self.assertEqual(hits, [c["truth"]], c["id"])
 
     def test_each_recognize_name_is_its_slice_of_the_sentence(self):
+        groups = {"names-template": 48, "varied": 36, "song-or-album": 14, "short-names": 16, "case": 12,
+                  "no-names": 10, "paragraphs": 10, "punctuation": 14, "relations": 40}
+        seen = {}
         for c in cases("recognize"):
+            seen[c["test"]] = seen.get(c["test"], 0) + 1
             text = c["records"][0]["input"]
             self.assertEqual([c["id"]], [r["id"] for r in c["records"]])
-            self.assertEqual(sorted(k for _, _, k, _ in c["truth"]), ["album", "person", "song"], c["id"])
+            self.assertTrue(all(k in gen.KINDS for _, _, k, _ in c["truth"]), c["id"])
+            self.assertEqual([n[0] for n in c["truth"]], sorted(n[0] for n in c["truth"]), c["id"])
             for start, end, kind, name in c["truth"]:
                 self.assertEqual(text[start:end], name, c["id"])
+        self.assertEqual(seen, groups)
+        for c in cases("recognize"):
+            if c["test"] in ("names-template", "varied"):
+                self.assertEqual(sorted(k for _, _, k, _ in c["truth"]), ["album", "person", "song"], c["id"])
+            if c["test"] == "short-names":
+                self.assertTrue(all(" " not in n for _, _, k, n in c["truth"] if k == "person"), c["id"])
+
+    def test_the_recognize_groups_hold_what_they_name(self):
+        data = songs()
+        albums = {r["album"]: r for r in csv.DictReader(open(ROOT / "data" / "albums.tsv", encoding="utf-8"),
+                                                        delimiter="\t")}
+        names = set(data) | set(albums) | set(gen.FULL.values())
+        for c in cases("recognize"):
+            text = c["records"][0]["input"]
+            if c["test"] == "no-names":
+                self.assertEqual(c["truth"], [], c["id"])
+                self.assertFalse(any(n in text for n in names), c["id"])
+            if c["test"] == "paragraphs":
+                self.assertGreaterEqual(len(text.split()), 40, c["id"])
+            if c["test"] == "punctuation":
+                self.assertTrue(any(m in n for _, _, _, n in c["truth"] for m in gen.PEELED + "-'"), c["id"])
+            if c["test"] == "song-or-album":
+                dual = {n for _, _, _, n in c["truth"]} & set(data) & set(albums)
+                kinds = {k for _, _, k, n in c["truth"] if n in dual}
+                self.assertTrue(dual and kinds <= {"song", "album"}, c["id"])
+
+    def test_recognize_relations_edges_match_the_tables(self):
+        data = songs()
+        for c in cases("recognize"):
+            if c["test"] != "relations":
+                continue
+            text = c["records"][0]["input"]
+            self.assertIn("--relation", c["args"])
+            said = {(e[0], e[1], e[2]) for e in c.get("edges", [])}
+            for rel, source, target in said:
+                s = data[source]
+                if rel == "sung_by":
+                    self.assertIn(target, [gen.FULL[x] for x in s["lead_vocals"].split("+")], c["id"])
+                else:
+                    self.assertEqual((rel, target), ("appears_on", s["first_album"]), c["id"])
+            if "share a title" in text or "stayed a favourite" in text:
+                self.assertEqual(said, set(), c["id"])
 
     def test_relate_truth_edges_come_from_the_data(self):
         data = songs()
@@ -241,6 +289,21 @@ class ScoreTest(unittest.TestCase):
         self.assertEqual(got("album top pick right"), (2 / 3, 3))  # a pick of none is wrong
         self.assertEqual(got("duets: pick is a lead"), (0.5, 2))  # a non-lead pick on a duet is wrong
 
+    def test_recognize_relations_edges_score_by_precision_and_recall(self):
+        text = "Paul sang lead on Yesterday"
+        c = {"id": "r1", "test": "relations", "records": [{"id": "r1", "input": text}],
+             "truth": [[0, 4, "person", "Paul"], [18, 27, "song", "Yesterday"]],
+             "edges": [["sung_by", "Yesterday", "Paul"]]}
+        ent = lambda s, e, k: {"text": text[s:e], "start": s, "end": e, "kind": k}
+        edge = lambda rel, s, t: {"relation": rel, "source": s, "target": t, "probability": 0.9}
+        right = edge("sung_by", ent(18, 27, "song"), ent(0, 4, "person"))
+        wrong = edge("sung_by", ent(18, 27, "song"), ent(10, 14, "person"))  # "lead" is no true target
+        out = lambda edges: {"rows": [{"value": {"entities": [], "relations": edges}, "meta": {}}], "input_tokens": 1}
+        rows = {r["measure"]: r for r in fscore.recognize_rows([c], {"r1": out([right])})}
+        self.assertEqual((rows["relation edge precision"]["value"], rows["relation edge recall"]["value"]), (1.0, 1.0))
+        rows = {r["measure"]: r for r in fscore.recognize_rows([c], {"r1": out([wrong])})}
+        self.assertEqual((rows["relation edge precision"]["value"], rows["relation edge recall"]["value"]), (0.0, 0.0))
+
     def test_a_test_the_backend_refused_scores_as_a_gap(self):
         refused = cases("filter")[:3]
         outs = {c["id"]: {"id": c["id"], "exit": 4, "input_tokens": 0, "output_tokens": 0, "gap": "status 422",
@@ -353,9 +416,11 @@ class ReplayTest(unittest.TestCase):
         for p in sorted((RUN / "lists").glob("*.jsonl")):
             self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)
         rows = fscore.table(tmp / "replay", JEV_RUN)
-        saved = list(csv.DictReader(open(ROOT / "results" / "tables" / "functions.tsv", encoding="utf-8"), delimiter="\t"))
-        self.assertEqual([fscore.fmt(r["value"]) for r in rows if r["function"] in TESTS],
-                         [r["value"] for r in saved if r["function"] in TESTS])
+        got = {(r["function"], r["test"], r["measure"]): fscore.fmt(r["value"]) for r in rows if r["function"] in TESTS}
+        saved = {(r["function"], r["test"], r["measure"]): r["value"] for r in
+                 csv.DictReader(open(ROOT / "results" / "tables" / "functions.tsv", encoding="utf-8"), delimiter="\t")
+                 if r["function"] in TESTS}
+        self.assertEqual({k: saved[k] for k in got}, got)  # the replay scores a subset of the published rows
 
 
 if __name__ == "__main__":

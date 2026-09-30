@@ -2,9 +2,10 @@
 """Score the function suite. Calls no model.
 
 usage:
-  score_suite.py table RUN [CORE_RUN [OUT]]   write OUT (default results/tables/functions.tsv) and print the README table
+  score_suite.py table RUN[,RUN...] [CORE_RUN [OUT]]   write OUT (default results/tables/functions.tsv) and print the README table
   score_suite.py history RUN DATE [CORE_RUN]   append one row per main measure to results/history.tsv
-RUN holds outputs.jsonl and lists/ from scripts/run/ask_suite.py. CORE_RUN holds the answers.jsonl of a run over
+RUN holds outputs.jsonl and lists/ from scripts/run/ask_suite.py. Several runs, comma-separated, merge by case id;
+a run need not cover every test, but it must cover each test it touches whole. CORE_RUN holds the answers.jsonl of a run over
 questions/*.jsonl (scripts/run/thinkthen.sh); its decide and choose questions give those two functions' rows. CORE_RUN
 defaults to the newest results/runs/DATE-thinkthen-jev folder (score.newest).
 
@@ -31,7 +32,13 @@ FOLDER = ROOT / "questions" / "suite"
 TESTS = ["tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
 CUTS = [0.3, 0.5, 0.7, 0.9]
 PEELED = ".!?,:;"  # the marks thinkthen's tokenizer peels from the end of a word (specification/recognize.md, "Names")
+KINDS = ["song", "person", "album"]
 COLUMNS = ["function", "test", "measure", "main", "n", "value", "lo", "hi", "requests", "input_tokens", "usd", "median_s", "p90_s"]
+
+
+def norm(s):
+    """A printed name's text, with the marks the tokenizer peels dropped from its end, as trim() does for spans."""
+    return s.rstrip(PEELED)
 
 
 # ---- statistics ---------------------------------------------------------------------------------------------------
@@ -143,10 +150,12 @@ def top_pick_right(rows):
 
 # ---- loading ------------------------------------------------------------------------------------------------------
 def load(run):
-    run = Path(run)
+    outs, lists = {}, {}
+    for one in str(run).split(","):
+        one = Path(one)
+        outs.update({o["id"]: o for o in map(json.loads, open(one / "outputs.jsonl", encoding="utf-8"))})
+        lists.update({p.stem: [json.loads(l) for l in open(p, encoding="utf-8")] for p in (one / "lists").glob("*.jsonl")})
     cases = {t: [json.loads(l) for l in open(FOLDER / f"{t}.jsonl", encoding="utf-8")] for t in TESTS}
-    outs = {o["id"]: o for o in map(json.loads, open(run / "outputs.jsonl", encoding="utf-8"))}
-    lists = {p.stem: [json.loads(l) for l in open(p, encoding="utf-8")] for p in (run / "lists").glob("*.jsonl")}
     return cases, outs, lists
 
 
@@ -256,6 +265,8 @@ def rank_rows(cases, outs, lists):
     out = []
     for test, label in [("popularity", "2024 page views"), ("date", "release date")]:
         mine = [c for c in cases if c["test"] == test]
+        if not mine:
+            continue
         truth = {c["id"]: c["truth"] for c in mine}
         order = [r["input"]["id"] for r in lists[mine[0]["group"]]]
         assert sorted(order) == sorted(truth), "the list holds every record once"
@@ -289,28 +300,60 @@ def annotate_rows(cases, outs):
 
 
 def recognize_rows(cases, outs):
-    """Scores the names `thinkthen recognize` prints in value.entities against each sentence's true names, after trim()."""
-    counts = {k: [0, 0, 0] for k in ["song", "person", "album"]}  # true positives, said, true
-    loose = {k: [0, 0, 0, 0] for k in counts}
+    """Scores the names `thinkthen recognize` prints in value.entities against each sentence's true names, after
+    trim(), one set of rows per test. Cases with edges add relation rows: an edge matches when its relation and both
+    endpoint texts, trimmed like the names, equal a stated one."""
+    groups = {}
     for c in cases:
-        failed = outs[c["id"]]["rows"][0]["meta"].get("failed_questions", 0)
-        if failed:
-            raise ValueError(f"functions: {c['id']} has {failed} failed recognize questions; a part is not scored")
-        text = c["records"][0]["input"]
-        said = {trim((e["start"], e["end"], e["kind"]), text) for e in outs[c["id"]]["rows"][0]["value"]["entities"]}
-        true = {trim((a, b, k), text) for a, b, k, _ in c["truth"]}
-        for k in counts:
-            loose[k] = [a + b for a, b in zip(loose[k], overlap(said, true, k))]
-            counts[k][0] += len({x for x in said & true if x[2] == k})
-            counts[k][1] += len({x for x in said if x[2] == k})
-            counts[k][2] += len({x for x in true if x[2] == k})
-    use = usage([outs[c["id"]] for c in cases])
+        groups.setdefault(c["test"], []).append(c)
     out = []
-    for i, (k, (tp, n_said, n_true)) in enumerate(counts.items()):
-        out += [share("recognize", "names", f"{k} precision", tp, n_said, True, use if i == 0 else None),
-                share("recognize", "names", f"{k} recall", tp, n_true, True)]
-    for k, (ps, s, pt, t) in loose.items():
-        out += [share("recognize", "names", f"{k} overlap precision", ps, s), share("recognize", "names", f"{k} overlap recall", pt, t)]
+    for test, group in groups.items():
+        counts = {k: [0, 0, 0] for k in KINDS}  # true positives, said, true
+        loose = {k: [0, 0, 0, 0] for k in counts}
+        units, clean, said_names = [], 0, 0
+        for c in group:
+            failed = outs[c["id"]]["rows"][0]["meta"].get("failed_questions", 0)
+            if failed:
+                raise ValueError(f"functions: {c['id']} has {failed} failed recognize questions; a part is not scored")
+            text = c["records"][0]["input"]
+            said = {trim((e["start"], e["end"], e["kind"]), text) for e in outs[c["id"]]["rows"][0]["value"]["entities"]}
+            true = {trim((a, b, k), text) for a, b, k, _ in c["truth"]}
+            clean += not said
+            said_names += len(said)
+            for k in counts:
+                loose[k] = [a + b for a, b in zip(loose[k], overlap(said, true, k))]
+                counts[k][0] += len({x for x in said & true if x[2] == k})
+                counts[k][1] += len({x for x in said if x[2] == k})
+                counts[k][2] += len({x for x in true if x[2] == k})
+            if "edges" in c:
+                pair = lambda e: (e["relation"], norm(text[e["source"]["start"]:e["source"]["end"]]),
+                                  norm(text[e["target"]["start"]:e["target"]["end"]]))
+                said_e = {pair(e) for e in outs[c["id"]]["rows"][0]["value"].get("relations") or []}
+                true_e = {(r, norm(a), norm(b)) for r, a, b in c["edges"]}
+                units.append((len(said_e & true_e), len(said_e - true_e), len(true_e - said_e)))
+        rows = []
+        if not any(counts[k][1] or counts[k][2] for k in counts):
+            rows.append(share("recognize", test, "no name found", clean, len(group), True))
+        for k, (tp, n_said, n_true) in counts.items():
+            if not n_said and not n_true:
+                continue
+            rows += [share("recognize", test, f"{k} precision", tp, n_said, True),
+                     share("recognize", test, f"{k} recall", tp, n_true, True)]
+        for k, (ps, s, pt, t) in loose.items():
+            if not s and not t:
+                continue
+            rows += [share("recognize", test, f"{k} overlap precision", ps, s),
+                     share("recognize", test, f"{k} overlap recall", pt, t)]
+        if units:
+            tp, fp, fn = (sum(u[i] for u in units) for i in range(3))
+            p, r, f1 = prf(tp, fp, fn)
+            rows += [row("recognize", test, "relation edge F1", tp + fn, f1, *f1_interval(units), main=True),
+                     share("recognize", test, "relation edge precision", tp, tp + fp, True),
+                     share("recognize", test, "relation edge recall", tp, tp + fn, True)]
+        rows.append(row("recognize", test, "names said", len(group), said_names))
+        if rows:
+            rows[0].update(usage([outs[c["id"]] for c in group]))
+        out += rows
     return out
 
 
@@ -372,28 +415,41 @@ def gap_rows(function, test, measure, cases, outs):
             share(function, test, "cases refused by the backend", len(cases), len(cases))]
 
 
-MAIN = {"tag": ("lead singers", "exact-set match"), "score": ("popularity", "Spearman with 2024 page views"),
-        "filter": ("lead singer or album", "F1"), "rank": ("popularity", "Spearman with 2024 page views"),
-        "find": ("album", "exact match"), "annotate": ("card", "singer accuracy"), "recognize": ("names", "song precision"),
-        "relate": ("song to singer and album", "edge F1")}
+GAP_MEASURE = {"tag": "exact-set match", "score": "Spearman with 2024 page views", "filter": "F1",
+               "rank": "Spearman with 2024 page views", "find": "exact match", "annotate": "singer accuracy",
+               "recognize": "song precision", "relate": "edge F1"}
 
 
 def table(run, core=None):
     cases, outs, lists = load(run)
     meta = next(r["meta"] for o in outs.values() for r in o["rows"] if "meta" in r)
     PRICE[0] = core_score.price(meta["model"], meta["url"])[0]
-    scorers = {"tag": lambda: tag_rows(cases["tag"], outs), "score": lambda: score_rows(cases["score"], outs),
-               "filter": lambda: filter_rows(cases["filter"], outs, lists), "rank": lambda: rank_rows(cases["rank"], outs, lists),
-               "find": lambda: find_rows(cases["find"], outs), "annotate": lambda: annotate_rows(cases["annotate"], outs),
-               "recognize": lambda: recognize_rows(cases["recognize"], outs), "relate": lambda: relate_rows(cases["relate"], outs)}
+    scorers = {"tag": lambda cs: tag_rows(cs, outs), "score": lambda cs: score_rows(cs, outs),
+               "filter": lambda cs: filter_rows(cs, outs, lists), "rank": lambda cs: rank_rows(cs, outs, lists),
+               "find": lambda cs: find_rows(cs, outs), "annotate": lambda cs: annotate_rows(cs, outs),
+               "recognize": lambda cs: recognize_rows(cs, outs), "relate": lambda cs: relate_rows(cs, outs)}
     out = core_rows(core or core_score.newest("thinkthen-jev"))
     for t in TESTS:
-        asked = [c for c in cases[t] if c["id"] in outs]
-        if not asked:  # a test the run did not ask (a chat model skips recognize and relate) has no rows
-            continue
-        if len(asked) < len(cases[t]):
-            raise ValueError(f"functions: the run asked {len(asked)} of {len(cases[t])} {t} cases")
-        out += gap_rows(t, *MAIN[t], cases[t], outs) or scorers[t]()
+        groups = {}
+        for c in cases[t]:
+            groups.setdefault(c["test"], []).append(c)
+        scorable = []
+        for test, cs in groups.items():
+            asked = [c for c in cs if c["id"] in outs]
+            if not asked:  # a test the run did not ask (a chat model skips recognize and relate) has no rows
+                continue
+            if len(asked) < len(cs):
+                raise ValueError(f"functions: the run asked {len(asked)} of {len(cs)} {t} {test} cases")
+            refused = [c for c in asked if "gap" in outs[c["id"]]]
+            if refused:
+                if len(refused) < len(asked):
+                    raise ValueError(f"functions: {len(refused)} of {len(asked)} {t} {test} cases were refused; "
+                                     "a part is not scored")
+                out += gap_rows(t, test, GAP_MEASURE[t], cs, outs)
+            else:
+                scorable += cs
+        if scorable:
+            out += scorers[t](scorable)
     return out
 
 
@@ -426,7 +482,8 @@ def history(rows, date, run):
     old = list(csv.DictReader(open(path, encoding="utf-8"), delimiter="\t"))
     header = path.read_text(encoding="utf-8").splitlines()[0].split("\t")
     header += [h for h in ["median_s", "p90_s", "usd_per_1000_questions", "function", "test", "measure", "value"] if h not in header]
-    first = next(r["meta"] for o in map(json.loads, open(Path(run) / "outputs.jsonl", encoding="utf-8")) for r in o["rows"] if "meta" in r)
+    first = next(r["meta"] for o in map(json.loads, open(Path(str(run).split(",")[0]) / "outputs.jsonl", encoding="utf-8"))
+                 for r in o["rows"] if "meta" in r)
     new = []
     for r in rows:
         if r["main"] and r.get("requests"):

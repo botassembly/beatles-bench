@@ -16,7 +16,10 @@ sung_by edges are not scored. Ids keep their place in the whole song list, so a 
 numbers.
 
 recognize asks `thinkthen recognize song person album` once per sentence. Each case's truth holds the sentence's
-names as [start, end, kind, name], in characters with the end exclusive, as the command prints them. relate asks
+names as [start, end, kind, name], in characters with the end exclusive, as the command prints them. The cases sit in
+tests: names-template is the original 48; varied, song-or-album, short-names, case, no-names, paragraphs and
+punctuation are the harder sentences; relations runs the same kinds under --relation sung_by=song:person --relation
+appears_on=song:album and its cases add edges, the [relation, source, target] triples the sentence states. relate asks
 `thinkthen relate` once over the whole entity set: every song, the four Beatles, and the core albums. Its truth holds
 the edges, and skip lists the songs whose sung_by edges are not scored. relate-profile.json caps each request at
 96,000 bytes, the ceiling thinkthen main applies to relation requests at its built-in address.
@@ -24,6 +27,7 @@ the edges, and skip lists the songs whose sung_by edges are not scored. relate-p
 import csv
 import json
 import random
+import re
 import sys
 from pathlib import Path
 
@@ -53,7 +57,50 @@ TEMPLATES = ["{person} sang lead on {song} from the album {album} in {year}",
              "In {year} the album {album} carried {song} with {person} on lead vocals",
              "Listeners hear {person} sing lead on {song} which first appeared on {album} in {year}",
              "When {album} came out in {year} it included {song} sung by {person}"]
+# The harder recognize groups, one test name each. names-template is the original 48. Every slot whose name is a kind,
+# or a kind with digits on the end ({person2}), becomes a name span. Other slots, such as {year}, fill as literals.
+VARIED = ["{song} is a {year} song sung by {person} on the album {album}",
+          "On {album} the track {song} has {person} on lead vocals",
+          "The album {album} includes {song} where {person} sings lead",
+          "The song {song} sung by {person} first appeared on {album}",
+          "{person} takes the lead on {song} a track from {album}",
+          "{year} gave listeners {song} with {person} singing lead on the album {album}",
+          "On the {year} album {album} {person} sings {song}",
+          "{song} came out on {album} in {year} and {person} sings the lead",
+          "From {album} in {year} comes {song} sung by {person}",
+          "{person} is the lead singer on {song} which the album {album} carries",
+          "The {year} album {album} holds {song} with {person} on lead",
+          "{person} sings {song} on {album} which came out in {year}"]
+SONG_OR_ALBUM = {"song": ["{person} sang lead on the song {song} in {year}", "the song {song} came out in {year}"],
+                 "album": ["the album {album} came out in {album_year}",
+                           "the {album_year} album {album} carried {song2}"]}
+SHORT = ["{person} sang lead on {song} in {year}", "{song} has {person} on lead vocals since {year}"]
+CASED = ["{person} sang lead on {song} from the album {album} in {year}",
+         "on {album} the track {song} has {person} at the microphone"]
+NO_NAMES = ["The band played its last concert on a rooftop in London",
+            "Crowds waited outside the studio hoping to see the four musicians",
+            "Their records sold faster than those of any other group at the time",
+            "The four friends from Liverpool changed popular music forever",
+            "Fans camped outside the hotel before the big show",
+            "A documentary crew filmed the rehearsals for weeks on end",
+            "Radio stations played the new single all day long",
+            "The tour ended early because the screaming drowned out the music",
+            "Their producer had trained as an engineer before he joined the studio",
+            "The manager wanted one more tour but the band refused"]
+PUNCT = ["{person} sang lead on {song} in {year}",
+         "{song}, from {album}, has {person} on lead vocals",
+         "the song {song} sits on the album {album} from {year}",
+         "{song} first appeared on {album} in {year}"]
+RELATION = ["{person} sang lead on {song}", "{person} takes the lead vocal on {song}", "{song} has {person} on lead",
+            "{song} first appeared on the album {album}", "the album {album} carried {song} in {year}",
+            "{person} sang lead on {song} from the album {album}", "{song} from the album {album} has {person} singing lead",
+            "{person} and {person2} shared the lead vocal on {song}", "{song} is sung by {person} and {person2}",
+            "the song {song} and the album {album} share a title",
+            "the album {album} came out in {album_year} while {song} stayed a favourite"]
+PEELED = ".!?,:;"  # the marks the command's tokenizer peels from a word's end (specification/recognize.md, "Names")
 RECOGNIZE = ["song", "person", "album", "--jsonl", "--field", "/input"]
+RECOGNIZE_REL = ["song", "person", "album", "--relation", "sung_by=song:person", "--relation", "appears_on=song:album",
+                 "--jsonl", "--field", "/input"]
 # relate: one choice per song over the people, and one over the albums. The relations are the function folder's, less
 # its threshold of 0.01. The case passes --threshold 0.5.
 RELATE = {"version": 1, "relate": json.loads((ROOT / "examples" / "relate" / "relate.json").read_text(encoding="utf-8"))["relate"]}
@@ -76,6 +123,38 @@ def f(s, *cols):
 def one(fn, test, cid, args, title, truth, fields, **extra):
     return {"id": cid, "function": fn, "test": test, "args": args, "records": [{"id": cid, "input": title}],
             "truth": truth, "fields": fields, **extra}
+
+
+def fill(template, slots):
+    """Render template into (sentence, names). A slot whose name, less its trailing digits, is a kind becomes a name
+    span of that kind; other slots fill as literals. Marks closing a slot word join it with no space, and drop when
+    the name already ends in a mark."""
+    text, names = "", []
+    for word in template.split():
+        m = re.fullmatch(r"\{(\w+)\}([.,!?;:]*)", word)
+        value, marks = (slots[m.group(1)], m.group(2)) if m else (word, "")
+        if text:
+            text += " "
+        if m and m.group(1).rstrip("0123456789") in KINDS:
+            names.append([len(text), len(text) + len(value), m.group(1).rstrip("0123456789"), value])
+            text += value if value.endswith(tuple(PEELED)) else value + marks
+        else:
+            text += value + marks
+    return text, names
+
+
+def join(*sentences):
+    """Join (text, names) pairs into one paragraph, a period after each sentence that does not end in a mark, and a
+    capital letter at each sentence start unless a name opens it."""
+    text, names = "", []
+    for t, ns in sentences:
+        if t[0].islower() and (not ns or ns[0][0] != 0):
+            t = t[0].upper() + t[1:]
+        t = t if t[-1] in PEELED else t + "."
+        base = len(text) + (1 if text else 0)
+        text += (" " if text else "") + t
+        names += [[a + base, b + base, k, v] for a, b, k, v in ns]
+    return text, names
 
 
 class Suite:
@@ -171,10 +250,150 @@ class Suite:
                     names.append([len(text), len(text) + len(word), piece[1:-1], word])
                 text += word
             sid = f"recognize-{n:02d}"
-            cases.append({"id": sid, "function": "recognize", "test": "names", "args": RECOGNIZE,
+            cases.append({"id": sid, "function": "recognize", "test": "names-template", "args": RECOGNIZE,
                           "records": [{"id": sid, "input": text}], "truth": names,
                           "fields": f(s, "title") + f(s, "lead_vocals") + f(s, "first_album") + f(s, "year")})
+        cases += self.rec_groups()
         self.out["recognize"] = cases
+
+    def settled(self):
+        return [s for s in self.songs if settled_lead(s)]
+
+    def slots(self, s, **over):
+        return {"song": s["title"], "person": FULL[self.leads(s)[0]], "album": s["first_album"], "year": s["year"],
+                **over}
+
+    def rec(self, test, cid, text, names, fields, edges=None):
+        """One recognize case. A relations case also carries edges: the [relation, source name, target name] triples
+        the sentence states, run under --relation rules song:person and song:album."""
+        c = one("recognize", test, cid, RECOGNIZE_REL if edges is not None else RECOGNIZE, text, names, fields)
+        if edges is not None:
+            c["edges"] = edges
+        return c
+
+    def rec_varied(self):
+        r = rng("recognize/varied")
+        return [self.rec("varied", f"recognize-varied-{n:02d}", *fill(VARIED[(n - 1) % len(VARIED)], self.slots(s)),
+                         f(s, "title", "lead_vocals", "first_album", "year"))
+                for n, s in enumerate(r.sample(self.settled(), len(VARIED) * 3), 1)]
+
+    def rec_dual(self):
+        """Every title that is both a song and an album, once as each. The sentence's own words name the kind."""
+        by_title = {s["title"]: s for s in self.songs}
+        albums = {a["album"]: a for a in self.albums}
+        cases, n = [], 0
+        for title in [a for a in self.core if a in by_title]:
+            s = by_title[title]
+            others = [x["title"] for x in self.songs if x["first_album"] == title and x["title"] != title]
+            slots = self.slots(s, album=title, album_year=albums[title]["release_date"][:4],
+                               song2=others[0] if others else "")
+            song_t = SONG_OR_ALBUM["song"][0 if settled_lead(s) else 1]
+            text, names = fill(song_t, slots)
+            cases.append(self.rec("song-or-album", f"recognize-song-or-album-{n + 1:02d}", text, names,
+                                  f(s, "title", "lead_vocals", "year") if settled_lead(s) else f(s, "title", "year")))
+            n += 1
+            album_t = SONG_OR_ALBUM["album"][1 if others and n % 2 else 0]
+            text, names = fill(album_t, slots)
+            fields = [["albums.tsv", title, "release_date", albums[title]["release_date"]]]
+            fields += f(by_title[slots["song2"]], "first_album") if "{song2}" in album_t else []
+            cases.append(self.rec("song-or-album", f"recognize-song-or-album-{n + 1:02d}", text, names, fields))
+            n += 1
+        return cases
+
+    def rec_short(self):
+        """A first name or surname alone, still a person."""
+        r, cases, n = rng("recognize/short-names"), [], 0
+        for last_name in LEADS:
+            full = FULL[last_name]
+            mine = [s for s in self.settled() if last_name in self.leads(s)]
+            for short in (full.split()[0], last_name):
+                for t in SHORT:
+                    s = r.choice(mine)
+                    n += 1
+                    text, names = fill(t, self.slots(s, person=short))
+                    cases.append(self.rec("short-names", f"recognize-short-names-{n:02d}", text, names,
+                                          f(s, "title", "lead_vocals", "first_album", "year")))
+        return cases
+
+    def rec_case(self):
+        r, cases = rng("recognize/case"), []
+        for n, s in enumerate(r.sample(self.settled(), 12), 1):
+            how = str.upper if n % 2 else str.lower
+            slots = {k: how(v) if k in KINDS else v for k, v in self.slots(s).items()}
+            text, names = fill(CASED[(n - 1) % len(CASED)], slots)
+            cases.append(self.rec("case", f"recognize-case-{n:02d}", text, names,
+                                  f(s, "title", "lead_vocals", "first_album", "year")))
+        return cases
+
+    def rec_none(self):
+        return [self.rec("no-names", f"recognize-no-names-{n:02d}", text, [], [])
+                for n, text in enumerate(NO_NAMES, 1)]
+
+    def rec_paragraphs(self):
+        r, cases = rng("recognize/paragraphs"), []
+        for n in range(1, 11):
+            picks = r.sample(self.settled(), 4)
+            sents = [fill(r.choice(VARIED + RELATION[:7]), self.slots(s)) for s in picks]
+            text, names = join(*sents)
+            cases.append(self.rec("paragraphs", f"recognize-paragraphs-{n:02d}", text, names,
+                                  [x for s in picks for x in f(s, "title", "lead_vocals", "first_album", "year")]))
+        return cases
+
+    def rec_punctuation(self):
+        """Titles with marks inside: each command token of the name can end it early."""
+        must = ["Back in the U.S.S.R.", "Ob-La-Di, Ob-La-Da", "Why Don't We Do It in the Road?", "Help!",
+                "Sgt. Pepper's Lonely Hearts Club Band", "Being for the Benefit of Mr. Kite!", "Here, There and Everywhere"]
+        by_title = {s["title"]: s for s in self.songs}
+        r = rng("recognize/punctuation")
+        pool = [s for s in self.songs if s["title"] not in must and any(m in s["title"] for m in PEELED + "-'")]
+        picks = [by_title[t] for t in must if t in by_title] + r.sample(pool, 14 - len([t for t in must if t in by_title]))
+        cases = []
+        for n, s in enumerate(picks, 1):
+            t = r.choice(PUNCT if settled_lead(s) else PUNCT[2:])
+            text, names = fill(t, self.slots(s))
+            cases.append(self.rec("punctuation", f"recognize-punctuation-{n:02d}", text, names,
+                                  f(s, "title", "lead_vocals", "first_album", "year")))
+        return cases
+
+    def rec_relations(self):
+        """About 40 sentences run with --relation rules in the bench's song-to-person direction. Truth holds the
+        stated edges only: a song and album that share a title state none."""
+        r, cases, n = rng("recognize/relations"), [], 0
+
+        def add(template, s, edges, fields=None, **over):
+            nonlocal n
+            n += 1
+            slots = self.slots(s, **over)
+            text, names = fill(template, slots)
+            edge_names = [[e[0], slots.get(e[1], e[1]), slots.get(e[2], e[2])] for e in edges]
+            cases.append(self.rec("relations", f"recognize-relations-{n:02d}", text, names,
+                                  fields or f(s, "title", "lead_vocals", "first_album", "year"), edges=edge_names))
+
+        settled = self.settled()
+        for i, s in enumerate(r.sample(settled, 12)):
+            add(RELATION[i % 3], s, [["sung_by", "song", "person"]])
+        for i, s in enumerate(r.sample(self.songs, 10)):
+            add(RELATION[3 + i % 2], s, [["appears_on", "song", "album"]])
+        for i, s in enumerate(r.sample(settled, 6)):
+            add(RELATION[5 + i % 2], s, [["sung_by", "song", "person"], ["appears_on", "song", "album"]])
+        for i, s in enumerate(r.sample([s for s in settled if len(self.leads(s)) == 2], 6)):
+            one_, two = (FULL[x] for x in self.leads(s)[:2])
+            add(RELATION[7 + i % 2], s, [["sung_by", "song", "person"], ["sung_by", "song", "person2"]],
+                person=one_, person2=two)
+        albums = {a["album"]: a for a in self.albums}
+        dual = [a for a in self.core if a in {s["title"] for s in self.songs}]
+        for i, title in enumerate(r.sample(dual, 4)):
+            s = next(x for x in self.songs if x["title"] == title)
+            add(RELATION[9], s, [], album=title)  # the same title as song and as album: the sentence states no edge
+        for i, s in enumerate(r.sample(self.songs, 2)):
+            other = r.choice([a for a in self.core if a != s["first_album"]])
+            add(RELATION[10], s, [], album=other, album_year=albums[other]["release_date"][:4],
+                fields=f(s, "title") + [["albums.tsv", other, "release_date", albums[other]["release_date"]]])
+        return cases
+
+    def rec_groups(self):
+        return (self.rec_varied() + self.rec_dual() + self.rec_short() + self.rec_case() + self.rec_none()
+                + self.rec_paragraphs() + self.rec_punctuation() + self.rec_relations())
 
     def relate(self):
         self.qsets["relate-suite.json"] = RELATE
