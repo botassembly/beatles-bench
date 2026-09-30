@@ -37,7 +37,7 @@ A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-30-all-j
 
 ## Run it
 
-Install the `thinkthen` command first. `./run.sh` needs a build with `audit`. The bench pins thinkthen main at 02dc0b96. That build wrote the committed outputs through 2026-09-26, and their replays hold only under it. The recognize and relate runs of 2026-09-30 used the newer pinned build c22512868; each run's `run.txt` names the SHA-256. Then:
+Install the `thinkthen` command first. `./run.sh` needs a build with `audit`. The bench pins thinkthen main at 02dc0b96. That build wrote the committed outputs through 2026-09-26, and their replays hold only under it. The recognize and relate runs of 2026-09-30 used the newer pinned build c22512868, and the all-runs of 2026-09-30 (ticket 0023) used aec7819bb; each run's `run.txt` names the SHA-256. Then:
 
 ```sh
 git clone https://github.com/botassembly/beatles-bench
