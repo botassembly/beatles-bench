@@ -22,7 +22,10 @@ A replay writes `RUN/replay/` and leaves the committed files alone. It passes `-
 
 ```sh
 env -u THINKTHEN_API_KEY scripts/run/thinkthen.sh replay "$(python3 scripts/score/score.py newest thinkthen-jev)"
-env -u THINKTHEN_API_KEY scripts/run/ask_suite.sh replay "$(python3 scripts/score/score.py newest functions-jev)"
+# the function suite grew after the run: BENCH_SUITE_ONLY names the case-id prefixes it recorded (or the new groups'
+# prefixes for results/runs/2026-09-30-recognize-jev)
+env -u THINKTHEN_API_KEY BENCH_SUITE_ONLY="tag,score,filter,rank,find,annotate,relate,recognize-0,recognize-1,recognize-2,recognize-3,recognize-4" \
+  scripts/run/ask_suite.sh replay "$(python3 scripts/score/score.py newest functions-jev)"
 env -u THINKTHEN_API_KEY scripts/run/example.sh decide replay        # examples/decide/replay/
 env -u ZAI_API_KEY .venv/bin/python scripts/run/chat.py replay results/runs/2026-09-23-glm-5.3-flash
 python3 scripts/score/analyze.py                      # results/tables/

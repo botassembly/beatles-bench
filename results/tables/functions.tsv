@@ -49,6 +49,98 @@ recognize	names-template	person overlap recall		48	1.000	0.926	1.000
 recognize	names-template	album overlap precision		47	1.000	0.924	1.000					
 recognize	names-template	album overlap recall		48	0.979	0.891	0.996					
 recognize	names-template	names said		48	144							
+recognize	varied	song precision	yes	34	0.971	0.851	0.995	72	157881	0.00663	0.359	0.417
+recognize	varied	song recall	yes	36	0.917	0.782	0.971					
+recognize	varied	person precision	yes	36	1.000	0.904	1.000					
+recognize	varied	person recall	yes	36	1.000	0.904	1.000					
+recognize	varied	album precision	yes	33	0.909	0.764	0.969					
+recognize	varied	album recall	yes	36	0.833	0.681	0.921					
+recognize	varied	song overlap precision		34	1.000	0.898	1.000					
+recognize	varied	song overlap recall		36	0.944	0.819	0.985					
+recognize	varied	person overlap precision		36	1.000	0.904	1.000					
+recognize	varied	person overlap recall		36	1.000	0.904	1.000					
+recognize	varied	album overlap precision		33	1.000	0.896	1.000					
+recognize	varied	album overlap recall		36	0.917	0.782	0.971					
+recognize	varied	names said		36	103							
+recognize	song-or-album	song precision	yes	12	1.000	0.758	1.000	28	43002	0.00181	0.329	0.441
+recognize	song-or-album	song recall	yes	14	0.857	0.601	0.960					
+recognize	song-or-album	person precision	yes	3	1.000	0.439	1.000					
+recognize	song-or-album	person recall	yes	3	1.000	0.439	1.000					
+recognize	song-or-album	album precision	yes	6	1.000	0.610	1.000					
+recognize	song-or-album	album recall	yes	7	0.857	0.487	0.974					
+recognize	song-or-album	song overlap precision		12	1.000	0.758	1.000					
+recognize	song-or-album	song overlap recall		14	0.857	0.601	0.960					
+recognize	song-or-album	person overlap precision		3	1.000	0.439	1.000					
+recognize	song-or-album	person overlap recall		3	1.000	0.439	1.000					
+recognize	song-or-album	album overlap precision		6	1.000	0.610	1.000					
+recognize	song-or-album	album overlap recall		7	0.857	0.487	0.974					
+recognize	song-or-album	names said		14	21							
+recognize	short-names	song precision	yes	16	0.938	0.717	0.989	32	42714	0.00179	0.350	0.391
+recognize	short-names	song recall	yes	16	0.938	0.717	0.989					
+recognize	short-names	person precision	yes	16	1.000	0.806	1.000					
+recognize	short-names	person recall	yes	16	1.000	0.806	1.000					
+recognize	short-names	song overlap precision		16	1.000	0.806	1.000					
+recognize	short-names	song overlap recall		16	1.000	0.806	1.000					
+recognize	short-names	person overlap precision		16	1.000	0.806	1.000					
+recognize	short-names	person overlap recall		16	1.000	0.806	1.000					
+recognize	short-names	names said		16	32							
+recognize	case	song precision	yes	10	0.900	0.596	0.982	24	52575	0.00221	0.367	0.420
+recognize	case	song recall	yes	12	0.750	0.468	0.911					
+recognize	case	person precision	yes	12	1.000	0.758	1.000					
+recognize	case	person recall	yes	12	1.000	0.758	1.000					
+recognize	case	album precision	yes	10	0.700	0.397	0.892					
+recognize	case	album recall	yes	12	0.583	0.320	0.807					
+recognize	case	song overlap precision		10	1.000	0.722	1.000					
+recognize	case	song overlap recall		12	0.833	0.552	0.953					
+recognize	case	person overlap precision		12	1.000	0.758	1.000					
+recognize	case	person overlap recall		12	1.000	0.758	1.000					
+recognize	case	album overlap precision		10	1.000	0.722	1.000					
+recognize	case	album overlap recall		12	0.833	0.552	0.953					
+recognize	case	names said		12	32							
+recognize	no-names	no name found	yes	10	1.000	0.722	1.000	12	22658	0.00095	0.205	0.347
+recognize	no-names	names said		10	0							
+recognize	paragraphs	song precision	yes	39	0.974	0.868	0.995	40	159197	0.00669	0.523	0.567
+recognize	paragraphs	song recall	yes	40	0.950	0.835	0.986					
+recognize	paragraphs	person precision	yes	34	1.000	0.898	1.000					
+recognize	paragraphs	person recall	yes	34	1.000	0.898	1.000					
+recognize	paragraphs	album precision	yes	35	1.000	0.901	1.000					
+recognize	paragraphs	album recall	yes	36	0.972	0.858	0.995					
+recognize	paragraphs	song overlap precision		39	1.000	0.910	1.000					
+recognize	paragraphs	song overlap recall		40	0.975	0.871	0.996					
+recognize	paragraphs	person overlap precision		34	1.000	0.898	1.000					
+recognize	paragraphs	person overlap recall		34	1.000	0.898	1.000					
+recognize	paragraphs	album overlap precision		35	1.000	0.901	1.000					
+recognize	paragraphs	album overlap recall		36	0.972	0.858	0.995					
+recognize	paragraphs	names said		10	108							
+recognize	punctuation	song precision	yes	14	0.786	0.524	0.924	28	66524	0.00279	0.372	0.457
+recognize	punctuation	song recall	yes	14	0.786	0.524	0.924					
+recognize	punctuation	person precision	yes	3	1.000	0.439	1.000					
+recognize	punctuation	person recall	yes	3	1.000	0.439	1.000					
+recognize	punctuation	album precision	yes	14	0.786	0.524	0.924					
+recognize	punctuation	album recall	yes	14	0.786	0.524	0.924					
+recognize	punctuation	song overlap precision		14	1.000	0.785	1.000					
+recognize	punctuation	song overlap recall		14	0.929	0.685	0.987					
+recognize	punctuation	person overlap precision		3	1.000	0.439	1.000					
+recognize	punctuation	person overlap recall		3	1.000	0.439	1.000					
+recognize	punctuation	album overlap precision		14	1.000	0.785	1.000					
+recognize	punctuation	album overlap recall		14	1.000	0.785	1.000					
+recognize	punctuation	names said		14	31							
+recognize	relations	song precision	yes	38	0.974	0.865	0.995	118	143151	0.00601	0.483	0.541
+recognize	relations	song recall	yes	40	0.925	0.801	0.974					
+recognize	relations	person precision	yes	30	1.000	0.886	1.000					
+recognize	relations	person recall	yes	30	1.000	0.886	1.000					
+recognize	relations	album precision	yes	22	1.000	0.851	1.000					
+recognize	relations	album recall	yes	22	1.000	0.851	1.000					
+recognize	relations	song overlap precision		38	1.000	0.908	1.000					
+recognize	relations	song overlap recall		40	0.950	0.835	0.986					
+recognize	relations	person overlap precision		30	1.000	0.886	1.000					
+recognize	relations	person overlap recall		30	1.000	0.886	1.000					
+recognize	relations	album overlap precision		22	1.000	0.851	1.000					
+recognize	relations	album overlap recall		22	1.000	0.851	1.000					
+recognize	relations	relation edge F1	yes	46	0.867	0.758	0.957					
+recognize	relations	relation edge precision	yes	37	0.973	0.862	0.995					
+recognize	relations	relation edge recall	yes	46	0.783	0.644	0.877					
+recognize	relations	names said		40	90							
 relate	song to singer and album	edge F1	yes	352	0.719	0.673	0.766	3	126858	0.00533	1.719	1.719
 relate	song to singer and album	edge precision	yes	249	0.867	0.820	0.904					
 relate	song to singer and album	edge recall	yes	352	0.614	0.562	0.663					

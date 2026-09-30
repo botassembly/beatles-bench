@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":{"evidence":"the album Magical Mystery Tour came out in 1967 while No Reply stayed a favourite","entities":[{"id":"i1","name":"Magical Mystery Tour","kind":"album"},{"id":"i2","name":"No Reply","kind":"song"}]},"model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i2 appears on i1?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.04}},"usage":{"input_tokens":370,"output_tokens":21}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":{"evidence":"the song Sgt. Pepper's Lonely Hearts Club Band and the album Sgt. Pepper's Lonely Hearts Club Band share a title","entities":[{"id":"i1","name":"Sgt. Pepper's Lonely Hearts Club Band","kind":"song"},{"id":"i2","name":"Sgt. Pepper's Lonely Hearts Club Band","kind":"album"}]},"model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 appears on i2?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.07}},"usage":{"input_tokens":387,"output_tokens":21}}
+}

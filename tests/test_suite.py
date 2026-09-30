@@ -2,8 +2,10 @@
 case through the command and records it, and scripts/score/score_suite.py scores it. No network: the runner test uses a fake
 command, and the replay test answers from the committed recording with the key unset."""
 import csv
+import hashlib
 import json
 import os
+import re
 import shutil
 import subprocess
 import sys
@@ -14,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
-from published import JEV_FUNCTIONS, JEV_RUN  # noqa: E402
+from published import JEV_FUNCTIONS, JEV_RECOGNIZE, JEV_RUN  # noqa: E402
 import importlib.util  # noqa: E402
 
 import make_suite as gen  # noqa: E402
@@ -24,6 +26,11 @@ fscore = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(fscore)
 
 TESTS = ["tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
+NEW_GROUPS = ("recognize-varied-,recognize-song-or-album-,recognize-short-names-,recognize-case-,recognize-no-names-,"
+              "recognize-paragraphs-,recognize-punctuation-,recognize-relations-")
+# The 2026-09-26 suite run recorded every test but the recognize groups added later: the names-template ids are
+# recognize-01 through recognize-48.
+OLD_CASES = "tag,score,filter,rank,find,annotate,relate,recognize-0,recognize-1,recognize-2,recognize-3,recognize-4"
 BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
 RUN = JEV_FUNCTIONS
 
@@ -35,6 +42,13 @@ def songs():
 
 def cases(name):
     return [json.loads(l) for l in open(ROOT / "questions" / "suite" / f"{name}.jsonl", encoding="utf-8")]
+
+
+def same_build(run):
+    """True when BIN is the build run.txt names as the one that recorded the run; the recording binds to it."""
+    text = (Path(run) / "run.txt").read_text(encoding="utf-8")
+    m = re.search(r"THINKTHEN_BIN SHA-256: ([0-9a-f]{64})", text)
+    return bool(BIN and Path(BIN).exists() and m and hashlib.sha256(Path(BIN).read_bytes()).hexdigest() == m.group(1))
 
 
 class GenerateTest(unittest.TestCase):
@@ -178,7 +192,7 @@ class TableTest(unittest.TestCase):
         runs = ROOT / "results" / "runs"
         out = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, out, True)
-        for suite, core, table in ((JEV_FUNCTIONS, JEV_RUN, "functions.tsv"),
+        for suite, core, table in ((f"{JEV_FUNCTIONS},{JEV_RECOGNIZE}", JEV_RUN, "functions.tsv"),
                                    (runs / "2026-09-23-functions-laya", runs / "2026-09-23-thinkthen-laya", "functions-laya.tsv"),
                                    (runs / "2026-09-23-functions-glm-5.3-flash", runs / "2026-09-23-glm-5.3-flash", "functions-glm.tsv")):
             subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
@@ -406,10 +420,12 @@ class RunTest(unittest.TestCase):
 @unittest.skipUnless(BIN and Path(BIN).exists() and (RUN / "recording").exists(), "the command or the recorded run is missing")
 class ReplayTest(unittest.TestCase):
     def test_the_recorded_suite_replays_with_the_key_unset_and_scores_to_the_saved_table(self):
+        if not same_build(RUN):
+            self.skipTest("the run's recording binds to another thinkthen build")
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(RUN / "recording")
         shutil.copy(RUN / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": BIN}
+        env = {**os.environ, "THINKTHEN_BIN": BIN, "BENCH_SUITE_ONLY": OLD_CASES}
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (RUN / "outputs.jsonl").read_text())
@@ -421,6 +437,17 @@ class ReplayTest(unittest.TestCase):
                  csv.DictReader(open(ROOT / "results" / "tables" / "functions.tsv", encoding="utf-8"), delimiter="\t")
                  if r["function"] in TESTS}
         self.assertEqual({k: saved[k] for k in got}, got)  # the replay scores a subset of the published rows
+
+    def test_the_new_recognize_groups_replay_with_the_key_unset(self):
+        if not same_build(JEV_RECOGNIZE):
+            self.skipTest("the run's recording binds to another thinkthen build")
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "recording").symlink_to(JEV_RECOGNIZE / "recording")
+        shutil.copy(JEV_RECOGNIZE / "timing.tsv", tmp / "timing.tsv")
+        env = {**os.environ, "THINKTHEN_BIN": BIN, "BENCH_SUITE_ONLY": NEW_GROUPS}
+        env.pop("THINKTHEN_API_KEY", None)
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
+        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RECOGNIZE / "outputs.jsonl").read_text())
 
 
 if __name__ == "__main__":

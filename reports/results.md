@@ -46,7 +46,7 @@ Every table sits in [results/tables/](../results/tables/), one row per system an
 
 ## The function suite
 
-The categories use only `choose` and `decide`. The function suite tests the other functions ThinkThen names. decide and choose come from each system's main run. The other rows come from `results/runs/2026-09-26-functions-jev` for Jev and `results/runs/2026-09-23-functions-*` for GLM and Laya.
+The categories use only `choose` and `decide`. The function suite tests the other functions ThinkThen names. decide and choose come from each system's main run. The other rows come from `results/runs/2026-09-26-functions-jev` for Jev and `results/runs/2026-09-23-functions-*` for GLM and Laya. The recognize rows beyond names-template come from `results/runs/2026-09-30-recognize-jev`.
 
 | Function | Test | Measure | Jev | GLM-5.3 Flash | Laya |
 | --- | --- | --- | --- | --- | --- |
@@ -63,12 +63,56 @@ The categories use only `choose` and `decide`. The function suite tests the othe
 | annotate | card | singer top pick right | 0.734 (0.660 to 0.797) | 0.965 (0.924 to 0.984) | 0.063 (0.035 to 0.113) |
 | annotate | card | album accuracy | 0.582 (0.510 to 0.652) | 0.978 (0.945 to 0.991) | 0.115 (0.077 to 0.170) |
 | annotate | card | year accuracy | 0.407 (0.338 to 0.479) | 0.989 (0.961 to 0.997) | 0.077 (0.046 to 0.125) |
-| recognize | names | song precision | 0.959 (0.863 to 0.989) |  |  |
-| recognize | names | song recall | 0.979 (0.891 to 0.996) |  |  |
-| recognize | names | person precision | 1.000 (0.926 to 1.000) |  |  |
-| recognize | names | person recall | 1.000 (0.926 to 1.000) |  |  |
-| recognize | names | album precision | 1.000 (0.924 to 1.000) |  |  |
-| recognize | names | album recall | 0.979 (0.891 to 0.996) |  |  |
+| recognize | names-template | song precision | 0.959 (0.863 to 0.989) |  |  |
+| recognize | names-template | song recall | 0.979 (0.891 to 0.996) |  |  |
+| recognize | names-template | person precision | 1.000 (0.926 to 1.000) |  |  |
+| recognize | names-template | person recall | 1.000 (0.926 to 1.000) |  |  |
+| recognize | names-template | album precision | 1.000 (0.924 to 1.000) |  |  |
+| recognize | names-template | album recall | 0.979 (0.891 to 0.996) |  |  |
+| recognize | varied | song precision | 0.971 (0.851 to 0.995) |  |  |
+| recognize | varied | song recall | 0.917 (0.782 to 0.971) |  |  |
+| recognize | varied | person precision | 1.000 (0.904 to 1.000) |  |  |
+| recognize | varied | person recall | 1.000 (0.904 to 1.000) |  |  |
+| recognize | varied | album precision | 0.909 (0.764 to 0.969) |  |  |
+| recognize | varied | album recall | 0.833 (0.681 to 0.921) |  |  |
+| recognize | song-or-album | song precision | 1.000 (0.758 to 1.000) |  |  |
+| recognize | song-or-album | song recall | 0.857 (0.601 to 0.960) |  |  |
+| recognize | song-or-album | person precision | 1.000 (0.439 to 1.000) |  |  |
+| recognize | song-or-album | person recall | 1.000 (0.439 to 1.000) |  |  |
+| recognize | song-or-album | album precision | 1.000 (0.610 to 1.000) |  |  |
+| recognize | song-or-album | album recall | 0.857 (0.487 to 0.974) |  |  |
+| recognize | short-names | song precision | 0.938 (0.717 to 0.989) |  |  |
+| recognize | short-names | song recall | 0.938 (0.717 to 0.989) |  |  |
+| recognize | short-names | person precision | 1.000 (0.806 to 1.000) |  |  |
+| recognize | short-names | person recall | 1.000 (0.806 to 1.000) |  |  |
+| recognize | case | song precision | 0.900 (0.596 to 0.982) |  |  |
+| recognize | case | song recall | 0.750 (0.468 to 0.911) |  |  |
+| recognize | case | person precision | 1.000 (0.758 to 1.000) |  |  |
+| recognize | case | person recall | 1.000 (0.758 to 1.000) |  |  |
+| recognize | case | album precision | 0.700 (0.397 to 0.892) |  |  |
+| recognize | case | album recall | 0.583 (0.320 to 0.807) |  |  |
+| recognize | no-names | no name found | 1.000 (0.722 to 1.000) |  |  |
+| recognize | paragraphs | song precision | 0.974 (0.868 to 0.995) |  |  |
+| recognize | paragraphs | song recall | 0.950 (0.835 to 0.986) |  |  |
+| recognize | paragraphs | person precision | 1.000 (0.898 to 1.000) |  |  |
+| recognize | paragraphs | person recall | 1.000 (0.898 to 1.000) |  |  |
+| recognize | paragraphs | album precision | 1.000 (0.901 to 1.000) |  |  |
+| recognize | paragraphs | album recall | 0.972 (0.858 to 0.995) |  |  |
+| recognize | punctuation | song precision | 0.786 (0.524 to 0.924) |  |  |
+| recognize | punctuation | song recall | 0.786 (0.524 to 0.924) |  |  |
+| recognize | punctuation | person precision | 1.000 (0.439 to 1.000) |  |  |
+| recognize | punctuation | person recall | 1.000 (0.439 to 1.000) |  |  |
+| recognize | punctuation | album precision | 0.786 (0.524 to 0.924) |  |  |
+| recognize | punctuation | album recall | 0.786 (0.524 to 0.924) |  |  |
+| recognize | relations | song precision | 0.974 (0.865 to 0.995) |  |  |
+| recognize | relations | song recall | 0.925 (0.801 to 0.974) |  |  |
+| recognize | relations | person precision | 1.000 (0.886 to 1.000) |  |  |
+| recognize | relations | person recall | 1.000 (0.886 to 1.000) |  |  |
+| recognize | relations | album precision | 1.000 (0.851 to 1.000) |  |  |
+| recognize | relations | album recall | 1.000 (0.851 to 1.000) |  |  |
+| recognize | relations | relation edge F1 | 0.867 (0.758 to 0.957) |  |  |
+| recognize | relations | relation edge precision | 0.973 (0.862 to 0.995) |  |  |
+| recognize | relations | relation edge recall | 0.783 (0.644 to 0.877) |  |  |
 | relate | song to singer and album | edge F1 | 0.719 (0.673 to 0.766) |  |  |
 | relate | song to singer and album | edge precision | 0.867 (0.820 to 0.904) |  |  |
 | relate | song to singer and album | edge recall | 0.614 (0.562 to 0.663) |  |  |
@@ -80,7 +124,19 @@ The relate rows are historical. They measure relate's old choice planner, in thi
 
 A blank cell was not asked. GLM runs through `scripts/run/chat.py suite`. That command asks tag, score, filter, rank, find, and annotate. recognize and relate run through `thinkthen recognize` and `thinkthen relate`. Those commands read a probability for each token or option, and a chat model states one, so GLM skips them. Laya's run of 2026-09-23 asked the older recognize and relate tests, built from annotate. Those tests are gone, so its cells are blank. Laya runs only on a Mac through a local shim and was not asked again.
 
-recognize scores the names `thinkthen recognize song person album` prints, one sentence per call. The command's tokenizer splits `.`, `!`, `?`, `,`, `:`, and `;` from the end of each word (thinkthen `specification/recognize.md`, "Names"), so a name may keep or drop such a mark. The scorer trims those marks from the end of both the true name and the name said, and compares the rest exactly. Of 144 true names Jev missed two: it split "Back in the U.S.S.R." in two, and it did not name the album "Help!". At that build, the bench asked `thinkthen relate` once over the 199 songs, Beatles, and albums, in three requests of at most 96,000 bytes. relate asked one choice per song for its lead singer. It said a second singer only in an exact tie at 0.5. So each of the 12 duets almost always gained at most one of its two singer edges in the strict counts. The duet row counted the duets whose pick, before the bar, named one of the two leads.
+recognize scores the names `thinkthen recognize song person album` prints, one sentence per call, in named groups. The command's tokenizer splits `.`, `!`, `?`, `,`, `:`, and `;` from the end of each word (thinkthen `specification/recognize.md`, "Names"), so a name may keep or drop such a mark. The scorer trims those marks from the end of both the true name and the name said, and compares the rest exactly.
+
+- `names-template`: the original 48 sentences, one name of each kind in one of four templates. Jev missed two of 144 names: it split "Back in the U.S.S.R." in two, and it did not name the album "Help!".
+- `varied`: the same facts over twelve more templates, with the names in different positions.
+- `song-or-album`: each of the seven titles that is both a song and an album, once as each ("the song Help!", "the album Help!").
+- `short-names`: a first name or surname alone, such as "Paul" or "Lennon".
+- `case`: the names written lower case or all caps. Album recall falls to 0.583.
+- `no-names`: sentences with no song, person or album. Jev found none.
+- `paragraphs`: four-sentence paragraphs, past the 40-piece window one step-1 request covers.
+- `punctuation`: titles with marks inside, such as "Back in the U.S.S.R." and "Ob-La-Di, Ob-La-Da". Precision and recall fall to 0.786.
+- `relations`: 40 sentences run with `--relation sung_by=song:person --relation appears_on=song:album`, in the same direction as `relate-suite.json`. The edge rows score only the edges the sentence states; six sentences name a song and an album while stating no edge. Jev reads a stated edge at precision 0.973 and recall 0.783.
+
+At the older build, the bench asked `thinkthen relate` once over the 199 songs, Beatles, and albums, in three requests of at most 96,000 bytes. relate asked one choice per song for its lead singer. It said a second singer only in an exact tie at 0.5. So each of the 12 duets almost always gained at most one of its two singer edges in the strict counts. The duet row counted the duets whose pick, before the bar, named one of the two leads.
 
 Each strict measure for tag, annotate's singer, and relate has a top pick row beside it. For tag and annotate, the row counts the songs whose likeliest singer is a true lead. A tie at the top earns the share of its singers that are true. An extra singer the strict measure counts wrong does not cost the song. For relate, the two rows counted the old planner's picks that named a true singer or album, one per song. A right answer under the 0.5 bar counted there. The full table in `results/tables/` also keeps the older rows "top label right, single-lead songs". They give a tie at the top to the first singer in the list.
 

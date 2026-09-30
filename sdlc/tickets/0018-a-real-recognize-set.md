@@ -43,3 +43,11 @@ The recognize suite has 48 sentences from four templates, such as "PERSON sang l
 
 - Kinds beyond song, person and album.
 - GLM and Laya runs of the new groups.
+
+## What the build taught us
+
+- The kind of name mattered more than the length of the text. Paragraphs over several sentences held near 0.97, while casing dropped album recall to 0.583 and marks inside a title dropped both precision and recall to 0.786.
+- Jev said nothing on the ten no-name sentences and said only true names under `song` in the contrastive pairs, so the misses were recall, not noise.
+- `recognize --relation` read 37 of 46 stated edges (precision 0.973, recall 0.783) and stated no edge on the sentences that name two entities while asserting none.
+- A recording binds to the build that wrote it: the request digest changed between thinkthen main 02dc0b96 and c22512868, so the committed 2026-09-26 recording replays only under the older build and the 2026-09-30 recording only under the newer one. The suite's replay tests now skip when `THINKTHEN_BIN` is not the build a run's `run.txt` names.
+- `BENCH_SUITE_ONLY` also scopes a replay, so the old run replays its 48 cases without the new ones needing a recording.

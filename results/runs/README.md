@@ -15,6 +15,7 @@ Each folder here is one run, named `DATE-LABEL`. The date is the day the run ask
 | `functions-jev` | Jev on the function suite | `questions/functions/` | [results.md](../../reports/results.md), "The function suite" |
 | `functions-glm-5.3-flash` | GLM-5.3 Flash on the function suite | `questions/functions/` | [results.md](../../reports/results.md), "The function suite" |
 | `functions-laya` | Laya on the function suite | `questions/functions/` | [results.md](../../reports/results.md), "The function suite" |
+| `recognize-jev` | Jev on the function suite's new recognize groups | `questions/suite/` recognize cases past `names-template` (`BENCH_SUITE_ONLY`) | [results.md](../../reports/results.md), "The function suite" |
 | `pipeline-jev` | Jev through `scripts/run/rad_pipeline.sh`, with shipped commands and `jq` only | the lead singers of the Abbey Road songs, from memory and from picked sections | [rad.md](../../reports/rad.md), "With shipped commands" |
 | `pipeline-jev2` | the same pipeline, which also asks single questions three ways and plants a wrong singer | the pipeline, plus single questions such as Tomorrow Never Knows | [rad.md](../../reports/rad.md), "A question Jev does not know" |
 | `baseline-bm25`, `baseline-embed`, `baseline-hybrid`, `baseline-overlap` | search baselines that score the question against each option, with no model | the 1,501 | [baselines.md](../../reports/baselines.md) |

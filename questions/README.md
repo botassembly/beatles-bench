@@ -48,4 +48,4 @@ Each line is one JSON object.
 
 ## The function suite
 
-`suite/` holds the tests for the other eight functions: tag, score, filter, rank, find, annotate, recognize, and relate. Each JSONL line carries the command's arguments and its records. The JSON files hold the question sets the arguments name. A recognize case holds one sentence and its names as character offsets. The relate case holds the whole entity set, and `relate-suite.json` holds its two relations.
+`suite/` holds the tests for the other eight functions: tag, score, filter, rank, find, annotate, recognize, and relate. Each JSONL line carries the command's arguments and its records. The JSON files hold the question sets the arguments name. A recognize case holds one sentence and its names as character offsets; the cases sit in tests, one per group, and a `relations` case adds `edges`, the stated [relation, source, target] triples. The relate case holds the whole entity set, and `relate-suite.json` holds its two relations.
