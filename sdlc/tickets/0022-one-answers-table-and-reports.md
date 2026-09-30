@@ -1,6 +1,6 @@
 # 0022 Store every answer in one table, and report from it
 
-Owner: the queue owner. Status: accepted after ticket review 1; its findings are taken below.
+Owner: the queue owner. Status: done on 2026-09-30.
 
 ## Why
 
