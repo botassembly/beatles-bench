@@ -1,0 +1,12 @@
+thinkthen: thinkthen 0.0.1, build pinned as thinkthen-c22512868, from thinkthen main c22512868
+THINKTHEN_BIN SHA-256: fbc4ff6a7d8b8763befcb0e207bd2b6b009b27d264d535e0c01f50316543f2d9
+model the backend reported: jev-1.13.0
+machine: a local Linux machine, 16 cores
+date: 2026-09-30
+BENCH_SUITE_ONLY: relate-songs,relate-solo-,relate-duet-,relate-wrong-album-only-,relate-links-
+The run asked the suite's 47 relate cases, ticket 0019: relate-songs again, plus the new solo, duet,
+wrong-album-only, and links tests. A plan check before the run gave an upper bound of 505,848 input tokens
+over 54 requests. A replay needs the same BENCH_SUITE_ONLY.
+live job (a local spend guard), BENCH_WORKERS=4:
+  relate suite: BENCH_MAX_INPUT_TOKENS=3000000, exit 0, input tokens sent 193845
+input tokens sent in all: 193845

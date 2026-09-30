@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
-from published import JEV_FUNCTIONS, JEV_RECOGNIZE, JEV_RUN  # noqa: E402
+from published import JEV_FUNCTIONS, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN  # noqa: E402
 import importlib.util  # noqa: E402
 
 import make_suite as gen  # noqa: E402
@@ -28,6 +28,7 @@ spec.loader.exec_module(fscore)
 TESTS = ["tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
 NEW_GROUPS = ("recognize-varied-,recognize-song-or-album-,recognize-short-names-,recognize-case-,recognize-no-names-,"
               "recognize-paragraphs-,recognize-punctuation-,recognize-relations-")
+RELATE_ONLY = "relate-songs,relate-solo-,relate-duet-,relate-wrong-album-only-,relate-links-"
 # The 2026-09-26 suite run recorded every test but the recognize groups added later: the names-template ids are
 # recognize-01 through recognize-48.
 # "relate-songs" rather than "relate": the later relate cases are absent from the 2026-09-26 recording.
@@ -255,7 +256,7 @@ class TableTest(unittest.TestCase):
         runs = ROOT / "results" / "runs"
         out = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, out, True)
-        for suite, core, table in ((f"{JEV_FUNCTIONS},{JEV_RECOGNIZE}", JEV_RUN, "functions.tsv"),
+        for suite, core, table in ((f"{JEV_FUNCTIONS},{JEV_RECOGNIZE},{JEV_RELATE}", JEV_RUN, "functions.tsv"),
                                    (runs / "2026-09-23-functions-laya", runs / "2026-09-23-thinkthen-laya", "functions-laya.tsv"),
                                    (runs / "2026-09-23-functions-glm-5.3-flash", runs / "2026-09-23-glm-5.3-flash", "functions-glm.tsv")):
             subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
@@ -548,6 +549,18 @@ class ReplayTest(unittest.TestCase):
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RECOGNIZE / "outputs.jsonl").read_text())
+
+    def test_the_relate_run_replays_with_the_key_unset(self):
+        if not same_build(JEV_RELATE):
+            self.skipTest("the run's recording binds to another thinkthen build")
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "recording").symlink_to(JEV_RELATE / "recording")
+        shutil.copy(JEV_RELATE / "timing.tsv", tmp / "timing.tsv")
+        env = {**os.environ, "THINKTHEN_BIN": BIN, "BENCH_SUITE_ONLY": RELATE_ONLY}
+        env.pop("THINKTHEN_API_KEY", None)
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)],
+                       check=True, env=env)
+        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RELATE / "outputs.jsonl").read_text())
 
 
 if __name__ == "__main__":

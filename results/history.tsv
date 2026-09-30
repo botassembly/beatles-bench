@@ -102,3 +102,8 @@ date	backend	model	tool	total	median_s	p90_s	usd_per_1000_questions	forward	forw
 2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.523	0.567	0.16716																				recognize	paragraphs	song precision	0.974
 2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.372	0.457	0.09979																				recognize	punctuation	song precision	0.786
 2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.483	0.541	0.05095																				recognize	relations	song precision	0.974
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.838	0.838	0.67718																				relate	song to singer and album	edge F1	0.523
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.180	0.221	0.03458																				relate	solo	edge F1	0.696
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.177	0.189	0.03485																				relate	duet	edge F1	0.656
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.190	0.213	0.03443																				relate	wrong-album-only	edge F1	0.385
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.196	0.204	0.17635																				relate	links	edge F1	0.472
