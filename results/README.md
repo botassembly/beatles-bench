@@ -4,6 +4,8 @@ Every run the bench made, and the tables scored from them.
 
 - `runs/`: the current runs, one folder per run, named `DATE-LABEL`. They hold the newest run of each label: Jev, GLM-5.3 Flash, Laya, the four baselines, the three function suites, the open-book run, the section-picking runs, the one-line runs, the pipelines, and the relation-vector run. The Jev one-line run of 2026-09-24 stays beside its Laya pair. [runs/README.md](runs/README.md) explains each label.
 - `tables/`: the scored tables, one row per system and category. `scripts/score/analyze.py` and `scripts/score/score_suite.py` write them.
+- `answers.jsonl`: every committed run's every answer, one row per case. `scripts/answers/build.py` writes it and `scripts/answers/report.py` reports from it.
+- `by-question.jsonl`: one row per question with every run's answer, probability and score.
 - `history.tsv`: one dated row per run and per function measure, so drift in a model shows over time.
 - `archive/`: runs no table reads. Each still replays or keeps its answers.
   - `archive/runs/`: superseded runs under their own names. They hold the Jev runs of 2026-09-23 and 2026-09-25 that a fresh run replaced, the first pipeline run of 2026-09-24, and `2026-09-25-examples-jev`, the live run the function folders' recordings came from. The 2026-09-25 runs replay with the thinkthen build their `run.txt` names.
