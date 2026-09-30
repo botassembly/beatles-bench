@@ -20,9 +20,15 @@ names as [start, end, kind, name], in characters with the end exclusive, as the 
 tests: names-template is the original 48; varied, song-or-album, short-names, case, no-names, paragraphs and
 punctuation are the harder sentences; relations runs the same kinds under --relation sung_by=song:person --relation
 appears_on=song:album and its cases add edges, the [relation, source, target] triples the sentence states. relate asks
-`thinkthen relate` once over the whole entity set: every song, the four Beatles, and the core albums. Its truth holds
-the edges, and skip lists the songs whose sung_by edges are not scored. relate-profile.json caps each request at
-96,000 bytes, the ceiling thinkthen main applies to relation requests at its built-in address.
+`thinkthen relate` once per entity set. `relate-songs` holds the whole catalogue: every song, the four Beatles, and
+the core albums. The `solo`, `duet`, and `wrong-album-only` tests hold small sets of one to three settled songs, the
+four Beatles, and three albums; `wrong-album-only` leaves each song's right album out, so its true appears_on edge
+set is empty. `links` draws about 20 entities from links.tsv (about a dozen songs and the seven people Wikidata
+names) and asks composed_by and produced_by under relate-links.json. The smaller tests run at a 0.01 cut so
+`thinkthen audit` can tune a bar across the range; the scorer cuts the printed edges at 0.5. relate-songs keeps its
+0.5 cut. A case's truth holds the edges, and relate-songs' skip lists the songs whose sung_by edges are not scored.
+relate-profile.json caps each request at 96,000 bytes, the ceiling thinkthen main applies to relation requests at
+its built-in address.
 """
 import csv
 import json
@@ -101,10 +107,16 @@ PEELED = ".!?,:;"  # the marks the command's tokenizer peels from a word's end (
 RECOGNIZE = ["song", "person", "album", "--jsonl", "--field", "/input"]
 RECOGNIZE_REL = ["song", "person", "album", "--relation", "sung_by=song:person", "--relation", "appears_on=song:album",
                  "--jsonl", "--field", "/input"]
-# relate: one choice per song over the people, and one over the albums. The relations are the function folder's, less
-# its threshold of 0.01. The case passes --threshold 0.5.
+# relate: the relations are the function folder's, less its threshold. Every case passes --threshold 0.01: a saved
+# edge list holds nothing under the run's cut, so a low cut lets `thinkthen audit` tune a bar. The scorer applies the
+# published 0.5 cut itself. relate-links.json adds the links.tsv relations, song to person both.
 RELATE = {"version": 1, "relate": json.loads((ROOT / "examples" / "relate" / "relate.json").read_text(encoding="utf-8"))["relate"]}
+RELATE_LINKS = {"version": 1, "relate": {"relations": [
+    {"name": "composed_by", "source": "song", "target": "person", "reads": "was composed by"},
+    {"name": "produced_by", "source": "song", "target": "person", "reads": "was produced by"}]}}
 PROFILE = {"schema": "thinkthen.backend-profile/1", "name": "request-96000", "max_request_bytes": 96000}
+LINK_REL = {"composer": "composed_by", "producer": "produced_by"}
+RELATE_RUN = ["--profile", "relate-profile.json", "--threshold", "0.01", "--jsonl", "--timeout", "180"]
 
 
 def rng(name):
@@ -159,6 +171,7 @@ def join(*sentences):
 
 class Suite:
     def __init__(self, data):
+        self.data = data
         self.albums = [a for a in read(data / "albums.tsv")]
         core = {a["album"] for a in self.albums if a["release_date"][:4] <= "1970"}
         self.core = [a["album"] for a in self.albums if a["album"] in core]
@@ -398,14 +411,90 @@ class Suite:
     def relate(self):
         self.qsets["relate-suite.json"] = RELATE
         self.qsets["relate-profile.json"] = PROFILE
+        self.qsets["relate-links.json"] = RELATE_LINKS
         ents = [(s["title"], "song") for s in self.songs] + [(v, "person") for v in FULL.values()] + [(a, "album") for a in self.core]
         truth = [["sung_by", s["title"], FULL[x]] for s in self.songs if settled_lead(s) for x in self.leads(s)]
         truth += [["appears_on", s["title"], s["first_album"]] for s in self.songs]
-        self.out["relate"] = [{"id": "relate-songs", "function": "relate", "test": "songs",
-                               "args": ["@relate-suite.json", "--profile", "relate-profile.json", "--threshold", "0.5", "--jsonl", "--timeout", "180"],
-                               "records": [{"name": n, "kind": k} for n, k in ents], "truth": truth,
-                               "skip": [s["title"] for s in self.songs if not settled_lead(s)],
-                               "fields": [x for s in self.songs for x in f(s, "lead_vocals", "first_album")]}]
+        # relate-songs keeps its 0.5 cut: its run is the published compare, and a one-case group has no halves for
+        # audit to tune. The smaller tests run at RELATE_RUN's 0.01 cut so `thinkthen audit` can tune a bar.
+        songs = {"id": "relate-songs", "function": "relate", "test": "song to singer and album",
+                 "args": ["@relate-suite.json", "--profile", "relate-profile.json", "--threshold", "0.5",
+                          "--jsonl", "--timeout", "180"],
+                 "records": [{"name": n, "kind": k} for n, k in ents], "truth": truth,
+                 "skip": [s["title"] for s in self.songs if not settled_lead(s)],
+                 "fields": [x for s in self.songs for x in f(s, "lead_vocals", "first_album")]}
+        self.out["relate"] = [songs] + self.rel_small() + self.rel_links()
+
+    def rel_case(self, test, n, qset, ents, truth, fields):
+        """One relate case: a command call over one complete entity set."""
+        return {"id": f"relate-{test}-{n:02d}", "function": "relate", "test": test,
+                "args": [f"@{qset}"] + RELATE_RUN,
+                "records": [{"name": v, "kind": k} for v, k in ents], "truth": truth, "fields": fields}
+
+    def rel_small(self):
+        """Small sets of one to three settled songs, the four Beatles, and three albums. solo and duet keep the right
+        album (each case's songs share one first album); wrong-album-only keeps three wrong albums, so its true
+        appears_on edge set is empty."""
+        r = rng("relate/small")
+        people = [(v, "person") for v in FULL.values()]
+        settled = self.settled()
+        cases = []
+
+        def small(test, picked, albums):
+            albums = list(albums)
+            r.shuffle(albums)
+            ents = [(s["title"], "song") for s in picked] + people + [(a, "album") for a in albums]
+            truth = [["sung_by", s["title"], FULL[x]] for s in picked for x in self.leads(s)]
+            truth += [["appears_on", s["title"], s["first_album"]] for s in picked if s["first_album"] in albums]
+            fields = [x for s in picked for x in f(s, "lead_vocals", "first_album")]
+            cases.append(self.rel_case(test, sum(1 for c in cases if c["test"] == test) + 1,
+                                       "relate-suite.json", ents, truth, fields))
+
+        solo = {a: sorted([s for s in settled if s["first_album"] == a and len(self.leads(s)) == 1],
+                          key=lambda s: s["title"]) for a in self.core}
+        chunks = []
+        for a in self.core:
+            pool = solo[a]
+            r.shuffle(pool)
+            while pool:
+                chunks.append((a, [pool.pop() for _ in range(min(len(pool), 1 + r.randrange(3)))]))
+        r.shuffle(chunks)
+        for a, picked in chunks[:16]:
+            small("solo", picked, [a] + r.sample([x for x in self.core if x != a], 2))
+        for a in self.core:
+            duets = sorted([s for s in settled if s["first_album"] == a and len(self.leads(s)) == 2],
+                           key=lambda s: s["title"])
+            if duets:
+                small("duet", duets, [a] + r.sample([x for x in self.core if x != a], 2))
+        pool = list(settled)
+        r.shuffle(pool)
+        for i in range(16):
+            picked = [pool.pop() for _ in range(min(len(pool), 1 + i % 3))]
+            small("wrong-album-only", picked,
+                  r.sample([a for a in self.core if a not in {s["first_album"] for s in picked}], 3))
+        return cases
+
+    def rel_links(self):
+        """links.tsv sets of about 20 entities: about a dozen songs and the seven people the table names as composer
+        or producer, asked under relate-links.json. Truth is the table's pairs."""
+        rows = [x for x in read(self.data / "links.tsv") if x["relation"] in LINK_REL]
+        by_song = {}
+        for x in rows:
+            by_song.setdefault(x["song"], []).append(x)
+        people = sorted({x["other_article"] for x in rows})
+        songs = sorted(by_song)
+        rng("relate/links").shuffle(songs)
+        per = -(-len(songs) // 8)  # 12: eight sets of about 19 entities
+        cases = []
+        for i in range(0, len(songs), per):
+            chunk = songs[i:i + per]
+            mine = [x for s in chunk for x in by_song[s]]
+            truth = [[LINK_REL[x["relation"]], x["song"], x["other_article"]] for x in mine]
+            fields = [["links.tsv", "|".join([x["song"], x["relation"], x["other_article"]]), col, x[col]]
+                      for x in mine for col in ("relation", "other_article")]
+            ents = [(s, "song") for s in chunk] + [(p, "person") for p in people]
+            cases.append(self.rel_case("links", len(cases) + 1, "relate-links.json", ents, truth, fields))
+        return cases
 
 
 def main(data=ROOT / "data", out=ROOT / "questions" / "suite"):
