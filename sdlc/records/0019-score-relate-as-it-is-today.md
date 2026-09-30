@@ -40,7 +40,7 @@ duets pick a lead 0.833 (was 0.917). The pair planner trades precision for recal
 | --- | --- | --- |
 | solo | edge precision | 0.644 |
 | duet | edge recall | 0.583 |
-| wrong-album-only | album top pick | 0.000; edge precision 0.296 |
+| wrong-album-only | edge precision | 0.296 (it still names an album for every song; all are wrong) |
 | links | edge precision | 0.330; edge recall 0.833 |
 
 Audit-tuned cuts on a seeded half of each test, scored on the other half: solo 0.45 (held F1 0.689), duet 0.19
@@ -66,4 +66,8 @@ Audit-tuned cuts on a seeded half of each test, scored on the other half: solo 0
 
 ## Reviews
 
-Pending independent review.
+Independent review found three items, all fixed on this branch: the 02dc0b96 replay test no longer compares its
+choice-planner relate scores against the new table rows (the byte replay still covers them); `wrong-album-only`'s
+forced-0.000 `album top pick right` row is gone — a relation with no true edge gets no pick row, and the report
+keeps the prose that relate names an album anyway; and `relate_audit.py`'s rows, key, and seeded half split now have
+a unit test (`tests/test_relate_audit.py`). Re-review pending.

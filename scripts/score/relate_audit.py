@@ -21,6 +21,28 @@ SEED = "beatles-bench-relate-audit"
 TT = os.environ.get("THINKTHEN_BIN", "thinkthen")
 
 
+def tune_ids(test, ids):
+    """The seeded tune half of a relate test's case ids; the rest is held. Every id lands in exactly one part."""
+    order = list(ids)
+    random.Random(f"{SEED}/{test}").shuffle(order)
+    return set(order[:len(order) // 2])
+
+
+def group_files(test, asked, outs, kinds):
+    """(rows lines, key lines) for one relate test. A rows line is the case's low-cut result record carrying
+    input.id so audit's --id finds it. A key line is the case's truth edges in relate's value shape — each
+    endpoint keeps its entity kind from the question file — plus its seeded tune or held part."""
+    tune = tune_ids(test, [c["id"] for c in asked])
+    rows = [{**outs[c["id"]]["rows"][0], "input": {"id": c["id"]}} for c in asked]
+    key = [{"id": c["id"],
+            "value": [{"relation": rel, "source": {"name": s, "kind": kinds[c["id"]][rel][0]},
+                       "target": {"name": t, "kind": kinds[c["id"]][rel][1]}}
+                      for rel, s, t in c["truth"]],
+            "part": "tune" if c["id"] in tune else "held"}
+           for c in asked]
+    return rows, key
+
+
 def main(run, suite=ROOT / "questions" / "suite"):
     run, suite = Path(run), Path(suite)
     cases = [json.loads(l) for l in open(suite / "relate.jsonl", encoding="utf-8")]
@@ -43,20 +65,11 @@ def main(run, suite=ROOT / "questions" / "suite"):
             raise ValueError(f"relate-audit: the run asked {len(asked)} of {len(group)} relate {test} cases")
         if len(asked) < 2:
             continue  # one case splits into no tuning half
-        ids = [c["id"] for c in asked]
-        order = list(ids)
-        random.Random(f"{SEED}/{test}").shuffle(order)
-        tune = set(order[:len(order) // 2])
-        with open(out_dir / f"{test}-rows.jsonl", "w", encoding="utf-8") as fh:
-            for c in asked:
-                result = outs[c["id"]]["rows"][0]
-                fh.write(json.dumps({**result, "input": {"id": c["id"]}}, ensure_ascii=False) + "\n")
-        with open(out_dir / f"{test}-key.jsonl", "w", encoding="utf-8") as fh:
-            for c in asked:
-                edges = [{"relation": rel, "source": {"name": s, "kind": kinds[c["id"]][rel][0]},
-                          "target": {"name": t, "kind": kinds[c["id"]][rel][1]}} for rel, s, t in c["truth"]]
-                fh.write(json.dumps({"id": c["id"], "value": edges,
-                                     "part": "tune" if c["id"] in tune else "held"}, ensure_ascii=False) + "\n")
+        rows, key = group_files(test, asked, outs, kinds)
+        (out_dir / f"{test}-rows.jsonl").write_text(
+            "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in rows), encoding="utf-8")
+        (out_dir / f"{test}-key.jsonl").write_text(
+            "".join(json.dumps(k, ensure_ascii=False) + "\n" for k in key), encoding="utf-8")
         done = subprocess.run([TT, "audit", str(out_dir / f"{test}-rows.jsonl"), str(out_dir / f"{test}-key.jsonl")],
                               capture_output=True, text=True, check=True)
         (out_dir / f"{test}.json").write_text(done.stdout, encoding="utf-8")

@@ -403,6 +403,9 @@ class ScoreTest(unittest.TestCase):
         self.assertEqual(got("tuned cut"), (0.55, 1))
         self.assertEqual(got("edge F1 at the tuned cut, held half"), (0.75, 1))
         self.assertNotIn("duets: pick is a lead", rows)
+        no_album = {**case, "truth": [t for t in case["truth"] if t[0] != "appears_on"]}
+        measures = {r["measure"] for r in fscore.relate_rows([no_album], {"r": {"rows": [result], "input_tokens": 1}})}
+        self.assertNotIn("album top pick right", measures)  # no true edge: no pick can be right
 
     def test_recognize_relations_edges_score_by_precision_and_recall(self):
         text = "Paul sang lead on Yesterday"
@@ -533,7 +536,11 @@ class ReplayTest(unittest.TestCase):
         for p in sorted((RUN / "lists").glob("*.jsonl")):
             self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)
         rows = fscore.table(tmp / "replay", JEV_RUN)
-        got = {(r["function"], r["test"], r["measure"]): fscore.fmt(r["value"]) for r in rows if r["function"] in TESTS}
+        # relate is left out: functions.tsv's relate rows come from the 2026-09-30 pair-planner run, while this
+        # replay's recording holds the 02dc0b96 choice planner's answers — the historical values the report keeps.
+        # The byte-for-byte replay check above still covers its relate-songs output.
+        got = {(r["function"], r["test"], r["measure"]): fscore.fmt(r["value"]) for r in rows
+               if r["function"] in TESTS and r["function"] != "relate"}
         saved = {(r["function"], r["test"], r["measure"]): r["value"] for r in
                  csv.DictReader(open(ROOT / "results" / "tables" / "functions.tsv", encoding="utf-8"), delimiter="\t")
                  if r["function"] in TESTS}

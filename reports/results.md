@@ -138,7 +138,6 @@ The categories use only `choose` and `decide`. The function suite tests the othe
 | relate | wrong-album-only | edge precision | 0.296 (0.202 to 0.410) |  |  |
 | relate | wrong-album-only | edge recall | 0.553 (0.397 to 0.699) |  |  |
 | relate | wrong-album-only | singer top pick right | 0.742 (0.568 to 0.863) |  |  |
-| relate | wrong-album-only | album top pick right | 0.000 (0.000 to 0.110) |  |  |
 | relate | wrong-album-only | duets: pick is a lead | 0.714 (0.359 to 0.918) |  |  |
 | relate | wrong-album-only | tuned cut | 0.460 |  |  |
 | relate | wrong-album-only | edge F1 at the tuned cut, held half | 0.373 |  |  |
@@ -170,7 +169,7 @@ relate scores the edges `thinkthen relate` prints, one entity set per call. An e
 
 - `song to singer and album`: the whole set — 182 songs, the four Beatles, and the 13 core albums — asked at the 0.5 cut in eight requests of at most 96,000 bytes.
 - `solo` (16 sets) and `duet` (6): one to three songs sharing a first album, the four Beatles, and three albums, one of them the right one.
-- `wrong-album-only` (16): the same shape, but the right album is left out, so the true `appears_on` edge set is empty. Its album top pick is 0.000: relate always names an album, and every album offered is wrong.
+- `wrong-album-only` (16): the same shape, but the right album is left out, so the true `appears_on` edge set is empty. relate still names an album for every song, and every album offered is wrong, so no album pick row can be scored.
 - `links` (8): about 20 entities each — a dozen songs and the seven people `data/links.tsv` names — scored on the Wikidata `composer` and `producer` pairs, asked as `composed_by` and `produced_by` under `relate-links.json`.
 
 The small and links tests ran at a 0.01 cut, so `thinkthen audit` could tune a bar across the whole range. Each such test's `tuned cut` row is the cut a seeded half of its cases tuned for F1, and the held-half rows score the other half at it. The rows, keys, and audit reports sit in the run's `relate-audit/` folder. `song to singer and album` is one case and splits into no halves, so it shows only the 0.5 cut.

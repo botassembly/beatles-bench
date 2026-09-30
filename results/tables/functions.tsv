@@ -170,7 +170,6 @@ relate	wrong-album-only	edge F1	yes	38	0.385	0.259	0.504	16	13117	0.00055	0.190	
 relate	wrong-album-only	edge precision	yes	71	0.296	0.202	0.410					
 relate	wrong-album-only	edge recall	yes	38	0.553	0.397	0.699					
 relate	wrong-album-only	singer top pick right	yes	31	0.742	0.568	0.863					
-relate	wrong-album-only	album top pick right	yes	31	0.000	0.000	0.110					
 relate	wrong-album-only	duets: pick is a lead	yes	7	0.714	0.359	0.918					
 relate	wrong-album-only	tuned cut	yes	8	0.460							
 relate	wrong-album-only	edge F1 at the tuned cut, held half	yes	8	0.373							

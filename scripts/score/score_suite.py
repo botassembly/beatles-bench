@@ -425,9 +425,11 @@ def relate_rows(cases, outs, audit=None):
                     use=usage([outs[c["id"]] for c in group])),
                 share("relate", test, "edge precision", tp, tp + fp, True),
                 share("relate", test, "edge recall", tp, tp + fn, True)]
+        true_rels = {e[0] for c in group for e in c["truth"]}
         for rel in order:
-            rows.append(share("relate", test, f"{REL_LABEL.get(rel, rel)} top pick right",
-                              sum(picks[rel]), len(picks[rel]), True))
+            if rel in true_rels:  # a relation with no true edge can never pick right: wrong-album-only's albums
+                rows.append(share("relate", test, f"{REL_LABEL.get(rel, rel)} top pick right",
+                                  sum(picks[rel]), len(picks[rel]), True))
         if picks.get("duet"):
             rows.append(share("relate", test, "duets: pick is a lead", sum(picks["duet"]), len(picks["duet"]), True))
         suggested = (audit or {}).get(test, {}).get("suggested") or {}
