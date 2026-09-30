@@ -20,6 +20,8 @@ Each folder here is one run, named `DATE-LABEL`. The date is the day the run ask
 | `reading-jev` | Jev on the function suite's reading tests and the new find sets | `questions/suite/` cases under `BENCH_SUITE_ONLY` | [results.md](../../reports/results.md), "By function" |
 | `pipeline-jev` | Jev through `scripts/run/rad_pipeline.sh`, with shipped commands and `jq` only | the lead singers of the Abbey Road songs, from memory and from picked sections | [rad.md](../../reports/rad.md), "With shipped commands" |
 | `pipeline-jev2` | the same pipeline, which also asks single questions three ways and plants a wrong singer | the pipeline, plus single questions such as Tomorrow Never Knows | [rad.md](../../reports/rad.md), "A question Jev does not know" |
+| `all-jev` | Jev through the `thinkthen` command, the whole bench | the 1,501 questions and all 5,838 suite cases | [results.md](../../reports/results.md), "Jev and Liquid d1" |
+| `all-liquid-d1` | Liquid's d1 (`d1:free`) through `thinkthen --backend liquid`, the whole bench | the same 7,339 | [results.md](../../reports/results.md), "Jev and Liquid d1" |
 | `baseline-bm25`, `baseline-embed`, `baseline-hybrid`, `baseline-overlap` | search baselines that score the question against each option, with no model | the 1,501 | [baselines.md](../../reports/baselines.md) |
 | `relation-vectors` | vector search with the relation named in the query | 20 forward questions (`sample.json`) | [baselines.md](../../reports/baselines.md), "Relation-conditioned queries" |
 
