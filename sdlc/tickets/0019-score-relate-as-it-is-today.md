@@ -1,6 +1,6 @@
 # 0019 Score relate as it works today
 
-Owner: the queue owner. Status: ready for review.
+Owner: the queue owner. Status: ready for review. Change 5 lands with or after ticket 0018.
 
 ## Why
 

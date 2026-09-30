@@ -20,10 +20,10 @@ Almost every bench question hands Jev a song title and asks what it remembers. T
 
 ## Changes
 
-1. For each of decide, choose, tag, score, filter, rank, find and annotate, add a `reading` test. It takes a seeded sample of the memory cases, at most 100 per function, and puts the song's own row into the record as a short card: title, lead singers, first album, year, length, and page views where the question needs them. The question stays the same. Popularity questions give the page views, so the reading score measures reading, not guessing.
-2. Grow find to about 150 sets and tag to about 150 cases in the memory test, from the same generators.
+1. For each of decide, choose, tag, score, filter, rank, find and annotate, add a `reading` test. It takes a seeded sample of the eligible memory cases, at most 100 per function, and puts the facts into the record as a short card: title, lead singers, first album, year, length, and page views where the question needs them. A case is eligible when the song table covers every fact its truth needs. A one-song case gets that song's card. A `find` set gets one card per unit. A `choose` case whose options are songs gets one card per option. Cases about world events or pairs outside the Beatles are not eligible. The question stays the same. Popularity questions give the page views, so the reading score measures reading, not guessing.
+2. Grow find to about 150 sets in the memory test, from the same generator.
 3. Score each reading test with its memory test's measure.
-4. Add a "By function" table at the top of `reports/results.md`: function, cases, what it asks, memory score, reading score. The function-suite section below it keeps its detail.
+4. Add a "By function" table at the top of `reports/results.md`: function, cases, what it asks, memory score, reading score. recognize has no memory score, because it already reads the supplied text. relate has no reading score, because it judges names from memory; ticket 0019 covers it. The function-suite section below it keeps its detail.
 5. Add a short note on audit and diff to the same report: a user tunes the cut on labeled cases with `thinkthen audit`, and compares runs with `thinkthen diff`.
 
 ## Proof
@@ -36,4 +36,4 @@ Almost every bench question hands Jev a song title and asks what it remembers. T
 ## Deferred gaps
 
 - GLM and Laya reading runs.
-- A private held-out reading set, which lives in the release QA suite.
+- A held-out reading set outside this repo.
