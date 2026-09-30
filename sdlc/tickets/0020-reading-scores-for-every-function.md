@@ -1,6 +1,6 @@
 # 0020 Score every function on reading, beside memory
 
-Owner: the queue owner. Status: ready for review.
+Owner: the queue owner. Status: done on 2026-09-30.
 
 ## Why
 
