@@ -21,7 +21,7 @@ Each function's main measure, once from memory and once reading a card that hold
 
 The columns are the main measures of the table below: accuracy, exact-set match, F1, or Spearman. The rank cell holds its two measures. A reading cell covers at most 100 cases a test; annotate counts only its settled-lead songs. recognize's cell is its song precision on the names-template sentences, and relate's is edge F1 on the whole catalogue at the 0.5 cut. For score and rank's popularity ask the card prints the song's 2024 page views, so those reading figures measure how well the model places a printed number on a coarse five-level scale or an ordering — and ties cost the rank correlation even when the number is read right. The reading numbers come from `results/runs/2026-09-30-reading-jev`: 1,004 cases, 558,621 input tokens, about $0.02.
 
-The gap between the columns is what ThinkThen's own tuning is for. `thinkthen audit` tunes an audit cut on the labeled cases, and `thinkthen diff` compares two runs without a model call, so a user can move the memory scores and check the change against these tables.
+The gap between the columns is why the facts belong in the text. On your own work, label a few dozen cases: `thinkthen audit` grades a run against them and suggests a cut, and `thinkthen diff` compares two runs, two cuts or two models without a model call.
 
 ## Main results
 
