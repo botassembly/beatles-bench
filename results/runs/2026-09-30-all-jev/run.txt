@@ -11,7 +11,7 @@ The backend timed out on single requests three times; each leg resumed from the 
 BENCH_THINKTHEN_ARGS="--timeout 180" to give slow requests room.
 live jobs (a local spend guard), BENCH_WORKERS=4 then 2:
   knowledge questions: BENCH_MAX_INPUT_TOKENS=20000000, exit 0, input tokens sent 555878
-  function suite: BENCH_MAX_INPUT_TOKENS=20000000, exit 0, input tokens sent 8969121
-input tokens sent in all: 9524999
+  function suite: BENCH_MAX_INPUT_TOKENS=20000000, exit 0, input tokens sent 8909854
+input tokens sent in all: 9465732
 replay (key unset, model and flags as sent): ask.py replay exit 0, answers.jsonl byte-identical;
   ask_suite.py replay exit 0, outputs.jsonl and lists/ byte-identical

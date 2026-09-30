@@ -8,7 +8,7 @@ The what-jev-knows slide. Four bars give each system's share right on the `1,313
 | --- | --- | --- |
 | Random guess | `31.4%` | [`../../reports/results.md`](../../reports/results.md), "Main results", row Chance, Beatles-only column |
 | Vector search | `0.3762` | [`../../results/tables/accuracy.tsv`](../../results/tables/accuracy.tsv), row Embeddings, scope beatles-only |
-| Jev from memory | `0.6695` | the same table, row Jev, scope beatles-only |
+| Jev from memory | `0.6736` | the same table, row Jev, scope beatles-only |
 | Big chat model | `0.9622` | the same table, row GLM-5.3 Flash, scope beatles-only |
 
 The slide rounds each share to a whole percent: 31%, 38%, 67%, and 96%. The chance share is the expected share of a uniform guess. `accuracy.tsv` holds no Chance row.

@@ -4,5 +4,5 @@ commands: scripts/run/thinkthen.sh live results/runs/2026-09-30-all-jev ;
   scripts/run/ask_suite.sh live results/runs/2026-09-30-all-jev ;
   BENCH_MAX_INPUT_TOKENS=20000000, BENCH_WORKERS=4 then 2, last legs with BENCH_THINKTHEN_ARGS="--timeout 180"
 exit: 0 for both
-spend: 7,339 calls and 9,524,999 input tokens (12,504 requests), about $0.40, measured by a local spend guard
-this job: 7339 calls, 9524999 input tokens, $0.4001 at $0.042 per million input tokens
+spend: 7,339 calls and 9,465,732 input tokens (12,504 requests), about $0.40, measured by a local spend guard
+this job: 7339 calls, 9465732 input tokens, $0.3976 at $0.042 per million input tokens

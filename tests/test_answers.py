@@ -127,9 +127,9 @@ class Build(unittest.TestCase):
 
     def test_pool_merges_the_newest_folder(self):
         jev = self.pools["Jev"]
-        self.assertEqual(jev["relate-songs"]["run"], "2026-09-30-relate-jev")  # relate-jev beats functions-jev
+        self.assertEqual(jev["relate-songs"]["run"], "2026-09-30-all-jev")  # all-jev beats relate-jev, wider same day
         self.assertIn("relate-solo-01", jev)
-        self.assertEqual(len([i for i in jev if jev[i]["function"] == "relate"]), 47)
+        self.assertEqual(len([i for i in jev if jev[i]["function"] == "relate"]), 100)
 
     def test_gap_keeps_a_row_without_measures(self):
         gap = next(r for r in self.rows if r["run"] == "2026-09-23-functions-laya" and r["id"] == "relate-01")
@@ -478,10 +478,12 @@ class Recompute(unittest.TestCase):
         qs = {q["id"]: q for q in analyze.questions()}
         canonical = {report.label(run.name) for run in analyze.discover(analyze.questions())}
         by_label = defaultdict(list)
-        for r in self.rows:
-            lab = report.label(r["run"])
-            if lab in canonical and r["id"] in qs:
-                by_label[lab].append(r)
+        for lab, pool in self.pools.items():  # the pool keeps one row a question: the newest covering run's
+            if lab not in canonical:
+                continue
+            for r in pool.values():
+                if r["id"] in qs:
+                    by_label[lab].append(r)
         scope = {"overall": lambda r: True, "beatles-only": lambda r: r["category"] not in GENERAL_CATEGORIES}
         for p in pub:
             lab, sc = p["system"], p["scope"]

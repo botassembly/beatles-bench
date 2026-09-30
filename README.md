@@ -13,7 +13,7 @@ A benchmark of what a small, fast model knows about Beatles songs, and how well 
 
 ## Results
 
-Jev and three other kinds of system answer the same 1,313 Beatles questions. The Jev row comes from the run of 2026-09-26. The other rows come from the runs of 2026-09-23.
+Jev and three other kinds of system answer the same 1,313 Beatles questions. The Jev row comes from the all-run of 2026-09-30. The other rows come from the runs of 2026-09-23.
 
 - String search compares the question with each option and picks the closest. It knows no facts. Vector search did no better, even with the relation named in the query ([reports/baselines.md](reports/baselines.md)).
 - GLM-5.3 Flash is a large chat model from Z.ai. It answers from memory, with thinking off and no search tool.
@@ -23,10 +23,10 @@ Jev and three other kinds of system answer the same 1,313 Beatles questions. The
 | --- | --- | --- | --- |
 | String search (BM25) | 33.8% | no model call | 0 |
 | Laya, from memory | 35.0% | 0.07 s (build and load not recorded) | 0 (local) |
-| Jev, from memory | 67.0% | 0.21 s (load average 3.83 to 7.10 on 16 cores) | 0.015 |
+| Jev, from memory | 67.4% | 0.20 s (load average 6.74 to 11.18 on 16 cores) | 0.016 |
 | GLM-5.3 Flash, from memory | 96.2% | 8.24 s (build and load not recorded) | 0.056 |
 
-A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-26-thinkthen-jev`, whose `loadavg.txt` records the load.
+A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-30-all-jev`, whose `loadavg.txt` records the load.
 
 - Search sits near chance. Matching words cannot tell which album a song came out on.
 - Jev from memory gets about two in three. It knows a lot and misses fine detail. Its misses are near misses: one year off, a sibling album.

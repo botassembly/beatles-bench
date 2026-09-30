@@ -11,10 +11,10 @@ The jev slide. One bench question goes to Jev's choose endpoint, and a probabili
 | George for Octopus's Garden | `0.13` | the same row |
 | Ringo for Octopus's Garden | `0.84` | the same row |
 | John and Paul duet for Octopus's Garden | `0.0` | the same row |
-| The typical time of one question | `median_s` `0.215` | [`../../results/tables/cost.tsv`](../../results/tables/cost.tsv), row Jev |
-| The price of the 1,501 questions | `usd` `0.022466` | the same row |
-| The load at the start of the run | `3.83` | [`loadavg.txt`](../../results/runs/2026-09-26-thinkthen-jev/loadavg.txt) of the 2026-09-26 Jev run, second start line |
-| The load at the end of the run | `7.10` | the same file, end line |
+| The typical time of one question | `median_s` `0.195` | [`../../results/tables/cost.tsv`](../../results/tables/cost.tsv), row Jev |
+| The price of the 1,501 questions | `usd` `0.023347` | the same row |
+| The load at the start of the run | `6.74` | [`loadavg.txt`](../../results/runs/2026-09-30-all-jev/loadavg.txt) of the 2026-09-30 all-jev run, second start line |
+| The load at the end of the run | `11.18` | the same file, end line |
 | The price per million input tokens | `usd_per_m_input` `0.042` | [`../../scripts/score/prices.tsv`](../../scripts/score/prices.tsv), row jev |
 
 The first start line of `loadavg.txt` belongs to an attempt that stopped on a backend timeout. The second attempt resumed into the same folder.
