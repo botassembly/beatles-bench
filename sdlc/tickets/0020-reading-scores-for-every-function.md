@@ -37,3 +37,9 @@ Almost every bench question hands Jev a song title and asks what it remembers. T
 
 - GLM and Laya reading runs.
 - A held-out reading set outside this repo.
+
+## What the build taught us
+
+- With the facts on the card, decide, tag, filter, find and annotate sit at 1.000 on their samples and choose at 0.950; only score and rank keep a gap (0.733 and 0.808/0.979), because a scale and an ordering ask for a judgment over numbers, not a lookup. choose's five misses are all album-to-song questions, where the answer needs a match across five cards.
+- A recording's byte-exact replay needed `meta.attempts` stripped: this build prints per-request detail under `--details` on the six judgment verbs, and a replay adds none. The runner drops it with `cached` and `requests_sent`.
+- The new build packs several records into one request, so a replay resolves a question digest through the recording's `thinkthen.sqlite` index, not a filename. The index must be committed with the request files.
