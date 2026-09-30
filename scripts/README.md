@@ -8,6 +8,7 @@ All the code, one folder per stage. The pipeline runs in this order: harvest, ge
 | `generate/` | Turn `data/` into `questions/`, `questions/suite/`, and the cases in `examples/`. | `generate.py`, `make_suite.py`, `examples.py` |
 | `run/` | Ask every question and record each exchange in `results/runs/RUN/`. | `thinkthen.sh` (wraps `ask.py`), `ask_suite.sh`, `example.sh`, `rad_pipeline.sh`, `chat.py`, `baselines.py`, `relation_vectors.py`, `catalog.py`, `rad.py`, `gaps.py`, `model_time.py`, `in_text_check.py` |
 | `score/` | Score the runs into `results/tables/` and `results/history.tsv`. | `analyze.py`, `score_suite.py`, `relate_audit.py`, `table.py`, `score.py`, `stats.py`, `open_book.py`, `rad_table.py`, `prices.tsv`, `tune.sh`, `context_diff.sh`, `diff_guard.sh`, `context.jq` |
+| `answers/` | Write `results/answers.jsonl` (one row per case per committed run) and report from it into `reports/generated/` and `results/by-question.jsonl`. | `build.py`, `report.py`, `queries/` |
 | `figures/` | Draw `reports/figures/` from `results/tables/` with kuva. | `all.sh`, `common.py`, one numbered script per figure |
 
 ## Set up
@@ -30,6 +31,8 @@ env -u THINKTHEN_API_KEY scripts/run/example.sh decide replay        # examples/
 env -u ZAI_API_KEY .venv/bin/python scripts/run/chat.py replay results/runs/2026-09-23-glm-5.3-flash
 python3 scripts/score/analyze.py                      # results/tables/
 python3 scripts/score/table.py                        # the results tables
+python3 scripts/answers/build.py                      # results/answers.jsonl
+python3 scripts/answers/report.py                     # reports/generated/, results/by-question.jsonl
 ```
 
 `scripts/run/example.sh NAME replay [OUT] [FROM]` replays one function folder. The cases come from `examples/NAME/`. The recording comes from FROM, a run folder, or else from the folder's own `recording/`. The replay writes to OUT, by default the folder's `replay/`. For `audit`, `example.sh` then runs `score/tune.sh` for the audit files. `score/context_diff.sh [IN [OUT]]` runs `diff` on the audit rows in `IN`, by default `examples/audit`.
