@@ -176,9 +176,46 @@ recognize	relations	relation edge F1	yes	46	0.867	0.758	0.957
 recognize	relations	relation edge precision	yes	37	0.973	0.862	0.995					
 recognize	relations	relation edge recall	yes	46	0.783	0.644	0.877					
 recognize	relations	names said		40	90							
-relate	song to singer and album	edge F1	yes	352	0.719	0.673	0.766	3	126858	0.00533	1.719	1.719
-relate	song to singer and album	edge precision	yes	249	0.867	0.820	0.904					
-relate	song to singer and album	edge recall	yes	352	0.614	0.562	0.663					
-relate	song to singer and album	singer top pick right	yes	158	0.899	0.842	0.937					
-relate	song to singer and album	album top pick right	yes	182	0.637	0.565	0.704					
-relate	song to singer and album	duets: pick is a lead	yes	12	0.917	0.646	0.985					
+relate	song to singer and album	edge F1	yes	352	0.523	0.488	0.561	8	128986	0.00542	0.838	0.838
+relate	song to singer and album	edge precision	yes	581	0.420	0.380	0.460					
+relate	song to singer and album	edge recall	yes	352	0.693	0.643	0.739					
+relate	song to singer and album	singer top pick right	yes	158	0.722	0.647	0.786					
+relate	song to singer and album	album top pick right	yes	182	0.522	0.450	0.593					
+relate	song to singer and album	duets: pick is a lead	yes	12	0.833	0.552	0.953					
+relate	solo	edge F1	yes	62	0.696	0.607	0.788	16	13173	0.00055	0.180	0.221
+relate	solo	edge precision	yes	73	0.644	0.529	0.744					
+relate	solo	edge recall	yes	62	0.758	0.638	0.848					
+relate	solo	singer top pick right	yes	31	0.742	0.568	0.863					
+relate	solo	album top pick right	yes	31	0.613	0.438	0.763					
+relate	solo	tuned cut	yes	8	0.450							
+relate	solo	edge F1 at the tuned cut, held half	yes	8	0.689							
+relate	solo	edge precision at the tuned cut, held half		8	0.600							
+relate	solo	edge recall at the tuned cut, held half		8	0.808							
+relate	duet	edge F1	yes	36	0.656	0.562	0.742	6	4979	0.00021	0.177	0.189
+relate	duet	edge precision	yes	28	0.750	0.566	0.873					
+relate	duet	edge recall	yes	36	0.583	0.422	0.729					
+relate	duet	singer top pick right	yes	12	0.833	0.552	0.953					
+relate	duet	album top pick right	yes	12	0.667	0.391	0.862					
+relate	duet	duets: pick is a lead	yes	12	0.833	0.552	0.953					
+relate	duet	tuned cut	yes	3	0.190							
+relate	duet	edge F1 at the tuned cut, held half	yes	3	0.778							
+relate	duet	edge precision at the tuned cut, held half		3	0.636							
+relate	duet	edge recall at the tuned cut, held half		3	1.000							
+relate	wrong-album-only	edge F1	yes	38	0.385	0.259	0.504	16	13117	0.00055	0.190	0.213
+relate	wrong-album-only	edge precision	yes	71	0.296	0.202	0.410					
+relate	wrong-album-only	edge recall	yes	38	0.553	0.397	0.699					
+relate	wrong-album-only	singer top pick right	yes	31	0.742	0.568	0.863					
+relate	wrong-album-only	duets: pick is a lead	yes	7	0.714	0.359	0.918					
+relate	wrong-album-only	tuned cut	yes	8	0.460							
+relate	wrong-album-only	edge F1 at the tuned cut, held half	yes	8	0.373							
+relate	wrong-album-only	edge precision at the tuned cut, held half		8	0.268							
+relate	wrong-album-only	edge recall at the tuned cut, held half		8	0.611							
+relate	links	edge F1	yes	138	0.472	0.425	0.519	8	33590	0.00141	0.196	0.204
+relate	links	edge precision	yes	349	0.330	0.282	0.380					
+relate	links	edge recall	yes	138	0.833	0.762	0.886					
+relate	links	composer top pick right	yes	95	0.642	0.542	0.731					
+relate	links	producer top pick right	yes	95	0.453	0.356	0.553					
+relate	links	tuned cut	yes	4	0.670							
+relate	links	edge F1 at the tuned cut, held half	yes	4	0.596							
+relate	links	edge precision at the tuned cut, held half		4	0.495							
+relate	links	edge recall at the tuned cut, held half		4	0.750							

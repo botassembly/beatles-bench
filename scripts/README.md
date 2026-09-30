@@ -7,7 +7,7 @@ All the code, one folder per stage. The pipeline runs in this order: harvest, ge
 | `harvest/` | Fetch pinned Wikipedia pages, page views, and Wikidata answers, then write `data/`. | `harvest.py`, `wikitext.py`, and the Wikidata queries (`*.rq`, `reversal/`) |
 | `generate/` | Turn `data/` into `questions/`, `questions/suite/`, and the cases in `examples/`. | `generate.py`, `make_suite.py`, `examples.py` |
 | `run/` | Ask every question and record each exchange in `results/runs/RUN/`. | `thinkthen.sh` (wraps `ask.py`), `ask_suite.sh`, `example.sh`, `rad_pipeline.sh`, `chat.py`, `baselines.py`, `relation_vectors.py`, `catalog.py`, `rad.py`, `gaps.py`, `model_time.py`, `in_text_check.py` |
-| `score/` | Score the runs into `results/tables/` and `results/history.tsv`. | `analyze.py`, `score_suite.py`, `table.py`, `score.py`, `stats.py`, `open_book.py`, `rad_table.py`, `prices.tsv`, `tune.sh`, `context_diff.sh`, `diff_guard.sh`, `context.jq` |
+| `score/` | Score the runs into `results/tables/` and `results/history.tsv`. | `analyze.py`, `score_suite.py`, `relate_audit.py`, `table.py`, `score.py`, `stats.py`, `open_book.py`, `rad_table.py`, `prices.tsv`, `tune.sh`, `context_diff.sh`, `diff_guard.sh`, `context.jq` |
 | `figures/` | Draw `reports/figures/` from `results/tables/` with kuva. | `all.sh`, `common.py`, one numbered script per figure |
 
 ## Set up
@@ -23,7 +23,7 @@ A replay writes `RUN/replay/` and leaves the committed files alone. It passes `-
 ```sh
 env -u THINKTHEN_API_KEY scripts/run/thinkthen.sh replay "$(python3 scripts/score/score.py newest thinkthen-jev)"
 # the function suite grew after the run: BENCH_SUITE_ONLY names the case-id prefixes it recorded (or the new groups'
-# prefixes for results/runs/2026-09-30-recognize-jev and 2026-09-30-reading-jev)
+# prefixes for results/runs/2026-09-30-recognize-jev, 2026-09-30-relate-jev and 2026-09-30-reading-jev)
 env -u THINKTHEN_API_KEY BENCH_SUITE_ONLY="tag-lead-,score-popularity-,filter-singer-,filter-album-,rank-popularity-,rank-date-,find-album-0,find-album-1,annotate-card-,relate-songs,recognize-0,recognize-1,recognize-2,recognize-3,recognize-4" \
   scripts/run/ask_suite.sh replay "$(python3 scripts/score/score.py newest functions-jev)"
 env -u THINKTHEN_API_KEY scripts/run/example.sh decide replay        # examples/decide/replay/

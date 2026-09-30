@@ -1,0 +1,19 @@
+{
+ "version": 1,
+ "relate": {
+  "relations": [
+   {
+    "name": "composed_by",
+    "source": "song",
+    "target": "person",
+    "reads": "was composed by"
+   },
+   {
+    "name": "produced_by",
+    "source": "song",
+    "target": "person",
+    "reads": "was produced by"
+   }
+  ]
+ }
+}

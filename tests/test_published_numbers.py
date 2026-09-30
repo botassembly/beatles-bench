@@ -201,8 +201,10 @@ CLAIMS = [
          by_function("annotate", "reading", "singer accuracy"))),
     ("reports/results.md", "| recognize | 200 | the song, person and album names in a sentence | — | {} |",
      lambda: by_function("recognize", "names-template", "song precision")),
-    ("reports/results.md", "| relate | 1 | the singer and album edges over the catalogue | {} | — |",
-     lambda: by_function("relate", "song to singer and album", "edge F1")),
+    ("reports/results.md", "{}",
+     lambda: "| relate | {} | the edges between a set's songs, people and albums | {} | — |".format(
+         sum(1 for l in open(ROOT / "questions" / "suite" / "relate.jsonl", encoding="utf-8")),
+         by_function("relate", "song to singer and album", "edge F1"))),
     ("reports/results.md", "results/runs/2026-09-30-reading-jev`: {} cases,", lambda: f"{reading_run('cases'):,}"),
     ("reports/results.md", "{} input tokens, about $0.02", lambda: f"{reading_run('tokens'):,}"),
     ("reports/results.md", "{} questions in 15 categories", questions),

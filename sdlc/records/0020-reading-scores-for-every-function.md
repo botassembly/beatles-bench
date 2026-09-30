@@ -53,9 +53,9 @@ The carded facts read almost perfectly. What still costs is ordering and matchin
 ## Deferred
 
 - GLM and Laya runs of the reading tests.
-- A reading test for relate waits on ticket 0019's relist; recognize has no memory test by nature.
+- A reading test for relate: relate judges names from memory, so the By function table keeps its memory score — the relate rows ticket 0019 landed — and no reading score. recognize has no memory test by nature.
 - The By function table is written by hand; `test_published_numbers` pins its cells to the generated tables.
 
 ## Reviews
 
-Pending independent review.
+Independent review: ACCEPT. Origin/main then landed ticket 0019 (the new relate cases and rows), and this branch merged it: the suite generator reproduces both tickets' committed cases byte-for-byte, and `functions.tsv` regenerates from all four Jev runs.

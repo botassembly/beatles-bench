@@ -150,13 +150,16 @@ def top_pick_right(rows):
 
 # ---- loading ------------------------------------------------------------------------------------------------------
 def load(run):
-    outs, lists = {}, {}
+    outs, lists, audit = {}, {}, {}
     for one in str(run).split(","):
         one = Path(one)
         outs.update({o["id"]: o for o in map(json.loads, open(one / "outputs.jsonl", encoding="utf-8"))})
         lists.update({p.stem: [json.loads(l) for l in open(p, encoding="utf-8")] for p in (one / "lists").glob("*.jsonl")})
+        adir = one / "relate-audit"
+        if adir.is_dir():  # relate_audit.py's per-test `thinkthen audit` reports, by test name
+            audit.update({p.stem: json.loads(p.read_text(encoding="utf-8")) for p in adir.glob("*.json")})
     cases = {t: [json.loads(l) for l in open(FOLDER / f"{t}.jsonl", encoding="utf-8")] for t in TESTS}
-    return cases, outs, lists
+    return cases, outs, lists, audit
 
 
 def price(model="jev", backend=""):
@@ -392,50 +395,88 @@ def recognize_rows(cases, outs):
     return out
 
 
-def relate_rows(cases, outs):
-    """Scores the edges `thinkthen relate` prints in value, at its default threshold of 0.5. An edge is (relation, source,
-    target). A sung_by edge from a song in skip is not scored. The bootstrap unit is one relation of one song.
-    The top pick rows count the command's pre-threshold pick for each scored song, one row per relation. A pick is right
-    when it names a true target, and a pick of none is wrong. The command asks one choice per song for the singer. It
-    then picks one lead of a duet, a song with two sung_by truth edges. The duet row counts the duets whose
-    singer pick names one of their two leads."""
-    units, picks = {}, {"sung_by": [], "appears_on": [], "duet": []}
+REL_LABEL = {"sung_by": "singer", "appears_on": "album", "composed_by": "composer", "produced_by": "producer"}
+SCORE_CUT = 0.5  # the published relate cut; the suite runs relate at a lower cut so `thinkthen audit` can tune a bar
+
+
+def relate_rows(cases, outs, audit=None):
+    """Scores the edges `thinkthen relate` prints in value, one set of rows per test. An edge is (relation, source
+    name, target name). Said means an edge with probability at least SCORE_CUT: the suite runs at a lower cut, so the
+    scorer applies the 0.5 cut itself. A sung_by edge from a song in the case's skip is not scored. The bootstrap
+    unit is one relation of one song of one case.
+    The top pick rows count the likeliest target per relation and song: the pair with the top probability under the
+    yes/no planner, or the old choice planner's own pick in the 2026-09-26 run. A pick is right when it names a true
+    target; a pick of none is wrong. The duet row counts the songs with two sung_by truth edges whose singer pick
+    names one of the two leads.
+    `audit` maps a test to its `thinkthen audit` report (relate_audit.py's RUN/relate-audit/TEST.json): the tuned-cut
+    rows take the cut a seeded half of the test's cases tuned and the measures the other half earned at it."""
+    out = []
+    groups = {}
     for c in cases:
-        result = outs[c["id"]]["rows"][0]
-        failed = result["meta"].get("failed_questions", 0)
-        if failed:
-            raise ValueError(f"functions: {c['id']} has {failed} failed relate questions; a part is not scored")
-        skip = set(c.get("skip", []))
-        said = {(e["relation"], e["source"]["name"], e["target"]["name"]) for e in result["value"]}
-        said = {e for e in said if not (e[0] == "sung_by" and e[1] in skip)}
-        true = {tuple(e) for e in c["truth"]}
-        for rel in ("sung_by", "appears_on"):
-            for song in {r["name"] for r in c["records"] if r["kind"] == "song"} - (skip if rel == "sung_by" else set()):
-                s = {e for e in said if e[:2] == (rel, song)}
-                t = {e for e in true if e[:2] == (rel, song)}
-                units[rel, song] = (len(s & t), len(s - t), len(t - s))
-        leads = {}
-        for rel, song, target in true:
-            if rel == "sung_by":
-                leads.setdefault(song, set()).add(target)
-        for q in result["answer"]["questions"]:
-            rel, song = q["relation"], q["asker"]["entity"]["name"]
-            if rel == "sung_by" and song in skip:
-                continue
-            right = (rel, song, ((q.get("pick") or {}).get("entity") or {}).get("name")) in true
-            picks[rel].append(right)
-            if rel == "sung_by" and len(leads.get(song, ())) > 1:
-                picks["duet"].append(right)
-    us = [units[k] for k in sorted(units)]
-    tp, fp, fn = (sum(u[i] for u in us) for i in range(3))
-    p, r, f1 = prf(tp, fp, fn)
-    test = "song to singer and album"
-    return [row("relate", test, "edge F1", tp + fn, f1, *f1_interval(us), main=True, use=usage([outs[c["id"]] for c in cases])),
-            share("relate", test, "edge precision", tp, tp + fp, True),
-            share("relate", test, "edge recall", tp, tp + fn, True),
-            share("relate", test, "singer top pick right", sum(picks["sung_by"]), len(picks["sung_by"]), True),
-            share("relate", test, "album top pick right", sum(picks["appears_on"]), len(picks["appears_on"]), True),
-            share("relate", test, "duets: pick is a lead", sum(picks["duet"]), len(picks["duet"]), True)]
+        groups.setdefault(c["test"], []).append(c)
+    for test, group in groups.items():
+        units, picks, order = {}, {}, []
+        for c in group:
+            result = outs[c["id"]]["rows"][0]
+            failed = result["meta"].get("failed_questions", 0)
+            if failed:
+                raise ValueError(f"functions: {c['id']} has {failed} failed relate questions; a part is not scored")
+            skip = set(c.get("skip", []))
+            said = {(e["relation"], e["source"]["name"], e["target"]["name"])
+                    for e in result["value"] if e.get("probability", 1) >= SCORE_CUT}
+            said = {e for e in said if not (e[0] == "sung_by" and e[1] in skip)}
+            true = {tuple(e) for e in c["truth"]}
+            rels = [r["name"] for r in result["question"]["relations"]]
+            for rel in rels:
+                for song in {r["name"] for r in c["records"] if r["kind"] == "song"} - (skip if rel == "sung_by" else set()):
+                    s = {e for e in said if e[:2] == (rel, song)}
+                    t = {e for e in true if e[:2] == (rel, song)}
+                    units[c["id"], rel, song] = (len(s & t), len(s - t), len(t - s))
+            leads = {}
+            for rel, song, target in true:
+                if rel == "sung_by":
+                    leads.setdefault(song, set()).add(target)
+            best = {}
+            for q in result["answer"]["questions"]:
+                if "asker" in q:  # the old choice planner kept one pick per relation and song
+                    best[q["relation"], q["asker"]["entity"]["name"]] = \
+                        (None, ((q.get("pick") or {}).get("entity") or {}).get("name"))
+                elif q.get("method") == "yes_no" and "failure" not in q:
+                    key = (q["relation"], q["source"]["name"])
+                    if q.get("probability") is not None and (key not in best or q["probability"] > best[key][0]):
+                        best[key] = (q["probability"], q["target"]["name"])
+            for (rel, song), (_, pick) in best.items():
+                if rel == "sung_by" and song in skip:
+                    continue
+                if rel not in order:
+                    order.append(rel)
+                picks.setdefault(rel, []).append((rel, song, pick) in true)
+                if rel == "sung_by" and len(leads.get(song, ())) > 1:
+                    picks.setdefault("duet", []).append((rel, song, pick) in true)
+        us = [units[k] for k in sorted(units)]  # sorted (case, relation, song): the bootstrap order
+        tp, fp, fn = (sum(u[i] for u in us) for i in range(3))
+        f1 = prf(tp, fp, fn)[2]
+        rows = [row("relate", test, "edge F1", tp + fn, f1, *f1_interval(us), main=True,
+                    use=usage([outs[c["id"]] for c in group])),
+                share("relate", test, "edge precision", tp, tp + fp, True),
+                share("relate", test, "edge recall", tp, tp + fn, True)]
+        true_rels = {e[0] for c in group for e in c["truth"]}
+        for rel in order:
+            if rel in true_rels:  # a relation with no true edge can never pick right: wrong-album-only's albums
+                rows.append(share("relate", test, f"{REL_LABEL.get(rel, rel)} top pick right",
+                                  sum(picks[rel]), len(picks[rel]), True))
+        if picks.get("duet"):
+            rows.append(share("relate", test, "duets: pick is a lead", sum(picks["duet"]), len(picks["duet"]), True))
+        suggested = (audit or {}).get(test, {}).get("suggested") or {}
+        if suggested.get("cut") is not None:
+            held = suggested["held"]
+            rows.append(row("relate", test, "tuned cut", held["n"], suggested["cut"], main=True))
+            for measure, key in (("edge F1 at the tuned cut, held half", "f1"),
+                                 ("edge precision at the tuned cut, held half", "precision"),
+                                 ("edge recall at the tuned cut, held half", "yes_recall")):
+                rows.append(row("relate", test, measure, held["n"], held["at_cut"][key], main=key == "f1"))
+        out += rows
+    return out
 
 
 def gap_rows(function, test, measure, cases, outs):
@@ -462,14 +503,15 @@ MEMORY = {"tag": "lead singers", "score": "popularity", "filter": "lead singer o
 
 
 def table(run, core=None):
-    cases, outs, lists = load(run)
+    cases, outs, lists, audit = load(run)
     meta = next(r["meta"] for o in outs.values() for r in o["rows"] if "meta" in r)
     PRICE[0] = core_score.price(meta["model"], meta["url"])[0]
     scorers = {"tag": lambda cs, label: tag_rows(cs, outs, label), "score": lambda cs, label: score_rows(cs, outs, label),
                "filter": lambda cs, label: filter_rows(cs, outs, lists, label),
                "rank": lambda cs, label: rank_rows(cs, outs, lists), "find": lambda cs, label: find_rows(cs, outs, label),
                "annotate": lambda cs, label: annotate_rows(cs, outs, label),
-               "recognize": lambda cs, label: recognize_rows(cs, outs), "relate": lambda cs, label: relate_rows(cs, outs)}
+               "recognize": lambda cs, label: recognize_rows(cs, outs),
+               "relate": lambda cs, label: relate_rows(cs, outs, audit)}
     out = core_rows(core or core_score.newest("thinkthen-jev"))
     for t in TESTS:
         groups = {}

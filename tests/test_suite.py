@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
-from published import JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RUN  # noqa: E402
+from published import JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN  # noqa: E402
 import importlib.util  # noqa: E402
 
 import make_suite as gen  # noqa: E402
@@ -28,11 +28,13 @@ spec.loader.exec_module(fscore)
 TESTS = ["decide", "choose", "tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
 NEW_GROUPS = ("recognize-varied-,recognize-song-or-album-,recognize-short-names-,recognize-case-,recognize-no-names-,"
               "recognize-paragraphs-,recognize-punctuation-,recognize-relations-")
+RELATE_ONLY = "relate-songs,relate-solo-,relate-duet-,relate-wrong-album-only-,relate-links-"
 READING = ("decide-reading-,choose-reading-,tag-reading-,score-reading-,filter-reading-,rank-reading-,"
            "find-reading-,find-more-,annotate-reading-")
-# The 2026-09-26 suite run recorded every test but the recognize groups, the reading tests and the album-more find
-# sets added later. Its case ids: tag-lead-*, score-popularity-*, filter-singer-*/filter-album-*, rank-popularity-*/
-# rank-date-*, find-album-01..13-*, annotate-card-*, relate-songs, and names-template's recognize-01 through -48.
+# The 2026-09-26 suite run recorded every test but the recognize groups, the relate groups, the reading tests and
+# the album-more find sets added later. Its case ids: tag-lead-*, score-popularity-*, filter-singer-*/
+# filter-album-*, rank-popularity-*/rank-date-*, find-album-01..13-*, annotate-card-*, relate-songs, and
+# names-template's recognize-01 through -48.
 OLD_CASES = ("tag-lead-,score-popularity-,filter-singer-,filter-album-,rank-popularity-,rank-date-,"
              "find-album-0,find-album-1,annotate-card-,relate-songs,"
              "recognize-0,recognize-1,recognize-2,recognize-3,recognize-4")
@@ -103,7 +105,7 @@ class GenerateTest(unittest.TestCase):
                          {title(c) for c in cards} - settled)
         self.assertIn("Cry Baby Cry", {title(c) for c in cards} - settled)
         rel = cases("relate")
-        skipped = {t for c in rel for t in c["skip"]}
+        skipped = {t for c in rel for t in c.get("skip", [])}
         self.assertEqual(skipped, {title(c) for c in cards} - settled)
         self.assertFalse({e[1] for c in rel for e in c["truth"] if e[0] == "sung_by"} & skipped)
 
@@ -219,13 +221,75 @@ class GenerateTest(unittest.TestCase):
 
     def test_relate_truth_edges_come_from_the_data(self):
         data = songs()
-        self.assertEqual(len(cases("relate")), 1)
+        links = {(r["song"], r["relation"], r["other_article"])
+                 for r in csv.DictReader(open(ROOT / "data" / "links.tsv", encoding="utf-8"), delimiter="\t")}
+        to_link = {"composed_by": "composer", "produced_by": "producer"}
+        counts = {"song to singer and album": 1, "solo": 16, "duet": 6, "wrong-album-only": 16, "links": 8}
+        seen = {}
         for c in cases("relate"):
-            self.assertEqual({r["name"] for r in c["records"] if r["kind"] == "song"}, {t[1] for t in c["truth"]})
-            for rel, song, target in c["truth"]:
-                s = data[song]
-                self.assertTrue(target == s["first_album"] if rel == "appears_on" else
-                                any(gen.FULL[x] == target for x in s["lead_vocals"].split("+")))
+            seen[c["test"]] = seen.get(c["test"], 0) + 1
+            ents = {(r["name"], r["kind"]) for r in c["records"]}  # a name can be both a song and an album
+            self.assertEqual(len(c["records"]), len(ents), c["id"])  # every entity is named once
+            for rel, source, target in c["truth"]:
+                self.assertIn((source, "song"), ents, c["id"])
+                s = data[source]
+                if rel == "sung_by":
+                    self.assertIn((target, "person"), ents, c["id"])
+                    self.assertIn(target, [gen.FULL[x] for x in s["lead_vocals"].split("+")], c["id"])
+                elif rel == "appears_on":
+                    self.assertIn((target, "album"), ents, c["id"])
+                    self.assertEqual(target, s["first_album"], c["id"])
+                else:
+                    self.assertIn((source, to_link.get(rel, rel), target), links, c["id"])
+        self.assertEqual(seen, counts)
+        songs_case = cases("relate")[0]
+        self.assertEqual({r["name"] for r in songs_case["records"] if r["kind"] == "song"},
+                         {t[1] for t in songs_case["truth"]})
+
+    def test_relate_small_sets_hold_what_they_name(self):
+        data = songs()
+        for c in cases("relate"):
+            if c["test"] not in ("solo", "duet", "wrong-album-only"):
+                continue
+            picked = [r["name"] for r in c["records"] if r["kind"] == "song"]
+            albums = {r["name"] for r in c["records"] if r["kind"] == "album"}
+            self.assertEqual({r["name"] for r in c["records"] if r["kind"] == "person"}, set(gen.FULL.values()))
+            self.assertTrue(1 <= len(picked) <= 3, c["id"])
+            self.assertEqual(len(albums), 3, c["id"])
+            self.assertTrue(all(gen.settled_lead(data[s]) for s in picked), c["id"])
+            right = {data[s]["first_album"] for s in picked}
+            if c["test"] == "wrong-album-only":
+                self.assertFalse(right & albums, c["id"])
+                self.assertFalse([e for e in c["truth"] if e[0] == "appears_on"], c["id"])
+            else:
+                self.assertEqual(len(right), 1, c["id"])  # the case's songs share one first album
+                self.assertEqual(len(right & albums), 1, c["id"])
+                self.assertTrue(any(e[0] == "appears_on" for e in c["truth"]), c["id"])
+            if c["test"] == "duet":
+                self.assertTrue(all(len(data[s]["lead_vocals"].split("+")) == 2 for s in picked), c["id"])
+            if c["test"] == "solo":
+                self.assertTrue(all(len(data[s]["lead_vocals"].split("+")) == 1 for s in picked), c["id"])
+
+    def test_relate_links_sets_come_from_links_tsv(self):
+        links = [r for r in csv.DictReader(open(ROOT / "data" / "links.tsv", encoding="utf-8"), delimiter="\t")
+                 if r["relation"] in gen.LINK_REL]
+        people = {r["other_article"] for r in links}
+        covered = set()
+        for c in cases("relate"):
+            if c["test"] != "links":
+                continue
+            self.assertIn("@relate-links.json", c["args"], c["id"])
+            ents = {(r["name"], r["kind"]) for r in c["records"]}
+            self.assertLessEqual(len(ents), 21, c["id"])
+            self.assertEqual({n for n, k in ents if k == "person"}, people, c["id"])
+            songs_ = {n for n, k in ents if k == "song"}
+            self.assertFalse(covered & songs_)
+            covered |= songs_
+            truth = {tuple(e) for e in c["truth"]}
+            want = {(gen.LINK_REL[r["relation"]], r["song"], r["other_article"]) for r in links
+                    if r["song"] in songs_}
+            self.assertEqual(truth, {tuple(e) for e in want}, c["id"])
+        self.assertEqual(covered, {r["song"] for r in links})
 
 
 class TableTest(unittest.TestCase):
@@ -233,7 +297,7 @@ class TableTest(unittest.TestCase):
         runs = ROOT / "results" / "runs"
         out = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, out, True)
-        jev = ",".join(str(p) for p in (JEV_FUNCTIONS, JEV_RECOGNIZE, JEV_READING) if p.exists())
+        jev = ",".join(str(p) for p in (JEV_FUNCTIONS, JEV_RECOGNIZE, JEV_RELATE, JEV_READING) if p.exists())
         for suite, core, table in ((jev, JEV_RUN, "functions.tsv"),
                                    (runs / "2026-09-23-functions-laya", runs / "2026-09-23-thinkthen-laya", "functions-laya.tsv"),
                                    (runs / "2026-09-23-functions-glm-5.3-flash", runs / "2026-09-23-glm-5.3-flash", "functions-glm.tsv")):
@@ -325,7 +389,7 @@ class ScoreTest(unittest.TestCase):
 
     def test_relate_scores_a_duet_in_its_own_row(self):
         songs_ = [("Solo", "song"), ("Duet", "song"), ("Pair", "song"), ("Ringo Starr", "person"), ("John Lennon", "person"), ("Paul McCartney", "person"), ("Help!", "album")]
-        case = {"id": "r", "records": [{"name": n, "kind": k} for n, k in songs_], "skip": [],
+        case = {"id": "r", "test": "songs", "records": [{"name": n, "kind": k} for n, k in songs_], "skip": [],
                 "truth": [["sung_by", "Solo", "John Lennon"], ["sung_by", "Duet", "John Lennon"], ["sung_by", "Duet", "Paul McCartney"],
                           ["sung_by", "Pair", "John Lennon"], ["sung_by", "Pair", "Paul McCartney"], ["appears_on", "Pair", "Help!"],
                           ["appears_on", "Solo", "Help!"], ["appears_on", "Duet", "Help!"]]}
@@ -337,6 +401,7 @@ class ScoreTest(unittest.TestCase):
                   "answer": {"questions": [pick("sung_by", "Solo", "John Lennon", "person"), pick("sung_by", "Duet", "Paul McCartney", "person"),
                                            pick("sung_by", "Pair", "Ringo Starr", "person"), pick("appears_on", "Pair", "Help!", "album"),
                                            pick("appears_on", "Solo", "Help!", "album"), pick("appears_on", "Duet", None, None)]},
+                  "question": {"relations": [{"name": "sung_by"}, {"name": "appears_on"}]},
                   "meta": {"failed_questions": 0}}
         rows = {r["measure"]: r for r in fscore.relate_rows([case], {"r": {"rows": [result], "input_tokens": 1}})}
         got = lambda m: (rows[m]["value"], rows[m]["n"])
@@ -344,6 +409,45 @@ class ScoreTest(unittest.TestCase):
         self.assertEqual(got("singer top pick right"), (2 / 3, 3))
         self.assertEqual(got("album top pick right"), (2 / 3, 3))  # a pick of none is wrong
         self.assertEqual(got("duets: pick is a lead"), (0.5, 2))  # a non-lead pick on a duet is wrong
+
+    def test_relate_scores_yes_no_questions_at_the_half_cut(self):
+        """The new planner asks one yes/no per pair and prints edges down to the run's low cut. The scorer keeps only
+        edges at the 0.5 cut, and a song's top pick is the pair with the top probability."""
+        pair = lambda rel, a, b, p: {"relation": rel, "method": "yes_no",
+                                     "source": {"name": a, "kind": "song"},
+                                     "target": {"name": b, "kind": "person" if rel == "sung_by" else "album"},
+                                     "probability": p, "accepted": p >= 0.01}
+        edge = lambda rel, a, b, p: {"relation": rel, "source": {"name": a, "kind": "song"},
+                                     "target": {"name": b, "kind": "person" if rel == "sung_by" else "album"},
+                                     "probability": p}
+        case = {"id": "r", "test": "solo",
+                "records": [{"name": "Solo", "kind": "song"}, {"name": "John Lennon", "kind": "person"},
+                            {"name": "Paul McCartney", "kind": "person"}, {"name": "Help!", "kind": "album"},
+                            {"name": "Revolver", "kind": "album"}],
+                "truth": [["sung_by", "Solo", "John Lennon"], ["appears_on", "Solo", "Help!"]]}
+        result = {"value": [edge("sung_by", "Solo", "John Lennon", 0.8), edge("sung_by", "Solo", "Paul McCartney", 0.6),
+                            edge("appears_on", "Solo", "Help!", 0.9), edge("appears_on", "Solo", "Revolver", 0.4)],
+                  "answer": {"questions": [pair("sung_by", "Solo", "John Lennon", 0.8),
+                                           pair("sung_by", "Solo", "Paul McCartney", 0.6),
+                                           pair("appears_on", "Solo", "Help!", 0.9),
+                                           pair("appears_on", "Solo", "Revolver", 0.4)]},
+                  "question": {"relations": [{"name": "sung_by"}, {"name": "appears_on"}]},
+                  "meta": {"failed_questions": 0}}
+        audit = {"solo": {"suggested": {"cut": 0.55, "held": {"n": 1,
+                          "at_cut": {"f1": 0.75, "precision": 0.8, "yes_recall": 0.7}}}}}
+        rows = {r["measure"]: r for r in
+                fscore.relate_rows([case], {"r": {"rows": [result], "input_tokens": 1}}, audit)}
+        got = lambda m: (rows[m]["value"], rows[m]["n"])
+        self.assertEqual(got("edge precision"), (2 / 3, 3))  # the 0.6 sung_by edge and the 0.4 appears_on edge
+        self.assertEqual(got("edge recall"), (1.0, 2))       # the second stays under the cut
+        self.assertEqual(got("singer top pick right"), (1.0, 1))   # John Lennon outscores Paul McCartney
+        self.assertEqual(got("album top pick right"), (1.0, 1))
+        self.assertEqual(got("tuned cut"), (0.55, 1))
+        self.assertEqual(got("edge F1 at the tuned cut, held half"), (0.75, 1))
+        self.assertNotIn("duets: pick is a lead", rows)
+        no_album = {**case, "truth": [t for t in case["truth"] if t[0] != "appears_on"]}
+        measures = {r["measure"] for r in fscore.relate_rows([no_album], {"r": {"rows": [result], "input_tokens": 1}})}
+        self.assertNotIn("album top pick right", measures)  # no true edge: no pick can be right
 
     def test_recognize_relations_edges_score_by_precision_and_recall(self):
         text = "Paul sang lead on Yesterday"
@@ -476,8 +580,11 @@ class ReplayTest(unittest.TestCase):
         for p in sorted((RUN / "lists").glob("*.jsonl")):
             self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)
         rows = fscore.table(tmp / "replay", JEV_RUN)
+        # relate is left out: functions.tsv's relate rows come from the 2026-09-30 pair-planner run, while this
+        # replay's recording holds the 02dc0b96 choice planner's answers — the historical values the report keeps.
+        # The byte-for-byte replay check above still covers its relate-songs output.
         got = {(r["function"], r["test"], r["measure"]): (fscore.fmt(r["value"]), r["n"]) for r in rows
-               if r["function"] in TESTS}
+               if r["function"] in TESTS and r["function"] != "relate"}
         saved = {(r["function"], r["test"], r["measure"]): (r["value"], int(r["n"])) for r in
                  csv.DictReader(open(ROOT / "results" / "tables" / "functions.tsv", encoding="utf-8"), delimiter="\t")
                  if r["function"] in TESTS}
@@ -497,6 +604,18 @@ class ReplayTest(unittest.TestCase):
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RECOGNIZE / "outputs.jsonl").read_text())
+
+    def test_the_relate_run_replays_with_the_key_unset(self):
+        if not same_build(JEV_RELATE):
+            self.skipTest("the run's recording binds to another thinkthen build")
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "recording").symlink_to(JEV_RELATE / "recording")
+        shutil.copy(JEV_RELATE / "timing.tsv", tmp / "timing.tsv")
+        env = {**os.environ, "THINKTHEN_BIN": BIN, "BENCH_SUITE_ONLY": RELATE_ONLY}
+        env.pop("THINKTHEN_API_KEY", None)
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)],
+                       check=True, env=env)
+        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RELATE / "outputs.jsonl").read_text())
 
     def test_the_reading_run_replays_with_the_key_unset(self):
         if not (JEV_READING / "run.txt").exists() or not same_build(JEV_READING):
