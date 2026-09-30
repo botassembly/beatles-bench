@@ -63,6 +63,13 @@ def main(run, suite=ROOT / "questions" / "suite"):
             continue
         if len(asked) < len(group):
             raise ValueError(f"relate-audit: the run asked {len(asked)} of {len(group)} relate {test} cases")
+        refused = [c for c in asked if "gap" in outs[c["id"]]
+                   or not outs[c["id"]].get("rows")]
+        if refused:
+            if len(refused) < len(asked):
+                raise ValueError(f"relate-audit: {len(refused)} of {len(asked)} relate {test} cases were refused; "
+                                 "a part is not scored")
+            continue  # the backend refused the whole test: a gap row, not an audit
         if len(asked) < 2:
             continue  # one case splits into no tuning half
         rows, key = group_files(test, asked, outs, kinds)

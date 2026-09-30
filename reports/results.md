@@ -1,25 +1,25 @@
 # Full results
 
-The audited runs of 2026-09-23, with every Jev run asked again from an empty recording on 2026-09-25 (ticket 0009) and again on 2026-09-26 (ticket 0014, `sdlc/tickets/0014-shipped-recognize-and-relate.md`). Jev's rows come from `results/runs/2026-09-26-thinkthen-jev` and `2026-09-26-functions-jev`. This report holds every number the front page leaves out: the intervals, the tests, the baselines, the function suite, the costs, and the audit history. `python3 scripts/score/table.py` prints the two main tables below from `results/tables/`.
+The audited runs of 2026-09-23, with every Jev run asked again from an empty recording on 2026-09-25 (ticket 0009), again on 2026-09-26 (ticket 0014, `sdlc/tickets/0014-shipped-recognize-and-relate.md`), and once more over the whole bench on 2026-09-30 (ticket 0023). Jev's rows come from `results/runs/2026-09-30-all-jev`, and Liquid d1's from `results/runs/2026-09-30-all-liquid-d1`. This report holds every number the front page leaves out: the intervals, the tests, the baselines, the function suite, the costs, and the audit history. `python3 scripts/score/table.py` prints the two main tables below from `results/tables/`.
 
 ## By function
 
-Each function's main measure, once from memory and once reading a card that holds the facts (ticket 0020). A reading case keeps the memory case's question and truth, and writes the facts into the record: the text, then one short card per song it names — title, lead singers, first album, year, and length, plus the writers, release date, or 2024 page views where the truth needs them. decide and choose sample 100 eligible questions from the main files; the other functions sample 100 of their own memory cases, and rank samples 100 of each of its two asks. recognize has no memory score — it only ever reads. relate judges names from memory, so it has no reading test; its memory score below is the pair-planner run of ticket 0019.
+Each function's main measure at three levels: from memory, reading a card that holds the facts (ticket 0020), and reading a fuller context the cases carry (ticket 0021). A reading case keeps the memory case's question and truth, and writes the facts into the record: the text, then one short card per song it names — title, lead singers, first album, year, and length, plus the writers, release date, or 2024 page views where the truth needs them. decide and choose sample 100 eligible questions from the main files; the other functions sample 100 of their own memory cases, and rank samples 100 of each of its two asks. recognize has no memory score — it only ever reads. relate judges names from memory, so it has no reading test; its memory score below is the edge F1 of its 100 cases at the 0.5 cut.
 
-| Function | Cases | What it asks | Memory | Reading |
-| --- | --- | --- | --- | --- |
-| decide | 228 | yes or no about one song | 0.689 | 1.000 |
-| choose | 1,273 | the right one of four or five options | 0.705 | 0.950 |
-| tag | 158 | every Beatle who sang the lead | 0.291 | 1.000 |
-| score | 171 | how well known the song is today, 1 to 5 | 0.696 | 0.733 |
-| filter | 240 | whether a song keeps or drops | 0.639 | 1.000 |
-| rank | 353 | the songs in order by fame, and by date | 0.638 / 0.805 | 0.808 / 0.979 |
-| find | 156 | the one song of eight from a named album | 0.596 | 1.000 |
-| annotate | 182 | singer, first album and year on a card | 0.310 | 1.000 |
-| recognize | 400 | the song, person and album names in a sentence | — | 0.959 |
-| relate | 100 | the edges between a set's songs, people and albums | 0.523 | — |
+| Function | Cases | What it asks | Memory | Reading | Context |
+| --- | --- | --- | --- | --- | --- |
+| decide | 228 | yes or no about one song | 0.680 | 1.000 | 0.947 |
+| choose | 1,273 | the right one of four or five options | 0.709 | 0.960 | 0.948 |
+| tag | 300 | every Beatle who sang the lead, and who wrote or played how long | 0.560 | 1.000 | 0.890 |
+| score | 300 | how well known the song is today, 1 to 5, and its length | 0.637 / 0.625 | 0.744 | 0.883 / 0.967 |
+| filter | 300 | whether a song keeps or drops | 0.719 | 1.000 | 0.969 |
+| rank | 353 | the songs in order by fame, and by date | 0.649 / 0.795 | 0.802 / 0.978 | 0.797 / 0.812 |
+| find | 300 | the one song of the set that fits | 0.487 | 1.000 | 1.000 |
+| annotate | 300 | singer, first album and year, or writers, cover and length | 0.348 | 1.000 | 0.956 |
+| recognize | 400 | the song, person and album names in a sentence | — | 1.000 | — |
+| relate | 100 | the edges between a set's songs, people and albums | 0.524 | — | — |
 
-The columns are the main measures of the table below: accuracy, exact-set match, F1, or Spearman. The rank cell holds its two measures. A reading cell covers at most 100 cases a test; annotate counts only its settled-lead songs. recognize's cell is its song precision on the names-template sentences, and relate's is edge F1 on the whole catalogue at the 0.5 cut. For score and rank's popularity ask the card prints the song's 2024 page views, so those reading figures measure how well the model places a printed number on a coarse five-level scale or an ordering — and ties cost the rank correlation even when the number is read right. The reading numbers come from `results/runs/2026-09-30-reading-jev`: 1,004 cases, 558,621 input tokens, about $0.02.
+The columns are the main measures of the table below: accuracy, exact-set match, F1, or Spearman. The rank and score cells hold their two measures. A reading cell covers at most 100 cases a test; annotate's memory and context cells count only its settled-lead songs, and score's length measure has its own n. recognize's cell is its song precision on the names-template sentences, and relate's is edge F1 at the 0.5 cut. For score and rank's popularity ask the card prints the song's 2024 page views, so those reading figures measure how well the model places a printed number on a coarse five-level scale or an ordering — and ties cost the rank correlation even when the number is read right. All of these numbers come from `results/runs/2026-09-30-all-jev`: the 1,501 questions and 5,838 cases, 9,524,999 input tokens, about $0.40.
 
 The gap between the columns is why the facts belong in the text. On your own work, label a few dozen cases: `thinkthen audit` grades a run against them and suggests a cut, and `thinkthen diff` compares two runs, two cuts or two models without a model call.
 
@@ -29,7 +29,7 @@ The gap between the columns is why the facts belong in the text. On your own wor
 
 | System | Beatles-only (1,313) | Overall (1,501) | Dollars per 1,000 questions | Median time per answer |
 | --- | --- | --- | --- | --- |
-| Jev | 67.0% (64.4% to 69.4%) | 70.2% (67.9% to 72.5%) | 0.0150 | 0.21 s |
+| Jev | 67.4% (64.8% to 69.8%) | 70.5% (68.1% to 72.7%) | 0.0156 | 0.20 s |
 | GLM-5.3 Flash | 96.2% (95.0% to 97.1%) | 96.7% (95.7% to 97.5%) | 0.0555 | 8.24 s |
 | Laya | 35.0% (32.5% to 37.7%) | 35.8% (33.4% to 38.2%) | 0.0000 | 0.07 s |
 | *Vector search (question vs. options)* | | | | |
@@ -41,14 +41,14 @@ The gap between the columns is why the facts belong in the text. On your own wor
 
 Jev is jev-1.13.0 through ThinkThen. GLM-5.3 Flash runs with thinking off through `scripts/run/chat.py`. Laya is a local Jev-like model (see [Laya](#laya)). [baselines.md](baselines.md) describes the four baselines.
 
-Jev's time comes from `results/runs/2026-09-26-thinkthen-jev`. Its `loadavg.txt` records a load average of 3.83 at the start and 7.10 at the end, on 16 cores. The GLM-5.3 Flash and Laya times come from the main runs of 2026-09-23. Those runs recorded no load (`paper/notes.md`). A quiet-machine rerun is still to come.
+Jev's time comes from `results/runs/2026-09-30-all-jev`. Its `loadavg.txt` records a load average of 10.2 at the start and 11.2 at the end, on 16 cores. The GLM-5.3 Flash and Laya times come from the main runs of 2026-09-23. Those runs recorded no load (`paper/notes.md`). A quiet-machine rerun is still to come.
 
-- Jev beats the best baseline, embeddings, on Beatles-only questions by the exact McNemar test (484 against 103 discordant pairs, p < 0.001). GLM beats Jev (410 against 22, p < 0.001). Jev beats Laya (514 against 99, p < 0.001). Laya does not differ from embeddings (194 against 228, p = 0.11).
+- Jev beats the best baseline, embeddings, on Beatles-only questions by the exact McNemar test (487 against 101 discordant pairs, p < 0.001). GLM beats Jev (404 against 21, p < 0.001). Jev beats Laya (512 against 92, p < 0.001). Laya does not differ from embeddings (194 against 228, p = 0.11).
 - Cost uses `scripts/score/prices.tsv`: Jev at 0.042 dollars per million input tokens with free output, GLM at Z.ai's price (0.15 per million input, 0.03 cached, 0.50 output), and Laya at no per-token charge. Time is the wall time of one request. The baselines call no model, so the table shows no time for them.
-- Calibration. The expected calibration error is 0.026 for Jev (bootstrap 95% interval 0.011 to 0.043), 0.031 for GLM (0.024 to 0.038), and 0.160 for Laya (0.138 to 0.183). A tie that holds the right answer counts as its share, as in accuracy. The interval covers resampling of these questions only. Three Jev runs over the same questions give 0.018 (2026-09-23), 0.023 (2026-09-25), and 0.026 (2026-09-26).
-- Popularity. Jev gets 49% of questions about the least viewed quarter of songs and 73% about the most viewed. GLM stays between 94% and 99%.
-- Multi-hop. Jev gets the chained album-year question right on 22 of 60 items. On the 41 items where it gets both single hops right, it gets the chained question right on only 18 (`composition.tsv`).
-- Controls. Jev falls from 70% on the lexical-trap controls to 50% on the traps (12 against 1 discordant, p = 0.003). Near neighbors cost it 5 points (75% against 80%), within chance (10 against 7 discordant, p = 0.63).
+- Calibration. The expected calibration error is 0.027 for Jev (bootstrap 95% interval 0.013 to 0.043), 0.031 for GLM (0.024 to 0.038), and 0.160 for Laya (0.138 to 0.183). A tie that holds the right answer counts as its share, as in accuracy. The interval covers resampling of these questions only. Four Jev runs over the same questions give 0.018 (2026-09-23), 0.023 (2026-09-25), 0.026 (2026-09-26), and 0.027 (2026-09-30).
+- Popularity. Jev gets 52% of questions about the least viewed quarter of songs and 72% about the most viewed. GLM stays between 94% and 99%.
+- Multi-hop. Jev gets the chained album-year question right on 29 of 60 items. On the 39 items where it gets both single hops right, it gets the chained question right on only 23 (`composition.tsv`).
+- Controls. Jev falls from 67% on the lexical-trap controls to 48% on the traps (12 against 2 discordant, p = 0.013). Near neighbors cost it nothing (82% against 83%), within chance (7 against 8 discordant, p = 1.0).
 - Yes/no cuts (`decide.tsv`). Each yes/no set reports its AUC, the right answers at the 0.5 cut, and the right answers at a cut tuned on one half of the items and scored on the other. [leaning-no.md](leaning-no.md) covers Jev's lean toward no and how to audit a run for it with `thinkthen audit` and `thinkthen diff`.
 
 ## Tables and figures
@@ -67,7 +67,7 @@ Every table sits in [results/tables/](../results/tables/), one row per system an
 
 ## The function suite
 
-The categories use only `choose` and `decide`. The function suite tests every function ThinkThen names. decide and choose memory rows come from each system's main run; their suite files hold their reading cases. The other memory rows come from `results/runs/2026-09-26-functions-jev` for Jev and `results/runs/2026-09-23-functions-*` for GLM and Laya. The recognize rows beyond names-template come from `results/runs/2026-09-30-recognize-jev`, the relate rows from `results/runs/2026-09-30-relate-jev`, and the reading rows and the grown find test of 156 sets from `results/runs/2026-09-30-reading-jev`.
+The categories use only `choose` and `decide`. The function suite tests every function ThinkThen names at four levels: memory (the plain questions), card (a short card with the facts), context (a fuller context), and text (free sentences, for recognize). Every Jev and Liquid d1 row comes from that backend's all-run of 2026-09-30 — `results/runs/2026-09-30-all-jev` and `results/runs/2026-09-30-all-liquid-d1` — which asked all 5,838 cases in one folder. GLM and Laya keep their memory rows from `results/runs/2026-09-23-functions-*`; those runs predate the new levels, so their columns stop at memory.
 
 | Function | Test | Measure | Jev | GLM-5.3 Flash | Laya |
 | --- | --- | --- | --- | --- | --- |
@@ -183,9 +183,9 @@ The categories use only `choose` and `decide`. The function suite tests every fu
 | relate | links | tuned cut | 0.670 |  |  |
 | relate | links | edge F1 at the tuned cut, held half | 0.596 |  |  |
 
-A `reading` test case holds the memory case's question and truth, and puts the facts into the record as a short card, one card per song the text names. The measure is the memory test's. GLM and Laya have no reading rows yet. [questions/README.md](../questions/README.md#the-function-suite) describes the card.
+A `card` test case holds the memory case's question and truth, and puts the facts into the record as a short card, one card per song the text names. A `context` case carries the fuller context the question ships with. The measure is the memory test's. GLM and Laya have no card or context rows. [questions/README.md](../questions/README.md#the-function-suite) describes the card.
 
-The relate rows come from `results/runs/2026-09-30-relate-jev`, under thinkthen main at c22512868 (the build's SHA-256 is in that run's `run.txt`). The 2026-09-26 rows they replace measured relate's old choice planner, at thinkthen main 02dc0b96. ThinkThen ticket 0167 replaced that planner: relate now asks one yes or no question for each pair a rule allows and prints the pairs that reach the bar. On the same entity set, the pair planner's edge recall rose (0.614 to 0.693) and its precision fell hard (0.867 to 0.420) at the 0.5 cut, for an F1 of 0.523 against the old 0.719. The historical rows, from the run of 2026-09-26: edge F1 0.719, edge precision 0.867, edge recall 0.614, singer top pick right 0.899, album top pick right 0.637, duets: pick is a lead 0.917.
+The relate rows come from `results/runs/2026-09-30-all-jev`, under thinkthen main at aec7819bb (the build's SHA-256 is in that run's `run.txt`). The 2026-09-26 rows they replaced measured relate's old choice planner, at thinkthen main 02dc0b96. ThinkThen ticket 0167 replaced that planner: relate now asks one yes or no question for each pair a rule allows and prints the pairs that reach the bar. On the same entity set, the pair planner's edge recall rose (0.614 to 0.702) and its precision fell hard (0.867 to 0.418) at the 0.5 cut, for an F1 of 0.524 against the old 0.719. The historical rows, from the run of 2026-09-26: edge F1 0.719, edge precision 0.867, edge recall 0.614, singer top pick right 0.899, album top pick right 0.637, duets: pick is a lead 0.917.
 
 A blank cell was not asked. GLM runs through `scripts/run/chat.py suite`. That command asks tag, score, filter, rank, find, and annotate. recognize and relate run through `thinkthen recognize` and `thinkthen relate`. Those commands read a probability for each token or option, and a chat model states one, so GLM skips them. Laya's run of 2026-09-23 asked the older recognize and relate tests, built from annotate. Those tests are gone, so its cells are blank. Laya runs only on a Mac through a local shim and was not asked again.
 
