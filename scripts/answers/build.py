@@ -25,15 +25,18 @@ names the run, the backend, the model, the build, the date, and the case, and ho
   find's picked id, each annotate field's value, recognize's trimmed names and relations, and relate's
   edges with each one's probability beside the case's skipped songs (the cut's said set re-derives).
 - `truth`, `function`, `test`, `level`, `category`: the case's own fields, or the catalog's once
-  questions/catalog.jsonl exists. Level defaults to "memory" for the knowledge questions; a suite case
-  keeps its own `level`, and before ticket 0021 adds one it derives from the test — "reading" for the
-  reading tests, "text" for recognize, "memory" otherwise.
+  questions/catalog/catalog.jsonl exists. Level defaults to "memory" for the knowledge questions; a
+  suite case keeps its own `level`, and before ticket 0021 adds one it derives from the test —
+  "reading" for the reading tests, "text" for recognize, "memory" otherwise.
 - `input_tokens`, `cached_input_tokens`, `output_tokens`, `ms`, `requests`: the recorded cost of the
   answer, where the run recorded it — so the published usage columns recompute too. `requests` is the
   suite run's per-case request count; a knowledge run sends one request per question and records none.
 
 annotate writes one row per field, with the field in the id as `case:field`. A case the backend refused
-keeps a row with `gap` true and no measures. A case a run never asked has no row.
+keeps a row with `gap` true; how it counts differs by kind — a knowledge run's refusal scores wrong
+(`right` 0), the knowledge scorer counts a gap as a wrong answer, while a suite run's refusal carries no
+measures at all and stays out of the pooled systems, like a case never asked. A case a run never asked
+has no row.
 """
 import json
 import re
@@ -84,10 +87,23 @@ def suite_cases():
             for fn in suite.TESTS for l in open(SUITE / f"{fn}.jsonl", encoding="utf-8")}
 
 
-def catalog():
-    """id -> catalog row, once ticket 0021's questions/catalog.jsonl exists."""
-    f = ROOT / "questions" / "catalog.jsonl"
-    return {json.loads(l)["id"]: json.loads(l) for l in open(f, encoding="utf-8")} if f.is_file() else {}
+CATALOG_FIELDS = {"id", "file", "function", "test", "level", "category", "truth"}
+
+
+def catalog(f=ROOT / "questions" / "catalog" / "catalog.jsonl"):
+    """id -> catalog row, once ticket 0021's questions/catalog/catalog.jsonl exists (a subfolder, so the
+    questions/*.jsonl globs never read it). A catalog row missing a field is a build error, not a
+    silent miss."""
+    if not f.is_file():
+        return {}
+    out = {}
+    for i, l in enumerate(open(f, encoding="utf-8"), 1):
+        r = json.loads(l)
+        missing = CATALOG_FIELDS - set(r)
+        if missing:
+            raise ValueError(f"{f}: line {i} lacks {sorted(missing)}")
+        out[r["id"]] = r
+    return out
 
 
 def level_of(c):

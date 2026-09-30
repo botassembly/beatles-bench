@@ -1,6 +1,6 @@
 # By function
 
-Each function's main measure per level and system, from `results/answers.jsonl`. The interval is 95%: Wilson for a share, a seeded bootstrap of 1,000 draws for Spearman and F1. `—` means the system did not cover that measure.
+Each function's main measure per level and system, from `results/answers.jsonl`. The interval is 95%: Wilson for a share, a seeded bootstrap of 1,000 draws for Spearman and F1. `—` means the system did not cover that measure. The n is the cases for a share, the scored units for filter's F1 and recognize's name measures, the true edges for the edge measures, the pairs for Spearman, and the picks for a top-pick share. A refused case keeps a `gap` row: in a knowledge run it scores wrong like the scorer's rule, and in a suite run it carries no measures and stays out of these pools.
 
 | Function | Level | Test | Measure | BM25 | Embeddings | GLM-5.3 Flash | Hybrid | Jev | Laya | Word overlap |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -14,8 +14,8 @@ Each function's main measure per level and system, from `results/answers.jsonl`.
 | tag | reading | reading | top pick right | — | — | — | — | 1.000 (0.963 to 1.000), n 100 | — | — |
 | score | memory | popularity | Spearman | — | — | 0.774 (0.701 to 0.835), n 171 | — | 0.696 (0.606 to 0.769), n 171 | 0.123 (-0.025 to 0.259), n 171 | — |
 | score | reading | reading | Spearman | — | — | — | — | 0.733 (0.620 to 0.821), n 100 | — | — |
-| filter | memory | lead singer or album | F1 | — | — | 0.891 (0.831 to 0.940), n 64 | — | 0.639 (0.541 to 0.723), n 64 | 0.128 (0.029 to 0.227), n 64 | — |
-| filter | reading | reading | F1 | — | — | — | — | 1.000 (1.000 to 1.000), n 20 | — | — |
+| filter | memory | lead singer or album | F1 | — | — | 0.891 (0.831 to 0.940), n 240 | — | 0.639 (0.541 to 0.723), n 240 | 0.128 (0.029 to 0.227), n 240 | — |
+| filter | reading | reading | F1 | — | — | — | — | 1.000 (1.000 to 1.000), n 100 | — | — |
 | rank | memory | date | Spearman | — | — | 0.893 (0.847 to 0.921), n 182 | — | 0.805 (0.742 to 0.852), n 182 | -0.055 (-0.202 to 0.089), n 182 | — |
 | rank | memory | popularity | Spearman | — | — | 0.774 (0.693 to 0.835), n 171 | — | 0.638 (0.520 to 0.725), n 171 | 0.199 (0.042 to 0.344), n 171 | — |
 | rank | reading | reading-date | Spearman | — | — | — | — | 0.979 (0.960 to 0.987), n 100 | — | — |

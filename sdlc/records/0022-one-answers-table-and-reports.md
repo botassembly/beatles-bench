@@ -13,16 +13,19 @@ offline reads of the committed runs.
 - `right` holds a mean measure's per-case score (accuracy with tie shares, exact set, top pick, find,
   annotate fields, "no name found"); `counts` holds the tp/fp/fn units for filter, relate and recognize so
   pooled precision, recall and F1 come from a sum; `value` holds the score answer, rank's negated print
-  position, decide's p(yes) and choose's tie width. annotate writes one row per field as `case:field`, and a
-  refusal keeps a row with `gap` set. recognize gets no probability, because its strength is not one.
+  position, decide's p(yes) and choose's tie width. annotate writes one row per field as `case:field`.
+  A refusal keeps a `gap` row, and the report says how it counts: a knowledge run's refusal scores wrong,
+  a suite run's refusal stays out of the pools. recognize gets no probability, because its strength is
+  not one.
 - Level comes from the case's own field under ticket 0021, and falls back to the test shape until the
   catalog lands: `memory` for the knowledge questions, `reading` for the reading tests, `text` for
-  recognize. The build joins `questions/catalog.jsonl` for function, test, level, category and truth the
-  day it exists.
+  recognize. The build joins `questions/catalog/catalog.jsonl` — a subfolder, so the `questions/*.jsonl`
+  globs never read it — for function, test, level, category and truth the day it exists, and fails with a
+  clear error on a catalog row that lacks a field.
 - `scripts/answers/report.py` loads the table into an in-memory SQLite database, runs the queries in
   `scripts/answers/queries/` (scores, units, values, the backend join, calibration, by-question), and
   computes the intervals and tests in Python. It writes `reports/generated/by-function.md` (each function's
-  main measure per level and backend, Wilson for shares, seeded bootstrap for Spearman and F1),
+  main measure per level and system, Wilson for shares, seeded bootstrap for Spearman and F1),
   `head-to-head.md` (agreement and the exact McNemar test for each model-backend pair on the same
   questions, baselines excluded; Spearman where the measure is a value), `calibration.md` (the expected
   calibration error per backend, function and level where an answer carries a probability), and
@@ -75,7 +78,7 @@ offline reads of the committed runs.
 
 ## Deferred
 
-- `questions/catalog.jsonl` (ticket 0021): the builder already joins it when it exists.
+- `questions/catalog/catalog.jsonl` (ticket 0021): the builder already joins it when it exists.
 - Coverage, confusion and coverage-at-cut columns beyond the accuracy table's headline rows are
   recomputed where the published file has them; the per-bucket calibration and coverage tables keep their
   own format for now.

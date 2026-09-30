@@ -113,6 +113,18 @@ class Build(unittest.TestCase):
         r = build.row(Path("results/runs/x"), None, "q1", {}, q)
         self.assertEqual((r["test"], r["level"]), ("k", "memory"))
 
+    def test_catalog_reads_the_subfolder_and_fails_loud(self):
+        self.assertEqual(build.catalog(), {})  # ticket 0021 has not landed it yet
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            f = Path(d) / "catalog.jsonl"
+            f.write_text(json.dumps({"id": "q1", "file": "f", "function": "choose", "test": "t",
+                                     "level": "memory", "category": "c", "truth": "a"}) + "\n")
+            self.assertEqual(build.catalog(f)["q1"]["truth"], "a")
+            f.write_text('{"id": "q2", "function": "choose"}\n')
+            with self.assertRaises(ValueError):
+                build.catalog(f)
+
     def test_pool_merges_the_newest_folder(self):
         jev = self.pools["Jev"]
         self.assertEqual(jev["relate-songs"]["run"], "2026-09-30-relate-jev")  # relate-jev beats functions-jev
@@ -126,6 +138,15 @@ class Build(unittest.TestCase):
         self.assertIsNone(gap["counts"])
         refused = [r for r in self.rows if r["function"] == "relate" and r.get("gap")]
         self.assertEqual(len(refused), 3)  # Laya's three relate refusals
+
+    def test_knowledge_gap_scores_wrong(self):
+        # the knowledge scorer counts a refused answer (no probabilities) as wrong; the row carries it
+        r = build.row(Path("results/runs/x"), None, "q1", {},
+                      {"id": "q1", "function": "choose", "kind": "k", "truth": "a"})
+        build.pick_row(r, "choose", r["truth"], "b", None)
+        self.assertEqual(r["right"], 0.0)
+        self.assertIsNone(r["value"])
+        self.assertIsNone(r["probability"])
 
 
 class Recompute(unittest.TestCase):

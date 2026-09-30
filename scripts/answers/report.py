@@ -31,10 +31,12 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "scripts" / "score"))
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 import stats  # noqa: E402
 import score as core  # noqa: E402
 import score_suite as fscore  # noqa: E402
 import analyze  # noqa: E402
+import build  # noqa: E402
 
 RUNS = ROOT / "results" / "runs"
 QUERIES = Path(__file__).resolve().parent / "queries"
@@ -83,7 +85,8 @@ def systems(answers):
         pool = pools.setdefault(lab, {})
         backend_model.setdefault(lab, key)
         for r in got:
-            if r["id"].split(":")[0] in suite_ids:  # a case the suite no longer names stays unscoreable
+            # a case the suite no longer names stays unscoreable, and a refused case carries no measures
+            if r["id"].split(":")[0] in suite_ids and not r.get("gap"):
                 pool[r["id"]] = r  # the newer folder's answer wins for a case both asked
     return pools
 
@@ -229,7 +232,7 @@ def measures_for(fn, level, sel, units, values, seed):
     if fn == "filter" and units:
         us = [(u[6], u[7], u[8]) for u in units]
         tp, fp, fn_, p, r, f, lo, hi = pooled_f1(us, seed)
-        return [("F1", f, lo, hi, tp + fn_)]
+        return [("F1", f, lo, hi, len(units))]  # the table's F1 n counts the cases, the scored units
     if fn == "recognize":
         return recognize_measures(sel, units, seed)
     if fn == "relate":
@@ -291,7 +294,11 @@ def by_function(db, order):
              "",
              "Each function's main measure per level and system, from `results/answers.jsonl`. "
              "The interval is 95%: Wilson for a share, a seeded bootstrap of 1,000 draws for Spearman and "
-             "F1. `—` means the system did not cover that measure.",
+             "F1. `—` means the system did not cover that measure. The n is the cases for a share, the "
+             "scored units for filter's F1 and recognize's name measures, the true edges for the edge "
+             "measures, the pairs for Spearman, and the picks for a top-pick share. A refused case keeps a "
+             "`gap` row: in a knowledge run it scores wrong like the scorer's rule, and in a suite run it "
+             "carries no measures and stays out of these pools.",
              "",
              "| Function | Level | Test | Measure | " + " | ".join(order) + " |",
              "| --- | --- | --- | --- | " + " | ".join("---" for _ in order) + " |"]
@@ -334,14 +341,16 @@ def head_to_head(db):
              "",
              "Each pair of model backends on the questions both answered, per function and level. Agree is "
              "the share of questions with the same outcome; a only and b only count the cases just that "
-             "side had fully right; p is the exact two-sided McNemar test. Baselines are not backends here.",
+             "side had fully right; p is the exact two-sided McNemar test. Baselines are not backends here. "
+             "annotate counts its scored fields — three per case — not its cases.",
              "",
              "| A | B | Function | Level | Questions | A right | B right | Agree | A only | B only | p |",
              "| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |"]
     for (a, b, fn, level), got in sorted(groups.items(), key=sort_key):
         agree = sum(x == y for x, y in got) / len(got)
         a_only, b_only, p = stats.mcnemar([bool(x) for x, _ in got], [bool(y) for _, y in got])
-        lines.append(f"| {a} | {b} | {fn} | {level} | {len(got)} | {sum(x for x, _ in got)} | "
+        n = f"{len(got)} fields" if fn == "annotate" else f"{len(got)}"
+        lines.append(f"| {a} | {b} | {fn} | {level} | {n} | {sum(x for x, _ in got)} | "
                      f"{sum(y for _, y in got)} | {agree:.3f} | {a_only} | {b_only} | {fmt(p)} |")
     values = query(db, "values")
     vgroups = defaultdict(dict)
@@ -404,8 +413,7 @@ def by_question(db, out_path):
 
 
 def catalog():
-    f = ROOT / "questions" / "catalog.jsonl"
-    return {json.loads(l)["id"]: json.loads(l) for l in open(f, encoding="utf-8")} if f.is_file() else {}
+    return build.catalog()
 
 
 def main(answers_path=ROOT / "results" / "answers.jsonl"):
