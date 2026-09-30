@@ -1,10 +1,10 @@
 # 0018 Give recognize a real test set, with text relations: record
 
-Built on 2026-09-30 on `ticket/0018-a-real-recognize-set` from main at 60a76b8b. The one paid job ran through thinkthen-qa's `bin/live` guard. `THINKTHEN_BIN` was the pinned build `thinkthen-c22512868`, SHA-256 `fbc4ff6a`, of thinkthen main at c22512868.
+Built on 2026-09-30 on `ticket/0018-a-real-recognize-set` from main at 60a76b8b. The one paid job ran through a local spend guard. `THINKTHEN_BIN` was the pinned build `thinkthen-c22512868`, SHA-256 `fbc4ff6a`, of thinkthen main at c22512868.
 
 ## Result
 
-- The suite's recognize cases grew from 48 to 200 in nine tests: `names-template` (the old 48, byte-for-byte), `varied` (36), `song-or-album` (14), `short-names` (16), `case` (12), `no-names` (10), `paragraphs` (10), `punctuation` (14), and `relations` (40). Every truth still comes from `data/` by script.
+- The suite's recognize cases grew from 48 to 200 in nine tests: `names-template` (the old 48, identical apart from the test name, which was `names`), `varied` (36), `song-or-album` (14), `short-names` (16), `case` (12), `no-names` (10), `paragraphs` (10), `punctuation` (14), and `relations` (40). Every truth still comes from `data/` by script.
 - The 40 relations cases run `recognize song person album --relation sung_by=song:person --relation appears_on=song:album`. Each case's `edges` truth holds only the edges the sentence states; six cases name two entities while stating no edge.
 - `BENCH_SUITE_ONLY` filters cases by id prefix for live runs and replays, so a run can ask one group without sending the rest.
 - `score_suite.py` scores each test group per kind and scores relation edges by precision, recall, and F1. It takes several comma-separated runs, requires each touched test whole, and keeps the other models' tables byte-identical.

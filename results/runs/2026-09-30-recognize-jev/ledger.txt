@@ -1,7 +1,7 @@
 ## 2026-09-30 job: recognize suite, new groups
 pinned binary: thinkthen-c22512868, SHA-256 fbc4ff6a7d8b8763befcb0e207bd2b6b009b27d264d535e0c01f50316543f2d9
-command: bin/live scripts/run/ask_suite.sh live results/runs/2026-09-30-recognize-jev ;
+command: scripts/run/ask_suite.sh live results/runs/2026-09-30-recognize-jev ;
   BENCH_MAX_INPUT_TOKENS=2000000, BENCH_WORKERS=4, BENCH_SUITE_ONLY as in run.txt
 exit: 0
-spend lines from bin/live: 148 of 5000 calls, $0.0047 of $2.00 before; 502 of 5000 calls, $0.0335 of $2.00 after
+spend: 354 requests and 687,702 input tokens, about $0.0288, measured by a local spend guard
 this job: 354 calls, 687702 input tokens, $0.0288 at $0.042 per million input tokens

@@ -7,6 +7,6 @@ BENCH_SUITE_ONLY: recognize-varied-,recognize-song-or-album-,recognize-short-nam
 The run asked only the eight new recognize groups, 152 cases of ticket 0018. A plan check before the run gave an
 upper bound of 1,172,089 input tokens over the 112 plain cases and 262,298 over the 40 relations cases. A replay
 needs the same BENCH_SUITE_ONLY.
-live job (thinkthen-qa bin/live), BENCH_WORKERS=4:
+live job (a local spend guard), BENCH_WORKERS=4:
   recognize suite, new groups: BENCH_MAX_INPUT_TOKENS=2000000, exit 0, input tokens sent 687702
 input tokens sent in all: 687702
