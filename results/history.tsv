@@ -117,3 +117,58 @@ date	backend	model	tool	total	median_s	p90_s	usd_per_1000_questions	forward	forw
 2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.198	0.244	0.02102																				find	album	exact match	0.596
 2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.183	0.224	0.03577																				find	reading	exact match	1.000
 2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.191	0.233	0.00798																				annotate	reading	singer accuracy	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1	1053/1501	0.195	0.243	0.01555	149/224	39/57	45/60	34/47	31/60	78/112	99/180	49/60	21/32	49/60	26/54	40/65	131/146	171/248	79/104	50/60	36/54	33/60	42/42				
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.195	0.240	0.01297																				decide	yes/no questions	accuracy at 0.5	0.680
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.195	0.243	0.01602																				choose	pick-one questions	accuracy	0.709
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.203	0.268	0.01292																				decide	album	accuracy at 0.5	0.848
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.206	0.271	0.01475																				decide	reading	accuracy at 0.5	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.209	0.297	0.05007																				decide	context	accuracy at 0.5	0.947
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.200	0.253	0.01896																				choose	reading	accuracy	0.960
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.199	0.240	0.05513																				choose	context	accuracy	0.948
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.191	0.240	0.00647																				tag	lead singers	exact-set match	0.560
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.194	0.237	0.00793																				tag	reading	exact-set match	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.210	0.254	0.04819																				tag	context	exact-set match	0.890
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.193	0.229	0.01504																				score	popularity	Spearman with 2024 page views	0.637
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.201	0.265	0.01750																				score	reading	Spearman with 2024 page views	0.744
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.193	0.241	0.01492																				score	length	Spearman with length in seconds	0.625
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.197	0.237	0.06385																				score	popularity-context	Spearman with 2024 page views	0.883
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.190	0.228	0.05198																				score	length-context	Spearman with length in seconds	0.967
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.188	0.226	0.01303																				filter	lead singer or album	F1	0.719
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.183	0.215	0.01490																				filter	reading	F1	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.197	0.241	0.05018																				filter	context	F1	0.969
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.194	0.235	0.01282																				rank	popularity	Spearman with 2024 page views	0.649
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.196	0.239	0.01341																				rank	date	Spearman with release date	0.795
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.191	0.231	0.01528																				rank	reading-popularity	Spearman with 2024 page views	0.802
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.189	0.237	0.01596																				rank	reading-date	Spearman with release date	0.978
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.198	0.262	0.06155																				rank	popularity-context	Spearman with 2024 page views	0.797
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.198	0.250	0.06391																				rank	date-context	Spearman with release date	0.812
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.189	0.226	0.02115																				find	album	exact match	0.487
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.183	0.217	0.03577																				find	reading	exact match	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.187	0.233	0.07083																				find	context	exact match	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.188	0.224	0.00624																				annotate	card	singer accuracy	0.348
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.185	0.227	0.00798																				annotate	reading	singer accuracy	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.205	0.238	0.04614																				annotate	context	singer accuracy	0.956
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.368	0.438	0.10052																				recognize	names-template	song precision	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.353	0.405	0.09200																				recognize	varied	song precision	0.971
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.345	0.401	0.06450																				recognize	song-or-album	song precision	0.923
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.362	0.403	0.05606																				recognize	short-names	song precision	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.399	0.433	0.09200																				recognize	case	song precision	0.900
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.225	0.397	0.07930																				recognize	no-names	no name found	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.554	0.609	0.16764																				recognize	paragraphs	song precision	0.950
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.360	0.423	0.09936																				recognize	punctuation	song precision	0.846
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.473	0.589	0.05124																				recognize	relations	song precision	0.973
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.348	0.387	0.08876																				recognize	varied-more	song precision	0.983
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.501	0.643	0.16049																				recognize	paragraphs-more	song precision	0.989
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.340	0.390	0.05715																				recognize	short-names-more	song precision	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.373	0.429	0.08503																				recognize	case-more	song precision	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.373	0.409	0.09094																				recognize	punctuation-more	song precision	0.889
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.493	0.616	0.05092																				recognize	relations-more	song precision	1.000
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.945	0.945	0.67718																				relate	song to singer and album	edge F1	0.524
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.193	0.237	0.03458																				relate	solo	edge F1	0.701
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.194	0.198	0.03485																				relate	duet	edge F1	0.677
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.193	0.218	0.03443																				relate	wrong-album-only	edge F1	0.367
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.228	0.270	0.17635																				relate	links	edge F1	0.474
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.183	0.225	0.03579																				relate	more-solo	edge F1	0.693
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.205	0.280	0.03703																				relate	more-duet	edge F1	0.552
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.177	0.223	0.03452																				relate	more-wrong-album-only	edge F1	0.495
+2026-09-30	https://api.typesafe.ai/v1/systemone	jev-1.13.0	thinkthen 0.0.1		0.212	0.406	0.14401																				relate	more-links	edge F1	0.470

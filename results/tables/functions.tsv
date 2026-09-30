@@ -1,36 +1,57 @@
 function	test	measure	main	n	value	lo	hi	requests	input_tokens	usd	median_s	p90_s
-decide	yes/no questions	accuracy at 0.5	yes	228	0.689	0.626	0.745	228	67216	0.00282	0.214	0.271
-decide	yes/no questions	TP FP TN FN at 0.3		228	98 88 36 6							
-decide	yes/no questions	TP FP TN FN at 0.5		228	43 10 114 61							
-decide	yes/no questions	TP FP TN FN at 0.7		228	17 1 123 87							
+decide	yes/no questions	accuracy at 0.5	yes	228	0.680	0.617	0.737	228	70408	0.00296	0.195	0.240
+decide	yes/no questions	TP FP TN FN at 0.3		228	94 68 56 10							
+decide	yes/no questions	TP FP TN FN at 0.5		228	37 6 118 67							
+decide	yes/no questions	TP FP TN FN at 0.7		228	17 0 124 87							
 decide	yes/no questions	TP FP TN FN at 0.9		228	1 0 124 103							
-choose	pick-one questions	accuracy	yes	1273	0.705	0.679	0.729	1273	467685	0.01964	0.215	0.270
-choose	pick-one questions	coverage and accuracy at 0.3		1273	0.976 0.716							
-choose	pick-one questions	coverage and accuracy at 0.5		1273	0.769 0.791							
-choose	pick-one questions	coverage and accuracy at 0.7		1273	0.531 0.896							
-choose	pick-one questions	coverage and accuracy at 0.9		1273	0.293 0.971							
-decide	reading	accuracy at 0.5	yes	100	1.000	0.963	1.000	100	35119	0.00147	0.192	0.242
+choose	pick-one questions	accuracy	yes	1273	0.709	0.683	0.733	1273	485470	0.02039	0.195	0.243
+choose	pick-one questions	coverage and accuracy at 0.3		1273	0.981 0.716							
+choose	pick-one questions	coverage and accuracy at 0.5		1273	0.778 0.795							
+choose	pick-one questions	coverage and accuracy at 0.7		1273	0.540 0.876							
+choose	pick-one questions	coverage and accuracy at 0.9		1273	0.297 0.955							
+decide	album	accuracy at 0.5	yes	132	0.848	0.778	0.900	132	40602	0.00171	0.203	0.268
+decide	album	TP FP TN FN at 0.3		132	73 18 38 3							
+decide	album	TP FP TN FN at 0.5		132	62 6 50 14							
+decide	album	TP FP TN FN at 0.7		132	35 1 55 41							
+decide	album	TP FP TN FN at 0.9		132	10 0 56 66							
+decide	reading	accuracy at 0.5	yes	100	1.000	0.963	1.000	100	35119	0.00147	0.206	0.271
 decide	reading	TP FP TN FN at 0.3		100	43 2 55 0							
 decide	reading	TP FP TN FN at 0.5		100	43 0 57 0							
 decide	reading	TP FP TN FN at 0.7		100	43 0 57 0							
-decide	reading	TP FP TN FN at 0.9		100	27 0 57 16							
-choose	reading	accuracy	yes	100	0.950	0.888	0.978	100	45151	0.00190	0.189	0.214
-choose	reading	coverage and accuracy at 0.3		100	1.000 0.950							
-choose	reading	coverage and accuracy at 0.5		100	1.000 0.950							
+decide	reading	TP FP TN FN at 0.9		100	26 0 57 17							
+decide	context	accuracy at 0.5	yes	300	0.947	0.915	0.967	300	357673	0.01502	0.209	0.297
+decide	context	TP FP TN FN at 0.3		300	150 64 86 0							
+decide	context	TP FP TN FN at 0.5		300	149 15 135 1							
+decide	context	TP FP TN FN at 0.7		300	109 0 150 41							
+decide	context	TP FP TN FN at 0.9		300	16 0 150 134							
+choose	reading	accuracy	yes	100	0.960	0.902	0.984	100	45151	0.00190	0.200	0.253
+choose	reading	coverage and accuracy at 0.3		100	1.000 0.960							
+choose	reading	coverage and accuracy at 0.5		100	0.990 0.970							
 choose	reading	coverage and accuracy at 0.7		100	0.930 0.989							
-choose	reading	coverage and accuracy at 0.9		100	0.870 1.000							
-tag	lead singers	exact-set match	yes	158	0.291	0.226	0.366	158	84897	0.00357	0.210	0.252
-tag	lead singers	top pick right	yes	158	0.747	0.674	0.808					
-tag	lead singers	top label right, single-lead songs		146	0.753	0.678	0.816					
-tag	lead singers	john precision		92	0.587	0.485	0.682					
-tag	lead singers	john recall		72	0.750	0.639	0.836					
-tag	lead singers	paul precision		105	0.552	0.457	0.644					
-tag	lead singers	paul recall		63	0.921	0.827	0.966					
-tag	lead singers	george precision		31	0.484	0.320	0.652					
-tag	lead singers	george recall		25	0.600	0.407	0.766					
-tag	lead singers	ringo precision		40	0.200	0.105	0.348					
+choose	reading	coverage and accuracy at 0.9		100	0.880 0.989							
+choose	context	accuracy	yes	300	0.948	0.917	0.968	300	393763	0.01654	0.199	0.240
+choose	context	coverage and accuracy at 0.3		300	1.000 0.948							
+choose	context	coverage and accuracy at 0.5		300	0.980 0.966							
+choose	context	coverage and accuracy at 0.7		300	0.890 0.985							
+choose	context	coverage and accuracy at 0.9		300	0.727 1.000							
+tag	lead singers	exact-set match	yes	300	0.560	0.503	0.615	1058	163042	0.00685	0.191	0.240
+tag	lead singers	top pick right	yes	300	0.802	0.753	0.843					
+tag	lead singers	top label right, single-lead songs		146	0.788	0.714	0.846					
+tag	lead singers	john precision		96	0.625	0.525	0.715					
+tag	lead singers	john recall		72	0.833	0.731	0.902					
+tag	lead singers	paul precision		111	0.550	0.457	0.639					
+tag	lead singers	paul recall		63	0.968	0.891	0.991					
+tag	lead singers	george precision		27	0.593	0.407	0.755					
+tag	lead singers	george recall		25	0.640	0.445	0.798					
+tag	lead singers	ringo precision		20	0.400	0.219	0.613					
 tag	lead singers	ringo recall		10	0.800	0.490	0.943					
-tag	reading	exact-set match	yes	100	1.000	0.963	1.000	400	75528	0.00317	0.203	0.253
+tag	lead singers	cover precision		12	1.000	0.758	1.000					
+tag	lead singers	cover recall		14	0.857	0.601	0.960					
+tag	lead singers	long precision		15	0.533	0.301	0.752					
+tag	lead singers	long recall		9	0.889	0.565	0.980					
+tag	lead singers	lennon-mccartney precision		138	0.754	0.676	0.818					
+tag	lead singers	lennon-mccartney recall		104	1.000	0.964	1.000					
+tag	reading	exact-set match	yes	100	1.000	0.963	1.000	400	75528	0.00317	0.194	0.237
 tag	reading	top pick right	yes	100	1.000	0.963	1.000					
 tag	reading	top label right, single-lead songs		92	1.000	0.960	1.000					
 tag	reading	john precision		46	1.000	0.923	1.000					
@@ -41,181 +62,338 @@ tag	reading	george precision		16	1.000	0.806	1.000
 tag	reading	george recall		16	1.000	0.806	1.000					
 tag	reading	ringo precision		7	1.000	0.646	1.000					
 tag	reading	ringo recall		7	1.000	0.646	1.000					
-score	popularity	Spearman with 2024 page views	yes	171	0.696	0.607	0.768	171	58856	0.00247	0.209	0.242
-score	reading	Spearman with 2024 page views	yes	100	0.733	0.623	0.814	100	41655	0.00175	0.193	0.233
-filter	lead singer or album	F1	yes	240	0.639	0.543	0.724	240	71341	0.00300	0.234	0.289
-filter	lead singer or album	precision		83	0.566	0.459	0.668					
-filter	lead singer or album	recall		64	0.734	0.615	0.827					
-filter	singer	F1		120	0.587	0.444	0.716					
-filter	album	F1		120	0.694	0.557	0.805					
-filter	reading	F1	yes	100	1.000	1.000	1.000	100	35475	0.00149	0.186	0.236
+tag	context	exact-set match	yes	300	0.890	0.850	0.921	1058	1213986	0.05099	0.210	0.254
+tag	context	top pick right	yes	300	0.918	0.882	0.944					
+tag	context	top label right, single-lead songs		146	0.986	0.951	0.996					
+tag	context	john precision		86	0.837	0.745	0.900					
+tag	context	john recall		72	1.000	0.949	1.000					
+tag	context	paul precision		73	0.863	0.766	0.924					
+tag	context	paul recall		63	1.000	0.943	1.000					
+tag	context	george precision		25	1.000	0.867	1.000					
+tag	context	george recall		25	1.000	0.867	1.000					
+tag	context	ringo precision		10	1.000	0.722	1.000					
+tag	context	ringo recall		10	1.000	0.722	1.000					
+tag	context	cover precision		14	1.000	0.785	1.000					
+tag	context	cover recall		14	1.000	0.785	1.000					
+tag	context	long precision		11	0.818	0.523	0.949					
+tag	context	long recall		9	1.000	0.701	1.000					
+tag	context	lennon-mccartney precision		115	0.904	0.837	0.946					
+tag	context	lennon-mccartney recall		104	1.000	0.964	1.000					
+score	popularity	Spearman with 2024 page views	yes	171	0.637	0.536	0.721	171	61246	0.00257	0.193	0.229
+score	reading	Spearman with 2024 page views	yes	100	0.744	0.638	0.823	100	41655	0.00175	0.201	0.265
+score	length	Spearman with length in seconds	yes	129	0.625	0.504	0.723	129	45824	0.00192	0.193	0.241
+score	popularity-context	Spearman with 2024 page views	yes	171	0.883	0.844	0.913	171	259952	0.01092	0.197	0.237
+score	length-context	Spearman with length in seconds	yes	129	0.967	0.953	0.977	129	159648	0.00671	0.190	0.228
+filter	lead singer or album	F1	yes	300	0.719	0.641	0.793	300	93064	0.00391	0.188	0.226
+filter	lead singer or album	precision		98	0.653	0.555	0.740					
+filter	lead singer or album	recall		80	0.800	0.700	0.873					
+filter	singer	F1		120	0.697	0.549	0.813					
+filter	album	F1		120	0.732	0.606	0.841					
+filter	album-more	F1		60	0.732	0.562	0.870					
+filter	reading	F1	yes	100	1.000	1.000	1.000	100	35475	0.00149	0.183	0.215
 filter	reading	precision		20	1.000	0.839	1.000					
 filter	reading	recall		20	1.000	0.839	1.000					
-rank	popularity	Spearman with 2024 page views	yes	171	0.638	0.537	0.721	171	49793	0.00209	0.209	0.247
-rank	popularity	Kendall tau-b with 2024 page views		171	0.460	0.377	0.535					
-rank	date	Spearman with release date	yes	182	0.805	0.745	0.852	182	55583	0.00233	0.213	0.251
-rank	date	Kendall tau-b with release date		182	0.626	0.563	0.682					
-rank	reading-popularity	Spearman with 2024 page views	yes	100	0.808	0.724	0.868	100	36373	0.00153	0.190	0.223
-rank	reading-popularity	Kendall tau-b with 2024 page views		100	0.619	0.530	0.694					
-rank	reading-date	Spearman with release date	yes	100	0.979	0.968	0.986	100	38006	0.00160	0.214	0.289
-rank	reading-date	Kendall tau-b with release date		100	0.896	0.867	0.919					
-find	album	exact match	yes	156	0.596	0.518	0.670	156	78066	0.00328	0.198	0.244
-find	reading	exact match	yes	100	1.000	0.963	1.000	100	85158	0.00358	0.183	0.224
-annotate	card	singer accuracy	yes	158	0.310	0.243	0.386	182	148039	0.00622	0.223	0.269
-annotate	card	singer top pick right	yes	158	0.734	0.660	0.797					
-annotate	card	singer top label right, single-lead songs		146	0.733	0.656	0.798					
-annotate	card	album accuracy	yes	182	0.582	0.510	0.652					
-annotate	card	year accuracy	yes	182	0.407	0.338	0.479					
-annotate	reading	singer accuracy	yes	88	1.000	0.958	1.000	600	114044	0.00479	0.191	0.233
+filter	context	F1	yes	300	0.969	0.938	0.993	300	358399	0.01505	0.197	0.241
+filter	context	precision		83	0.952	0.883	0.981					
+filter	context	recall		80	0.988	0.933	0.998					
+filter	singer-context	F1		120	0.925	0.848	0.984					
+filter	album-context	F1		120	1.000	1.000	1.000					
+filter	album-more-context	F1		60	1.000	1.000	1.000					
+rank	popularity	Spearman with 2024 page views	yes	171	0.649	0.549	0.730	171	52183	0.00219	0.194	0.235
+rank	popularity	Kendall tau-b with 2024 page views		171	0.472	0.391	0.546					
+rank	date	Spearman with release date	yes	182	0.795	0.733	0.844	182	58126	0.00244	0.196	0.239
+rank	date	Kendall tau-b with release date		182	0.629	0.567	0.684					
+rank	reading-popularity	Spearman with 2024 page views	yes	100	0.802	0.716	0.864	100	36373	0.00153	0.191	0.231
+rank	reading-popularity	Kendall tau-b with 2024 page views		100	0.607	0.517	0.684					
+rank	reading-date	Spearman with release date	yes	100	0.978	0.966	0.985	100	38006	0.00160	0.189	0.237
+rank	reading-date	Kendall tau-b with release date		100	0.895	0.865	0.918					
+rank	popularity-context	Spearman with 2024 page views	yes	171	0.797	0.733	0.847	171	250581	0.01052	0.198	0.262
+rank	popularity-context	Kendall tau-b with 2024 page views		171	0.608	0.541	0.667					
+rank	date-context	Spearman with release date	yes	182	0.812	0.754	0.858	182	276938	0.01163	0.198	0.250
+rank	date-context	Kendall tau-b with release date		182	0.641	0.580	0.695					
+find	album	exact match	yes	300	0.487	0.431	0.543	300	151076	0.00635	0.189	0.226
+find	reading	exact match	yes	100	1.000	0.963	1.000	100	85158	0.00358	0.183	0.217
+find	context	exact match	yes	300	1.000	0.987	1.000	300	505952	0.02125	0.187	0.233
+annotate	card	singer accuracy	yes	158	0.348	0.278	0.425	1446	214677	0.00902	0.188	0.224
+annotate	card	singer top pick right	yes	158	0.791	0.721	0.847					
+annotate	card	singer top label right, single-lead songs		146	0.781	0.707	0.840					
+annotate	card	album accuracy	yes	182	0.566	0.493	0.636					
+annotate	card	year accuracy	yes	182	0.412	0.343	0.485					
+annotate	card	writers accuracy	yes	118	0.898	0.831	0.941					
+annotate	card	cover accuracy	yes	118	0.941	0.883	0.971					
+annotate	card	length accuracy	yes	118	0.847	0.772	0.901					
+annotate	reading	singer accuracy	yes	88	1.000	0.958	1.000	600	114044	0.00479	0.185	0.227
 annotate	reading	singer top pick right	yes	88	1.000	0.958	1.000					
 annotate	reading	singer top label right, single-lead songs		81	1.000	0.955	1.000					
 annotate	reading	album accuracy	yes	100	1.000	0.963	1.000					
 annotate	reading	year accuracy	yes	100	1.000	0.963	1.000					
-recognize	names-template	song precision	yes	49	0.959	0.863	0.989	48	273108	0.01147	0.251	0.288
-recognize	names-template	song recall	yes	48	0.979	0.891	0.996					
+annotate	context	singer accuracy	yes	158	0.956	0.911	0.978	1446	1588491	0.06672	0.205	0.238
+annotate	context	singer top pick right	yes	158	1.000	0.976	1.000					
+annotate	context	singer top label right, single-lead songs		146	1.000	0.974	1.000					
+annotate	context	album accuracy	yes	182	1.000	0.979	1.000					
+annotate	context	year accuracy	yes	182	1.000	0.979	1.000					
+annotate	context	writers accuracy	yes	118	0.975	0.928	0.991					
+annotate	context	cover accuracy	yes	118	0.983	0.940	0.995					
+annotate	context	length accuracy	yes	118	1.000	0.968	1.000					
+recognize	names-template	song precision	yes	48	1.000	0.926	1.000	96	229769	0.00965	0.368	0.438
+recognize	names-template	song recall	yes	48	1.000	0.926	1.000					
 recognize	names-template	person precision	yes	48	1.000	0.926	1.000					
 recognize	names-template	person recall	yes	48	1.000	0.926	1.000					
-recognize	names-template	album precision	yes	47	1.000	0.924	1.000					
-recognize	names-template	album recall	yes	48	0.979	0.891	0.996					
-recognize	names-template	song overlap precision		49	1.000	0.927	1.000					
+recognize	names-template	album precision	yes	45	0.844	0.712	0.923					
+recognize	names-template	album recall	yes	48	0.792	0.657	0.883					
+recognize	names-template	song overlap precision		48	1.000	0.926	1.000					
 recognize	names-template	song overlap recall		48	1.000	0.926	1.000					
 recognize	names-template	person overlap precision		48	1.000	0.926	1.000					
 recognize	names-template	person overlap recall		48	1.000	0.926	1.000					
-recognize	names-template	album overlap precision		47	1.000	0.924	1.000					
-recognize	names-template	album overlap recall		48	0.979	0.891	0.996					
-recognize	names-template	names said		48	144							
-recognize	varied	song precision	yes	34	0.971	0.851	0.995	72	157881	0.00663	0.359	0.417
+recognize	names-template	album overlap precision		45	1.000	0.921	1.000					
+recognize	names-template	album overlap recall		48	0.917	0.804	0.967					
+recognize	names-template	names said		48	141							
+recognize	varied	song precision	yes	34	0.971	0.851	0.995	72	157719	0.00662	0.353	0.405
 recognize	varied	song recall	yes	36	0.917	0.782	0.971					
 recognize	varied	person precision	yes	36	1.000	0.904	1.000					
 recognize	varied	person recall	yes	36	1.000	0.904	1.000					
-recognize	varied	album precision	yes	33	0.909	0.764	0.969					
-recognize	varied	album recall	yes	36	0.833	0.681	0.921					
+recognize	varied	album precision	yes	36	0.861	0.713	0.939					
+recognize	varied	album recall	yes	36	0.861	0.713	0.939					
 recognize	varied	song overlap precision		34	1.000	0.898	1.000					
 recognize	varied	song overlap recall		36	0.944	0.819	0.985					
 recognize	varied	person overlap precision		36	1.000	0.904	1.000					
 recognize	varied	person overlap recall		36	1.000	0.904	1.000					
-recognize	varied	album overlap precision		33	1.000	0.896	1.000					
-recognize	varied	album overlap recall		36	0.917	0.782	0.971					
-recognize	varied	names said		36	103							
-recognize	song-or-album	song precision	yes	12	1.000	0.758	1.000	28	43002	0.00181	0.329	0.441
+recognize	varied	album overlap precision		36	1.000	0.904	1.000					
+recognize	varied	album overlap recall		36	0.972	0.858	0.995					
+recognize	varied	names said		36	106							
+recognize	song-or-album	song precision	yes	13	0.923	0.667	0.986	28	43002	0.00181	0.345	0.401
 recognize	song-or-album	song recall	yes	14	0.857	0.601	0.960					
 recognize	song-or-album	person precision	yes	3	1.000	0.439	1.000					
 recognize	song-or-album	person recall	yes	3	1.000	0.439	1.000					
 recognize	song-or-album	album precision	yes	6	1.000	0.610	1.000					
 recognize	song-or-album	album recall	yes	7	0.857	0.487	0.974					
-recognize	song-or-album	song overlap precision		12	1.000	0.758	1.000					
-recognize	song-or-album	song overlap recall		14	0.857	0.601	0.960					
+recognize	song-or-album	song overlap precision		13	1.000	0.772	1.000					
+recognize	song-or-album	song overlap recall		14	0.929	0.685	0.987					
 recognize	song-or-album	person overlap precision		3	1.000	0.439	1.000					
 recognize	song-or-album	person overlap recall		3	1.000	0.439	1.000					
 recognize	song-or-album	album overlap precision		6	1.000	0.610	1.000					
 recognize	song-or-album	album overlap recall		7	0.857	0.487	0.974					
-recognize	song-or-album	names said		14	21							
-recognize	short-names	song precision	yes	16	0.938	0.717	0.989	32	42714	0.00179	0.350	0.391
+recognize	song-or-album	names said		14	22							
+recognize	short-names	song precision	yes	15	1.000	0.796	1.000	32	42714	0.00179	0.362	0.403
 recognize	short-names	song recall	yes	16	0.938	0.717	0.989					
 recognize	short-names	person precision	yes	16	1.000	0.806	1.000					
 recognize	short-names	person recall	yes	16	1.000	0.806	1.000					
-recognize	short-names	song overlap precision		16	1.000	0.806	1.000					
-recognize	short-names	song overlap recall		16	1.000	0.806	1.000					
+recognize	short-names	song overlap precision		15	1.000	0.796	1.000					
+recognize	short-names	song overlap recall		16	0.938	0.717	0.989					
 recognize	short-names	person overlap precision		16	1.000	0.806	1.000					
 recognize	short-names	person overlap recall		16	1.000	0.806	1.000					
-recognize	short-names	names said		16	32							
-recognize	case	song precision	yes	10	0.900	0.596	0.982	24	52575	0.00221	0.367	0.420
+recognize	short-names	names said		16	31							
+recognize	case	song precision	yes	10	0.900	0.596	0.982	24	52574	0.00221	0.399	0.433
 recognize	case	song recall	yes	12	0.750	0.468	0.911					
 recognize	case	person precision	yes	12	1.000	0.758	1.000					
 recognize	case	person recall	yes	12	1.000	0.758	1.000					
-recognize	case	album precision	yes	10	0.700	0.397	0.892					
+recognize	case	album precision	yes	9	0.778	0.453	0.937					
 recognize	case	album recall	yes	12	0.583	0.320	0.807					
 recognize	case	song overlap precision		10	1.000	0.722	1.000					
 recognize	case	song overlap recall		12	0.833	0.552	0.953					
 recognize	case	person overlap precision		12	1.000	0.758	1.000					
 recognize	case	person overlap recall		12	1.000	0.758	1.000					
-recognize	case	album overlap precision		10	1.000	0.722	1.000					
-recognize	case	album overlap recall		12	0.833	0.552	0.953					
-recognize	case	names said		12	32							
-recognize	no-names	no name found	yes	10	1.000	0.722	1.000	12	22658	0.00095	0.205	0.347
+recognize	case	album overlap precision		9	1.000	0.701	1.000					
+recognize	case	album overlap recall		12	0.750	0.468	0.911					
+recognize	case	names said		12	31							
+recognize	no-names	no name found	yes	10	1.000	0.722	1.000	12	22658	0.00095	0.225	0.397
 recognize	no-names	names said		10	0							
-recognize	paragraphs	song precision	yes	39	0.974	0.868	0.995	40	159197	0.00669	0.523	0.567
+recognize	paragraphs	song precision	yes	40	0.950	0.835	0.986	40	159656	0.00671	0.554	0.609
 recognize	paragraphs	song recall	yes	40	0.950	0.835	0.986					
 recognize	paragraphs	person precision	yes	34	1.000	0.898	1.000					
 recognize	paragraphs	person recall	yes	34	1.000	0.898	1.000					
 recognize	paragraphs	album precision	yes	35	1.000	0.901	1.000					
 recognize	paragraphs	album recall	yes	36	0.972	0.858	0.995					
-recognize	paragraphs	song overlap precision		39	1.000	0.910	1.000					
-recognize	paragraphs	song overlap recall		40	0.975	0.871	0.996					
+recognize	paragraphs	song overlap precision		40	1.000	0.912	1.000					
+recognize	paragraphs	song overlap recall		40	1.000	0.912	1.000					
 recognize	paragraphs	person overlap precision		34	1.000	0.898	1.000					
 recognize	paragraphs	person overlap recall		34	1.000	0.898	1.000					
 recognize	paragraphs	album overlap precision		35	1.000	0.901	1.000					
 recognize	paragraphs	album overlap recall		36	0.972	0.858	0.995					
-recognize	paragraphs	names said		10	108							
-recognize	punctuation	song precision	yes	14	0.786	0.524	0.924	28	66524	0.00279	0.372	0.457
+recognize	paragraphs	names said		10	109							
+recognize	punctuation	song precision	yes	13	0.846	0.578	0.957	28	66243	0.00278	0.360	0.423
 recognize	punctuation	song recall	yes	14	0.786	0.524	0.924					
 recognize	punctuation	person precision	yes	3	1.000	0.439	1.000					
 recognize	punctuation	person recall	yes	3	1.000	0.439	1.000					
 recognize	punctuation	album precision	yes	14	0.786	0.524	0.924					
 recognize	punctuation	album recall	yes	14	0.786	0.524	0.924					
-recognize	punctuation	song overlap precision		14	1.000	0.785	1.000					
-recognize	punctuation	song overlap recall		14	0.929	0.685	0.987					
+recognize	punctuation	song overlap precision		13	1.000	0.772	1.000					
+recognize	punctuation	song overlap recall		14	0.857	0.601	0.960					
 recognize	punctuation	person overlap precision		3	1.000	0.439	1.000					
 recognize	punctuation	person overlap recall		3	1.000	0.439	1.000					
 recognize	punctuation	album overlap precision		14	1.000	0.785	1.000					
 recognize	punctuation	album overlap recall		14	1.000	0.785	1.000					
-recognize	punctuation	names said		14	31							
-recognize	relations	song precision	yes	38	0.974	0.865	0.995	118	143151	0.00601	0.483	0.541
-recognize	relations	song recall	yes	40	0.925	0.801	0.974					
+recognize	punctuation	names said		14	30							
+recognize	relations	song precision	yes	37	0.973	0.862	0.995	117	142734	0.00599	0.473	0.589
+recognize	relations	song recall	yes	40	0.900	0.769	0.960					
 recognize	relations	person precision	yes	30	1.000	0.886	1.000					
 recognize	relations	person recall	yes	30	1.000	0.886	1.000					
 recognize	relations	album precision	yes	22	1.000	0.851	1.000					
 recognize	relations	album recall	yes	22	1.000	0.851	1.000					
-recognize	relations	song overlap precision		38	1.000	0.908	1.000					
-recognize	relations	song overlap recall		40	0.950	0.835	0.986					
+recognize	relations	song overlap precision		37	1.000	0.906	1.000					
+recognize	relations	song overlap recall		40	0.925	0.801	0.974					
 recognize	relations	person overlap precision		30	1.000	0.886	1.000					
 recognize	relations	person overlap recall		30	1.000	0.886	1.000					
 recognize	relations	album overlap precision		22	1.000	0.851	1.000					
 recognize	relations	album overlap recall		22	1.000	0.851	1.000					
-recognize	relations	relation edge F1	yes	46	0.867	0.758	0.957					
-recognize	relations	relation edge precision	yes	37	0.973	0.862	0.995					
-recognize	relations	relation edge recall	yes	46	0.783	0.644	0.877					
-recognize	relations	names said		40	90							
-relate	song to singer and album	edge F1	yes	352	0.523	0.488	0.561	8	128986	0.00542	0.838	0.838
-relate	song to singer and album	edge precision	yes	581	0.420	0.380	0.460					
-relate	song to singer and album	edge recall	yes	352	0.693	0.643	0.739					
-relate	song to singer and album	singer top pick right	yes	158	0.722	0.647	0.786					
-relate	song to singer and album	album top pick right	yes	182	0.522	0.450	0.593					
+recognize	relations	relation edge F1	yes	46	0.854	0.743	0.947					
+recognize	relations	relation edge precision	yes	36	0.972	0.858	0.995					
+recognize	relations	relation edge recall	yes	46	0.761	0.621	0.861					
+recognize	relations	names said		40	89							
+recognize	varied-more	song precision	yes	59	0.983	0.910	0.997	114	240929	0.01012	0.348	0.387
+recognize	varied-more	song recall	yes	60	0.967	0.886	0.991					
+recognize	varied-more	person precision	yes	60	1.000	0.940	1.000					
+recognize	varied-more	person recall	yes	60	1.000	0.940	1.000					
+recognize	varied-more	album precision	yes	56	0.964	0.879	0.990					
+recognize	varied-more	album recall	yes	60	0.900	0.799	0.953					
+recognize	varied-more	song overlap precision		59	1.000	0.939	1.000					
+recognize	varied-more	song overlap recall		60	0.983	0.911	0.997					
+recognize	varied-more	person overlap precision		60	1.000	0.940	1.000					
+recognize	varied-more	person overlap recall		60	1.000	0.940	1.000					
+recognize	varied-more	album overlap precision		56	1.000	0.936	1.000					
+recognize	varied-more	album overlap recall		60	0.933	0.841	0.974					
+recognize	varied-more	names said		60	175							
+recognize	paragraphs-more	song precision	yes	92	0.989	0.941	0.998	96	366835	0.01541	0.501	0.643
+recognize	paragraphs-more	song recall	yes	96	0.948	0.884	0.978					
+recognize	paragraphs-more	person precision	yes	86	0.953	0.886	0.982					
+recognize	paragraphs-more	person recall	yes	85	0.965	0.901	0.988					
+recognize	paragraphs-more	album precision	yes	78	0.962	0.893	0.987					
+recognize	paragraphs-more	album recall	yes	80	0.938	0.862	0.973					
+recognize	paragraphs-more	song overlap precision		92	1.000	0.960	1.000					
+recognize	paragraphs-more	song overlap recall		96	0.958	0.898	0.984					
+recognize	paragraphs-more	person overlap precision		86	1.000	0.957	1.000					
+recognize	paragraphs-more	person overlap recall		85	0.988	0.936	0.998					
+recognize	paragraphs-more	album overlap precision		78	0.962	0.893	0.987					
+recognize	paragraphs-more	album overlap recall		80	0.938	0.862	0.973					
+recognize	paragraphs-more	names said		24	256							
+recognize	short-names-more	song precision	yes	22	1.000	0.851	1.000	44	59871	0.00251	0.340	0.390
+recognize	short-names-more	song recall	yes	24	0.917	0.742	0.977					
+recognize	short-names-more	person precision	yes	24	1.000	0.862	1.000					
+recognize	short-names-more	person recall	yes	24	1.000	0.862	1.000					
+recognize	short-names-more	song overlap precision		22	1.000	0.851	1.000					
+recognize	short-names-more	song overlap recall		24	0.917	0.742	0.977					
+recognize	short-names-more	person overlap precision		24	1.000	0.862	1.000					
+recognize	short-names-more	person overlap recall		24	1.000	0.862	1.000					
+recognize	short-names-more	names said		24	46							
+recognize	case-more	song precision	yes	10	1.000	0.722	1.000	24	48587	0.00204	0.373	0.429
+recognize	case-more	song recall	yes	12	0.833	0.552	0.953					
+recognize	case-more	person precision	yes	12	1.000	0.758	1.000					
+recognize	case-more	person recall	yes	12	1.000	0.758	1.000					
+recognize	case-more	album precision	yes	12	1.000	0.758	1.000					
+recognize	case-more	album recall	yes	12	1.000	0.758	1.000					
+recognize	case-more	song overlap precision		10	1.000	0.722	1.000					
+recognize	case-more	song overlap recall		12	0.833	0.552	0.953					
+recognize	case-more	person overlap precision		12	1.000	0.758	1.000					
+recognize	case-more	person overlap recall		12	1.000	0.758	1.000					
+recognize	case-more	album overlap precision		12	1.000	0.758	1.000					
+recognize	case-more	album overlap recall		12	1.000	0.758	1.000					
+recognize	case-more	names said		12	34							
+recognize	punctuation-more	song precision	yes	18	0.889	0.672	0.969	34	73617	0.00309	0.373	0.409
+recognize	punctuation-more	song recall	yes	20	0.800	0.584	0.919					
+recognize	punctuation-more	person precision	yes	11	1.000	0.741	1.000					
+recognize	punctuation-more	person recall	yes	11	1.000	0.741	1.000					
+recognize	punctuation-more	album precision	yes	18	0.944	0.742	0.990					
+recognize	punctuation-more	album recall	yes	19	0.895	0.686	0.971					
+recognize	punctuation-more	song overlap precision		18	0.944	0.742	0.990					
+recognize	punctuation-more	song overlap recall		20	0.850	0.640	0.948					
+recognize	punctuation-more	person overlap precision		11	1.000	0.741	1.000					
+recognize	punctuation-more	person overlap recall		11	1.000	0.741	1.000					
+recognize	punctuation-more	album overlap precision		18	1.000	0.824	1.000					
+recognize	punctuation-more	album overlap recall		19	0.947	0.754	0.991					
+recognize	punctuation-more	names said		20	47							
+recognize	relations-more	song precision	yes	55	1.000	0.935	1.000	154	186715	0.00784	0.493	0.616
+recognize	relations-more	song recall	yes	60	0.917	0.819	0.964					
+recognize	relations-more	person precision	yes	46	0.978	0.887	0.996					
+recognize	relations-more	person recall	yes	45	1.000	0.921	1.000					
+recognize	relations-more	album precision	yes	31	0.935	0.793	0.982					
+recognize	relations-more	album recall	yes	33	0.879	0.727	0.952					
+recognize	relations-more	song overlap precision		55	1.000	0.935	1.000					
+recognize	relations-more	song overlap recall		60	0.917	0.819	0.964					
+recognize	relations-more	person overlap precision		46	0.978	0.887	0.996					
+recognize	relations-more	person overlap recall		45	1.000	0.921	1.000					
+recognize	relations-more	album overlap precision		31	1.000	0.890	1.000					
+recognize	relations-more	album overlap recall		33	0.939	0.804	0.983					
+recognize	relations-more	relation edge F1	yes	69	0.826	0.720	0.906					
+recognize	relations-more	relation edge precision	yes	52	0.962	0.870	0.989					
+recognize	relations-more	relation edge recall	yes	69	0.725	0.610	0.816					
+recognize	relations-more	names said		60	132							
+relate	song to singer and album	edge F1	yes	352	0.524	0.488	0.563	8	128986	0.00542	0.945	0.945
+relate	song to singer and album	edge precision	yes	591	0.418	0.379	0.458					
+relate	song to singer and album	edge recall	yes	352	0.702	0.652	0.747					
+relate	song to singer and album	singer top pick right	yes	158	0.734	0.660	0.797					
+relate	song to singer and album	album top pick right	yes	182	0.516	0.444	0.588					
 relate	song to singer and album	duets: pick is a lead	yes	12	0.833	0.552	0.953					
-relate	solo	edge F1	yes	62	0.696	0.607	0.788	16	13173	0.00055	0.180	0.221
-relate	solo	edge precision	yes	73	0.644	0.529	0.744					
+relate	solo	edge F1	yes	62	0.701	0.612	0.791	16	13173	0.00055	0.193	0.237
+relate	solo	edge precision	yes	72	0.653	0.538	0.752					
 relate	solo	edge recall	yes	62	0.758	0.638	0.848					
-relate	solo	singer top pick right	yes	31	0.742	0.568	0.863					
-relate	solo	album top pick right	yes	31	0.613	0.438	0.763					
-relate	solo	tuned cut	yes	8	0.450							
-relate	solo	edge F1 at the tuned cut, held half	yes	8	0.689							
-relate	solo	edge precision at the tuned cut, held half		8	0.600							
-relate	solo	edge recall at the tuned cut, held half		8	0.808							
-relate	duet	edge F1	yes	36	0.656	0.562	0.742	6	4979	0.00021	0.177	0.189
-relate	duet	edge precision	yes	28	0.750	0.566	0.873					
-relate	duet	edge recall	yes	36	0.583	0.422	0.729					
-relate	duet	singer top pick right	yes	12	0.833	0.552	0.953					
-relate	duet	album top pick right	yes	12	0.667	0.391	0.862					
-relate	duet	duets: pick is a lead	yes	12	0.833	0.552	0.953					
-relate	duet	tuned cut	yes	3	0.190							
-relate	duet	edge F1 at the tuned cut, held half	yes	3	0.778							
-relate	duet	edge precision at the tuned cut, held half		3	0.636							
+relate	solo	singer top pick right	yes	31	0.613	0.438	0.763					
+relate	solo	album top pick right	yes	31	0.581	0.408	0.736					
+relate	solo	tuned cut	yes	8	0.490							
+relate	solo	edge F1 at the tuned cut, held half	yes	8	0.667							
+relate	solo	edge precision at the tuned cut, held half		8	0.613							
+relate	solo	edge recall at the tuned cut, held half		8	0.731							
+relate	duet	edge F1	yes	36	0.677	0.594	0.750	6	4979	0.00021	0.194	0.198
+relate	duet	edge precision	yes	29	0.759	0.579	0.878					
+relate	duet	edge recall	yes	36	0.611	0.449	0.752					
+relate	duet	singer top pick right	yes	12	0.917	0.646	0.985					
+relate	duet	album top pick right	yes	12	0.750	0.468	0.911					
+relate	duet	duets: pick is a lead	yes	12	0.917	0.646	0.985					
+relate	duet	tuned cut	yes	3	0.270							
+relate	duet	edge F1 at the tuned cut, held half	yes	3	0.808							
+relate	duet	edge precision at the tuned cut, held half		3	0.677							
 relate	duet	edge recall at the tuned cut, held half		3	1.000							
-relate	wrong-album-only	edge F1	yes	38	0.385	0.259	0.504	16	13117	0.00055	0.190	0.213
-relate	wrong-album-only	edge precision	yes	71	0.296	0.202	0.410					
-relate	wrong-album-only	edge recall	yes	38	0.553	0.397	0.699					
+relate	wrong-album-only	edge F1	yes	38	0.367	0.246	0.474	16	13117	0.00055	0.193	0.218
+relate	wrong-album-only	edge precision	yes	71	0.282	0.190	0.395					
+relate	wrong-album-only	edge recall	yes	38	0.526	0.373	0.675					
 relate	wrong-album-only	singer top pick right	yes	31	0.742	0.568	0.863					
 relate	wrong-album-only	duets: pick is a lead	yes	7	0.714	0.359	0.918					
-relate	wrong-album-only	tuned cut	yes	8	0.460							
-relate	wrong-album-only	edge F1 at the tuned cut, held half	yes	8	0.373							
-relate	wrong-album-only	edge precision at the tuned cut, held half		8	0.268							
-relate	wrong-album-only	edge recall at the tuned cut, held half		8	0.611							
-relate	links	edge F1	yes	138	0.472	0.425	0.519	8	33590	0.00141	0.196	0.204
-relate	links	edge precision	yes	349	0.330	0.282	0.380					
-relate	links	edge recall	yes	138	0.833	0.762	0.886					
-relate	links	composer top pick right	yes	95	0.642	0.542	0.731					
-relate	links	producer top pick right	yes	95	0.453	0.356	0.553					
-relate	links	tuned cut	yes	4	0.670							
-relate	links	edge F1 at the tuned cut, held half	yes	4	0.596							
-relate	links	edge precision at the tuned cut, held half		4	0.495							
-relate	links	edge recall at the tuned cut, held half		4	0.750							
+relate	wrong-album-only	tuned cut	yes	8	0.440							
+relate	wrong-album-only	edge F1 at the tuned cut, held half	yes	8	0.414							
+relate	wrong-album-only	edge precision at the tuned cut, held half		8	0.300							
+relate	wrong-album-only	edge recall at the tuned cut, held half		8	0.667							
+relate	links	edge F1	yes	138	0.474	0.426	0.520	8	33590	0.00141	0.228	0.270
+relate	links	edge precision	yes	339	0.333	0.285	0.385					
+relate	links	edge recall	yes	138	0.819	0.746	0.874					
+relate	links	composer top pick right	yes	95	0.611	0.510	0.702					
+relate	links	producer top pick right	yes	95	0.442	0.346	0.542					
+relate	links	tuned cut	yes	4	0.680							
+relate	links	edge F1 at the tuned cut, held half	yes	4	0.583							
+relate	links	edge precision at the tuned cut, held half		4	0.490							
+relate	links	edge recall at the tuned cut, held half		4	0.721							
+relate	more-solo	edge F1	yes	84	0.693	0.615	0.767	20	17042	0.00072	0.183	0.225
+relate	more-solo	edge precision	yes	95	0.653	0.553	0.741					
+relate	more-solo	edge recall	yes	84	0.738	0.635	0.820					
+relate	more-solo	singer top pick right	yes	42	0.714	0.564	0.828					
+relate	more-solo	album top pick right	yes	42	0.714	0.564	0.828					
+relate	more-solo	tuned cut	yes	10	0.470							
+relate	more-solo	edge F1 at the tuned cut, held half	yes	10	0.713							
+relate	more-solo	edge precision at the tuned cut, held half		10	0.610							
+relate	more-solo	edge recall at the tuned cut, held half		10	0.857							
+relate	more-duet	edge F1	yes	48	0.552	0.458	0.644	7	6172	0.00026	0.205	0.280
+relate	more-duet	edge precision	yes	39	0.615	0.459	0.751					
+relate	more-duet	edge recall	yes	48	0.500	0.364	0.636					
+relate	more-duet	singer top pick right	yes	16	0.938	0.717	0.989					
+relate	more-duet	album top pick right	yes	16	0.750	0.505	0.898					
+relate	more-duet	duets: pick is a lead	yes	16	0.938	0.717	0.989					
+relate	more-duet	tuned cut	yes	4	0.350							
+relate	more-duet	edge F1 at the tuned cut, held half	yes	4	0.741							
+relate	more-duet	edge precision at the tuned cut, held half		4	0.667							
+relate	more-duet	edge recall at the tuned cut, held half		4	0.833							
+relate	more-wrong-album-only	edge F1	yes	33	0.495	0.370	0.614	16	13152	0.00055	0.177	0.223
+relate	more-wrong-album-only	edge precision	yes	64	0.375	0.267	0.497					
+relate	more-wrong-album-only	edge recall	yes	33	0.727	0.558	0.849					
+relate	more-wrong-album-only	singer top pick right	yes	31	0.742	0.568	0.863					
+relate	more-wrong-album-only	duets: pick is a lead	yes	2	0.500	0.095	0.905					
+relate	more-wrong-album-only	tuned cut	yes	8	0.530							
+relate	more-wrong-album-only	edge F1 at the tuned cut, held half	yes	8	0.455							
+relate	more-wrong-album-only	edge precision at the tuned cut, held half		8	0.370							
+relate	more-wrong-album-only	edge recall at the tuned cut, held half		8	0.588							
+relate	more-links	edge F1	yes	138	0.470	0.425	0.515	10	34288	0.00144	0.212	0.406
+relate	more-links	edge precision	yes	347	0.329	0.281	0.380					
+relate	more-links	edge recall	yes	138	0.826	0.754	0.880					
+relate	more-links	composer top pick right	yes	95	0.600	0.499	0.693					
+relate	more-links	producer top pick right	yes	95	0.453	0.356	0.553					
+relate	more-links	tuned cut	yes	5	0.760							
+relate	more-links	edge F1 at the tuned cut, held half	yes	5	0.524							
+relate	more-links	edge precision at the tuned cut, held half		5	0.647							
+relate	more-links	edge recall at the tuned cut, held half		5	0.440							
