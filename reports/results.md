@@ -46,7 +46,7 @@ Every table sits in [results/tables/](../results/tables/), one row per system an
 
 ## The function suite
 
-The categories use only `choose` and `decide`. The function suite tests the other functions ThinkThen names. decide and choose come from each system's main run. The other rows come from `results/runs/2026-09-26-functions-jev` for Jev and `results/runs/2026-09-23-functions-*` for GLM and Laya. The recognize rows beyond names-template come from `results/runs/2026-09-30-recognize-jev`.
+The categories use only `choose` and `decide`. The function suite tests the other functions ThinkThen names. decide and choose come from each system's main run. The other rows come from `results/runs/2026-09-26-functions-jev` for Jev and `results/runs/2026-09-23-functions-*` for GLM and Laya. The recognize rows beyond names-template come from `results/runs/2026-09-30-recognize-jev`, and the relate rows from `results/runs/2026-09-30-relate-jev`.
 
 | Function | Test | Measure | Jev | GLM-5.3 Flash | Laya |
 | --- | --- | --- | --- | --- | --- |
@@ -113,14 +113,44 @@ The categories use only `choose` and `decide`. The function suite tests the othe
 | recognize | relations | relation edge F1 | 0.867 (0.758 to 0.957) |  |  |
 | recognize | relations | relation edge precision | 0.973 (0.862 to 0.995) |  |  |
 | recognize | relations | relation edge recall | 0.783 (0.644 to 0.877) |  |  |
-| relate | song to singer and album | edge F1 | 0.719 (0.673 to 0.766) |  |  |
-| relate | song to singer and album | edge precision | 0.867 (0.820 to 0.904) |  |  |
-| relate | song to singer and album | edge recall | 0.614 (0.562 to 0.663) |  |  |
-| relate | song to singer and album | singer top pick right | 0.899 (0.842 to 0.937) |  |  |
-| relate | song to singer and album | album top pick right | 0.637 (0.565 to 0.704) |  |  |
-| relate | song to singer and album | duets: pick is a lead | 0.917 (0.646 to 0.985) |  |  |
+| relate | song to singer and album | edge F1 | 0.523 (0.488 to 0.561) |  |  |
+| relate | song to singer and album | edge precision | 0.420 (0.380 to 0.460) |  |  |
+| relate | song to singer and album | edge recall | 0.693 (0.643 to 0.739) |  |  |
+| relate | song to singer and album | singer top pick right | 0.722 (0.647 to 0.786) |  |  |
+| relate | song to singer and album | album top pick right | 0.522 (0.450 to 0.593) |  |  |
+| relate | song to singer and album | duets: pick is a lead | 0.833 (0.552 to 0.953) |  |  |
+| relate | solo | edge F1 | 0.696 (0.607 to 0.788) |  |  |
+| relate | solo | edge precision | 0.644 (0.529 to 0.744) |  |  |
+| relate | solo | edge recall | 0.758 (0.638 to 0.848) |  |  |
+| relate | solo | singer top pick right | 0.742 (0.568 to 0.863) |  |  |
+| relate | solo | album top pick right | 0.613 (0.438 to 0.763) |  |  |
+| relate | solo | tuned cut | 0.450 |  |  |
+| relate | solo | edge F1 at the tuned cut, held half | 0.689 |  |  |
+| relate | duet | edge F1 | 0.656 (0.562 to 0.742) |  |  |
+| relate | duet | edge precision | 0.750 (0.566 to 0.873) |  |  |
+| relate | duet | edge recall | 0.583 (0.422 to 0.729) |  |  |
+| relate | duet | singer top pick right | 0.833 (0.552 to 0.953) |  |  |
+| relate | duet | album top pick right | 0.667 (0.391 to 0.862) |  |  |
+| relate | duet | duets: pick is a lead | 0.833 (0.552 to 0.953) |  |  |
+| relate | duet | tuned cut | 0.190 |  |  |
+| relate | duet | edge F1 at the tuned cut, held half | 0.778 |  |  |
+| relate | wrong-album-only | edge F1 | 0.385 (0.259 to 0.504) |  |  |
+| relate | wrong-album-only | edge precision | 0.296 (0.202 to 0.410) |  |  |
+| relate | wrong-album-only | edge recall | 0.553 (0.397 to 0.699) |  |  |
+| relate | wrong-album-only | singer top pick right | 0.742 (0.568 to 0.863) |  |  |
+| relate | wrong-album-only | album top pick right | 0.000 (0.000 to 0.110) |  |  |
+| relate | wrong-album-only | duets: pick is a lead | 0.714 (0.359 to 0.918) |  |  |
+| relate | wrong-album-only | tuned cut | 0.460 |  |  |
+| relate | wrong-album-only | edge F1 at the tuned cut, held half | 0.373 |  |  |
+| relate | links | edge F1 | 0.472 (0.425 to 0.519) |  |  |
+| relate | links | edge precision | 0.330 (0.282 to 0.380) |  |  |
+| relate | links | edge recall | 0.833 (0.762 to 0.886) |  |  |
+| relate | links | composer top pick right | 0.642 (0.542 to 0.731) |  |  |
+| relate | links | producer top pick right | 0.453 (0.356 to 0.553) |  |  |
+| relate | links | tuned cut | 0.670 |  |  |
+| relate | links | edge F1 at the tuned cut, held half | 0.596 |  |  |
 
-The relate rows are historical. They measure relate's old choice planner, in thinkthen main at 02dc0b96 on 2026-09-26. ThinkThen ticket 0167 replaced that planner. relate now asks one yes or no question for each pair a rule allows. The bench has not scored the pair planner.
+The relate rows come from `results/runs/2026-09-30-relate-jev`, under thinkthen main at c22512868 (the build's SHA-256 is in that run's `run.txt`). The 2026-09-26 rows they replace measured relate's old choice planner, at thinkthen main 02dc0b96. ThinkThen ticket 0167 replaced that planner: relate now asks one yes or no question for each pair a rule allows and prints the pairs that reach the bar. On the same entity set, the pair planner's edge recall rose (0.614 to 0.693) and its precision fell hard (0.867 to 0.420) at the 0.5 cut, for an F1 of 0.523 against the old 0.719. The historical rows, from the run of 2026-09-26: edge F1 0.719, edge precision 0.867, edge recall 0.614, singer top pick right 0.899, album top pick right 0.637, duets: pick is a lead 0.917.
 
 A blank cell was not asked. GLM runs through `scripts/run/chat.py suite`. That command asks tag, score, filter, rank, find, and annotate. recognize and relate run through `thinkthen recognize` and `thinkthen relate`. Those commands read a probability for each token or option, and a chat model states one, so GLM skips them. Laya's run of 2026-09-23 asked the older recognize and relate tests, built from annotate. Those tests are gone, so its cells are blank. Laya runs only on a Mac through a local shim and was not asked again.
 
@@ -136,9 +166,16 @@ recognize scores the names `thinkthen recognize song person album` prints, one s
 - `punctuation`: titles with marks inside, such as "Back in the U.S.S.R." and "Ob-La-Di, Ob-La-Da". Precision and recall fall to 0.786.
 - `relations`: 40 sentences run with `--relation sung_by=song:person --relation appears_on=song:album`, in the same direction as `relate-suite.json`. The edge rows score only the edges the sentence states; six sentences name a song and an album while stating no edge. Jev reads a stated edge at precision 0.973 and recall 0.783.
 
-At the older build, the bench asked `thinkthen relate` once over the 199 songs, Beatles, and albums, in three requests of at most 96,000 bytes. relate asked one choice per song for its lead singer. It said a second singer only in an exact tie at 0.5. So each of the 12 duets almost always gained at most one of its two singer edges in the strict counts. The duet row counted the duets whose pick, before the bar, named one of the two leads.
+relate scores the edges `thinkthen relate` prints, one entity set per call. An edge is right when its relation and both endpoint names match a truth edge. relate reads the names from memory alone — the set carries no text, so every edge comes from what the model knows of the names. For relations a text states, the `relations` group under recognize above scores the edges a sentence names. The tests:
 
-Each strict measure for tag, annotate's singer, and relate has a top pick row beside it. For tag and annotate, the row counts the songs whose likeliest singer is a true lead. A tie at the top earns the share of its singers that are true. An extra singer the strict measure counts wrong does not cost the song. For relate, the two rows counted the old planner's picks that named a true singer or album, one per song. A right answer under the 0.5 bar counted there. The full table in `results/tables/` also keeps the older rows "top label right, single-lead songs". They give a tie at the top to the first singer in the list.
+- `song to singer and album`: the whole set — 182 songs, the four Beatles, and the 13 core albums — asked at the 0.5 cut in eight requests of at most 96,000 bytes.
+- `solo` (16 sets) and `duet` (6): one to three songs sharing a first album, the four Beatles, and three albums, one of them the right one.
+- `wrong-album-only` (16): the same shape, but the right album is left out, so the true `appears_on` edge set is empty. Its album top pick is 0.000: relate always names an album, and every album offered is wrong.
+- `links` (8): about 20 entities each — a dozen songs and the seven people `data/links.tsv` names — scored on the Wikidata `composer` and `producer` pairs, asked as `composed_by` and `produced_by` under `relate-links.json`.
+
+The small and links tests ran at a 0.01 cut, so `thinkthen audit` could tune a bar across the whole range. Each such test's `tuned cut` row is the cut a seeded half of its cases tuned for F1, and the held-half rows score the other half at it. The rows, keys, and audit reports sit in the run's `relate-audit/` folder. `song to singer and album` is one case and splits into no halves, so it shows only the 0.5 cut.
+
+Each strict measure for tag, annotate's singer, and relate has a top pick row beside it. For tag and annotate, the row counts the songs whose likeliest singer is a true lead. A tie at the top earns the share of its singers that are true. An extra singer the strict measure counts wrong does not cost the song. For relate, the pick is the pair with the top probability for each song and relation; under the old planner it was the planner's own pick, and a pick of none was wrong. The full table in `results/tables/` also keeps the older rows "top label right, single-lead songs". They give a tie at the top to the first singer in the list.
 
 ## ThinkThen gaps
 
