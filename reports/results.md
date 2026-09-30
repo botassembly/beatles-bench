@@ -16,8 +16,8 @@ Each function's main measure, once from memory and once reading a card that hold
 | rank | 353 | the songs in order by fame, and by date | 0.638 / 0.805 | 0.808 / 0.979 |
 | find | 156 | the one song of eight from a named album | 0.596 | 1.000 |
 | annotate | 182 | singer, first album and year on a card | 0.310 | 1.000 |
-| recognize | 200 | the song, person and album names in a sentence | — | 0.959 |
-| relate | 47 | the edges between a set's songs, people and albums | 0.523 | — |
+| recognize | 400 | the song, person and album names in a sentence | — | 0.959 |
+| relate | 100 | the edges between a set's songs, people and albums | 0.523 | — |
 
 The columns are the main measures of the table below: accuracy, exact-set match, F1, or Spearman. The rank cell holds its two measures. A reading cell covers at most 100 cases a test; annotate counts only its settled-lead songs. recognize's cell is its song precision on the names-template sentences, and relate's is edge F1 on the whole catalogue at the 0.5 cut. For score and rank's popularity ask the card prints the song's 2024 page views, so those reading figures measure how well the model places a printed number on a coarse five-level scale or an ordering — and ties cost the rank correlation even when the number is read right. The reading numbers come from `results/runs/2026-09-30-reading-jev`: 1,004 cases, 558,621 input tokens, about $0.02.
 

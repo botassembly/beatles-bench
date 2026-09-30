@@ -199,7 +199,7 @@ CLAIMS = [
      lambda: "| annotate | {} | singer, first album and year on a card | {} | {} |".format(
          annotate_cards(), by_function("annotate", "card", "singer accuracy"),
          by_function("annotate", "reading", "singer accuracy"))),
-    ("reports/results.md", "| recognize | 200 | the song, person and album names in a sentence | — | {} |",
+    ("reports/results.md", "| recognize | 400 | the song, person and album names in a sentence | — | {} |",
      lambda: by_function("recognize", "names-template", "song precision")),
     ("reports/results.md", "{}",
      lambda: "| relate | {} | the edges between a set's songs, people and albums | {} | — |".format(
