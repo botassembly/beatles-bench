@@ -19,6 +19,11 @@ if os.environ.get("FAKE_REFUSE") in [r.get("id") for r in records if "id" in r]:
 
 
 def answer(rec):
+    if verb == "choose":
+        opts = rec.get("options") or {}
+        first = next(iter(opts), "")
+        return {"value": first, "answer": {"kind": "choice",
+                                           "probabilities": {k: 0.9 if k == first else 0.1 for k in opts}}}
     if verb == "tag":
         return {"value": ["john"], "answer": {"kind": "tag", "probabilities": {"john": 0.9, "paul": 0.1}}}
     if verb == "score":

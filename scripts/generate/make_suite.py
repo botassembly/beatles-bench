@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Turn data/ into questions/suite/: one test per ThinkThen function beyond choose and decide. Deterministic.
+"""Turn data/ into questions/suite/: one test per ThinkThen function, plus the reading tests. Deterministic.
 
 usage: make_suite.py [DATA OUT]   (defaults: data/ questions/suite/)
 
@@ -23,6 +23,12 @@ appears_on=song:album and its cases add edges, the [relation, source, target] tr
 `thinkthen relate` once over the whole entity set: every song, the four Beatles, and the core albums. Its truth holds
 the edges, and skip lists the songs whose sung_by edges are not scored. relate-profile.json caps each request at
 96,000 bytes, the ceiling thinkthen main applies to relation requests at its built-in address.
+
+Each function but recognize and relate also gets a "reading" test: a seeded sample of eligible memory cases, at most
+100 per function, with the facts the truth needs written into the record as a short card after the input. The
+question stays the same. decide and choose draw their memory cases from the main questions generate() makes; the
+other functions draw from this file's own cases. recognize already reads the text it is given, and relate has no
+reading test (ticket 0019). A case carries needs, the songs.tsv columns its truth needs.
 """
 import csv
 import json
@@ -33,7 +39,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(Path(__file__).resolve().parent))
-from generate import SONG, settled_lead, words  # noqa: E402
+from generate import SONG, settled_lead, words, generate as main_questions  # noqa: E402
 
 SEED = "beatles-bench-functions-1"
 FUNCTIONS = ["tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
@@ -106,6 +112,37 @@ RECOGNIZE_REL = ["song", "person", "album", "--relation", "sung_by=song:person",
 RELATE = {"version": 1, "relate": json.loads((ROOT / "examples" / "relate" / "relate.json").read_text(encoding="utf-8"))["relate"]}
 PROFILE = {"schema": "thinkthen.backend-profile/1", "name": "request-96000", "max_request_bytes": 96000}
 
+# The decide and choose questions a card can answer: the song table covers every fact the truth needs. The first
+# element says where the songs sit: "input" cards the song the input names, "pair" cards both sides of an "A / B"
+# input, "options" cards each option song. The second names the songs.tsv columns the truth needs; each becomes a
+# card line. Cases about world events (events.tsv), pairs (links.tsv, reversal-general.tsv), and album dates
+# (albums.tsv) are not eligible.
+READING_KINDS = {
+    ("forward", "singer"): ("input", ("lead_vocals",)),
+    ("forward", "album"): ("input", ("first_album",)),
+    ("forward", "songwriter"): ("input", ("songwriters",)),
+    ("forward", "year"): ("input", ("year",)),
+    ("reverse", "singer-to-song"): ("options", ("lead_vocals",)),
+    ("reverse", "album-to-song"): ("options", ("first_album",)),
+    ("reverse", "singer-yes-no"): ("input", ("lead_vocals",)),
+    ("single-hop", "song-album"): ("input", ("first_album",)),
+    ("single-hop", "song-month"): ("input", ("release_date",)),
+    ("comparison", "longer"): ("pair", ("length_s",)),
+    ("shared-lead", "shared-lead"): ("input", ("lead_vocals",)),
+    ("lead-set", "john"): ("input", ("lead_vocals",)),
+    ("lead-set", "paul"): ("input", ("lead_vocals",)),
+    ("lead-set", "george"): ("input", ("lead_vocals",)),
+    ("lead-set", "ringo"): ("input", ("lead_vocals",)),
+    ("near-neighbor", "album"): ("input", ("first_album",)),
+    ("near-neighbor-control", "album"): ("input", ("first_album",)),
+    ("lexical-trap", "song-to-album"): ("input", ("first_album",)),
+    ("lexical-trap", "album-to-song"): ("options", ("first_album",)),
+    ("lexical-trap-control", "song-to-album"): ("input", ("first_album",)),
+    ("lexical-trap-control", "album-to-song"): ("options", ("first_album",)),
+    ("none-of-these", "absent"): ("input", ("first_album",)),
+    ("none-of-these", "present"): ("input", ("first_album",)),
+}
+
 
 def rng(name):
     return random.Random(f"{SEED}/{name}")
@@ -164,6 +201,7 @@ class Suite:
         self.core = [a["album"] for a in self.albums if a["album"] in core]
         self.songs = [s for s in read(data / "songs.tsv") if s["catalogue"] == "core 1962-1970" and s["first_album"] in core
                       and all(x in LEADS for x in s["lead_vocals"].split("+"))]
+        self.by_title = {s["title"]: s for s in read(data / "songs.tsv")}
         self.out = {}
 
     def leads(self, s):
@@ -208,22 +246,42 @@ class Suite:
                       for i, s in enumerate(pool, 1)]
         self.out["rank"] = cases
 
+    def find_set(self, album, cid, test, target, others, r):
+        fair = [s for s in self.songs if not words(s["title"]) & words(album)]
+        units = [target] + [r.choice([s for s in fair if s["first_album"] == o]) for o in others]
+        r.shuffle(units)
+        records = [{"id": f"u{i}", "input": s["title"]} for i, s in enumerate(units, 1)]
+        return {"id": cid, "function": "find", "test": test, "args": [FIND_Q.format(album=album)] + JSONL,
+                "records": records, "truth": f"u{units.index(target) + 1}", "key": album,
+                "fields": [x for s in units for x in f(s, "first_album")]}
+
     def find(self):
         cases = []
         for album in self.core:
             r = rng(f"find/{album}")
-            fair = [s for s in self.songs if not words(s["title"]) & words(album)]
-            own = [s for s in fair if s["first_album"] == album]
+            own = [s for s in self.songs if not words(s["title"]) & words(album) and s["first_album"] == album]
             for n, target in enumerate(r.sample(own, min(4, len(own))), 1):
                 others = r.sample([a for a in self.core if a != album], 7)
-                units = [target] + [r.choice([s for s in fair if s["first_album"] == o]) for o in others]
-                r.shuffle(units)
-                cid = f"find-album-{self.core.index(album) + 1:02d}-{n}"
-                records = [{"id": f"u{i}", "input": s["title"]} for i, s in enumerate(units, 1)]
-                cases.append({"id": cid, "function": "find", "test": "album", "args": [FIND_Q.format(album=album)] + JSONL,
-                              "records": records, "truth": f"u{units.index(target) + 1}", "key": album,
-                              "fields": [x for s in units for x in f(s, "first_album")]})
+                cases.append(self.find_set(album, f"find-album-{self.core.index(album) + 1:02d}-{n}", "album",
+                                           target, others, r))
+        self.find_more(cases)
         self.out["find"] = cases
+
+    def find_more(self, cases):
+        """More album sets, to about 150 in all: up to nine fresh targets per album, skipping the ones test album
+        already took where it can. The new sets sit in test album-more so a run that asked only the first 52 still
+        covers test album whole."""
+        for album in self.core:
+            r = rng(f"find-more/{album}")
+            fair = [s for s in self.songs if not words(s["title"]) & words(album)]
+            own = [s for s in fair if s["first_album"] == album]
+            took = {next(u["input"] for u in c["records"] if u["id"] == c["truth"])
+                    for c in cases if c["key"] == album}
+            pool = [s for s in own if s["title"] not in took] or own
+            for n, target in enumerate(r.sample(pool, min(9, len(pool))), 5):
+                others = r.sample([a for a in self.core if a != album], 7)
+                cases.append(self.find_set(album, f"find-more-{self.core.index(album) + 1:02d}-{n}", "album-more",
+                                           target, others, r))
 
     def annotate(self):
         years = [str(y) for y in range(1962, 1971)]
@@ -407,6 +465,85 @@ class Suite:
                                "skip": [s["title"] for s in self.songs if not settled_lead(s)],
                                "fields": [x for s in self.songs for x in f(s, "lead_vocals", "first_album")]}]
 
+    # --- reading: the same asks with the facts on a card ----------------------------------------------------
+    def card(self, s, needs=()):
+        """A short card: the song's row as lines. needs names the songs.tsv columns the truth needs; each becomes
+        a line, beside the five lines every card holds. Page views go on only where the question needs them."""
+        lead = " and ".join(FULL.get(x, x) for x in s["lead_vocals"].split("+") if x) or "unknown"
+        length = f"{int(s['length_s']) // 60}:{int(s['length_s']) % 60:02d}" if s["length_s"] else "unknown"
+        lines = [f"Title: {s['title']}", f"Lead singers: {lead}"]
+        if "songwriters" in needs:
+            lines.append(f"Written: {s['songwriters']}")
+        lines += [f"First album: {s['first_album']}", f"Year: {s['year']}"]
+        if "release_date" in needs:
+            lines.append(f"Released: {s['release_date']}")
+        lines.append(f"Length: {length}")
+        if "views_2024" in needs:
+            lines.append(f"2024 page views: {s['views_2024'] or 'unknown'}")
+        return "\n".join(lines)
+
+    def read_one(self, c, cid, needs, group=None, test="reading"):
+        """A reading case from one-record memory case c: the same question, truth and arguments, the song's card
+        written after the input text."""
+        title = c["records"][0]["input"].split("\n")[0]
+        rec = {"id": cid, "input": f"{title}\n\n{self.card(self.by_title[title], needs)}"}
+        out = {"id": cid, "function": c["function"], "test": test, "args": c["args"], "records": [rec],
+               "truth": c["truth"], "fields": c["fields"], "needs": list(needs)}
+        if "key" in c:
+            out["key"] = c["key"]
+        if group is not None:
+            out["group"] = group
+        return out
+
+    def reading(self, data):
+        """test "reading" cases for the eight card-answerable functions: a seeded sample of each memory test's
+        cases, at most 100 a function (two lists of 100 for rank), with the facts on a card. decide and choose
+        sample the eligible main questions READING_KINDS names."""
+        r = rng("reading")
+        out = self.out
+        out["tag"] += [self.read_one(c, f"tag-reading-{i:03d}", ("lead_vocals",))
+                       for i, c in enumerate(r.sample(self.out["tag"], 100), 1)]
+        out["score"] += [self.read_one(c, f"score-reading-{i:03d}", ("views_2024",))
+                         for i, c in enumerate(r.sample(self.out["score"], 100), 1)]
+        for i, c in enumerate(r.sample(self.out["filter"], 100), 1):
+            needs = ("lead_vocals",) if c["test"] == "singer" else ("first_album",)
+            out["filter"].append(self.read_one(c, f"filter-reading-{i:03d}", needs, group=f"reading-{c['group']}"))
+        for test, needs in (("popularity", ("views_2024",)), ("date", ("release_date",))):
+            pool = [c for c in self.out["rank"] if c["test"] == test]
+            out["rank"] += [self.read_one(c, f"rank-reading-{test}-{i:03d}", needs,
+                                          group=f"rank-reading-{test}", test=f"reading-{test}")
+                            for i, c in enumerate(r.sample(pool, min(100, len(pool))), 1)]
+        for i, c in enumerate(r.sample(self.out["find"], min(100, len(self.out["find"]))), 1):
+            records = [{"id": u["id"], "input": f"{u['input']}\n\n{self.card(self.by_title[u['input']])}"}
+                       for u in c["records"]]
+            out["find"].append({"id": f"find-reading-{i:03d}", "function": "find", "test": "reading",
+                                "args": c["args"], "records": records, "truth": c["truth"], "key": c["key"],
+                                "fields": c["fields"], "needs": ["first_album"]})
+        out["annotate"] += [self.read_one(c, f"annotate-reading-{i:03d}", ("lead_vocals", "first_album", "year"))
+                            for i, c in enumerate(r.sample(self.out["annotate"], 100), 1)]
+        pools = {"decide": [], "choose": []}
+        for q in main_questions(data):
+            spec = READING_KINDS.get((q["category"], q["kind"]))
+            if spec:
+                pools[q["function"]].append((q, spec))
+        for fn in ("decide", "choose"):
+            made = []
+            for q, (where, needs) in pools[fn]:
+                titles = [q["input"]] if where == "input" else q["input"].split(" / ") if where == "pair" \
+                    else list(q["options"].values())
+                if all(t in self.by_title for t in titles):
+                    made.append((q, needs, titles))
+            for i, (q, needs, titles) in enumerate(r.sample(made, min(100, len(made))), 1):
+                cid = f"{fn}-reading-{i:03d}"
+                text = q["input"] + "\n\n" + "\n\n".join(self.card(self.by_title[t], needs) for t in titles)
+                rec = {"id": cid, "input": text}
+                if q["options"]:
+                    rec["options"] = q["options"]
+                args = [q["question"], "--jsonl", "--field", "/input"] + (["--options", "/options"] if fn == "choose" else [])
+                out[fn] = out.get(fn, []) + [{"id": cid, "function": fn, "test": "reading", "args": args,
+                                              "records": [rec], "truth": q["truth"], "fields": q["fields"],
+                                              "needs": list(needs), "source": q["id"]}]
+
 
 def main(data=ROOT / "data", out=ROOT / "questions" / "suite"):
     data, out = Path(data), Path(out)
@@ -414,6 +551,7 @@ def main(data=ROOT / "data", out=ROOT / "questions" / "suite"):
     suite.qsets = {}
     for name in FUNCTIONS:
         getattr(suite, name)()
+    suite.reading(data)
     out.mkdir(parents=True, exist_ok=True)
     for name, cases in suite.out.items():
         with open(out / f"{name}.jsonl", "w", encoding="utf-8") as fh:

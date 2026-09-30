@@ -29,7 +29,7 @@ import stats  # noqa: E402
 import score as core_score  # noqa: E402
 
 FOLDER = ROOT / "questions" / "suite"
-TESTS = ["tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
+TESTS = ["decide", "choose", "tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
 CUTS = [0.3, 0.5, 0.7, 0.9]
 PEELED = ".!?,:;"  # the marks thinkthen's tokenizer peels from the end of a word (specification/recognize.md, "Names")
 KINDS = ["song", "person", "album"]
@@ -193,6 +193,11 @@ def share(function, test, measure, k, n, main=False, use=None):
     return row(function, test, measure, n, k / n if n else None, *stats.wilson(k, n), main=main, use=use)
 
 
+def reading(c):
+    """True for a case in a reading test: test "reading", or rank's "reading-popularity"/"reading-date"."""
+    return c["test"] == "reading" or c["test"].startswith("reading-")
+
+
 # ---- the ten functions --------------------------------------------------------------------------------------------
 def core_rows(core):
     qs = [json.loads(l) for f in sorted((ROOT / "questions").glob("*.jsonl")) for l in open(f, encoding="utf-8")]
@@ -220,30 +225,30 @@ def core_rows(core):
     return out
 
 
-def tag_rows(cases, outs):
+def tag_rows(cases, outs, label="lead singers"):
     use = usage([outs[c["id"]] for c in cases])
     got = {c["id"]: set(outs[c["id"]]["rows"][0]["value"]) for c in cases}
     probs = [(outs[c["id"]]["rows"][0]["answer"]["probabilities"], c["truth"]) for c in cases]
-    out = [share("tag", "lead singers", "exact-set match", sum(got[c["id"]] == set(c["truth"]) for c in cases), len(cases), True, use),
-           share("tag", "lead singers", "top pick right", *top_pick_right(probs), True),
-           share("tag", "lead singers", "top label right, single-lead songs", *top_label_right(probs))]
-    for label in ["john", "paul", "george", "ringo"]:
-        tp = sum(1 for c in cases if label in got[c["id"]] and label in c["truth"])
-        said = sum(1 for c in cases if label in got[c["id"]])
-        true = sum(1 for c in cases if label in c["truth"])
-        out += [share("tag", "lead singers", f"{label} precision", tp, said), share("tag", "lead singers", f"{label} recall", tp, true)]
+    out = [share("tag", label, "exact-set match", sum(got[c["id"]] == set(c["truth"]) for c in cases), len(cases), True, use),
+           share("tag", label, "top pick right", *top_pick_right(probs), True),
+           share("tag", label, "top label right, single-lead songs", *top_label_right(probs))]
+    for name in ["john", "paul", "george", "ringo"]:
+        tp = sum(1 for c in cases if name in got[c["id"]] and name in c["truth"])
+        said = sum(1 for c in cases if name in got[c["id"]])
+        true = sum(1 for c in cases if name in c["truth"])
+        out += [share("tag", label, f"{name} precision", tp, said), share("tag", label, f"{name} recall", tp, true)]
     return out
 
 
-def score_rows(cases, outs):
+def score_rows(cases, outs, label="popularity"):
     x = [outs[c["id"]]["rows"][0]["value"] for c in cases]
     y = [c["truth"] for c in cases]
     r = spearman(x, y)
-    return [row("score", "popularity", "Spearman with 2024 page views", len(x), r, *rho_interval(r, len(x)), main=True,
+    return [row("score", label, "Spearman with 2024 page views", len(x), r, *rho_interval(r, len(x)), main=True,
                 use=usage([outs[c["id"]] for c in cases]))]
 
 
-def filter_rows(cases, outs, lists):
+def filter_rows(cases, outs, lists, label="lead singer or album"):
     use = usage([outs[c["id"]] for c in cases])
     units, per = [], {}
     for c in cases:
@@ -254,16 +259,18 @@ def filter_rows(cases, outs, lists):
         per.setdefault(c["test"], []).append(u)
     tp, fp, fn = (sum(u[i] for u in units) for i in range(3))
     p, r, f1 = prf(tp, fp, fn)
-    out = [row("filter", "lead singer or album", "F1", len(units), f1, *f1_interval(units), main=True, use=use),
-           share("filter", "lead singer or album", "precision", tp, tp + fp), share("filter", "lead singer or album", "recall", tp, tp + fn)]
+    out = [row("filter", label, "F1", len(units), f1, *f1_interval(units), main=True, use=use),
+           share("filter", label, "precision", tp, tp + fp), share("filter", label, "recall", tp, tp + fn)]
     for test, us in per.items():
-        out.append(row("filter", test, "F1", len(us), prf(*(sum(u[i] for u in us) for i in range(3)))[2], *f1_interval(us)))
+        if test != label:  # a lone test already has its pooled row under the label
+            out.append(row("filter", test, "F1", len(us), prf(*(sum(u[i] for u in us) for i in range(3)))[2], *f1_interval(us)))
     return out
 
 
 def rank_rows(cases, outs, lists):
     out = []
-    for test, label in [("popularity", "2024 page views"), ("date", "release date")]:
+    for test, label in [("popularity", "2024 page views"), ("date", "release date"),
+                        ("reading-popularity", "2024 page views"), ("reading-date", "release date")]:
         mine = [c for c in cases if c["test"] == test]
         if not mine:
             continue
@@ -278,12 +285,12 @@ def rank_rows(cases, outs, lists):
     return out
 
 
-def find_rows(cases, outs):
+def find_rows(cases, outs, label="album"):
     k = sum(1 for c in cases if (outs[c["id"]]["rows"] or [{}])[0].get("value", {}).get("id") == c["truth"])
-    return [share("find", "album", "exact match", k, len(cases), True, usage([outs[c["id"]] for c in cases]))]
+    return [share("find", label, "exact match", k, len(cases), True, usage([outs[c["id"]] for c in cases]))]
 
 
-def annotate_rows(cases, outs):
+def annotate_rows(cases, outs, label="card"):
     """A card whose singer truth is None (the song's lead is not settled) scores only its album and year."""
     use = usage([outs[c["id"]] for c in cases])
     out = []
@@ -291,11 +298,39 @@ def annotate_rows(cases, outs):
         ok = lambda v, t: set(v or []) == set(t) if field == "singer" else v == t
         mine = [c for c in cases if c["truth"][field] is not None]
         k = sum(1 for c in mine if ok(outs[c["id"]]["rows"][0]["value"][field], c["truth"][field]))
-        out.append(share("annotate", "card", f"{field} accuracy", k, len(mine), True, use if field == "singer" else None))
+        out.append(share("annotate", label, f"{field} accuracy", k, len(mine), True, use if field == "singer" else None))
     probs = [(outs[c["id"]]["rows"][0]["answers"]["singer"]["answer"]["probabilities"], c["truth"]["singer"])
              for c in cases if c["truth"]["singer"] is not None]
-    out[1:1] = [share("annotate", "card", "singer top pick right", *top_pick_right(probs), True),
-                share("annotate", "card", "singer top label right, single-lead songs", *top_label_right(probs))]
+    out[1:1] = [share("annotate", label, "singer top pick right", *top_pick_right(probs), True),
+                share("annotate", label, "singer top label right, single-lead songs", *top_label_right(probs))]
+    return out
+
+
+def pick_rows(cases, outs, fn):
+    """A decide or choose reading test, scored with the memory measures the main run's rows use: decide's accuracy
+    at 0.5 with the confusion rows, choose's accuracy with a top-tie share and the coverage rows."""
+    use = usage([outs[c["id"]] for c in cases])
+    pairs = []
+    for c in cases:
+        a = outs[c["id"]]["rows"][0]
+        probs = a["answer"].get("probabilities")
+        if probs is None:
+            p = a["answer"]["probability"]
+            probs = {"yes": p, "no": round(1 - p, 6)}
+        pairs.append(({"function": fn, "truth": c["truth"]}, {"value": a["value"], "probabilities": probs}))
+    if fn == "decide":
+        yes = [(a["probabilities"]["yes"], q["truth"] == "yes") for q, a in pairs]
+        return [share("decide", "reading", "accuracy at 0.5",
+                      sum(core_score.default(r) for r in pairs), len(yes), True, use)] + [
+            row("decide", "reading", f"TP FP TN FN at {cut}", len(yes), " ".join(map(str, confusion(yes, cut))))
+            for cut in CUTS]
+    cov = stats.coverage([(core_score.confidence(r), core_score.credit(r)) for r in pairs])
+    out = [share("choose", "reading", "accuracy", sum(core_score.credit(r) for r in pairs), len(pairs), True, use)]
+    for cut in CUTS:
+        kept = [c for c in cov if c[0] >= cut]
+        answered, right = (kept[-1][1], kept[-1][2]) if kept else (0, 0)
+        out.append(row("choose", "reading", f"coverage and accuracy at {cut}", len(pairs),
+                       f"{answered / len(pairs):.3f} {right / answered if answered else 0:.3f}"))
     return out
 
 
@@ -415,19 +450,26 @@ def gap_rows(function, test, measure, cases, outs):
             share(function, test, "cases refused by the backend", len(cases), len(cases))]
 
 
-GAP_MEASURE = {"tag": "exact-set match", "score": "Spearman with 2024 page views", "filter": "F1",
+GAP_MEASURE = {"decide": "accuracy at 0.5", "choose": "accuracy",
+               "tag": "exact-set match", "score": "Spearman with 2024 page views", "filter": "F1",
                "rank": "Spearman with 2024 page views", "find": "exact match", "annotate": "singer accuracy",
                "recognize": "song precision", "relate": "edge F1"}
+
+# The test label the memory rows of each card-answerable function carry; a reading test's rows go under "reading"
+# (rank keeps its two tests apart as "reading-popularity" and "reading-date" inside rank_rows).
+MEMORY = {"tag": "lead singers", "score": "popularity", "filter": "lead singer or album", "find": "album",
+          "annotate": "card"}
 
 
 def table(run, core=None):
     cases, outs, lists = load(run)
     meta = next(r["meta"] for o in outs.values() for r in o["rows"] if "meta" in r)
     PRICE[0] = core_score.price(meta["model"], meta["url"])[0]
-    scorers = {"tag": lambda cs: tag_rows(cs, outs), "score": lambda cs: score_rows(cs, outs),
-               "filter": lambda cs: filter_rows(cs, outs, lists), "rank": lambda cs: rank_rows(cs, outs, lists),
-               "find": lambda cs: find_rows(cs, outs), "annotate": lambda cs: annotate_rows(cs, outs),
-               "recognize": lambda cs: recognize_rows(cs, outs), "relate": lambda cs: relate_rows(cs, outs)}
+    scorers = {"tag": lambda cs, label: tag_rows(cs, outs, label), "score": lambda cs, label: score_rows(cs, outs, label),
+               "filter": lambda cs, label: filter_rows(cs, outs, lists, label),
+               "rank": lambda cs, label: rank_rows(cs, outs, lists), "find": lambda cs, label: find_rows(cs, outs, label),
+               "annotate": lambda cs, label: annotate_rows(cs, outs, label),
+               "recognize": lambda cs, label: recognize_rows(cs, outs), "relate": lambda cs, label: relate_rows(cs, outs)}
     out = core_rows(core or core_score.newest("thinkthen-jev"))
     for t in TESTS:
         groups = {}
@@ -448,8 +490,16 @@ def table(run, core=None):
                 out += gap_rows(t, test, GAP_MEASURE[t], cs, outs)
             else:
                 scorable += cs
-        if scorable:
-            out += scorers[t](scorable)
+        if t in ("decide", "choose"):
+            if scorable:  # the suite's decide and choose files hold only reading cases
+                out += pick_rows(scorable, outs, t)
+        elif t in MEMORY:
+            for sub, label in (([c for c in scorable if not reading(c)], MEMORY[t]),
+                               ([c for c in scorable if reading(c)], "reading")):
+                if sub:
+                    out += scorers[t](sub, label)
+        elif scorable:
+            out += scorers[t](scorable, t)
     return out
 
 

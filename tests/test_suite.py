@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
-from published import JEV_FUNCTIONS, JEV_RECOGNIZE, JEV_RUN  # noqa: E402
+from published import JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RUN  # noqa: E402
 import importlib.util  # noqa: E402
 
 import make_suite as gen  # noqa: E402
@@ -25,12 +25,17 @@ spec = importlib.util.spec_from_file_location("fscore", ROOT / "scripts" / "scor
 fscore = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(fscore)
 
-TESTS = ["tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
+TESTS = ["decide", "choose", "tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
 NEW_GROUPS = ("recognize-varied-,recognize-song-or-album-,recognize-short-names-,recognize-case-,recognize-no-names-,"
               "recognize-paragraphs-,recognize-punctuation-,recognize-relations-")
-# The 2026-09-26 suite run recorded every test but the recognize groups added later: the names-template ids are
-# recognize-01 through recognize-48.
-OLD_CASES = "tag,score,filter,rank,find,annotate,relate,recognize-0,recognize-1,recognize-2,recognize-3,recognize-4"
+READING = ("decide-reading-,choose-reading-,tag-reading-,score-reading-,filter-reading-,rank-reading-,"
+           "find-reading-,find-more-,annotate-reading-")
+# The 2026-09-26 suite run recorded every test but the recognize groups, the reading tests and the album-more find
+# sets added later. Its case ids: tag-lead-*, score-popularity-*, filter-singer-*/filter-album-*, rank-popularity-*/
+# rank-date-*, find-album-01..13-*, annotate-card-*, relate-songs, and names-template's recognize-01 through -48.
+OLD_CASES = ("tag-lead-,score-popularity-,filter-singer-,filter-album-,rank-popularity-,rank-date-,"
+             "find-album-0,find-album-1,annotate-card-,relate-songs,"
+             "recognize-0,recognize-1,recognize-2,recognize-3,recognize-4")
 BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
 RUN = JEV_FUNCTIONS
 
@@ -74,13 +79,13 @@ class GenerateTest(unittest.TestCase):
                 cs = cases(name)
                 self.assertTrue(cs)
                 self.assertEqual(len({c["id"] for c in cs}), len(cs))
-                ok = lambda c: c["function"] in gen.FUNCTIONS and c["records"] and "truth" in c and (c["fields"] or not c["truth"])
+                ok = lambda c: c["function"] in TESTS and c["records"] and "truth" in c and (c["fields"] or not c["truth"])
                 self.assertTrue(all(map(ok, cs)))
 
     def test_tag_truth_is_the_lead_vocal_column(self):
         data = songs()
         for c in cases("tag"):
-            s = data[c["records"][0]["input"]]
+            s = data[c["records"][0]["input"].split("\n")[0]]  # a reading input starts with the bare title
             self.assertEqual(c["truth"], sorted(gen.LEADS[x] for x in s["lead_vocals"].split("+")))
         duets = [c for c in cases("tag") if len(c["truth"]) > 1]
         self.assertGreaterEqual(len(duets), 10)
@@ -88,15 +93,18 @@ class GenerateTest(unittest.TestCase):
     def test_lead_tests_ask_and_score_only_songs_whose_lead_is_settled(self):
         data = songs()
         settled = {t for t, s in data.items() if gen.settled_lead(s)}
-        self.assertTrue(all(c["records"][0]["input"] in settled for c in cases("tag")))
-        self.assertTrue(all(c["records"][0]["input"] in settled for c in cases("filter") if c["test"] == "singer"))
+        title = lambda c: c["records"][0]["input"].split("\n")[0]
+        self.assertTrue(all(title(c) in settled for c in cases("tag")))
+        self.assertTrue(all(title(c) in settled for c in cases("filter") if c["test"] == "singer"))
+        self.assertTrue(all(title(c) in settled for c in cases("filter") if c["test"] == "reading"
+                            and c["key"] in ("john", "paul", "george", "ringo")))
         cards = cases("annotate")
-        self.assertEqual({c["records"][0]["input"] for c in cards if c["truth"]["singer"] is None},
-                         {c["records"][0]["input"] for c in cards} - settled)
-        self.assertIn("Cry Baby Cry", {c["records"][0]["input"] for c in cards} - settled)
+        self.assertEqual({title(c) for c in cards if c["truth"]["singer"] is None},
+                         {title(c) for c in cards} - settled)
+        self.assertIn("Cry Baby Cry", {title(c) for c in cards} - settled)
         rel = cases("relate")
         skipped = {t for c in rel for t in c["skip"]}
-        self.assertEqual(skipped, {c["records"][0]["input"] for c in cards} - settled)
+        self.assertEqual(skipped, {title(c) for c in cards} - settled)
         self.assertFalse({e[1] for c in rel for e in c["truth"] if e[0] == "sung_by"} & skipped)
 
     def test_the_scorer_leaves_out_a_card_with_no_singer_truth(self):
@@ -111,15 +119,48 @@ class GenerateTest(unittest.TestCase):
     def test_filter_truth_matches_the_data(self):
         data = songs()
         for c in cases("filter"):
-            s = data[c["records"][0]["input"]]
-            want = gen.LEAD_OF[c["key"]] in s["lead_vocals"].split("+") if c["test"] == "singer" else s["first_album"] == c["key"]
+            s = data[c["records"][0]["input"].split("\n")[0]]
+            want = gen.LEAD_OF[c["key"]] in s["lead_vocals"].split("+") if c["key"] in gen.LEAD_OF else s["first_album"] == c["key"]
             self.assertEqual(c["truth"], want, c["id"])
 
     def test_each_find_set_holds_exactly_one_song_from_the_album(self):
         data = songs()
         for c in cases("find"):
-            hits = [r["id"] for r in c["records"] if data[r["input"]]["first_album"] == c["key"]]
+            hits = [r["id"] for r in c["records"] if data[r["input"].split("\n")[0]]["first_album"] == c["key"]]
             self.assertEqual(hits, [c["truth"]], c["id"])
+
+    def test_each_reading_card_holds_the_facts_its_truth_needs(self):
+        """A reading case's record holds the input text, then one card per song it names. Each card is that song's
+        row as lines, and it carries a line for every column needs names. A decide or choose case's source names
+        the memory question it reuses: same question, options and truth."""
+        data = songs()
+        fmt = {"lead_vocals": lambda s: " and ".join(gen.FULL.get(x, x) for x in s["lead_vocals"].split("+") if x) or "unknown",
+               "songwriters": lambda s: s["songwriters"], "first_album": lambda s: s["first_album"],
+               "year": lambda s: s["year"], "release_date": lambda s: s["release_date"],
+               "length_s": lambda s: f"{int(s['length_s']) // 60}:{int(s['length_s']) % 60:02d}" if s["length_s"] else "unknown",
+               "views_2024": lambda s: s["views_2024"] or "unknown"}
+        questions = {q["id"]: q for f in sorted((ROOT / "questions").glob("*.jsonl"))
+                     for q in map(json.loads, open(f, encoding="utf-8"))}
+        count = {}
+        for name in TESTS:
+            for c in cases(name):
+                if not c["test"].startswith("reading"):
+                    continue
+                count[c["function"], c["test"]] = count.get((c["function"], c["test"]), 0) + 1
+                self.assertTrue(c.get("needs"), c["id"])
+                cards = [p for r in c["records"] for p in r["input"].split("\n\n") if p.startswith("Title: ")]
+                self.assertTrue(cards, c["id"])
+                for card in cards:
+                    s = data[card.splitlines()[0][len("Title: "):]]
+                    for col in c["needs"]:
+                        self.assertIn(fmt[col](s), card, (c["id"], col))
+                if "source" in c:
+                    q = questions[c["source"]]
+                    self.assertEqual((c["args"][0], c["truth"]), (q["question"], q["truth"]), c["id"])
+                    if c["function"] == "choose":
+                        self.assertEqual(c["records"][0]["options"], q["options"], c["id"])
+        self.assertEqual({f for f, _ in count}, {"decide", "choose", "tag", "score", "filter", "rank", "find", "annotate"})
+        self.assertTrue(all(n <= 100 for n in count.values()), count)
 
     def test_each_recognize_name_is_its_slice_of_the_sentence(self):
         groups = {"names-template": 48, "varied": 36, "song-or-album": 14, "short-names": 16, "case": 12,
@@ -192,7 +233,8 @@ class TableTest(unittest.TestCase):
         runs = ROOT / "results" / "runs"
         out = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, out, True)
-        for suite, core, table in ((f"{JEV_FUNCTIONS},{JEV_RECOGNIZE}", JEV_RUN, "functions.tsv"),
+        jev = ",".join(str(p) for p in (JEV_FUNCTIONS, JEV_RECOGNIZE, JEV_READING) if p.exists())
+        for suite, core, table in ((jev, JEV_RUN, "functions.tsv"),
                                    (runs / "2026-09-23-functions-laya", runs / "2026-09-23-thinkthen-laya", "functions-laya.tsv"),
                                    (runs / "2026-09-23-functions-glm-5.3-flash", runs / "2026-09-23-glm-5.3-flash", "functions-glm.tsv")):
             subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
@@ -350,7 +392,9 @@ class RunTest(unittest.TestCase):
         script = ROOT / "scripts" / "run" / "ask_suite.py"
         subprocess.run([sys.executable, str(script), "live", str(run)], check=True, env=env)
         out = [json.loads(l) for l in open(run / "outputs.jsonl")]
-        self.assertEqual([o["id"] for o in out], [cases("tag")[0]["id"], same["id"]] + [cases(n)[0]["id"] for n in TESTS[1:]])
+        self.assertEqual([o["id"] for o in out],
+                         [cases(n)[0]["id"] for n in ("decide", "choose")] + [cases("tag")[0]["id"], same["id"]]
+                         + [cases(n)[0]["id"] for n in ("score", "filter", "rank", "find", "annotate", "recognize", "relate")])
         sent = [o for o in out if o["id"] != same["id"]]
         self.assertTrue(all(o["sent"] and o["wall_s"] > 0 and o["input_tokens"] == 10 for o in sent))
         again = next(o for o in out if o["id"] == same["id"])
@@ -432,11 +476,16 @@ class ReplayTest(unittest.TestCase):
         for p in sorted((RUN / "lists").glob("*.jsonl")):
             self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)
         rows = fscore.table(tmp / "replay", JEV_RUN)
-        got = {(r["function"], r["test"], r["measure"]): fscore.fmt(r["value"]) for r in rows if r["function"] in TESTS}
-        saved = {(r["function"], r["test"], r["measure"]): r["value"] for r in
+        got = {(r["function"], r["test"], r["measure"]): (fscore.fmt(r["value"]), r["n"]) for r in rows
+               if r["function"] in TESTS}
+        saved = {(r["function"], r["test"], r["measure"]): (r["value"], int(r["n"])) for r in
                  csv.DictReader(open(ROOT / "results" / "tables" / "functions.tsv", encoding="utf-8"), delimiter="\t")
                  if r["function"] in TESTS}
-        self.assertEqual({k: saved[k] for k in got}, got)  # the replay scores a subset of the published rows
+        # the replay scores a subset of the published rows. A test the suite later grew (find album) scored fewer
+        # cases under this run, so its saved row has a bigger n and is left out.
+        grew = {k for k in got if saved[k][1] != got[k][1]}
+        self.assertEqual({k: saved[k][0] for k in got if k not in grew},
+                         {k: got[k][0] for k in got if k not in grew})
 
     def test_the_new_recognize_groups_replay_with_the_key_unset(self):
         if not same_build(JEV_RECOGNIZE):
@@ -448,6 +497,19 @@ class ReplayTest(unittest.TestCase):
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RECOGNIZE / "outputs.jsonl").read_text())
+
+    def test_the_reading_run_replays_with_the_key_unset(self):
+        if not (JEV_READING / "run.txt").exists() or not same_build(JEV_READING):
+            self.skipTest("the run's recording binds to another thinkthen build")
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "recording").symlink_to(JEV_READING / "recording")
+        shutil.copy(JEV_READING / "timing.tsv", tmp / "timing.tsv")
+        env = {**os.environ, "THINKTHEN_BIN": BIN, "BENCH_SUITE_ONLY": READING}
+        env.pop("THINKTHEN_API_KEY", None)
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
+        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_READING / "outputs.jsonl").read_text())
+        for p in sorted((JEV_READING / "lists").glob("*.jsonl")):
+            self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)
 
 
 if __name__ == "__main__":

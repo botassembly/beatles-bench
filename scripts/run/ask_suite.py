@@ -23,7 +23,7 @@ Environment:
   BEATLES_BENCH_MODEL      the model (default: jev-latest)
   BENCH_WORKERS            calls in flight (default 4)
   BENCH_FUNCTIONS          the case folder (default: questions/suite)
-  BENCH_TESTS              the case files to ask, comma-separated names without .jsonl (default: the suite's eight)
+  BENCH_TESTS              the case files to ask, comma-separated names without .jsonl (default: the suite's ten)
   BENCH_SUITE_ONLY         ask only cases whose id starts with one of these comma-separated prefixes (default: all)
   BENCH_MAX_INPUT_TOKENS   live mode stops starting calls once new requests have reported this many input tokens
                            (unset: no cap; 0 or below: start no call)
@@ -43,7 +43,7 @@ from pathlib import Path
 import gaps
 
 ROOT = Path(__file__).resolve().parents[2]
-TESTS = os.environ.get("BENCH_TESTS", "tag,score,filter,rank,find,annotate,recognize,relate").split(",")
+TESTS = os.environ.get("BENCH_TESTS", "decide,choose,tag,score,filter,rank,find,annotate,recognize,relate").split(",")
 ONLY = tuple(p for p in os.environ.get("BENCH_SUITE_ONLY", "").split(",") if p)
 TT = os.environ.get("THINKTHEN_BIN", "thinkthen")
 MODEL = os.environ.get("BEATLES_BENCH_MODEL", "jev-latest")
