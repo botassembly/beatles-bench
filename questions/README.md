@@ -48,6 +48,27 @@ Each line is one JSON object.
 
 ## The function suite
 
-`suite/` holds the tests for all ten functions. `decide.jsonl` and `choose.jsonl` hold only reading cases, sampled from the memory questions in this folder. Each JSONL line carries the command's arguments and its records. The JSON files hold the question sets the arguments name. A recognize case holds one sentence and its names as character offsets; the cases sit in tests, one per group, and a `relations` case adds `edges`, the stated [relation, source, target] triples. A relate case holds one entity set and its true edges; `relate-suite.json` holds the singer and album relations and `relate-links.json` the composer and producer ones from `data/links.tsv`.
+`suite/` holds the tests for all ten functions. Each JSONL line carries the command's arguments and its records, and every case names a `level`: `memory` asks from the model's memory, `card` writes the needed facts on a short card after the input text, `context` buries the needed cards among fillers — 20 cards in a seeded order, with no filler that could make a second right answer — and `text` is the recognize level, where names sit inside running text. The JSON files hold the question sets the arguments name.
 
-A `reading` test case reuses a memory case's question and truth but writes the facts into the record: the input text, then one short card per song it names — the song's title, lead singers, first album, year, and length, plus the writers, release date, or 2024 page views where the truth needs them. A find set's records carry one card each. A case's `needs` lists the `songs.tsv` columns its truth needs, and `source` names the memory question a decide or choose case reuses. Cases whose truth needs another table (world events, pairs outside the Beatles, album dates) are not eligible.
+The eight card-answerable functions each hold 300 distinct questions, asked the same way at every level: memory and context run all 300, card runs 100 of them. `decide` and `choose` take their memory and most of their context asks from the 1,501 main questions in this folder; a `source` key on a card or context case names the question it reuses, and `songs` names the cards the truth needs.
+
+| function | memory | card | context | text | total |
+|---|---|---|---|---|---|
+| decide | 132 + 168 mains | 100 | 300 | — | 532 |
+| choose | 300 mains | 100 | 300 | — | 400 |
+| tag | 300 | 100 | 300 | — | 700 |
+| score | 300 | 100 | 300 | — | 700 |
+| filter | 300 | 100 | 300 | — | 700 |
+| rank | 300 | 100 | 300 | — | 800 |
+| find | 300 | 100 | 300 | — | 700 |
+| annotate | 300 | 100 | 300 | — | 700 |
+| recognize | — | — | — | 400 | 400 |
+| relate | 100 | — | — | — | 100 |
+
+`decide` holds its 168 card-answerable main questions plus 132 album asks; `rank` samples 100 memory asks per ask kind for its two card tests, hence 200 card cases. Controls: decide runs half yes, half no; filter keeps its kept/dropped mix; 30 of choose's 300 questions are `none of these`; 21 of tag's 142 trait asks have an empty truth; 45 of find's 300 sets hold no right unit and run with `--none`.
+
+A `reading` test is a card case: it reuses a memory case's question and truth but writes the facts into the record — the input text, then one short card per song it names: the song's title, lead singers, first album, year, and length, plus the writers, release date, cover flag, or 2024 page views where the truth needs them. A find set's records carry one card each. A case's `needs` lists the `songs.tsv` columns its truth needs. Cases whose truth needs another table (world events, pairs outside the Beatles, album dates) are not eligible.
+
+A recognize case holds one sentence and its names as character offsets; the cases sit in tests, one per group, and a `relations` case adds `edges`, the stated [relation, source, target] triples. A relate case holds one entity set and its true edges; `relate-suite.json` holds the singer and album relations and `relate-links.json` the composer and producer ones from `data/links.tsv`.
+
+`catalog/catalog.jsonl` lists every question the bench asks — the 1,501 mains and every suite case — as `{id, file, function, test, level, category, truth}`, one JSON object a line. It sits in a subfolder so the `questions/*.jsonl` globs in scripts and tests do not pick it up.
