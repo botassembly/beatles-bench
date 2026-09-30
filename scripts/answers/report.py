@@ -43,7 +43,7 @@ QUERIES = Path(__file__).resolve().parent / "queries"
 TEST_ORDER = fscore.TESTS
 LEVEL_ORDER = ["memory", "reading", "text", "card", "context"]
 SEED = "beatles-bench-answers"
-FIELDS = ["singer", "album", "year"]
+FIELDS = build.FIELDS
 POOL_LEVEL = {"decide", "choose", "tag", "filter", "find", "annotate"}  # pool the tests inside a level
 GROUP_LABEL = {"decide": "yes/no questions", "choose": "pick-one questions", **fscore.MEMORY}
 
@@ -62,12 +62,14 @@ def systems(answers):
     analyze.py discovers; a suite run joins the system on its backend and model, or stands alone under
     its own label. Part-question runs (open-book, section-picking, one-line) stay out."""
     knowledge = {run.name for run in analyze.discover(analyze.questions())}
-    suite_runs = sorted({p.parent for p in core.tracked(RUNS)
-                         if p.name == "outputs.jsonl" and p.parent.parent == RUNS and p.is_file()},
-                        key=lambda p: p.name)
     by_run = defaultdict(list)
     for r in answers:
         by_run[r["run"]].append(r)
+    # last writer wins a case two runs asked: name order across dates, and inside one date the wider run wins
+    # (the all-run of 0023 covers the same-day partials' ids)
+    suite_runs = sorted({p.parent for p in core.tracked(RUNS)
+                         if p.name == "outputs.jsonl" and p.parent.parent == RUNS and p.is_file()},
+                        key=lambda p: (p.name[:10], len(by_run.get(p.name, []))))
     pools, backend_model = {}, {}
     for name in sorted(knowledge):
         lab = label(name)

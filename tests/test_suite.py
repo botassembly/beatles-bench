@@ -16,7 +16,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
-from published import JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN  # noqa: E402
+from published import D1_ALL, JEV_ALL, JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN  # noqa: E402
 import importlib.util  # noqa: E402
 
 import make_suite as gen  # noqa: E402
@@ -446,8 +446,8 @@ class TableTest(unittest.TestCase):
         runs = ROOT / "results" / "runs"
         out = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, out, True)
-        jev = ",".join(str(p) for p in (JEV_FUNCTIONS, JEV_RECOGNIZE, JEV_RELATE, JEV_READING) if p.exists())
-        for suite, core, table in ((jev, JEV_RUN, "functions.tsv"),
+        for suite, core, table in ((JEV_ALL, JEV_ALL, "functions.tsv"),
+                                   (D1_ALL, D1_ALL, "functions-liquid-d1.tsv"),
                                    (runs / "2026-09-23-functions-laya", runs / "2026-09-23-thinkthen-laya", "functions-laya.tsv"),
                                    (runs / "2026-09-23-functions-glm-5.3-flash", runs / "2026-09-23-glm-5.3-flash", "functions-glm.tsv")):
             subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
@@ -745,20 +745,8 @@ class ReplayTest(unittest.TestCase):
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (RUN / "outputs.jsonl").read_text())
         for p in sorted((RUN / "lists").glob("*.jsonl")):
             self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)
-        rows = fscore.table(tmp / "replay", JEV_RUN)
-        # relate is left out: functions.tsv's relate rows come from the 2026-09-30 pair-planner run, while this
-        # replay's recording holds the 02dc0b96 choice planner's answers — the historical values the report keeps.
-        # The byte-for-byte replay check above still covers its relate-songs output.
-        got = {(r["function"], r["test"], r["measure"]): (fscore.fmt(r["value"]), r["n"]) for r in rows
-               if r["function"] in TESTS and r["function"] != "relate"}
-        saved = {(r["function"], r["test"], r["measure"]): (r["value"], int(r["n"])) for r in
-                 csv.DictReader(open(ROOT / "results" / "tables" / "functions.tsv", encoding="utf-8"), delimiter="\t")
-                 if r["function"] in TESTS}
-        # the replay scores a subset of the published rows. A test the suite later grew (find album) scored fewer
-        # cases under this run, so its saved row has a bigger n and is left out.
-        grew = {k for k in got if saved[k][1] != got[k][1]}
-        self.assertEqual({k: saved[k][0] for k in got if k not in grew},
-                         {k: got[k][0] for k in got if k not in grew})
+        # the byte-for-byte replay is the check. functions.tsv comes from the all-jev run since ticket 0023, so
+        # this recording's answers are no longer the published values to compare against.
 
     def test_the_new_recognize_groups_replay_with_the_key_unset(self):
         if not same_build(JEV_RECOGNIZE):

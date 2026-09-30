@@ -41,7 +41,8 @@ from generate import CATEGORIES, GENERAL_CATEGORIES  # noqa: E402
 from score import auc, confidence, credit, default, price, tied, tracked  # noqa: E402
 import hashlib  # noqa: E402
 
-LABELS = {"thinkthen-jev": "Jev", "thinkthen-laya": "Laya", "glm-5.3-flash": "GLM-5.3 Flash",
+LABELS = {"thinkthen-jev": "Jev", "all-jev": "Jev", "all-liquid-d1": "Liquid d1",
+          "thinkthen-laya": "Laya", "glm-5.3-flash": "GLM-5.3 Flash",
           "baseline-overlap": "Word overlap", "baseline-bm25": "BM25", "baseline-embed": "Embeddings",
           "baseline-hybrid": "Hybrid"}
 BASELINES = "vector search (question vs. options)"  # the family of every baseline

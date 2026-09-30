@@ -16,7 +16,8 @@ sys.path.insert(0, str(ROOT / "scripts" / "figures"))
 from common import systems, table  # noqa: E402
 
 BASELINES = "Vector search (question vs. options)"
-FUNCTIONS = {"Jev": "functions.tsv", "GLM-5.3 Flash": "functions-glm.tsv", "Laya": "functions-laya.tsv"}
+FUNCTIONS = {"Jev": "functions.tsv", "Liquid d1": "functions-liquid-d1.tsv",
+             "GLM-5.3 Flash": "functions-glm.tsv", "Laya": "functions-laya.tsv"}
 
 
 def cell(r):

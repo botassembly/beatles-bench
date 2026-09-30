@@ -90,7 +90,7 @@ class Build(unittest.TestCase):
             if r["function"] == "recognize" and not r.get("gap"):
                 self.assertIsNone(r["probability"], r)  # strength is not a probability
             if r["function"] == "annotate":
-                self.assertTrue(r["id"].endswith((":singer", ":album", ":year")), r["id"])
+                self.assertTrue(r["id"].endswith(tuple(":" + f for f in build.FIELDS)), r["id"])
 
     def test_annotate_writes_one_row_per_field(self):
         for run in ("2026-09-26-functions-jev", "2026-09-23-functions-glm-5.3-flash"):
@@ -156,6 +156,7 @@ class Recompute(unittest.TestCase):
     def setUpClass(cls):
         cls.rows = answers()
         cls.pools = report.systems(cls.rows)
+        cls.suite = build.suite_cases()
         cls.fails = []
         cls.checked = set()
 
@@ -195,34 +196,47 @@ class Recompute(unittest.TestCase):
                               f"{tuple(pub_row[c] for c in ('requests', 'input_tokens', 'usd', 'median_s', 'p90_s'))}")
 
     def mrow(self, pool, **kw):
-        return [r for r in pool.values() if all(r.get(k) == v for k, v in kw.items())]
+        return [r for r in pool.values() if not r.get("gap") and all(r.get(k) == v for k, v in kw.items())]
 
-    def decide_choose(self, pub, pool, lev, test=None):
-        for fn, mem in (("decide", "yes/no questions"), ("choose", "pick-one questions")):
-            label = mem if lev == "memory" else (test or lev)
-            sel = self.mrow(pool, function=fn, level=lev)
-            if not sel:
-                continue
-            k = sum(r["right"] for r in sel)
-            if fn == "decide":
-                p = self.check(pub, "decide", label, "accuracy at 0.5", len(sel), k / len(sel),
-                               *stats.wilson(k, len(sel)))
-                if p:
-                    self.usage(p, sel)
-                for cut in fscore.CUTS:
-                    tp, fp, tn, fn_ = fscore.confusion([(r["value"], r["truth"] == "yes") for r in sel], cut)
-                    self.check(pub, "decide", label, f"TP FP TN FN at {cut}", len(sel), f"{tp} {fp} {tn} {fn_}")
-            else:
-                p = self.check(pub, "choose", label, "accuracy", len(sel), k / len(sel),
-                               *stats.wilson(k, len(sel)))
-                if p:
-                    self.usage(p, sel)
-                cov = stats.coverage([(r["probability"], r["right"]) for r in sel])
-                for cut in fscore.CUTS:
-                    kept = [c for c in cov if c[0] >= cut]
-                    a_, k_ = kept[-1][1], kept[-1][2]
-                    self.check(pub, "choose", label, f"coverage and accuracy at {cut}", len(sel),
-                               f"{a_ / len(sel):.3f} {k_ / a_ if a_ else 0:.3f}")
+    def pick(self, pub, pool, fn, lev, label=None, sel=None):
+        """decide/choose rows at one level: the mains score under the memory names; a suite level takes the
+        level's label. sel, when given, is the caller's own slice of the level (the suite's album asks)."""
+        mem = {"decide": "yes/no questions", "choose": "pick-one questions"}[fn]
+        label = label or (mem if lev == "memory" else lev)
+        sel = sel if sel is not None else self.mrow(pool, function=fn, level=lev)
+        if not sel:
+            return
+        k = sum(r["right"] for r in sel)
+        if fn == "decide":
+            p = self.check(pub, "decide", label, "accuracy at 0.5", len(sel), k / len(sel),
+                           *stats.wilson(k, len(sel)))
+            if p:
+                self.usage(p, sel)
+            for cut in fscore.CUTS:
+                tp, fp, tn, fn_ = fscore.confusion([(r["value"], r["truth"] == "yes") for r in sel], cut)
+                self.check(pub, "decide", label, f"TP FP TN FN at {cut}", len(sel), f"{tp} {fp} {tn} {fn_}")
+        else:
+            p = self.check(pub, "choose", label, "accuracy", len(sel), k / len(sel), *stats.wilson(k, len(sel)))
+            if p:
+                self.usage(p, sel)
+            cov = stats.coverage([(r["probability"], r["right"]) for r in sel])
+            for cut in fscore.CUTS:
+                kept = [c for c in cov if c[0] >= cut]
+                a_, k_ = kept[-1][1], kept[-1][2]
+                self.check(pub, "choose", label, f"coverage and accuracy at {cut}", len(sel),
+                           f"{a_ / len(sel):.3f} {k_ / a_ if a_ else 0:.3f}")
+
+    def decide_choose(self, pub, pool):
+        mains = {q["id"] for q in analyze.questions()}
+        for fn in ("decide", "choose"):
+            mem = self.mrow(pool, function=fn, level="memory")
+            self.pick(pub, pool, fn, "memory", sel=[r for r in mem if r["id"] in mains])
+            rest = [r for r in mem if r["id"] not in mains]
+            if rest:  # the suite's memory asks — decide's album test today
+                self.pick(pub, pool, fn, "memory",
+                          fscore.pool_label(fn, "memory", sorted({r["test"] for r in rest})), rest)
+            self.pick(pub, pool, fn, "card", "reading")  # the card level answers the reading test
+            self.pick(pub, pool, fn, "context")
 
     def tag(self, pub, pool, lev, label):
         sel = self.mrow(pool, function="tag", level=lev)
@@ -235,25 +249,29 @@ class Recompute(unittest.TestCase):
         tops = [len(set(r["answer"]["top"]) & set(r["truth"])) / len(r["answer"]["top"]) for r in sel]
         self.check(pub, "tag", label, "top pick right", len(sel), sum(tops) / len(sel),
                    *stats.wilson(sum(tops), len(sel)))
-        single = [(r["answer"]["pick"], r["truth"][0]) for r in sel if len(r["truth"]) == 1]
-        self.check(pub, "tag", label, "top label right, single-lead songs", len(single),
-                   sum(x == t for x, t in single) / len(single), *stats.wilson(sum(x == t for x, t in single), len(single)))
-        for name in ("john", "paul", "george", "ringo"):
-            tp = sum(name in r["answer"]["said"] and name in r["truth"] for r in sel)
-            sd = sum(name in r["answer"]["said"] for r in sel)
-            tr = sum(name in r["truth"] for r in sel)
+        lead = [r for r in sel if fscore.labels_of(self.suite[r["id"]]) == fscore.SINGERS]
+        if lead:
+            single = [(r["answer"]["pick"], r["truth"][0]) for r in lead if len(r["truth"]) == 1]
+            self.check(pub, "tag", label, "top label right, single-lead songs", len(single),
+                       sum(x == t for x, t in single) / len(single),
+                       *stats.wilson(sum(x == t for x, t in single), len(single)))
+        for name in dict.fromkeys(n for r in sel for n in fscore.labels_of(self.suite[r["id"]])):
+            asking = [r for r in sel if name in fscore.labels_of(self.suite[r["id"]])]
+            tp = sum(name in r["answer"]["said"] and name in r["truth"] for r in asking)
+            sd = sum(name in r["answer"]["said"] for r in asking)
+            tr = sum(name in r["truth"] for r in asking)
             self.check(pub, "tag", label, f"{name} precision", sd, tp / sd if sd else None, *stats.wilson(tp, sd))
             self.check(pub, "tag", label, f"{name} recall", tr, tp / tr if tr else None, *stats.wilson(tp, tr))
 
-    def score(self, pub, pool, lev, label):
-        sel = sorted(self.mrow(pool, function="score", level=lev), key=lambda r: r["id"])
-        if not sel:
-            return
-        rho = fscore.spearman([r["value"] for r in sel], [r["truth"] for r in sel])
-        p = self.check(pub, "score", label, "Spearman with 2024 page views", len(sel), rho,
-                       *fscore.rho_interval(rho, len(sel)))
-        if p:
-            self.usage(p, sel)
+    def score(self, pub, pool):
+        for t in dict.fromkeys(r["test"] for r in self.mrow(pool, function="score")):
+            sel = sorted(self.mrow(pool, function="score", test=t), key=lambda r: r["id"])
+            what = fscore.SCORE_WHAT.get(t.removesuffix("-context"), t)
+            rho = fscore.spearman([r["value"] for r in sel], [r["truth"] for r in sel])
+            p = self.check(pub, "score", t, f"Spearman with {what}", len(sel), rho,
+                           *fscore.rho_interval(rho, len(sel)))
+            if p:
+                self.usage(p, sel)
 
     def filter_(self, pub, pool, lev, label):
         sel = self.mrow(pool, function="filter", level=lev)
@@ -268,13 +286,11 @@ class Recompute(unittest.TestCase):
             self.usage(row, sel)
         self.check(pub, "filter", label, "precision", tp + fp, p, *stats.wilson(tp, tp + fp))
         self.check(pub, "filter", label, "recall", tp + fn, r_, *stats.wilson(tp, tp + fn))
-        if lev == "memory":
-            for t in ("singer", "album"):
-                us = [u for r in sel if r["test"] == t for u in r["counts"]]
-                if us:
-                    tp, fp, fn = (sum(u[k] for u in us) for k in ("tp", "fp", "fn"))
-                    self.check(pub, "filter", t, "F1", len(us), fscore.prf(tp, fp, fn)[2],
-                               *fscore.f1_interval([(u["tp"], u["fp"], u["fn"]) for u in us]))
+        for t in sorted({r["test"] for r in sel}):
+            us = [u for r in sel if r["test"] == t for u in r["counts"]]
+            tp, fp, fn = (sum(u[k] for u in us) for k in ("tp", "fp", "fn"))
+            self.check(pub, "filter", t, "F1", len(us), fscore.prf(tp, fp, fn)[2],
+                       *fscore.f1_interval([(u["tp"], u["fp"], u["fn"]) for u in us]))
 
     def rank(self, pub, pool):
         for t in sorted({r["test"] for r in self.mrow(pool, function="rank")}):
@@ -301,16 +317,18 @@ class Recompute(unittest.TestCase):
         sel = self.mrow(pool, function="annotate", level=lev)
         if not sel:
             return
-        for field in ("singer", "album", "year"):
+        fields = [f for f in build.FIELDS if any(r["id"].endswith(":" + f) for r in sel)]
+        fields += sorted({r["id"].rsplit(":", 1)[1] for r in sel} - set(fields))
+        for field in fields:
             sub = [r for r in sel if r["id"].endswith(":" + field)]
-            if not sub:
-                continue
             k = sum(r["right"] for r in sub)
             p = self.check(pub, "annotate", label, f"{field} accuracy", len(sub), k / len(sub),
                            *stats.wilson(k, len(sub)))
             if p and field == "singer":
                 self.usage(p, sel)
         sub = [r for r in sel if r["id"].endswith(":singer")]
+        if not sub:
+            return
         tops = [len(set(r["answer"]["top"]) & set(r["truth"])) / len(r["answer"]["top"]) for r in sub]
         self.check(pub, "annotate", label, "singer top pick right", len(sub), sum(tops) / len(sub),
                    *stats.wilson(sum(tops), len(sub)))
@@ -405,21 +423,28 @@ class Recompute(unittest.TestCase):
     def functions(self, label, name):
         pub = published(name)
         pool = self.pools[label]
-        self.decide_choose(pub, pool, "memory")
-        self.decide_choose(pub, pool, "card", "reading")  # the run's reading test asks the card level
+        self.decide_choose(pub, pool)
         self.tag(pub, pool, "memory", "lead singers")
         self.tag(pub, pool, "card", "reading")
-        self.score(pub, pool, "memory", "popularity")
-        self.score(pub, pool, "card", "reading")
+        self.tag(pub, pool, "context", "context")
+        self.score(pub, pool)
         self.filter_(pub, pool, "memory", "lead singer or album")
         self.filter_(pub, pool, "card", "reading")
+        self.filter_(pub, pool, "context", "context")
         self.rank(pub, pool)
         self.find(pub, pool, "memory", "album")
         self.find(pub, pool, "card", "reading")
+        self.find(pub, pool, "context", "context")
         self.annotate(pub, pool, "memory", "card")
         self.annotate(pub, pool, "card", "reading")
+        self.annotate(pub, pool, "context", "context")
         self.recognize(pub, pool)
         self.relate(pub, pool)
+        for r in pub:  # a whole refused test prints a gap row: refused (N cases: message)
+            if str(r.get("value") or "").startswith("refused"):
+                sel = [x for x in pool.values() if x.get("test") == r["test"] and x.get("gap")]
+                self.check(pub, r["function"], r["test"], r["measure"], len(sel),
+                           f"refused ({len(sel)} cases: {sel[0]['gap']})")
         return pub
 
     def test_functions_jev(self):
@@ -435,6 +460,12 @@ class Recompute(unittest.TestCase):
 
     def test_functions_laya(self):
         pub = self.functions("Laya", "functions-laya.tsv")
+        self.assertTrue(self.checked >= {(r["function"], r["test"], r["measure"]) for r in pub},
+                        {(r["function"], r["test"], r["measure"]) for r in pub} - self.checked)
+        self.assertEqual(self.fails, [])
+
+    def test_functions_liquid_d1(self):
+        pub = self.functions("Liquid d1", "functions-liquid-d1.tsv")
         self.assertTrue(self.checked >= {(r["function"], r["test"], r["measure"]) for r in pub},
                         {(r["function"], r["test"], r["measure"]) for r in pub} - self.checked)
         self.assertEqual(self.fails, [])
