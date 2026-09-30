@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Little Child\"},{\"id\":\"u002\",\"evidence\":\"When I Get Home\"},{\"id\":\"u003\",\"evidence\":\"Rocky Raccoon\"},{\"id\":\"u004\",\"evidence\":\"Let It Be\"},{\"id\":\"u005\",\"evidence\":\"Being for the Benefit of Mr. Kite!\"},{\"id\":\"u006\",\"evidence\":\"I'll Follow the Sun\"},{\"id\":\"u007\",\"evidence\":\"There's a Place\"},{\"id\":\"u008\",\"evidence\":\"Another Girl\"}]","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album A Hard Day's Night?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"u008","confidence":0.52,"probabilities":{"u007":0.15,"u008":0.58,"u003":0.01,"u002":0.14,"u001":0.06,"u004":0.0,"u005":0.01,"u006":0.05}}},"usage":{"input_tokens":502,"output_tokens":101}}
+}

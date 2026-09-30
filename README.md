@@ -63,6 +63,7 @@ Each function folder in `examples/` also runs by hand. `./run` in the folder ans
 
 ## What's new
 
+- 2026-09-30: Every card-answerable function gained a reading test: the same questions with the facts written into the record as a short card. [reports/results.md](reports/results.md) opens with a by-function table of memory beside reading.
 - 2026-09-26: The function folders moved to `examples/`, and each slide of the ThinkThen talk that shows bench data has a folder there. The function suite moved to `questions/suite/`.
 - 2026-09-26: The walkthroughs moved to the website. Superseded runs moved to `results/archive/runs/`. `./run.sh NAME` names and replays a run of any backend.
 - 2026-09-26: Every Jev run was asked again from an empty recording. `recognize` and `relate` are scored from the shipped commands, and the function table gained top pick rows.

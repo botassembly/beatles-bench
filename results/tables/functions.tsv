@@ -9,6 +9,16 @@ choose	pick-one questions	coverage and accuracy at 0.3		1273	0.976 0.716
 choose	pick-one questions	coverage and accuracy at 0.5		1273	0.769 0.791							
 choose	pick-one questions	coverage and accuracy at 0.7		1273	0.531 0.896							
 choose	pick-one questions	coverage and accuracy at 0.9		1273	0.293 0.971							
+decide	reading	accuracy at 0.5	yes	100	1.000	0.963	1.000	100	35119	0.00147	0.192	0.242
+decide	reading	TP FP TN FN at 0.3		100	43 2 55 0							
+decide	reading	TP FP TN FN at 0.5		100	43 0 57 0							
+decide	reading	TP FP TN FN at 0.7		100	43 0 57 0							
+decide	reading	TP FP TN FN at 0.9		100	27 0 57 16							
+choose	reading	accuracy	yes	100	0.950	0.888	0.978	100	45151	0.00190	0.189	0.214
+choose	reading	coverage and accuracy at 0.3		100	1.000 0.950							
+choose	reading	coverage and accuracy at 0.5		100	1.000 0.950							
+choose	reading	coverage and accuracy at 0.7		100	0.930 0.989							
+choose	reading	coverage and accuracy at 0.9		100	0.870 1.000							
 tag	lead singers	exact-set match	yes	158	0.291	0.226	0.366	158	84897	0.00357	0.210	0.252
 tag	lead singers	top pick right	yes	158	0.747	0.674	0.808					
 tag	lead singers	top label right, single-lead songs		146	0.753	0.678	0.816					
@@ -20,22 +30,47 @@ tag	lead singers	george precision		31	0.484	0.320	0.652
 tag	lead singers	george recall		25	0.600	0.407	0.766					
 tag	lead singers	ringo precision		40	0.200	0.105	0.348					
 tag	lead singers	ringo recall		10	0.800	0.490	0.943					
+tag	reading	exact-set match	yes	100	1.000	0.963	1.000	400	75528	0.00317	0.203	0.253
+tag	reading	top pick right	yes	100	1.000	0.963	1.000					
+tag	reading	top label right, single-lead songs		92	1.000	0.960	1.000					
+tag	reading	john precision		46	1.000	0.923	1.000					
+tag	reading	john recall		46	1.000	0.923	1.000					
+tag	reading	paul precision		39	1.000	0.910	1.000					
+tag	reading	paul recall		39	1.000	0.910	1.000					
+tag	reading	george precision		16	1.000	0.806	1.000					
+tag	reading	george recall		16	1.000	0.806	1.000					
+tag	reading	ringo precision		7	1.000	0.646	1.000					
+tag	reading	ringo recall		7	1.000	0.646	1.000					
 score	popularity	Spearman with 2024 page views	yes	171	0.696	0.607	0.768	171	58856	0.00247	0.209	0.242
+score	reading	Spearman with 2024 page views	yes	100	0.733	0.623	0.814	100	41655	0.00175	0.193	0.233
 filter	lead singer or album	F1	yes	240	0.639	0.543	0.724	240	71341	0.00300	0.234	0.289
 filter	lead singer or album	precision		83	0.566	0.459	0.668					
 filter	lead singer or album	recall		64	0.734	0.615	0.827					
 filter	singer	F1		120	0.587	0.444	0.716					
 filter	album	F1		120	0.694	0.557	0.805					
+filter	reading	F1	yes	100	1.000	1.000	1.000	100	35475	0.00149	0.186	0.236
+filter	reading	precision		20	1.000	0.839	1.000					
+filter	reading	recall		20	1.000	0.839	1.000					
 rank	popularity	Spearman with 2024 page views	yes	171	0.638	0.537	0.721	171	49793	0.00209	0.209	0.247
 rank	popularity	Kendall tau-b with 2024 page views		171	0.460	0.377	0.535					
 rank	date	Spearman with release date	yes	182	0.805	0.745	0.852	182	55583	0.00233	0.213	0.251
 rank	date	Kendall tau-b with release date		182	0.626	0.563	0.682					
-find	album	exact match	yes	52	0.654	0.518	0.768	52	25954	0.00109	0.221	0.256
+rank	reading-popularity	Spearman with 2024 page views	yes	100	0.808	0.724	0.868	100	36373	0.00153	0.190	0.223
+rank	reading-popularity	Kendall tau-b with 2024 page views		100	0.619	0.530	0.694					
+rank	reading-date	Spearman with release date	yes	100	0.979	0.968	0.986	100	38006	0.00160	0.214	0.289
+rank	reading-date	Kendall tau-b with release date		100	0.896	0.867	0.919					
+find	album	exact match	yes	156	0.596	0.518	0.670	156	78066	0.00328	0.198	0.244
+find	reading	exact match	yes	100	1.000	0.963	1.000	100	85158	0.00358	0.183	0.224
 annotate	card	singer accuracy	yes	158	0.310	0.243	0.386	182	148039	0.00622	0.223	0.269
 annotate	card	singer top pick right	yes	158	0.734	0.660	0.797					
 annotate	card	singer top label right, single-lead songs		146	0.733	0.656	0.798					
 annotate	card	album accuracy	yes	182	0.582	0.510	0.652					
 annotate	card	year accuracy	yes	182	0.407	0.338	0.479					
+annotate	reading	singer accuracy	yes	88	1.000	0.958	1.000	600	114044	0.00479	0.191	0.233
+annotate	reading	singer top pick right	yes	88	1.000	0.958	1.000					
+annotate	reading	singer top label right, single-lead songs		81	1.000	0.955	1.000					
+annotate	reading	album accuracy	yes	100	1.000	0.963	1.000					
+annotate	reading	year accuracy	yes	100	1.000	0.963	1.000					
 recognize	names-template	song precision	yes	49	0.959	0.863	0.989	48	273108	0.01147	0.251	0.288
 recognize	names-template	song recall	yes	48	0.979	0.891	0.996					
 recognize	names-template	person precision	yes	48	1.000	0.926	1.000					

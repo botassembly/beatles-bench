@@ -2,6 +2,27 @@
 
 The audited runs of 2026-09-23, with every Jev run asked again from an empty recording on 2026-09-25 (ticket 0009) and again on 2026-09-26 (ticket 0014, `sdlc/tickets/0014-shipped-recognize-and-relate.md`). Jev's rows come from `results/runs/2026-09-26-thinkthen-jev` and `2026-09-26-functions-jev`. This report holds every number the front page leaves out: the intervals, the tests, the baselines, the function suite, the costs, and the audit history. `python3 scripts/score/table.py` prints the two main tables below from `results/tables/`.
 
+## By function
+
+Each function's main measure, once from memory and once reading a card that holds the facts (ticket 0020). A reading case keeps the memory case's question and truth, and writes the facts into the record: the text, then one short card per song it names — title, lead singers, first album, year, and length, plus the writers, release date, or 2024 page views where the truth needs them. decide and choose sample 100 eligible questions from the main files; the other functions sample 100 of their own memory cases, and rank samples 100 of each of its two asks. recognize has no memory score — it only ever reads — and relate has no reading score yet (ticket 0019).
+
+| Function | Cases | What it asks | Memory | Reading |
+| --- | --- | --- | --- | --- |
+| decide | 228 | yes or no about one song | 0.689 | 1.000 |
+| choose | 1,273 | the right one of four or five options | 0.705 | 0.950 |
+| tag | 158 | every Beatle who sang the lead | 0.291 | 1.000 |
+| score | 171 | how well known the song is today, 1 to 5 | 0.696 | 0.733 |
+| filter | 240 | whether a song keeps or drops | 0.639 | 1.000 |
+| rank | 353 | the songs in order by fame, and by date | 0.638 / 0.805 | 0.808 / 0.979 |
+| find | 156 | the one song of eight from a named album | 0.596 | 1.000 |
+| annotate | 182 | singer, first album and year on a card | 0.310 | 1.000 |
+| recognize | 200 | the song, person and album names in a sentence | — | 0.959 |
+| relate | 1 | the singer and album edges over the catalogue | 0.719 | — |
+
+The columns are the main measures of the table below: accuracy, exact-set match, F1, or Spearman. The rank cell holds its two measures. A reading cell covers at most 100 cases a test; annotate counts only its settled-lead songs. recognize's cell is its song precision on the names-template sentences. The reading numbers come from `results/runs/2026-09-30-reading-jev`: 1,004 cases, 558,621 input tokens, about $0.02.
+
+The gap between the columns is what ThinkThen's own tuning is for. `thinkthen audit` tunes an audit cut on the labeled cases, and `thinkthen diff` compares two runs without a model call, so a user can move the memory scores and check the change against these tables.
+
 ## Main results
 
 1,501 questions in 15 categories. The headline is Beatles-only: every category but the two reversal-general ones, 1,313 questions. Each cell is the share right with its 95% Wilson interval. `decide` says yes at 0.5, `choose` takes its winner, and a tie at the top that holds the truth earns one over the number tied. Chance is the expected share of a uniform guess.
@@ -46,23 +67,36 @@ Every table sits in [results/tables/](../results/tables/), one row per system an
 
 ## The function suite
 
-The categories use only `choose` and `decide`. The function suite tests the other functions ThinkThen names. decide and choose come from each system's main run. The other rows come from `results/runs/2026-09-26-functions-jev` for Jev and `results/runs/2026-09-23-functions-*` for GLM and Laya. The recognize rows beyond names-template come from `results/runs/2026-09-30-recognize-jev`.
+The categories use only `choose` and `decide`. The function suite tests every function ThinkThen names. decide and choose memory rows come from each system's main run; their suite files hold their reading cases. The other memory rows come from `results/runs/2026-09-26-functions-jev` for Jev and `results/runs/2026-09-23-functions-*` for GLM and Laya. The recognize rows beyond names-template come from `results/runs/2026-09-30-recognize-jev`. The reading rows, and the grown find test of 156 sets, come from `results/runs/2026-09-30-reading-jev`.
 
 | Function | Test | Measure | Jev | GLM-5.3 Flash | Laya |
 | --- | --- | --- | --- | --- | --- |
 | decide | yes/no questions | accuracy at 0.5 | 0.689 (0.626 to 0.745) | 0.904 (0.858 to 0.935) | 0.539 (0.475 to 0.603) |
+| decide | reading | accuracy at 0.5 | 1.000 (0.963 to 1.000) |  |  |
 | choose | pick-one questions | accuracy | 0.705 (0.679 to 0.729) | 0.978 (0.969 to 0.985) | 0.325 (0.300 to 0.351) |
+| choose | reading | accuracy | 0.950 (0.888 to 0.978) |  |  |
 | tag | lead singers | exact-set match | 0.291 (0.226 to 0.366) | 0.937 (0.887 to 0.965) | 0.000 (0.000 to 0.024) |
 | tag | lead singers | top pick right | 0.747 (0.674 to 0.808) | 0.997 (0.970 to 1.000) | 0.070 (0.039 to 0.120) |
+| tag | reading | exact-set match | 1.000 (0.963 to 1.000) |  |  |
+| tag | reading | top pick right | 1.000 (0.963 to 1.000) |  |  |
 | score | popularity | Spearman with 2024 page views | 0.696 (0.607 to 0.768) | 0.774 (0.704 to 0.830) | 0.123 (-0.032 to 0.272) |
+| score | reading | Spearman with 2024 page views | 0.733 (0.623 to 0.814) |  |  |
 | filter | lead singer or album | F1 | 0.639 (0.543 to 0.724) | 0.891 (0.828 to 0.940) | 0.128 (0.027 to 0.230) |
+| filter | reading | F1 | 1.000 (1.000 to 1.000) |  |  |
 | rank | popularity | Spearman with 2024 page views | 0.638 (0.537 to 0.721) | 0.774 (0.704 to 0.829) | 0.199 (0.046 to 0.343) |
 | rank | date | Spearman with release date | 0.805 (0.745 to 0.852) | 0.893 (0.858 to 0.920) | -0.055 (-0.203 to 0.096) |
-| find | album | exact match | 0.654 (0.518 to 0.768) | 0.981 (0.899 to 0.997) | 0.115 (0.054 to 0.230) |
+| rank | reading-popularity | Spearman with 2024 page views | 0.808 (0.724 to 0.868) |  |  |
+| rank | reading-date | Spearman with release date | 0.979 (0.968 to 0.986) |  |  |
+| find | album | exact match | 0.596 (0.518 to 0.670) | 0.981 (0.899 to 0.997) | 0.115 (0.054 to 0.230) |
+| find | reading | exact match | 1.000 (0.963 to 1.000) |  |  |
 | annotate | card | singer accuracy | 0.310 (0.243 to 0.386) | 0.924 (0.872 to 0.956) | 0.000 (0.000 to 0.024) |
 | annotate | card | singer top pick right | 0.734 (0.660 to 0.797) | 0.965 (0.924 to 0.984) | 0.063 (0.035 to 0.113) |
 | annotate | card | album accuracy | 0.582 (0.510 to 0.652) | 0.978 (0.945 to 0.991) | 0.115 (0.077 to 0.170) |
 | annotate | card | year accuracy | 0.407 (0.338 to 0.479) | 0.989 (0.961 to 0.997) | 0.077 (0.046 to 0.125) |
+| annotate | reading | singer accuracy | 1.000 (0.958 to 1.000) |  |  |
+| annotate | reading | singer top pick right | 1.000 (0.958 to 1.000) |  |  |
+| annotate | reading | album accuracy | 1.000 (0.963 to 1.000) |  |  |
+| annotate | reading | year accuracy | 1.000 (0.963 to 1.000) |  |  |
 | recognize | names-template | song precision | 0.959 (0.863 to 0.989) |  |  |
 | recognize | names-template | song recall | 0.979 (0.891 to 0.996) |  |  |
 | recognize | names-template | person precision | 1.000 (0.926 to 1.000) |  |  |
@@ -120,6 +154,8 @@ The categories use only `choose` and `decide`. The function suite tests the othe
 | relate | song to singer and album | album top pick right | 0.637 (0.565 to 0.704) |  |  |
 | relate | song to singer and album | duets: pick is a lead | 0.917 (0.646 to 0.985) |  |  |
 
+A `reading` test case holds the memory case's question and truth, and puts the facts into the record as a short card, one card per song the text names. The measure is the memory test's. GLM and Laya have no reading rows yet. [questions/README.md](../questions/README.md#the-function-suite) describes the card.
+
 The relate rows are historical. They measure relate's old choice planner, in thinkthen main at 02dc0b96 on 2026-09-26. ThinkThen ticket 0167 replaced that planner. relate now asks one yes or no question for each pair a rule allows. The bench has not scored the pair planner.
 
 A blank cell was not asked. GLM runs through `scripts/run/chat.py suite`. That command asks tag, score, filter, rank, find, and annotate. recognize and relate run through `thinkthen recognize` and `thinkthen relate`. Those commands read a probability for each token or option, and a chat model states one, so GLM skips them. Laya's run of 2026-09-23 asked the older recognize and relate tests, built from annotate. Those tests are gone, so its cells are blank. Laya runs only on a Mac through a local shim and was not asked again.
@@ -161,7 +197,7 @@ Laya is `aac6fef/laya-mlx`, ModernBERT-large (about 421M parameters) under MLX o
 
 ## Spend and history
 
-Before the merge, Jev's main runs cost 0.037 dollars and GLM's 0.14 dollars at Z.ai's price. The function suites then sent 1,776 Jev requests (0.040 dollars) and 87 more after the settled-lead rule (0.0011 dollars), 1,157 GLM requests (0.060 dollars, median 3.5 s), and 1,028 Laya requests at no charge. Each run folder holds its usage. A rerun answers every unchanged question from the recording. `results/history.tsv` gets one dated row per run and per function measure. The fresh Jev runs of 2026-09-25 sent 6,191,593 input tokens in all, about 0.26 dollars (ticket 0009 record). Those of 2026-09-26 sent 6,057,783, about 0.25 dollars (ticket 0014 record).
+Before the merge, Jev's main runs cost 0.037 dollars and GLM's 0.14 dollars at Z.ai's price. The function suites then sent 1,776 Jev requests (0.040 dollars) and 87 more after the settled-lead rule (0.0011 dollars), 1,157 GLM requests (0.060 dollars, median 3.5 s), and 1,028 Laya requests at no charge. Each run folder holds its usage. A rerun answers every unchanged question from the recording. `results/history.tsv` gets one dated row per run and per function measure. The fresh Jev runs of 2026-09-25 sent 6,191,593 input tokens in all, about 0.26 dollars (ticket 0009 record). Those of 2026-09-26 sent 6,057,783, about 0.25 dollars (ticket 0014 record). The recognize run of 2026-09-30 sent 354 requests and 687,702 input tokens, about 0.03 dollars (ticket 0018 record). The reading run of 2026-09-30 sent 1,004 requests and 558,621 input tokens, about 0.02 dollars (ticket 0020 record).
 
 ## Audit history: fixes on 2026-09-23
 

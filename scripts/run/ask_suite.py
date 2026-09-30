@@ -47,7 +47,7 @@ TESTS = os.environ.get("BENCH_TESTS", "decide,choose,tag,score,filter,rank,find,
 ONLY = tuple(p for p in os.environ.get("BENCH_SUITE_ONLY", "").split(",") if p)
 TT = os.environ.get("THINKTHEN_BIN", "thinkthen")
 MODEL = os.environ.get("BEATLES_BENCH_MODEL", "jev-latest")
-VOLATILE = ("cached", "requests_sent")  # the only fields a replay reports differently
+VOLATILE = ("cached", "requests_sent", "attempts")  # fields only a live send reports, not a cache hit or a replay
 
 
 def cases(folder):

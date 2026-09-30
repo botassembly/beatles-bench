@@ -98,6 +98,26 @@ def chained(kind):
 
 COST = "results/tables/cost.tsv"
 ACC = "results/tables/accuracy.tsv"
+FUN = "results/tables/functions.tsv"
+# The By function table's memory and reading cells, pulled from functions.tsv.
+BY_FUNCTION = [
+    ("decide", "yes/no questions", "accuracy at 0.5", "reading", "accuracy at 0.5", "yes or no about one song"),
+    ("choose", "pick-one questions", "accuracy", "reading", "accuracy", "the right one of four or five options"),
+    ("tag", "lead singers", "exact-set match", "reading", "exact-set match", "every Beatle who sang the lead"),
+    ("score", "popularity", "Spearman with 2024 page views", "reading", "Spearman with 2024 page views",
+     "how well known the song is today, 1 to 5"),
+    ("filter", "lead singer or album", "F1", "reading", "F1", "whether a song keeps or drops"),
+    ("find", "album", "exact match", "reading", "exact match", "the one song of eight from a named album"),
+]
+by_function = lambda f, t, m: cell(FUN, "value", function=f, test=t, measure=m)
+annotate_cards = lambda: str(sum(1 for l in open(ROOT / "questions" / "suite" / "annotate.jsonl", encoding="utf-8")
+                                 if json.loads(l)["test"] == "card"))  # 182 cards; the unsettled score no singer
+
+
+def reading_run(field):
+    """The reading run's case count or input tokens sent, from its committed outputs."""
+    outs = [json.loads(l) for l in open(published.JEV_READING / "outputs.jsonl", encoding="utf-8")]
+    return {"cases": len(outs), "tokens": sum(o["input_tokens"] for o in outs if o.get("sent"))}[field]
 CHOOSE = lambda option: lambda: output("choose", "choose-cold-04")["answer"]["probabilities"][option]
 EX = "examples/{}/README.md".format
 # The slide folders of examples/: each row names a folder's page, the text it quotes, and the source of the value.
@@ -162,6 +182,29 @@ CLAIMS = [
     ("README.md", "and {} with the 306-song catalog", lambda: open_book_all(3)),
     ("data/README.md", "| `songs.tsv` | {} released Beatles songs", lambda: rows("songs.tsv")),
     ("data/README.md", "| `albums.tsv` | {} albums", lambda: rows("albums.tsv")),
+    *[( "reports/results.md", "{}",
+         lambda f=f, t=t, m=m, rt=rt, rm=rm, what=what:
+             f"| {f} | {int(cell(FUN, 'n', function=f, test=t, measure=m)):,} | {what} "
+             f"| {by_function(f, t, m)} | {by_function(f, rt, rm)} |")
+      for f, t, m, rt, rm, what in BY_FUNCTION],
+    ("reports/results.md", "{}",
+     lambda: "| rank | {} | the songs in order by fame, and by date | {} / {} | {} / {} |".format(
+         int(cell(FUN, "n", function="rank", test="popularity", measure="Spearman with 2024 page views"))
+         + int(cell(FUN, "n", function="rank", test="date", measure="Spearman with release date")),
+         by_function("rank", "popularity", "Spearman with 2024 page views"),
+         by_function("rank", "date", "Spearman with release date"),
+         by_function("rank", "reading-popularity", "Spearman with 2024 page views"),
+         by_function("rank", "reading-date", "Spearman with release date"))),
+    ("reports/results.md", "{}",
+     lambda: "| annotate | {} | singer, first album and year on a card | {} | {} |".format(
+         annotate_cards(), by_function("annotate", "card", "singer accuracy"),
+         by_function("annotate", "reading", "singer accuracy"))),
+    ("reports/results.md", "| recognize | 200 | the song, person and album names in a sentence | — | {} |",
+     lambda: by_function("recognize", "names-template", "song precision")),
+    ("reports/results.md", "| relate | 1 | the singer and album edges over the catalogue | {} | — |",
+     lambda: by_function("relate", "song to singer and album", "edge F1")),
+    ("reports/results.md", "results/runs/2026-09-30-reading-jev`: {} cases,", lambda: f"{reading_run('cases'):,}"),
+    ("reports/results.md", "{} input tokens, about $0.02", lambda: f"{reading_run('tokens'):,}"),
     ("reports/results.md", "{} questions in 15 categories", questions),
     ("reports/results.md", "every category but the two reversal-general ones, {} questions", lambda: questions(beatles_only=True)),
     ("reports/results.md", "| Chance | {} |", lambda: results("Chance")),
