@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Write the result tables in results/tables/ from every run that answers the current questions. Calls no model.
 
-usage: analyze.py [RUN...]   (default: the newest folder of each label in results/runs/ (score.newest) whose
-                             answers.jsonl covers questions/)
+usage: analyze.py [RUN...]   (default: the newest committed folder of each label in results/runs/ (discover())
+                             whose answers.jsonl covers questions/)
 
 Tables (tab-separated, one header row):
   systems.tsv      each system: its label, run folder, family, model, and backend
@@ -38,7 +38,7 @@ sys.path.insert(0, str(ROOT / "scripts" / "score"))
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 import stats  # noqa: E402
 from generate import CATEGORIES, GENERAL_CATEGORIES  # noqa: E402
-from score import auc, confidence, credit, default, newest, price, tied  # noqa: E402
+from score import auc, confidence, credit, default, price, tied, tracked  # noqa: E402
 import hashlib  # noqa: E402
 
 LABELS = {"thinkthen-jev": "Jev", "thinkthen-laya": "Laya", "glm-5.3-flash": "GLM-5.3 Flash",
@@ -65,14 +65,22 @@ def dated(name):
 
 
 def discover(qs):
-    """The newest folder of each label whose answers cover the questions. An older run of a label stays out."""
+    """The newest committed folder of each label whose answers cover the questions. An older run of a label stays
+    out, and a run folder git does not track never enters: a live run's files stay uncommitted until landed."""
     want = {q["id"] for q in qs}
+    runs = [p.parent for p in tracked(ROOT / "results" / "runs")
+            if p.name == "answers.jsonl" and p.parent.parent == ROOT / "results" / "runs" and p.is_file()]
+    newest_of = {}
+    for run in runs:
+        if dated(run.name):
+            label = run.name[11:]
+            if label not in newest_of or newest_of[label].name < run.name:
+                newest_of[label] = run
     out = []
-    for p in sorted(glob.glob(str(ROOT / "results" / "runs" / "*" / "answers.jsonl"))):
-        run = Path(p).parent
-        if dated(run.name) and run != newest(run.name[11:], run.parent):
+    for run in sorted(runs):
+        if dated(run.name) and run != newest_of[run.name[11:]]:
             continue
-        ids = {json.loads(l)["id"] for l in open(p, encoding="utf-8")}
+        ids = {json.loads(l)["id"] for l in open(run / "answers.jsonl", encoding="utf-8")}
         if ids == want:
             out.append(run)
     return out

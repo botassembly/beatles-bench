@@ -22,6 +22,7 @@ import csv
 import glob
 import json
 import re
+import subprocess
 import sys
 from pathlib import Path
 
@@ -42,6 +43,21 @@ def newest(label, runs=ROOT / "results" / "runs"):
     if not found:
         raise FileNotFoundError(f"no {Path(runs) / ('DATE-' + label)} folder")
     return found[-1]
+
+
+def tracked(path):
+    """The files under path that git tracks, as absolute Paths in name order. In a checkout git's list is the one,
+    so a file that was never committed stays out of every table. Outside a checkout, such as a ZIP download, every
+    file on disk counts: a copy holds committed files only."""
+    path = Path(path)
+    rel = path.relative_to(ROOT) if path.is_absolute() else path
+    try:
+        out = subprocess.run(["git", "ls-files", "-z", "--", str(rel)], cwd=ROOT,
+                             capture_output=True, check=True).stdout
+        names = out.decode("utf-8", "replace").split("\0")
+        return sorted(ROOT / n for n in names if n)
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        return sorted(p for p in path.rglob("*") if p.is_file())
 
 
 def load(run):
