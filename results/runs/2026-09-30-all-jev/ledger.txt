@@ -1,0 +1,8 @@
+## 2026-09-30 job: the whole bench on Jev
+pinned binary: thinkthen-aec7819bb, SHA-256 41af203ef4bda363a6543e31b5246b6a0450265885ebc1756e46b3de7766e01d
+commands: scripts/run/thinkthen.sh live results/runs/2026-09-30-all-jev ;
+  scripts/run/ask_suite.sh live results/runs/2026-09-30-all-jev ;
+  BENCH_MAX_INPUT_TOKENS=20000000, BENCH_WORKERS=4 then 2, last legs with BENCH_THINKTHEN_ARGS="--timeout 180"
+exit: 0 for both
+spend: 7,339 calls and 9,524,999 input tokens (12,504 requests), about $0.40, measured by a local spend guard
+this job: 7339 calls, 9524999 input tokens, $0.4001 at $0.042 per million input tokens

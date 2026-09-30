@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":{"evidence":"For No One from the album Revolver has Paul McCartney singing lead","entities":[{"id":"i1","name":"For No One","kind":"song"},{"id":"i2","name":"Revolver","kind":"album"},{"id":"i3","name":"Paul McCartney","kind":"person"}]},"model":"jev-1.13.0","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i3?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 appears on i2?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.9},"q2":{"type":"noul","noul":0.89}},"usage":{"input_tokens":417,"output_tokens":38}}
+}

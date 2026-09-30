@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":{"evidence":"You've Got to Hide Your Love Away has John Lennon on lead","entities":[{"id":"i1","name":"You've Got to Hide Your Love Away","kind":"song"},{"id":"i2","name":"John Lennon","kind":"person"}]},"model":"jev-1.13.0","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i2?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.71}},"usage":{"input_tokens":368,"output_tokens":21}}
+}

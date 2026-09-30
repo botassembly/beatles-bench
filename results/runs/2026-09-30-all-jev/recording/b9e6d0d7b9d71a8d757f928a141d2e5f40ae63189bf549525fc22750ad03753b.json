@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":{"evidence":"John Lennon sang lead on Being for the Benefit of Mr. Kite! from the album Sgt. Pepper's Lonely Hearts Club Band","entities":[{"id":"i1","name":"John Lennon","kind":"person"},{"id":"i2","name":"Being for the Benefit of Mr. Kite","kind":"song"},{"id":"i3","name":"Sgt. Pepper's Lonely Hearts Club Band","kind":"album"}]},"model":"jev-1.13.0","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i2 sung by i1?"},"q2":{"type":"noul","instructions":"Does the text itself state that i2 appears on i3?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.85},"q2":{"type":"noul","noul":0.95}},"usage":{"input_tokens":435,"output_tokens":38}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Rocky Raccoon\"},{\"id\":\"u002\",\"evidence\":\"Blue Jay Way\"},{\"id\":\"u003\",\"evidence\":\"You've Got to Hide Your Love Away\"},{\"id\":\"u004\",\"evidence\":\"Think for Yourself\"},{\"id\":\"u005\",\"evidence\":\"I'm Only Sleeping\"},{\"id\":\"u006\",\"evidence\":\"Maggie Mae\"},{\"id\":\"u007\",\"evidence\":\"If I Fell\"},{\"id\":\"u008\",\"evidence\":\"P.S. I Love You\"}]","model":"jev-1.13.0","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album A Hard Day's Night?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"u007","confidence":0.64,"probabilities":{"u004":0.1,"u007":0.69,"u006":0.01,"u005":0.0,"u008":0.15,"u003":0.03,"u001":0.02,"u002":0.0}}},"usage":{"input_tokens":504,"output_tokens":101}}
+}

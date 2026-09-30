@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"You Never Give Me Your Money\"},{\"id\":\"u002\",\"evidence\":\"Chains\"},{\"id\":\"u003\",\"evidence\":\"Sexy Sadie\"},{\"id\":\"u004\",\"evidence\":\"Here, There and Everywhere\"},{\"id\":\"u005\",\"evidence\":\"Everybody's Trying to Be My Baby\"},{\"id\":\"u006\",\"evidence\":\"A Taste of Honey\"},{\"id\":\"u007\",\"evidence\":\"You Like Me Too Much\"},{\"id\":\"u008\",\"evidence\":\"I'm Looking Through You\"}]","model":"jev-1.13.0","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one has John Lennon on lead vocal, alone or with another Beatle?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"u003","confidence":0.35,"probabilities":{"u008":0.17,"u004":0.01,"u002":0.08,"u005":0.07,"u007":0.1,"u001":0.12,"u006":0.03,"u003":0.42}}},"usage":{"input_tokens":507,"output_tokens":101}}
+}

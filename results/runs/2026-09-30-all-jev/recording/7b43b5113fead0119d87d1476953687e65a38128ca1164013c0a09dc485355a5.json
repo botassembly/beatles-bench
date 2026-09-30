@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":{"evidence":"John Lennon takes the lead vocal on Twist and Shout","entities":[{"id":"i1","name":"John Lennon","kind":"person"},{"id":"i2","name":"Twist and Shout","kind":"song"}]},"model":"jev-1.13.0","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i2 sung by i1?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.79}},"usage":{"input_tokens":363,"output_tokens":21}}
+}
