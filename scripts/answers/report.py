@@ -6,7 +6,7 @@ model, reads no key, and writes identical bytes on a rerun.
 usage: report.py [ANSWERS]   (default results/answers.jsonl)
 
 Writes:
-  reports/generated/by-function.md    each function's main measure per level and backend, with a 95%
+  reports/generated/by-function.md    each function's main measure per level and system, with a 95%
                                       interval: Wilson for a share, a seeded bootstrap for Spearman and F1
   reports/generated/head-to-head.md   each pair of model backends on the same questions: agreement and an
                                       exact McNemar test per function and level on the per-case measures;
