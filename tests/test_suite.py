@@ -284,6 +284,22 @@ class RunTest(unittest.TestCase):
         self.assertEqual((run / "replay" / "outputs.jsonl").read_text(), (run / "outputs.jsonl").read_text())
 
 
+    def test_suite_only_asks_cases_whose_id_starts_with_a_prefix(self):
+        qdir = Path(tempfile.mkdtemp())
+        for name in ("tag", "score"):
+            (qdir / f"{name}.jsonl").write_text("".join(json.dumps(c, ensure_ascii=False) + "\n"
+                                                        for c in cases(name)[:2]))
+        run = Path(tempfile.mkdtemp())
+        env = {**os.environ, "THINKTHEN_BIN": str(ROOT / "tests" / "fixtures" / "fake-thinkthen-functions"),
+               "BENCH_FUNCTIONS": str(qdir), "BENCH_WORKERS": "1", "BENCH_SUITE_ONLY": "tag-lead-00"}
+        env.pop("THINKTHEN_API_KEY", None)
+        script = ROOT / "scripts" / "run" / "ask_suite.py"
+        subprocess.run([sys.executable, str(script), "live", str(run)], check=True, env=env)
+        out = [json.loads(l) for l in open(run / "outputs.jsonl")]
+        self.assertEqual([o["id"] for o in out], [c["id"] for c in cases("tag")[:2]])
+        subprocess.run([sys.executable, str(script), "replay", str(run)], check=True, env=env)
+        self.assertEqual((run / "replay" / "outputs.jsonl").read_text(), (run / "outputs.jsonl").read_text())
+
     def test_a_cap_of_zero_starts_no_call(self):
         qdir = Path(tempfile.mkdtemp())
         (qdir / "tag.jsonl").write_text(json.dumps(cases("tag")[0], ensure_ascii=False) + "\n")
