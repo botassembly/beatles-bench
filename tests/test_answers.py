@@ -97,13 +97,13 @@ class Build(unittest.TestCase):
             got = sorted(r["id"] for r in self.rows if r["run"] == run and r["id"].startswith("annotate-card-001:"))
             self.assertEqual(got, ["annotate-card-001:album", "annotate-card-001:singer", "annotate-card-001:year"])
 
-    def test_level_fallback(self):
+    def test_levels_cover_every_level_asked(self):
         levels = {(r["function"], r["level"]) for r in self.rows}
         for fn in ("decide", "choose", "tag", "score", "filter", "rank", "find", "annotate", "relate"):
             self.assertIn((fn, "memory"), levels, fn)
         self.assertIn(("recognize", "text"), levels)
-        reading = [r["function"] for r in self.rows if r["level"] == "reading"]
-        self.assertTrue({"decide", "choose", "tag", "score", "filter", "rank", "find", "annotate"} <= set(reading))
+        card = [r["function"] for r in self.rows if r["level"] == "card"]
+        self.assertTrue({"decide", "choose", "tag", "score", "filter", "rank", "find", "annotate"} <= set(card))
 
     def test_catalog_wins_over_the_question_file(self):
         q = {"id": "q1", "kind": "k", "function": "choose", "truth": "a"}
@@ -197,9 +197,9 @@ class Recompute(unittest.TestCase):
     def mrow(self, pool, **kw):
         return [r for r in pool.values() if all(r.get(k) == v for k, v in kw.items())]
 
-    def decide_choose(self, pub, pool, lev):
+    def decide_choose(self, pub, pool, lev, test=None):
         for fn, mem in (("decide", "yes/no questions"), ("choose", "pick-one questions")):
-            label = mem if lev == "memory" else lev
+            label = mem if lev == "memory" else (test or lev)
             sel = self.mrow(pool, function=fn, level=lev)
             if not sel:
                 continue
@@ -406,18 +406,18 @@ class Recompute(unittest.TestCase):
         pub = published(name)
         pool = self.pools[label]
         self.decide_choose(pub, pool, "memory")
-        self.decide_choose(pub, pool, "reading")
+        self.decide_choose(pub, pool, "card", "reading")  # the run's reading test asks the card level
         self.tag(pub, pool, "memory", "lead singers")
-        self.tag(pub, pool, "reading", "reading")
+        self.tag(pub, pool, "card", "reading")
         self.score(pub, pool, "memory", "popularity")
-        self.score(pub, pool, "reading", "reading")
+        self.score(pub, pool, "card", "reading")
         self.filter_(pub, pool, "memory", "lead singer or album")
-        self.filter_(pub, pool, "reading", "reading")
+        self.filter_(pub, pool, "card", "reading")
         self.rank(pub, pool)
         self.find(pub, pool, "memory", "album")
-        self.find(pub, pool, "reading", "reading")
+        self.find(pub, pool, "card", "reading")
         self.annotate(pub, pool, "memory", "card")
-        self.annotate(pub, pool, "reading", "reading")
+        self.annotate(pub, pool, "card", "reading")
         self.recognize(pub, pool)
         self.relate(pub, pool)
         return pub
