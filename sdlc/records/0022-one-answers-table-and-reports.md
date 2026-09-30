@@ -42,7 +42,7 @@ offline reads of the committed runs.
 
 ## Proof
 
-- `tests.test_answers` — 19 tests, OK in 11 s. `Recompute` derives every row of
+- `tests.test_answers` — 21 tests, OK in 16 s. `Recompute` derives every row of
   `results/tables/functions.tsv` (220), `functions-glm.tsv` (37) and `functions-laya.tsv` (37) from
   `results/answers.jsonl` alone: every `n`, `value`, `lo` and `hi`, plus the usage columns on the main
   rows (requests, input tokens, dollars through `prices.tsv`, median and p90 seconds) and the relate
@@ -54,7 +54,7 @@ offline reads of the committed runs.
   compares a fresh generation to the committed files).
 - The three DuckDB examples run verbatim with `duckdb` v1.1.3; the SQLite examples run through
   `python3` and its `sqlite3` module. The disagreement join returns 368 questions.
-- `python3 -m unittest discover -s tests` with `THINKTHEN_BIN` and `THINKTHEN_API_KEY` unset: 221 tests,
+- `python3 -m unittest discover -s tests` with `THINKTHEN_BIN` and `THINKTHEN_API_KEY` unset: 223 tests,
   OK, 26 skips, in 185 s.
 - Worked examples pin `stats.wilson`, `stats.mcnemar` and the seeded bootstrap.
 
@@ -86,4 +86,5 @@ offline reads of the committed runs.
 
 ## Reviews
 
-(pending)
+- Code review 1 (fresh SWE-2): findings. The catalog path had to be the `questions/catalog/` subfolder; filter F1's n had to match the published count of units; the gap docstring overclaimed; annotate's head-to-head count is fields. All taken in `8b2a595a`.
+- Code review 2 (same reviewer): ACCEPT. Notes: `git ls-files` covers the index as well as commits; `tests/test_answers.py` expects no catalog until ticket 0021 lands, so the 0021 landing updates it.

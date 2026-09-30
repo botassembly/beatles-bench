@@ -295,7 +295,7 @@ def by_function(db, order):
              "Each function's main measure per level and system, from `results/answers.jsonl`. "
              "The interval is 95%: Wilson for a share, a seeded bootstrap of 1,000 draws for Spearman and "
              "F1. `—` means the system did not cover that measure. The n is the cases for a share, the "
-             "scored units for filter's F1 and recognize's name measures, the true edges for the edge "
+             "scored units for filter's F1 and recognize's name measures, the true edges for edge recall and F1 and the said edges for edge precision, "
              "measures, the pairs for Spearman, and the picks for a top-pick share. A refused case keeps a "
              "`gap` row: in a knowledge run it scores wrong like the scorer's rule, and in a suite run it "
              "carries no measures and stays out of these pools.",
