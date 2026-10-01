@@ -1,6 +1,19 @@
 # 0025 Convert the committed recordings to the question store
 
-Owner: the queue owner. Status: draft; waits for 0024.
+Owner: the queue owner. Status: draft; ticket review 1 returned findings, not yet folded in. Paused 2026-09-30 for the next checkpoint.
+
+Review 1 findings to fold in before building:
+
+1. The question store covers only decide, choose, tag, score, filter, rank and annotate. find, recognize and relate still replay from digest entries, so those entries must stay.
+2. `timing.tsv` is keyed by request digest, but a store replay reports question keys. Every timed run's replay would lose `wall_s` and `sent`, and its byte check would fail. Either re-key the timing or narrow the scope.
+3. Exclude the GLM chat recordings, which `chat.py` owns.
+4. The replay tests' `same_build` gate would skip under the checkpoint binary.
+5. Recordings outside the globs exist: `results/archive/in-text-check/` and `archive/probes/`.
+6. `examples/audit` and `diff` outputs may differ under a newer build.
+7. Folders holding both forms convert with the newer answer winning.
+8. State the size impact.
+
+Narrowest scope that meets the site's need: the site's `pull-bench` reads `examples/{decide,choose,tag,score,filter,rank,find,annotate}` and `results/runs/2026-09-26-thinkthen-jev`. So convert the `examples/` recordings of the seven store functions first, keep find's digest entries, and defer `results/runs/`.
 
 ## Why
 

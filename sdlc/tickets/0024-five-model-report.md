@@ -1,6 +1,6 @@
 # 0024 Publish the five-model report on the knowledge questions, with its statistics
 
-Owner: the queue owner. Status: accepted after ticket review 1; waits for 0023.
+Owner: the queue owner. Status: done on 2026-09-30, landed at ba12082f. Code review 1 asked to pin the main results table; done. Suite: 240 tests, OK, 30 skipped (no thinkthen binary, venv or raw-data cache on the build machine).
 
 ## Why
 
