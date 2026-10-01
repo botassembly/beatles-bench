@@ -32,7 +32,9 @@ The gap between the columns is why the facts belong in the text. On your own wor
 | Jev | 67.4% (64.8% to 69.8%) | 70.5% (68.1% to 72.7%) | 0.0156 | 0.20 s |
 | GLM-5.3 Flash | 96.2% (95.0% to 97.1%) | 96.7% (95.7% to 97.5%) | 0.0555 | 8.24 s |
 | Laya | 35.0% (32.5% to 37.7%) | 35.8% (33.4% to 38.2%) | 0.0000 | 0.07 s |
+| Kev 4B | 44.1% (41.4% to 46.8%) | 47.2% (44.7% to 49.8%) |  | 0.20 s |
 | Liquid d1 | 64.3% (61.7% to 66.9%) | 67.5% (65.1% to 69.9%) | 0.0000 | 0.31 s |
+| Nimble 9B | 48.0% (45.3% to 50.7%) | 51.9% (49.4% to 54.4%) |  | 0.28 s |
 | *Vector search (question vs. options)* | | | | |
 | BM25 | 33.8% (31.3% to 36.4%) | 35.0% (32.6% to 37.4%) | 0.0000 | no model call |
 | Embeddings | 37.6% (35.0% to 40.3%) | 39.8% (37.3% to 42.3%) | 0.0000 | no model call |

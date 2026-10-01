@@ -34,6 +34,11 @@ class FiveModelTableTest(unittest.TestCase):
             block = text[start:text.index("\n\n", start)]
             self.assertEqual(block, want, page)
 
+    def test_the_main_results_table_equals_table_py_byte_for_byte(self):
+        text = (ROOT / "reports" / "results.md").read_text(encoding="utf-8")
+        start = text.index("| System | Beatles-only (1,313) | Overall (1,501) | Dollars per 1,000 questions |")
+        self.assertEqual(text[start:text.index("\n\n", start)], table.results())
+
     # Experiment 418's scores.json reports these shares for the same run folders (its Liquid figure came
     # from the run of 2026-09-29 that the 2026-09-30 all-run replaced, so only Liquid's Beatles-only
     # headline is pinned, per ticket 0024).

@@ -40,7 +40,7 @@ Today the figures exist only in the local experiment `~/workspace/experiments/41
 
 - A test regenerates the table from committed runs and matches `reports/models.md` and the "Main results" table byte for byte.
 - A test checks `questions/hard.txt`: 505 unique ids, each in `questions/*.jsonl`, and its complement there is 996.
-- The Jev, Nimble, Kev, Laya and GLM-5.3 Flash overall, Beatles-only, hard and easy figures match experiment 418's `scores.json` for the same run folders within rounding. Liquid uses the new run, which 418 did not score, so only its overall figure is pinned, at 64.3%.
+- The Jev, Nimble, Kev, Laya and GLM-5.3 Flash overall, Beatles-only, hard and easy figures match experiment 418's `scores.json` for the same run folders within rounding. Liquid uses the new run, which 418 did not score, so only its Beatles-only headline is pinned, at 64.3%; its overall figure is 67.5%.
 - The full test suite passes, apart from failures recorded in ticket 0023 with their reason.
 - No live call.
 
