@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"Strawberry Fields Forever first appeared on the album Magical Mystery Tour","entities":[{"id":"i1","name":"Strawberry Fields Forever","kind":"song"},{"id":"i2","name":"album","kind":"album"},{"id":"i3","name":"Magical Mystery Tour","kind":"album"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 appears on i2?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 appears on i3?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.9149009607937928},"q2":{"type":"noul","noul":0.9940889318004645}},"usage":{"input_tokens":360,"output_tokens":0}}
+}

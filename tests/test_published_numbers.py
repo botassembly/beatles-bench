@@ -27,8 +27,9 @@ def questions(beatles_only=False):
 
 
 def open_book_all(cell):
-    """A cell of the all row that open_book.py compare prints for the published Jev run and its open-book run."""
-    text = open_book.compare(published.JEV_RUN, published.RUNS / f"{published.JEV}-thinkthen-jev-open-book")
+    """A cell of the all row that open_book.py compare prints for the Jev run open-book.md pairs with its run."""
+    text = open_book.compare(published.RUNS / f"{published.JEV}-thinkthen-jev",
+                             published.RUNS / f"{published.JEV}-thinkthen-jev-open-book")
     return next(l for l in text.splitlines() if l.startswith("| all |")).strip("|").split("|")[cell].strip()
 
 
@@ -99,25 +100,33 @@ def chained(kind):
 COST = "results/tables/cost.tsv"
 ACC = "results/tables/accuracy.tsv"
 FUN = "results/tables/functions.tsv"
-# The By function table's memory and reading cells, pulled from functions.tsv.
+# The By function table's memory, reading and context cells, pulled from functions.tsv. Each entry is the memory
+# (test, measure), the reading (test, measure), the context (test, measure), and the row's question text.
 BY_FUNCTION = [
-    ("decide", "yes/no questions", "accuracy at 0.5", "reading", "accuracy at 0.5", "yes or no about one song"),
-    ("choose", "pick-one questions", "accuracy", "reading", "accuracy", "the right one of four or five options"),
-    ("tag", "lead singers", "exact-set match", "reading", "exact-set match", "every Beatle who sang the lead"),
-    ("score", "popularity", "Spearman with 2024 page views", "reading", "Spearman with 2024 page views",
-     "how well known the song is today, 1 to 5"),
-    ("filter", "lead singer or album", "F1", "reading", "F1", "whether a song keeps or drops"),
-    ("find", "album", "exact match", "reading", "exact match", "the one song of eight from a named album"),
+    ("decide", "yes/no questions", "accuracy at 0.5", "reading", "accuracy at 0.5", "context", "accuracy at 0.5",
+     "yes or no about one song"),
+    ("choose", "pick-one questions", "accuracy", "reading", "accuracy", "context", "accuracy",
+     "the right one of four or five options"),
+    ("tag", "lead singers", "exact-set match", "reading", "exact-set match", "context", "exact-set match",
+     "every Beatle who sang the lead, and who wrote or played how long"),
+    ("filter", "lead singer or album", "F1", "reading", "F1", "context", "F1", "whether a song keeps or drops"),
+    ("find", "album", "exact match", "reading", "exact match", "context", "exact match",
+     "the one song of the set that fits"),
 ]
 by_function = lambda f, t, m: cell(FUN, "value", function=f, test=t, measure=m)
-annotate_cards = lambda: str(sum(1 for l in open(ROOT / "questions" / "suite" / "annotate.jsonl", encoding="utf-8")
-                                 if json.loads(l)["test"] == "card"))  # 182 cards; the unsettled score no singer
+suite_cases = lambda name, level=None: str(
+    sum(1 for l in open(ROOT / "questions" / "suite" / name, encoding="utf-8")
+        if level is None or json.loads(l)["level"] == level))
+SPEARMAN_VIEWS, SPEARMAN_LEN, SPEARMAN_DATE = ("Spearman with 2024 page views", "Spearman with length in seconds",
+                                             "Spearman with release date")
 
 
 def reading_run(field):
-    """The reading run's case count or input tokens sent, from its committed outputs."""
-    outs = [json.loads(l) for l in open(published.JEV_READING / "outputs.jsonl", encoding="utf-8")]
-    return {"cases": len(outs), "tokens": sum(o["input_tokens"] for o in outs if o.get("sent"))}[field]
+    """The all-run's knowledge answers plus suite cases, or its input tokens sent, from its committed outputs."""
+    outs = [json.loads(l) for l in open(published.JEV_ALL / "outputs.jsonl", encoding="utf-8")]
+    ans = [json.loads(l) for l in open(published.JEV_ALL / "answers.jsonl", encoding="utf-8")]
+    tok = sum(o["input_tokens"] for o in outs if o.get("sent")) + sum(a["input_tokens"] for a in ans)
+    return {"questions": len(ans), "cases": len(outs), "tokens": tok}[field]
 CHOOSE = lambda option: lambda: output("choose", "choose-cold-04")["answer"]["probabilities"][option]
 EX = "examples/{}/README.md".format
 # The slide folders of examples/: each row names a folder's page, the text it quotes, and the source of the value.
@@ -183,30 +192,38 @@ CLAIMS = [
     ("data/README.md", "| `songs.tsv` | {} released Beatles songs", lambda: rows("songs.tsv")),
     ("data/README.md", "| `albums.tsv` | {} albums", lambda: rows("albums.tsv")),
     *[( "reports/results.md", "{}",
-         lambda f=f, t=t, m=m, rt=rt, rm=rm, what=what:
+         lambda f=f, t=t, m=m, rt=rt, rm=rm, ct=ct, cm=cm, what=what:
              f"| {f} | {int(cell(FUN, 'n', function=f, test=t, measure=m)):,} | {what} "
-             f"| {by_function(f, t, m)} | {by_function(f, rt, rm)} |")
-      for f, t, m, rt, rm, what in BY_FUNCTION],
+             f"| {by_function(f, t, m)} | {by_function(f, rt, rm)} | {by_function(f, ct, cm)} |")
+      for f, t, m, rt, rm, ct, cm, what in BY_FUNCTION],
     ("reports/results.md", "{}",
-     lambda: "| rank | {} | the songs in order by fame, and by date | {} / {} | {} / {} |".format(
-         int(cell(FUN, "n", function="rank", test="popularity", measure="Spearman with 2024 page views"))
-         + int(cell(FUN, "n", function="rank", test="date", measure="Spearman with release date")),
-         by_function("rank", "popularity", "Spearman with 2024 page views"),
-         by_function("rank", "date", "Spearman with release date"),
-         by_function("rank", "reading-popularity", "Spearman with 2024 page views"),
-         by_function("rank", "reading-date", "Spearman with release date"))),
+     lambda: "| score | {} | how well known the song is today, 1 to 5, and its length | {} / {} | {} | {} / {} |".format(
+         int(suite_cases("score.jsonl", "memory")),
+         by_function("score", "popularity", SPEARMAN_VIEWS), by_function("score", "length", SPEARMAN_LEN),
+         by_function("score", "reading", SPEARMAN_VIEWS),
+         by_function("score", "popularity-context", SPEARMAN_VIEWS),
+         by_function("score", "length-context", SPEARMAN_LEN))),
     ("reports/results.md", "{}",
-     lambda: "| annotate | {} | singer, first album and year on a card | {} | {} |".format(
-         annotate_cards(), by_function("annotate", "card", "singer accuracy"),
-         by_function("annotate", "reading", "singer accuracy"))),
-    ("reports/results.md", "| recognize | 400 | the song, person and album names in a sentence | — | {} |",
+     lambda: "| rank | {} | the songs in order by fame, and by date | {} / {} | {} / {} | {} / {} |".format(
+         int(cell(FUN, "n", function="rank", test="popularity", measure=SPEARMAN_VIEWS))
+         + int(cell(FUN, "n", function="rank", test="date", measure=SPEARMAN_DATE)),
+         by_function("rank", "popularity", SPEARMAN_VIEWS), by_function("rank", "date", SPEARMAN_DATE),
+         by_function("rank", "reading-popularity", SPEARMAN_VIEWS), by_function("rank", "reading-date", SPEARMAN_DATE),
+         by_function("rank", "popularity-context", SPEARMAN_VIEWS),
+         by_function("rank", "date-context", SPEARMAN_DATE))),
+    ("reports/results.md", "{}",
+     lambda: "| annotate | {} | singer, first album and year, or writers, cover and length | {} | {} | {} |".format(
+         suite_cases("annotate.jsonl", "memory"), by_function("annotate", "card", "singer accuracy"),
+         by_function("annotate", "reading", "singer accuracy"), by_function("annotate", "context", "singer accuracy"))),
+    ("reports/results.md", "| recognize | 400 | the song, person and album names in a sentence | — | {} | — |",
      lambda: by_function("recognize", "names-template", "song precision")),
     ("reports/results.md", "{}",
-     lambda: "| relate | {} | the edges between a set's songs, people and albums | {} | — |".format(
+     lambda: "| relate | {} | the edges between a set's songs, people and albums | {} | — | — |".format(
          sum(1 for l in open(ROOT / "questions" / "suite" / "relate.jsonl", encoding="utf-8")),
          by_function("relate", "song to singer and album", "edge F1"))),
-    ("reports/results.md", "results/runs/2026-09-30-reading-jev`: {} cases,", lambda: f"{reading_run('cases'):,}"),
-    ("reports/results.md", "{} input tokens, about $0.02", lambda: f"{reading_run('tokens'):,}"),
+    ("reports/results.md", "results/runs/2026-09-30-all-jev`: the {} questions and ", lambda: f"{reading_run('questions'):,}"),
+    ("reports/results.md", " and {} cases, ", lambda: f"{reading_run('cases'):,}"),
+    ("reports/results.md", "{} input tokens, about $0.40", lambda: f"{reading_run('tokens'):,}"),
     ("reports/results.md", "{} questions in 15 categories", questions),
     ("reports/results.md", "every category but the two reversal-general ones, {} questions", lambda: questions(beatles_only=True)),
     ("reports/results.md", "| Chance | {} |", lambda: results("Chance")),
@@ -228,15 +245,15 @@ class PublishedNumbersTest(unittest.TestCase):
 
     def test_the_slide_values_are_the_ones_the_talk_shows(self):
         """The talk shows these values. A change here changes a slide."""
-        self.assertEqual([cell(COST, c, system="Jev") for c in ("median_s", "usd")], ["0.215", "0.022466"])
-        self.assertEqual([load("start", 2), load("end", 2)], ["3.83", "7.10"])
+        self.assertEqual([cell(COST, c, system="Jev") for c in ("median_s", "usd")], ["0.195", "0.023347"])
+        self.assertEqual([load("start", 2), load("end", 2)], ["6.74", "11.18"])
         self.assertEqual([CHOOSE(o)() for o in ("John", "Paul", "George", "Ringo", "John and Paul duet")],
                          [0.01, 0.02, 0.13, 0.84, 0.0])
         self.assertEqual([jev("forward-singer-033", "John Lennon"), jev("forward-singer-033", "George Harrison"),
                           jev("lexical-trap-album-to-song-001", "Yellow Submarine"),
                           jev("lexical-trap-album-to-song-001", "It's All Too Much"),
                           jev("multi-hop-same-month-050", "No"), jev("multi-hop-same-month-050", "Yes")],
-                         [0.34, 0.14, 0.58, 0.31, 0.69, 0.31])
+                         [0.28, 0.17, 0.52, 0.34, 0.79, 0.21])
         self.assertEqual([a for _, _, a in sql_rows()], "1 0 1 1 0 1 0 NULL 1 1 0 1".split())
         truth = {s: cell("data/songs.tsv", "first_album", title=s) == "Abbey Road" for s, _, _ in sql_rows()}
         wrong = [s for s, _, a in sql_rows() if a != "NULL" and (a == "1") != truth[s]]

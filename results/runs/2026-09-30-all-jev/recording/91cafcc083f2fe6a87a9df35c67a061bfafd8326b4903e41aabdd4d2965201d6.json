@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"All My Loving\"},{\"id\":\"u002\",\"evidence\":\"Anna (Go to Him)\"},{\"id\":\"u003\",\"evidence\":\"Blue Jay Way\"},{\"id\":\"u004\",\"evidence\":\"Dear Prudence\"},{\"id\":\"u005\",\"evidence\":\"Dizzy Miss Lizzy\"},{\"id\":\"u006\",\"evidence\":\"I've Got a Feeling\"},{\"id\":\"u007\",\"evidence\":\"Within You Without You\"},{\"id\":\"u008\",\"evidence\":\"It's All Too Much\"}]","model":"jev-1.13.0","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Magical Mystery Tour?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"u003","confidence":0.35,"probabilities":{"u006":0.04,"u004":0.08,"u007":0.14,"u005":0.03,"u002":0.02,"u008":0.18,"u003":0.43,"u001":0.08}}},"usage":{"input_tokens":501,"output_tokens":101}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"You're Going to Lose That Girl first appeared on the album Help!","entities":[{"id":"i1","name":"You're Going to Lose That Girl","kind":"song"},{"id":"i2","name":"album","kind":"album"},{"id":"i3","name":"Help!","kind":"album"},{"id":"i4","name":"!","kind":"album"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 appears on i2?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 appears on i3?"},"q3":{"type":"noul","instructions":"Does the text itself state that i1 appears on i4?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.7981867825403176},"q2":{"type":"noul","noul":0.998073265164741},"q3":{"type":"noul","noul":0.0330859781503504}},"usage":{"input_tokens":615,"output_tokens":0}}
+}

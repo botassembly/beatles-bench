@@ -50,7 +50,7 @@ import score_suite as suite  # noqa: E402
 
 RUNS = ROOT / "results" / "runs"
 SUITE = ROOT / "questions" / "suite"
-FIELDS = ["singer", "album", "year"]
+FIELDS = ["singer", "album", "year", "writers", "cover", "length"]
 
 
 def committed(path):
@@ -205,8 +205,11 @@ def rank_fields(r, c, o, r0, lists):
 
 
 def find_fields(r, c, r0):
+    """The picked record's id; a none set's pick is "none" and its value null."""
     v = r0.get("value") or {}
     picked = v.get("id") if isinstance(v, dict) else None
+    if picked is None and (r0.get("answer") or {}).get("pick") == "none":
+        picked = "none"
     r["answer"] = picked
     if c.get("truth") is not None:
         r["right"] = float(picked == c["truth"])
@@ -219,10 +222,11 @@ def annotate_rows(r, c, o, r0):
     """One row per field the truth scores, with the field in the id."""
     out = []
     answers = r0.get("answers") or {}
-    for field in FIELDS:
-        t = (c.get("truth") or {}).get(field)
-        if t is None:
-            continue
+    truth = c.get("truth") or {}
+    fields = [f for f in FIELDS if truth.get(f) is not None]
+    fields += sorted(f for f in truth if f not in FIELDS and truth[f] is not None)
+    for field in fields:
+        t = truth[field]
         fa = answers.get(field) or {}
         fv = fa.get("value")
         fr = dict(r)
@@ -396,7 +400,7 @@ def main(out=ROOT / "results" / "answers.jsonl"):
     out.parent.mkdir(parents=True, exist_ok=True)
     with open(out, "w", encoding="utf-8") as f:
         for run in run_dirs():
-            for r in knowledge_rows(run, cat, qs) or suite_rows(run, cat, cases):
+            for r in knowledge_rows(run, cat, qs) + suite_rows(run, cat, cases):
                 f.write(json.dumps(r, ensure_ascii=False) + "\n")
     return out
 

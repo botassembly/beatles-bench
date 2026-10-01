@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Words of Love\"},{\"id\":\"u002\",\"evidence\":\"Things We Said Today\"},{\"id\":\"u003\",\"evidence\":\"I've Got a Feeling\"},{\"id\":\"u004\",\"evidence\":\"Strawberry Fields Forever\"},{\"id\":\"u005\",\"evidence\":\"Sgt. Pepper's Lonely Hearts Club Band\"},{\"id\":\"u006\",\"evidence\":\"Wild Honey Pie\"},{\"id\":\"u007\",\"evidence\":\"All Together Now\"},{\"id\":\"u008\",\"evidence\":\"Girl\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Rubber Soul?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u008","probabilities":{"u001":0.10854620681399653,"u002":0.13937608843421567,"u003":0.01380010485049076,"u004":0.17896244002805126,"u005":0.0015483288530797764,"u006":0.001754486444706082,"u007":0.004769188620922259,"u008":0.5512431559545377},"confidence":0.48713503537661446}},"usage":{"input_tokens":220,"output_tokens":0}}
+}

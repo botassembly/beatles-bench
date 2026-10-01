@@ -8,7 +8,7 @@ The know-this slide. Four plain points: the price, the cache, what batching save
 | --- | --- | --- |
 | Jev's price per million input tokens | `0.042` | [`../../results/tables/cost.tsv`](../../results/tables/cost.tsv), row Jev, `price_source`, and [`../../scripts/score/prices.tsv`](../../scripts/score/prices.tsv), row jev |
 | Output is free | `usd_per_m_output` `0` | `prices.tsv`, row jev |
-| The 1,501 questions cost | `usd` `0.022466` | `cost.tsv`, row Jev |
+| The 1,501 questions cost | `usd` `0.023347` | `cost.tsv`, row Jev |
 
 ## Claims with no bench source
 
@@ -19,7 +19,7 @@ The know-this slide. Four plain points: the price, the cache, what batching save
 
 ## The build
 
-The cost row: [`run.txt`](../../results/runs/2026-09-26-thinkthen-jev/run.txt) of the 2026-09-26 Jev run. The batching numbers: build not recorded in the bench.
+The cost row: [`run.txt`](../../results/runs/2026-09-30-all-jev/run.txt) of the 2026-09-30 all-jev run. The batching numbers: build not recorded in the bench.
 
 ## The check
 

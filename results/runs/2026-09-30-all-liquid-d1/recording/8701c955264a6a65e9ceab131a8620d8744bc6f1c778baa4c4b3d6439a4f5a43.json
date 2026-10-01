@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"Every Little Thing is sung by John Lennon and Paul McCartney","entities":[{"id":"i1","name":"Every Little Thing","kind":"song"},{"id":"i2","name":"John Lennon","kind":"person"},{"id":"i3","name":"Paul McCartney","kind":"person"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i2?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 sung by i3?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.9840936047893822},"q2":{"type":"noul","noul":0.9933071506607352}},"usage":{"input_tokens":360,"output_tokens":0}}
+}

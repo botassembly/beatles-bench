@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Tell Me Why\"},{\"id\":\"u002\",\"evidence\":\"Ticket to Ride\"},{\"id\":\"u003\",\"evidence\":\"Only a Northern Song\"},{\"id\":\"u004\",\"evidence\":\"Baby It's You\"},{\"id\":\"u005\",\"evidence\":\"I Wanna Be Your Man\"},{\"id\":\"u006\",\"evidence\":\"Piggies\"},{\"id\":\"u007\",\"evidence\":\"Girl\"},{\"id\":\"u008\",\"evidence\":\"Rock and Roll Music\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Please Please Me?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u004","probabilities":{"u001":0.015267805669859039,"u002":0.019604250537148215,"u003":0.0008091640565822762,"u004":0.47496751245548874,"u005":0.3699050706338119,"u006":0.0008091640565822762,"u007":0.012657455471032955,"u008":0.10597957711949454},"confidence":0.3999628713777014}},"usage":{"input_tokens":213,"output_tokens":0}}
+}

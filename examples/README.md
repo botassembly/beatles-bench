@@ -8,7 +8,7 @@ Twelve folders hold a function example: its cases, its recording, its answers, a
 | --- | --- | --- | --- | --- | --- | --- |
 | 1 | title | A prism: ten functions, each with one recorded input and output | the deck holds it | the deck's own recordings | the deck | the deck |
 | 2 | strings | Three strings against the things they name, with the chance and vector search shares | [strings/](strings/) | `data/songs.tsv`, `reports/results.md` | `test_published_numbers.py` | no model call |
-| 3 | jev | One choose answer from Jev, its time, and its price | [jev/](jev/) | `choose/outputs.jsonl`, `results/tables/cost.tsv`, the 2026-09-26 Jev run's `loadavg.txt`, `scripts/score/prices.tsv` | `test_published_numbers.py`, `./run.sh` | `choose/run.txt`, the 2026-09-26 Jev run's `run.txt` |
+| 3 | jev | One choose answer from Jev, its time, and its price | [jev/](jev/) | `choose/outputs.jsonl`, `results/tables/cost.tsv`, the 2026-09-30 all-jev run's `loadavg.txt`, `scripts/score/prices.tsv` | `test_published_numbers.py`, `./run.sh` | `choose/run.txt`, the 2026-09-30 all-jev run's `run.txt` |
 | 4 | bench | Six rows of the song table and the bench's size | [bench/](bench/) | `data/songs.tsv`, `data/albums.tsv`, `questions/` | `test_published_numbers.py` | no model call |
 | 5 | runs-in | One function run in a terminal, and the surfaces ThinkThen runs on | the deck holds it | the deck's own run | the deck | the deck |
 | 6 | decide | Four yes or no answers and a bar | [decide/](decide/) | the folder's cases and `recording/` | `test_examples.py`, `./run.sh` | `decide/run.txt` |
@@ -29,11 +29,11 @@ Twelve folders hold a function example: its cases, its recording, its answers, a
 | 21 | systems | Code in each systems language | no bench data | none | none | none |
 | 22 | sql | One SQL query with a band, and its 1, 0, and NULL answers | [sql/](sql/) | `filter/outputs.jsonl` | `test_published_numbers.py` | `filter/run.txt` |
 | 23 | frames | Code in each data frame language | no bench data | none | none | none |
-| 24 | what-jev-knows | Four bars: chance, vector search, Jev, and a big chat model | [what-jev-knows/](what-jev-knows/) | `results/tables/accuracy.tsv`, `reports/results.md` | `test_published_numbers.py` | the 2026-09-26 Jev run's `run.txt`; GLM build not recorded |
-| 25 | catches | Three weak spots, each with one question Jev missed | [catches/](catches/) | the 2026-09-26 Jev run's `answers.jsonl`, `results/tables/popularity.tsv`, `controls.tsv`, `composition.tsv` | `test_published_numbers.py` | the 2026-09-26 Jev run's `run.txt` |
+| 24 | what-jev-knows | Four bars: chance, vector search, Jev, and a big chat model | [what-jev-knows/](what-jev-knows/) | `results/tables/accuracy.tsv`, `reports/results.md` | `test_published_numbers.py` | the 2026-09-30 all-jev run's `run.txt`; GLM build not recorded |
+| 25 | catches | Three weak spots, each with one question Jev missed | [catches/](catches/) | the 2026-09-30 all-jev run's `answers.jsonl`, `results/tables/popularity.tsv`, `controls.tsv`, `composition.tsv` | `test_published_numbers.py` | the 2026-09-30 all-jev run's `run.txt` |
 | 26 | open-book | From memory against the song catalog in the text | [open-book/](open-book/) | `reports/open-book.md`, the 2026-09-26 Jev and open-book runs | `test_published_numbers.py` | both runs' `run.txt` |
-| 27 | know-this | The price, the cache, batching, and caps | [know-this/](know-this/) | `results/tables/cost.tsv`, `scripts/score/prices.tsv`; batching has no bench source | `test_published_numbers.py` | the 2026-09-26 Jev run's `run.txt`; batching build not recorded |
-| 28 | bench-run | Three facts and the steps to run the bench | [bench-run/](bench-run/) | `results/tables/cost.tsv`, the 2026-09-26 Jev run's `loadavg.txt`, the README's "Run it" | `test_published_numbers.py` | the 2026-09-26 Jev run's `run.txt`; GLM build not recorded |
+| 27 | know-this | The price, the cache, batching, and caps | [know-this/](know-this/) | `results/tables/cost.tsv`, `scripts/score/prices.tsv`; batching has no bench source | `test_published_numbers.py` | the 2026-09-30 all-jev run's `run.txt`; batching build not recorded |
+| 28 | bench-run | Three facts and the steps to run the bench | [bench-run/](bench-run/) | `results/tables/cost.tsv`, the 2026-09-30 all-jev run's `loadavg.txt`, the README's "Run it" | `test_published_numbers.py` | the 2026-09-30 all-jev run's `run.txt`; GLM build not recorded |
 | 29 | backends | A `thinkthen check` run against a server | the deck holds it | the deck's saved output | the deck | the deck |
 | 30 | close | The speaker and the ThinkThen links | no bench data | none | none | none |
 

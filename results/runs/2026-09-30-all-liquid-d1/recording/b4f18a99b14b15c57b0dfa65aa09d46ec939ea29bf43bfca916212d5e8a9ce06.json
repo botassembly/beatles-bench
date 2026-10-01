@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"The Night Before\"},{\"id\":\"u002\",\"evidence\":\"I Me Mine\"},{\"id\":\"u003\",\"evidence\":\"Drive My Car\"},{\"id\":\"u004\",\"evidence\":\"If I Fell\"},{\"id\":\"u005\",\"evidence\":\"Baby, You're a Rich Man\"},{\"id\":\"u006\",\"evidence\":\"Do You Want to Know a Secret\"},{\"id\":\"u007\",\"evidence\":\"Rock and Roll Music\"},{\"id\":\"u008\",\"evidence\":\"Octopus's Garden\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Please Please Me?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u006","probabilities":{"u001":0.02886324717952023,"u002":0.00036333474770007654,"u003":0.00041171201098213524,"u004":0.009370526646912555,"u005":0.0001826961845177032,"u006":0.9558194183739851,"u007":0.004426321258934949,"u008":0.0005627435974473453},"confidence":0.9495079067131258}},"usage":{"input_tokens":218,"output_tokens":0}}
+}

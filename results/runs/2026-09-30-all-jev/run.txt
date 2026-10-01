@@ -1,0 +1,17 @@
+thinkthen: thinkthen 0.0.1, build pinned as thinkthen-aec7819bb, from thinkthen main aec7819bb
+build of thinkthen at aec7819bbec909084723d81b5f93669ff80babb3
+THINKTHEN_BIN SHA-256: 41af203ef4bda363a6543e31b5246b6a0450265885ebc1756e46b3de7766e01d
+model the backend reported: jev-1.13.0
+machine: a local Linux machine, 16 cores
+date: 2026-09-30
+The whole bench in one folder: the 1,501 knowledge questions in answers.jsonl and all 5,838 suite cases in
+outputs.jsonl, asked through ticket 0023. A plan check before the run gave an upper bound of 19,340,875 input
+tokens (464,060 for the questions, 18,876,815 for the suite). The run stayed under the 20,000,000 cap.
+The backend timed out on single requests three times; each leg resumed from the recording. The last legs sent
+BENCH_THINKTHEN_ARGS="--timeout 180" to give slow requests room.
+live jobs (a local spend guard), BENCH_WORKERS=4 then 2:
+  knowledge questions: BENCH_MAX_INPUT_TOKENS=20000000, exit 0, input tokens sent 555878
+  function suite: BENCH_MAX_INPUT_TOKENS=20000000, exit 0, input tokens sent 8909854
+input tokens sent in all: 9465732
+replay (key unset, model and flags as sent): ask.py replay exit 0, answers.jsonl byte-identical;
+  ask_suite.py replay exit 0, outputs.jsonl and lists/ byte-identical

@@ -19,6 +19,8 @@ Live mode appends a start and an end line to RUN_DIR/loadavg.txt: the UTC time a
 Environment:
   THINKTHEN_BIN      the command (default: thinkthen on PATH)
   BEATLES_BENCH_MODEL  the model (default: jev-latest)
+  BENCH_THINKTHEN_ARGS  extra flags appended to every call, as --flag value pairs or bare flags; a flag the
+                     call already sets keeps the call's own value and is dropped here, value included
   BENCH_WORKERS      calls in flight (default 4)
   BENCH_MAX_INPUT_TOKENS   live mode stops starting calls once new requests have reported this many input tokens
                            (unset: no cap; 0 or below: start no call)
@@ -31,6 +33,7 @@ This script never reads the key. The command reads THINKTHEN_API_KEY from the en
 import glob
 import json
 import os
+import shlex
 import subprocess
 import sys
 import threading
@@ -43,6 +46,25 @@ import gaps
 ROOT = Path(__file__).resolve().parents[2]
 TT = os.environ.get("THINKTHEN_BIN", "thinkthen")
 MODEL = os.environ.get("BEATLES_BENCH_MODEL", "jev-latest")
+EXTRA = shlex.split(os.environ.get("BENCH_THINKTHEN_ARGS", ""))
+
+
+def extra_args(args):
+    """BENCH_THINKTHEN_ARGS minus every flag args already sets: a --flag in both keeps the call's own value,
+    so the extra flag and its value drop out. Returns the tokens to append."""
+    have = {a.split("=", 1)[0] for a in args if a.startswith("--")}
+    out, i = [], 0
+    while i < len(EXTRA):
+        a = EXTRA[i]
+        keep = not a.startswith("--") or a.split("=", 1)[0] not in have
+        if keep:
+            out.append(a)
+        i += 1
+        if a.startswith("--") and "=" not in a and i < len(EXTRA) and not EXTRA[i].startswith("--"):
+            if keep:
+                out.append(EXTRA[i])
+            i += 1
+    return out
 
 
 def read_timing(path):
@@ -57,6 +79,7 @@ def call(q, flag, rec, catalog=None):
     args = [TT, q["function"], q["question"], "--jsonl", "--field", "/input", "--details", "--model", MODEL, flag, str(rec)]
     if q["function"] == "choose":
         args += ["--options", "/options"]
+    args += extra_args(args)
     context = q.get("context") or catalog
     text = f"Catalog:\n{context}\nText: {q['input']}" if context else q["input"]
     record = json.dumps({"id": q["id"], "input": text, **({"options": q["options"]} if q["options"] else {})},

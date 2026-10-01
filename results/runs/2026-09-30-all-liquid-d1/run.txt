@@ -1,0 +1,19 @@
+thinkthen: thinkthen 0.0.1, build pinned as thinkthen-aec7819bb, from thinkthen main aec7819bb
+build of thinkthen at aec7819bbec909084723d81b5f93669ff80babb3
+THINKTHEN_BIN SHA-256: 41af203ef4bda363a6543e31b5246b6a0450265885ebc1756e46b3de7766e01d (copied from the all-jev run's run.txt — the same pinned build aec7819bb; not hashed for this run)
+model the backend reported: d1:free
+machine: a local Linux machine, 16 cores
+date: 2026-09-30
+The whole bench in one folder: the 1,501 knowledge questions in answers.jsonl and all 5,838 suite cases in
+outputs.jsonl, asked through ticket 0023. d1:free billed nothing and reported input tokens only.
+live jobs (a local spend guard), BENCH_WORKERS=2 and BENCH_THINKTHEN_ARGS="--backend liquid --timeout 90":
+  knowledge questions: exit 0, input tokens sent 169691
+  function suite: exit 0, input tokens sent 7008100
+input tokens sent in all: 7177791
+531 calls sit in gaps.tsv. 513 hit the backend's rate limit after the allowed retries (429); 18 relate
+requests were refused as malformed or too large (422). Three knowledge questions are gaps. Seven suite tests
+ended part-answered: annotate card (90 of 182), details (117 of 118) and reading (12 of 100), find album-more
+(53 of 104) and singer (22 of 144), rank reading-popularity (44 of 100), and relate more-links (1 of 10). The
+find reading test and the relate links and song-to-singer-and-album tests were refused whole.
+replay (key unset, model and flags as sent): pending; the replay reads gaps.tsv and asks nothing for a gap
+function table: pending; 513 rate-limited gaps, function table deferred until they are asked again

@@ -16,7 +16,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
-from published import JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN  # noqa: E402
+from published import D1_ALL, JEV_ALL, JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN, \
+    pending  # noqa: E402
 import importlib.util  # noqa: E402
 
 import make_suite as gen  # noqa: E402
@@ -31,13 +32,6 @@ NEW_GROUPS = ("recognize-varied-,recognize-song-or-album-,recognize-short-names-
 RELATE_ONLY = "relate-songs,relate-solo-,relate-duet-,relate-wrong-album-only-,relate-links-"
 READING = ("decide-reading-,choose-reading-,tag-reading-,score-reading-,filter-reading-,rank-reading-,"
            "find-reading-,find-more-,annotate-reading-")
-# The 2026-09-26 suite run recorded every test but the recognize groups, the relate groups, the reading tests and
-# the album-more find sets added later. Its case ids: tag-lead-*, score-popularity-*, filter-singer-*/
-# filter-album-*, rank-popularity-*/rank-date-*, find-album-01..13-*, annotate-card-*, relate-songs, and
-# names-template's recognize-01 through -48.
-OLD_CASES = ("tag-lead-,score-popularity-,filter-singer-,filter-album-,rank-popularity-,rank-date-,"
-             "find-album-0,find-album-1,annotate-card-,relate-songs,"
-             "recognize-0,recognize-1,recognize-2,recognize-3,recognize-4")
 BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
 RUN = JEV_FUNCTIONS
 
@@ -53,6 +47,8 @@ def cases(name):
 
 def same_build(run):
     """True when BIN is the build run.txt names as the one that recorded the run; the recording binds to it."""
+    if not (Path(run) / "run.txt").exists():
+        return False
     text = (Path(run) / "run.txt").read_text(encoding="utf-8")
     m = re.search(r"THINKTHEN_BIN SHA-256: ([0-9a-f]{64})", text)
     return bool(BIN and Path(BIN).exists() and m and hashlib.sha256(Path(BIN).read_bytes()).hexdigest() == m.group(1))
@@ -446,13 +442,28 @@ class TableTest(unittest.TestCase):
         runs = ROOT / "results" / "runs"
         out = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, out, True)
-        jev = ",".join(str(p) for p in (JEV_FUNCTIONS, JEV_RECOGNIZE, JEV_RELATE, JEV_READING) if p.exists())
-        for suite, core, table in ((jev, JEV_RUN, "functions.tsv"),
+        for suite, core, table in ((JEV_ALL, JEV_ALL, "functions.tsv"),
+                                   (D1_ALL, D1_ALL, "functions-liquid-d1.tsv"),
                                    (runs / "2026-09-23-functions-laya", runs / "2026-09-23-thinkthen-laya", "functions-laya.tsv"),
                                    (runs / "2026-09-23-functions-glm-5.3-flash", runs / "2026-09-23-glm-5.3-flash", "functions-glm.tsv")):
-            subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
-                            str(core), str(out / table)], check=True, capture_output=True)
-            self.assertEqual((out / table).read_bytes(), (ROOT / "results" / "tables" / table).read_bytes(), table)
+            with self.subTest(table):
+                reason = pending(suite)  # a run its run.txt names pending has no table to check
+                if reason:
+                    self.skipTest(reason)
+                subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
+                                str(core), str(out / table)], check=True, capture_output=True)
+                self.assertEqual((out / table).read_bytes(), (ROOT / "results" / "tables" / table).read_bytes(), table)
+
+    def test_the_d1_run_is_the_only_run_pending_its_function_table(self):
+        """The exclusion never grows silently: one run may defer its table, and only while its gaps stand."""
+        pend = {p.name: pending(p) for p in sorted((ROOT / "results" / "runs").iterdir())
+                if p.is_dir() and pending(p)}
+        self.assertEqual(list(pend), [D1_ALL.name])
+        self.assertIn("513 rate-limited gaps", pend[D1_ALL.name])
+        msgs = [r["message"] for r in csv.DictReader(open(D1_ALL / "gaps.tsv", encoding="utf-8"), delimiter="\t")]
+        self.assertEqual(len(msgs), 531)
+        self.assertEqual(sum("status 429" in m for m in msgs), 513)  # the rate-limited gaps the reason names
+        self.assertEqual(sum("status 422" in m for m in msgs), 18)
 
 
 class ScoreTest(unittest.TestCase):
@@ -687,6 +698,23 @@ class RunTest(unittest.TestCase):
         self.assertIn("functions: stopped at 0 new input tokens (cap 0); 1 cases unasked.", done.stderr)
         self.assertEqual(list((run / "recording").glob("*")) if (run / "recording").exists() else [], [])
 
+    def test_extra_args_append_and_a_cases_own_flag_wins(self):
+        qdir = Path(tempfile.mkdtemp())
+        c = {**cases("tag")[0], "args": [*cases("tag")[0]["args"], "--timeout", "180"]}
+        (qdir / "tag.jsonl").write_text(json.dumps(c, ensure_ascii=False) + "\n")
+        run = Path(tempfile.mkdtemp())
+        log = run / "calls.jsonl"
+        env = {**os.environ, "THINKTHEN_BIN": str(ROOT / "tests" / "fixtures" / "fake-thinkthen-functions"),
+               "BENCH_FUNCTIONS": str(qdir), "BENCH_TESTS": "tag", "BENCH_WORKERS": "1", "FAKE_LOG": str(log),
+               "BENCH_THINKTHEN_ARGS": "--backend other --timeout 90"}
+        env.pop("THINKTHEN_API_KEY", None)
+        script = ROOT / "scripts" / "run" / "ask_suite.py"
+        subprocess.run([sys.executable, str(script), "live", str(run)], check=True, env=env)
+        argv = json.loads(log.read_text().splitlines()[0])
+        self.assertEqual(argv.count("--timeout"), 1)
+        self.assertEqual(argv[argv.index("--timeout") + 1], "180")  # the case's own timeout stands
+        self.assertEqual(argv[-2:], ["--backend", "other"])
+
     def test_a_refused_case_is_a_gap_and_replays_without_a_call(self):
         qdir = Path(tempfile.mkdtemp())
         for name in ["tag", "annotate"]:
@@ -722,26 +750,27 @@ class ReplayTest(unittest.TestCase):
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(RUN / "recording")
         shutil.copy(RUN / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": BIN, "BENCH_SUITE_ONLY": OLD_CASES}
+        # the recording binds the model the run sent: it sits in the request hash a replay recomputes
+        env = {**os.environ, "THINKTHEN_BIN": BIN, "BEATLES_BENCH_MODEL": "jev-1.13.0"}
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (RUN / "outputs.jsonl").read_text())
         for p in sorted((RUN / "lists").glob("*.jsonl")):
             self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)
-        rows = fscore.table(tmp / "replay", JEV_RUN)
-        # relate is left out: functions.tsv's relate rows come from the 2026-09-30 pair-planner run, while this
-        # replay's recording holds the 02dc0b96 choice planner's answers — the historical values the report keeps.
-        # The byte-for-byte replay check above still covers its relate-songs output.
-        got = {(r["function"], r["test"], r["measure"]): (fscore.fmt(r["value"]), r["n"]) for r in rows
-               if r["function"] in TESTS and r["function"] != "relate"}
-        saved = {(r["function"], r["test"], r["measure"]): (r["value"], int(r["n"])) for r in
-                 csv.DictReader(open(ROOT / "results" / "tables" / "functions.tsv", encoding="utf-8"), delimiter="\t")
-                 if r["function"] in TESTS}
-        # the replay scores a subset of the published rows. A test the suite later grew (find album) scored fewer
-        # cases under this run, so its saved row has a bigger n and is left out.
-        grew = {k for k in got if saved[k][1] != got[k][1]}
-        self.assertEqual({k: saved[k][0] for k in got if k not in grew},
-                         {k: got[k][0] for k in got if k not in grew})
+        # the byte-for-byte replay is the check. functions.tsv comes from the all-jev run since ticket 0023, so
+        # this recording's answers are no longer the published values to compare against.
+
+    def test_the_d1_suite_replays_with_the_key_unset(self):
+        if not same_build(D1_ALL):
+            self.skipTest("the run's recording binds to another thinkthen build")
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "recording").symlink_to(D1_ALL / "recording")
+        shutil.copy(D1_ALL / "timing.tsv", tmp / "timing.tsv")
+        env = {**os.environ, "THINKTHEN_BIN": BIN, "BEATLES_BENCH_MODEL": "d1:free",
+               "BENCH_THINKTHEN_ARGS": "--backend liquid --timeout 90"}
+        env.pop("THINKTHEN_API_KEY", None)
+        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
+        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (D1_ALL / "outputs.jsonl").read_text())
 
     def test_the_new_recognize_groups_replay_with_the_key_unset(self):
         if not same_build(JEV_RECOGNIZE):

@@ -35,7 +35,7 @@ class ReadmeTableTest(unittest.TestCase):
     """README.md's headline table is pasted by hand from table.py. Each shown cell must equal table.py's: the Beatles-only
     share, the median time before its note, and the dollars per 1,000 rounded to three places."""
     NAMES = {"String search (BM25)": "BM25", "Laya, from memory": "Laya", "Jev, from memory": "Jev",
-             "GLM-5.3 Flash, from memory": "GLM-5.3 Flash"}
+             "GLM-5.3 Flash, from memory": "GLM-5.3 Flash", "Liquid d1, from memory": "Liquid d1"}
 
     def test_the_readme_table_equals_table_py(self):
         printed = {}
@@ -54,6 +54,17 @@ class ReadmeTableTest(unittest.TestCase):
                 self.assertEqual(time.split(" (")[0], median)  # a note on the build and load may follow
                 want = f"{float(cost):.3f}".rstrip("0").rstrip(".")
                 self.assertEqual(dollars.split(" ")[0], want)
+
+
+class ResultsFunctionTableTest(unittest.TestCase):
+    """reports/results.md's function table is pasted from `python3 scripts/score/table.py`. The block from the
+    table's header row to the next blank line must equal what table.functions() prints, byte for byte."""
+
+    def test_the_function_table_equals_table_py(self):
+        page = (ROOT / "reports" / "results.md").read_text(encoding="utf-8")
+        start = page.index("| Function | Test | Measure |")
+        block = page[start:page.index("\n\n", start)]
+        self.assertEqual(block, table.functions())
 
 
 if __name__ == "__main__":

@@ -1,13 +1,26 @@
 """scripts/run/thinkthen.sh sends every question through the command and writes one timed answer per question, in order.
 Every committed run records the wall time of every answer."""
+import hashlib
 import json
 import os
+import re
+import shutil
 import subprocess
 import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
+JEV_ALL = ROOT / "results" / "runs" / "2026-09-30-all-jev"
+
+
+def same_build(run):
+    """True when BIN is the build run.txt names as the one that recorded the run; the recording binds to it."""
+    if not (Path(run) / "run.txt").exists():
+        return False
+    m = re.search(r"THINKTHEN_BIN SHA-256: ([0-9a-f]{64})", (Path(run) / "run.txt").read_text(encoding="utf-8"))
+    return bool(BIN and Path(BIN).exists() and m and hashlib.sha256(Path(BIN).read_bytes()).hexdigest() == m.group(1))
 
 
 def ids():
@@ -90,6 +103,21 @@ class RunTest(unittest.TestCase):
         subprocess.run([str(ROOT / "scripts" / "run" / "thinkthen.sh"), "replay", str(run)], check=True, env=env)
         self.assertEqual((run / "replay" / "answers.jsonl").read_text(), (run / "answers.jsonl").read_text())
 
+    @unittest.skipUnless(BIN and Path(BIN).exists() and (JEV_ALL / "recording").exists(),
+                         "the command or the recorded run is missing")
+    def test_the_all_jev_run_replays_with_the_key_unset(self):
+        if not same_build(JEV_ALL):
+            self.skipTest("the run's recording binds to another thinkthen build")
+        tmp = Path(tempfile.mkdtemp())
+        (tmp / "recording").symlink_to(JEV_ALL / "recording")
+        (tmp / "timing.tsv").write_text((JEV_ALL / "timing.tsv").read_text(encoding="utf-8"), encoding="utf-8")
+        # the recording binds the model the run sent: it sits in the request hash a replay recomputes
+        env = {**os.environ, "THINKTHEN_BIN": BIN, "BEATLES_BENCH_MODEL": "jev-1.13.0"}
+        env.pop("THINKTHEN_API_KEY", None)
+        subprocess.run([str(ROOT / "scripts" / "run" / "thinkthen.sh"), "replay", str(tmp)], check=True, env=env)
+        self.assertEqual((tmp / "replay" / "answers.jsonl").read_text(),
+                         (JEV_ALL / "answers.jsonl").read_text())
+
     def test_every_committed_run_answers_every_question_with_a_wall_time(self):
         runs = sorted(p.parent for p in (ROOT / "results" / "runs").glob("*/answers.jsonl"))
         self.assertTrue(runs)
@@ -122,6 +150,18 @@ class RunTest(unittest.TestCase):
             self.assertEqual(len(log.read_text().splitlines()) if log.exists() else 0, calls, cap)
             self.assertIn(message, done.stderr, cap)
             self.assertFalse((run / "answers.jsonl").exists(), cap)
+
+    def test_bench_thinkthen_args_appends_extra_flags(self):
+        own = [{"id": "q0", "function": "decide", "question": "Is it?", "input": "Carol", "options": None}]
+        run = Path(tempfile.mkdtemp())
+        (run / "questions.jsonl").write_text(json.dumps(own[0]) + "\n", encoding="utf-8")
+        log = run / "calls.jsonl"
+        env = {**os.environ, "THINKTHEN_BIN": str(ROOT / "tests" / "fixtures" / "fake-thinkthen"),
+               "FAKE_LOG": str(log), "BENCH_THINKTHEN_ARGS": "--backend other --timeout 90"}
+        env.pop("THINKTHEN_API_KEY", None)
+        subprocess.run([str(ROOT / "scripts" / "run" / "thinkthen.sh"), "live", str(run)], check=True, env=env)
+        argv = json.loads(log.read_text().splitlines()[0])
+        self.assertEqual(argv[-4:], ["--backend", "other", "--timeout", "90"])
 
 if __name__ == "__main__":
     unittest.main()

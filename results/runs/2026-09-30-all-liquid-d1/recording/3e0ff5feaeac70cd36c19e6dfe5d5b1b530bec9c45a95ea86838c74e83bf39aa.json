@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Good Night\"},{\"id\":\"u002\",\"evidence\":\"Anna (Go to Him)\"},{\"id\":\"u003\",\"evidence\":\"Everybody's Trying to Be My Baby\"},{\"id\":\"u004\",\"evidence\":\"Only a Northern Song\"},{\"id\":\"u005\",\"evidence\":\"If I Fell\"},{\"id\":\"u006\",\"evidence\":\"Something\"},{\"id\":\"u007\",\"evidence\":\"I Need You\"},{\"id\":\"u008\",\"evidence\":\"Get Back\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album The Beatles (White Album)?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u004","probabilities":{"u001":0.06273332806367633,"u002":0.08055116850227335,"u003":0.13280645655297116,"u004":0.40907268511956224,"u005":0.007975645741098974,"u006":0.019132584083319203,"u007":0.11720128655123269,"u008":0.17052684538586593},"confidence":0.3246544972794997}},"usage":{"input_tokens":214,"output_tokens":0}}
+}

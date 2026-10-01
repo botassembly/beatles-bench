@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.typesafe.ai/v1/systemone",
+  "request": {"state":{"evidence":"the album With the Beatles came out in 1963 while Savoy Truffle stayed a favourite","entities":[{"id":"i1","name":"With the Beatles","kind":"album"},{"id":"i2","name":"Savoy Truffle","kind":"song"}]},"model":"jev-1.13.0","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i2 appears on i1?"}}},
+  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.08}},"usage":{"input_tokens":375,"output_tokens":21}}
+}

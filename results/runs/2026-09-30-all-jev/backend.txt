@@ -1,0 +1,2 @@
+THINKTHEN_BASE_URL=https://api.typesafe.ai/v1/systemone
+BEATLES_BENCH_MODEL=jev-1.13.0

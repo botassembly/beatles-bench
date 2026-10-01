@@ -13,20 +13,22 @@ A benchmark of what a small, fast model knows about Beatles songs, and how well 
 
 ## Results
 
-Jev and three other kinds of system answer the same 1,313 Beatles questions. The Jev row comes from the run of 2026-09-26. The other rows come from the runs of 2026-09-23.
+Jev and four other kinds of system answer the same 1,313 Beatles questions. The Jev and Liquid d1 rows come from the all-runs of 2026-09-30. The other rows come from the runs of 2026-09-23.
 
 - String search compares the question with each option and picks the closest. It knows no facts. Vector search did no better, even with the relation named in the query ([reports/baselines.md](reports/baselines.md)).
 - GLM-5.3 Flash is a large chat model from Z.ai. It answers from memory, with thinking off and no search tool.
 - Laya is a small Jev-like model, run locally on a Mac.
+- Liquid d1 (`d1:free`) is a small model from Liquid AI on the same System One wire, asked through `thinkthen --backend liquid`.
 
 | System | Beatles questions right | Median time per answer | Dollars per 1,000 answers |
 | --- | --- | --- | --- |
 | String search (BM25) | 33.8% | no model call | 0 |
 | Laya, from memory | 35.0% | 0.07 s (build and load not recorded) | 0 (local) |
-| Jev, from memory | 67.0% | 0.21 s (load average 3.83 to 7.10 on 16 cores) | 0.015 |
+| Jev, from memory | 67.4% | 0.20 s (load average 6.74 to 11.18 on 16 cores) | 0.016 |
+| Liquid d1, from memory | 64.3% | 0.31 s (load average 11.15 to 15.15 on 16 cores) | 0 (d1:free billed nothing) |
 | GLM-5.3 Flash, from memory | 96.2% | 8.24 s (build and load not recorded) | 0.056 |
 
-A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-26-thinkthen-jev`, whose `loadavg.txt` records the load.
+A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-30-all-jev`, and Liquid d1's from `results/runs/2026-09-30-all-liquid-d1`; each folder's `loadavg.txt` records the load.
 
 - Search sits near chance. Matching words cannot tell which album a song came out on.
 - Jev from memory gets about two in three. It knows a lot and misses fine detail. Its misses are near misses: one year off, a sibling album.
@@ -37,7 +39,7 @@ A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-26-think
 
 ## Run it
 
-Install the `thinkthen` command first. `./run.sh` needs a build with `audit`. The bench pins thinkthen main at 02dc0b96. That build wrote the committed outputs through 2026-09-26, and their replays hold only under it. The recognize and relate runs of 2026-09-30 used the newer pinned build c22512868; each run's `run.txt` names the SHA-256. Then:
+Install the `thinkthen` command first. `./run.sh` needs a build with `audit`. The bench pins thinkthen main at 02dc0b96. That build wrote the committed outputs through 2026-09-26, and their replays hold only under it. The recognize and relate runs of 2026-09-30 used the newer pinned build c22512868, and the all-runs of 2026-09-30 (ticket 0023) used aec7819bb; each run's `run.txt` names the SHA-256. Then:
 
 ```sh
 git clone https://github.com/botassembly/beatles-bench

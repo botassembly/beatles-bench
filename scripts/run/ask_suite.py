@@ -25,6 +25,8 @@ Environment:
   BENCH_FUNCTIONS          the case folder (default: questions/suite)
   BENCH_TESTS              the case files to ask, comma-separated names without .jsonl (default: the suite's ten)
   BENCH_SUITE_ONLY         ask only cases whose id starts with one of these comma-separated prefixes (default: all)
+  BENCH_THINKTHEN_ARGS     extra flags appended to every call, as --flag value pairs or bare flags; a flag the
+                           case's own args already set keeps its own value and is dropped here, value included
   BENCH_MAX_INPUT_TOKENS   live mode stops starting calls once new requests have reported this many input tokens
                            (unset: no cap; 0 or below: start no call)
 A case the backend refuses is a gap (scripts/run/gaps.py): its output has no rows and carries the command's message in gap.
@@ -33,6 +35,7 @@ This script never reads the key. The command reads THINKTHEN_API_KEY from the en
 """
 import json
 import os
+import shlex
 import subprocess
 import sys
 import threading
@@ -41,6 +44,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import gaps
+from ask import extra_args  # noqa: E402  (same folder)
 
 ROOT = Path(__file__).resolve().parents[2]
 TESTS = os.environ.get("BENCH_TESTS", "decide,choose,tag,score,filter,rank,find,annotate,recognize,relate").split(",")
@@ -59,6 +63,7 @@ def cases(folder):
 
 def command(c, flag, rec, records, verb=None):
     args = [TT, verb or c["function"], *c["args"], "--details", "--model", MODEL, flag, str(rec)]
+    args += extra_args(args)
     stdin = "".join(json.dumps(r, ensure_ascii=False) + "\n" for r in records)
     start = time.monotonic()
     done = subprocess.run(args, input=stdin, capture_output=True, text=True, cwd=FOLDER)

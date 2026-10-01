@@ -17,6 +17,9 @@ GLM-5.3 Flash	same-month	60	57	56	3	0.0536
 Laya	album-year	60	11	5	4	0.8
 Laya	before-after	60	30	4	0	0.0
 Laya	same-month	60	29	5	3	0.6
-Jev	album-year	60	22	41	23	0.561
-Jev	before-after	60	35	23	10	0.4348
-Jev	same-month	60	33	26	13	0.5
+Jev	album-year	60	29	39	16	0.4103
+Jev	before-after	60	39	24	8	0.3333
+Jev	same-month	60	31	30	17	0.5667
+Liquid d1	album-year	60	24	33	21	0.6364
+Liquid d1	before-after	60	33	20	7	0.35
+Liquid d1	same-month	60	32	26	14	0.5385
