@@ -1,6 +1,6 @@
 thinkthen: thinkthen 0.0.1, build pinned as thinkthen-aec7819bb, from thinkthen main aec7819bb
 build of thinkthen at aec7819bbec909084723d81b5f93669ff80babb3
-THINKTHEN_BIN SHA-256: 41af203ef4bda363a6543e31b5246b6a0450265885ebc1756e46b3de7766e01d
+THINKTHEN_BIN SHA-256: 41af203ef4bda363a6543e31b5246b6a0450265885ebc1756e46b3de7766e01d (copied from the all-jev run's run.txt — the same pinned build aec7819bb; not hashed for this run)
 model the backend reported: d1:free
 machine: a local Linux machine, 16 cores
 date: 2026-09-30
