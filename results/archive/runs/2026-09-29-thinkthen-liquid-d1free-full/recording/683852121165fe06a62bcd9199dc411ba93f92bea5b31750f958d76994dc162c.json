@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Girl","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Rubber Soul","c":"Revolver","none":"none of these"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"none","probabilities":{"a":0.21519043724315223,"b":0.21519043724315223,"c":0.16759046105610398,"none":0.4020286644575915},"confidence":0.20270488594345534}},"usage":{"input_tokens":99,"output_tokens":0}}
+}

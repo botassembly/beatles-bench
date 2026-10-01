@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Apollo 9","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"June 1969","b":"July 1969","c":"April 1969","d":"March 1969"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.002151001683875894,"b":0.0012256038154397787,"c":0.5602782380001237,"d":0.43634515650056055},"confidence":0.4137043173334982}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

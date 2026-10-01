@@ -65,12 +65,8 @@ def run_dirs():
 
 
 def build_of(run):
-    """The thinkthen commit a run's run.txt names, else None."""
-    f = run / "run.txt"
-    if not f.is_file():
-        return None
-    m = re.search(r"build of .* at ([0-9a-f]{40})", f.read_text(encoding="utf-8"))
-    return m.group(1) if m else None
+    """The thinkthen commit a run's run.txt names, else None (score.build_of)."""
+    return core.build_of(run)
 
 
 def load_jsonl(path):

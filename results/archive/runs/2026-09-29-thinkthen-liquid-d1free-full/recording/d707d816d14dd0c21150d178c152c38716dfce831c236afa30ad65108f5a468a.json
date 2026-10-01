@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I Need You","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"October 1964","b":"August 1965","c":"April 1966","d":"September 1964"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.6137512262803823,"b":0.13694638492331282,"c":0.09412180456735877,"d":0.1551805842289461},"confidence":0.4850016350405097}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"It Won't Be Long","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"August 1964","b":"November 1964","c":"November 1963","d":"July 1964"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7135112193923704,"b":0.15920588688483592,"c":0.017862407590376956,"d":0.10942048613241678},"confidence":0.6180149591898272}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Yellow Submarine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"You Like Me Too Much","b":"A Day in the Life","c":"Hey Bulldog","d":"Fixing a Hole"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.017451242091170938,"b":0.016393924782766335,"c":0.1762513015110648,"d":0.789903531614998},"confidence":0.719871375486664}},"usage":{"input_tokens":107,"output_tokens":0}}
+}

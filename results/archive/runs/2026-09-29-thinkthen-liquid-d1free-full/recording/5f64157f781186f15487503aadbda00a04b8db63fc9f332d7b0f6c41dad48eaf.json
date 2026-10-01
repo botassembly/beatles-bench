@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Wait","model":"d1:free","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Does Ringo Starr sing a lead vocal on it?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.6791786861878392}},"usage":{"input_tokens":78,"output_tokens":0}}
+}

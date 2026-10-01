@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Rani Mukerji","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Henry Churchill de Mille","b":"Charles Delevingne","c":"Ram Mukherjee","d":"Louis Alphonse Gassion"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.00006204619105132501,"b":0.000017776531363108418,"c":0.9998687391785318,"d":0.00005143809905373262},"confidence":0.9998249855713758}},"usage":{"input_tokens":101,"output_tokens":0}}
+}

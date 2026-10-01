@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Love You To","b":"Glass Onion","c":"Octopus's Garden","d":"Fixing a Hole"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.4031,"probabilities":{"a":0.5523,"b":0.0609,"c":0.1299,"d":0.2569}}},"usage":{"input_tokens":63,"output_tokens":75},"latency_ms":82.3}
+}

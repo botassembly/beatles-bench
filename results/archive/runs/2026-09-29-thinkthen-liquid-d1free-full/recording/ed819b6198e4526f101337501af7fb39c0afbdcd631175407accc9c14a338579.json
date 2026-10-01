@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I've Got a Feeling","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year did the first album to include it come out?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1968","probabilities":{"1963":0.0004746744467266098,"1964":0.0005378766150186096,"1965":0.0006488030434916103,"1966":0.0017636295233721677,"1967":0.0484181098776104,"1968":0.6683912702369373,"1969":0.27862695145391336,"1970":0.0011386848029299656},"confidence":0.6210185945564998}},"usage":{"input_tokens":126,"output_tokens":0}}
+}

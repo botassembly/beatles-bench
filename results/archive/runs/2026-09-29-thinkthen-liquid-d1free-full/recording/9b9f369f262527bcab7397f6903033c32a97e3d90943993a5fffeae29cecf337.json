@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I Feel Fine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"November 1965","b":"March 1964","c":"March 1965","d":"November 1964"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.021959834766689987,"b":0.03620564668090196,"c":0.008078569816105757,"d":0.9337559487363023},"confidence":0.9116745983150697}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

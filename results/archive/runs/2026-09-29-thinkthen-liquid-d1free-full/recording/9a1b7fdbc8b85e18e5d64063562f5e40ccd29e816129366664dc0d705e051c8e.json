@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Let It Be","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"And Your Bird Can Sing","b":"Everybody's Got Something to Hide Except Me and My Monkey","c":"For You Blue","d":"Honey Pie"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0729427487913202,"b":0.11297593939365504,"c":0.41975653738974505,"d":0.3943247744252797},"confidence":0.22634204985299342}},"usage":{"input_tokens":111,"output_tokens":0}}
+}

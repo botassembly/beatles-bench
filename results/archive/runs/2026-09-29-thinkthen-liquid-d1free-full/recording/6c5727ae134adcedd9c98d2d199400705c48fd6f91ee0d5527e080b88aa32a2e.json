@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Dona Celeste","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Pelé","b":"Donald Trump","c":"Richard Attenborough","d":"Ranbir Kapoor"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.3638361606111336,"b":0.017016845706138747,"c":0.019282612387987987,"d":0.5998643812947397},"confidence":0.4664858417263196}},"usage":{"input_tokens":95,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Ringo Starr","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"If You've Got Trouble","b":"Free as a Bird","c":"The Word","d":"Hold Me Tight"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.829209662276813,"b":0.04678080798488879,"c":0.06394178327251208,"d":0.06006774646578605},"confidence":0.7722795497024174}},"usage":{"input_tokens":107,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Pilar Bardem","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Matthew Broderick","b":"Javier Bardem","c":"Sean Penn","d":"Richard Attenborough"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.00010888511122700098,"b":0.9997831836896259,"c":0.0000703015116136503,"d":0.00003762968753336684},"confidence":0.9997109115861679}},"usage":{"input_tokens":97,"output_tokens":0}}
+}

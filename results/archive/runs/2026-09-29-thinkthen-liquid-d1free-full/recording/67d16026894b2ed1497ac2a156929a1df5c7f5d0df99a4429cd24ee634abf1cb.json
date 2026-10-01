@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Paul McCartney","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"I'm So Tired","b":"I'm Gonna Sit Right Down and Cry (Over You)","c":"Dig a Pony","d":"All My Loving"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.034359857138997134,"b":0.06833273534181822,"c":0.011155012398255828,"d":0.8861523951209288},"confidence":0.8482031934945717}},"usage":{"input_tokens":117,"output_tokens":0}}
+}

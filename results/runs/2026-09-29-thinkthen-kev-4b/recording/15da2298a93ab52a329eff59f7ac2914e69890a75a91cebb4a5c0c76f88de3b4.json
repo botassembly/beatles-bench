@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"1969 West German federal election","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"August 1969","b":"September 1969","c":"July 1969","d":"February 1969"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.103,"probabilities":{"a":0.2288,"b":0.2815,"c":0.3273,"d":0.1625}}},"usage":{"input_tokens":64,"output_tokens":74},"latency_ms":109.7}
+}

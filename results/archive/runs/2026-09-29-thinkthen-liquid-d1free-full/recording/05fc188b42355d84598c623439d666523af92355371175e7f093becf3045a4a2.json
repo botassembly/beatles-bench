@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I Should Have Known Better","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"Please Please Me","c":"The Beatles (White Album)","d":"Let It Be"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.5676413011827264,"b":0.19617158446951147,"c":0.09266491719464116,"d":0.1435221971531209},"confidence":0.4235217349103018}},"usage":{"input_tokens":105,"output_tokens":0}}
+}

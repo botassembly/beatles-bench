@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Yellow Submarine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Yellow Submarine","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Revolver","d":"Help!"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.1279823216409151,"b":0.18621313481376045,"c":0.23910245502843014,"d":0.4467020885168944},"confidence":0.2622694513558592}},"usage":{"input_tokens":105,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Drive My Car","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"Yellow Submarine","c":"Rubber Soul","d":"The Beatles (White Album)"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0008489620832564831,"b":0.0674414438384273,"c":0.6811342915428327,"d":0.25057530253548355},"confidence":0.5748457220571103}},"usage":{"input_tokens":109,"output_tokens":0}}
+}

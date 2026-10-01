@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"You Like Me Too Much","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"harrison","probabilities":{"lennon-mccartney":0.09791305678689635,"harrison":0.819815889496191,"starr":0.03602020061415112,"other":0.04625085310276144},"confidence":0.7597545193282547}},"usage":{"input_tokens":107,"output_tokens":0}}
+}

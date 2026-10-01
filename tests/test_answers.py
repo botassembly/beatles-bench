@@ -485,6 +485,7 @@ class Recompute(unittest.TestCase):
         pub = published("accuracy.tsv")
         fails = []
         qs = {q["id"]: q for q in analyze.questions()}
+        hard = set((ROOT / "questions" / "hard.txt").read_text(encoding="utf-8").split())
         canonical = {report.label(run.name) for run in analyze.discover(analyze.questions())}
         by_label = defaultdict(list)
         for lab, pool in self.pools.items():  # the pool keeps one row a question: the newest covering run's
@@ -498,6 +499,7 @@ class Recompute(unittest.TestCase):
             lab, sc = p["system"], p["scope"]
             if lab == "chance":
                 sel = [q for q in qs.values() if (sc == "overall" or (sc == "beatles-only" and q["category"] not in GENERAL_CATEGORIES)
+                                                or (sc == "hard" and q["id"] in hard) or (sc == "easy" and q["id"] not in hard)
                                                 or q["category"] == sc or (":" in sc and q["category"] == sc.split(":")[0]
                                                                            and q["kind"] == sc.split(":")[1]))]
                 k = sum(analyze.chance(q) for q in sel)
@@ -505,6 +507,7 @@ class Recompute(unittest.TestCase):
                     fails.append(f"chance {sc}: got {(len(sel), k)} want {(p['n'], p['right'], p['accuracy'])}")
                 continue
             sel = [r for r in by_label[lab] if (sc == "overall" or (sc == "beatles-only" and r["category"] not in GENERAL_CATEGORIES)
+                                                or (sc == "hard" and r["id"] in hard) or (sc == "easy" and r["id"] not in hard)
                                                 or r["category"] == sc or (":" in sc and r["category"] == sc.split(":")[0]
                                                                          and r["test"] == sc.split(":")[1]))]
             k = sum(r["right"] for r in sel)

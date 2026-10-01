@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Wild Honey Pie / I Want to Tell You","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Wild Honey Pie","b":"I Want to Tell You"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.0293,"probabilities":{"a":0.5147,"b":0.4853}}},"usage":{"input_tokens":42,"output_tokens":53},"latency_ms":94.4}
+}

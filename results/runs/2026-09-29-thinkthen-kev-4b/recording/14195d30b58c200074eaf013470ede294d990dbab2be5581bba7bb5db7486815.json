@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Help!","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"With a Little Help from My Friends","b":"Another Girl","c":"All I've Got to Do","d":"Here Comes the Sun"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.7216,"probabilities":{"a":0.7912,"b":0.0631,"c":0.0685,"d":0.0772}}},"usage":{"input_tokens":62,"output_tokens":75},"latency_ms":97.9}
+}

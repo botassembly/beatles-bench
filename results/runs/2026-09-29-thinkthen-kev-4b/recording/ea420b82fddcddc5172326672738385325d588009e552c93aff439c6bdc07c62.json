@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Ringo Starr","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"You Won't See Me","b":"Paperback Writer","c":"Bésame Mucho","d":"What Goes On"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.1213,"probabilities":{"a":0.341,"b":0.1716,"c":0.2206,"d":0.2668}}},"usage":{"input_tokens":62,"output_tokens":74},"latency_ms":66.7}
+}

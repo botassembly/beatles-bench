@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"And I Love Her","b":"I'll Follow the Sun","c":"Golden Slumbers","d":"Tomorrow Never Knows"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.3074,"probabilities":{"a":0.4805,"b":0.2132,"c":0.076,"d":0.2303}}},"usage":{"input_tokens":63,"output_tokens":74},"latency_ms":99.6}
+}

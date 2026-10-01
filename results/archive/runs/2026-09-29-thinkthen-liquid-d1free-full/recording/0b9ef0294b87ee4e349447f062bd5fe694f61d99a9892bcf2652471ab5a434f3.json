@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"With the Beatles","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Ob-La-Di, Ob-La-Da","b":"Not a Second Time","c":"A Taste of Honey","d":"Octopus's Garden"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.005676421474883572,"b":0.9546273091926473,"c":0.03701491768847325,"d":0.002681351643995819},"confidence":0.9395030789235297}},"usage":{"input_tokens":110,"output_tokens":0}}
+}

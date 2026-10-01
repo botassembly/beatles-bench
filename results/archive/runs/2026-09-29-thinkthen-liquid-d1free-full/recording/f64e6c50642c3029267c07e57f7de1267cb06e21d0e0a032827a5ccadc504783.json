@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Yesterday","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"February 1966","b":"May 1966","c":"August 1965","d":"November 1964"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.21976465161262626,"b":0.24902597501361748,"c":0.24902597501361748,"d":0.2821833983601388},"confidence":0.042911197813518376}},"usage":{"input_tokens":101,"output_tokens":0}}
+}

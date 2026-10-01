@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Within You Without You","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Help!","d":"Rubber Soul"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00008479208067687872,"b":0.060036135111035824,"c":0.0007557435886469962,"d":0.9391233292196404},"confidence":0.9188311056261872}},"usage":{"input_tokens":106,"output_tokens":0}}
+}

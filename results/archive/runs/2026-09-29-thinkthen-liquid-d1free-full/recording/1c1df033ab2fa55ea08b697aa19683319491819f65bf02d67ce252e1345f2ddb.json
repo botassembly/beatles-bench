@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"You Can't Do That","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"With the Beatles","c":"A Hard Day's Night"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.05384988783597255,"b":0.6162794782623722,"c":0.32987063390165533},"confidence":0.42441921739355826}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

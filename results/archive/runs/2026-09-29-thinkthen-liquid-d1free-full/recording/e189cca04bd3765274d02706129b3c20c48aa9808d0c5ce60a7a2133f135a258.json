@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Here Comes the Sun","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"June 1969","b":"September 1969","c":"February 1969","d":"September 1968"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.3666592526365292,"b":0.09270596618327745,"c":0.00714871650371713,"d":0.5334860646764762},"confidence":0.3779814195686349}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

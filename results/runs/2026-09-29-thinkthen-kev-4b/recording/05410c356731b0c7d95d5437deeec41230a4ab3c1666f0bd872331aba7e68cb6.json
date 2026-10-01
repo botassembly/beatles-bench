@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Eleanor Rigby","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"August 1966","b":"September 1965","c":"October 1965","d":"August 1967"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.1984,"probabilities":{"a":0.3949,"b":0.1769,"c":0.3988,"d":0.0294}}},"usage":{"input_tokens":67,"output_tokens":75},"latency_ms":110.5}
+}

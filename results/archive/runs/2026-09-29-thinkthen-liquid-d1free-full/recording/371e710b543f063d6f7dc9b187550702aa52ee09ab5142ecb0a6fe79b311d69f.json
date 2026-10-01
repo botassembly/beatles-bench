@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"She Said She Said","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"March 1967","b":"January 1967","c":"August 1966","d":"January 1966"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.09265901376480458,"b":0.11897652875922837,"c":0.7758244236036819,"d":0.012540033872285021},"confidence":0.7010992314715758}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

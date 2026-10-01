@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Eva Green","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Marlène Jobert","b":"Elaine Madsen","c":"Lady Rowlands","d":"Irmelin Indenbirken"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9981805246491265,"b":0.0003145646709893167,"c":0.000260783271800981,"d":0.0012441274080830162},"confidence":0.9975740328655021}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

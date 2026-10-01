@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Please Please Me","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Anna (Go to Him)","b":"Please Mr. Postman","c":"I Want You (She's So Heavy)","d":"Girl"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.3222,"probabilities":{"a":0.2176,"b":0.4917,"c":0.0323,"d":0.2585}}},"usage":{"input_tokens":65,"output_tokens":75},"latency_ms":81.0}
+}

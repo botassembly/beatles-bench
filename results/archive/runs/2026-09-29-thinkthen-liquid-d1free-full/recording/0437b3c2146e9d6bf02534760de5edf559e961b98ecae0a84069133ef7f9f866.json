@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Julia","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"Abbey Road","c":"The Beatles (White Album)","d":"With the Beatles"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.24461884635348266,"b":0.15793779768461702,"c":0.4293194454729355,"d":0.16812391048896475},"confidence":0.239092593963914}},"usage":{"input_tokens":99,"output_tokens":0}}
+}

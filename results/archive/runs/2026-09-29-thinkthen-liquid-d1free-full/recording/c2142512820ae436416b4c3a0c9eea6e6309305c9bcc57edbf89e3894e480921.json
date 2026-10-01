@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Do You Want to Know a Secret","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Pacific Air Lines Flight 773?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"before","probabilities":{"before":0.880797071719777,"after":0.11920292828022305},"confidence":0.7615941434395539}},"usage":{"input_tokens":105,"output_tokens":0}}
+}

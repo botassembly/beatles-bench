@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"You Like Me Too Much / I Am the Walrus","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"You Like Me Too Much","b":"I Am the Walrus"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.51,"probabilities":{"a":0.245,"b":0.755}}},"usage":{"input_tokens":46,"output_tokens":49},"latency_ms":50.0}
+}

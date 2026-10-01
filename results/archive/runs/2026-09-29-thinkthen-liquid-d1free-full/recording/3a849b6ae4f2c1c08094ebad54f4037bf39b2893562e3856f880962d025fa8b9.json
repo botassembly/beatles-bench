@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Dua Lipa","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Dukagjin Lipa","b":"Hutton Gibson","c":"Joe Toney","d":"Robert De Niro Sr."}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.999937040993743,"b":0.000013845326830706794,"c":0.00003763550033298674,"d":0.000011478179093380289},"confidence":0.999916054658324}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

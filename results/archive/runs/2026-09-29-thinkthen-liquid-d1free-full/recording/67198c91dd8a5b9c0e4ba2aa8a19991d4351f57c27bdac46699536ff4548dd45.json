@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I Don't Want to Spoil the Party","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1964","probabilities":{"1962":0.004312204721974776,"1963":0.06745424715745327,"1964":0.26678672279457494,"1965":0.23543845651690748,"1966":0.09814537389330652,"1967":0.029932640729664218,"1968":0.23543845651690748,"1969":0.05952816418262826,"1970":0.0029637334865829854},"confidence":0.17513506314389682}},"usage":{"input_tokens":129,"output_tokens":0}}
+}

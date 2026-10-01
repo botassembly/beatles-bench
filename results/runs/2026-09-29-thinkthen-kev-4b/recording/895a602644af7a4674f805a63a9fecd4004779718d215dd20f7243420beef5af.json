@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Ringo Starr","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Yellow Submarine","b":"Love You To","c":"In My Life","d":"Penny Lane"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.0557,"probabilities":{"a":0.2917,"b":0.2705,"c":0.1859,"d":0.2519}}},"usage":{"input_tokens":58,"output_tokens":75},"latency_ms":66.0}
+}

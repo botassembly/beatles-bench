@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Got to Get You into My Life","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"Revolver","c":"A Hard Day's Night","d":"Yellow Submarine"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.08164153915664456,"b":0.8245503362196306,"c":0.017112996271774938,"d":0.07669512835194979},"confidence":0.7660671149595074}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Glass Onion","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"1968","confidence":0.0725,"probabilities":{"1962":0.0217,"1963":0.0449,"1964":0.0626,"1965":0.1139,"1966":0.1455,"1967":0.1188,"1968":0.1756,"1969":0.1638,"1970":0.1532}}},"usage":{"input_tokens":133,"output_tokens":160},"latency_ms":117.8}
+}

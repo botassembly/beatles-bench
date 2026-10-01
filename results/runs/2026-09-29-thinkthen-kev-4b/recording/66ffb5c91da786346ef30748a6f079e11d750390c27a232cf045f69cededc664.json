@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Please Please Me","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"There's a Place","b":"Nowhere Man","c":"Don't Pass Me By","d":"Hey Bulldog"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.2266,"probabilities":{"a":0.4199,"b":0.0888,"c":0.2897,"d":0.2015}}},"usage":{"input_tokens":59,"output_tokens":75},"latency_ms":96.2}
+}

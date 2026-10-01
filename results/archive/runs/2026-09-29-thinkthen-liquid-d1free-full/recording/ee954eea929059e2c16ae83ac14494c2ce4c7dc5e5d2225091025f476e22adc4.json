@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Love You To","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Abbey Road","c":"Yellow Submarine","none":"none of these"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"none","probabilities":{"a":0.0012416226665997961,"b":0.0006645927222057648,"c":0.11897571119320945,"none":0.879118073417985},"confidence":0.8388240978906466}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

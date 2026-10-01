@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Every Little Thing","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"December 1965","b":"June 1964","c":"November 1964","d":"December 1964"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.07677493654237791,"b":0.14343446482741293,"c":0.3898952993151046,"d":0.3898952993151046},"confidence":0.18652706575347278}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

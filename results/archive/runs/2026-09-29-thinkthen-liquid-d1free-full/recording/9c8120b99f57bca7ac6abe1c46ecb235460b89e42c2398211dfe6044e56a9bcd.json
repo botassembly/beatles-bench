@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"A Taste of Honey","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"Magical Mystery Tour","c":"Yellow Submarine","none":"none of these"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"none","probabilities":{"a":0.25354848041696765,"b":0.2237557486230049,"c":0.15378490876384832,"none":0.3689108621961791},"confidence":0.1585478162615721}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

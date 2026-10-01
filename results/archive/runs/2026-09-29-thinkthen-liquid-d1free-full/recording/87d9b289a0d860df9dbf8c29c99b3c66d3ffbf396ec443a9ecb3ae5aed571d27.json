@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"For No One","model":"d1:free","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Do two or more Beatles share the lead vocal on it?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.24508501313237172}},"usage":{"input_tokens":80,"output_tokens":0}}
+}

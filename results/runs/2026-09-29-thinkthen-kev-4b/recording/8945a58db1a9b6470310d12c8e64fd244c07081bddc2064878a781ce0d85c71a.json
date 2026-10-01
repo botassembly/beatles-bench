@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Beatles for Sale","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Mr. Moonlight","b":"You Won't See Me","c":"Hold Me Tight","d":"A Hard Day's Night"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.2227,"probabilities":{"a":0.2803,"b":0.417,"c":0.2223,"d":0.0804}}},"usage":{"input_tokens":62,"output_tokens":74},"latency_ms":82.9}
+}

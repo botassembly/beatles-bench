@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Paul McCartney","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Don't Bother Me","b":"Savoy Truffle","c":"You Know What to Do","d":"You'll Be Mine"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.0020350524188835297,"b":0.005196688403466441,"c":0.0024547417868146506,"d":0.9903135173908353},"confidence":0.9870846898544471}},"usage":{"input_tokens":109,"output_tokens":0}}
+}

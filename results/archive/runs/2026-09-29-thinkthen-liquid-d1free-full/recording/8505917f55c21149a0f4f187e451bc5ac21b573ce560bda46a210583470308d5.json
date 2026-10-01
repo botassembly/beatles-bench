@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Back in the U.S.S.R.","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. What is it about?","criteria":{"a":"Elizabeth II","b":"Soviet Union"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.005911067105021407,"b":0.9940889328949786},"confidence":0.9881778657899571}},"usage":{"input_tokens":87,"output_tokens":0}}
+}

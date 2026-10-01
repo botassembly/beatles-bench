@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"shower","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Rudolf Kompfner","b":"Otto Griessing","c":"Henri Pitot","d":"François Merry Delabost"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.3505,"probabilities":{"a":0.0554,"b":0.3461,"c":0.0856,"d":0.5128}}},"usage":{"input_tokens":51,"output_tokens":75},"latency_ms":97.5}
+}

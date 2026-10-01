@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Can't Buy Me Love","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"Yellow Submarine","c":"Please Please Me"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7341276512717213,"b":0.06828452477876068,"c":0.19758782394951802},"confidence":0.6011914769075819}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

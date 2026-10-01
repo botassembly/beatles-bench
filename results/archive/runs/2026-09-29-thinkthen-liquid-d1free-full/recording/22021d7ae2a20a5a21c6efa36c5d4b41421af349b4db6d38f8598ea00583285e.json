@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Assassination of John F. Kennedy","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Young Blood","b":"You Won't See Me","c":"The Ballad of John and Yoko","d":"Don't Bother Me"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.006681201281242238,"b":0.931501503312059,"c":0.02994306675887201,"d":0.031874228647826804},"confidence":0.9086686710827454}},"usage":{"input_tokens":112,"output_tokens":0}}
+}

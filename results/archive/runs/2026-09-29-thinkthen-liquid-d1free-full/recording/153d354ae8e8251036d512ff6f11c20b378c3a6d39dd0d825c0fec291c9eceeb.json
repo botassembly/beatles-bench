@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Good Morning Good Morning","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Help!","c":"Sgt. Pepper's Lonely Hearts Club Band","d":"Rubber Soul"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.5110393223867862,"b":0.3099610542965895,"c":0.11402827225307854,"d":0.06497135106354582},"confidence":0.3480524298490482}},"usage":{"input_tokens":108,"output_tokens":0}}
+}

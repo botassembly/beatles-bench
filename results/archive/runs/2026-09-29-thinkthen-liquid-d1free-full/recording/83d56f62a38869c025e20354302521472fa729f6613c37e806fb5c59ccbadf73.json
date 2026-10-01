@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Dukagjin Lipa","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Dua Lipa","b":"John Lithgow","c":"Nicole Kidman","d":"Matt Groening"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9999860450100702,"b":0.0000057718713034836596,"c":0.000005093658547441241,"d":0.00000308946007913043},"confidence":0.9999813933467602}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"And I Love Her","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"July 1964","b":"December 1963","c":"September 1963","d":"February 1964"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7288366048755199,"b":0.034088142642145464,"c":0.028260062835025555,"d":0.20881518964730897},"confidence":0.6384488065006932}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

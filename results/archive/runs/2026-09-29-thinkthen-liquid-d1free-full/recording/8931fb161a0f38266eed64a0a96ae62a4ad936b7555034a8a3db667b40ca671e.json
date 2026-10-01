@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I Want to Hold Your Hand","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Watts riots?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"before","probabilities":{"before":0.9980732649744521,"after":0.001926735025547983},"confidence":0.9961465299489043}},"usage":{"input_tokens":100,"output_tokens":0}}
+}

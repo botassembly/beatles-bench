@@ -1,9 +1,11 @@
-system	run	family	model	backend	questions
-BM25	2026-09-23-baseline-bm25	vector search (question vs. options)	bm25, template question	none	1501
-Embeddings	2026-09-23-baseline-embed	vector search (question vs. options)	embed BAAI/bge-large-en-v1.5, template question	none	1501
-Hybrid	2026-09-23-baseline-hybrid	vector search (question vs. options)	hybrid BAAI/bge-large-en-v1.5, template question	none	1501
-Word overlap	2026-09-23-baseline-overlap	vector search (question vs. options)	overlap, template question	none	1501
-GLM-5.3 Flash	2026-09-23-glm-5.3-flash	model	glm-5.3-flash thinking=off	https://api.z.ai/api/coding/paas/v4	1501
-Laya	2026-09-23-thinkthen-laya	model	laya-mlx	http://127.0.0.1:8791/systemone	1501
-Jev	2026-09-30-all-jev	model	jev-1.13.0	https://api.typesafe.ai/v1/systemone	1501
-Liquid d1	2026-09-30-all-liquid-d1	model	d1:free	https://api.liquid.ai/decisions/v1/systemone	1501
+system	run	family	model	backend	questions	build	date
+BM25	2026-09-23-baseline-bm25	vector search (question vs. options)	bm25, template question	none	1501		2026-09-23
+Embeddings	2026-09-23-baseline-embed	vector search (question vs. options)	embed BAAI/bge-large-en-v1.5, template question	none	1501		2026-09-23
+Hybrid	2026-09-23-baseline-hybrid	vector search (question vs. options)	hybrid BAAI/bge-large-en-v1.5, template question	none	1501		2026-09-23
+Word overlap	2026-09-23-baseline-overlap	vector search (question vs. options)	overlap, template question	none	1501		2026-09-23
+GLM-5.3 Flash	2026-09-23-glm-5.3-flash	model	glm-5.3-flash thinking=off	https://api.z.ai/api/coding/paas/v4	1501		2026-09-23
+Laya	2026-09-23-thinkthen-laya	model	laya-mlx	http://127.0.0.1:8791/systemone	1501		2026-09-23
+Jev	2026-09-30-all-jev	model	jev-1.13.0	https://api.typesafe.ai/v1/systemone	1501	aec7819bbec909084723d81b5f93669ff80babb3	2026-09-30
+Kev 4B	2026-09-29-thinkthen-kev-4b	model	kev-latest	http://127.0.0.1:8731/v1/systemone	1501	2c5ac772b	2026-09-29
+Liquid d1	2026-09-30-all-liquid-d1	model	d1:free	https://api.liquid.ai/decisions/v1/systemone	1501	aec7819bbec909084723d81b5f93669ff80babb3	2026-09-30
+Nimble 9B	2026-09-30-thinkthen-nimble-9b	model	nimble	http://127.0.0.1:8732/v1/systemone	1501	aec7819bbec909084723d81b5f93669ff80babb3	2026-09-30

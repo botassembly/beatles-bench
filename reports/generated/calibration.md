@@ -28,6 +28,8 @@ The expected calibration error per model backend, function and level over the an
 | Jev | annotate | card | 288 | 0.017 |
 | Jev | annotate | context | 876 | 0.071 |
 | Jev | annotate | memory | 876 | 0.054 |
+| Kev 4B | decide | memory | 228 | 0.049 |
+| Kev 4B | choose | memory | 1273 | 0.031 |
 | Laya | decide | memory | 228 | 0.290 |
 | Laya | choose | memory | 1273 | 0.137 |
 | Laya | tag | memory | 158 | 0.926 |
@@ -51,3 +53,5 @@ The expected calibration error per model backend, function and level over the an
 | Liquid d1 | annotate | card | 34 | 0.004 |
 | Liquid d1 | annotate | context | 876 | 0.082 |
 | Liquid d1 | annotate | memory | 612 | 0.063 |
+| Nimble 9B | decide | memory | 228 | 0.080 |
+| Nimble 9B | choose | memory | 1273 | 0.192 |

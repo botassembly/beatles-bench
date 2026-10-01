@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Édith Piaf","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Louis Alphonse Gassion","b":"Lee Hoi-chuen","c":"Charles Delevingne","d":"Daniel Cady"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9997673042350106,"b":0.00006203991413808762,"c":0.00011590581878792437,"d":0.00005475003206347657},"confidence":0.9996897389800141}},"usage":{"input_tokens":100,"output_tokens":0}}
+}

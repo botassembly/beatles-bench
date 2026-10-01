@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"shower","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Rudolf Kompfner","b":"Otto Griessing","c":"Henri Pitot","d":"François Merry Delabost"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.0003699256789395994,"b":0.9731580559973124,"c":0.0005382384302517816,"d":0.02593377989349623},"confidence":0.9642107413297499}},"usage":{"input_tokens":95,"output_tokens":0}}
+}

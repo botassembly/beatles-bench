@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Typhoon Carmen (1965)","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"May 1965","b":"August 1965","c":"March 1966","d":"October 1965"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.013296004870246724,"b":0.34290852602219674,"c":0.0031580779674782026,"d":0.6406373911400783},"confidence":0.5208498548534378}},"usage":{"input_tokens":99,"output_tokens":0}}
+}

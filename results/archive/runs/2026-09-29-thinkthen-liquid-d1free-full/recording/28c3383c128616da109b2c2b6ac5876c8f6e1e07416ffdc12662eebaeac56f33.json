@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Honey Pie","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Yellow Submarine","b":"Abbey Road","c":"The Beatles (White Album)"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.012332660135803336,"b":0.00796256384361743,"c":0.9797047760205794},"confidence":0.9695571640308691}},"usage":{"input_tokens":95,"output_tokens":0}}
+}

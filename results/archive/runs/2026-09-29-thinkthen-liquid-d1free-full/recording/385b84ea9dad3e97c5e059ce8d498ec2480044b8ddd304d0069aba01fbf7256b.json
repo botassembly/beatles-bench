@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Hallelujah, I Love Her So","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"other","probabilities":{"lennon-mccartney":0.046384742365310976,"harrison":0.019336037384670803,"starr":0.0026168480961281555,"other":0.93166237215389},"confidence":0.9088831628718533}},"usage":{"input_tokens":111,"output_tokens":0}}
+}

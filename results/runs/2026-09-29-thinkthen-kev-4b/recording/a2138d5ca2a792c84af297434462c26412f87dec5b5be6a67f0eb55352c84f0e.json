@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"John Lennon","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Ooh! My Soul","b":"Everybody's Got Something to Hide Except Me and My Monkey","c":"Clarabella","d":"Bésame Mucho"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0982,"probabilities":{"a":0.241,"b":0.3237,"c":0.2715,"d":0.1639}}},"usage":{"input_tokens":69,"output_tokens":74},"latency_ms":99.3}
+}

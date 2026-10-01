@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Lennon–McCartney","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Piggies","b":"Hold Me Tight","c":"Long, Long, Long","d":"Old Brown Shoe"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.0723,"probabilities":{"a":0.2515,"b":0.2136,"c":0.3042,"d":0.2307}}},"usage":{"input_tokens":62,"output_tokens":75},"latency_ms":83.4}
+}

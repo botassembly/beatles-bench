@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Abraham Quintanilla","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Selena","b":"Julie Delpy","c":"Harper Lee","d":"Matt Groening"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9999267228921369,"b":0.00001777756814189324,"c":0.000020144623839276422,"d":0.00003535491588183553},"confidence":0.9999022971895158}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

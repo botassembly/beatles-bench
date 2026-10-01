@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"The Beatles (White Album)","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"There's a Place","b":"You've Got to Hide Your Love Away","c":"I'm So Tired","d":"I've Just Seen a Face"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.008119024739851185,"b":0.017187975509143676,"c":0.7779870834734407,"d":0.19670591627756437},"confidence":0.7039827779645876}},"usage":{"input_tokens":114,"output_tokens":0}}
+}

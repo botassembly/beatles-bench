@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Can't Buy Me Love","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"March 1964","b":"March 1963","c":"June 1963","d":"October 1964"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.172,"probabilities":{"a":0.379,"b":0.2476,"c":0.2925,"d":0.0809}}},"usage":{"input_tokens":68,"output_tokens":73},"latency_ms":112.1}
+}

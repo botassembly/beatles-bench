@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"1964 Alaska earthquake","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"February 1965","b":"September 1964","c":"March 1964","d":"October 1964"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.031249710104850566,"b":0.03769434561410724,"c":0.913250396185478,"d":0.017805548095564224},"confidence":0.8843338615806373}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

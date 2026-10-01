@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Otto Griessing","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"light-emitting diode","b":"traveling-wave tube","c":"slow cooker","d":"Volksempfänger"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.028517478639483607,"b":0.18595731997595027,"c":0.05004973369099155,"d":0.7354754676935746},"confidence":0.6473006235914328}},"usage":{"input_tokens":99,"output_tokens":0}}
+}

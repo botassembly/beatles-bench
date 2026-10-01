@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Don't Pass Me By","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"a":"Lennon–McCartney","b":"George Harrison","c":"John Lennon","d":"Ringo Starr"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.03087557981545024,"b":0.0653636029822341,"c":0.0014440704287273878,"d":0.9023167467735882},"confidence":0.8697556623647843}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

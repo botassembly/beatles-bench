@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Ringo Starr","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Baby It's You","b":"Long, Long, Long","c":"With a Little Help from My Friends","d":"Goodbye"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.007094051467090188,"b":0.10424627561288846,"c":0.6385858578641785,"d":0.2500738150558429},"confidence":0.518114477152238}},"usage":{"input_tokens":110,"output_tokens":0}}
+}

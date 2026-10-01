@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Frances Bergen","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Francis Ford Coppola","b":"Jackie Chan","c":"Måns Zelmerlöw","d":"Candice Bergen"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.7313,"probabilities":{"a":0.1313,"b":0.0479,"c":0.0223,"d":0.7985}}},"usage":{"input_tokens":54,"output_tokens":75},"latency_ms":95.8}
+}

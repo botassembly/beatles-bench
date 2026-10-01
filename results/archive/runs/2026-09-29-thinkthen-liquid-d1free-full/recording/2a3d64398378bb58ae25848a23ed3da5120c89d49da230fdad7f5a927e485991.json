@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"escalator","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Jesse W. Reno","b":"Irving Naxon","c":"François Merry Delabost","d":"Otto Griessing"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9992528934921342,"b":0.00015834291698294426,"c":0.00043042067389993655,"d":0.00015834291698294426},"confidence":0.9990038579895123}},"usage":{"input_tokens":97,"output_tokens":0}}
+}

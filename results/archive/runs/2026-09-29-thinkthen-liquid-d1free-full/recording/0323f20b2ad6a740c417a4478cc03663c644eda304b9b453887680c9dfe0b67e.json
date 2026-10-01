@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Mean Mr. Mustard","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"A Hard Day's Night","d":"Help!"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9986760952718402,"b":0.0010984834282393085,"c":0.00012324642493657755,"d":0.0001021748749840578},"confidence":0.9982347936957869}},"usage":{"input_tokens":108,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"George Harrison","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Young Blood","b":"And Your Bird Can Sing","c":"Mr. Moonlight","d":"Till There Was You"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.1930393187627403,"b":0.18134365768233274,"c":0.13267385417074434,"d":0.4929431693841826},"confidence":0.3239242258455768}},"usage":{"input_tokens":105,"output_tokens":0}}
+}

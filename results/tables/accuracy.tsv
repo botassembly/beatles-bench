@@ -24,6 +24,8 @@ BM25	reversal-general	146	39.5	0.2705	0.2051	0.3478	126
 BM25	reversal-general:forward	73	20.0	0.274	0.1849	0.3856	64
 BM25	reversal-general:reverse	73	19.5	0.2671	0.1792	0.3784	62
 BM25	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+BM25	hard	505	146.25	0.2896	0.2518	0.3306	278
+BM25	easy	996	378.88	0.3804	0.3508	0.411	627
 Embeddings	overall	1501	597.0	0.3977	0.3733	0.4227	0
 Embeddings	beatles-only	1313	494.0	0.3762	0.3504	0.4028	0
 Embeddings	forward	224	59.0	0.2634	0.21	0.3247	0
@@ -49,6 +51,8 @@ Embeddings	reversal-general	146	61.0	0.4178	0.3409	0.4989	0
 Embeddings	reversal-general:forward	73	29.0	0.3973	0.2929	0.5119	0
 Embeddings	reversal-general:reverse	73	32.0	0.4384	0.3305	0.5524	0
 Embeddings	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+Embeddings	hard	505	168.0	0.3327	0.293	0.3749	0
+Embeddings	easy	996	429.0	0.4307	0.4003	0.4617	0
 Hybrid	overall	1501	563.5	0.3754	0.3513	0.4002	256
 Hybrid	beatles-only	1313	472.0	0.3595	0.334	0.3858	228
 Hybrid	forward	224	61.5	0.2746	0.2203	0.3364	53
@@ -74,6 +78,8 @@ Hybrid	reversal-general	146	49.5	0.339	0.2673	0.4191	28
 Hybrid	reversal-general:forward	73	24.5	0.3356	0.2379	0.4497	14
 Hybrid	reversal-general:reverse	73	25.0	0.3425	0.2439	0.4567	14
 Hybrid	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+Hybrid	hard	505	155.5	0.3079	0.2692	0.3495	66
+Hybrid	easy	996	408.0	0.4096	0.3795	0.4405	190
 Word overlap	overall	1501	512.71	0.3416	0.318	0.3659	982
 Word overlap	beatles-only	1313	435.71	0.3318	0.3069	0.3578	847
 Word overlap	forward	224	52.67	0.2351	0.1843	0.2948	193
@@ -99,6 +105,8 @@ Word overlap	reversal-general	146	39.0	0.2671	0.202	0.3442	127
 Word overlap	reversal-general:forward	73	20.0	0.274	0.1849	0.3856	64
 Word overlap	reversal-general:reverse	73	19.0	0.2603	0.1734	0.3711	63
 Word overlap	reversal-general-shared-name	42	38.0	0.9048	0.7793	0.9623	8
+Word overlap	hard	505	145.0	0.2871	0.2494	0.3281	330
+Word overlap	easy	996	367.71	0.3692	0.3398	0.3996	652
 GLM-5.3 Flash	overall	1501	1451.33	0.9669	0.9566	0.9748	1
 GLM-5.3 Flash	beatles-only	1313	1263.33	0.9622	0.9504	0.9712	1
 GLM-5.3 Flash	forward	224	218.0	0.9732	0.9428	0.9877	0
@@ -124,6 +132,8 @@ GLM-5.3 Flash	reversal-general	146	146.0	1.0	0.9744	1.0	0
 GLM-5.3 Flash	reversal-general:forward	73	73.0	1.0	0.95	1.0	0
 GLM-5.3 Flash	reversal-general:reverse	73	73.0	1.0	0.95	1.0	0
 GLM-5.3 Flash	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+GLM-5.3 Flash	hard	505	482.0	0.9545	0.9326	0.9695	0
+GLM-5.3 Flash	easy	996	969.33	0.9732	0.9612	0.9816	1
 Laya	overall	1501	537.0	0.3578	0.3339	0.3823	0
 Laya	beatles-only	1313	460.0	0.3503	0.325	0.3766	0
 Laya	forward	224	51.0	0.2277	0.1776	0.2869	0
@@ -149,6 +159,8 @@ Laya	reversal-general	146	47.0	0.3219	0.2515	0.4014	0
 Laya	reversal-general:forward	73	23.0	0.3151	0.22	0.4286	0
 Laya	reversal-general:reverse	73	24.0	0.3288	0.2319	0.4427	0
 Laya	reversal-general-shared-name	42	30.0	0.7143	0.5643	0.8283	0
+Laya	hard	505	151.0	0.299	0.2607	0.3403	0
+Laya	easy	996	386.0	0.3876	0.3578	0.4182	0
 Jev	overall	1501	1057.5	0.7045	0.681	0.7271	11
 Jev	beatles-only	1313	884.5	0.6736	0.6478	0.6985	11
 Jev	forward	224	151.0	0.6741	0.6102	0.7321	6
@@ -174,6 +186,35 @@ Jev	reversal-general	146	131.0	0.8973	0.8374	0.9367	0
 Jev	reversal-general:forward	73	70.0	0.9589	0.886	0.9859	0
 Jev	reversal-general:reverse	73	61.0	0.8356	0.7343	0.9034	0
 Jev	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+Jev	hard	505	287.5	0.5693	0.5258	0.6118	5
+Jev	easy	996	770.0	0.7731	0.7461	0.798	6
+Kev 4B	overall	1501	709.0	0.4724	0.4472	0.4976	0
+Kev 4B	beatles-only	1313	579.0	0.441	0.4143	0.468	0
+Kev 4B	forward	224	69.0	0.308	0.2512	0.3713	0
+Kev 4B	forward:album	60	23.0	0.3833	0.2709	0.5098	0
+Kev 4B	forward:singer	57	19.0	0.3333	0.2249	0.4628	0
+Kev 4B	forward:songwriter	47	15.0	0.3191	0.204	0.4617	0
+Kev 4B	forward:year	60	12.0	0.2	0.1183	0.3178	0
+Kev 4B	reverse	112	41.0	0.3661	0.2827	0.4583	0
+Kev 4B	multi-hop	180	74.0	0.4111	0.3418	0.4841	0
+Kev 4B	single-hop	248	123.0	0.496	0.4343	0.5578	0
+Kev 4B	comparison	60	36.0	0.6	0.4737	0.7143	0
+Kev 4B	shared-lead	32	16.0	0.5	0.3363	0.6637	0
+Kev 4B	lead-set	104	84.0	0.8077	0.7215	0.8719	0
+Kev 4B	near-neighbor	60	18.0	0.3	0.199	0.4251	0
+Kev 4B	near-neighbor-control	60	23.0	0.3833	0.2709	0.5098	0
+Kev 4B	lexical-trap	54	13.0	0.2407	0.1464	0.3695	0
+Kev 4B	lexical-trap-control	54	23.0	0.4259	0.3033	0.5584	0
+Kev 4B	none-of-these	60	31.0	0.5167	0.3931	0.6382	0
+Kev 4B	reversal	65	28.0	0.4308	0.3176	0.5517	0
+Kev 4B	reversal:forward	37	12.0	0.3243	0.1963	0.4854	0
+Kev 4B	reversal:reverse	28	16.0	0.5714	0.3907	0.7349	0
+Kev 4B	reversal-general	146	91.0	0.6233	0.5425	0.6978	0
+Kev 4B	reversal-general:forward	73	45.0	0.6164	0.5017	0.7195	0
+Kev 4B	reversal-general:reverse	73	46.0	0.6301	0.5155	0.7318	0
+Kev 4B	reversal-general-shared-name	42	39.0	0.9286	0.8099	0.9754	0
+Kev 4B	hard	505	197.0	0.3901	0.3485	0.4333	0
+Kev 4B	easy	996	512.0	0.5141	0.483	0.545	0
 Liquid d1	overall	1501	1014.0	0.6755	0.6514	0.6988	31
 Liquid d1	beatles-only	1313	844.5	0.6432	0.6169	0.6686	29
 Liquid d1	forward	224	151.5	0.6763	0.6125	0.7342	5
@@ -199,6 +240,35 @@ Liquid d1	reversal-general	146	129.5	0.887	0.8254	0.9287	1
 Liquid d1	reversal-general:forward	73	68.0	0.9315	0.8495	0.9704	0
 Liquid d1	reversal-general:reverse	73	61.5	0.8425	0.7421	0.9086	1
 Liquid d1	reversal-general-shared-name	42	40.0	0.9524	0.8421	0.9868	1
+Liquid d1	hard	505	267.0	0.5287	0.4851	0.5719	12
+Liquid d1	easy	996	747.0	0.75	0.7222	0.7759	19
+Nimble 9B	overall	1501	779.0	0.519	0.4937	0.5442	0
+Nimble 9B	beatles-only	1313	630.0	0.4798	0.4529	0.5069	0
+Nimble 9B	forward	224	78.0	0.3482	0.2889	0.4127	0
+Nimble 9B	forward:album	60	27.0	0.45	0.3309	0.5751	0
+Nimble 9B	forward:singer	57	21.0	0.3684	0.2552	0.4982	0
+Nimble 9B	forward:songwriter	47	18.0	0.383	0.2579	0.5257	0
+Nimble 9B	forward:year	60	12.0	0.2	0.1183	0.3178	0
+Nimble 9B	reverse	112	48.0	0.4286	0.3408	0.5211	0
+Nimble 9B	multi-hop	180	90.0	0.5	0.4277	0.5723	0
+Nimble 9B	single-hop	248	123.0	0.496	0.4343	0.5578	0
+Nimble 9B	comparison	60	37.0	0.6167	0.4902	0.7291	0
+Nimble 9B	shared-lead	32	18.0	0.5625	0.3933	0.7183	0
+Nimble 9B	lead-set	104	83.0	0.7981	0.711	0.864	0
+Nimble 9B	near-neighbor	60	30.0	0.5	0.3774	0.6226	0
+Nimble 9B	near-neighbor-control	60	33.0	0.55	0.4249	0.6691	0
+Nimble 9B	lexical-trap	54	19.0	0.3519	0.2382	0.4852	0
+Nimble 9B	lexical-trap-control	54	22.0	0.4074	0.2868	0.5403	0
+Nimble 9B	none-of-these	60	20.0	0.3333	0.2273	0.4594	0
+Nimble 9B	reversal	65	29.0	0.4462	0.3317	0.5666	0
+Nimble 9B	reversal:forward	37	12.0	0.3243	0.1963	0.4854	0
+Nimble 9B	reversal:reverse	28	17.0	0.6071	0.4241	0.7643	0
+Nimble 9B	reversal-general	146	107.0	0.7329	0.6558	0.798	0
+Nimble 9B	reversal-general:forward	73	51.0	0.6986	0.5856	0.7918	0
+Nimble 9B	reversal-general:reverse	73	56.0	0.7671	0.6583	0.8492	0
+Nimble 9B	reversal-general-shared-name	42	42.0	1.0	0.9162	1.0	0
+Nimble 9B	hard	505	210.0	0.4158	0.3736	0.4593	0
+Nimble 9B	easy	996	569.0	0.5713	0.5403	0.6017	0
 chance	overall	1501	459.38	0.306			0
 chance	beatles-only	1313	412.38	0.3141			0
 chance	forward	224	47.67	0.2128			0
@@ -224,3 +294,5 @@ chance	reversal-general	146	36.5	0.25			0
 chance	reversal-general:forward	73	18.25	0.25			0
 chance	reversal-general:reverse	73	18.25	0.25			0
 chance	reversal-general-shared-name	42	10.5	0.25			0
+chance	hard	505	153.0	0.303			0
+chance	easy	996	306.38	0.3076			0

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Gemini 9A","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"August 1965","b":"June 1966","c":"March 1967","d":"February 1967"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.08413923727675013,"b":0.10803691920406783,"c":0.25916709631495777,"d":0.5486567472042243},"confidence":0.39820899627229905}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

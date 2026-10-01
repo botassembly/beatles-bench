@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Girl","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Rubber Soul","b":"A Hard Day's Night","c":"The Beatles (White Album)","d":"Let It Be"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.36008334169224715,"b":0.5239181394812963,"c":0.08034544412064899,"d":0.035653074705807704},"confidence":0.36522418597506173}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

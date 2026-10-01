@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Daniel Day-Lewis","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Dorothy Bridges","b":"Jill Balcon","c":"Teri Shields","d":"Linda Carroll"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.0921,"probabilities":{"a":0.3162,"b":0.2698,"c":0.095,"d":0.319}}},"usage":{"input_tokens":46,"output_tokens":73},"latency_ms":97.8}
+}

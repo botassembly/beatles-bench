@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Abbey Road","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I'm Looking Through You","b":"Money (That's What I Want)","c":"Here Comes the Sun","d":"A Hard Day's Night"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.0857,"probabilities":{"a":0.3143,"b":0.1424,"c":0.3084,"d":0.2349}}},"usage":{"input_tokens":66,"output_tokens":75},"latency_ms":99.8}
+}

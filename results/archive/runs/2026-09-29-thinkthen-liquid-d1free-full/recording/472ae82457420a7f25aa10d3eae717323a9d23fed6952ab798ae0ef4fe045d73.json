@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Emma Thompson","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Eric Thompson","b":"Lee Hoi-chuen","c":"Will Knightley","d":"Michael D. Horowitz"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8657794286549145,"b":0.00022619215639182894,"c":0.0012227838277903968,"d":0.1327715953609035},"confidence":0.8210392382065527}},"usage":{"input_tokens":94,"output_tokens":0}}
+}

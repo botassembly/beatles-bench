@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Jennifer Lash","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Elizabeth Taylor","b":"Jennifer Aniston","c":"Audrey Hepburn","d":"Ralph Fiennes"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.008983688919803856,"b":0.7136628063766463,"c":0.014811599011433675,"d":0.26254190569211605},"confidence":0.6182170751688617}},"usage":{"input_tokens":97,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Taxman","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"Revolver","c":"The Beatles (White Album)","d":"Magical Mystery Tour"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.20106328967193265,"b":0.1145624091389656,"c":0.3314973224390567,"d":0.352876978750045},"confidence":0.13716930500005997}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

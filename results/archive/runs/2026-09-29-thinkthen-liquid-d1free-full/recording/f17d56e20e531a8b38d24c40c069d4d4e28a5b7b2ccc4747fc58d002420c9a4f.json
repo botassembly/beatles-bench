@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Please Please Me","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Good Night","b":"Baby It's You","c":"Being for the Benefit of Mr. Kite!","d":"One After 909"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.000545573075590096,"b":0.012417185966283311,"c":0.000618215286639828,"d":0.9864190256714869},"confidence":0.9818920342286491}},"usage":{"input_tokens":107,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"John Lennon","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"The Honeymoon Song","b":"Dig a Pony","c":"Things We Said Today","d":"For No One"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.5874034290386102,"b":0.05132673961324448,"c":0.06590483821911944,"d":0.295364993129026},"confidence":0.44987123871814694}},"usage":{"input_tokens":108,"output_tokens":0}}
+}

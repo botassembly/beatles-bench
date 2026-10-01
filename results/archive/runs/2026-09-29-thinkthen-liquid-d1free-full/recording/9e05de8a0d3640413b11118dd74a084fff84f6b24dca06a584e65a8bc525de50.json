@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Faisal Mosque","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a building or structure. Who was an architect of it?","criteria":{"a":"Ulrich Ensingen","b":"Matthias of Arras","c":"Donato Bramante","d":"Vedat Dalokay"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.000022826694227484382,"b":0.000033212612451074054,"c":0.000024298866347353608,"d":0.999919661826974},"confidence":0.9998928824359653}},"usage":{"input_tokens":99,"output_tokens":0}}
+}

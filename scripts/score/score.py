@@ -45,6 +45,16 @@ def newest(label, runs=ROOT / "results" / "runs"):
     return found[-1]
 
 
+def build_of(run):
+    """The thinkthen commit a run's run.txt names ('build of ... at SHA'), else None. A short id stands
+    when the run recorded no full SHA."""
+    f = Path(run) / "run.txt"
+    if not f.is_file():
+        return None
+    m = re.search(r"build of .* at ([0-9a-f]{7,40})\b", f.read_text(encoding="utf-8"))
+    return m.group(1) if m else None
+
+
 def tracked(path):
     """The files under path that git tracks, as absolute Paths in name order. In a checkout git's list is the one,
     so a file that was never committed stays out of every table. Outside a checkout, such as a ZIP download, every

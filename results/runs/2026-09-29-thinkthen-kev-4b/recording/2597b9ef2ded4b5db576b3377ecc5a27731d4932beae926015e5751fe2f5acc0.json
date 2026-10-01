@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"With the Beatles","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Ob-La-Di, Ob-La-Da","b":"Not a Second Time","c":"A Taste of Honey","d":"Octopus's Garden"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.1073,"probabilities":{"a":0.2919,"b":0.3305,"c":0.284,"d":0.0937}}},"usage":{"input_tokens":65,"output_tokens":74},"latency_ms":82.9}
+}

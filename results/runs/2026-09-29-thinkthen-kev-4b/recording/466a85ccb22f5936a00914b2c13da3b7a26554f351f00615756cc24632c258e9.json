@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Harald Kloser","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"Eternal Sunshine of the Spotless Mind","b":"The Three Caballeros","c":"The Day After Tomorrow","d":"Spartacus"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.1621,"probabilities":{"a":0.2309,"b":0.0933,"c":0.3715,"d":0.3043}}},"usage":{"input_tokens":58,"output_tokens":75},"latency_ms":97.2}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"I Me Mine","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"May 1970","b":"January 1970","c":"February 1971","d":"May 1969"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.1566,"probabilities":{"a":0.2995,"b":0.2595,"c":0.0736,"d":0.3674}}},"usage":{"input_tokens":66,"output_tokens":75},"latency_ms":113.5}
+}

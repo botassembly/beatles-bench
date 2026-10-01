@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Hold Me Tight","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"Yellow Submarine","c":"With the Beatles","none":"none of these"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"none","confidence":0.19,"probabilities":{"a":0.3236,"b":0.0624,"c":0.2215,"none":0.3925}}},"usage":{"input_tokens":54,"output_tokens":73},"latency_ms":96.0}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"George Harrison","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Things We Said Today","b":"Don't Pass Me By","c":"Only a Northern Song","d":"Another Girl"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0007542569988115506,"b":0.0008546851514181356,"c":0.9977254283845662,"d":0.0006656294652039463},"confidence":0.9969672378460883}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

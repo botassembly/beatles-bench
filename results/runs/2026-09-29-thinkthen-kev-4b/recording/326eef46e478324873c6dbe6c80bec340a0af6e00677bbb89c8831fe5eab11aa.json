@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"John Lennon","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Do You Want to Know a Secret","b":"I Need You","c":"The Long and Winding Road","d":"You Can't Do That"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.1382,"probabilities":{"a":0.1942,"b":0.1958,"c":0.3536,"d":0.2564}}},"usage":{"input_tokens":67,"output_tokens":75},"latency_ms":67.3}
+}

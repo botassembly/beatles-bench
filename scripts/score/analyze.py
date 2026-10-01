@@ -5,12 +5,14 @@ usage: analyze.py [RUN...]   (default: the newest committed folder of each label
                              whose answers.jsonl covers questions/)
 
 Tables (tab-separated, one header row):
-  systems.tsv      each system: its label, run folder, family, model, and backend
+  systems.tsv      each system: its label, run folder, family, model, backend, thinkthen build, and run date
   accuracy.tsv     right answers per scope with the 95% Wilson interval. A tie at the top holding the truth earns a share
                    (score.credit), and ties counts the tied answers. Scopes: overall, beatles-only (every category
-                   but the reversal-general ones), each category, each forward fact, and each reversal direction.
+                   but the reversal-general ones), each category, each forward fact, each reversal direction, and
+                   the hard and easy split on questions/hard.txt.
                    The chance rows give the expected right answers of a uniform guess.
-  mcnemar.tsv      the exact McNemar test for every pair of systems on the overall, beatles-only, and category scopes
+  mcnemar.tsv      the exact McNemar test for every pair of systems on the overall, beatles-only, category, and
+                   hard/easy scopes
   calibration.tsv  accuracy by the probability each system gave its own answer, in ten equal bins
   ece.tsv          the expected calibration error with a seeded bootstrap 95% interval (1,000 resamples)
   coverage.tsv     accuracy against coverage as the cut on that probability moves down
@@ -38,11 +40,12 @@ sys.path.insert(0, str(ROOT / "scripts" / "score"))
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 import stats  # noqa: E402
 from generate import CATEGORIES, GENERAL_CATEGORIES  # noqa: E402
-from score import auc, confidence, credit, default, price, tied, tracked  # noqa: E402
+from score import auc, build_of, confidence, credit, default, price, tied, tracked  # noqa: E402
 import hashlib  # noqa: E402
 
 LABELS = {"thinkthen-jev": "Jev", "all-jev": "Jev", "all-liquid-d1": "Liquid d1",
           "thinkthen-laya": "Laya", "glm-5.3-flash": "GLM-5.3 Flash",
+          "thinkthen-kev-4b": "Kev 4B", "thinkthen-nimble-9b": "Nimble 9B",
           "baseline-overlap": "Word overlap", "baseline-bm25": "BM25", "baseline-embed": "Embeddings",
           "baseline-hybrid": "Hybrid"}
 BASELINES = "vector search (question vs. options)"  # the family of every baseline
@@ -106,13 +109,18 @@ def systems(qs, runs):
 
 
 def scopes(qs):
-    """[(scope, predicate on a question)] in table order."""
+    """[(scope, predicate on a question)] in table order. hard and easy split the questions on the 505
+    committed ids of questions/hard.txt (experiment 413's set)."""
     out = [("overall", lambda q: True), ("beatles-only", lambda q: q["category"] not in GENERAL_CATEGORIES)]
     for c in [c for c in CATEGORIES if any(q["category"] == c for q in qs)]:
         out.append((c, lambda q, c=c: q["category"] == c))
         if c in ("forward", "reversal", "reversal-general"):
             for k in sorted({q["kind"] for q in qs if q["category"] == c}):
                 out.append((f"{c}:{k}", lambda q, c=c, k=k: q["category"] == c and q["kind"] == k))
+    f = ROOT / "questions" / "hard.txt"
+    hard = set(f.read_text(encoding="utf-8").split()) if f.is_file() else set()
+    if any(q["id"] in hard for q in qs):
+        out += [("hard", lambda q: q["id"] in hard), ("easy", lambda q: q["id"] not in hard)]
     return out
 
 
@@ -134,7 +142,11 @@ def tables(qs, systems_, songs, prices):
     sc = scopes(qs)
     for label, (run, short, rows) in systems_.items():
         a = rows[0][1]
-        t["systems"].append([label, run, family(short), a["model"], a["backend"], len(rows)])
+        path = next((b / run for b in (ROOT / "results" / "runs", ROOT / "results" / "archive" / "runs")
+                     if (b / run).is_dir()), None)
+        t["systems"].append([label, run, family(short), a["model"], a["backend"], len(rows),
+                             (build_of(path) or "") if path else "",
+                             run[:10] if dated(run) else ""])
         for scope, pred in sc:
             sel = [r for r in rows if pred(r[0])]
             k = sum(credit(r) for r in sel)
@@ -224,7 +236,7 @@ def tables(qs, systems_, songs, prices):
 
 
 HEADERS = {
-    "systems": ["system", "run", "family", "model", "backend", "questions"],
+    "systems": ["system", "run", "family", "model", "backend", "questions", "build", "date"],
     "accuracy": ["system", "scope", "n", "right", "accuracy", "lo", "hi", "ties"],
     "decide": ["system", "category", "kind", "n", "auc", "right_at_0.5", "yes_recall_at_0.5", "mean_p_yes",
                "right_at_held_out_cut", "cuts_tuned_on_each_half"],

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"“What Is Love” by Haddaway","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a song and its performer. Who is a credited writer of it?","criteria":{"a":"Tony Hendrik","b":"Sandy Vee","c":"Lucio Quarantotto","d":"Joseíto Fernández"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.07,"probabilities":{"a":0.2575,"b":0.3025,"c":0.2697,"d":0.1703}}},"usage":{"input_tokens":59,"output_tokens":73},"latency_ms":99.4}
+}

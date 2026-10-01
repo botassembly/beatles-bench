@@ -37,6 +37,8 @@ Each line is one JSON object.
 
 `keys/` holds one answer key per file for `thinkthen audit` and `thinkthen diff`. Each line is `{"id", "value"}`, and `value` is the `truth`. The key lines carry no `part`, so audit makes its own seeded split. The generator writes them.
 
+`hard.txt` is the hard set: the 505 question ids experiment 413 picked — the lexical traps and their controls, the multi-hop questions, the none-of-these questions, the reversal questions, the shared-lead questions, and the year questions of `forward`. The other 996 questions are the easy set.
+
 ## How truths are set
 
 - A script sets every truth from the harvested tables in `data/`. No person and no language model wrote a question or chose an answer.

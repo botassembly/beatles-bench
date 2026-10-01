@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Estelle Reiner","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Martin Scorsese","b":"William Shakespeare","c":"Joan Fontaine","d":"Rob Reiner"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.5877,"probabilities":{"a":0.1471,"b":0.0054,"c":0.1567,"d":0.6908}}},"usage":{"input_tokens":52,"output_tokens":75},"latency_ms":95.5}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Sergio Leone","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Paul Belmondo","b":"Roberto Roberti","c":"Arend Hauer","d":"Junius Brutus Booth"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.0004579080111685858,"b":0.9986584788313354,"c":0.00029564763265052416,"d":0.0005879655248453983},"confidence":0.9982113051084472}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

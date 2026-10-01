@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Please Please Me","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Good Night","b":"Baby It's You","c":"Please Mr. Postman","d":"One After 909"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.1208,"probabilities":{"a":0.1712,"b":0.165,"c":0.3406,"d":0.3232}}},"usage":{"input_tokens":61,"output_tokens":74},"latency_ms":97.1}
+}

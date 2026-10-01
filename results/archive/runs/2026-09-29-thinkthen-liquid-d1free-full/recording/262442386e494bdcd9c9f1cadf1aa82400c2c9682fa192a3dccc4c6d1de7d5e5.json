@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I'm Looking Through You","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"Rubber Soul","c":"Beatles for Sale","d":"Sgt. Pepper's Lonely Hearts Club Band"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.01206099474832601,"b":0.8455409093462947,"c":0.10749845041894636,"d":0.03489964548643306},"confidence":0.7940545457950595}},"usage":{"input_tokens":108,"output_tokens":0}}
+}

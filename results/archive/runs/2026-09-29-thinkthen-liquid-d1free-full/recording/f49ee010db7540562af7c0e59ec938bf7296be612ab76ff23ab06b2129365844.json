@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"1969 Rhodesian constitutional referendum","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1969","b":"October 1968","c":"June 1969","d":"June 1970"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.3479564244452351,"b":0.0015137305026142942,"c":0.6500681833323809,"d":0.0004616617197696909},"confidence":0.5334242444431746}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

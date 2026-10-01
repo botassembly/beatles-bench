@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Devil in Her Heart","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"August 1963","b":"November 1963","c":"August 1964","d":"September 1963"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.4790513720698137,"b":0.19969832249078312,"c":0.06483255312395618,"d":0.256417752315447},"confidence":0.30540182942641825}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

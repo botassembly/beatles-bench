@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Maxwell's Silver Hammer","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"February 1970","b":"December 1968","c":"May 1970","d":"September 1969"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.3856334017676377,"b":0.43697994475596225,"c":0.0521898180967425,"d":0.1251968353796574},"confidence":0.24930659300794966}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

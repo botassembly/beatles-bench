@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"slow cooker","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Chester Moore Hall","b":"Rudolf Kompfner","c":"Irving Naxon","d":"Otto Griessing"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.2894,"probabilities":{"a":0.467,"b":0.0224,"c":0.2487,"d":0.2619}}},"usage":{"input_tokens":49,"output_tokens":74},"latency_ms":97.6}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Please Please Me","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"You Can't Do That","b":"Twist and Shout","c":"Honey Don't","d":"Don't Bother Me"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.02260705686084476,"b":0.9612765185600619,"c":0.006084603908243485,"d":0.010031820670849885},"confidence":0.9483686914134158}},"usage":{"input_tokens":106,"output_tokens":0}}
+}

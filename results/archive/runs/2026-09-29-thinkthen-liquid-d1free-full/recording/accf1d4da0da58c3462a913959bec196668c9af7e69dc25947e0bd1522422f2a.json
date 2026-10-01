@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"The Three Caballeros","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Paul Smith","b":"Thomas Wander","c":"Jon Brion","d":"Marc Streitenfeld"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.989429643135673,"b":0.0040435737699995615,"c":0.0029583417669303723,"d":0.0035684413273969276},"confidence":0.985906190847564}},"usage":{"input_tokens":90,"output_tokens":0}}
+}

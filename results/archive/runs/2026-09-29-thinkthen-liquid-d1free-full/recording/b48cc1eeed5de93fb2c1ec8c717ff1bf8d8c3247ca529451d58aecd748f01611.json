@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I'm Only Sleeping / Hey Jude","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"I'm Only Sleeping","b":"Hey Jude"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.0012448432465088175,"b":0.998755156753491},"confidence":0.997510313506982}},"usage":{"input_tokens":88,"output_tokens":0}}
+}

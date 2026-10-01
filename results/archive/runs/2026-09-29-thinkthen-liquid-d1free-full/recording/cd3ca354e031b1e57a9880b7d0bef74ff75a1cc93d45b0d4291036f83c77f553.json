@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"1967 Australian referendum (Aboriginals)","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"October 1966","b":"August 1966","c":"May 1967","d":"May 1966"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.00033477065446984835,"b":0.00040381049003999014,"c":0.9979373752324796,"d":0.0013240436230105848},"confidence":0.9972498336433061}},"usage":{"input_tokens":101,"output_tokens":0}}
+}

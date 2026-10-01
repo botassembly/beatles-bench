@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"slow cooker","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Chester Moore Hall","b":"Rudolf Kompfner","c":"Irving Naxon","d":"Otto Griessing"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.000021409773301355714,"b":0.00013960925910541351,"c":0.9983380406977567,"d":0.0015009402698363875},"confidence":0.9977840542636756}},"usage":{"input_tokens":93,"output_tokens":0}}
+}

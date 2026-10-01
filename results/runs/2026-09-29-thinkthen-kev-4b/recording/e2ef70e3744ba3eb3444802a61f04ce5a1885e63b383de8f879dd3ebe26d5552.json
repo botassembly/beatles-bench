@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Audrey Hepburn","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Ella van Heemstra","b":"Rachel Messerer","c":"Magda Schneider","d":"Katharine Martha Houghton Hepburn"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.116,"probabilities":{"a":0.2024,"b":0.1594,"c":0.3013,"d":0.337}}},"usage":{"input_tokens":55,"output_tokens":73},"latency_ms":99.0}
+}

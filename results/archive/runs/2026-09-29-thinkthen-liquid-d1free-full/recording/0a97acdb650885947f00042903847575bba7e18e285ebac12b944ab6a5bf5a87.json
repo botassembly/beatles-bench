@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Please Please Me","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"There's a Place","b":"Nowhere Man","c":"Don't Pass Me By","d":"Hey Bulldog"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9965612933773969,"b":0.0012421088821037314,"c":0.0010297444312144992,"d":0.0011668533092848887},"confidence":0.9954150578365292}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

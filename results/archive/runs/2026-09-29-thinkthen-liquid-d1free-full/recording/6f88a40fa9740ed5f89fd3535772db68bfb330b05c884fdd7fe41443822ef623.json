@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"The Beatles (White Album)","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Maxwell's Silver Hammer","b":"Dear Prudence","c":"Good Morning Good Morning","d":"And I Love Her"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.41668205402011366,"b":0.5350303480394805,"c":0.032131077526066955,"d":0.016156520414338887},"confidence":0.38004046405264064}},"usage":{"input_tokens":106,"output_tokens":0}}
+}

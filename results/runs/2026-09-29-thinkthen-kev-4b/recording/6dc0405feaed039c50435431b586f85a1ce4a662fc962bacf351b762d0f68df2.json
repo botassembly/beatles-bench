@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Lennon–McCartney","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Piggies","b":"I Don't Want to Spoil the Party","c":"Something","d":"The Inner Light"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.1585,"probabilities":{"a":0.1959,"b":0.2758,"c":0.3689,"d":0.1594}}},"usage":{"input_tokens":64,"output_tokens":75},"latency_ms":82.4}
+}

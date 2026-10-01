@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Brandenburg Gate","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a building or structure. Who was an architect of it?","criteria":{"a":"Ulrich Ensingen","b":"Peter Hall","c":"Heinrich Strack","d":"Vedat Dalokay"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.0011718774755136913,"b":0.6461990733883246,"c":0.3458853566639774,"d":0.006743692472184316},"confidence":0.5282654311844328}},"usage":{"input_tokens":93,"output_tokens":0}}
+}

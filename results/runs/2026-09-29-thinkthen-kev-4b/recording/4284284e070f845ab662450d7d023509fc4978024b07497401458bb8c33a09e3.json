@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Good Night / Komm, gib mir deine Hand","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Good Night","b":"Komm, gib mir deine Hand"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.4712,"probabilities":{"a":0.2644,"b":0.7356}}},"usage":{"input_tokens":42,"output_tokens":53},"latency_ms":94.3}
+}

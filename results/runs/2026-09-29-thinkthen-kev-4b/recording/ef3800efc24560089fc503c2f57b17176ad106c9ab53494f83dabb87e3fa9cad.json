@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Henrik Jonback","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“What Is Love” by Haddaway","b":"“Guantanamera” by The Sandpipers","c":"“All About That Bass” by Meghan Trainor","d":"“Toxic” by Britney Spears"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.0933,"probabilities":{"a":0.2212,"b":0.1798,"c":0.279,"d":0.32}}},"usage":{"input_tokens":78,"output_tokens":72},"latency_ms":99.2}
+}

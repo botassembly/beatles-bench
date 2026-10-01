@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"What You're Doing","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who produced it?","criteria":{"a":"George Martin","b":"Phil Spector"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9399133540338004,"b":0.06008664596619963},"confidence":0.8798267080676008}},"usage":{"input_tokens":84,"output_tokens":0}}
+}

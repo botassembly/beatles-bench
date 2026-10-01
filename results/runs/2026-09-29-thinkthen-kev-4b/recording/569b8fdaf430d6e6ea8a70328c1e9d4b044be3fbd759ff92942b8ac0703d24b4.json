@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Assassination of John F. Kennedy","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"September 1963","b":"November 1964","c":"December 1963","d":"November 1963"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.8743,"probabilities":{"a":0.0213,"b":0.0014,"c":0.0717,"d":0.9057}}},"usage":{"input_tokens":64,"output_tokens":75},"latency_ms":122.0}
+}

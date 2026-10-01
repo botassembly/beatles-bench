@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"György Ligeti","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"The Day After Tomorrow","b":"Lucy","c":"2001: A Space Odyssey","d":"Eternal Sunshine of the Spotless Mind"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.2351,"probabilities":{"a":0.0712,"b":0.4263,"c":0.2804,"d":0.2221}}},"usage":{"input_tokens":63,"output_tokens":75},"latency_ms":96.2}
+}

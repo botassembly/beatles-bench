@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Savoy Truffle","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Yellow Submarine","c":"Abbey Road"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9982960007025995,"b":0.0015008776020268592,"c":0.00020312169537379306},"confidence":0.9974440010538992}},"usage":{"input_tokens":97,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I'm Only Sleeping","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"June 1966","b":"November 1965","c":"December 1966","d":"March 1966"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9309089065359684,"b":0.004884962342925376,"c":0.040901279179050135,"d":0.023304851942056296},"confidence":0.9078785420479578}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

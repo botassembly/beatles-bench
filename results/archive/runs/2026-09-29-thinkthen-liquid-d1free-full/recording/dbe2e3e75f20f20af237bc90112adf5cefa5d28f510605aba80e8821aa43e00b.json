@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Geneviève Sorya","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Bruce Lee","b":"Jennifer Aniston","c":"Anjelica Huston","d":"Anouk Aimée"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.0023736168126788047,"b":0.003244349517377406,"c":0.09481379098134994,"d":0.8995682426885939},"confidence":0.8660909902514585}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

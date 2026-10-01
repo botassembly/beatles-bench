@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Dagen H","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"October 1966","b":"November 1966","c":"April 1968","d":"September 1967"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.32856175235204954,"b":0.3723092414146506,"c":0.07331203642096155,"d":0.22581696981233815},"confidence":0.16307898855286748}},"usage":{"input_tokens":95,"output_tokens":0}}
+}

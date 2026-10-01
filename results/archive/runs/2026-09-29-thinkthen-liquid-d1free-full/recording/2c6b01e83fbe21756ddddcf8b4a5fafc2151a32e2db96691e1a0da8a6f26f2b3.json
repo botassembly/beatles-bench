@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Devil in Her Heart","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Beatles for Sale","c":"Help!","d":"Revolver"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.34323542111607586,"b":0.23590202503438337,"c":0.388936686475422,"d":0.031925867374118774},"confidence":0.18524891530056267}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

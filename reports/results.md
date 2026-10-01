@@ -1,6 +1,6 @@
 # Full results
 
-The audited runs of 2026-09-23, with every Jev run asked again from an empty recording on 2026-09-25 (ticket 0009), again on 2026-09-26 (ticket 0014, `sdlc/tickets/0014-shipped-recognize-and-relate.md`), and once more over the whole bench on 2026-09-30 (ticket 0023). Jev's rows come from `results/runs/2026-09-30-all-jev`, and Liquid d1's from `results/runs/2026-09-30-all-liquid-d1`. This report holds every number the front page leaves out: the intervals, the tests, the baselines, the function suite, the costs, and the audit history. `python3 scripts/score/table.py` prints the two main tables below from `results/tables/`.
+The audited runs of 2026-09-23, with every Jev run asked again from an empty recording on 2026-09-25 (ticket 0009), again on 2026-09-26 (ticket 0014, `sdlc/tickets/0014-shipped-recognize-and-relate.md`), and once more over the whole bench on 2026-09-30 (ticket 0023). Jev's rows come from `results/runs/2026-09-30-all-jev`, and Liquid d1's from `results/runs/2026-09-30-all-liquid-d1`. This report holds every number the front page leaves out: the intervals, the tests, the baselines, the function suite, the costs, and the audit history. `python3 scripts/score/table.py` prints the tables below from `results/tables/` (and the five-model table [models.md](models.md) carries).
 
 ## By function
 
@@ -39,6 +39,25 @@ The gap between the columns is why the facts belong in the text. On your own wor
 | Hybrid | 35.9% (33.4% to 38.6%) | 37.5% (35.1% to 40.0%) | 0.0000 | no model call |
 | Word overlap | 33.2% (30.7% to 35.8%) | 34.2% (31.8% to 36.6%) | 0.0000 | no model call |
 | Chance | 31.4% | 30.6% | | |
+
+Five models answered the same 1,501 knowledge questions. The table below adds the hard and easy split and each model's exact McNemar test against Jev, paired by question id over the 1,501 questions and scored right or wrong by the scorer's default verdict — a tied pick counts wrong. Its two counts are the questions only that system answered right, then the questions only Jev answered right. [models.md](models.md) is the page to cite.
+
+| System | Beatles-only (1,313) | Overall (1,501) | Hard (505) | Easy (996) | Against Jev (McNemar) | Run | Build | Date |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Jev | 67.4% (64.8% to 69.8%) | 70.5% (68.1% to 72.7%) | 56.9% (52.6% to 61.2%) | 77.3% (74.6% to 79.8%) | — | 2026-09-30-all-jev | aec7819bb | 2026-09-30 |
+| Liquid d1 | 64.3% (61.7% to 66.9%) | 67.5% (65.1% to 69.9%) | 52.9% (48.5% to 57.2%) | 75.0% (72.2% to 77.6%) | 140 to 191, p = 0.006 | 2026-09-30-all-liquid-d1 | aec7819bb | 2026-09-30 |
+| Nimble 9B | 48.0% (45.3% to 50.7%) | 51.9% (49.4% to 54.4%) | 41.6% (37.4% to 45.9%) | 57.1% (54.0% to 60.2%) | 148 to 422, p < 0.001 | 2026-09-30-thinkthen-nimble-9b | aec7819bb | 2026-09-30 |
+| Kev 4B | 44.1% (41.4% to 46.8%) | 47.2% (44.7% to 49.8%) | 39.0% (34.8% to 43.3%) | 51.4% (48.3% to 54.5%) | 137 to 481, p < 0.001 | 2026-09-29-thinkthen-kev-4b | 2c5ac772b | 2026-09-29 |
+| Laya | 35.0% (32.5% to 37.7%) | 35.8% (33.4% to 38.2%) | 29.9% (26.1% to 34.0%) | 38.8% (35.8% to 41.8%) | 96 to 612, p < 0.001 | 2026-09-23-thinkthen-laya | — | 2026-09-23 |
+| GLM-5.3 Flash | 96.2% (95.0% to 97.1%) | 96.7% (95.7% to 97.5%) | 95.5% (93.3% to 97.0%) | 97.3% (96.1% to 98.2%) | 419 to 21, p < 0.001 | 2026-09-23-glm-5.3-flash | chat script | 2026-09-23 |
+| *Vector search (question vs. options)* | | | | | | | | |
+| BM25 | 33.8% (31.3% to 36.4%) | 35.0% (32.6% to 37.4%) | 29.0% (25.2% to 33.1%) | 38.0% (35.1% to 41.1%) | 65 to 594, p < 0.001 | 2026-09-23-baseline-bm25 | — | 2026-09-23 |
+| Embeddings | 37.6% (35.0% to 40.3%) | 39.8% (37.3% to 42.3%) | 33.3% (29.3% to 37.5%) | 43.1% (40.0% to 46.2%) | 104 to 560, p < 0.001 | 2026-09-23-baseline-embed | — | 2026-09-23 |
+| Hybrid | 35.9% (33.4% to 38.6%) | 37.5% (35.1% to 40.0%) | 30.8% (26.9% to 34.9%) | 41.0% (38.0% to 44.0%) | 75 to 575, p < 0.001 | 2026-09-23-baseline-hybrid | — | 2026-09-23 |
+| Word overlap | 33.2% (30.7% to 35.8%) | 34.2% (31.8% to 36.6%) | 28.7% (24.9% to 32.8%) | 36.9% (34.0% to 40.0%) | 66 to 602, p < 0.001 | 2026-09-23-baseline-overlap | — | 2026-09-23 |
+| Chance | 31.4% | 30.6% | 30.3% | 30.8% | | | | |
+
+Each figure is one run, and the builds differ across rows; the knowledge questions ask from memory only. Liquid d1 left three questions unanswered at the rate limit; they score wrong.
 
 Jev is jev-1.13.0 through ThinkThen. GLM-5.3 Flash runs with thinking off through `scripts/run/chat.py`. Laya is a local Jev-like model (see [Laya](#laya)). [baselines.md](baselines.md) describes the four baselines.
 

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Help!","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"With a Little Help from My Friends","b":"I Need You","c":"The Fool on the Hill","d":"I Don't Want to Spoil the Party"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.675669754678707,"b":0.11030005535216589,"c":0.17083606767045648,"d":0.043194122298670534},"confidence":0.5675596729049427}},"usage":{"input_tokens":112,"output_tokens":0}}
+}

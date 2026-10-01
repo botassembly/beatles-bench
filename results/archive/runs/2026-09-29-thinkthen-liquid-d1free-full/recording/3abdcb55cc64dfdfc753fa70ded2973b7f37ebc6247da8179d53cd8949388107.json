@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Assassination of John F. Kennedy","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Not a Second Time","b":"Anna (Go to Him)","c":"While My Guitar Gently Weeps","d":"I Forgot to Remember to Forget"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.20587236142853904,"b":0.16033363274632106,"c":0.5957114300466835,"d":0.03808257577845654},"confidence":0.460948573395578}},"usage":{"input_tokens":116,"output_tokens":0}}
+}

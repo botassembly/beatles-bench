@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Beyoncé","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Thane Bettany","b":"Mathew Knowles","c":"Francis Avent Gumm","d":"Paul Belmondo"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.00003320743635625671,"b":0.9997629797793315,"c":0.00017951770487679967,"d":0.000024295079435488332},"confidence":0.9996839730391086}},"usage":{"input_tokens":96,"output_tokens":0}}
+}
