@@ -32,6 +32,7 @@ The gap between the columns is why the facts belong in the text. On your own wor
 | Jev | 67.4% (64.8% to 69.8%) | 70.5% (68.1% to 72.7%) | 0.0156 | 0.20 s |
 | GLM-5.3 Flash | 96.2% (95.0% to 97.1%) | 96.7% (95.7% to 97.5%) | 0.0555 | 8.24 s |
 | Laya | 35.0% (32.5% to 37.7%) | 35.8% (33.4% to 38.2%) | 0.0000 | 0.07 s |
+| Liquid d1 | 64.3% (61.7% to 66.9%) | 67.5% (65.1% to 69.9%) | 0.0000 | 0.31 s |
 | *Vector search (question vs. options)* | | | | |
 | BM25 | 33.8% (31.3% to 36.4%) | 35.0% (32.6% to 37.4%) | 0.0000 | no model call |
 | Embeddings | 37.6% (35.0% to 40.3%) | 39.8% (37.3% to 42.3%) | 0.0000 | no model call |
@@ -51,6 +52,18 @@ Jev's time comes from `results/runs/2026-09-30-all-jev`. Its `loadavg.txt` recor
 - Controls. Jev falls from 67% on the lexical-trap controls to 48% on the traps (12 against 2 discordant, p = 0.013). Near neighbors cost it nothing (82% against 83%), within chance (7 against 8 discordant, p = 1.0).
 - Yes/no cuts (`decide.tsv`). Each yes/no set reports its AUC, the right answers at the 0.5 cut, and the right answers at a cut tuned on one half of the items and scored on the other. [leaning-no.md](leaning-no.md) covers Jev's lean toward no and how to audit a run for it with `thinkthen audit` and `thinkthen diff`.
 
+## Jev and Liquid d1
+
+Liquid's d1 answered the same 1,501 questions and all 5,838 suite cases on 2026-09-30, through `thinkthen --backend liquid` at model `d1:free` (`results/runs/2026-09-30-all-liquid-d1`). `d1:free` is a name the vendor may repoint, so each d1 figure below comes from that one run of 2026-09-30. The generated reports put the two backends side by side: [generated/by-function.md](generated/by-function.md) gives each function's main measure per level, and [generated/head-to-head.md](generated/head-to-head.md) pairs their answers case by case with an exact McNemar test.
+
+From memory the two are close: 67.4% for Jev against 64.3% for d1 on the Beatles-only questions, and on the pick-one memory questions the McNemar test gives p = 0.02 — Jev ahead, barely. The three largest differences by function and level sit in the reading tests:
+
+- filter with extra context: F1 0.969 for Jev, 0.525 for d1 (295 of 300 cases fully right against 155).
+- recognize on the free sentences: 311 of 400 cases fully right for Jev, 185 for d1.
+- decide with extra context: 0.947 for Jev, 0.650 for d1 (284 of 300 against 195).
+
+With the exact facts in the card both backends fill the decide, tag, and filter rows at 1.000. d1 refused the relate `links` and `song to singer and album` tests whole as malformed or too large, and the find `reading` test — the exact-context level — hit the rate limit whole, so those cells stay empty. Seven more tests ended part-answered — annotate's card, details and reading tests, find's album-more and singer tests, rank's reading-popularity test, and relate's more-links — mostly on the rate limit. `gaps.tsv` in the run folder lists all 531 unanswered calls, and the generated reports score only the cases d1 answered. `results/tables/functions-liquid-d1.tsv` stays unwritten until the part-answered tests complete or the scorer gains a partial-test rule.
+
 ## Tables and figures
 
 Every table sits in [results/tables/](../results/tables/), one row per system and category. `scripts/score/analyze.py` writes them. The figures sit in [figures/](figures/) as SVG and PNG. Figures that show baselines draw the best one.
@@ -67,7 +80,7 @@ Every table sits in [results/tables/](../results/tables/), one row per system an
 
 ## The function suite
 
-The categories use only `choose` and `decide`. The function suite tests every function ThinkThen names at four levels: memory (the plain questions), card (a short card with the facts), context (a fuller context), and text (free sentences, for recognize). Every Jev and Liquid d1 row comes from that backend's all-run of 2026-09-30 — `results/runs/2026-09-30-all-jev` and `results/runs/2026-09-30-all-liquid-d1` — which asked all 5,838 cases in one folder. GLM and Laya keep their memory rows from `results/runs/2026-09-23-functions-*`; those runs predate the new levels, so their columns stop at memory.
+The categories use only `choose` and `decide`. The function suite tests every function ThinkThen names at four levels: memory (the plain questions), card (a short card with the facts), context (a fuller context), and text (free sentences, for recognize). Every Jev row comes from `results/runs/2026-09-30-all-jev`, which asked all 5,838 cases in one folder; Liquid d1's all-run of the same day is compared in [Jev and Liquid d1](#jev-and-liquid-d1). GLM and Laya keep their memory rows from `results/runs/2026-09-23-functions-*`; those runs predate the new levels, so their columns stop at memory.
 
 | Function | Test | Measure | Jev | GLM-5.3 Flash | Laya |
 | --- | --- | --- | --- | --- | --- |
