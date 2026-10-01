@@ -101,6 +101,23 @@ BM25	Jev	none-of-these	60	15	33	0	18	8e-06
 BM25	Jev	reversal	65	22	40	6	24	0.001431
 BM25	Jev	reversal-general	146	41	131	1	91	0.0
 BM25	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
+BM25	Liquid d1	overall	1501	524	1002	95	573	0.0
+BM25	Liquid d1	beatles-only	1313	441	833	91	483	0.0
+BM25	Liquid d1	forward	224	51	150	11	110	0.0
+BM25	Liquid d1	reverse	112	36	78	8	50	0.0
+BM25	Liquid d1	multi-hop	180	71	89	21	39	0.02734
+BM25	Liquid d1	single-hop	248	71	164	8	101	0.0
+BM25	Liquid d1	comparison	60	24	53	2	31	0.0
+BM25	Liquid d1	shared-lead	32	17	18	1	2	1.0
+BM25	Liquid d1	lead-set	104	62	67	16	21	0.511376
+BM25	Liquid d1	near-neighbor	60	28	40	5	17	0.016901
+BM25	Liquid d1	near-neighbor-control	60	26	50	2	26	3e-06
+BM25	Liquid d1	lexical-trap	54	4	25	1	22	6e-06
+BM25	Liquid d1	lexical-trap-control	54	14	29	5	20	0.004077
+BM25	Liquid d1	none-of-these	60	15	30	3	18	0.00149
+BM25	Liquid d1	reversal	65	22	40	8	26	0.002935
+BM25	Liquid d1	reversal-general	146	41	129	2	90	0.0
+BM25	Liquid d1	reversal-general-shared-name	42	42	40	2	0	0.5
 Embeddings	Hybrid	overall	1501	597	553	175	131	0.013834
 Embeddings	Hybrid	beatles-only	1313	494	465	150	121	0.08878
 Embeddings	Hybrid	forward	224	59	63	18	22	0.635828
@@ -186,6 +203,23 @@ Embeddings	Jev	none-of-these	60	12	33	1	22	6e-06
 Embeddings	Jev	reversal	65	29	40	12	23	0.089531
 Embeddings	Jev	reversal-general	146	61	131	3	73	0.0
 Embeddings	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
+Embeddings	Liquid d1	overall	1501	597	1002	153	558	0.0
+Embeddings	Liquid d1	beatles-only	1313	494	833	143	482	0.0
+Embeddings	Liquid d1	forward	224	59	150	14	105	0.0
+Embeddings	Liquid d1	reverse	112	39	78	6	45	0.0
+Embeddings	Liquid d1	multi-hop	180	71	89	26	44	0.041391
+Embeddings	Liquid d1	single-hop	248	74	164	20	110	0.0
+Embeddings	Liquid d1	comparison	60	34	53	7	26	0.001319
+Embeddings	Liquid d1	shared-lead	32	19	18	5	4	1.0
+Embeddings	Liquid d1	lead-set	104	64	67	19	22	0.755229
+Embeddings	Liquid d1	near-neighbor	60	38	40	11	13	0.83882
+Embeddings	Liquid d1	near-neighbor-control	60	27	50	4	27	3.4e-05
+Embeddings	Liquid d1	lexical-trap	54	10	25	5	20	0.004077
+Embeddings	Liquid d1	lexical-trap-control	54	18	29	11	22	0.080143
+Embeddings	Liquid d1	none-of-these	60	12	30	2	20	0.000121
+Embeddings	Liquid d1	reversal	65	29	40	13	24	0.098872
+Embeddings	Liquid d1	reversal-general	146	61	129	8	76	0.0
+Embeddings	Liquid d1	reversal-general-shared-name	42	42	40	2	0	0.5
 Hybrid	Word overlap	overall	1501	553	517	85	49	0.002372
 Hybrid	Word overlap	beatles-only	1313	465	437	72	44	0.01185
 Hybrid	Word overlap	forward	224	63	51	15	3	0.007538
@@ -254,6 +288,23 @@ Hybrid	Jev	none-of-these	60	14	33	0	19	4e-06
 Hybrid	Jev	reversal	65	23	40	6	23	0.002316
 Hybrid	Jev	reversal-general	146	46	131	2	87	0.0
 Hybrid	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
+Hybrid	Liquid d1	overall	1501	553	1002	103	552	0.0
+Hybrid	Liquid d1	beatles-only	1313	465	833	97	465	0.0
+Hybrid	Liquid d1	forward	224	63	150	15	102	0.0
+Hybrid	Liquid d1	reverse	112	38	78	7	47	0.0
+Hybrid	Liquid d1	multi-hop	180	67	89	17	39	0.004562
+Hybrid	Liquid d1	single-hop	248	79	164	13	98	0.0
+Hybrid	Liquid d1	comparison	60	24	53	2	31	0.0
+Hybrid	Liquid d1	shared-lead	32	17	18	1	2	1.0
+Hybrid	Liquid d1	lead-set	104	62	67	16	21	0.511376
+Hybrid	Liquid d1	near-neighbor	60	33	40	7	14	0.189247
+Hybrid	Liquid d1	near-neighbor-control	60	25	50	2	27	2e-06
+Hybrid	Liquid d1	lexical-trap	54	5	25	2	22	3.6e-05
+Hybrid	Liquid d1	lexical-trap-control	54	15	29	6	20	0.009355
+Hybrid	Liquid d1	none-of-these	60	14	30	2	18	0.000402
+Hybrid	Liquid d1	reversal	65	23	40	7	24	0.003327
+Hybrid	Liquid d1	reversal-general	146	46	129	4	87	0.0
+Hybrid	Liquid d1	reversal-general-shared-name	42	42	40	2	0	0.5
 Word overlap	GLM-5.3 Flash	overall	1501	517	1451	15	949	0.0
 Word overlap	GLM-5.3 Flash	beatles-only	1313	437	1263	15	841	0.0
 Word overlap	GLM-5.3 Flash	forward	224	51	218	0	167	0.0
@@ -305,6 +356,23 @@ Word overlap	Jev	none-of-these	60	15	33	0	18	8e-06
 Word overlap	Jev	reversal	65	23	40	7	24	0.003327
 Word overlap	Jev	reversal-general	146	41	131	1	91	0.0
 Word overlap	Jev	reversal-general-shared-name	42	39	42	0	3	0.25
+Word overlap	Liquid d1	overall	1501	517	1002	97	582	0.0
+Word overlap	Liquid d1	beatles-only	1313	437	833	93	489	0.0
+Word overlap	Liquid d1	forward	224	51	150	11	110	0.0
+Word overlap	Liquid d1	reverse	112	37	78	8	49	0.0
+Word overlap	Liquid d1	multi-hop	180	71	89	21	39	0.02734
+Word overlap	Liquid d1	single-hop	248	65	164	8	107	0.0
+Word overlap	Liquid d1	comparison	60	26	53	3	30	1e-06
+Word overlap	Liquid d1	shared-lead	32	17	18	1	2	1.0
+Word overlap	Liquid d1	lead-set	104	62	67	16	21	0.511376
+Word overlap	Liquid d1	near-neighbor	60	28	40	5	17	0.016901
+Word overlap	Liquid d1	near-neighbor-control	60	26	50	2	26	3e-06
+Word overlap	Liquid d1	lexical-trap	54	1	25	0	24	0.0
+Word overlap	Liquid d1	lexical-trap-control	54	15	29	6	20	0.009355
+Word overlap	Liquid d1	none-of-these	60	15	30	3	18	0.00149
+Word overlap	Liquid d1	reversal	65	23	40	9	26	0.005988
+Word overlap	Liquid d1	reversal-general	146	41	129	2	90	0.0
+Word overlap	Liquid d1	reversal-general-shared-name	42	39	40	2	3	1.0
 GLM-5.3 Flash	Laya	overall	1501	1451	537	931	17	0.0
 GLM-5.3 Flash	Laya	beatles-only	1313	1263	460	820	17	0.0
 GLM-5.3 Flash	Laya	forward	224	218	51	169	2	0.0
@@ -339,6 +407,23 @@ GLM-5.3 Flash	Jev	none-of-these	60	59	33	26	0	0.0
 GLM-5.3 Flash	Jev	reversal	65	59	40	23	4	0.000311
 GLM-5.3 Flash	Jev	reversal-general	146	146	131	15	0	6.1e-05
 GLM-5.3 Flash	Jev	reversal-general-shared-name	42	42	42	0	0	1.0
+GLM-5.3 Flash	Liquid d1	overall	1501	1451	1002	466	17	0.0
+GLM-5.3 Flash	Liquid d1	beatles-only	1313	1263	833	447	17	0.0
+GLM-5.3 Flash	Liquid d1	forward	224	218	150	70	2	0.0
+GLM-5.3 Flash	Liquid d1	reverse	112	102	78	28	4	1.9e-05
+GLM-5.3 Flash	Liquid d1	multi-hop	180	175	89	87	1	0.0
+GLM-5.3 Flash	Liquid d1	single-hop	248	245	164	82	1	0.0
+GLM-5.3 Flash	Liquid d1	comparison	60	59	53	7	1	0.070312
+GLM-5.3 Flash	Liquid d1	shared-lead	32	27	18	11	2	0.022461
+GLM-5.3 Flash	Liquid d1	lead-set	104	96	67	30	1	0.0
+GLM-5.3 Flash	Liquid d1	near-neighbor	60	60	40	20	0	2e-06
+GLM-5.3 Flash	Liquid d1	near-neighbor-control	60	60	50	10	0	0.001953
+GLM-5.3 Flash	Liquid d1	lexical-trap	54	50	25	26	1	0.0
+GLM-5.3 Flash	Liquid d1	lexical-trap-control	54	53	29	24	0	0.0
+GLM-5.3 Flash	Liquid d1	none-of-these	60	59	30	29	0	0.0
+GLM-5.3 Flash	Liquid d1	reversal	65	59	40	23	4	0.000311
+GLM-5.3 Flash	Liquid d1	reversal-general	146	146	129	17	0	1.5e-05
+GLM-5.3 Flash	Liquid d1	reversal-general-shared-name	42	42	40	2	0	0.5
 Laya	Jev	overall	1501	537	1053	96	612	0.0
 Laya	Jev	beatles-only	1313	460	880	92	512	0.0
 Laya	Jev	forward	224	51	149	12	110	0.0
@@ -356,3 +441,37 @@ Laya	Jev	none-of-these	60	21	33	4	16	0.011818
 Laya	Jev	reversal	65	24	40	4	20	0.001544
 Laya	Jev	reversal-general	146	47	131	4	88	0.0
 Laya	Jev	reversal-general-shared-name	42	30	42	0	12	0.000488
+Laya	Liquid d1	overall	1501	537	1002	111	576	0.0
+Laya	Liquid d1	beatles-only	1313	460	833	107	480	0.0
+Laya	Liquid d1	forward	224	51	150	10	109	0.0
+Laya	Liquid d1	reverse	112	38	78	10	50	0.0
+Laya	Liquid d1	multi-hop	180	70	89	23	42	0.024812
+Laya	Liquid d1	single-hop	248	78	164	10	96	0.0
+Laya	Liquid d1	comparison	60	27	53	6	32	2.4e-05
+Laya	Liquid d1	shared-lead	32	17	18	2	3	1.0
+Laya	Liquid d1	lead-set	104	61	67	16	22	0.417692
+Laya	Liquid d1	near-neighbor	60	26	40	7	21	0.012541
+Laya	Liquid d1	near-neighbor-control	60	29	50	4	25	0.000104
+Laya	Liquid d1	lexical-trap	54	9	25	2	18	0.000402
+Laya	Liquid d1	lexical-trap-control	54	9	29	3	23	8.8e-05
+Laya	Liquid d1	none-of-these	60	21	30	8	17	0.107752
+Laya	Liquid d1	reversal	65	24	40	6	22	0.003719
+Laya	Liquid d1	reversal-general	146	47	129	3	85	0.0
+Laya	Liquid d1	reversal-general-shared-name	42	30	40	1	11	0.006348
+Jev	Liquid d1	overall	1501	1053	1002	191	140	0.005908
+Jev	Liquid d1	beatles-only	1313	880	833	180	133	0.009212
+Jev	Liquid d1	forward	224	149	150	30	31	1.0
+Jev	Liquid d1	reverse	112	78	78	15	15	1.0
+Jev	Liquid d1	multi-hop	180	99	89	29	19	0.193413
+Jev	Liquid d1	single-hop	248	171	164	30	23	0.410103
+Jev	Liquid d1	comparison	60	49	53	2	6	0.289062
+Jev	Liquid d1	shared-lead	32	21	18	4	1	0.375
+Jev	Liquid d1	lead-set	104	79	67	20	8	0.035698
+Jev	Liquid d1	near-neighbor	60	49	40	10	1	0.011719
+Jev	Liquid d1	near-neighbor-control	60	50	50	5	5	1.0
+Jev	Liquid d1	lexical-trap	54	26	25	9	8	1.0
+Jev	Liquid d1	lexical-trap-control	54	36	29	10	3	0.092285
+Jev	Liquid d1	none-of-these	60	33	30	8	5	0.581055
+Jev	Liquid d1	reversal	65	40	40	8	8	1.0
+Jev	Liquid d1	reversal-general	146	131	129	9	7	0.803619
+Jev	Liquid d1	reversal-general-shared-name	42	42	40	2	0	0.5

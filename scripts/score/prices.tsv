@@ -2,3 +2,4 @@ model_prefix	usd_per_m_input	usd_per_m_cached_input	usd_per_m_output	source
 jev	0.042	0.042	0	Ian Maurer, 2026-09-23: Jev costs $0.042 per million input tokens, and output is free
 glm-5.3-flash	0.15	0.03	0.50	https://docs.z.ai/guides/overview/pricing, read 2026-09-23
 laya	0	0	0	Laya runs on a local Mac through a local shim; no per-token charge
+d1:free	0	0	0	Liquid's d1:free billed nothing on 2026-09-30; a name the vendor may repoint
