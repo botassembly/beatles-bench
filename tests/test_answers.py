@@ -89,7 +89,7 @@ class Build(unittest.TestCase):
                 self.assertIsInstance(r["value"], (int, float), r)
             if r["function"] == "recognize" and not r.get("gap"):
                 self.assertIsNone(r["probability"], r)  # strength is not a probability
-            if r["function"] == "annotate":
+            if r["function"] == "annotate" and not r.get("gap"):
                 self.assertTrue(r["id"].endswith(tuple(":" + f for f in build.FIELDS)), r["id"])
 
     def test_annotate_writes_one_row_per_field(self):
@@ -136,8 +136,12 @@ class Build(unittest.TestCase):
         self.assertTrue(gap["gap"])
         self.assertIsNone(gap["right"])
         self.assertIsNone(gap["counts"])
-        refused = [r for r in self.rows if r["function"] == "relate" and r.get("gap")]
-        self.assertEqual(len(refused), 3)  # Laya's three relate refusals
+        refused = defaultdict(int)
+        for r in self.rows:
+            if r["function"] == "relate" and r.get("gap"):
+                refused[r["run"]] += 1
+        # Laya's three relate refusals and d1's eighteen (the relate tests the Liquid backend refused or rate-limited)
+        self.assertEqual(dict(refused), {"2026-09-23-functions-laya": 3, "2026-09-30-all-liquid-d1": 18})
 
     def test_knowledge_gap_scores_wrong(self):
         # the knowledge scorer counts a refused answer (no probabilities) as wrong; the row carries it
