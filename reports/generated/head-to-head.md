@@ -10,6 +10,8 @@ Each pair of model backends on the questions both answered, per function and lev
 | GLM-5.3 Flash | Jev | filter | memory | 240 | 225 | 201 | 0.808 | 35 | 11 | 0.001 |
 | GLM-5.3 Flash | Jev | find | memory | 52 | 51 | 32 | 0.635 | 19 | 0 | 0.000 |
 | GLM-5.3 Flash | Jev | annotate | memory | 522 fields | 504 | 233 | 0.462 | 276 | 5 | 0.000 |
+| GLM-5.3 Flash | Kev 4B | decide | memory | 228 | 206 | 146 | 0.632 | 72 | 12 | 0.000 |
+| GLM-5.3 Flash | Kev 4B | choose | memory | 1273 | 1245 | 563 | 0.449 | 692 | 10 | 0.000 |
 | GLM-5.3 Flash | Laya | decide | memory | 228 | 206 | 123 | 0.548 | 93 | 10 | 0.000 |
 | GLM-5.3 Flash | Laya | choose | memory | 1273 | 1245 | 414 | 0.336 | 838 | 7 | 0.000 |
 | GLM-5.3 Flash | Laya | tag | memory | 158 | 148 | 0 | 0.063 | 148 | 0 | 0.000 |
@@ -22,6 +24,10 @@ Each pair of model backends on the questions both answered, per function and lev
 | GLM-5.3 Flash | Liquid d1 | filter | memory | 240 | 225 | 192 | 0.779 | 43 | 10 | 0.000 |
 | GLM-5.3 Flash | Liquid d1 | find | memory | 52 | 51 | 35 | 0.692 | 16 | 0 | 0.000 |
 | GLM-5.3 Flash | Liquid d1 | annotate | memory | 261 fields | 251 | 119 | 0.487 | 133 | 1 | 0.000 |
+| GLM-5.3 Flash | Nimble 9B | decide | memory | 228 | 206 | 156 | 0.632 | 67 | 17 | 0.000 |
+| GLM-5.3 Flash | Nimble 9B | choose | memory | 1273 | 1245 | 623 | 0.507 | 625 | 3 | 0.000 |
+| Jev | Kev 4B | decide | memory | 228 | 155 | 146 | 0.732 | 35 | 26 | 0.306 |
+| Jev | Kev 4B | choose | memory | 1273 | 898 | 563 | 0.562 | 446 | 111 | 0.000 |
 | Jev | Laya | decide | memory | 228 | 155 | 123 | 0.789 | 40 | 8 | 0.000 |
 | Jev | Laya | choose | memory | 1273 | 898 | 414 | 0.482 | 572 | 88 | 0.000 |
 | Jev | Laya | tag | memory | 158 | 67 | 0 | 0.576 | 67 | 0 | 0.000 |
@@ -47,12 +53,24 @@ Each pair of model backends on the questions both answered, per function and lev
 | Jev | Liquid d1 | annotate | context | 876 fields | 864 | 769 | 0.873 | 103 | 8 | 0.000 |
 | Jev | Liquid d1 | recognize | text | 400 | 311 | 185 | 0.625 | 138 | 12 | 0.000 |
 | Jev | Liquid d1 | relate | memory | 82 | 5 | 5 | 0.902 | 4 | 4 | 1.000 |
+| Jev | Nimble 9B | decide | memory | 228 | 155 | 156 | 0.645 | 40 | 41 | 1.000 |
+| Jev | Nimble 9B | choose | memory | 1273 | 898 | 623 | 0.616 | 382 | 107 | 0.000 |
+| Kev 4B | Laya | decide | memory | 228 | 146 | 123 | 0.768 | 38 | 15 | 0.002 |
+| Kev 4B | Laya | choose | memory | 1273 | 563 | 414 | 0.572 | 347 | 198 | 0.000 |
+| Kev 4B | Liquid d1 | decide | memory | 228 | 146 | 144 | 0.684 | 37 | 35 | 0.906 |
+| Kev 4B | Liquid d1 | choose | memory | 1273 | 563 | 858 | 0.578 | 121 | 416 | 0.000 |
+| Kev 4B | Nimble 9B | decide | memory | 228 | 146 | 156 | 0.754 | 23 | 33 | 0.229 |
+| Kev 4B | Nimble 9B | choose | memory | 1273 | 563 | 623 | 0.690 | 167 | 227 | 0.003 |
 | Laya | Liquid d1 | decide | memory | 228 | 123 | 144 | 0.697 | 24 | 45 | 0.015 |
 | Laya | Liquid d1 | choose | memory | 1273 | 414 | 858 | 0.515 | 87 | 531 | 0.000 |
 | Laya | Liquid d1 | tag | memory | 158 | 0 | 36 | 0.772 | 0 | 36 | 0.000 |
 | Laya | Liquid d1 | filter | memory | 240 | 172 | 192 | 0.658 | 31 | 51 | 0.035 |
 | Laya | Liquid d1 | find | memory | 52 | 6 | 35 | 0.365 | 2 | 31 | 0.000 |
 | Laya | Liquid d1 | annotate | memory | 261 fields | 21 | 119 | 0.579 | 6 | 104 | 0.000 |
+| Laya | Nimble 9B | decide | memory | 228 | 123 | 156 | 0.583 | 31 | 64 | 0.001 |
+| Laya | Nimble 9B | choose | memory | 1273 | 414 | 623 | 0.539 | 189 | 398 | 0.000 |
+| Liquid d1 | Nimble 9B | decide | memory | 228 | 144 | 156 | 0.579 | 42 | 54 | 0.261 |
+| Liquid d1 | Nimble 9B | choose | memory | 1273 | 858 | 623 | 0.621 | 359 | 124 | 0.000 |
 
 ## Values
 

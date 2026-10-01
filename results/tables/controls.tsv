@@ -20,6 +20,12 @@ Laya	reversal-general-shared-name	reversal-general	42/146	30	47
 Jev	lexical-trap	lexical-trap-control	54	26	36	2	12	0.0129
 Jev	near-neighbor	near-neighbor-control	60	49	50	7	8	1.0
 Jev	reversal-general-shared-name	reversal-general	42/146	42	131			
+Kev 4B	lexical-trap	lexical-trap-control	54	13	23	0	10	0.002
+Kev 4B	near-neighbor	near-neighbor-control	60	18	23	9	14	0.4049
+Kev 4B	reversal-general-shared-name	reversal-general	42/146	39	91			
 Liquid d1	lexical-trap	lexical-trap-control	54	25	29	2	6	0.2891
 Liquid d1	near-neighbor	near-neighbor-control	60	40	50	5	15	0.0414
 Liquid d1	reversal-general-shared-name	reversal-general	42/146	40	129			
+Nimble 9B	lexical-trap	lexical-trap-control	54	19	22	5	8	0.5811
+Nimble 9B	near-neighbor	near-neighbor-control	60	30	33	10	13	0.6776
+Nimble 9B	reversal-general-shared-name	reversal-general	42/146	42	107			

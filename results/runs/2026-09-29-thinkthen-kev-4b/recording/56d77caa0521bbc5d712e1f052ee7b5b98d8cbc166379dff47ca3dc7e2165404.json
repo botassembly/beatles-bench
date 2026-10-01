@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Ask Me Why","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"With the Beatles","c":"Please Please Me"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.1357,"probabilities":{"a":0.4238,"b":0.3362,"c":0.24}}},"usage":{"input_tokens":50,"output_tokens":62},"latency_ms":95.8}
+}

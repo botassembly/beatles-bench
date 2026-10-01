@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"36th Academy Awards","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"January 1964","b":"April 1964","c":"October 1963","d":"March 1965"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.2028,"probabilities":{"a":0.3863,"b":0.4021,"c":0.1992,"d":0.0124}}},"usage":{"input_tokens":61,"output_tokens":75},"latency_ms":113.7}
+}

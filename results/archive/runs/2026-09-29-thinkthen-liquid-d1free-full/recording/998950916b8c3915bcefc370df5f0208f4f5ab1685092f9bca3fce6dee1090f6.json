@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"The Long and Winding Road","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"A Hard Day's Night","c":"The Beatles (White Album)","d":"Let It Be"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00017397584306713977,"b":0.00026945905697280315,"c":0.24497634490713505,"d":0.754580220192825},"confidence":0.6727736269237666}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

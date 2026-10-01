@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Please Please Me","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Chains","b":"A Day in the Life","c":"Julia","d":"Norwegian Wood (This Bird Has Flown)"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.2801,"probabilities":{"a":0.4601,"b":0.0629,"c":0.4084,"d":0.0686}}},"usage":{"input_tokens":60,"output_tokens":75},"latency_ms":97.6}
+}

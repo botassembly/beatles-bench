@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Everybody's Trying to Be My Baby","model":"kev-latest","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Was it first released in the same month as this event: Harlem riot of 1964?"}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"noul","noul":0.4016}},"usage":{"input_tokens":49,"output_tokens":23},"latency_ms":97.3}
+}

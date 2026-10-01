@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Hold Me Tight / Ticket to Ride","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Hold Me Tight","b":"Ticket to Ride"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.09534945461636171,"b":0.9046505453836383},"confidence":0.8093010907672766}},"usage":{"input_tokens":90,"output_tokens":0}}
+}

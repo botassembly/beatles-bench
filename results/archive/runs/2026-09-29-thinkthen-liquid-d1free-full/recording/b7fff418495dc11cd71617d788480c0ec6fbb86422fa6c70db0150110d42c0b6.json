@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Yellow Submarine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Not a Second Time","b":"Yellow Submarine","c":"Anna (Go to Him)","d":"It's All Too Much"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00027414201504575295,"b":0.18234322409958653,"c":0.0001769993880462634,"d":0.8172056344973214},"confidence":0.7562741793297619}},"usage":{"input_tokens":106,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Guðmundur Gunnarsson","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Yair Lapid","b":"Olivia de Havilland","c":"Jake Gyllenhaal","d":"Björk"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.000048263999444760204,"b":0.00003116158012102603,"c":0.001244744357903079,"d":0.998675830062531},"confidence":0.9982344400833747}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

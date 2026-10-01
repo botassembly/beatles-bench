@@ -65,6 +65,7 @@ Each function folder in `examples/` also runs by hand. `./run` in the folder ans
 
 ## What's new
 
+- 2026-09-30: Five models answered the same 1,501 knowledge questions; [reports/models.md](reports/models.md) is the citable report, with the hard and easy split and the paired tests.
 - 2026-09-30: Every card-answerable function gained a reading test: the same questions with the facts written into the record as a short card. [reports/results.md](reports/results.md) opens with a by-function table of memory beside reading.
 - 2026-09-26: The function folders moved to `examples/`, and each slide of the ThinkThen talk that shows bench data has a folder there. The function suite moved to `questions/suite/`.
 - 2026-09-26: The walkthroughs moved to the website. Superseded runs moved to `results/archive/runs/`. `./run.sh NAME` names and replays a run of any backend.
@@ -78,6 +79,7 @@ Each function folder in `examples/` also runs by hand. `./run` in the folder ans
 The website's Beatles Bench section walks through each function and the open-book run: [thinkthen.dev/learn/beatles-bench](https://thinkthen.dev/learn/beatles-bench/).
 
 - [reports/results.md](reports/results.md): the full results.
+- [reports/models.md](reports/models.md): the five-model table on the knowledge questions, with intervals, the hard and easy split, and the paired tests — the page to cite.
 - [reports/baselines.md](reports/baselines.md): the search baselines.
 - [reports/open-book.md](reports/open-book.md): Jev with the catalog in hand, and what context costs.
 - [reports/rad.md](reports/rad.md): Jev picks the catalog sections it reads.

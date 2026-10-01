@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Ulm Minster","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a building or structure. Who was an architect of it?","criteria":{"a":"Antonio Rizzo","b":"Peter Hall","c":"Ulrich Ensingen","d":"Vedat Dalokay"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.00009609369652720248,"b":0.00001568686473317833,"c":0.9998133815926359,"d":0.00007483784610361125},"confidence":0.9997511754568479}},"usage":{"input_tokens":94,"output_tokens":0}}
+}

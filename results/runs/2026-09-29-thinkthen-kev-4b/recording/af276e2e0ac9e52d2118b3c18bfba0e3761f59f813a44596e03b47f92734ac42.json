@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Birgitta Sahlén","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Måns Zelmerlöw","b":"Marilyn Monroe","c":"Stevie Wonder","d":"Sergio Leone"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.8411,"probabilities":{"a":0.8808,"b":0.0416,"c":0.0288,"d":0.0489}}},"usage":{"input_tokens":56,"output_tokens":75},"latency_ms":97.8}
+}

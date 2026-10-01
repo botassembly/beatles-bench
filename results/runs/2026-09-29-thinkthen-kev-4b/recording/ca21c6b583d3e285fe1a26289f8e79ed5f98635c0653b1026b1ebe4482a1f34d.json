@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Northwest Orient Airlines Flight 705","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1962","b":"February 1964","c":"March 1962","d":"February 1963"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.0921,"probabilities":{"a":0.2342,"b":0.2377,"c":0.209,"d":0.3191}}},"usage":{"input_tokens":65,"output_tokens":74},"latency_ms":113.7}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Eleanor Rigby","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"August 1966","b":"September 1965","c":"October 1965","d":"August 1967"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9980430203358622,"b":0.00006592722990904241,"c":0.00019076676507528436,"d":0.0017002856691531408},"confidence":0.9973906937811496}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

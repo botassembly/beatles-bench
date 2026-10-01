@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Being for the Benefit of Mr. Kite!","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"Beatles for Sale","c":"The Beatles (White Album)","d":"Yellow Submarine"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9970393925973349,"b":0.00005812206529181202,"c":0.00010200740136254522,"d":0.002800477936010925},"confidence":0.9960525234631131}},"usage":{"input_tokens":116,"output_tokens":0}}
+}

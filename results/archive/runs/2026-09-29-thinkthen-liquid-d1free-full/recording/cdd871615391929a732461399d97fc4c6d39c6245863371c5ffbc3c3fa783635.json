@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Wanna Be Your Man","b":"I'll Cry Instead","c":"I've Just Seen a Face","d":"A Day in the Life"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.007355333367814022,"b":0.850161147471922,"c":0.13878502527642378,"d":0.0036984938838402403},"confidence":0.800214863295896}},"usage":{"input_tokens":112,"output_tokens":0}}
+}

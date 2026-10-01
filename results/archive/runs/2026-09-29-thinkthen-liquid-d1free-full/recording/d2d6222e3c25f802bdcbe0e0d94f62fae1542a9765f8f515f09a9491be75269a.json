@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Piggies","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Revolver","c":"Magical Mystery Tour"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9830724179564517,"b":0.004552529562141858,"c":0.01237505248140656},"confidence":0.9746086269346776}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

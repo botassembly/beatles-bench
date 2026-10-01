@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Every Little Thing","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Yellow Submarine","c":"Magical Mystery Tour","d":"Help!"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.2617046431350671,"b":0.021482025271609907,"c":0.3360354134506212,"d":0.3807779181427018},"confidence":0.1743705575236024}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

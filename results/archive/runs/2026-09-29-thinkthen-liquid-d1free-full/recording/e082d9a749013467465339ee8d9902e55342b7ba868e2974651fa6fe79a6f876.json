@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Birgitta Sahlén","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Måns Zelmerlöw","b":"Marilyn Monroe","c":"Stevie Wonder","d":"Sergio Leone"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9867747670257448,"b":0.0005457696557688986,"c":0.0002578032079560265,"d":0.012421660110530327},"confidence":0.9823663560343264}},"usage":{"input_tokens":101,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Baby's in Black","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Mercury-Atlas 9?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"after","probabilities":{"before":0.18242553047372242,"after":0.8175744695262777},"confidence":0.6351489390525553}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

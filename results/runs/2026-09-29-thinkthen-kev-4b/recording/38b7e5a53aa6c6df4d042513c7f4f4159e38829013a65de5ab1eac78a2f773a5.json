@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Something","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Magical Mystery Tour","b":"With the Beatles","c":"Abbey Road","d":"Sgt. Pepper's Lonely Hearts Club Band"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0532,"probabilities":{"a":0.28,"b":0.2899,"c":0.1603,"d":0.2698}}},"usage":{"input_tokens":57,"output_tokens":73},"latency_ms":109.3}
+}

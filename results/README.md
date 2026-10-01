@@ -8,7 +8,7 @@ Every run the bench made, and the tables scored from them.
 - `by-question.jsonl`: one row per question with every run's answer, probability and score.
 - `history.tsv`: one dated row per run and per function measure, so drift in a model shows over time.
 - `archive/`: runs no table reads. Each still replays or keeps its answers.
-  - `archive/runs/`: superseded runs under their own names. They hold the Jev runs of 2026-09-23 and 2026-09-25 that a fresh run replaced, the first pipeline run of 2026-09-24, and `2026-09-25-examples-jev`, the live run the function folders' recordings came from. The 2026-09-25 runs replay with the thinkthen build their `run.txt` names.
+  - `archive/runs/`: superseded runs under their own names. They hold the Jev runs of 2026-09-23 and 2026-09-25 that a fresh run replaced, the first pipeline run of 2026-09-24, `2026-09-25-examples-jev`, the live run the function folders' recordings came from, and `2026-09-29-thinkthen-liquid-d1free-full`, the d1:free run the all-run of 2026-09-30 replaced. The 2026-09-25 runs replay with the thinkthen build their `run.txt` names.
   - `archive/2026-09-23-seed/`: the 629-question seed set and its runs.
   - `archive/2026-09-23-natural-phrasing/`: the baselines in the natural wording.
   - `archive/in-text-check/`: the 20-question wiring check, with the Jev and Laya recordings and results.

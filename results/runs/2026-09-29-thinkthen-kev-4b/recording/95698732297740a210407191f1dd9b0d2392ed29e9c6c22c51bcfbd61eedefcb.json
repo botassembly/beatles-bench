@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"George Harrison","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Penny Lane","b":"You'll Be Mine","c":"What Goes On","d":"I Me Mine"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.712,"probabilities":{"a":0.0459,"b":0.0655,"c":0.1045,"d":0.784}}},"usage":{"input_tokens":58,"output_tokens":73},"latency_ms":66.5}
+}

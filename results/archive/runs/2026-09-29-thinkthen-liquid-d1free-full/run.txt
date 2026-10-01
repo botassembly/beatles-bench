@@ -1,0 +1,10 @@
+thinkthen: thinkthen 0.0.1, from thinkthen main 2c5ac772b
+build of thinkthen at 2c5ac772b (short id; the full SHA-1 was not recorded for this run)
+model the backend reported: d1:free
+backend: https://api.liquid.ai/decisions/v1/systemone
+machine: a local Linux machine, 16 cores
+date: 2026-09-29
+The 1,501 knowledge questions in answers.jsonl, asked through `thinkthen --backend liquid` at model
+d1:free (experiment 413's full-run addendum). The 2026-09-30-all-liquid-d1 run, on build aec7819bb,
+supersedes this one; it stays here as history.
+The recording was not replay-checked here.

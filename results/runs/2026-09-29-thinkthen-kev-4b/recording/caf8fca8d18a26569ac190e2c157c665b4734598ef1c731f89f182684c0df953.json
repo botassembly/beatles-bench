@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Assassination of John F. Kennedy","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"It Won't Be Long","b":"I Am the Walrus","c":"The Ballad of John and Yoko","d":"I'll Be Back"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0616,"probabilities":{"a":0.2273,"b":0.2962,"c":0.2,"d":0.2764}}},"usage":{"input_tokens":70,"output_tokens":72},"latency_ms":65.2}
+}

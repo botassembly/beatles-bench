@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Charles Thomson Rees Wilson","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"escalator","b":"slow cooker","c":"achromatic lens","d":"cloud chamber"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.0000029022949501294443,"b":0.0000024060870232052418,"c":0.0000030894768925580785,"d":0.999991602141134},"confidence":0.9999888028548454}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

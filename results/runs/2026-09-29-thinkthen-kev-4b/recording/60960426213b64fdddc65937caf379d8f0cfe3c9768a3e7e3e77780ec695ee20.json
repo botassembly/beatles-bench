@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Faisal Mosque","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a building or structure. Who was an architect of it?","criteria":{"a":"Ulrich Ensingen","b":"Matthias of Arras","c":"Donato Bramante","d":"Vedat Dalokay"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.5868,"probabilities":{"a":0.2831,"b":0.0145,"c":0.0123,"d":0.6901}}},"usage":{"input_tokens":52,"output_tokens":75},"latency_ms":96.3}
+}

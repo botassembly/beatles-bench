@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Please Please Me","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I'll Be Back","b":"Ask Me Why","c":"I'll Follow the Sun","d":"Because"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.03300113978139898,"b":0.9644346740758054,"c":0.0013621197141280774,"d":0.0012020664286674428},"confidence":0.9525795654344072}},"usage":{"input_tokens":101,"output_tokens":0}}
+}

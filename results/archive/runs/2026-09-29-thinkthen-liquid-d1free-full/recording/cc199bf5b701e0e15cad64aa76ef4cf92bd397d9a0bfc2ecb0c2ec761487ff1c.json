@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I Me Mine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Revolver","c":"Magical Mystery Tour","d":"Let It Be"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.0015088502726834287,"b":0.025124612716429906,"c":0.08769351505374734,"d":0.8856730219571394},"confidence":0.8475640292761858}},"usage":{"input_tokens":99,"output_tokens":0}}
+}

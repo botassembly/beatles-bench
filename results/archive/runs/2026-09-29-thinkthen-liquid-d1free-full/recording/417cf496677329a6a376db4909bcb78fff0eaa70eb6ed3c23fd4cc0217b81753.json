@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Maggie Mae","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"October 1970","b":"November 1969","c":"May 1970","d":"March 1971"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.5258065001237363,"b":0.4094985140404006,"c":0.06279863104371311,"d":0.0018963547921498792},"confidence":0.36774200016498176}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

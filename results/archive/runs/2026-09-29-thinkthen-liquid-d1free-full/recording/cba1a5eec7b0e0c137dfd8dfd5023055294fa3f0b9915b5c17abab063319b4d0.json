@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Emma Thompson","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Carol Ann Abrams","b":"Arlyn Phoenix","c":"Geneviève Sorya","d":"Phyllida Law"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00405101451635095,"b":0.0001079559316346129,"c":0.004590400832554338,"d":0.9912506287194601},"confidence":0.9883341716259468}},"usage":{"input_tokens":95,"output_tokens":0}}
+}

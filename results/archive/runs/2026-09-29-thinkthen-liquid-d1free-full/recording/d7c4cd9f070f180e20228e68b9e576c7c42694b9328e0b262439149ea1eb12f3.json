@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Why Don't We Do It in the Road?","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Help!","c":"Revolver","d":"Let It Be"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9964658222698163,"b":0.000429220002421488,"c":0.0014073588776952388,"d":0.0016975988500671595},"confidence":0.9952877630264217}},"usage":{"input_tokens":105,"output_tokens":0}}
+}

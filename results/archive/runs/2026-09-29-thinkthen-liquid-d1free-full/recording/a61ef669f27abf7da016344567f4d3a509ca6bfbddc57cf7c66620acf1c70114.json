@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Maxwell's Silver Hammer","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"Let It Be","c":"Beatles for Sale","d":"Magical Mystery Tour"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8225620312356856,"b":0.01329547377042039,"c":0.0021704274639106564,"d":0.16197206752998344},"confidence":0.7634160416475808}},"usage":{"input_tokens":101,"output_tokens":0}}
+}

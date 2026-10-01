@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"University of Texas tower shooting","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"September 1966","b":"April 1967","c":"August 1966","d":"January 1967"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.3815,"probabilities":{"a":0.2407,"b":0.0563,"c":0.5361,"d":0.1669}}},"usage":{"input_tokens":61,"output_tokens":75},"latency_ms":110.7}
+}

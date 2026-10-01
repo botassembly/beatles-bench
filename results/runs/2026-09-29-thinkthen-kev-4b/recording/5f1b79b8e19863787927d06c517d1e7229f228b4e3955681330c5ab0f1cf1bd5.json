@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Alex North","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"Eternal Sunshine of the Spotless Mind","b":"Spartacus","c":"The Day After Tomorrow","d":"Peter Pan"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.1161,"probabilities":{"a":0.337,"b":0.1559,"c":0.3286,"d":0.1785}}},"usage":{"input_tokens":53,"output_tokens":74},"latency_ms":97.2}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Help!","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Ticket to Ride","b":"Anna (Go to Him)","c":"Mr. Moonlight","d":"With a Little Help from My Friends"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.09959195079183872,"b":0.07286302771659409,"c":0.7833513717585499,"d":0.04419364973301727},"confidence":0.7111351623447332}},"usage":{"input_tokens":107,"output_tokens":0}}
+}

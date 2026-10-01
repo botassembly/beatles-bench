@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Owen Wilson","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Laura Wilson","b":"Sara Sothern","c":"Myra Keaton","d":"Nelle Wilson Reagan"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.6865855800769334,"b":0.2525807195150728,"c":0.04973608074598654,"d":0.011097619662007212},"confidence":0.5821141067692445}},"usage":{"input_tokens":93,"output_tokens":0}}
+}

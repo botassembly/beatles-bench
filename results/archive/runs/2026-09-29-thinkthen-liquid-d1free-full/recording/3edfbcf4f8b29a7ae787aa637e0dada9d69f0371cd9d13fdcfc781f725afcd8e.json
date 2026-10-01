@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Don't Let Me Down / Your Mother Should Know","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Don't Let Me Down","b":"Your Mother Should Know"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9525741214369554,"b":0.04742587856304459},"confidence":0.9051482428739108}},"usage":{"input_tokens":92,"output_tokens":0}}
+}

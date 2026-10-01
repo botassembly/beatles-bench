@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Abbey Road","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Till There Was You","b":"Baby It's You","c":"Sgt. Pepper's Lonely Hearts Club Band (Reprise)","d":"The End"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.0643,"probabilities":{"a":0.2023,"b":0.21,"c":0.2982,"d":0.2895}}},"usage":{"input_tokens":66,"output_tokens":73},"latency_ms":83.5}
+}

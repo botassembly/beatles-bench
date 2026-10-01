@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Thomas Wander","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"Eyes Wide Shut","b":"Spartacus","c":"2012","d":"2001: A Space Odyssey"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.23180834326708388,"b":0.08527752377997269,"c":0.1921758664055701,"d":0.49073826654737324},"confidence":0.32098435539649767}},"usage":{"input_tokens":99,"output_tokens":0}}
+}

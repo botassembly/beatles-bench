@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Rani Mukerji","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Henry Churchill de Mille","b":"Charles Delevingne","c":"Ram Mukherjee","d":"Louis Alphonse Gassion"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.9291,"probabilities":{"a":0.0114,"b":0.0314,"c":0.9468,"d":0.0104}}},"usage":{"input_tokens":57,"output_tokens":75},"latency_ms":96.7}
+}

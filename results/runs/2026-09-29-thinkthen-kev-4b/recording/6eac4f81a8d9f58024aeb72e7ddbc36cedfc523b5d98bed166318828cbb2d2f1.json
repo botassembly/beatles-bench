@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Revolver","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"What Goes On","b":"I Want to Tell You","c":"Lucy in the Sky with Diamonds","d":"The Night Before"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.076,"probabilities":{"a":0.2412,"b":0.307,"c":0.2362,"d":0.2156}}},"usage":{"input_tokens":60,"output_tokens":73},"latency_ms":98.7}
+}

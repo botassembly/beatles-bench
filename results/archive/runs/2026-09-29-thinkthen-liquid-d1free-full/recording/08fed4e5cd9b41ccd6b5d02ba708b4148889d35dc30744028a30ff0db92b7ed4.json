@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"A Day in the Life","b":"With a Little Help from My Friends","c":"When I Get Home","d":"Lucy in the Sky with Diamonds"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.06146249624554841,"b":0.08942740435827637,"c":0.62074922236495,"d":0.2283608770312252},"confidence":0.4943322964866}},"usage":{"input_tokens":113,"output_tokens":0}}
+}

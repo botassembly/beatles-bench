@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Here, There and Everywhere","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"Revolver","c":"With the Beatles","d":"Let It Be"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.05443144396104311,"b":0.9063646988851278,"c":0.0291350524509393,"d":0.01006880470288974},"confidence":0.8751529318468371}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

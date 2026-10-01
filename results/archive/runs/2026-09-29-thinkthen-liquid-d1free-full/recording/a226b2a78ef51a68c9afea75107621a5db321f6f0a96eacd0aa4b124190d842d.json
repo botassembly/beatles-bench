@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Diane Lane","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Sylvia Plachy","b":"Maud Humphrey","c":"Colleen Farrington","d":"Moyna Macgill"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.03723356500255429,"b":0.0014437019877249712,"c":0.96026649807196,"d":0.0010562349377609215},"confidence":0.94702199742928}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

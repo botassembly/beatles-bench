@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Candice Bergen","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Irmelin Indenbirken","b":"Jill Balcon","c":"Frances Bergen","d":"Lula Mae Hardaway"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.3223,"probabilities":{"a":0.1545,"b":0.1401,"c":0.4917,"d":0.2137}}},"usage":{"input_tokens":52,"output_tokens":75},"latency_ms":96.1}
+}

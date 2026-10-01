@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Joe Yule","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Neil Young","b":"Brian Wilson","c":"Michael Collins","d":"Mickey Rooney"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9592199782733162,"b":0.0015351381880142638,"c":0.013682537732504359,"d":0.025562345806165118},"confidence":0.9456266376977549}},"usage":{"input_tokens":92,"output_tokens":0}}
+}

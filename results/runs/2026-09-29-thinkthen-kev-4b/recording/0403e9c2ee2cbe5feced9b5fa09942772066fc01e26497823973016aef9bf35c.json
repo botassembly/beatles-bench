@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Alan Arkin","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Werner Lindemann","b":"David I. Arkin","c":"Osgood Perkins","d":"Peter Watts"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.6273,"probabilities":{"a":0.1015,"b":0.7205,"c":0.1211,"d":0.0569}}},"usage":{"input_tokens":49,"output_tokens":75},"latency_ms":96.6}
+}

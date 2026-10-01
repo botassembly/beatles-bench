@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Help!","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Me Mine","b":"I'll Be Back","c":"It's Only Love","d":"I'm a Loser"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.0680327073825022,"b":0.046758150391117186,"c":0.056401095408741005,"d":0.8288080468176395},"confidence":0.7717440624235193}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

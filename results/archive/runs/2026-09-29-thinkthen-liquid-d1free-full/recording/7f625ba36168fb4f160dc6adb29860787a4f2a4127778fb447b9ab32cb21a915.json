@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Lucy","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Sammy Fain","b":"Éric Serra","c":"Jon Brion","d":"Alex North"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.009819839144271971,"b":0.5361449550301065,"c":0.4175500859293048,"d":0.03648511989631676},"confidence":0.38152660670680866}},"usage":{"input_tokens":88,"output_tokens":0}}
+}

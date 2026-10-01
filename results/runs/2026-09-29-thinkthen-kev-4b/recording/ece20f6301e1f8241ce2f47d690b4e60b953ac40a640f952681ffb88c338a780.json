@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Cuban Missile Crisis","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"October 1962","b":"January 1962","c":"May 1962","d":"May 1963"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.933,"probabilities":{"a":0.9497,"b":0.0156,"c":0.0281,"d":0.0066}}},"usage":{"input_tokens":60,"output_tokens":74},"latency_ms":113.8}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Norwegian Wood (This Bird Has Flown)","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Magical Mystery Tour","c":"Let It Be","d":"Rubber Soul"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.002416807466053535,"b":0.01677596890935248,"c":0.00579761972059105,"d":0.9750096039040029},"confidence":0.9666794718720039}},"usage":{"input_tokens":106,"output_tokens":0}}
+}

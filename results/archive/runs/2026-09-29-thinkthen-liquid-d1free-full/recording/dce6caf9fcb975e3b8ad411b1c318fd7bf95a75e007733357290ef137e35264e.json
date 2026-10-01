@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Let It Be","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"One After 909","b":"Dear Prudence","c":"Love You To","d":"Tell Me Why"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9365287655916812,"b":0.041148192399718654,"c":0.009773552363078678,"d":0.01254948964552156},"confidence":0.915371687455575}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

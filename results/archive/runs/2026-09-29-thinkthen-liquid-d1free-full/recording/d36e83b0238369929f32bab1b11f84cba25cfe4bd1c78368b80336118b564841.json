@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"1966 United Kingdom general election","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"May 1966","b":"January 1966","c":"August 1966","d":"March 1966"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9156354599364668,"b":0.03133132156471661,"c":0.0013766021959225867,"d":0.051656616302893886},"confidence":0.8875139465819557}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

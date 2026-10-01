@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Paul McCartney","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"All Things Must Pass","b":"Run for Your Life","c":"Hey Bulldog","d":"Blackbird"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00013966070630557403,"b":0.0006662839657890341,"c":0.00048746376268780694,"d":0.9987065915652176},"confidence":0.9982754554202901}},"usage":{"input_tokens":106,"output_tokens":0}}
+}

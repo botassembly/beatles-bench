@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Good Day Sunshine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"June 1967","b":"July 1967","c":"August 1966","d":"May 1966"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9714204417082276,"b":0.025887477905607997,"c":0.0011374161272349552,"d":0.0015546642589292098},"confidence":0.9618939222776368}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

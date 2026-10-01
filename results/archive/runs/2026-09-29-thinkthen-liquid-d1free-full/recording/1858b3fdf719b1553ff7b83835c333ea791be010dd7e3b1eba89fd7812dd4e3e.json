@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"You'll Be Mine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"a":"George Harrison","b":"Ringo Starr","c":"Paul McCartney"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.18213797060832176,"b":0.18213797060832176,"c":0.6357240587833565},"confidence":0.45358608817503465}},"usage":{"input_tokens":94,"output_tokens":0}}
+}

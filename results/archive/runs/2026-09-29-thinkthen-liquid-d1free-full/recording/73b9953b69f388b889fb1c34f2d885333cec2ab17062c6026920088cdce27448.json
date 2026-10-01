@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"William Close","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Michelle Williams","b":"Michael Ende","c":"Glenn Close","d":"Romy Schneider"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0006663051346872681,"b":0.0002609288398271766,"c":0.9987377267632005,"d":0.0003350392622849394},"confidence":0.9983169690176007}},"usage":{"input_tokens":91,"output_tokens":0}}
+}

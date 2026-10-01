@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"1966 FIFA World Cup","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"July 1966","b":"December 1965","c":"July 1965","d":"June 1966"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9320952410619122,"b":0.0001080603493346469,"c":0.00027594176889555154,"d":0.06752075681985757},"confidence":0.909460321415883}},"usage":{"input_tokens":97,"output_tokens":0}}
+}

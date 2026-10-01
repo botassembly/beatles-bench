@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"John Lennon","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Now and Then","b":"Within You Without You","c":"Long, Long, Long","d":"Love You To"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9894443438105863,"b":0.003798642458339249,"c":0.004304425825421086,"d":0.0024525879056531614},"confidence":0.9859257917474484}},"usage":{"input_tokens":105,"output_tokens":0}}
+}

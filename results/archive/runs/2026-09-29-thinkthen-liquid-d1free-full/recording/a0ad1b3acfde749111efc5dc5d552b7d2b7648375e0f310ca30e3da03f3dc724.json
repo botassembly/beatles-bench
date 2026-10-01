@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"You Can't Do That","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Revolver","b":"A Hard Day's Night","c":"Sgt. Pepper's Lonely Hearts Club Band"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.004902348346114668,"b":0.9944743883010089,"c":0.0006232633528762439},"confidence":0.9917115824515133}},"usage":{"input_tokens":105,"output_tokens":0}}
+}

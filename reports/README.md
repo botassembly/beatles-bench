@@ -1,6 +1,7 @@
 # Reports
 
 - [results.md](results.md): the full results, with intervals, every test, the function suite, costs, and the audit history.
+- [models.md](models.md): the five-model report on the knowledge questions — the page the deck and site cite.
 - [baselines.md](baselines.md): the four search baselines and how they score.
 - [open-book.md](open-book.md): Jev with the whole song catalog handed over before each question.
 - [rad.md](rad.md): Jev picks two catalog sections, then answers from those alone.

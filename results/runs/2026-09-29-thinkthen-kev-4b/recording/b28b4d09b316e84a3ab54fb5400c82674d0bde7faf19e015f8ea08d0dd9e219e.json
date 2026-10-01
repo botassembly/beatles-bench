@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Can't Buy Me Love","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Yellow Submarine","b":"Help!","c":"A Hard Day's Night","d":"Abbey Road"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.3169,"probabilities":{"a":0.1179,"b":0.4877,"c":0.3701,"d":0.0243}}},"usage":{"input_tokens":57,"output_tokens":75},"latency_ms":110.2}
+}

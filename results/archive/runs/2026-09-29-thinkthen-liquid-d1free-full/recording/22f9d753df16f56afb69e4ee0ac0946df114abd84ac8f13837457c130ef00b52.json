@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Tell Me What You See / The Continuing Story of Bungalow Bill","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Tell Me What You See","b":"The Continuing Story of Bungalow Bill"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.10669060530721626,"b":0.8933093946927838},"confidence":0.7866187893855676}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Sammy Fain","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"The Three Caballeros","b":"Eyes Wide Shut","c":"Peter Pan","d":"2001: A Space Odyssey"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.2927957473483526,"b":0.030860444725527913,"c":0.6598254021976021,"d":0.016518405728517406},"confidence":0.5464338695968028}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

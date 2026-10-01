@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Black and White Ball","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"July 1966","b":"December 1965","c":"November 1966","d":"October 1966"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.166,"probabilities":{"a":0.1261,"b":0.225,"c":0.2744,"d":0.3745}}},"usage":{"input_tokens":60,"output_tokens":73},"latency_ms":109.6}
+}

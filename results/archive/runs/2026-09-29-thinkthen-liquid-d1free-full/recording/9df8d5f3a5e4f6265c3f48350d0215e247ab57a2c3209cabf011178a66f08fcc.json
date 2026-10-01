@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Carry That Weight","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Abbey Road"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0001331918050847653,"b":0.04741956720943211,"c":0.9524472409854831},"confidence":0.9286708614782246}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"American Airlines Flight 1 (1962)","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"March 1962","b":"September 1961","c":"April 1962","d":"July 1961"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8100797238756323,"b":0.058681983622502265,"c":0.1242297306850226,"d":0.007008561816842924},"confidence":0.7467729651675098}},"usage":{"input_tokens":100,"output_tokens":0}}
+}

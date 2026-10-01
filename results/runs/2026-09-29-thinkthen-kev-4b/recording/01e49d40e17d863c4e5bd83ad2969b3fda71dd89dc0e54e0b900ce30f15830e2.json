@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"I Me Mine / Her Majesty","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"I Me Mine","b":"Her Majesty"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0141,"probabilities":{"a":0.493,"b":0.507}}},"usage":{"input_tokens":36,"output_tokens":51},"latency_ms":95.2}
+}

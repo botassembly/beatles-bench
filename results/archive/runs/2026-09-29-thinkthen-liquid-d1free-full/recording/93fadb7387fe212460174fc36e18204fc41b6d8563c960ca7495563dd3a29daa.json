@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Rita Hayworth","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Eduardo Cansino","b":"Sam Marx","c":"Hutton Gibson","d":"Lee Hoi-chuen"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.999760840827389,"b":0.00007483389270240698,"c":0.00010228580383137875,"d":0.00006203947607708316},"confidence":0.9996811211031854}},"usage":{"input_tokens":94,"output_tokens":0}}
+}

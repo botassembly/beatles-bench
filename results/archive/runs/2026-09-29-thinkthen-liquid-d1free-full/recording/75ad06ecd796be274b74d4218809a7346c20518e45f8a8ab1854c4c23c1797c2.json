@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"2001: A Space Odyssey","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Jon Brion","b":"Éric Serra","c":"Harald Kloser","d":"György Ligeti"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.000008397767291641783,"b":0.000021444450027202112,"c":0.000014738540593264784,"d":0.9999554192420879},"confidence":0.9999405589894504}},"usage":{"input_tokens":95,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Air France Flight 007","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"January 1963","b":"February 1963","c":"June 1962","d":"December 1961"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.3384192468548369,"b":0.18114276950984076,"c":0.3834792460615988,"d":0.09695873757372354},"confidence":0.1779723280821317}},"usage":{"input_tokens":97,"output_tokens":0}}
+}

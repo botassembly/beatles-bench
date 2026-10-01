@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Volksempfänger","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"François Merry Delabost","b":"Rudolf Kompfner","c":"Otto Griessing","d":"Jesse W. Reno"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.000625515795338012,"b":0.0005520157519035354,"c":0.9980679523789312,"d":0.0007545160738273334},"confidence":0.9974239365052416}},"usage":{"input_tokens":100,"output_tokens":0}}
+}

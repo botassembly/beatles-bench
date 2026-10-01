@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Why Don't We Do It in the Road?","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Yellow Submarine","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Please Please Me","d":"The Beatles (White Album)"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.030888367272780104,"b":0.004736884539011166,"c":0.0034655787612562776,"d":0.9609091694269524},"confidence":0.9478788925692698}},"usage":{"input_tokens":116,"output_tokens":0}}
+}

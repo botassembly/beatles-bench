@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Day Tripper","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1964","probabilities":{"1962":0.001080733150913264,"1963":0.004274382528865662,"1964":0.5959398704527363,"1965":0.2192340526486685,"1966":0.17073963152494923,"1967":0.007985597880072193,"1968":0.00039757950761342364,"1969":0.0002908755202191145,"1970":0.000057276785962237254},"confidence":0.5454323542593283}},"usage":{"input_tokens":123,"output_tokens":0}}
+}

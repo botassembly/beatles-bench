@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Within You Without You","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"With the Beatles","c":"Revolver","none":"none of these"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.00006104111604675482,"b":0.0000120197084171001,"c":0.9240743082050449,"none":0.07585263097049116},"confidence":0.8987657442733932}},"usage":{"input_tokens":99,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Mary Gish","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Lillian Gish","b":"Mary Pickford","c":"Jane Birkin","d":"Édith Piaf"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.6816,"probabilities":{"a":0.7612,"b":0.2097,"c":0.0172,"d":0.0119}}},"usage":{"input_tokens":53,"output_tokens":75},"latency_ms":95.1}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Let It Be / Sexy Sadie","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Let It Be","b":"Sexy Sadie"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.227,"probabilities":{"a":0.6135,"b":0.3865}}},"usage":{"input_tokens":38,"output_tokens":52},"latency_ms":97.3}
+}

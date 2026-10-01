@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Good Morning Good Morning","b":"I'm Happy Just to Dance with You","c":"Devil in Her Heart","d":"I Need You"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.1943,"probabilities":{"a":0.3957,"b":0.2555,"c":0.1676,"d":0.1812}}},"usage":{"input_tokens":69,"output_tokens":75},"latency_ms":64.9}
+}

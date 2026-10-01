@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"The Night Before","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"Yellow Submarine","c":"With the Beatles","d":"Help!"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.3431547646189414,"b":0.2672491993999152,"c":0.08676309129879066,"d":0.3028329446823527},"confidence":0.1242063528252552}},"usage":{"input_tokens":97,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Help!","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Getting Better","b":"It Won't Be Long","c":"I've Just Seen a Face","d":"While My Guitar Gently Weeps"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.050730326303688,"b":0.6578808814604553,"c":0.17706623714381858,"d":0.11432255509203815},"confidence":0.543841175280607}},"usage":{"input_tokens":108,"output_tokens":0}}
+}

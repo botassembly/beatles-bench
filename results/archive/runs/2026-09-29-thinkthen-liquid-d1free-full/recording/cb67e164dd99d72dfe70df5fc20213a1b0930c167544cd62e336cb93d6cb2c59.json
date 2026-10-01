@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"30 September Movement","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"September 1965","b":"April 1965","c":"March 1966","d":"August 1965"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9998710577957435,"b":0.00002586476272742899,"c":0.00005475570312365006,"d":0.00004832173840546284},"confidence":0.9998280770609913}},"usage":{"input_tokens":95,"output_tokens":0}}
+}

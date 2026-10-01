@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Rob Reiner","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Estelle Reiner","b":"Marlène Jobert","c":"Sharman Macdonald","d":"Jennifer Dodd Clarke"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9999140819509089,"b":0.00001777734098299051,"c":0.00005144044176653977,"d":0.00001670026634151064},"confidence":0.9998854426012119}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

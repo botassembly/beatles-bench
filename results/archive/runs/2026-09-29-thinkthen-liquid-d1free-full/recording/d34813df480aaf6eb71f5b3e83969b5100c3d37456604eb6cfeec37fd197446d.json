@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Don't Pass Me By","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year did the first album to include it come out?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1968","probabilities":{"1963":0.0025042336321609315,"1964":0.039172804859896944,"1965":0.19893591794024104,"1966":0.15493143020362163,"1967":0.15493143020362163,"1968":0.3716612244799236,"1969":0.07318443432078378,"1970":0.0046785243597504715},"confidence":0.28189854226276984}},"usage":{"input_tokens":125,"output_tokens":0}}
+}

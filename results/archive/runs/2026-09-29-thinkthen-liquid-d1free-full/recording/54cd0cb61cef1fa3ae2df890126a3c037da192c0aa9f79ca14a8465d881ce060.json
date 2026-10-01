@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Continental Airlines Flight 11","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"October 1962","b":"May 1962","c":"January 1963","d":"March 1963"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.24103393337466358,"b":0.27312719618081155,"c":0.21271167426371326,"d":0.27312719618081155},"confidence":0.030836261574415397}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

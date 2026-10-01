@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Why Don't We Do It in the Road? / Eight Days a Week","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Why Don't We Do It in the Road?","b":"Eight Days a Week"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.2942149226547719,"b":0.7057850773452281},"confidence":0.4115701546904562}},"usage":{"input_tokens":101,"output_tokens":0}}
+}

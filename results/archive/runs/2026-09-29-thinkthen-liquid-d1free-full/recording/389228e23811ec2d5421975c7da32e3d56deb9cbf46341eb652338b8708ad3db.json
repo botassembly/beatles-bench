@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Wild Honey Pie / I Want to Tell You","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Wild Honey Pie","b":"I Want to Tell You"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.18242552380635632,"b":0.8175744761936437},"confidence":0.6351489523872873}},"usage":{"input_tokens":90,"output_tokens":0}}
+}

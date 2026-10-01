@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Ringo Starr","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"I Wanna Be Your Man","b":"I Forgot to Remember to Forget","c":"You Won't See Me","d":"Nowhere Man"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8843512049635154,"b":0.009824252132245592,"c":0.09320995346648689,"d":0.012614589437752078},"confidence":0.8458016066180205}},"usage":{"input_tokens":114,"output_tokens":0}}
+}

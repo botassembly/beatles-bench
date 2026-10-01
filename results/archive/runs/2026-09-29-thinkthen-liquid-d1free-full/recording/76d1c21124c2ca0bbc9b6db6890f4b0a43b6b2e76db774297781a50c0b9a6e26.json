@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Please Please Me","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Revolver","none":"none of these"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"none","probabilities":{"a":0.00023049668944205082,"b":0.00001892032043566397,"c":0.000024294172331269018,"none":0.999726288817791},"confidence":0.9996350517570547}},"usage":{"input_tokens":104,"output_tokens":0}}
+}

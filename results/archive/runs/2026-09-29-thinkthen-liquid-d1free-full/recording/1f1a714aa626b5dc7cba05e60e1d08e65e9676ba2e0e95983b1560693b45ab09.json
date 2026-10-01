@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"The Hippy Hippy Shake","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"other","probabilities":{"lennon-mccartney":0.009700241168586577,"harrison":0.0006201156710969936,"starr":0.0002281278065448159,"other":0.9894515153537717},"confidence":0.985935353805029}},"usage":{"input_tokens":108,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"1964 Alaska earthquake","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"February 1965","b":"September 1964","c":"March 1964","d":"October 1964"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.403,"probabilities":{"a":0.0294,"b":0.5522,"c":0.3012,"d":0.1172}}},"usage":{"input_tokens":62,"output_tokens":74},"latency_ms":112.1}
+}

@@ -1,0 +1,2 @@
+THINKTHEN_BASE_URL=https://api.liquid.ai/decisions/v1
+BEATLES_BENCH_MODEL=d1:free

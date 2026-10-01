@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"You Never Give Me Your Money","b":"Revolution 1","c":"Any Time at All","d":"Baby It's You"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.056401095408741005,"b":0.046758150391117186,"c":0.8288080468176395,"d":0.0680327073825022},"confidence":0.7717440624235193}},"usage":{"input_tokens":107,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"1964 European Nations' Cup","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1964","b":"June 1964","c":"February 1964","d":"April 1965"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.2656813943774976,"b":0.7221968204034379,"c":0.010965979484804742,"d":0.0011558057342597324},"confidence":0.6295957605379172}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

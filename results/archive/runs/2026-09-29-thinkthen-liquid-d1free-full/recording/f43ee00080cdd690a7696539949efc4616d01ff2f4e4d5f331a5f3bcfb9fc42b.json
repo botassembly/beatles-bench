@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"A Day in the Life","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"The Beatles (White Album)","c":"Help!","d":"A Hard Day's Night"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8668242363184607,"b":0.13293181390602776,"c":0.00016568549119601582,"d":0.00007826428431546373},"confidence":0.822432315091281}},"usage":{"input_tokens":111,"output_tokens":0}}
+}

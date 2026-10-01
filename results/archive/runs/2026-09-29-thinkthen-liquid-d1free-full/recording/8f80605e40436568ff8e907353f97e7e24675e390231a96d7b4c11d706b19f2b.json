@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Harmelen train disaster","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"August 1961","b":"January 1961","c":"June 1961","d":"January 1962"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.006995747085728924,"b":0.7596078066658919,"c":0.015765159420235555,"d":0.2176312868281436},"confidence":0.6794770755545225}},"usage":{"input_tokens":97,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Devil in Her Heart","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"A Hard Day's Night","c":"With the Beatles"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.1125,"probabilities":{"a":0.1879,"b":0.4084,"c":0.4037}}},"usage":{"input_tokens":52,"output_tokens":64},"latency_ms":96.8}
+}

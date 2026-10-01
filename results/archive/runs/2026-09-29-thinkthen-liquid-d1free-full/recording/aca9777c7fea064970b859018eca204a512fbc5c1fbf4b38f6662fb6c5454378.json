@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I'll Cry Instead","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Help!","c":"With the Beatles","none":"none of these"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.030060764910786582,"b":0.6841799169711206,"c":0.0636386398155249,"none":0.22212067830256807},"confidence":0.5789065559614941}},"usage":{"input_tokens":100,"output_tokens":0}}
+}

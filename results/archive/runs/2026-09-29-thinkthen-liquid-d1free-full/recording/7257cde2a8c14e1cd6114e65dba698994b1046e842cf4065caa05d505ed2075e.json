@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I Want to Hold Your Hand","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"November 1963","b":"June 1964","c":"July 1963","d":"October 1963"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8343326550964477,"b":0.00033760861309604283,"c":0.0010399077383982799,"d":0.16428982855205804},"confidence":0.7791102067952637}},"usage":{"input_tokens":105,"output_tokens":0}}
+}

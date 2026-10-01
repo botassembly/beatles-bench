@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"A Hard Day's Night","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Can't Buy Me Love","b":"Good Night","c":"What You're Doing","d":"I Want You (She's So Heavy)"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.2502,"probabilities":{"a":0.4376,"b":0.2332,"c":0.2956,"d":0.0336}}},"usage":{"input_tokens":66,"output_tokens":75},"latency_ms":81.1}
+}

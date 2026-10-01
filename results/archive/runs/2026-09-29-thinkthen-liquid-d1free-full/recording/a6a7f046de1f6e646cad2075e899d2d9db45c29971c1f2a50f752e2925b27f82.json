@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I Should Have Known Better","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year did the first album to include it come out?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1964","probabilities":{"1963":0.09700745240552393,"1964":0.4926444930445534,"1965":0.2988039893701088,"1966":0.05883799410456431,"1967":0.013975251885609151,"1968":0.02610920161446685,"1969":0.007480409721265703,"1970":0.005141207853908041},"confidence":0.420165134908061}},"usage":{"input_tokens":125,"output_tokens":0}}
+}

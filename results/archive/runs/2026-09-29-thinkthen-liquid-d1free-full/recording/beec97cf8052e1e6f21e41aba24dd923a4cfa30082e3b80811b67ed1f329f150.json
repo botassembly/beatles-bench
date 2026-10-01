@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Taxman","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Rubber Soul","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Revolver"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.1989810425169058,"b":0.10650687706579692,"c":0.6945120804172974},"confidence":0.5417681206259461}},"usage":{"input_tokens":100,"output_tokens":0}}
+}

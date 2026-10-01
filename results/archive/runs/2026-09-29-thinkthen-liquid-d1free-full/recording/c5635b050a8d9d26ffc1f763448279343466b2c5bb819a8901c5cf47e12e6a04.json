@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Good Night","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"Beatles for Sale","c":"The Beatles (White Album)","d":"Abbey Road"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.2909664167196463,"b":0.07356784873609067,"c":0.47972263467985354,"d":0.15574309986440968},"confidence":0.30629684623980474}},"usage":{"input_tokens":107,"output_tokens":0}}
+}

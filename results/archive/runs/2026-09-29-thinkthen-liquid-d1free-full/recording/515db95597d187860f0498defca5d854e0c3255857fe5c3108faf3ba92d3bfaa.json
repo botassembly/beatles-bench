@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"1970 Tonghai earthquake","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"February 1969","b":"April 1970","c":"January 1970","d":"May 1969"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.003165764259111015,"b":0.7746371121707797,"c":0.2219372616913448,"d":0.00025986187876448594},"confidence":0.6995161495610396}},"usage":{"input_tokens":98,"output_tokens":0}}
+}

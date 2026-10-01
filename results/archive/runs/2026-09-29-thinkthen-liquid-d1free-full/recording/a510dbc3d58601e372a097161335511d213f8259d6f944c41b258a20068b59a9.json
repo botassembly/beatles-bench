@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I Have a Dream","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"I Should Have Known Better","b":"A Hard Day's Night","c":"Helter Skelter","d":"She Loves You"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.061351597871178734,"b":0.1298813337124995,"c":0.061351597871178734,"d":0.747415470545143},"confidence":0.663220627393524}},"usage":{"input_tokens":107,"output_tokens":0}}
+}

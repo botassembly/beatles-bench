@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"1964 Brinks Hotel bombing","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"October 1965","b":"November 1965","c":"December 1964","d":"August 1965"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.586,"probabilities":{"a":0.0374,"b":0.1261,"c":0.6895,"d":0.147}}},"usage":{"input_tokens":64,"output_tokens":73},"latency_ms":111.6}
+}

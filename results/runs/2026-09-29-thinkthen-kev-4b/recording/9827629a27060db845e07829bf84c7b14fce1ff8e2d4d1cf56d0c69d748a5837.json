@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Savoy Truffle","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who sings the lead vocal on it?","criteria":{"john":"John Lennon","paul":"Paul McCartney","george":"George Harrison","ringo":"Ringo Starr"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"paul","confidence":0.1754,"probabilities":{"john":0.306,"paul":0.3815,"george":0.1879,"ringo":0.1245}}},"usage":{"input_tokens":56,"output_tokens":78},"latency_ms":96.1}
+}

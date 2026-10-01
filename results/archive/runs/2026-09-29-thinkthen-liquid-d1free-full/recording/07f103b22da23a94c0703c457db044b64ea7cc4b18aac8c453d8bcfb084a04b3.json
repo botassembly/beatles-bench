@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I'll Be Back","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"August 1963","b":"November 1964","c":"July 1965","d":"July 1964"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.059893341037438805,"b":0.20904830108888486,"c":0.08714429700227347,"d":0.6439140608714028},"confidence":0.5252187478285371}},"usage":{"input_tokens":103,"output_tokens":0}}
+}

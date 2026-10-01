@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Lee-Lee Chan","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Jackie Chan","b":"Arundhati Roy","c":"Bruce Lee","d":"Amitabh Bachchan"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.4449,"probabilities":{"a":0.3209,"b":0.0261,"c":0.5837,"d":0.0694}}},"usage":{"input_tokens":52,"output_tokens":75},"latency_ms":95.8}
+}

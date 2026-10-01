@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Prague Castle","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a building or structure. Who was an architect of it?","criteria":{"a":"Étienne Sulpice Hallet","b":"Benedikt Rejt","c":"Vedat Dalokay","d":"Antonio Rizzo"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.010486519889230793,"b":0.9439666628135853,"c":0.011162842315418102,"d":0.034383974981766006},"confidence":0.9252888837514471}},"usage":{"input_tokens":100,"output_tokens":0}}
+}

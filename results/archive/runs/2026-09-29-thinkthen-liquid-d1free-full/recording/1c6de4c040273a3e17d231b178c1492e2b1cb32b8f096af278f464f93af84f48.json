@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Can't Buy Me Love","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"With the Beatles","c":"Sgt. Pepper's Lonely Hearts Club Band","none":"none of these"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"none","probabilities":{"a":0.002441179613447963,"b":0.3197314327068604,"c":0.0009559796723549154,"none":0.6768714080073367},"confidence":0.5691618773431156}},"usage":{"input_tokens":108,"output_tokens":0}}
+}

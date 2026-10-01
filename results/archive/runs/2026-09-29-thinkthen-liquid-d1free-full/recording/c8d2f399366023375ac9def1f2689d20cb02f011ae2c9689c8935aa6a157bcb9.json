@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Help!","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Revolver","c":"Help!","none":"none of these"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.01996084827673082,"b":0.006898282933351197,"c":0.9617675229863942,"none":0.011373345803523793},"confidence":0.9490233639818589}},"usage":{"input_tokens":95,"output_tokens":0}}
+}

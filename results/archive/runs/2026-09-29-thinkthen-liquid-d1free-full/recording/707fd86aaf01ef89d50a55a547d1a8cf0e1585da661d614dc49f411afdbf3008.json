@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"I'll Follow the Sun","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"Help!","c":"Beatles for Sale"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.07769558978318342,"b":0.5740969346720536,"c":0.34820747554476295},"confidence":0.36114540200808043}},"usage":{"input_tokens":96,"output_tokens":0}}
+}

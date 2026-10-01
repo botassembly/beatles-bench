@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Abbey Road","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Please Please Me","b":"The Long and Winding Road","c":"Another Girl","d":"Mean Mr. Mustard"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.4629,"probabilities":{"a":0.1504,"b":0.1302,"c":0.1222,"d":0.5972}}},"usage":{"input_tokens":60,"output_tokens":75},"latency_ms":80.5}
+}

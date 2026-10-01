@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Twist and Shout","b":"She Said She Said","c":"Fixing a Hole","d":"What Goes On"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.013803496343433993,"b":0.3141661287004375,"c":0.6650895411082435,"d":0.006940833847885027},"confidence":0.553452721477658}},"usage":{"input_tokens":113,"output_tokens":0}}
+}

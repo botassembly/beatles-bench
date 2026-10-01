@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Mean Mr. Mustard","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"A Hard Day's Night","d":"Help!"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.1034,"probabilities":{"a":0.1749,"b":0.2391,"c":0.2585,"d":0.3275}}},"usage":{"input_tokens":62,"output_tokens":75},"latency_ms":98.7}
+}

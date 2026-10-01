@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"1965 French presidential election","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"April 1966","b":"December 1965","c":"January 1965","d":"June 1965"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.4224,"probabilities":{"a":0.0379,"b":0.5668,"c":0.0281,"d":0.3672}}},"usage":{"input_tokens":63,"output_tokens":75},"latency_ms":111.2}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Paul McCartney","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"I'm a Loser","b":"Girl","c":"Sweet Little Sixteen","d":"I've Just Seen a Face"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.006199636853518705,"b":0.014872155679473937,"c":0.05882051674753843,"d":0.920107690719469},"confidence":0.893476920959292}},"usage":{"input_tokens":109,"output_tokens":0}}
+}

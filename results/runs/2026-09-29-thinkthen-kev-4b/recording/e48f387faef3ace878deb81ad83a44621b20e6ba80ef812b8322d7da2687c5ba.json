@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Matthias of Arras","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"Faisal Mosque","b":"St. Vitus Cathedral","c":"Brandenburg Gate","d":"United States Capitol"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.2739,"probabilities":{"a":0.0744,"b":0.4554,"c":0.2443,"d":0.2259}}},"usage":{"input_tokens":54,"output_tokens":75},"latency_ms":96.5}
+}

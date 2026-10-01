@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Gemini 11","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1966","b":"September 1966","c":"May 1966","d":"August 1966"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.1526,"probabilities":{"a":0.1573,"b":0.3645,"c":0.1937,"d":0.2845}}},"usage":{"input_tokens":61,"output_tokens":75},"latency_ms":106.6}
+}

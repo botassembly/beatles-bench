@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"George Harrison","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Hello Little Girl","b":"Martha My Dear","c":"Good Night","d":"Savoy Truffle"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00028908509582421365,"b":0.005806429366120489,"c":0.13215375474878188,"d":0.8617507307892733},"confidence":0.8156676410523644}},"usage":{"input_tokens":102,"output_tokens":0}}
+}

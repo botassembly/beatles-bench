@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Mathew Knowles","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Sergei Eisenstein","b":"Beyoncé","c":"Nicolas Cage","d":"Max von Sydow"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.9659,"probabilities":{"a":0.0019,"b":0.9744,"c":0.0174,"d":0.0063}}},"usage":{"input_tokens":51,"output_tokens":75},"latency_ms":96.3}
+}

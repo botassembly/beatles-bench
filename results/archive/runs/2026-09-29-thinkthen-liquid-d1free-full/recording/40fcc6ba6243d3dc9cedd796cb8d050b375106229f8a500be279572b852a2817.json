@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Two of Us","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"Abbey Road","c":"Yellow Submarine"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7815270270437003,"b":0.17438222991660413,"c":0.04409074303969561},"confidence":0.6722905405655504}},"usage":{"input_tokens":93,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"John Lennon","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"The Ballad of John and Yoko","b":"Martha My Dear","c":"I Need You","d":"And I Love Her"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9330460387995508,"b":0.009147261496930825,"c":0.043639143947542536,"d":0.014167555755975877},"confidence":0.9107280517327344}},"usage":{"input_tokens":109,"output_tokens":0}}
+}

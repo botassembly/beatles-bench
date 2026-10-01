@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Her Majesty","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who sings the lead vocal on it?","criteria":{"john":"John Lennon","paul":"Paul McCartney","george":"George Harrison","ringo":"Ringo Starr"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"paul","probabilities":{"john":0.15850728934956962,"paul":0.3802392203343767,"george":0.23062674515802686,"ringo":0.23062674515802686},"confidence":0.1736522937791689}},"usage":{"input_tokens":99,"output_tokens":0}}
+}

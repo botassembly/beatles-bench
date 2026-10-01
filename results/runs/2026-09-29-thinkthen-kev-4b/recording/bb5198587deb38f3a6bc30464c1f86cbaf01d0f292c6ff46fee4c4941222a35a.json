@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Roberto Roberti","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Christian Bale","b":"Robert De Niro","c":"Sergio Leone","d":"Orlando Bloom"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.1503,"probabilities":{"a":0.266,"b":0.2158,"c":0.3628,"d":0.1554}}},"usage":{"input_tokens":50,"output_tokens":74},"latency_ms":95.7}
+}

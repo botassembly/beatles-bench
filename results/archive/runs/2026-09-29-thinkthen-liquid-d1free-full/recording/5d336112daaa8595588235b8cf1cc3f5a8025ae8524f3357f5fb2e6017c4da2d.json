@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"Revolution 9","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1968","probabilities":{"1962":0.0002913615800730188,"1963":0.00035144915140316853,"1964":0.0002913615800730188,"1965":0.00016601282411206968,"1966":0.002291736346293574,"1967":0.2819725596724948,"1968":0.59693591351099,"1969":0.11754365071899493,"1970":0.00015595461556543422},"confidence":0.5465529026998637}},"usage":{"input_tokens":124,"output_tokens":0}}
+}

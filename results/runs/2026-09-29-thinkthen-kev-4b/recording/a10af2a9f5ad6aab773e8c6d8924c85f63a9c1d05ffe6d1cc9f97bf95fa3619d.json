@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "http://127.0.0.1:8731/v1/systemone",
+  "request": {"state":"Please Please Me","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Saw Her Standing There","b":"Girl","c":"She Said She Said","d":"Please Mr. Postman"}}}},
+  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.5781,"probabilities":{"a":0.6836,"b":0.0882,"c":0.0307,"d":0.1976}}},"usage":{"input_tokens":59,"output_tokens":75},"latency_ms":80.2}
+}
