@@ -1,10 +1,10 @@
 # 0024 Publish the five-model report on the knowledge questions, with its statistics
 
-Owner: the queue owner. Status: draft; waits for 0023.
+Owner: the queue owner. Status: accepted after ticket review 1; waits for 0023.
 
 ## Why
 
-The deck and the thinkthen site will cite one bench report for the field of models. The marketing lead asked for it on 2026-09-30 (`repos/sdlc/inbox/beatles-bench/2026-09-30-mktg-five-model-table-and-recordings.md`). Ian approved four steps the same day: land the new Jev and Liquid runs; commit the Kev and Nimble runs with their build and date, and keep the older Liquid run as history; move the five-model scoring into the bench's own scripts; and publish one report the site can cite. Ian also asked for the statistics in the bench: intervals, paired tests, and the hard and easy split.
+The deck and the thinkthen site will cite one bench report for the field of models. The marketing lead asked for it on 2026-09-30 (a mailroom message). Ian approved four steps the same day: land the new Jev and Liquid runs; commit the Kev and Nimble runs with their build and date, and keep the older Liquid run as history; move the five-model scoring into the bench's own scripts; and publish one report the site can cite. Ian also asked for the statistics in the bench: intervals, paired tests, and the hard and easy split.
 
 Today the figures exist only in the local experiment `~/workspace/experiments/418-beatles-five/RESULTS.md`, made by its `score.py`. Three of its runs are not committed.
 
@@ -24,23 +24,23 @@ Today the figures exist only in the local experiment `~/workspace/experiments/41
 
 ## Changes
 
-1. Commit `2026-09-29-thinkthen-kev-4b` and the full Nimble run, as `results/runs/2026-09-30-thinkthen-nimble-9b`, in the layout of `2026-09-30-all-jev`. Each gets a `run.txt` naming the model, the backend, the machine, the ThinkThen build and the date. Commit `2026-09-29-thinkthen-liquid-d1free-full` as history, labeled with its build 2c5ac772b. Leave out `2026-09-30-thinkthen-nimble-taste`, which is a probe.
-2. Commit the hard set as `questions/hard.txt`, 505 ids. A short header or README line says how it was chosen and cites experiment 413. The other 996 questions are the easy set. `2026-09-29-thinkthen-liquid-d1free-hard` stays out; it is a subset rerun the full run supersedes.
-3. Extend `scripts/score/table.py`, or add one script beside it, so the main results table prints from committed runs only. Each model row shows:
+1. Commit `2026-09-29-thinkthen-kev-4b` and the full Nimble run, as `results/runs/2026-09-30-thinkthen-nimble-9b`. Commit each run's recording as it stands; the Nimble run holds `recording/thinkthen.sqlite`. Each gets a `run.txt` in the fields of `2026-09-30-all-jev/run.txt`: the model, the backend (a loopback System One address), the machine described as its `machine:` line does, the ThinkThen build, the date, and a line saying the recording was not replay-checked here. Commit `2026-09-29-thinkthen-liquid-d1free-full` under `results/archive/runs/`, outside `analyze.py`'s discovery, labeled with its build 2c5ac772b. Leave out `2026-09-30-thinkthen-nimble-taste`, which is a probe.
+2. Commit the hard set, the 505 ids of `results/runs/2026-09-29-thinkthen-liquid-d1free-hard/ids.txt`, as `questions/hard.txt`. A short header or README line says how it was chosen and cites experiment 413. The other 996 questions are the easy set. `2026-09-29-thinkthen-liquid-d1free-hard` stays out; it is a subset rerun the full run supersedes.
+3. Extend `scripts/score/table.py` so a second table, the five-model table, prints from committed runs only. Keep `table.results()`'s five-column shape for the README headline and its test. Each model row of the new table shows:
    - Beatles-only (1,313), overall (1,501), hard (505) and easy (996), each with its 95% Wilson interval;
-   - the exact McNemar p against Jev on the same 1,501 questions, with the counts only one side got right;
-   - the run folder, the ThinkThen build and the date.
+   - the exact McNemar p against Jev, paired by question id over the 1,501 questions, right or wrong by the scorer's `default()` verdict (a tied pick counts wrong), with the counts only one side got right. These are the values `results/tables/mcnemar.tsv` already computes;
+   - the run folder, the ThinkThen build ("chat script" for GLM-5.3 Flash) and the date.
 
    Rows: Jev and Liquid d1 on aec7819bb first, then Nimble, Kev and Laya, then the GLM-5.3 Flash reference, then the baselines and chance as today. The older Liquid run appears in a history line, not as a second row.
-4. `reports/results.md` "Main results" takes the new table. A short note says that each figure is one run, that builds differ across rows, and that the knowledge questions ask from memory only.
-5. Add `reports/models.md`, the page the deck and site cite. It holds the table from change 3, one paragraph per model naming its run, build, machine and date, and the hard set's definition. It contains no figure absent from the generated table. The front `README.md` links it.
+4. `reports/results.md` "Main results" keeps its current table, with the new Jev and Liquid rows, and adds the five-model table below it. A short note says: each figure is one run; builds differ across rows; the knowledge questions ask from memory only; Liquid d1 left three questions unanswered (rate-limited), and they score wrong. The McNemar and calibration bullets beneath are recomputed from the new runs.
+5. Add `reports/models.md`, the page the deck and site cite. It holds the table from change 3, one paragraph per model naming its run, build, machine and date, and the hard set's definition. It contains no figure absent from the generated table. The front `README.md` and `reports/README.md` link it.
 6. Leave out the OpenAI Decisions API. It is announced but unreleased. The bench has no run of it and no readable source.
 
 ## Proof
 
 - A test regenerates the table from committed runs and matches `reports/models.md` and the "Main results" table byte for byte.
-- A test checks `questions/hard.txt`: 505 unique ids, each in the catalog, and its complement is 996.
-- The Jev, Liquid d1, Nimble, Kev and Laya overall figures match experiment 418's scoring of the same run folders within rounding. Liquid is the exception: it uses the new run, so its expected figure is 64.3%.
+- A test checks `questions/hard.txt`: 505 unique ids, each in `questions/*.jsonl`, and its complement there is 996.
+- The Jev, Nimble, Kev, Laya and GLM-5.3 Flash overall, Beatles-only, hard and easy figures match experiment 418's `scores.json` for the same run folders within rounding. Liquid uses the new run, which 418 did not score, so only its overall figure is pinned, at 64.3%.
 - The full test suite passes, apart from failures recorded in ticket 0023 with their reason.
 - No live call.
 
