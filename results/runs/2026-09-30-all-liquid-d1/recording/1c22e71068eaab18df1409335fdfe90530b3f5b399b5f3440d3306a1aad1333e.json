@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"Paul McCartney sang lead on Another Girl","entities":[{"id":"i1","name":"Paul McCartney","kind":"person"},{"id":"i2","name":"Another Girl","kind":"song"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i2 sung by i1?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.9579122660767763}},"usage":{"input_tokens":146,"output_tokens":0}}
+}

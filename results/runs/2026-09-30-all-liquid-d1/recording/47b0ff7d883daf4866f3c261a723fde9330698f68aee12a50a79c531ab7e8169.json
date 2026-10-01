@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"Paul McCartney and John Lennon shared the lead vocal on Two of Us","entities":[{"id":"i1","name":"Paul McCartney","kind":"person"},{"id":"i2","name":"John Lennon","kind":"person"},{"id":"i3","name":"Two of Us","kind":"song"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i3 sung by i1?"},"q2":{"type":"noul","instructions":"Does the text itself state that i3 sung by i2?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.9149009584734678},"q2":{"type":"noul","noul":0.7981867729389246}},"usage":{"input_tokens":364,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"the song Magical Mystery Tour and the album Magical Mystery Tour share a title","entities":[{"id":"i1","name":"Magical Mystery Tour","kind":"song"},{"id":"i2","name":"Magical Mystery Tour","kind":"album"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 appears on i2?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.0675466845698721}},"usage":{"input_tokens":155,"output_tokens":0}}
+}

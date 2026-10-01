@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"Her Majesty from the album Abbey Road has Paul McCartney singing lead","entities":[{"id":"i1","name":"Her Majesty","kind":"song"},{"id":"i2","name":"Abbey Road","kind":"album"},{"id":"i3","name":"Paul McCartney","kind":"person"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i3?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 appears on i2?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.9840936080549317},"q2":{"type":"noul","noul":0.9770226270792738}},"usage":{"input_tokens":358,"output_tokens":0}}
+}

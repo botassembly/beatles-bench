@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Yer Blues\"},{\"id\":\"u002\",\"evidence\":\"Any Time at All\"},{\"id\":\"u003\",\"evidence\":\"I've Got a Feeling\"},{\"id\":\"u004\",\"evidence\":\"Hey Bulldog\"},{\"id\":\"u005\",\"evidence\":\"Because\"},{\"id\":\"u006\",\"evidence\":\"Baby It's You\"},{\"id\":\"u007\",\"evidence\":\"I'm Only Sleeping\"},{\"id\":\"u008\",\"evidence\":\"Happiness Is a Warm Gun\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one has George Harrison on lead vocal, alone or with another Beatle?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null,"none":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u007","probabilities":{"u001":0.08767720489366153,"u002":0.015236017277633384,"u003":0.009241111610796058,"u004":0.05317891292591226,"u005":0.012631101968257749,"u006":0.03654930542577057,"u007":0.6478518627866576,"u008":0.06025960291777293,"none":0.07737488019353803},"confidence":0.6038333456349898}},"usage":{"input_tokens":225,"output_tokens":0}}
+}

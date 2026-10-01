@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"One After 909\"},{\"id\":\"u002\",\"evidence\":\"Boys\"},{\"id\":\"u003\",\"evidence\":\"Michelle\"},{\"id\":\"u004\",\"evidence\":\"I'm So Tired\"},{\"id\":\"u005\",\"evidence\":\"With a Little Help from My Friends\"},{\"id\":\"u006\",\"evidence\":\"You Really Got a Hold on Me\"},{\"id\":\"u007\",\"evidence\":\"Blue Jay Way\"},{\"id\":\"u008\",\"evidence\":\"The Continuing Story of Bungalow Bill\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one has George Harrison on lead vocal, alone or with another Beatle?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u007","probabilities":{"u001":0.0029582663847459614,"u002":0.0014875097543002025,"u003":0.0012331888998922409,"u004":0.03836338219354256,"u005":0.003568350399125824,"u006":0.015992236982898676,"u007":0.8731465411470024,"u008":0.06325052423849216},"confidence":0.855024618453717}},"usage":{"input_tokens":227,"output_tokens":0}}
+}

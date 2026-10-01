@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"Paul McCartney sang lead on You Won't See Me from the album Rubber Soul","entities":[{"id":"i1","name":"Paul McCartney","kind":"person"},{"id":"i2","name":"You Won't See Me","kind":"song"},{"id":"i3","name":"album","kind":"album"},{"id":"i4","name":"Rubber Soul","kind":"album"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i2 sung by i1?"},"q2":{"type":"noul","instructions":"Does the text itself state that i2 appears on i3?"},"q3":{"type":"noul","instructions":"Does the text itself state that i2 appears on i4?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.9840936108539738},"q2":{"type":"noul","noul":0.6791786861878392},"q3":{"type":"noul","noul":0.9940889307059506}},"usage":{"input_tokens":636,"output_tokens":0}}
+}

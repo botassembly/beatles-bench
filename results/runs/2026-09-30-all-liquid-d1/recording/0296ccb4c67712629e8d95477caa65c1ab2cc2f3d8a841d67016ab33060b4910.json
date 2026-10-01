@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"Revolution 1 has John Lennon on lead","entities":[{"id":"i1","name":"Revolution 1","kind":"song"},{"id":"i2","name":"John Lennon","kind":"person"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i2?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.7772998508568416}},"usage":{"input_tokens":148,"output_tokens":0}}
+}

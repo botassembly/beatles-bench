@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"You Really Got a Hold on Me\"},{\"id\":\"u002\",\"evidence\":\"Everybody's Trying to Be My Baby\"},{\"id\":\"u003\",\"evidence\":\"I've Just Seen a Face\"},{\"id\":\"u004\",\"evidence\":\"Within You Without You\"},{\"id\":\"u005\",\"evidence\":\"Two of Us\"},{\"id\":\"u006\",\"evidence\":\"Chains\"},{\"id\":\"u007\",\"evidence\":\"Something\"},{\"id\":\"u008\",\"evidence\":\"And Your Bird Can Sing\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Help!?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u006","probabilities":{"u001":0.12320050327756163,"u002":0.17925567454549374,"u003":0.20312331452886126,"u004":0.0034949292634901454,"u005":0.03315896561875357,"u006":0.4300120602320209,"u007":0.0034949292634901454,"u008":0.024259623270328677},"confidence":0.34858521169373813}},"usage":{"input_tokens":219,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":{"evidence":"Drive My Car is sung by Paul McCartney and John Lennon","entities":[{"id":"i1","name":"Drive My Car","kind":"song"},{"id":"i2","name":"Paul McCartney","kind":"person"},{"id":"i3","name":"John Lennon","kind":"person"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i2?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 sung by i3?"}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.9959298630693418},"q2":{"type":"noul","noul":0.9947798738421624}},"usage":{"input_tokens":360,"output_tokens":0}}
+}

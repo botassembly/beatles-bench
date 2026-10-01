@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Everybody's Trying to Be My Baby\"},{\"id\":\"u002\",\"evidence\":\"You Really Got a Hold on Me\"},{\"id\":\"u003\",\"evidence\":\"Michelle\"},{\"id\":\"u004\",\"evidence\":\"It's All Too Much\"},{\"id\":\"u005\",\"evidence\":\"You Like Me Too Much\"},{\"id\":\"u006\",\"evidence\":\"P.S. I Love You\"},{\"id\":\"u007\",\"evidence\":\"Love You To\"},{\"id\":\"u008\",\"evidence\":\"Baby, You're a Rich Man\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album With the Beatles?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u002","probabilities":{"u001":0.0733796654025128,"u002":0.6144004161283186,"u003":0.017429202386800662,"u004":0.003028739785734245,"u005":0.02699487030162383,"u006":0.25612019835856686,"u007":0.004993550089265465,"u008":0.003653357547177466},"confidence":0.559314761289507}},"usage":{"input_tokens":228,"output_tokens":0}}
+}

@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"I Should Have Known Better\"},{\"id\":\"u002\",\"evidence\":\"Do You Want to Know a Secret\"},{\"id\":\"u003\",\"evidence\":\"Ticket to Ride\"},{\"id\":\"u004\",\"evidence\":\"All Together Now\"},{\"id\":\"u005\",\"evidence\":\"Getting Better\"},{\"id\":\"u006\",\"evidence\":\"Eight Days a Week\"},{\"id\":\"u007\",\"evidence\":\"Hold Me Tight\"},{\"id\":\"u008\",\"evidence\":\"Wait\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Rubber Soul?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u003","probabilities":{"u001":0.23094667336347258,"u002":0.20380972390548086,"u003":0.3360254269784867,"u004":0.02591150171629065,"u005":0.03770100354844692,"u006":0.0661673218497785,"u007":0.0661673218497785,"u008":0.033271026788265226},"confidence":0.24117191654684195}},"usage":{"input_tokens":213,"output_tokens":0}}
+}

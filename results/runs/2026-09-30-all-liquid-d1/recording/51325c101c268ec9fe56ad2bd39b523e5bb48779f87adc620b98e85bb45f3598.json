@@ -1,0 +1,7 @@
+{
+  "schema": "thinkthen.recording/1",
+  "adapter": "systemone",
+  "url": "https://api.liquid.ai/decisions/v1/systemone",
+  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Magical Mystery Tour\"},{\"id\":\"u002\",\"evidence\":\"Come Together\"},{\"id\":\"u003\",\"evidence\":\"Getting Better\"},{\"id\":\"u004\",\"evidence\":\"You're Going to Lose That Girl\"},{\"id\":\"u005\",\"evidence\":\"In My Life\"},{\"id\":\"u006\",\"evidence\":\"I Saw Her Standing There\"},{\"id\":\"u007\",\"evidence\":\"I Want to Tell You\"},{\"id\":\"u008\",\"evidence\":\"Things We Said Today\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album A Hard Day's Night?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
+  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u006","probabilities":{"u001":0.0005645841332188072,"u002":0.0015346987899649844,"u003":0.0008214650666630234,"u004":0.022552228712666673,"u005":0.0016336783580256698,"u006":0.846266214736914,"u007":0.10107210103078634,"u008":0.025555029171760522},"confidence":0.824304245413616}},"usage":{"input_tokens":218,"output_tokens":0}}
+}
