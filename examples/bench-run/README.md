@@ -18,7 +18,7 @@ The steps are the commands of the bench README, "Run it". `./run.sh` with no bac
 
 ## The build
 
-- Jev: [`run.txt`](../../results/runs/2026-09-26-thinkthen-jev/run.txt) of the 2026-09-26 Jev run.
+- Jev: [`run.txt`](../../results/runs/2026-09-30-all-jev/run.txt) of the 2026-09-30 all-jev run.
 - GLM-5.3 Flash: `results/runs/2026-09-23-glm-5.3-flash`, asked through `scripts/run/chat.py`. It used no thinkthen build. Build not recorded.
 
 ## The check

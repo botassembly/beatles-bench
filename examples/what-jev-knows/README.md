@@ -15,7 +15,7 @@ The slide rounds each share to a whole percent: 31%, 38%, 67%, and 96%. The chan
 
 ## The build
 
-- Jev: [`run.txt`](../../results/runs/2026-09-26-thinkthen-jev/run.txt) of the 2026-09-26 Jev run.
+- Jev: [`run.txt`](../../results/runs/2026-09-30-all-jev/run.txt) of the 2026-09-30 all-jev run.
 - GLM-5.3 Flash: `results/runs/2026-09-23-glm-5.3-flash`, asked through `scripts/run/chat.py` with thinking off. It used no thinkthen build. Build not recorded.
 - Vector search: `results/runs/2026-09-23-baseline-embed`. It calls no model.
 

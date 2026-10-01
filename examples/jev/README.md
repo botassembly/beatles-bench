@@ -22,7 +22,7 @@ The first start line of `loadavg.txt` belongs to an attempt that stopped on a ba
 ## The build
 
 - The probabilities: [`../choose/run.txt`](../choose/run.txt).
-- The time, the price, and the load: [`run.txt`](../../results/runs/2026-09-26-thinkthen-jev/run.txt) of the 2026-09-26 Jev run.
+- The time, the price, and the load: [`run.txt`](../../results/runs/2026-09-30-all-jev/run.txt) of the 2026-09-30 all-jev run.
 
 ## The check
 
