@@ -54,14 +54,14 @@ def functions():
         if p.exists():
             with open(p, encoding="utf-8", newline="") as fh:
                 every = list(csv.DictReader(fh, delimiter="\t"))
-            refused = {r["function"] for r in every if r["measure"] == "cases refused by the backend"}
+            refused = {(r["function"], r["test"]) for r in every if r["measure"] == "cases refused by the backend"}
             runs[name] = ({(r["function"], r["test"], r["measure"]): r for r in every if r["main"]}, refused)
     keys = list(dict.fromkeys(k for rows, _ in runs.values() for k in rows))
 
     def v(k, rows, refused):
         """The value and interval; refused for a test the backend refused; a dash when nothing was said to measure;
         blank when the model was not asked."""
-        if k[0] in refused:
+        if k[:2] in refused:
             return "refused"
         r = rows.get(k)
         if r is None:
