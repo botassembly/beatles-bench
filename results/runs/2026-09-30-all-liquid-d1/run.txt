@@ -16,3 +16,4 @@ ended part-answered: annotate card (90 of 182), details (117 of 118) and reading
 (53 of 104) and singer (22 of 144), rank reading-popularity (44 of 100), and relate more-links (1 of 10). The
 find reading test and the relate links and song-to-singer-and-album tests were refused whole.
 replay (key unset, model and flags as sent): pending; the replay reads gaps.tsv and asks nothing for a gap
+function table: pending; 513 rate-limited gaps, function table deferred until they are asked again

@@ -16,7 +16,8 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
-from published import D1_ALL, JEV_ALL, JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN  # noqa: E402
+from published import D1_ALL, JEV_ALL, JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN, \
+    pending  # noqa: E402
 import importlib.util  # noqa: E402
 
 import make_suite as gen  # noqa: E402
@@ -445,9 +446,24 @@ class TableTest(unittest.TestCase):
                                    (D1_ALL, D1_ALL, "functions-liquid-d1.tsv"),
                                    (runs / "2026-09-23-functions-laya", runs / "2026-09-23-thinkthen-laya", "functions-laya.tsv"),
                                    (runs / "2026-09-23-functions-glm-5.3-flash", runs / "2026-09-23-glm-5.3-flash", "functions-glm.tsv")):
-            subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
-                            str(core), str(out / table)], check=True, capture_output=True)
-            self.assertEqual((out / table).read_bytes(), (ROOT / "results" / "tables" / table).read_bytes(), table)
+            with self.subTest(table):
+                reason = pending(suite)  # a run its run.txt names pending has no table to check
+                if reason:
+                    self.skipTest(reason)
+                subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
+                                str(core), str(out / table)], check=True, capture_output=True)
+                self.assertEqual((out / table).read_bytes(), (ROOT / "results" / "tables" / table).read_bytes(), table)
+
+    def test_the_d1_run_is_the_only_run_pending_its_function_table(self):
+        """The exclusion never grows silently: one run may defer its table, and only while its gaps stand."""
+        pend = {p.name: pending(p) for p in sorted((ROOT / "results" / "runs").iterdir())
+                if p.is_dir() and pending(p)}
+        self.assertEqual(list(pend), [D1_ALL.name])
+        self.assertIn("513 rate-limited gaps", pend[D1_ALL.name])
+        msgs = [r["message"] for r in csv.DictReader(open(D1_ALL / "gaps.tsv", encoding="utf-8"), delimiter="\t")]
+        self.assertEqual(len(msgs), 531)
+        self.assertEqual(sum("status 429" in m for m in msgs), 513)  # the rate-limited gaps the reason names
+        self.assertEqual(sum("status 422" in m for m in msgs), 18)
 
 
 class ScoreTest(unittest.TestCase):

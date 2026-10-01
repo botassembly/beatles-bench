@@ -36,6 +36,7 @@ Ian wants Jev and Liquid's d1 compared across every function, not only the knowl
 
 ## Deferred gaps
 
+- The d1 function suite table: 513 rate-limited (429) gaps left seven suite tests part-answered, so `results/tables/functions-liquid-d1.tsv` stays unwritten and the run's `run.txt` marks it pending until the gaps are asked again.
 - Repeat runs to measure run-to-run spread on each backend.
 - GLM-5.3 Flash and Laya on the new levels.
 - Nimble through Ollama and Kev, run from the M5 against the same catalog and build, in the same run-folder layout, so the answers table takes them in. They follow this ticket once the portable description rule lands.
