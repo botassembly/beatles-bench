@@ -27,8 +27,8 @@ Current ThinkThen replays only a question store: `thinkthen.jsonl`, or `thinkthe
   - An entry that does not rejoin byte for byte is skipped, with a named message.
   - Converted answers take `taken_at` 0 and origin `converted`.
 - The site converted its own copy of these files in its ticket 0031.
-- Release QA converted a committed demo recording with that checkpoint's command. Replays hit afterwards (thinkthen-qa `cli/hostile/cache.md`).
-- The published command is `thinkthen-0.0.1-x86_64-unknown-linux-gnu-debug.tar.gz` in `~/workspace/builds/thinkthen/checkpoint/surfaces/2026-09-30-1/`, checked against that folder's `SHA256SUMS`.
+- Release QA converted a committed demo recording with that checkpoint's command. Replays hit afterwards (ThinkThen's QA notes on the replay cache).
+- The published command is a local debug build, `thinkthen-0.0.1-x86_64-unknown-linux-gnu-debug.tar.gz`, checked against its checkpoint's `SHA256SUMS`.
 
 ## Retained behavior
 

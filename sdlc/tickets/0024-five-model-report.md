@@ -6,7 +6,7 @@ Owner: the queue owner. Status: done on 2026-09-30, landed at ba12082f. Code rev
 
 The deck and the thinkthen site will cite one bench report for the field of models. The marketing lead asked for it on 2026-09-30 (a mailroom message). Ian approved four steps the same day: land the new Jev and Liquid runs; commit the Kev and Nimble runs with their build and date, and keep the older Liquid run as history; move the five-model scoring into the bench's own scripts; and publish one report the site can cite. Ian also asked for the statistics in the bench: intervals, paired tests, and the hard and easy split.
 
-Today the figures exist only in the local experiment `~/workspace/experiments/418-beatles-five/RESULTS.md`, made by its `score.py`. Three of its runs are not committed.
+Today the figures exist only in local experiment 418, made by its `score.py`. Three of its runs are not committed.
 
 ## Prior evidence
 
@@ -14,7 +14,7 @@ Today the figures exist only in the local experiment `~/workspace/experiments/41
 - Experiment 413 defined the hard set of 505 questions: the lexical traps and their controls, multi-hop, none-of-these, reversal, shared lead, and the year questions. Its id list is `results/runs/2026-09-29-thinkthen-liquid-d1free-hard/ids.txt`, untracked.
 - Ticket 0023 commits `2026-09-30-all-jev` and `2026-09-30-all-liquid-d1`, both on build aec7819bb. The new Liquid run scores 64.3% on the knowledge questions. That run is the Liquid row; the deck does not keep 63.8.
 - `scripts/score/stats.py` already holds `wilson` and an exact `mcnemar`. `scripts/answers/report.py` already writes `head-to-head.md` from the answers table.
-- Untracked on the build machine: `results/runs/2026-09-29-thinkthen-kev-4b` (8 MB), `2026-09-29-thinkthen-liquid-d1free-full` (8.2 MB), `2026-09-29-thinkthen-liquid-d1free-hard` (2.9 MB), and `2026-09-30-thinkthen-nimble-taste` (a small taste run). The full Nimble run is in `~/workspace/experiments/418-beatles-five/runs/nimble` (3.1 MB).
+- Untracked on the build machine: `results/runs/2026-09-29-thinkthen-kev-4b` (8 MB), `2026-09-29-thinkthen-liquid-d1free-full` (8.2 MB), `2026-09-29-thinkthen-liquid-d1free-hard` (2.9 MB), and `2026-09-30-thinkthen-nimble-taste` (a small taste run). The full Nimble run is in local experiment 418 (3.1 MB).
 
 ## Retained behavior
 
