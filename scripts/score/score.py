@@ -41,7 +41,7 @@ def newest(label, runs=ROOT / "results" / "runs"):
     A folder that holds only a README.md is a stub pointing to a run in Git history, not a run."""
     found = sorted(p for p in Path(runs).glob(f"*-{label}")
                    if p.is_dir() and re.fullmatch(r"\d{4}-\d\d-\d\d-" + re.escape(label), p.name)
-                   and any(c.name != "README.md" for c in p.iterdir()))
+                   and [c.name for c in p.iterdir()] != ["README.md"])
     if not found:
         raise FileNotFoundError(f"no {Path(runs) / ('DATE-' + label)} folder")
     return found[-1]
@@ -76,7 +76,14 @@ def tracked(path):
 
 
 def load(run):
-    qs = [json.loads(l) for f in sorted(glob.glob(str(ROOT / "questions" / "*.jsonl"))) for l in open(f, encoding="utf-8")]
+    """RUN's answers joined to its questions: questions/*.jsonl, or RUN/questions.jsonl, limited to RUN/ids.txt when
+    it exists, as scripts/run/ask.py asks them."""
+    own, listed = Path(run) / "questions.jsonl", Path(run) / "ids.txt"
+    files = [own] if own.exists() else sorted(glob.glob(str(ROOT / "questions" / "*.jsonl")))
+    qs = [json.loads(l) for f in files for l in open(f, encoding="utf-8")]
+    if listed.exists():
+        keep = set(listed.read_text(encoding="utf-8").split())
+        qs = [q for q in qs if q["id"] in keep]
     ans = [json.loads(l) for l in open(Path(run) / "answers.jsonl", encoding="utf-8")]
     return join(qs, ans)
 
