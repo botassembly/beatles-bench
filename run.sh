@@ -54,7 +54,7 @@ rec_build() {
   printf %s "$c"
 }
 # run_bin DIR: the command DIR's recording replays under: BENCH_BIN_<build> for a run results/builds.tsv lists,
-# else THINKTHEN_BIN. Prints the command, or prints nothing and returns 1 with a reason on stdout.
+# else THINKTHEN_BIN. Prints the command, or prints the skip line in its place and returns 1.
 run_bin() {
   b=$(build_of "$1")
   case $b in
@@ -142,6 +142,8 @@ if [ -z "${THINKTHEN_BASE_URL:-}" ]; then
       exit 1
     }
     echo "replayed $run: all answers match its answers.jsonl"
+  else
+    echo "$bin"  # run_bin's skip line
   fi
   if [ "$name" = jev ]; then
     for n in $FUNCTIONS; do
