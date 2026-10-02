@@ -18,6 +18,6 @@ while [ $# -gt 0 ]; do
 done
 answers=$(printf '%s\n' 'She Loves You' 'I Saw Her Standing There' 'From Me to You' 'All My Loving' 'Love Me Do' \
     'I Want to Hold Your Hand' 'Please Please Me' "Can't Buy Me Love" "A Hard Day's Night" 'I Feel Fine' |
-  thinkthen find 'These are songs by the Beatles. Which one did they release first?' --details $from)
+  thinkthen find 'These are songs by the Beatles. Which one did they release first?' --details --model jev-latest $from)
 printf '%s\n' "$answers" | jq -c --argjson bar "$bar" '([.answer.probabilities[]] | max) as $p
   | {pick: (if $p >= $bar then .value else null end), p: $p}'

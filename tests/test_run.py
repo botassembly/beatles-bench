@@ -4,23 +4,25 @@ import hashlib
 import json
 import os
 import re
-import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
+sys.path.insert(0, str(ROOT / "tests"))
+from builds import bin_for  # noqa: E402
+
 JEV_ALL = ROOT / "results" / "runs" / "2026-09-30-all-jev"
 
 
-def same_build(run):
-    """True when BIN is the build run.txt names as the one that recorded the run; the recording binds to it."""
+def same_build(run, bin):
+    """True when BIN's SHA-256 is the one run.txt names as the build that recorded the run; the recording binds to it."""
     if not (Path(run) / "run.txt").exists():
         return False
     m = re.search(r"THINKTHEN_BIN SHA-256: ([0-9a-f]{64})", (Path(run) / "run.txt").read_text(encoding="utf-8"))
-    return bool(BIN and Path(BIN).exists() and m and hashlib.sha256(Path(BIN).read_bytes()).hexdigest() == m.group(1))
+    return bool(m and hashlib.sha256(Path(bin).read_bytes()).hexdigest() == m.group(1))
 
 
 def ids():
@@ -103,16 +105,17 @@ class RunTest(unittest.TestCase):
         subprocess.run([str(ROOT / "scripts" / "run" / "thinkthen.sh"), "replay", str(run)], check=True, env=env)
         self.assertEqual((run / "replay" / "answers.jsonl").read_text(), (run / "answers.jsonl").read_text())
 
-    @unittest.skipUnless(BIN and Path(BIN).exists() and (JEV_ALL / "recording").exists(),
-                         "the command or the recorded run is missing")
+    @unittest.skipUnless((JEV_ALL / "recording").exists(), "the recorded run is missing")
     def test_the_all_jev_run_replays_with_the_key_unset(self):
-        if not same_build(JEV_ALL):
-            self.skipTest("the run's recording binds to another thinkthen build")
+        bin, why = bin_for(JEV_ALL)
+        if not bin:
+            self.skipTest(why)
+        self.assertTrue(same_build(JEV_ALL, bin), "BENCH_BIN_* names a command that is not the run's build")
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(JEV_ALL / "recording")
         (tmp / "timing.tsv").write_text((JEV_ALL / "timing.tsv").read_text(encoding="utf-8"), encoding="utf-8")
         # the recording binds the model the run sent: it sits in the request hash a replay recomputes
-        env = {**os.environ, "THINKTHEN_BIN": BIN, "BEATLES_BENCH_MODEL": "jev-1.13.0"}
+        env = {**os.environ, "THINKTHEN_BIN": bin, "BEATLES_BENCH_MODEL": "jev-1.13.0"}
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([str(ROOT / "scripts" / "run" / "thinkthen.sh"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "answers.jsonl").read_text(),

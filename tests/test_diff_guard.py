@@ -4,18 +4,23 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
+sys.path.insert(0, str(ROOT / "tests"))
+from builds import bench_bin  # noqa: E402
+
+# The edge-case expectations pin diff as the 2026-09-26 pinned build printed it: 0.0.1 at 02dc0b96.
+BIN = bench_bin("02dc0b96")
 GUARD = ROOT / "scripts" / "score" / "diff_guard.sh"
 ROWS = [json.loads(l) for l in open(ROOT / "tests" / "fixtures" / "audit" / "249" / "control.jsonl", encoding="utf-8")][:10]
 
 
 def has_diff():
-    return bool(BIN) and Path(BIN).exists() and subprocess.run([BIN, "diff", "--help"], capture_output=True).returncode == 0
+    return bool(BIN) and subprocess.run([BIN, "diff", "--help"], capture_output=True).returncode == 0
 
 
 def other_digest(rows):
@@ -42,7 +47,7 @@ CASES = [
 ]
 
 
-@unittest.skipUnless(has_diff(), "no thinkthen with diff")
+@unittest.skipUnless(has_diff(), "the edge-case messages pin diff under thinkthen 02dc0b96; set BENCH_BIN_02dc0b96")
 class DiffGuardTest(unittest.TestCase):
     def test_edge_cases(self):
         tmp = Path(tempfile.mkdtemp())

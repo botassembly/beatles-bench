@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nSingles\nRain (lead: Lennon; written: Lennon–McCartney; 3:02; released 1966-05-30; first album: Past Masters)\nText: Rain","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.14}},"usage":{"input_tokens":337,"output_tokens":21}}
-}

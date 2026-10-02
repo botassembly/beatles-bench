@@ -30,9 +30,13 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 from published import JEV_RUN  # noqa: E402
+from builds import bench_bin  # noqa: E402
 
 ROOT = Path(__file__).resolve().parent.parent
-BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
+# The contract pins what audit printed under the build the suite's tables were checked with: 0.0.1 at 02dc0b96.
+# audit's output changed since (record 0018 saw figure drift; 0.1.0 groups fewer rows), so the checks run only
+# where BENCH_BIN_02dc0b96 names that command.
+BIN = bench_bin("02dc0b96")
 RUNS = ROOT / "results" / "runs"
 TABLES = ROOT / "results" / "tables"
 SYSTEMS = {"Jev": (JEV_RUN.name, "functions.tsv"),
@@ -42,7 +46,7 @@ COVERED_FILES = {"Jev": 7, "Laya": 15}  # question files where no tie holds the 
 
 
 def has_audit():
-    return bool(BIN) and Path(BIN).exists() and subprocess.run([BIN, "audit", "--help"], capture_output=True).returncode == 0
+    return bool(BIN) and subprocess.run([BIN, "audit", "--help"], capture_output=True).returncode == 0
 
 
 def tsv(name):
@@ -82,7 +86,7 @@ def tie_holds_the_answer(row, truth):
     return sum(v == top for v in p.values()) > 1 and p.get(truth) == top
 
 
-@unittest.skipUnless(has_audit(), "no thinkthen with audit")
+@unittest.skipUnless(has_audit(), "the committed tables pin audit under thinkthen 02dc0b96; set BENCH_BIN_02dc0b96")
 class AuditContractTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

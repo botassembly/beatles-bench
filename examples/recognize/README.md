@@ -4,6 +4,8 @@
 
 The slide finds the people, songs, albums, and places in one sentence. `recognize` names each span, its kind, and a strength. `./run` keeps every name at `0.01` or more.
 
+These answers are historical. The pinned build, thinkthen main at 02dc0b96, recorded them with an earlier recognize planner. `thinkthen 0.1.0` asks different questions for the same sentence, so this recording replays only under that build.
+
 ## Run it
 
 ```sh

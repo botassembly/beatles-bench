@@ -39,7 +39,7 @@ A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-30-all-j
 
 ## Run it
 
-Install the `thinkthen` command first. `./run.sh` needs a build with `audit`. The bench pins thinkthen main at 02dc0b96. That build wrote the committed outputs through 2026-09-26, and their replays hold only under it. The recognize and relate runs of 2026-09-30 used the newer pinned build c22512868, and the all-runs of 2026-09-30 (ticket 0023) used aec7819bb; each run's `run.txt` names the SHA-256. Then:
+Install the `thinkthen` command first. `./run.sh` needs thinkthen 0.1.0, the current checkpoint: the example folders hold question-store recordings it replays, and it ships `audit` and `diff`. The runs under `results/` keep the form their builds wrote: `results/builds.tsv` names each run's build, and a run replays only when `BENCH_BIN_<id>` names that build's command. `BENCH_BIN_02dc0b96` covers the runs through 2026-09-26. `BENCH_BIN_c22512868` covers the recognize, relate, and reading runs of 2026-09-30. `BENCH_BIN_aec7819bb` covers the all-runs of 2026-09-30. Each run's `run.txt` names the SHA-256. Two examples keep their first recordings: `thinkthen` 0.1.0's recognize and relate ask different questions than the recorded ones, so `examples/recognize` and `examples/relate` replay under `BENCH_BIN_02dc0b96` too. Then:
 
 ```sh
 git clone https://github.com/botassembly/beatles-bench
@@ -47,7 +47,7 @@ cd beatles-bench
 ./run.sh
 ```
 
-With no backend address set, `./run.sh` replays the newest recorded Jev run and every function folder in `examples/`. It needs no key, no network, and no spend. It checks every replayed answer and example file against the committed ones, byte for byte. That check holds for the pinned build. A later build can replay every answer and still change an output's bytes. At thinkthen 411cb67a, `audit` added a `by_bin` array, so `./run.sh` stops at `examples/audit/replay/audit-0.5.json`. It then rescores every run into `results/tables/` and prints the results tables.
+With no backend address set, `./run.sh` replays the converted folders in `examples/` under `thinkthen`. Three recordings keep the old form: the newest committed run and the `recognize` and `relate` examples. `./run.sh` replays each of them when `BENCH_BIN_<id>` names its build. Otherwise it prints one line naming the build and skips it. It needs no key, no network, and no spend. It checks every replayed answer and example file against the committed ones, byte for byte. A replay holds only under the build that made the recording: another build can replay every answer and still change an output's bytes. It then rescores every run into `results/tables/` and prints the results tables.
 
 To ask your own backend:
 

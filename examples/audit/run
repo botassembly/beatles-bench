@@ -16,5 +16,5 @@ while [ $# -gt 0 ]; do
   shift
 done
 answers=$(jq -c '.records[]' audit-cold.jsonl |
-  thinkthen decide 'Is this song on the album Abbey Road?' --jsonl --field /input --details $from)
+  thinkthen decide 'Is this song on the album Abbey Road?' --jsonl --field /input --details --model jev-latest $from)
 printf '%s\n' "$answers" | thinkthen audit - key.jsonl --id /input --table ${bar:+--threshold "$bar"}

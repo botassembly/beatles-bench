@@ -6,19 +6,21 @@ The suite needs no network and no key. Run it from the top folder of the bench w
 env -u THINKTHEN_API_KEY python3 -m unittest discover -s tests
 ```
 
-The tests that replay a recording need the `thinkthen` command with `audit` and `diff`. They pass with the pinned build, thinkthen main at 02dc0b96. A later build can change an output's bytes. At 411cb67a, `audit` added a `by_bin` array. The suite takes the command from `THINKTHEN_BIN`, or else from `thinkthen` on `PATH`. With neither, these tests skip and the rest still run:
+The tests that replay a recording need the `thinkthen` build that recorded it: a replay binds to one build. The examples and the page commands replay under `THINKTHEN_BIN`, or else `thinkthen` on `PATH`. That is the current checkpoint, `thinkthen 0.1.0`. Each old run replays under the build `results/builds.tsv` names for it, taken from `BENCH_BIN_<id>` such as `BENCH_BIN_02dc0b96`. A skip reason names the build and the variable. With no command and no BENCH_BIN, these tests skip and the rest still run:
 
 | File | What skips | Why |
 | --- | --- | --- |
-| `test_audit_contract.py` | every test | no `thinkthen` with `audit` |
-| `test_leaning_no.py` | every test | no `thinkthen` with `audit` |
-| `test_diff_guard.py` | every test | no `thinkthen` with `diff` |
-| `test_replay_laya.py` | every test | no `thinkthen` to replay the Laya recordings |
-| `test_rad_pipeline.py` | the pipeline replay | no `thinkthen` |
-| `test_in_text_check.py` | the Jev replay | no `thinkthen` |
-| `test_examples.py` | `ExampleReplayTest` and `RecognizeHowTest` | no `thinkthen` to replay each function folder in `examples/` |
+| `test_audit_contract.py` | every test | the audit contract pins the figures to `BENCH_BIN_02dc0b96` |
+| `test_leaning_no.py` | every test | the report's numbers pin `audit` and `diff` to `BENCH_BIN_02dc0b96` |
+| `test_diff_guard.py` | every test | the edge-case messages pin `diff` to `BENCH_BIN_02dc0b96` |
+| `test_replay_laya.py` | the three replays | no `BENCH_BIN_02dc0b96` for the Laya and one-line recordings |
+| `test_rad_pipeline.py` | the pipeline replay | no `BENCH_BIN_02dc0b96` for the recorded run |
+| `test_in_text_check.py` | the Jev replay | no `BENCH_BIN_02dc0b96` for the in-text-check recording |
+| `test_examples.py` | `ExampleReplayTest` and `RecognizeHowTest` | no `thinkthen` for `examples/`; the old-form `recognize` and `relate` folders also want `BENCH_BIN_02dc0b96` |
+| `test_examples.py` | a page command that replays a `results/` recording | no `BENCH_BIN_<id>` for the build that recorded it |
+| `test_run.py` | the all-jev replay | no `BENCH_BIN_aec7819bb` for `results/runs/2026-09-30-all-jev` |
 | `test_run_sh.py` | `RunShTest` | no `thinkthen` for the full `./run.sh` replay |
-| `test_suite.py` | the recorded suite replay and Laya's rows | no `thinkthen` |
+| `test_suite.py` | each recorded-run replay | no `BENCH_BIN_<id>` for that run's build in `results/builds.tsv` |
 
 Two more skip for other reasons. `test_harvest.py` rebuilds `data/` only when `data/raw/` holds the page cache that `scripts/harvest/harvest.py` fills. `test_chat.py` needs the venv from `requirements.txt` ([../scripts/README.md](../scripts/README.md), "Set up").
 

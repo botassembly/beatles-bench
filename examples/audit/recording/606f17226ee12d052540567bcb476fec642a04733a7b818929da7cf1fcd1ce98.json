@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nSgt. Pepper's Lonely Hearts Club Band (1967-05-26)\nLovely Rita (lead: McCartney; written: Lennon–McCartney; 2:42; released 1967-05-26; first album: Sgt. Pepper's Lonely Hearts Club Band)\nText: Lovely Rita","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.02}},"usage":{"input_tokens":366,"output_tokens":21}}
-}

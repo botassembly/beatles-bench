@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nSingles\nWe Can Work It Out (lead: McCartney; written: Lennon–McCartney; 2:16; released 1965-12-03; first album: Past Masters)\nText: We Can Work It Out","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.07}},"usage":{"input_tokens":347,"output_tokens":21}}
-}

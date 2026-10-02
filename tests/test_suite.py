@@ -18,6 +18,7 @@ sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
 from published import D1_ALL, JEV_ALL, JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN, \
     pending  # noqa: E402
+from builds import bin_for  # noqa: E402
 import importlib.util  # noqa: E402
 
 import make_suite as gen  # noqa: E402
@@ -32,7 +33,6 @@ NEW_GROUPS = ("recognize-varied-,recognize-song-or-album-,recognize-short-names-
 RELATE_ONLY = "relate-songs,relate-solo-,relate-duet-,relate-wrong-album-only-,relate-links-"
 READING = ("decide-reading-,choose-reading-,tag-reading-,score-reading-,filter-reading-,rank-reading-,"
            "find-reading-,find-more-,annotate-reading-")
-BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
 RUN = JEV_FUNCTIONS
 
 
@@ -45,13 +45,13 @@ def cases(name):
     return [json.loads(l) for l in open(ROOT / "questions" / "suite" / f"{name}.jsonl", encoding="utf-8")]
 
 
-def same_build(run):
-    """True when BIN is the build run.txt names as the one that recorded the run; the recording binds to it."""
+def same_build(run, bin):
+    """True when BIN's SHA-256 is the one run.txt names as the build that recorded the run; the recording binds to it."""
     if not (Path(run) / "run.txt").exists():
         return False
     text = (Path(run) / "run.txt").read_text(encoding="utf-8")
     m = re.search(r"THINKTHEN_BIN SHA-256: ([0-9a-f]{64})", text)
-    return bool(BIN and Path(BIN).exists() and m and hashlib.sha256(Path(BIN).read_bytes()).hexdigest() == m.group(1))
+    return bool(bin and Path(bin).exists() and m and hashlib.sha256(Path(bin).read_bytes()).hexdigest() == m.group(1))
 
 
 class GenerateTest(unittest.TestCase):
@@ -742,16 +742,24 @@ class RunTest(unittest.TestCase):
         self.assertEqual((run / "replay" / "outputs.jsonl").read_text(), (run / "outputs.jsonl").read_text())
 
 
-@unittest.skipUnless(BIN and Path(BIN).exists() and (RUN / "recording").exists(), "the command or the recorded run is missing")
+@unittest.skipUnless((RUN / "recording").exists(), "the recorded run is missing")
 class ReplayTest(unittest.TestCase):
+    def bin(self, run):
+        """The command BENCH_BIN_<build> names for the build that recorded RUN, or a skip naming it."""
+        bin, why = bin_for(run)
+        if not bin:
+            self.skipTest(why)
+        if (Path(run) / "run.txt").exists():
+            self.assertTrue(same_build(run, bin), f"{run.name}: BENCH_BIN_* names a command that is not the run's build")
+        return bin
+
     def test_the_recorded_suite_replays_with_the_key_unset_and_scores_to_the_saved_table(self):
-        if not same_build(RUN):
-            self.skipTest("the run's recording binds to another thinkthen build")
+        bin = self.bin(RUN)
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(RUN / "recording")
         shutil.copy(RUN / "timing.tsv", tmp / "timing.tsv")
         # the recording binds the model the run sent: it sits in the request hash a replay recomputes
-        env = {**os.environ, "THINKTHEN_BIN": BIN, "BEATLES_BENCH_MODEL": "jev-1.13.0"}
+        env = {**os.environ, "THINKTHEN_BIN": bin, "BEATLES_BENCH_MODEL": "jev-1.13.0"}
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (RUN / "outputs.jsonl").read_text())
@@ -761,47 +769,45 @@ class ReplayTest(unittest.TestCase):
         # this recording's answers are no longer the published values to compare against.
 
     def test_the_d1_suite_replays_with_the_key_unset(self):
-        if not same_build(D1_ALL):
-            self.skipTest("the run's recording binds to another thinkthen build")
+        bin = self.bin(D1_ALL)
+        if pending(D1_ALL):  # the recording holds no answer for a rate-limited gap, and the replay still asks it
+            self.skipTest(f"{D1_ALL.name}: {pending(D1_ALL)}")
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(D1_ALL / "recording")
         shutil.copy(D1_ALL / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": BIN, "BEATLES_BENCH_MODEL": "d1:free",
+        env = {**os.environ, "THINKTHEN_BIN": bin, "BEATLES_BENCH_MODEL": "d1:free",
                "BENCH_THINKTHEN_ARGS": "--backend liquid --timeout 90"}
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (D1_ALL / "outputs.jsonl").read_text())
 
     def test_the_new_recognize_groups_replay_with_the_key_unset(self):
-        if not same_build(JEV_RECOGNIZE):
-            self.skipTest("the run's recording binds to another thinkthen build")
+        bin = self.bin(JEV_RECOGNIZE)
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(JEV_RECOGNIZE / "recording")
         shutil.copy(JEV_RECOGNIZE / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": BIN, "BENCH_SUITE_ONLY": NEW_GROUPS}
+        env = {**os.environ, "THINKTHEN_BIN": bin, "BENCH_SUITE_ONLY": NEW_GROUPS}
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RECOGNIZE / "outputs.jsonl").read_text())
 
     def test_the_relate_run_replays_with_the_key_unset(self):
-        if not same_build(JEV_RELATE):
-            self.skipTest("the run's recording binds to another thinkthen build")
+        bin = self.bin(JEV_RELATE)
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(JEV_RELATE / "recording")
         shutil.copy(JEV_RELATE / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": BIN, "BENCH_SUITE_ONLY": RELATE_ONLY}
+        env = {**os.environ, "THINKTHEN_BIN": bin, "BENCH_SUITE_ONLY": RELATE_ONLY}
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)],
                        check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RELATE / "outputs.jsonl").read_text())
 
     def test_the_reading_run_replays_with_the_key_unset(self):
-        if not (JEV_READING / "run.txt").exists() or not same_build(JEV_READING):
-            self.skipTest("the run's recording binds to another thinkthen build")
+        bin = self.bin(JEV_READING)
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(JEV_READING / "recording")
         shutil.copy(JEV_READING / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": BIN, "BENCH_SUITE_ONLY": READING}
+        env = {**os.environ, "THINKTHEN_BIN": bin, "BENCH_SUITE_ONLY": READING}
         env.pop("THINKTHEN_API_KEY", None)
         subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
         self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_READING / "outputs.jsonl").read_text())

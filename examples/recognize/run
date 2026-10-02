@@ -16,5 +16,5 @@ while [ $# -gt 0 ]; do
   shift
 done
 answer=$(printf '%s' "Ringo Starr wrote Octopus's Garden on a boat off Sardinia, and the band recorded it at Abbey Road Studios for the album Abbey Road." |
-  thinkthen recognize person song album place --threshold "$bar" $from)
+  thinkthen recognize person song album place --threshold "$bar" --model jev-latest $from)
 printf '%s\n' "$answer" | jq -c '.entities[]'
