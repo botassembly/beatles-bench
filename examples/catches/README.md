@@ -4,7 +4,7 @@ The catches slide. Three panels show Jev's share right on easy and hard question
 
 ## What the slide shows
 
-Jev's answers come from [`answers.jsonl`](../../results/runs/2026-09-30-all-jev/answers.jsonl) of the 2026-09-30 all-jev run. The questions come from `questions/`.
+Jev's answers come from [`answers.jsonl`](https://github.com/botassembly/beatles-bench/blob/a6a6be71/results/runs/2026-09-30-all-jev/answers.jsonl) of the 2026-09-30 all-jev run. The questions come from `questions/`.
 
 | Question | Jev's pick | Its probability | The truth | Its probability |
 | --- | --- | --- | --- | --- |
@@ -25,7 +25,7 @@ The panels:
 
 ## The build
 
-[`run.txt`](../../results/runs/2026-09-30-all-jev/run.txt) of the 2026-09-30 all-jev run.
+[`run.txt`](https://github.com/botassembly/beatles-bench/blob/a6a6be71/results/runs/2026-09-30-all-jev/run.txt) of the 2026-09-30 all-jev run.
 
 ## The check
 

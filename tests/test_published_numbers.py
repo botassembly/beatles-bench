@@ -222,7 +222,7 @@ CLAIMS = [
      lambda: "| relate | {} | the edges between a set's songs, people and albums | {} | — | — |".format(
          sum(1 for l in open(ROOT / "questions" / "suite" / "relate.jsonl", encoding="utf-8")),
          by_function("relate", "song to singer and album", "edge F1"))),
-    ("reports/results.md", "results/runs/2026-09-30-all-jev`: the {} questions and ", lambda: f"{reading_run('questions'):,}"),
+    ("reports/results.md", "results/runs/2026-09-30-all-jev): the {} questions and ", lambda: f"{reading_run('questions'):,}"),
     ("reports/results.md", " and {} cases, ", lambda: f"{reading_run('cases'):,}"),
     ("reports/results.md", "{} questions in 15 categories", questions),
     ("reports/results.md", "every category but the two reversal-general ones, {} questions", lambda: questions(beatles_only=True)),

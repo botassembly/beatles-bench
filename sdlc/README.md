@@ -12,7 +12,7 @@ This folder is public. It is the repository's only record of what was decided, b
 
 ## Checks
 
-- `python3 -m unittest discover -s tests` runs with no network. Set `THINKTHEN_BIN` to add the example replays. Set `BENCH_BIN_<id>` to add an old run's replays under the build `results/builds.tsv` names.
+- `python3 -m unittest discover -s tests` runs with no network. It replays under `THINKTHEN_BIN`, or else `thinkthen` on `PATH`, and skips nothing.
 - A live run needs a token cap in its ticket and a replay that gives the same answers with no key.
 
 ## Budgets

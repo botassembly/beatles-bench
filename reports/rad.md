@@ -40,7 +40,7 @@ Jev's arm missed 29 questions. By the recall rule, 25 are wrong picks and 4 are 
 
 ## Load and cost
 
-Four live jobs ran from 21:24 to 21:27 UTC. The one-minute load average stayed between 2.5 and 5 on 16 cores (`loadavg.txt`). The open-book run ran near 400, so its times are not comparable with these. The jobs sent 932 requests: 1,387,973 input tokens and 98,234 output tokens, or 0.058 dollars. The guard reserved 1,495,000 tokens. A replay with no key gives the same 980 answers byte for byte. The run lives in `results/archive/runs/2026-09-23-thinkthen-jev-rad/`.
+Four live jobs ran from 21:24 to 21:27 UTC. The one-minute load average stayed between 2.5 and 5 on 16 cores (`loadavg.txt`). The open-book run ran near 400, so its times are not comparable with these. The jobs sent 932 requests: 1,387,973 input tokens and 98,234 output tokens, or 0.058 dollars. The guard reserved 1,495,000 tokens. A replay with no key gives the same 980 answers byte for byte. The run lives in [`results/archive/runs/2026-09-23-thinkthen-jev-rad/`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/archive/runs/2026-09-23-thinkthen-jev-rad).
 
 ## Next
 
@@ -52,7 +52,7 @@ Four live jobs ran from 21:24 to 21:27 UTC. The one-minute load average stayed b
 
 Written 2026-09-23. The second test changes two things. The pick text now ends with the answer options: "Options: a; b; c". A yes-or-no question has no options, so its pick text stays the same. The fallback cut is now tuned on one half of the questions and reported on the other.
 
-`scripts/run/rad.py split` splits the 196 questions by topic with the fixed seed "rad2". Each topic splits within one question, and each half holds 98. The tune half picks each cut. The rule takes the lowest cut from 0, 0.05, ..., 1 whose right count comes within two of the full catalog's on the tune half. The full catalog got 93 of the tune half right. The rule chose 0.30 for the new pick and 0.40 for the first test's pick. All rows below cover the held-out half only. The old-pick rows reuse the first test's answers. `scripts/score/rad_table.py second results/archive/runs/2026-09-23-thinkthen-jev-rad2 --closed results/archive/runs/2026-09-23-thinkthen-jev --open results/archive/runs/2026-09-23-thinkthen-jev-open-book --first results/archive/runs/2026-09-23-thinkthen-jev-rad` prints the table and the tests.
+At commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71), `scripts/run/rad.py split` split the 196 questions by topic with the fixed seed "rad2". Each topic splits within one question, and each half holds 98. The tune half picks each cut. The rule takes the lowest cut from 0, 0.05, ..., 1 whose right count comes within two of the full catalog's on the tune half. The full catalog got 93 of the tune half right. The rule chose 0.30 for the new pick and 0.40 for the first test's pick. All rows below cover the held-out half only. The old-pick rows reuse the first test's answers. At commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71), `scripts/score/rad_table.py second results/archive/runs/2026-09-23-thinkthen-jev-rad2 --closed results/archive/runs/2026-09-23-thinkthen-jev --open results/archive/runs/2026-09-23-thinkthen-jev-open-book --first results/archive/runs/2026-09-23-thinkthen-jev-rad` printed the table and the tests.
 
 | Context | Right | Pick recall | Median input tokens | Median time | Dollars per 1,000 |
 | --- | --- | --- | --- | --- | --- |
@@ -91,7 +91,7 @@ The new pick with its fallback missed 13 held-out questions: 10 wrong picks and 
 
 ### Load and cost
 
-Two live jobs ran from 22:09 to 22:11 UTC. The one-minute load average stayed between 6 and 8.4 on 16 cores (`loadavg.txt`). The run folder started from a copy of the first test's recording, so 199 identical requests cost nothing. The jobs sent 290 new requests: 411,549 input tokens and 64,960 output tokens, or 0.017 dollars. The guard reserved 510,000 tokens. A replay with no key gives the same 490 answers byte for byte. The run lives in `results/archive/runs/2026-09-23-thinkthen-jev-rad2/`.
+Two live jobs ran from 22:09 to 22:11 UTC. The one-minute load average stayed between 6 and 8.4 on 16 cores (`loadavg.txt`). The run folder started from a copy of the first test's recording, so 199 identical requests cost nothing. The jobs sent 290 new requests: 411,549 input tokens and 64,960 output tokens, or 0.017 dollars. The guard reserved 510,000 tokens. A replay with no key gives the same 490 answers byte for byte. The run lives in [`results/archive/runs/2026-09-23-thinkthen-jev-rad2/`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/archive/runs/2026-09-23-thinkthen-jev-rad2).
 
 ### Verdict
 
@@ -104,9 +104,10 @@ Options in the pick helped a little and not significantly. A held-out fallback k
 
 ## With shipped commands
 
-Written 2026-09-24. Model: Jev 1.13.0, called through `thinkthen` 0.0.1 (a local build). `scripts/run/rad_pipeline.sh` runs the whole pipeline with `thinkthen` and `jq` alone. No request is built in Python. A live run calls the backend only for exchanges its recording lacks (`--cache`), and a replay answers from the recording with `--replay`, no key, and no network:
+Written 2026-09-24. Model: Jev 1.13.0, called through `thinkthen` 0.0.1 (a local build). `scripts/run/rad_pipeline.sh`, at commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71), ran the whole pipeline with `thinkthen` and `jq` alone. No request is built in Python. A live run calls the backend only for exchanges its recording lacks (`--cache`), and a replay answers from the recording with `--replay`, no key, and no network:
 
 ```sh
+# at commit a6a6be71
 THINKTHEN_BIN=path/to/thinkthen scripts/run/rad_pipeline.sh replay results/runs/2026-09-24-pipeline-jev2
 ```
 
@@ -134,13 +135,13 @@ thinkthen annotate scripts/run/rad_pipeline.checks.json --jsonl --details --inpu
 | Abbey Road songs, apart | 18 of 18 | 20,463 | 1.39 s |
 | `annotate` correctness and grounding over the apart answers | 18 of 18 checks agree with the truth | 22,952 | 2.11 s |
 
-- `scores.tsv`, `checks.tsv`, and `times.tsv` in `results/archive/runs/2026-09-24-pipeline-jev/` hold these numbers. That run came from the script before ticket 0004. The current script replays `results/runs/2026-09-24-pipeline-jev2/`, which holds the same answers for these arms. A time covers the whole call for all of an arm's records, with four requests in flight.
+- `scores.tsv`, `checks.tsv`, and `times.tsv` in [`results/archive/runs/2026-09-24-pipeline-jev/`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/archive/runs/2026-09-24-pipeline-jev) hold these numbers. That run came from the script before ticket 0004. The script at commit a6a6be71 replays [`results/runs/2026-09-24-pipeline-jev2/`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-24-pipeline-jev2), which holds the same answers for these arms. A time covers the whole call for all of an arm's records, with four requests in flight.
 - The pick gave the White Album 0.44 and Revolver 0.33. Abbey Road got 0.04. The answer still named Starr at 0.90, from memory. The "Jev picks, k = 2" row above shows the same pattern: Jev answered 29 of its 54 wrong picks right. This pair cost 3,296 input tokens against that row's median of 2,656.
 - The Abbey Road section spells out "lead:" for every song. The two context arms are a lookup, so 18 of 18 shows that the context reached the model. It says nothing about harder questions.
 - From memory, Jev added a second or third singer on 13 songs. On Polythene Pam it named McCartney alone.
 - Every apart answer was right, so the grounding check saw no unsupported claim. It answered yes on all 18. This run does not show that it catches a bad answer.
 - The one-minute load stood at 14.5 on 16 cores during the run, from other work on the machine. The times run high for that reason.
-- The job sent 92 requests: 75,467 input and 5,054 output tokens, or 0.0032 dollars. The guard reserved 200,000 tokens. The replay test in `tests/test_rad_pipeline.py` gives the same `scores.tsv` and `checks.tsv` with no key.
+- The job sent 92 requests: 75,467 input and 5,054 output tokens, or 0.0032 dollars. The guard reserved 200,000 tokens. The replay test in `tests/test_rad_pipeline.py`, at commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71), gave the same `scores.tsv` and `checks.tsv` with no key.
 
 The three open questions:
 
@@ -154,7 +155,7 @@ Written 2026-09-24, ticket 0004. Octopus's Garden proved nothing: the pick misse
 
 ### Candidates
 
-`scripts/score/rad_table.py candidates results/archive/runs/2026-09-23-thinkthen-jev-rad results/archive/runs/2026-09-23-thinkthen-jev-rad2 --closed results/archive/runs/2026-09-23-thinkthen-jev --open results/archive/runs/2026-09-23-thinkthen-jev-open-book` lists them with no new calls. It joins the closed-book run (`2026-09-23-thinkthen-jev`) with each run on question id. It keeps questions where closed book was wrong, the k = 2 Jev pick held every section `rad.py needed()` names (from `rank-jev.tsv`), and the k = 2 answer was right. 103 questions passed in at least one run. Six singer questions name a song with one lead singer. Five more name songs with a shared lead, and one pick of four singers cannot answer those. The pipeline asks in its own wording, and Jev knew all six from memory in that wording:
+At commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71), `scripts/score/rad_table.py candidates results/archive/runs/2026-09-23-thinkthen-jev-rad results/archive/runs/2026-09-23-thinkthen-jev-rad2 --closed results/archive/runs/2026-09-23-thinkthen-jev --open results/archive/runs/2026-09-23-thinkthen-jev-open-book` listed them with no new calls. It joins the closed-book run (`2026-09-23-thinkthen-jev`) with each run on question id. It keeps questions where closed book was wrong, the k = 2 Jev pick held every section `rad.py needed()` names (from `rank-jev.tsv`), and the k = 2 answer was right. 103 questions passed in at least one run. Six singer questions name a song with one lead singer. Five more name songs with a shared lead, and one pick of four singers cannot answer those. The pipeline asks in its own wording, and Jev knew all six from memory in that wording:
 
 | Song | Truth | Bench closed book | Pipeline memory | Pipeline pick, top two | Pipeline answer |
 | --- | --- | --- | --- | --- | --- |
@@ -183,7 +184,7 @@ Tomorrow Never Knows has the most page views of the three misses, and its miss i
 
 ### Results
 
-`results/runs/2026-09-24-pipeline-jev2/` holds the run. `tries/` holds the six singer tries and the screen.
+[`results/runs/2026-09-24-pipeline-jev2/`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-24-pipeline-jev2) holds the run. `tries/` holds the six singer tries and the screen.
 
 | Arm | Right | Input tokens |
 | --- | --- | --- |
@@ -206,7 +207,7 @@ Tomorrow Never Knows has the most page views of the three misses, and its miss i
 
 ## Fresh run of 2026-09-26
 
-Ticket 0014 asked the RAD, RAD2, and pipeline runs again from empty recordings (`sdlc/records/0014-shipped-recognize-and-relate.md`). Ticket 0009 had done the same on 2026-09-25. The BM25 and MiniLM ranks and the RAD2 split are the old files, copied in. The Jev picks are asked again. The commands above print these tables when given the fresh folders: `results/runs/2026-09-26-thinkthen-jev`, `-open-book`, `-rad`, and `-rad2`.
+Ticket 0014 asked the RAD, RAD2, and pipeline runs again from empty recordings (`sdlc/records/0014-shipped-recognize-and-relate.md`). Ticket 0009 had done the same on 2026-09-25. The BM25 and MiniLM ranks and the RAD2 split are the old files, copied in. The Jev picks are asked again. The commands above print these tables when given the fresh folders: [`results/runs/2026-09-26-thinkthen-jev`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-26-thinkthen-jev), `-open-book`, `-rad`, and `-rad2`.
 
 | Context | Right | Pick recall | Median input tokens | Median time | Dollars per 1,000 |
 | --- | --- | --- | --- | --- | --- |
@@ -236,5 +237,5 @@ The second test, held-out half:
 - Jev picks, k = 2, moved from 172 to 170 right. The fallback row stayed at 182.
 - The tune half chose 0.35 for the new pick and 0.40 for the old one. The 2026-09-25 run chose 0.35 for both.
 - One McNemar verdict on the held-out half changed. The new pick with its fallback against the full catalog: 3 against 7, p = 0.34. On 2026-09-25 it was 0 against 9, p = 0.004. Against BM25 with options: 12 against 7, p = 0.36. Against the old pick with its fallback: 5 against 6, p = 1.
-- The pipeline (`results/runs/2026-09-26-pipeline-jev`) kept every score and all 18 checks. From memory, Jev again got 5 of 18 Abbey Road lead singers right. Its answer for The End changed from McCartney and Starr to Lennon, McCartney, and Starr. Both are wrong.
+- The pipeline ([`results/runs/2026-09-26-pipeline-jev`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-26-pipeline-jev)) kept every score and all 18 checks. From memory, Jev again got 5 of 18 Abbey Road lead singers right. Its answer for The End changed from McCartney and Starr to Lennon, McCartney, and Starr. Both are wrong.
 - The jobs sent 1,389,958 input tokens for RAD, 729,438 for RAD2, and 101,879 for the pipeline, about 0.09 dollars in all.

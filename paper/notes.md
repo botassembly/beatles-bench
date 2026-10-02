@@ -1,6 +1,6 @@
 # Paper notes
 
-Findings to carry into the Beatles Bench paper. Jev's numbers come from the runs of 2026-09-26 (`results/runs/2026-09-26-thinkthen-jev`, with its open-book and RAD runs). GLM-5.3 Flash's numbers come from its run of 2026-09-23 (`results/runs/2026-09-23-glm-5.3-flash`). A finding with no 2026-09-26 run names its own date. Accuracy here is plain share right. The README credits ties, so its figures differ slightly.
+Findings to carry into the Beatles Bench paper. Jev's numbers come from the runs of 2026-09-26 ([`results/runs/2026-09-26-thinkthen-jev`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-26-thinkthen-jev), with its open-book and RAD runs). GLM-5.3 Flash's numbers come from its run of 2026-09-23 ([`results/runs/2026-09-23-glm-5.3-flash`](https://github.com/botassembly/beatles-bench/blob/a6a6be71/results/runs/2026-09-23-glm-5.3-flash)). A finding with no 2026-09-26 run names its own date. Accuracy here is plain share right. The README credits ties, so its figures differ slightly.
 
 ## The second thesis
 
