@@ -41,10 +41,10 @@ The slide reads both runs at a band:
 ```
 
 ```text
-A -> B (at 0.2:0.8 and 0.2:0.8): 48 of 70 changed; unresolved -> no 44; yes -> no 3; unresolved -> yes 1; gained 3, lost 0 (20 -> 68 right of 70); McNemar p 0.250 on right answers
+A -> B (at 0.2:0.8 and 0.2:0.8): 48 of 70 changed; unsure -> no 44; yes -> no 3; unsure -> yes 1; gained 3, lost 0 (20 -> 68 right of 70); McNemar p 0.000 on right answers
 ```
 
-The pinned build prints `unresolved` for a not sure answer. ThinkThen main at ce04682c prints `unsure`, as in `unsure -> no 44`.
+`thinkthen 0.1.0` prints `unsure` for a not sure answer, as in `unsure -> no 44`. Builds before ThinkThen main at ce04682c print `unresolved`. Its McNemar test counts every answer that became right or wrong. Builds before 0.1.0 counted only the answers marked gained or lost, and printed `McNemar p 0.250` here. No answer changed.
 
 `./run live` asks your own server. It sends 140 calls.
 
