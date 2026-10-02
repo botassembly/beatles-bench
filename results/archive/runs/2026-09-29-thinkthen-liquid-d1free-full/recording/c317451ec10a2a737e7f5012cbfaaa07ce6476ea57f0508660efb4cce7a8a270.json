@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Hans Oliva-Hagen","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Momoko Kōchi","b":"Meghan, Duchess of Sussex","c":"Ralph Fiennes","d":"Nina Hagen"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00019108393975327673,"b":0.00002143902386869435,"c":0.00008479298426521169,"d":0.9997026840521128},"confidence":0.9996035787361505}},"usage":{"input_tokens":103,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Assassination of John F. Kennedy","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Young Blood","b":"You Won't See Me","c":"The Ballad of John and Yoko","d":"Don't Bother Me"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.39,"probabilities":{"d":0.08,"c":0.26,"a":0.12,"b":0.54}}},"usage":{"input_tokens":369,"output_tokens":46}}
-}

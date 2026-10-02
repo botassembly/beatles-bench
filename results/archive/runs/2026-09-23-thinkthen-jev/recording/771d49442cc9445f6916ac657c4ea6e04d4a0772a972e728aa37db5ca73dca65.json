@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"A Hard Day's Night","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Wanna Be Your Man","b":"I'll Cry Instead","c":"I've Just Seen a Face","d":"A Day in the Life"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.3,"probabilities":{"b":0.48,"a":0.13,"d":0.02,"c":0.37}}},"usage":{"input_tokens":367,"output_tokens":46}}
-}

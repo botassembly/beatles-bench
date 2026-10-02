@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"All Together Now / Carry That Weight","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"All Together Now","b":"Carry That Weight"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.4863,"probabilities":{"a":0.2568,"b":0.7432}}},"usage":{"input_tokens":38,"output_tokens":53},"latency_ms":95.2}
-}

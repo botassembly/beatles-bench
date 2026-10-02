@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Marc Streitenfeld","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"Prometheus","b":"2001: A Space Odyssey","c":"The Three Caballeros","d":"Peter Pan"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":1.0,"probabilities":{"b":0.0,"c":0.0,"d":0.0,"a":1.0}}},"usage":{"input_tokens":359,"output_tokens":46}}
-}

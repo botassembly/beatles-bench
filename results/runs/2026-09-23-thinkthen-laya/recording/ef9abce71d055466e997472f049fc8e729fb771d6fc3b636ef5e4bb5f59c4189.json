@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Revolution 1","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Yellow Submarine","c":"Abbey Road"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0613, "probabilities": {"a": 0.5115, "b": 0.2357, "c": 0.2528}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
-}

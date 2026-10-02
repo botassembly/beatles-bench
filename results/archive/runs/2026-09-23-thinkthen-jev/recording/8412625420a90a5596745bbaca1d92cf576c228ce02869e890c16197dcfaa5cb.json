@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"You've Got to Hide Your Love Away","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Revolver","b":"Help!","c":"Magical Mystery Tour","d":"Beatles for Sale"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.25,"probabilities":{"a":0.13,"b":0.44,"d":0.31,"c":0.12}}},"usage":{"input_tokens":363,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Can't Buy Me Love","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Beatles for Sale","c":"A Hard Day's Night"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0128, "probabilities": {"a": 0.3335, "b": 0.4015, "c": 0.265}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Tell Me What You See / The Continuing Story of Bungalow Bill","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Tell Me What You See","b":"The Continuing Story of Bungalow Bill"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.71,"probabilities":{"a":0.14,"b":0.86}}},"usage":{"input_tokens":339,"output_tokens":32}}
-}

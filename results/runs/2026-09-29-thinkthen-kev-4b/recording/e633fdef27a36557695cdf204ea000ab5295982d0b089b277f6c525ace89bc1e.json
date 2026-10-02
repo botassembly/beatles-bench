@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"A Hard Day's Night","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"You Never Give Me Your Money","b":"Revolution 1","c":"Any Time at All","d":"Baby It's You"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.2331,"probabilities":{"a":0.0763,"b":0.1442,"c":0.4248,"d":0.3547}}},"usage":{"input_tokens":63,"output_tokens":75},"latency_ms":100.2}
-}

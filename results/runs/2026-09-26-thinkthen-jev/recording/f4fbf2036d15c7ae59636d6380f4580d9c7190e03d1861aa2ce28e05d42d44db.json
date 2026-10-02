@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Please Please Me","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Saw Her Standing There","b":"Girl","c":"She Said She Said","d":"Please Mr. Postman"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.95,"probabilities":{"b":0.0,"c":0.0,"d":0.03,"a":0.97}}},"usage":{"input_tokens":360,"output_tokens":46}}
-}

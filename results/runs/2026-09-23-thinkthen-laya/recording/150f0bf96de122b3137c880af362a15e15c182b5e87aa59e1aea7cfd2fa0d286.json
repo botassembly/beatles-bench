@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Mandy Teefey","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Diane Lane","b":"Selena Gomez","c":"Courtney Love","d":"Javier Bardem"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1984, "probabilities": {"a": 0.5019, "b": 0.3254, "c": 0.1298, "d": 0.0428}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

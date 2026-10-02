@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I Saw Her Standing There","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"December 1963","b":"September 1962","c":"February 1963","d":"March 1963"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9066201669272492,"b":0.008888190967740845,"c":0.0656753416786458,"d":0.018816300426363994},"confidence":0.8754935559029989}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

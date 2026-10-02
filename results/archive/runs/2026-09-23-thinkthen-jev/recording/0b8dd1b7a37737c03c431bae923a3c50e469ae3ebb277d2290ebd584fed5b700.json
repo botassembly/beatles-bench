@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Édith Piaf","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Louis Alphonse Gassion","b":"Lee Hoi-chuen","c":"Charles Delevingne","d":"Daniel Cady"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":1.0,"probabilities":{"d":0.0,"a":1.0,"b":0.0,"c":0.0}}},"usage":{"input_tokens":358,"output_tokens":46}}
-}

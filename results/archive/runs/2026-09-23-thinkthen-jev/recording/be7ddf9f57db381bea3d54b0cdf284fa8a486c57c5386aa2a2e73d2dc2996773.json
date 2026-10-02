@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Jocelyn Pook","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"2012","b":"The Three Caballeros","c":"Eyes Wide Shut","d":"Prometheus"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.8,"probabilities":{"d":0.04,"c":0.85,"b":0.0,"a":0.11}}},"usage":{"input_tokens":357,"output_tokens":46}}
-}

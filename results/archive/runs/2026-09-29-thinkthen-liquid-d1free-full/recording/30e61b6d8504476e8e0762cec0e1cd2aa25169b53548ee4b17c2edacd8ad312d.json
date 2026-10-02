@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"traveling-wave tube","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Irving Naxon","b":"H. J. Round","c":"Rudolf Kompfner","d":"François Merry Delabost"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.000027528630836376576,"b":0.00004005392152312179,"c":0.9997158879936349,"d":0.00021652945400560893},"confidence":0.9996211839915131}},"usage":{"input_tokens":100,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Ulrich Ensingen","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"United States Capitol","b":"Faisal Mosque","c":"Ulm Minster","d":"Prague Castle"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.06, "probabilities": {"a": 0.2131, "b": 0.1153, "c": 0.2834, "d": 0.3883}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
-}

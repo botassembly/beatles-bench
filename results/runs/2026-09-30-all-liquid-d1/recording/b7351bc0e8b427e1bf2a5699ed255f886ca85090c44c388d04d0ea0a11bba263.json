@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":{"evidence":"John Lennon and Paul McCartney shared the lead vocal on Little Child","entities":[{"id":"i1","name":"John Lennon","kind":"person"},{"id":"i2","name":"Paul McCartney","kind":"person"},{"id":"i3","name":"Little Child","kind":"song"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i3 sung by i1?"},"q2":{"type":"noul","instructions":"Does the text itself state that i3 sung by i2?"}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.8175744673038221},"q2":{"type":"noul","noul":0.46879062662624377}},"usage":{"input_tokens":360,"output_tokens":0}}
-}

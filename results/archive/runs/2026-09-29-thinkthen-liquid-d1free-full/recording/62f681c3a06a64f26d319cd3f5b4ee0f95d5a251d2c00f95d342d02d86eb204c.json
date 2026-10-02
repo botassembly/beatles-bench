@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"While My Guitar Gently Weeps","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Yellow Submarine","c":"Abbey Road"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9997961803765305,"b":0.00015842896502756736,"c":0.00004539065844199335},"confidence":0.9996942705647958}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

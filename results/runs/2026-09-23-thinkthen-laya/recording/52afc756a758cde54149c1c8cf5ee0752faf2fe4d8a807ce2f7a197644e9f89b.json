@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Edgar Lansbury","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Angela Lansbury","b":"Brooke Shields","c":"Nicolas Cage","d":"Francis Ford Coppola"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0142, "probabilities": {"a": 0.2822, "b": 0.1687, "c": 0.2647, "d": 0.2844}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
-}

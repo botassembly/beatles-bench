@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Matchbox / Baby, You're a Rich Man","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Matchbox","b":"Baby, You're a Rich Man"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.5578, "probabilities": {"a": 0.9083, "b": 0.0917}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Bill Lee","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Billie Holiday","b":"Tom Hardy","c":"Yair Lapid","d":"Spike Lee"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":1.0,"probabilities":{"a":0.0,"c":0.0,"d":1.0,"b":0.0}}},"usage":{"input_tokens":352,"output_tokens":46}}
-}

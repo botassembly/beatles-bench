@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Carry That Weight","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"Help!","c":"Abbey Road","d":"Rubber Soul"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0826, "probabilities": {"a": 0.2109, "b": 0.2242, "c": 0.4498, "d": 0.1152}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

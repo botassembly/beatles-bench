@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Jesse W. Reno","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"shower","b":"pyrometer","c":"traveling-wave tube","d":"escalator"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.99,"probabilities":{"c":0.0,"b":0.01,"a":0.0,"d":0.99}}},"usage":{"input_tokens":356,"output_tokens":46}}
-}

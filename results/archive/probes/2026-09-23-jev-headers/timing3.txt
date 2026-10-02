@@ -1,1 +1,0 @@
-time_namelookup=0.001448 time_connect=0.015782 time_appconnect=0.057916 time_starttransfer=0.205412 time_total=0.205605 http_code=200

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Yellow Submarine","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"January 1967","b":"February 1966","c":"March 1967","d":"August 1966"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.53,"probabilities":{"a":0.64,"c":0.06,"d":0.25,"b":0.05}}},"usage":{"input_tokens":368,"output_tokens":46}}
-}

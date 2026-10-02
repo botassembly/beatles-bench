@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Alan Arkin","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Werner Lindemann","b":"David I. Arkin","c":"Osgood Perkins","d":"Peter Watts"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.76,"probabilities":{"c":0.01,"a":0.16,"d":0.01,"b":0.82}}},"usage":{"input_tokens":351,"output_tokens":46}}
-}

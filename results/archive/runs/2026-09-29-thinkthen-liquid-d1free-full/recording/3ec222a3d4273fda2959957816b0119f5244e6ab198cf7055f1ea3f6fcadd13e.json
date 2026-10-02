@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Ulrich Ensingen","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"Ulm Minster","b":"United States Capitol","c":"Faisal Mosque","d":"Prague Castle"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9998580991051987,"b":0.00003321057090653075,"c":0.000042643217146695934,"d":0.00006604710674803725},"confidence":0.9998107988069317}},"usage":{"input_tokens":97,"output_tokens":0}}
-}

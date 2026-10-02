@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Something\"},{\"id\":\"u002\",\"evidence\":\"Martha My Dear\"},{\"id\":\"u003\",\"evidence\":\"Help!\"},{\"id\":\"u004\",\"evidence\":\"Words of Love\"},{\"id\":\"u005\",\"evidence\":\"Strawberry Fields Forever\"},{\"id\":\"u006\",\"evidence\":\"Only a Northern Song\"},{\"id\":\"u007\",\"evidence\":\"Please Please Me\"},{\"id\":\"u008\",\"evidence\":\"Across the Universe\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Yellow Submarine?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u005","probabilities":{"u001":0.01933761537640851,"u002":0.23558038253750335,"u003":0.01706538160434824,"u004":0.08666517947885134,"u005":0.2669475460452631,"u006":0.2078989578990408,"u007":0.004593085148480511,"u008":0.16191185191010404},"confidence":0.1622257669088721}},"usage":{"input_tokens":210,"output_tokens":0}}
-}

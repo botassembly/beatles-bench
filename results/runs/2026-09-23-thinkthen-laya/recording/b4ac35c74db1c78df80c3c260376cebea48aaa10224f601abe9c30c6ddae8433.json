@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"16th Street Baptist Church bombing","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"March 1963","b":"October 1962","c":"January 1964","d":"September 1963"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2332, "probabilities": {"a": 0.6238, "b": 0.1528, "c": 0.0818, "d": 0.1416}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
-}

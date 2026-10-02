@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"George Harrison","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Hello Little Girl","b":"Martha My Dear","c":"Good Night","d":"Savoy Truffle"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1608, "probabilities": {"a": 0.5591, "b": 0.1849, "c": 0.1231, "d": 0.1329}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
-}

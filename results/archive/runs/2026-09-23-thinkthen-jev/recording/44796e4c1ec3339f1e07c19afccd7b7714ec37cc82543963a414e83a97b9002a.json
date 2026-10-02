@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Come Together","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Abbey Road","b":"Revolver","c":"Rubber Soul"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":1.0,"probabilities":{"a":1.0,"c":0.0,"b":0.0}}},"usage":{"input_tokens":340,"output_tokens":39}}
-}

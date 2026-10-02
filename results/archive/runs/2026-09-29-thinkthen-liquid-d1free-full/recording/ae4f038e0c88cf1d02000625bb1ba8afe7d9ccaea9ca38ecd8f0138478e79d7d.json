@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"George Martin","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"Little Child","b":"I've Got a Feeling","c":"Dig a Pony","d":"Dig It"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7802807269169836,"b":0.14433742118579262,"c":0.015213048641167879,"d":0.060168803256055906},"confidence":0.7070409692226448}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

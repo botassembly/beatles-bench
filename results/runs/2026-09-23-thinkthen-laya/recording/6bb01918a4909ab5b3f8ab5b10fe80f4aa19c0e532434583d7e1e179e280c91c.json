@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Robert De Niro","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Neetu Kapoor","b":"Frances Bergen","c":"Laura Wilson","d":"Virginia Admiral"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0082, "probabilities": {"a": 0.2716, "b": 0.3006, "c": 0.2212, "d": 0.2066}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
-}

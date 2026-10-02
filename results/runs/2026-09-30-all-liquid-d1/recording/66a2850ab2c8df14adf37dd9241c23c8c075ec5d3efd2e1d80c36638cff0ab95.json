@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Strawberry Fields Forever\"},{\"id\":\"u002\",\"evidence\":\"I'll Follow the Sun\"},{\"id\":\"u003\",\"evidence\":\"When I Get Home\"},{\"id\":\"u004\",\"evidence\":\"The Night Before\"},{\"id\":\"u005\",\"evidence\":\"She Came In Through the Bathroom Window\"},{\"id\":\"u006\",\"evidence\":\"Within You Without You\"},{\"id\":\"u007\",\"evidence\":\"Martha My Dear\"},{\"id\":\"u008\",\"evidence\":\"Got to Get You into My Life\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Sgt. Pepper's Lonely Hearts Club Band?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u006","probabilities":{"u001":0.07330501881079127,"u002":0.0015213971282370773,"u003":0.001429220335992819,"u004":0.002670135114998507,"u005":0.001723968802362156,"u006":0.893037822532355,"u007":0.021002239523218166,"u008":0.005310197752044952},"confidence":0.8777575114655486}},"usage":{"input_tokens":234,"output_tokens":0}}
-}

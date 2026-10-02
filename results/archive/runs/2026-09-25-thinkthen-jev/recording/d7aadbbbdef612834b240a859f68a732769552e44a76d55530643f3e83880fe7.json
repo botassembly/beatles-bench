@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Revolution 1","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"Revolver","c":"The Beatles (White Album)","d":"Rubber Soul"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.69,"probabilities":{"d":0.06,"c":0.77,"b":0.14,"a":0.03}}},"usage":{"input_tokens":361,"output_tokens":46}}
-}

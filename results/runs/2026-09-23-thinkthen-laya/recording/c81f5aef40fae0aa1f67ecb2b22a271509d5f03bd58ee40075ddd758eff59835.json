@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Bill Lee","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Billie Holiday","b":"Spike Lee","c":"Tom Hardy","d":"Yair Lapid"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.5875, "probabilities": {"a": 0.0709, "b": 0.8522, "c": 0.0485, "d": 0.0284}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
-}

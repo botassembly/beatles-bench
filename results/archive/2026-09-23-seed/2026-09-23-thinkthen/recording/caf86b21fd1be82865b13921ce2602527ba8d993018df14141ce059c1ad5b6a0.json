@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"John Lennon","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"The End","b":"Only a Northern Song","c":"The Inner Light","d":"For You Blue"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.43,"probabilities":{"a":0.4,"b":0.57,"c":0.02,"d":0.01}}},"usage":{"input_tokens":352,"output_tokens":46}}
-}

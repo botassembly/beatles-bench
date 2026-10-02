@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Enrica Soma","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Selena Gomez","b":"Anjelica Huston","c":"Sean Penn","d":"Milla Jovovich"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.2,"probabilities":{"c":0.13,"a":0.13,"d":0.34,"b":0.4}}},"usage":{"input_tokens":355,"output_tokens":46}}
-}

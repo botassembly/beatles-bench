@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Lady Madonna","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"February 1969","b":"March 1968","c":"September 1968","d":"June 1967"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.13082397019650907,"b":0.8530795098142672,"c":0.01562469508100594,"d":0.00047182490821795026},"confidence":0.8041060130856895}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

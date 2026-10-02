@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"St. Vitus Cathedral","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a building or structure. Who was an architect of it?","criteria":{"a":"Antonio Rizzo","b":"Vedat Dalokay","c":"Matthias of Arras","d":"Étienne Sulpice Hallet"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0287, "probabilities": {"a": 0.3477, "b": 0.173, "c": 0.2862, "d": 0.1932}}}, "usage": {"input_tokens": 62, "output_tokens": 0}}
-}

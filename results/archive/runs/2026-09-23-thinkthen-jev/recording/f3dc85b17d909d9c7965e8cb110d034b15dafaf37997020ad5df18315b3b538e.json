@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"A Taste of Honey","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"February 1964","b":"August 1962","c":"April 1962","d":"March 1963"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.15,"probabilities":{"a":0.23,"d":0.18,"c":0.35,"b":0.24}}},"usage":{"input_tokens":368,"output_tokens":46}}
-}

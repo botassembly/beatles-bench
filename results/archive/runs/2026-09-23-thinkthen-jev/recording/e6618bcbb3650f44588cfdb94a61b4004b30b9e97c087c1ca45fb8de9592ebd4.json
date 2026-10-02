@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Good Morning Good Morning","b":"I'm Happy Just to Dance with You","c":"Devil in Her Heart","d":"I Need You"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.99,"probabilities":{"c":0.0,"a":0.99,"b":0.01,"d":0.0}}},"usage":{"input_tokens":368,"output_tokens":46}}
-}

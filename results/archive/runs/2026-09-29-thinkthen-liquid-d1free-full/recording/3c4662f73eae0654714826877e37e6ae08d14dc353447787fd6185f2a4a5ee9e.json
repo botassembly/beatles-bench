@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"You Can't Do That","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"A Hard Day's Night","c":"Abbey Road","none":"none of these"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"none","probabilities":{"a":0.0012350686944970373,"b":0.46807411614603983,"c":0.0002933545279560945,"none":0.530397460631507},"confidence":0.37386328084200926}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

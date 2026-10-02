@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Question: Which album first included the Beatles song \"Act Naturally\"?","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"Which album first included the Beatles song \"Act Naturally\"?","criteria":{"beatles_for_sale":"Beatles for Sale","please_please_me":"Please Please Me","help":"Help!","abbey_road":"Abbey Road"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"beatles_for_sale","confidence":0.6,"probabilities":{"help":0.3,"beatles_for_sale":0.7,"abbey_road":0.0,"please_please_me":0.0}}},"usage":{"input_tokens":368,"output_tokens":61}}
-}

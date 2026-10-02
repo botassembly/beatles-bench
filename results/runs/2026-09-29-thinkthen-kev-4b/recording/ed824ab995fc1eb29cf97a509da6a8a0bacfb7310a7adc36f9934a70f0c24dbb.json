@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"I Feel Fine / Sgt. Pepper's Lonely Hearts Club Band (Reprise)","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"I Feel Fine","b":"Sgt. Pepper's Lonely Hearts Club Band (Reprise)"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.6893,"probabilities":{"a":0.1553,"b":0.8447}}},"usage":{"input_tokens":56,"output_tokens":53},"latency_ms":107.2}
-}

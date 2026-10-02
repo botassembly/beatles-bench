@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Only a Northern Song\"},{\"id\":\"u002\",\"evidence\":\"Ask Me Why\"},{\"id\":\"u003\",\"evidence\":\"I Will\"},{\"id\":\"u004\",\"evidence\":\"If I Needed Someone\"},{\"id\":\"u005\",\"evidence\":\"The End\"},{\"id\":\"u006\",\"evidence\":\"Tomorrow Never Knows\"},{\"id\":\"u007\",\"evidence\":\"Things We Said Today\"},{\"id\":\"u008\",\"evidence\":\"Fixing a Hole\"}]","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Revolver?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "u001", "confidence": 0.3082, "probabilities": {"u001": 0.5293, "u002": 0.0432, "u003": 0.0369, "u004": 0.088, "u005": 0.049, "u006": 0.0333, "u007": 0.2118, "u008": 0.0085}}}, "usage": {"input_tokens": 157, "output_tokens": 0}}
-}

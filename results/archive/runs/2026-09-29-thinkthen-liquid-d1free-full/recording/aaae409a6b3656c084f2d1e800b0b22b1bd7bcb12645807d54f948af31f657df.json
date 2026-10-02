@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"What Goes On","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"a":"Paul McCartney","b":"George Harrison"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8519528019683106,"b":0.14804719803168948},"confidence":0.7039056039366212}},"usage":{"input_tokens":88,"output_tokens":0}}
-}

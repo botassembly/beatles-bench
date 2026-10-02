@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"If I Fell","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year did the first album to include it come out?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"1964","confidence":0.2095,"probabilities":{"1963":0.2963,"1964":0.3084,"1965":0.1866,"1966":0.078,"1967":0.041,"1968":0.0383,"1969":0.037,"1970":0.0145}}},"usage":{"input_tokens":127,"output_tokens":143},"latency_ms":110.1}
-}

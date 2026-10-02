@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"The Long and Winding Road\"},{\"id\":\"u002\",\"evidence\":\"Mean Mr. Mustard\"},{\"id\":\"u003\",\"evidence\":\"Think for Yourself\"},{\"id\":\"u004\",\"evidence\":\"It's Only Love\"},{\"id\":\"u005\",\"evidence\":\"Hey Bulldog\"},{\"id\":\"u006\",\"evidence\":\"Everybody's Trying to Be My Baby\"},{\"id\":\"u007\",\"evidence\":\"Anna (Go to Him)\"},{\"id\":\"u008\",\"evidence\":\"Yellow Submarine\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Please Please Me?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u006","probabilities":{"u001":0.013689754936353705,"u002":0.00940882179703169,"u003":0.24265674129267853,"u004":0.07877910039060369,"u005":0.04216741381251547,"u006":0.35306343319163375,"u007":0.24265674129267853,"u008":0.017577993286504633},"confidence":0.26064392364758143}},"usage":{"input_tokens":224,"output_tokens":0}}
-}

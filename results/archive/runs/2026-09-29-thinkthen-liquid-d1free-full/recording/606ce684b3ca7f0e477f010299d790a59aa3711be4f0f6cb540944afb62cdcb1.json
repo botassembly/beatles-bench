@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Hey Bulldog","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"Revolver","c":"Yellow Submarine"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.007096017922485907,"b":0.0035681018892736666,"c":0.9893358801882404},"confidence":0.9840038202823607}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

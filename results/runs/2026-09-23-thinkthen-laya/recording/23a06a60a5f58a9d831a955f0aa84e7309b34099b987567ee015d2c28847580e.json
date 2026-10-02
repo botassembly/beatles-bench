@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Beatles for Sale","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Good Night","b":"Everybody's Trying to Be My Baby","c":"Roll Over Beethoven","d":"Savoy Truffle"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0599, "probabilities": {"a": 0.3768, "b": 0.3076, "c": 0.197, "d": 0.1186}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Sandy Vee","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“Toxic” by Britney Spears","b":"“All About That Bass” by Meghan Trainor","c":"“Guantanamera” by The Sandpipers","d":"“Firework” by Katy Perry"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0943,"probabilities":{"a":0.2218,"b":0.3207,"c":0.1824,"d":0.2751}}},"usage":{"input_tokens":76,"output_tokens":75},"latency_ms":99.8}
-}

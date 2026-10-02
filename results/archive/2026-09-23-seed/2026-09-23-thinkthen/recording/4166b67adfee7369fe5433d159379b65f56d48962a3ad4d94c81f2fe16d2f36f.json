@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Lucio Quarantotto","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“The Nights” by Avicii","b":"“Con te partirò” by Andrea Bocelli","c":"“All About That Bass” by Meghan Trainor","d":"“Guantanamera” by The Sandpipers"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.87,"probabilities":{"d":0.03,"b":0.91,"a":0.06,"c":0.0}}},"usage":{"input_tokens":381,"output_tokens":46}}
-}

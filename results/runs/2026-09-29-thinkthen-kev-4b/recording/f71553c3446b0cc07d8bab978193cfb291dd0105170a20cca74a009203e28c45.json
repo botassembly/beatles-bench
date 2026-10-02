@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Tony Hendrik","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“What Is Love” by Haddaway","b":"“All About That Bass” by Meghan Trainor","c":"“Con te partirò” by Andrea Bocelli","d":"“Guantanamera” by The Sandpipers"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0832,"probabilities":{"a":0.2441,"b":0.3124,"c":0.225,"d":0.2185}}},"usage":{"input_tokens":79,"output_tokens":74},"latency_ms":99.4}
-}

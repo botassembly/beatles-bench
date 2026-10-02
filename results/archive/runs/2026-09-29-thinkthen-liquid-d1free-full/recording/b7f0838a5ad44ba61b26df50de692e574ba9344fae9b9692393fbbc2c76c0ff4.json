@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"The Inner Light","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"harrison","probabilities":{"lennon-mccartney":0.00021578640881972578,"harrison":0.9962857932332977,"starr":0.00012295138955584512,"other":0.0033754689683265534},"confidence":0.9950477243110636}},"usage":{"input_tokens":105,"output_tokens":0}}
-}

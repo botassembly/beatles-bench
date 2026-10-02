@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Getting Better","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who sings the lead vocal on it?","criteria":{"john":"John Lennon","paul":"Paul McCartney","george":"George Harrison","ringo":"Ringo Starr"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"ringo","probabilities":{"john":0.03388607268665298,"paul":0.36430970113673894,"george":0.07173683354397455,"ringo":0.5300673926326336},"confidence":0.3734231901768448}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

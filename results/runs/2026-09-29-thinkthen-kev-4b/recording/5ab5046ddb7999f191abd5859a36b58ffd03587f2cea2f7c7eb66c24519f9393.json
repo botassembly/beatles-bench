@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Dolly Sinatra","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Zsa Zsa Gabor","b":"Romy Schneider","c":"Frank Sinatra","d":"Amitabh Bachchan"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.5432,"probabilities":{"a":0.1339,"b":0.1768,"c":0.6574,"d":0.0318}}},"usage":{"input_tokens":54,"output_tokens":75},"latency_ms":96.0}
-}

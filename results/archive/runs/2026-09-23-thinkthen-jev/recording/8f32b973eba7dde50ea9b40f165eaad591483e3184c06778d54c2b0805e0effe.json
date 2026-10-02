@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"37th Academy Awards","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"April 1965","b":"May 1964","c":"November 1964","d":"May 1965"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.74,"probabilities":{"d":0.17,"c":0.0,"a":0.8,"b":0.02}}},"usage":{"input_tokens":362,"output_tokens":46}}
-}

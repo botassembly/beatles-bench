@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"A Taste of Honey","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"Magical Mystery Tour","c":"Yellow Submarine","none":"none of these"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2485, "probabilities": {"a": 0.6372, "b": 0.1654, "c": 0.0951, "none": 0.1024}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
-}

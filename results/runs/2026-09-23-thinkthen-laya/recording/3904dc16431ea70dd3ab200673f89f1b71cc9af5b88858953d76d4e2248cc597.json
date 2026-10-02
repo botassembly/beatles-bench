@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Ethel Marion Milne","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Amitabh Bachchan","b":"Zsa Zsa Gabor","c":"Robert De Niro","d":"Judy Garland"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0802, "probabilities": {"a": 0.3063, "b": 0.2455, "c": 0.0787, "d": 0.3695}}}, "usage": {"input_tokens": 60, "output_tokens": 0}}
-}

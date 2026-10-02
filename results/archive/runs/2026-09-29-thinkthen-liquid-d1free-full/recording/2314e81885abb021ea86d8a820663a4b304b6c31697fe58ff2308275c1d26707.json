@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Abbey Road","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Dizzy Miss Lizzy","b":"Carry That Weight","c":"Baby's in Black","d":"Fixing a Hole"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.0012102657450211785,"b":0.084846199332689,"c":0.0017609271080875938,"d":0.9121826078142022},"confidence":0.8829101437522696}},"usage":{"input_tokens":106,"output_tokens":0}}
-}

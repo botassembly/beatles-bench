@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Don't Want to Spoil the Party","b":"Devil in Her Heart","c":"Run for Your Life","d":"Within You Without You"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00002753426878351341,"b":0.000020144501373636048,"c":0.000031200414078364424,"d":0.9999211208157645},"confidence":0.9998948277543526}},"usage":{"input_tokens":117,"output_tokens":0}}
-}

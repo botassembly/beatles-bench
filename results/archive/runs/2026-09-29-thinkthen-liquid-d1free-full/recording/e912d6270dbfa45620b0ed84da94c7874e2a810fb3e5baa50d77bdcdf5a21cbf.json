@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Mr. Moonlight","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"January 1964","b":"June 1964","c":"August 1965","d":"December 1964"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.4828010839477073,"b":0.17761261413272147,"c":0.13832484296992276,"d":0.20126145894964845},"confidence":0.31040144526360974}},"usage":{"input_tokens":103,"output_tokens":0}}
-}

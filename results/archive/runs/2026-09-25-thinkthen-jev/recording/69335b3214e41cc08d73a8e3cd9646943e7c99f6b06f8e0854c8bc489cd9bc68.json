@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Robert De Niro","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Neetu Kapoor","b":"Frances Bergen","c":"Laura Wilson","d":"Virginia Admiral"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.86,"probabilities":{"c":0.07,"d":0.9,"a":0.0,"b":0.03}}},"usage":{"input_tokens":347,"output_tokens":46}}
-}

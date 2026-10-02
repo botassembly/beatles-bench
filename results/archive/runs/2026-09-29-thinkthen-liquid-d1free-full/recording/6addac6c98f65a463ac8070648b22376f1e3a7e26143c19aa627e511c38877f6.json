@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"36th Academy Awards","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"January 1964","b":"April 1964","c":"October 1963","d":"March 1965"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.02080496232742921,"b":0.7807004284160229,"c":0.0011026226085087104,"d":0.1973919866480392},"confidence":0.7076005712213639}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

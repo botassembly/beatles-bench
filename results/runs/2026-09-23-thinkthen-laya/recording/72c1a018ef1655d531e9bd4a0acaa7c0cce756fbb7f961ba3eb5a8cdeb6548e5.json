@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Do You Want to Know a Secret","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"March 1963","b":"November 1963","c":"March 1964","d":"October 1963"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2239, "probabilities": {"a": 0.6062, "b": 0.2022, "c": 0.0984, "d": 0.0932}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

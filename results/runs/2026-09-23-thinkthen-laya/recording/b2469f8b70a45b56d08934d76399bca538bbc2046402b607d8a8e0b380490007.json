@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Help!","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"I Want to Tell You","b":"Getting Better","c":"The Night Before","d":"Maxwell's Silver Hammer"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1279, "probabilities": {"a": 0.5172, "b": 0.2162, "c": 0.1264, "d": 0.1402}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

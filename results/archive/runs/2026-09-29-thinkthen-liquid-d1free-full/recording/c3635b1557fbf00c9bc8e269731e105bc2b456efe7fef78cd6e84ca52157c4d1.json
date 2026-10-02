@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Flying","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"The Beatles (White Album)","c":"Magical Mystery Tour"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.23130811725366698,"b":0.4321405580107473,"c":0.3365513247355857},"confidence":0.14821083701612092}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

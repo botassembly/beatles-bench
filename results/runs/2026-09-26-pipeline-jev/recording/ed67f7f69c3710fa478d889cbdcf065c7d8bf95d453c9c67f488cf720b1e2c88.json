@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":{"song":"Because","gold":"Lennon","output":"Lead vocals on Because: McCartney."},"model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"Does the output name exactly the lead singers the gold answer names for the song?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.04}},"usage":{"input_tokens":315,"output_tokens":21}}
-}

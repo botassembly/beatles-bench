@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Good Day Sunshine","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Abbey Road","b":"Yellow Submarine","c":"Beatles for Sale","none":"none of these"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2165, "probabilities": {"a": 0.6009, "b": 0.1083, "c": 0.0903, "none": 0.2004}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
-}

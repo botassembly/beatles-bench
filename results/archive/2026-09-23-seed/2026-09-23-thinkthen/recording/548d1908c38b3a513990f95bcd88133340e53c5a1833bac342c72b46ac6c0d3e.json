@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"George Martin","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"Long, Long, Long","b":"Can You Dig It?","c":"One After 909","d":"Maggie Mae"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.82,"probabilities":{"c":0.07,"a":0.86,"d":0.02,"b":0.05}}},"usage":{"input_tokens":361,"output_tokens":46}}
-}

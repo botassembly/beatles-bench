@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Can't Buy Me Love","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"March 1964","b":"March 1963","c":"June 1963","d":"October 1964"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9599545769846296,"b":0.010018027361044736,"c":0.004445472693782261,"d":0.02558192296054335},"confidence":0.9466061026461728}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

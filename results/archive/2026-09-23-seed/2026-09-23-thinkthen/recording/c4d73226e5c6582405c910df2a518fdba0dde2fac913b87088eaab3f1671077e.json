@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Eleanor Rigby","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: The Beach Boys?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"after","confidence":0.6,"probabilities":{"before":0.2,"after":0.8}}},"usage":{"input_tokens":340,"output_tokens":32}}
-}

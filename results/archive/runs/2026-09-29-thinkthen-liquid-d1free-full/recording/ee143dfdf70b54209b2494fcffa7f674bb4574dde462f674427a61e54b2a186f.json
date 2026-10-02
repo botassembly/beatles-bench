@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I Don't Want to Spoil the Party","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"Beatles for Sale","c":"The Beatles (White Album)","d":"Magical Mystery Tour"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.5972394658926627,"b":0.1418568409562616,"c":0.06700842694523969,"d":0.19389526620583591},"confidence":0.46298595452355035}},"usage":{"input_tokens":106,"output_tokens":0}}
-}

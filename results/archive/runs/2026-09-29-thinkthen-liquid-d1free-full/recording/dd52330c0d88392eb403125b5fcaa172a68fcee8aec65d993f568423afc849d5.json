@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I Don't Want to Spoil the Party","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Rubber Soul","d":"Please Please Me"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.29954416355261065,"b":0.020384241007943685,"c":0.6341349992171065,"d":0.04593659622233913},"confidence":0.512179998956142}},"usage":{"input_tokens":113,"output_tokens":0}}
-}

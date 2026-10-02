@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Paul McCartney","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Don't Bother Me","b":"Savoy Truffle","c":"You Know What to Do","d":"You'll Be Mine"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0083, "probabilities": {"a": 0.2401, "b": 0.1951, "c": 0.2968, "d": 0.268}}}, "usage": {"input_tokens": 66, "output_tokens": 0}}
-}

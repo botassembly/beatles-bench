@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Sexy Sadie","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"May 1969","b":"November 1967","c":"November 1968","d":"February 1968"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0173, "probabilities": {"a": 0.2055, "b": 0.225, "c": 0.3472, "d": 0.2222}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
-}

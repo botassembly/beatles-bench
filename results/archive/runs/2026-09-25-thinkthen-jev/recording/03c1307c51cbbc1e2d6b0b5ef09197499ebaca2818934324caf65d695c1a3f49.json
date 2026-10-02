@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Think for Yourself / I'll Cry Instead","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Think for Yourself","b":"I'll Cry Instead"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.6,"probabilities":{"b":0.2,"a":0.8}}},"usage":{"input_tokens":327,"output_tokens":32}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Two of Us","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1968","probabilities":{"1962":0.0013891354199564573,"1963":0.002021180109778695,"1964":0.004278838325978705,"1965":0.005494137164454285,"1966":0.009642511016454143,"1967":0.1250459556791433,"1968":0.6350358943221354,"1969":0.20616595152012418,"1970":0.010926396441974844},"confidence":0.5894153811124023}},"usage":{"input_tokens":123,"output_tokens":0}}
-}

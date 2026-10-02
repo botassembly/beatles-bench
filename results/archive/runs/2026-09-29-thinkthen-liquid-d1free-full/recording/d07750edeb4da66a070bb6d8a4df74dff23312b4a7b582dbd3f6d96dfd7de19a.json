@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"John Lennon","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Sour Milk Sea","b":"Money (That's What I Want)","c":"She's a Woman","d":"Michelle"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7630031351223053,"b":0.08560657921799633,"c":0.08041993878016238,"d":0.07097034687953609},"confidence":0.6840041801630737}},"usage":{"input_tokens":107,"output_tokens":0}}
-}

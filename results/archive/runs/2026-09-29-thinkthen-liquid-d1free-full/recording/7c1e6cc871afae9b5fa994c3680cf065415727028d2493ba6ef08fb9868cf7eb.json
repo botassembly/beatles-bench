@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"cloud chamber","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Henri Pitot","b":"Charles Thomson Rees Wilson","c":"François Merry Delabost","d":"Otto Griessing"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.00026109408910914516,"b":0.9993702985981449,"c":0.0002452751979325166,"d":0.00012333211481354222},"confidence":0.9991603981308598}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

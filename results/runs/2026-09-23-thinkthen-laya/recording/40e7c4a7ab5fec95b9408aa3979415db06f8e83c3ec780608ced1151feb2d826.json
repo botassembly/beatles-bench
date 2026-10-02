@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Ringo Starr","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"That Means a Lot","b":"I Forgot to Remember to Forget","c":"I Want You (She's So Heavy)","d":"Yellow Submarine"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0532, "probabilities": {"a": 0.2569, "b": 0.1355, "c": 0.4004, "d": 0.2072}}}, "usage": {"input_tokens": 73, "output_tokens": 0}}
-}

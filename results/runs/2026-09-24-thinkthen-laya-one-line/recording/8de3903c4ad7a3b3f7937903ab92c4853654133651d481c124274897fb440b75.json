@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Catalog:\nMatchbox (lead: Starr; written: Carl Perkins; 1:59; released 1964)\nText: Matchbox","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who sings the lead vocal on it?","criteria":{"john":"John Lennon","paul":"Paul McCartney","george":"George Harrison","ringo":"Ringo Starr"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "ringo", "confidence": 0.7484, "probabilities": {"john": 0.0231, "paul": 0.0285, "george": 0.0235, "ringo": 0.9249}}}, "usage": {"input_tokens": 85, "output_tokens": 0}}
-}

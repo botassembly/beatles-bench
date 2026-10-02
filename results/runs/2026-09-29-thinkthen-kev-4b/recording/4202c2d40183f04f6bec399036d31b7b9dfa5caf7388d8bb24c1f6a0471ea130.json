@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Rudolf Kompfner","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"traveling-wave tube","b":"achromatic lens","c":"shower","d":"slow cooker"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.9413,"probabilities":{"a":0.956,"b":0.0081,"c":0.0169,"d":0.019}}},"usage":{"input_tokens":51,"output_tokens":73},"latency_ms":99.3}
-}

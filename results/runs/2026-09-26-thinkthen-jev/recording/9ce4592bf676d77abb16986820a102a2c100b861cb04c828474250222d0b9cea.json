@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"With the Beatles","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Ob-La-Di, Ob-La-Da","b":"Not a Second Time","c":"A Taste of Honey","d":"Octopus's Garden"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.23,"probabilities":{"b":0.42,"d":0.01,"c":0.35,"a":0.22}}},"usage":{"input_tokens":367,"output_tokens":46}}
-}

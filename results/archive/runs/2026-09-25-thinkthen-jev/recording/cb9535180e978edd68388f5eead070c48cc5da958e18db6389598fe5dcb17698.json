@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Run for Your Life","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"March 1966","b":"November 1966","c":"December 1965","d":"December 1966"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.61,"probabilities":{"c":0.13,"a":0.04,"b":0.13,"d":0.7}}},"usage":{"input_tokens":368,"output_tokens":46}}
-}

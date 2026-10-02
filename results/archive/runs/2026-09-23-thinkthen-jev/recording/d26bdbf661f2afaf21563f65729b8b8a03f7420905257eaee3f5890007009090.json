@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Lilo Pempeit","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Eva Green","b":"Joan Fontaine","c":"Rita Hayworth","d":"Rainer Werner Fassbinder"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.47,"probabilities":{"a":0.12,"b":0.1,"c":0.18,"d":0.6}}},"usage":{"input_tokens":360,"output_tokens":46}}
-}

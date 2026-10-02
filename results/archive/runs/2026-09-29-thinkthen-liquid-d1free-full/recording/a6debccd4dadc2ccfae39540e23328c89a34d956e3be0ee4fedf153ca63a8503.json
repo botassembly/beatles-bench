@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Italia Coppola","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Jeff Bridges","b":"Jane Birkin","c":"Emilia Clarke","d":"Francis Ford Coppola"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00045732455280630556,"b":0.00045732455280630556,"c":0.0016991668472027732,"d":0.9973861840471847},"confidence":0.996514912062913}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

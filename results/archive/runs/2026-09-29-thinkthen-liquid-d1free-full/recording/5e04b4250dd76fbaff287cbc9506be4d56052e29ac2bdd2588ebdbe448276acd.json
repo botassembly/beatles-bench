@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Apollo 13","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"January 1970","b":"April 1969","c":"April 1970","d":"September 1970"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.00013133732442307944,"b":0.00005828058442598762,"c":0.999758949655914,"d":0.000051432435236754086},"confidence":0.9996785995412187}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

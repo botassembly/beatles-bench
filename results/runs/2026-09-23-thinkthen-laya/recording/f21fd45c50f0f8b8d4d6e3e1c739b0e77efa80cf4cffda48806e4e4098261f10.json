@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Yesterday","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Yellow Submarine","b":"Magical Mystery Tour","c":"Help!","d":"Abbey Road"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.3282, "probabilities": {"a": 0.1342, "b": 0.084, "c": 0.0815, "d": 0.7003}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Please send me a copy of last month's invoice.","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"Which team owns this?","criteria":{"billing":"Invoices, fees, and refunds.","shipping":"Parcels and delivery.","account":"Logins and passwords."}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "billing", "confidence": 0.8512, "probabilities": {"billing": 0.9681, "shipping": 0.0163, "account": 0.0156}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
-}

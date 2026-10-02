@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Jill Balcon","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Sharon Tate","b":"Plácido Domingo","c":"Frank Sinatra","d":"Daniel Day-Lewis"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00024530213466591967,"b":0.00005826436395171362,"c":0.00021647837404006342,"d":0.9994799551273423},"confidence":0.9993066068364564}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

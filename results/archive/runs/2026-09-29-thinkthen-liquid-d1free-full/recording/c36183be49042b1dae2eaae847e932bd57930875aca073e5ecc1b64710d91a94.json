@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"All I've Got to Do","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Let It Be","c":"Rubber Soul","d":"With the Beatles"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.13749658506346665,"b":0.018608143720157923,"c":0.655959677162467,"d":0.18793559405390847},"confidence":0.5412795695499559}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

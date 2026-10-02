@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Lennon–McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"Lucy in the Sky with Diamonds","b":"I'm Down","c":"Maxwell's Silver Hammer","d":"Wild Honey Pie"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.5,"probabilities":{"a":0.62,"d":0.07,"c":0.14,"b":0.17}}},"usage":{"input_tokens":362,"output_tokens":46}}
-}

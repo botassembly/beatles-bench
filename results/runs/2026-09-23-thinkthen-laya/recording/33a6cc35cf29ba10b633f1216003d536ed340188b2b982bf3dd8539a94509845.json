@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Otto Griessing","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"light-emitting diode","b":"shower","c":"Volksempfänger","d":"pitot tube"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.1145, "probabilities": {"a": 0.1706, "b": 0.0726, "c": 0.3832, "d": 0.3736}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
-}

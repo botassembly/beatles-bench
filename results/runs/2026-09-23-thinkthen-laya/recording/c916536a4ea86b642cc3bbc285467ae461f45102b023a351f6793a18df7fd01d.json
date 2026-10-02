@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Shaquille O'Neal","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Joe Toney","b":"John Shakespeare","c":"Arthur Lithgow","d":"Eduardo Cansino"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1439, "probabilities": {"a": 0.5241, "b": 0.2275, "c": 0.1528, "d": 0.0955}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
-}

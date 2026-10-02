@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"She Came In Through the Bathroom Window","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"Revolver","c":"Abbey Road"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0959,"probabilities":{"a":0.3343,"b":0.3973,"c":0.2684}}},"usage":{"input_tokens":55,"output_tokens":64},"latency_ms":97.2}
-}

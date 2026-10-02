@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Beatles for Sale","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Rocky Raccoon","b":"Lovely Rita","c":"Let It Be","d":"I'll Follow the Sun"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0671, "probabilities": {"a": 0.3128, "b": 0.1722, "c": 0.3903, "d": 0.1247}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
-}

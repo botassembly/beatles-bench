@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Revolver","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Doctor Robert","b":"Revolution 1","c":"Mean Mr. Mustard","d":"When I Get Home"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.2011, "probabilities": {"a": 0.2228, "b": 0.5688, "c": 0.0602, "d": 0.1483}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

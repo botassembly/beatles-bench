@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"37th Academy Awards","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"April 1965","b":"May 1964","c":"November 1964","d":"May 1965"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0068, "probabilities": {"a": 0.2201, "b": 0.3089, "c": 0.228, "d": 0.243}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
-}

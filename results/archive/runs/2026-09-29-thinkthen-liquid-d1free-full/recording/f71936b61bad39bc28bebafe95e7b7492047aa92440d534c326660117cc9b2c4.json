@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I'm a Loser","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"The Beatles (White Album)","c":"Magical Mystery Tour","none":"none of these"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.11742557909081211,"b":0.2816893205607286,"c":0.31919577978773056,"none":0.2816893205607286},"confidence":0.09226103971697408}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

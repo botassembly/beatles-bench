@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Ella van Heemstra","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Audrey Hepburn","b":"Zsa Zsa Gabor","c":"Adrien Brody","d":"Olivia Wilde"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9957922297174113,"b":0.00035559558535245173,"c":0.0018058633901910854,"d":0.002046311307045043},"confidence":0.9943896396232151}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

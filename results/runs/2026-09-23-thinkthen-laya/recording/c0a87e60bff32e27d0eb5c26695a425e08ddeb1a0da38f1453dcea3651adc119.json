@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Virginia Admiral","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Stevie Wonder","b":"Måns Zelmerlöw","c":"Nina Hagen","d":"Robert De Niro"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0767, "probabilities": {"a": 0.2767, "b": 0.1467, "c": 0.4314, "d": 0.1453}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"I'll Follow the Sun","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Revolver","c":"Abbey Road","none":"none of these"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.091, "probabilities": {"a": 0.1523, "b": 0.2372, "c": 0.4686, "none": 0.1418}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
-}

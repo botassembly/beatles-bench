@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Lennon–McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Octopus's Garden","b":"What You're Doing","c":"Blue Jay Way","d":"The Inner Light"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.91,"probabilities":{"c":0.01,"b":0.92,"a":0.06,"d":0.01}}},"usage":{"input_tokens":367,"output_tokens":46}}
-}

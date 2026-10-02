@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Good Day Sunshine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"Yellow Submarine","c":"Beatles for Sale","none":"none of these"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.013218589983520686,"b":0.9266947635762397,"c":0.0008450361858148854,"none":0.05924161025442487},"confidence":0.9022596847683196}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

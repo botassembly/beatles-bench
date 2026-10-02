@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"While My Guitar Gently Weeps","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"A Hard Day's Night","c":"The Beatles (White Album)"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.000011478619507144774,"b":0.000013006979937863799,"c":0.9999755144005551},"confidence":0.9999632716008326}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

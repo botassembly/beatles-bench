@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Jean-Paul Belmondo","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Paul Ronan","b":"Murry Wilson","c":"Elias Disney","d":"Paul Belmondo"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.7127,"probabilities":{"a":0.189,"b":0.0089,"c":0.0176,"d":0.7845}}},"usage":{"input_tokens":50,"output_tokens":74},"latency_ms":96.8}
-}

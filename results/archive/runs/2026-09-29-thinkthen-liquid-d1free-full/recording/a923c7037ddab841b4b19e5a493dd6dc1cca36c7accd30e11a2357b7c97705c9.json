@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"35th Academy Awards","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"July 1962","b":"May 1962","c":"September 1963","d":"April 1963"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00013070569878131225,"b":0.00406613704410644,"c":0.0008523086261616155,"d":0.9949508486309506},"confidence":0.9932677981746009}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

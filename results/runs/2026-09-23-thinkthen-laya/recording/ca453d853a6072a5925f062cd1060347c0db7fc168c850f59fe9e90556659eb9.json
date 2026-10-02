@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Geneviève Sorya","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Rainer Werner Fassbinder","b":"Eva Green","c":"Joaquin Phoenix","d":"Anouk Aimée"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0395, "probabilities": {"a": 0.2972, "b": 0.3613, "c": 0.18, "d": 0.1615}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
-}

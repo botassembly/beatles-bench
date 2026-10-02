@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Glass Onion","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"With the Beatles","c":"Rubber Soul","d":"Beatles for Sale"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.998949779866676,"b":0.000054705236074835196,"c":0.0009696739734676089,"d":0.000025840923781553297},"confidence":0.9985997064889013}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

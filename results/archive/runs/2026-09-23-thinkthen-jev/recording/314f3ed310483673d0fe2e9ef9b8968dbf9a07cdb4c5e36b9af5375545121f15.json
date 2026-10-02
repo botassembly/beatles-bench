@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Abbey Road","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Can't Buy Me Love","b":"Honey Pie","c":"You Never Give Me Your Money","d":"Not a Second Time"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.65,"probabilities":{"d":0.04,"b":0.2,"a":0.03,"c":0.73}}},"usage":{"input_tokens":363,"output_tokens":46}}
-}

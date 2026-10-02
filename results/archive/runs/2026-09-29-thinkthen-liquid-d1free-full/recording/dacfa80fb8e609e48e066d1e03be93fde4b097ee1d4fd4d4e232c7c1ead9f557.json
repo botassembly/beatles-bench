@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Good Day Sunshine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"lennon-mccartney","probabilities":{"lennon-mccartney":0.7426600082686521,"harrison":0.1462384263353409,"starr":0.010593474809962693,"other":0.10050809058604437},"confidence":0.6568800110248695}},"usage":{"input_tokens":106,"output_tokens":0}}
-}

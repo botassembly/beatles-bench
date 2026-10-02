@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nYa Ya\nSweet Georgia Brown (lead: Tony Sheridan; written: Lee Dorsey, Clarence Lewis, Morgan Robinson, Morris Levy; released 1962)\n\nText: Too Much Monkey Business","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"other","confidence":0.63,"probabilities":{"lennon-mccartney":0.27,"starr":0.0,"other":0.72,"harrison":0.01}}},"usage":{"input_tokens":409,"output_tokens":55}}
-}

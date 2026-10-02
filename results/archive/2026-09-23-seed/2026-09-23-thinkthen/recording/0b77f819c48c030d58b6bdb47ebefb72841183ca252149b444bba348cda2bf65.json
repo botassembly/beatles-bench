@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"François Merry Delabost","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"shower","b":"Volksempfänger","c":"light-emitting diode","d":"slow cooker"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.65,"probabilities":{"c":0.07,"a":0.73,"d":0.14,"b":0.06}}},"usage":{"input_tokens":361,"output_tokens":46}}
-}

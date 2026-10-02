@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I'll Cry Instead","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"Beatles for Sale","c":"With the Beatles"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.4168730051241418,"b":0.23752713504457737,"c":0.34559985983128083},"confidence":0.12530950768621274}},"usage":{"input_tokens":97,"output_tokens":0}}
-}

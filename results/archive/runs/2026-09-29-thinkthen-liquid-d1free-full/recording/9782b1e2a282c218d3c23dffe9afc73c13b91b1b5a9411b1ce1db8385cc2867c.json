@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Revolver","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Good Day Sunshine","b":"Honey Pie","c":"It's Only Love","d":"Wild Honey Pie"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7525719717547574,"b":0.042457205345149185,"c":0.06575900603389812,"d":0.13921181686619527},"confidence":0.6700959623396766}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

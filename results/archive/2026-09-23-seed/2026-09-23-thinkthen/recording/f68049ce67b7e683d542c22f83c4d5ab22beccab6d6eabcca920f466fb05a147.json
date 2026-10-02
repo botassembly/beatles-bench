@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Wild Honey Pie","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who composed it?","criteria":{"a":"Lennon–McCartney","b":"John Lennon","c":"George Harrison","d":"Ringo Starr"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.58,"probabilities":{"b":0.12,"c":0.14,"d":0.05,"a":0.69}}},"usage":{"input_tokens":353,"output_tokens":46}}
-}

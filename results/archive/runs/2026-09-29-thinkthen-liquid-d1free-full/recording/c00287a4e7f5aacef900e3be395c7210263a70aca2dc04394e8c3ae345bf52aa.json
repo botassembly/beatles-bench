@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Honey Pie","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Revolver","c":"The Beatles (White Album)"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.00010884380264324866,"b":0.0004878040806802809,"c":0.9994033521166765},"confidence":0.9991050281750149}},"usage":{"input_tokens":95,"output_tokens":0}}
-}

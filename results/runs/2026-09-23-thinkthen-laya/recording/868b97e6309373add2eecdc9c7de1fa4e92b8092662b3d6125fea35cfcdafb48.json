@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Drive My Car","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"Rubber Soul","c":"Revolver"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0028, "probabilities": {"a": 0.3485, "b": 0.3544, "c": 0.2972}}}, "usage": {"input_tokens": 47, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"I Want to Hold Your Hand","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Watts riots?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "after", "confidence": 0.0861, "probabilities": {"before": 0.329, "after": 0.671}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

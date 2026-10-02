@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"And Your Bird Can Sing","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Yellow Submarine","b":"With the Beatles","c":"Revolver","d":"Rubber Soul"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.056666912615574105,"b":0.0002465207099673426,"c":0.056666912615574105,"d":0.8864196540588845},"confidence":0.8485595387451793}},"usage":{"input_tokens":100,"output_tokens":0}}
-}

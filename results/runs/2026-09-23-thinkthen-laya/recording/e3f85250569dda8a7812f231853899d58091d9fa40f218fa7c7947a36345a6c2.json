@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"A Hard Day's Night","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"A Hard Day's Night","c":"Revolver","d":"Help!"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.3534, "probabilities": {"a": 0.1768, "b": 0.7005, "c": 0.0722, "d": 0.0505}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
-}

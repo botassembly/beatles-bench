@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Yellow Submarine","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"You Like Me Too Much","b":"A Day in the Life","c":"Hey Bulldog","d":"Fixing a Hole"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0517, "probabilities": {"a": 0.4058, "b": 0.1798, "c": 0.2572, "d": 0.1572}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Kevin Kadish","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“All About That Bass” by Meghan Trainor","b":"“Con te partirò” by Andrea Bocelli","c":"“Guantanamera” by The Sandpipers","d":"“What Is Love” by Haddaway"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.98,"probabilities":{"c":0.0,"b":0.0,"a":0.99,"d":0.01}}},"usage":{"input_tokens":380,"output_tokens":46}}
-}

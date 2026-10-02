@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Marlène Jobert","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Bruce Lee","b":"Katharine Hepburn","c":"Ralph Fiennes","d":"Eva Green"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00020050807813661435,"b":0.00029173753225036935,"c":0.014056701496609257,"d":0.9854510528930038},"confidence":0.9806014038573384}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Timothy Carlton","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Tom Hardy","b":"Sergei Eisenstein","c":"Benedict Cumberbatch","d":"Neil Young"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.29350364926616473,"b":0.06548951626490791,"c":0.157101182581744,"d":0.4839056518871834},"confidence":0.3118742025162445}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

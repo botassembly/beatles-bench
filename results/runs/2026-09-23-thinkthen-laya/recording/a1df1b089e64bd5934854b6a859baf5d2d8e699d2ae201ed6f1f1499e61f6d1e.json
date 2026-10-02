@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Ringo Starr","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"All I've Got to Do","b":"You've Got to Hide Your Love Away","c":"Eleanor Rigby","d":"Good Night"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0561, "probabilities": {"a": 0.3086, "b": 0.2056, "c": 0.3675, "d": 0.1184}}}, "usage": {"input_tokens": 67, "output_tokens": 0}}
-}

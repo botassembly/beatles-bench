@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Kevin Kadish","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“All About That Bass” by Meghan Trainor","b":"“Toxic” by Britney Spears","c":"“What Is Love” by Haddaway","d":"“Guantanamera” by The Sandpipers"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9971174230750981,"b":0.001499105637236033,"c":0.00021596664347983872,"d":0.0011675046441861796},"confidence":0.9961565641001308}},"usage":{"input_tokens":125,"output_tokens":0}}
-}

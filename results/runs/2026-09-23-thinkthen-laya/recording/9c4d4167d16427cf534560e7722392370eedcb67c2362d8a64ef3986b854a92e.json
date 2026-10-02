@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Please Please Me","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I'll Be Back","b":"Ask Me Why","c":"I'll Follow the Sun","d":"Because"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1376, "probabilities": {"a": 0.5364, "b": 0.1842, "c": 0.136, "d": 0.1435}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
-}

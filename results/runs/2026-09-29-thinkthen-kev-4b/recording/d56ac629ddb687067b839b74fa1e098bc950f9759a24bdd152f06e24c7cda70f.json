@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Abbey Road","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"She Came In Through the Bathroom Window","b":"Why Don't We Do It in the Road?","c":"Nowhere Man","d":"I Saw Her Standing There"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.083,"probabilities":{"a":0.2972,"b":0.3122,"c":0.2444,"d":0.1461}}},"usage":{"input_tokens":69,"output_tokens":74},"latency_ms":80.3}
-}

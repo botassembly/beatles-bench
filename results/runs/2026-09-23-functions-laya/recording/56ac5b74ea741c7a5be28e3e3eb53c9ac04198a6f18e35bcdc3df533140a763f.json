@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"P.S. I Love You\"},{\"id\":\"u002\",\"evidence\":\"Yesterday\"},{\"id\":\"u003\",\"evidence\":\"And Your Bird Can Sing\"},{\"id\":\"u004\",\"evidence\":\"Magical Mystery Tour\"},{\"id\":\"u005\",\"evidence\":\"Within You Without You\"},{\"id\":\"u006\",\"evidence\":\"Dear Prudence\"},{\"id\":\"u007\",\"evidence\":\"Octopus's Garden\"},{\"id\":\"u008\",\"evidence\":\"It's All Too Much\"}]","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Help!?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "u002", "confidence": 0.6832, "probabilities": {"u001": 0.0349, "u002": 0.8554, "u003": 0.0138, "u004": 0.0056, "u005": 0.0178, "u006": 0.0033, "u007": 0.0236, "u008": 0.0456}}}, "usage": {"input_tokens": 162, "output_tokens": 0}}
-}

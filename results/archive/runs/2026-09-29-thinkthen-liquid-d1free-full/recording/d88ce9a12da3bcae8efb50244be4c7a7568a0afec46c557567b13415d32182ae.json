@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Spike Lee","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Peter Graf","b":"James Broderick","c":"Bill Lee","d":"Paul William Walker III"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.000010129440073402585,"b":0.000018924285468186335,"c":0.9999355910546351,"d":0.00003535521982323247},"confidence":0.9999141214061802}},"usage":{"input_tokens":91,"output_tokens":0}}
-}

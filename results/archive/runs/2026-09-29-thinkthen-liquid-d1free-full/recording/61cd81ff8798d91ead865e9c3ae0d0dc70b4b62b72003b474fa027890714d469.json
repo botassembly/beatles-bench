@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I Want to Tell You","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: 1964 United States presidential election?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"after","probabilities":{"before":0.10669060033653141,"after":0.8933093996634686},"confidence":0.7866187993269371}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

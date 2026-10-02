@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Louis Alphonse Gassion","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Édith Piaf","b":"Mia Farrow","c":"Neil Gaiman","d":"Till Lindemann"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9987308679991259,"b":0.00016846712508158896,"c":0.0008555466551533395,"d":0.00024511822063912265},"confidence":0.9983078239988346}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

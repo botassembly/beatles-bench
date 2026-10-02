@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"cloud chamber","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Henri Pitot","b":"Charles Thomson Rees Wilson","c":"François Merry Delabost","d":"Otto Griessing"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.857,"probabilities":{"a":0.0101,"b":0.8928,"c":0.0484,"d":0.0487}}},"usage":{"input_tokens":52,"output_tokens":74},"latency_ms":96.9}
-}

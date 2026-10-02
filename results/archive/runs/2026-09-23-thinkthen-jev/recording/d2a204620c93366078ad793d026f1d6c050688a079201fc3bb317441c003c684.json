@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Rubber Soul","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"I'll Be Back","b":"I'm Looking Through You","c":"Everybody's Trying to Be My Baby","d":"Dig It"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.99,"probabilities":{"b":1.0,"c":0.0,"d":0.0,"a":0.0}}},"usage":{"input_tokens":360,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"A Hard Day's Night","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"The Night Before","b":"Maggie Mae","c":"I'm Happy Just to Dance with You","d":"I've Just Seen a Face"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.48,"probabilities":{"b":0.03,"d":0.12,"c":0.24,"a":0.61}}},"usage":{"input_tokens":368,"output_tokens":46}}
-}

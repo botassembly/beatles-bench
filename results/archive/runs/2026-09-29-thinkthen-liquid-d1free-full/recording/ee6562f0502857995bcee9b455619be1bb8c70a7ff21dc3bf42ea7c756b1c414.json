@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Selma to Montgomery marches","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"March 1965","b":"September 1965","c":"October 1964","d":"February 1966"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9997494200069784,"b":0.00009608752531557837,"c":0.00007483311132554814,"d":0.00007965935638051083},"confidence":0.9996658933426379}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Let It Be","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"February 1970","b":"March 1970","c":"March 1969","d":"December 1969"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0211, "probabilities": {"a": 0.3157, "b": 0.1815, "c": 0.3035, "d": 0.1993}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
-}

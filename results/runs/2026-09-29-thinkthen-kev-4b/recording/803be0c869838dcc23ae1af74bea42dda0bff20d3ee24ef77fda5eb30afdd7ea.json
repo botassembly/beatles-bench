@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Amasa Coleman Lee","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Sergei Eisenstein","b":"Harper Lee","c":"Winona Ryder","d":"Paul Walker"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.8667,"probabilities":{"a":0.0388,"b":0.9,"c":0.0271,"d":0.0341}}},"usage":{"input_tokens":50,"output_tokens":72},"latency_ms":95.6}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Ringo Starr","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Tell Me Why","b":"Don't Pass Me By","c":"When I Get Home","d":"I Don't Want to Spoil the Party"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.008482794303039465,"b":0.9804777103081201,"c":0.004833350499597208,"d":0.006206144889243208},"confidence":0.9739702804108269}},"usage":{"input_tokens":112,"output_tokens":0}}
-}

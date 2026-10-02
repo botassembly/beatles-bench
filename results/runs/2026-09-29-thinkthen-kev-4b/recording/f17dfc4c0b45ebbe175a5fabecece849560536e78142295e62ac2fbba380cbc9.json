@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Ticket to Ride","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"1964","confidence":0.0734,"probabilities":{"1962":0.1083,"1963":0.1727,"1964":0.1764,"1965":0.1456,"1966":0.0992,"1967":0.0827,"1968":0.083,"1969":0.0861,"1970":0.0459}}},"usage":{"input_tokens":134,"output_tokens":159},"latency_ms":117.8}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"P.S. I Love You","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"October 1962","b":"July 1962","c":"May 1962","d":"October 1963"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.6046784619772183,"b":0.04963503071930121,"c":0.02202541136748168,"d":0.3236610959359988},"confidence":0.4729046159696244}},"usage":{"input_tokens":105,"output_tokens":0}}
-}

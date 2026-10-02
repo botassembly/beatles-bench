@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Can You Take Me Back?","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who composed it?","criteria":{"a":"Lennon–McCartney","b":"George Harrison","c":"John Lennon","d":"Ringo Starr"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.67,"probabilities":{"b":0.08,"c":0.13,"d":0.04,"a":0.75}}},"usage":{"input_tokens":356,"output_tokens":46}}
-}

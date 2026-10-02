@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Moyna Macgill","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Charlie Chaplin","b":"Anouk Aimée","c":"Angela Lansbury","d":"Ralph Fiennes"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.23,"probabilities":{"a":0.19,"b":0.42,"c":0.15,"d":0.24}}},"usage":{"input_tokens":360,"output_tokens":46}}
-}

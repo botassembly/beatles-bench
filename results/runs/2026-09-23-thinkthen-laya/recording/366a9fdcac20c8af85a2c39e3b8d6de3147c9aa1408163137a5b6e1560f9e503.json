@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Peter Ustinov","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Doris Tate","b":"Edith Luckett Davis","c":"Nadia Benois","d":"Mandy Teefey"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2691, "probabilities": {"a": 0.6293, "b": 0.2149, "c": 0.0996, "d": 0.0561}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

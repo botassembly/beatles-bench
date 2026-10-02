@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Jon Brion","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"2012","b":"The Day After Tomorrow","c":"Lucy","d":"Eternal Sunshine of the Spotless Mind"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.98,"probabilities":{"a":0.01,"c":0.0,"b":0.0,"d":0.99}}},"usage":{"input_tokens":357,"output_tokens":46}}
-}

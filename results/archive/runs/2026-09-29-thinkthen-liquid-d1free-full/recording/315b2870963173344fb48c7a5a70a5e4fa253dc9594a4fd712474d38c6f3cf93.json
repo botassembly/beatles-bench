@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Please Please Me","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Chains","b":"Please Mr. Postman","c":"Julia","d":"Norwegian Wood (This Bird Has Flown)"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.5540502373081407,"b":0.4314947586764777,"c":0.007903102182299865,"d":0.006551901833081655},"confidence":0.40540031641085433}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

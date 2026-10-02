@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Joe Toney","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Bryan Cranston","b":"Shaquille O'Neal","c":"Gary Cooper","d":"Jason Bateman"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0296, "probabilities": {"a": 0.1387, "b": 0.3243, "c": 0.2716, "d": 0.2654}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

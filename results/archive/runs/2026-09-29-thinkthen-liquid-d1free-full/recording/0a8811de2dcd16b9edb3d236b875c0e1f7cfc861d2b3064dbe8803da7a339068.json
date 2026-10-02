@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"light-emitting diode","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"H. J. Round","b":"Jesse W. Reno","c":"Chester Moore Hall","d":"Rudolf Kompfner"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9973861956501887,"b":0.0006250885574779101,"c":0.0006654033057681933,"d":0.0013233124865651286},"confidence":0.996514927533585}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

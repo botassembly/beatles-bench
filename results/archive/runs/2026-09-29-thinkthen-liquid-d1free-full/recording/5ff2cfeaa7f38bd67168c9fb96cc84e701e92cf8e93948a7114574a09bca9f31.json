@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"She's Leaving Home / And Your Bird Can Sing","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"She's Leaving Home","b":"And Your Bird Can Sing"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.985042916041382,"b":0.014957083958617976},"confidence":0.9700858320827641}},"usage":{"input_tokens":94,"output_tokens":0}}
-}

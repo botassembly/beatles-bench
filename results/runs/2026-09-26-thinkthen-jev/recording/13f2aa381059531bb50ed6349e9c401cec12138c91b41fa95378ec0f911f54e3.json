@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Rain","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"April 1967","b":"July 1966","c":"May 1966","d":"September 1965"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.73,"probabilities":{"b":0.8,"a":0.03,"c":0.09,"d":0.08}}},"usage":{"input_tokens":365,"output_tokens":46}}
-}

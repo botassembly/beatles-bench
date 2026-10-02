@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Why Don't We Do It in the Road? / Eight Days a Week","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Why Don't We Do It in the Road?","b":"Eight Days a Week"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.92,"probabilities":{"b":0.96,"a":0.04}}},"usage":{"input_tokens":341,"output_tokens":32}}
-}

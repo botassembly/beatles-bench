@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Death and state funeral of Winston Churchill","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"July 1965","b":"August 1964","c":"January 1965","d":"May 1965"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.3887,"probabilities":{"a":0.075,"b":0.0728,"c":0.5415,"d":0.3108}}},"usage":{"input_tokens":63,"output_tokens":74},"latency_ms":110.5}
-}

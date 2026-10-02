@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"A Hard Day's Night","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Ask Me Why","b":"A Day in the Life","c":"And I Love Her","d":"What You're Doing"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.2180121540386231,"b":0.027717134991792184,"c":0.491297856026771,"d":0.2629728549428136},"confidence":0.3217304747023613}},"usage":{"input_tokens":106,"output_tokens":0}}
-}

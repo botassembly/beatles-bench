@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Hey Bulldog","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Magical Mystery Tour","b":"With the Beatles","c":"The Beatles (White Album)","none":"none of these"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.032940072585940644,"b":0.00022194846323009623,"c":0.9626501186797813,"none":0.004187860271048016},"confidence":0.9502001582397085}},"usage":{"input_tokens":103,"output_tokens":0}}
-}

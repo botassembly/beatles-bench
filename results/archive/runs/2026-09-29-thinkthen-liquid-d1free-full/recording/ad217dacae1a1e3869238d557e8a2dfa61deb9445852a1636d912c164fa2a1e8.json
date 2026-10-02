@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"P.S. I Love You","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"lennon-mccartney","probabilities":{"lennon-mccartney":0.832737942170813,"harrison":0.017282926414812102,"starr":0.005270994749418896,"other":0.14470813666495616},"confidence":0.7769839228944173}},"usage":{"input_tokens":108,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Matchbox / Baby, You're a Rich Man","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Matchbox","b":"Baby, You're a Rich Man"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.89,"probabilities":{"a":0.06,"b":0.94}}},"usage":{"input_tokens":333,"output_tokens":32}}
-}

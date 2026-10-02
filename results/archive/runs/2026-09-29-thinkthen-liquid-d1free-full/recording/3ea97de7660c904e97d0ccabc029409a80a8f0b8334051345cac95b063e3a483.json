@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Across the Universe","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"December 1969","b":"March 1969","c":"January 1969","d":"August 1969"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.534706167049565,"b":0.043891354986453746,"c":0.13519489115111727,"d":0.286207586812864},"confidence":0.3796082227327533}},"usage":{"input_tokens":103,"output_tokens":0}}
-}

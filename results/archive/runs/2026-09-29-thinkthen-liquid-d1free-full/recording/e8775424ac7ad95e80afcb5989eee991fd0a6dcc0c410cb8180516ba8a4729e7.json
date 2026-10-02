@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Phil Spector","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"I Got to Find My Baby","b":"Doctor Robert","c":"I've Got a Feeling","d":"It Won't Be Long"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8453459839371518,"b":0.0327776130560978,"c":0.0327776130560978,"d":0.0890987899506526},"confidence":0.7937946452495357}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

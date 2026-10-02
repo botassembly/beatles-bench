@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Eduardo Cansino","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Martin Scorsese","b":"Evan Rachel Wood","c":"Rita Hayworth","d":"Robert De Niro"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":1.0,"probabilities":{"c":1.0,"b":0.0,"a":0.0,"d":0.0}}},"usage":{"input_tokens":358,"output_tokens":46}}
-}

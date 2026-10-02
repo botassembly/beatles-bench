@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Drive My Car","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Let It Be","c":"Rubber Soul","d":"Sgt. Pepper's Lonely Hearts Club Band"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0752,"probabilities":{"a":0.2958,"b":0.3064,"c":0.2397,"d":0.158}}},"usage":{"input_tokens":62,"output_tokens":74},"latency_ms":97.3}
-}

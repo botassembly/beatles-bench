@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Édith Piaf","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Louis Alphonse Gassion","b":"Lee Hoi-chuen","c":"Charles Delevingne","d":"Daniel Cady"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1191, "probabilities": {"a": 0.518, "b": 0.173, "c": 0.1501, "d": 0.1589}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
-}

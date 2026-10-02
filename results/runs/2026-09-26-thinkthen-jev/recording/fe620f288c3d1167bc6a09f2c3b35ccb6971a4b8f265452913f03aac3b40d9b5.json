@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Nancy Priddy","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Nancy Reagan","b":"J. J. Abrams","c":"Christina Applegate","d":"Judy Garland"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.12,"probabilities":{"d":0.17,"c":0.24,"b":0.26,"a":0.33}}},"usage":{"input_tokens":358,"output_tokens":46}}
-}

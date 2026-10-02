@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"John Lennon","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Hallelujah, I Love Her So","b":"Ooh! My Soul","c":"Mother Nature's Son","d":"A Shot of Rhythm and Blues"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0031471659270615,"b":0.00587968002060108,"c":0.9888101406520916,"d":0.0021630134002456197},"confidence":0.9850801875361221}},"usage":{"input_tokens":116,"output_tokens":0}}
-}

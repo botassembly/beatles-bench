@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Any Time at All / Only a Northern Song","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Any Time at All","b":"Only a Northern Song"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.5113, "probabilities": {"a": 0.8937, "b": 0.1063}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
-}

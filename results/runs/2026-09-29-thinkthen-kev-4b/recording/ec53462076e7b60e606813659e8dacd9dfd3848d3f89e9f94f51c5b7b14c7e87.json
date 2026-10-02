@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Sie liebt dich / A Day in the Life","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Sie liebt dich","b":"A Day in the Life"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.5118,"probabilities":{"a":0.2441,"b":0.7559}}},"usage":{"input_tokens":44,"output_tokens":53},"latency_ms":97.2}
-}

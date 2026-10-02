@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Battle of Ap Bac","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"January 1963","b":"January 1964","c":"February 1962","d":"January 1962"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7530367262061822,"b":0.001205161822890214,"c":0.0012828880825659797,"d":0.24447522388836157},"confidence":0.6707156349415763}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

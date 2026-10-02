@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Lillian Gish","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Eva-Maria Hagen","b":"Line Marsa","c":"Mary Gish","d":"Nelle Wilson Reagan"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0000453545296959292,"b":0.0007094642123139015,"c":0.9989999969869301,"d":0.00024518427105999163},"confidence":0.9986666626492401}},"usage":{"input_tokens":95,"output_tokens":0}}
-}

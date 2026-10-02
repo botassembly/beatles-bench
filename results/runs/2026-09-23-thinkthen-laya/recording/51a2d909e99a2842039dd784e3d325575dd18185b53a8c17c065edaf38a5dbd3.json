@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"All Together Now","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Yellow Submarine","c":"Let It Be","d":"Beatles for Sale"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.093, "probabilities": {"a": 0.237, "b": 0.2157, "c": 0.4505, "d": 0.0968}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

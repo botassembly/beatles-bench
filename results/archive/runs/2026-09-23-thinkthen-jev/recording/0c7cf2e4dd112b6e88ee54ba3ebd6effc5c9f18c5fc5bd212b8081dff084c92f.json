@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Let It Be","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"And Your Bird Can Sing","b":"For You Blue","c":"Everybody's Got Something to Hide Except Me and My Monkey","d":"Honey Pie"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.92,"probabilities":{"a":0.01,"c":0.01,"b":0.94,"d":0.04}}},"usage":{"input_tokens":364,"output_tokens":46}}
-}

@@ -1,9 +1,0 @@
-thinkthen: thinkthen 0.0.1, from thinkthen main 2c5ac772b
-build of thinkthen at 2c5ac772b (short id; the full SHA-1 was not recorded for this run)
-model the backend reported: kev-latest
-backend: http://127.0.0.1:8731/v1/systemone (a loopback System One address)
-machine: an Apple Silicon Mac
-date: 2026-09-29
-The 1,501 knowledge questions in answers.jsonl, asked through the thinkthen command on an Apple
-Silicon Mac serving kev-latest at a loopback address.
-The recording was not replay-checked here.

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"George Harrison","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Another Girl","b":"I'm Down","c":"It's Only Love","d":"Free as a Bird"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.3404829291181379,"b":0.04607935364943471,"c":0.5273501510557812,"d":0.08608756617664613},"confidence":0.36980020140770825}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

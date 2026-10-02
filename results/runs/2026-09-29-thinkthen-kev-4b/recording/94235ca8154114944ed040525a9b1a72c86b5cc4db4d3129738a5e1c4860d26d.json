@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Typhoon Carmen (1965)","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"May 1965","b":"August 1965","c":"March 1966","d":"October 1965"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.2191,"probabilities":{"a":0.2772,"b":0.4143,"c":0.0209,"d":0.2875}}},"usage":{"input_tokens":65,"output_tokens":75},"latency_ms":112.0}
-}

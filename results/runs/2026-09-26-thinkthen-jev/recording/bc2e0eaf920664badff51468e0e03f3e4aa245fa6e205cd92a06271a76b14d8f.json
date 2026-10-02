@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Please Please Me","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I'll Be Back","b":"Ask Me Why","c":"I'll Follow the Sun","d":"Because"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.7,"probabilities":{"d":0.0,"c":0.01,"b":0.78,"a":0.21}}},"usage":{"input_tokens":358,"output_tokens":46}}
-}

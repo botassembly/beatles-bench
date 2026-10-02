@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Got to Get You into My Life","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Abbey Road","b":"Revolver","c":"Rubber Soul","d":"Sgt. Pepper's Lonely Hearts Club Band"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.49,"probabilities":{"d":0.61,"b":0.09,"a":0.08,"c":0.22}}},"usage":{"input_tokens":365,"output_tokens":46}}
-}

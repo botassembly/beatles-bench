@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Ringo Starr","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"I'm Looking Through You","b":"Octopus's Garden","c":"Ask Me Why","d":"Cayenne"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.0767,"probabilities":{"a":0.3075,"b":0.2587,"c":0.2658,"d":0.168}}},"usage":{"input_tokens":59,"output_tokens":74},"latency_ms":66.0}
-}

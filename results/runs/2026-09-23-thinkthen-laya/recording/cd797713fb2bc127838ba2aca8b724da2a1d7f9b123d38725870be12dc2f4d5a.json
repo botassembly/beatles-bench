@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"1967 Australian referendum (Aboriginals)","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"October 1966","b":"August 1966","c":"May 1967","d":"May 1966"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0999, "probabilities": {"a": 0.2253, "b": 0.1659, "c": 0.4817, "d": 0.1271}}}, "usage": {"input_tokens": 49, "output_tokens": 0}}
-}

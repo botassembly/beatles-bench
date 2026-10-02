@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Prometheus","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Marc Streitenfeld","b":"Jon Brion","c":"Éric Serra","d":"Harald Kloser"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.78,"probabilities":{"b":0.01,"a":0.84,"d":0.13,"c":0.02}}},"usage":{"input_tokens":349,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"1968 United States presidential election","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1968","b":"November 1968","c":"November 1967","d":"April 1968"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":1.0,"probabilities":{"b":1.0,"c":0.0,"d":0.0,"a":0.0}}},"usage":{"input_tokens":365,"output_tokens":46}}
-}

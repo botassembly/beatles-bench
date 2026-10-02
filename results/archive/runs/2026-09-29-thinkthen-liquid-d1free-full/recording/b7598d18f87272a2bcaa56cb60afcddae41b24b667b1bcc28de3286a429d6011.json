@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Help!","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I'm a Loser","b":"You've Got to Hide Your Love Away","c":"A Hard Day's Night","d":"I'll Cry Instead"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.25748678114078294,"b":0.05070215341736725,"c":0.5450995199525817,"d":0.14671154548926826},"confidence":0.3934660266034422}},"usage":{"input_tokens":109,"output_tokens":0}}
-}

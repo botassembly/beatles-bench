@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Cecil B. DeMille","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Henry Churchill de Mille","b":"Joe Toney","c":"Plácido Domingo Ferrer","d":"Dukagjin Lipa"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.99,"probabilities":{"c":0.0,"a":1.0,"d":0.0,"b":0.0}}},"usage":{"input_tokens":359,"output_tokens":46}}
-}

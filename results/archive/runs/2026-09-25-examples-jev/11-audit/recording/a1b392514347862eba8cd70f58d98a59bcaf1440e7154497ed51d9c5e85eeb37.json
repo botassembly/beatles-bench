@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nHelp! (1965-08-06)\nAct Naturally (lead: Starr; written: Johnny Russell, Voni Morrison; 2:30; released 1965-08-06; first album: Help!)\nText: Act Naturally","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.03}},"usage":{"input_tokens":350,"output_tokens":21}}
-}

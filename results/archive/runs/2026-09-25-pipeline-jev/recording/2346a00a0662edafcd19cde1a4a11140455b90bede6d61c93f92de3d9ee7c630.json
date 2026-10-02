@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":{"song":"Oh! Darling","gold":"McCartney","output":"Lead vocals on Oh! Darling: McCartney."},"model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"Does the output name exactly the lead singers the gold answer names for the song?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.94}},"usage":{"input_tokens":319,"output_tokens":21}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Baby's in Black","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1963","probabilities":{"1962":0.09945513260553994,"1963":0.5723248404607785,"1964":0.1858066494361856,"1965":0.08776884647052921,"1966":0.01728271058925162,"1967":0.011158556624630033,"1968":0.01839734965733936,"1969":0.00676800671097763,"1970":0.001037907444768228},"confidence":0.5188654455183758}},"usage":{"input_tokens":125,"output_tokens":0}}
-}

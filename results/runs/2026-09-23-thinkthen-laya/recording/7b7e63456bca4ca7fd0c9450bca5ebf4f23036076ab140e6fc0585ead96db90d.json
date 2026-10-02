@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Jesse W. Reno","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"achromatic lens","b":"pitot tube","c":"traveling-wave tube","d":"escalator"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0704, "probabilities": {"a": 0.1287, "b": 0.4059, "c": 0.2998, "d": 0.1656}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"My account is locked after three wrong passwords.","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"Which team owns this?","criteria":{"billing":"Invoices, fees, and refunds.","shipping":"Parcels and delivery.","account":"Logins and passwords."}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "account", "confidence": 0.8552, "probabilities": {"billing": 0.0158, "shipping": 0.0151, "account": 0.9691}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
-}

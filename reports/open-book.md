@@ -156,13 +156,13 @@ One entry adds tens of input tokens to each question. In the audit example, 70 q
 
 ### What it costs
 
-The whole catalog is large. Each open-book question carries it, so each costs far more. This command adds up the input tokens of each run. It prices them at Jev's 0.042 dollars per million input tokens, from `results/tables/cost.tsv`:
+The whole catalog is large. Each open-book question carries it, so each costs far more. This command adds up the input tokens of each run from `results/answers.jsonl`. It prices them at Jev's 0.042 dollars per million input tokens, from `results/tables/cost.tsv`:
 
 ```sh
 for run in 2026-09-26-thinkthen-jev 2026-09-26-thinkthen-jev-open-book; do
-  jq -sc --arg run "$run" '(map(.input_tokens) | add) as $t
+  jq -sc --arg run "$run" 'map(select(.run == $run)) | (map(.input_tokens) | add) as $t
     | {run: $run, answers: length, input_tokens: $t, tokens_per_answer: ($t / length | round),
-       dollars_per_1000_answers: ($t / length * 0.042 | round / 1000)}' "results/runs/$run/answers.jsonl"
+       dollars_per_1000_answers: ($t / length * 0.042 | round / 1000)}' results/answers.jsonl
 done
 ```
 

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"The Long and Winding Road","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Let It Be","b":"Beatles for Sale","c":"Rubber Soul","d":"With the Beatles"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9962047054501029,"b":0.0002296848523641095,"c":0.003375194266918314,"d":0.00019041543061481313},"confidence":0.9949396072668039}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

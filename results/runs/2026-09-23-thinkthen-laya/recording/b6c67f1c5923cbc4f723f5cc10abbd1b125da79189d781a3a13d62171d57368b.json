@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"The Night Before","b":"Lucy in the Sky with Diamonds","c":"Magical Mystery Tour","d":"Octopus's Garden"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0083, "probabilities": {"a": 0.2037, "b": 0.2503, "c": 0.3096, "d": 0.2365}}}, "usage": {"input_tokens": 67, "output_tokens": 0}}
-}

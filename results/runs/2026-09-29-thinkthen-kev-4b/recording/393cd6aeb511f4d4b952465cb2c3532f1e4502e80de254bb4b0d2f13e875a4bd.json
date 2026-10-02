@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Yellow Submarine","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Yer Blues","b":"Ob-La-Di, Ob-La-Da","c":"I'm Looking Through You","d":"Hey Bulldog"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.1187,"probabilities":{"a":0.2981,"b":0.339,"c":0.2808,"d":0.0821}}},"usage":{"input_tokens":63,"output_tokens":74},"latency_ms":82.3}
-}

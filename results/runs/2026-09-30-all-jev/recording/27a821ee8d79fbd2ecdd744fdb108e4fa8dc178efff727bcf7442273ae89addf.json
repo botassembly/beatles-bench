@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Polythene Pam\"},{\"id\":\"u002\",\"evidence\":\"When I'm Sixty-Four\"},{\"id\":\"u003\",\"evidence\":\"Dig a Pony\"},{\"id\":\"u004\",\"evidence\":\"Kansas City/Hey-Hey-Hey-Hey!\"},{\"id\":\"u005\",\"evidence\":\"Doctor Robert\"},{\"id\":\"u006\",\"evidence\":\"Till There Was You\"},{\"id\":\"u007\",\"evidence\":\"I Need You\"},{\"id\":\"u008\",\"evidence\":\"And Your Bird Can Sing\"}]","model":"jev-1.13.0","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one has Ringo Starr on lead vocal, alone or with another Beatle?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null,"none":null}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"u004","confidence":0.18,"probabilities":{"u006":0.02,"none":0.08,"u002":0.19,"u007":0.08,"u005":0.09,"u004":0.28,"u008":0.0,"u003":0.14,"u001":0.12}}},"usage":{"input_tokens":517,"output_tokens":108}}
-}

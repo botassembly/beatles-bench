@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nWith the Beatles (1963-11-22)\nMoney (That's What I Want) (lead: Lennon; written: Berry Gordy, Janie Bradford; 2:49; released 1963-11-22; first album: With the Beatles)\nText: Money (That's What I Want)","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.02}},"usage":{"input_tokens":367,"output_tokens":21}}
-}

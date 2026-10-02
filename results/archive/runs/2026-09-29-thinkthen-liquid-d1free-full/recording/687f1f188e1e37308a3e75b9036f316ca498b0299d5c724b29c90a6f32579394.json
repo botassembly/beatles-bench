@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"All Together Now","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Help!","c":"Yellow Submarine","d":"Please Please Me"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.06281297509201655,"b":0.3395637351836058,"c":0.4940622016142127,"d":0.10356108811016503},"confidence":0.3254162688189503}},"usage":{"input_tokens":97,"output_tokens":0}}
-}

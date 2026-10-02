@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"John Lithgow","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Thomas Markle","b":"Dukagjin Lipa","c":"Arthur Lithgow","d":"Brinley Newton-John"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0361, "probabilities": {"a": 0.2135, "b": 0.1544, "c": 0.2601, "d": 0.372}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"George Harrison","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"With a Little Help from My Friends","b":"Old Brown Shoe","c":"Don't Pass Me By","d":"And I Love Her"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.99,"probabilities":{"c":0.01,"d":0.0,"a":0.0,"b":0.99}}},"usage":{"input_tokens":359,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"With the Beatles","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Ob-La-Di, Ob-La-Da","b":"A Taste of Honey","c":"Octopus's Garden","d":"Not a Second Time"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0783, "probabilities": {"a": 0.4608, "b": 0.2136, "c": 0.1632, "d": 0.1624}}}, "usage": {"input_tokens": 65, "output_tokens": 0}}
-}

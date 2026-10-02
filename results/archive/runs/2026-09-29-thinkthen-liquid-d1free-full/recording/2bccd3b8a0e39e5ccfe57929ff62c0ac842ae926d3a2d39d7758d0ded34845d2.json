@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Johnny B. Goode","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who sings the lead vocal on it?","criteria":{"john":"John Lennon","paul":"Paul McCartney","george":"George Harrison","ringo":"Ringo Starr"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"ringo","probabilities":{"john":0.12303433032671286,"paul":0.29514398014663207,"george":0.20284931743599732,"ringo":0.37897237209065776},"confidence":0.17196316278754367}},"usage":{"input_tokens":103,"output_tokens":0}}
-}

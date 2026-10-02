@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"I Have a Dream","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Honey Pie","b":"I Should Have Known Better","c":"I'll Get You","d":"Don't Let Me Down"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.12,"probabilities":{"c":0.18,"b":0.28,"a":0.2,"d":0.34}}},"usage":{"input_tokens":362,"output_tokens":46}}
-}

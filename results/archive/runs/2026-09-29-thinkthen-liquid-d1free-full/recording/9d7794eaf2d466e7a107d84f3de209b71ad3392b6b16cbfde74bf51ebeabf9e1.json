@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"John L. Nelson","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Prince","b":"Bryan Cranston","c":"John Lithgow","d":"Keira Knightley"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.03463259368314774,"b":0.11355590294335174,"c":0.8390708872006265,"d":0.012740616172874046},"confidence":0.7854278496008353}},"usage":{"input_tokens":95,"output_tokens":0}}
-}

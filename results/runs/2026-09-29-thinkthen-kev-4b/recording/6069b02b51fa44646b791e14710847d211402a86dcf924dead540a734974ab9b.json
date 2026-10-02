@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Peter Hall","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"Sydney Opera House","b":"United States Capitol","c":"Prague Castle","d":"St. Peter's Basilica"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.1043,"probabilities":{"a":0.3282,"b":0.1681,"c":0.2605,"d":0.2431}}},"usage":{"input_tokens":51,"output_tokens":75},"latency_ms":96.2}
-}

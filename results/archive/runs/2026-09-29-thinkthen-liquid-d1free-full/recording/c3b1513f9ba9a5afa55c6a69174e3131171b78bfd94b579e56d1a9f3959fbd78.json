@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Please Please Me","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Piggies","b":"Misery","c":"You're Going to Lose That Girl","d":"If I Fell"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.002626218594041364,"b":0.995300811541424,"c":0.0007524242247962749,"d":0.001320545639738445},"confidence":0.9937344153885653}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

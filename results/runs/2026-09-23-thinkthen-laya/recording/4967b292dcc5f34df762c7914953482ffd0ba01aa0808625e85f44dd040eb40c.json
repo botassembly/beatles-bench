@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"1968 United States presidential election","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1968","b":"November 1967","c":"November 1968","d":"April 1968"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0737, "probabilities": {"a": 0.1602, "b": 0.4203, "c": 0.2865, "d": 0.1329}}}, "usage": {"input_tokens": 45, "output_tokens": 0}}
-}

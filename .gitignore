@@ -3,9 +3,6 @@ __pycache__/
 *.pyc
 results/runs/*/replay/
 results/runs/*/*/replay/
-results/archive/runs/*/replay/
-results/archive/runs/*/*/replay/
-results/runs/*/12-diff/[ab].jsonl
 results/runs/*/diff/[ab].jsonl
 .venv/
 /cache/

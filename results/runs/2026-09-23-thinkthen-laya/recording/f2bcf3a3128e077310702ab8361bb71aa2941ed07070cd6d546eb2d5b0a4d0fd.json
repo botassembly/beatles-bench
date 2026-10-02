@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Rocky Raccoon","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"The Beatles (White Album)","b":"Revolver","c":"Help!"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2244, "probabilities": {"a": 0.6761, "b": 0.1811, "c": 0.1428}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
-}

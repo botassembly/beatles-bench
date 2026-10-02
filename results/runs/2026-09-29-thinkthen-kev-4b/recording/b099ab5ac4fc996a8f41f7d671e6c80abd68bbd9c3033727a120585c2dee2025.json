@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"A Day in the Life","b":"Devil in Her Heart","c":"The Night Before","d":"All My Loving"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.4539,"probabilities":{"a":0.5904,"b":0.1326,"c":0.1675,"d":0.1095}}},"usage":{"input_tokens":65,"output_tokens":75},"latency_ms":98.1}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"All Things Must Pass","b":"(You're So Square) Baby I Don't Care","c":"Twist and Shout","d":"Long, Long, Long"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.013451495911788203,"b":0.17444165319247304,"c":0.030313413977270973,"d":0.7817934369184678},"confidence":0.7090579158912904}},"usage":{"input_tokens":117,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Golden Slumbers","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"September 1968","b":"August 1970","c":"September 1969","d":"October 1968"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.0433,"probabilities":{"a":0.2228,"b":0.218,"c":0.2825,"d":0.2768}}},"usage":{"input_tokens":67,"output_tokens":74},"latency_ms":112.6}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"The strap snapped on day two.","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"Is this a complaint?"}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.3958}}, "usage": {"input_tokens": 38, "output_tokens": 0}}
-}

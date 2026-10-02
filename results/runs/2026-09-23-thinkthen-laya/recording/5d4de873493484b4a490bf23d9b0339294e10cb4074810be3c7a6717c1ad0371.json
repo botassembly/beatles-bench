@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Brandenburg Gate","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a building or structure. Who was an architect of it?","criteria":{"a":"Ulrich Ensingen","b":"Peter Hall","c":"Heinrich Strack","d":"Vedat Dalokay"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1366, "probabilities": {"a": 0.5083, "b": 0.2172, "c": 0.1934, "d": 0.081}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

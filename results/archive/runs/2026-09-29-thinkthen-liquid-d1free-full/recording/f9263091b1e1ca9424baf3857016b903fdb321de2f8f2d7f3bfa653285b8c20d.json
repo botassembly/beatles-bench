@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Vedat Dalokay","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"Brandenburg Gate","b":"Prague Castle","c":"Faisal Mosque","d":"United States Capitol"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.11082490112186526,"b":0.09187707004949001,"c":0.7692771056238913,"d":0.028020923204753405},"confidence":0.6923694741651883}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

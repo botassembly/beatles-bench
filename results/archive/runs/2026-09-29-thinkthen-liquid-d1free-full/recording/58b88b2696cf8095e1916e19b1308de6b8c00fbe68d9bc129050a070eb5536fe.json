@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Why Don't We Do It in the Road?","b":"Mother Nature's Son","c":"Not a Second Time","d":"Lovely Rita"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.6475198849969125,"b":0.06824809376706215,"c":0.014305574194217012,"d":0.2699264470418084},"confidence":0.5300265133292167}},"usage":{"input_tokens":116,"output_tokens":0}}
-}

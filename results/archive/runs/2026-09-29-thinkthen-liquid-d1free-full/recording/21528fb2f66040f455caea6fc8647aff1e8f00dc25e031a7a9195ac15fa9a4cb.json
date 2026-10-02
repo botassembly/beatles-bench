@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Words of Love","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Please Please Me","c":"Sgt. Pepper's Lonely Hearts Club Band","d":"Let It Be"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.3341061757141605,"b":0.42900077034844264,"c":0.05805894768499702,"d":0.17883410625239973},"confidence":0.23866769379792352}},"usage":{"input_tokens":107,"output_tokens":0}}
-}

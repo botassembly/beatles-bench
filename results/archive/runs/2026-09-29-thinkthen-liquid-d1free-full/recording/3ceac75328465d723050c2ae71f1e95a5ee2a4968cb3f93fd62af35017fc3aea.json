@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Money (That's What I Want)","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"other","probabilities":{"lennon-mccartney":0.009706140268063424,"harrison":0.00015688507088617283,"starr":0.00008397452715583592,"other":0.9900530001338945},"confidence":0.9867373335118593}},"usage":{"input_tokens":109,"output_tokens":0}}
-}

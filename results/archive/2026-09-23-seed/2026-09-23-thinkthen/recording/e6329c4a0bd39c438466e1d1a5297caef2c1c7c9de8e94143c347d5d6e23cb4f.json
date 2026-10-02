@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Gerald W. Abrams","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Maximilian Schell","b":"Neil Young","c":"J. J. Abrams","d":"Miles Davis"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.99,"probabilities":{"d":0.0,"a":0.0,"c":1.0,"b":0.0}}},"usage":{"input_tokens":357,"output_tokens":46}}
-}

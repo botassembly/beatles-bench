@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Francis Ford Coppola","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Lilian Fontaine","b":"Grace Ho","c":"Patsy Swayze","d":"Italia Coppola"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.0008039660417632191,"b":0.00012329212688876542,"c":0.00002584343374196328,"d":0.9990468983976062},"confidence":0.9987291978634749}},"usage":{"input_tokens":97,"output_tokens":0}}
-}

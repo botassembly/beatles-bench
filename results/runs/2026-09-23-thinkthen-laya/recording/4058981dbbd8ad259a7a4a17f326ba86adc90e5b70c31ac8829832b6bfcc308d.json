@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Dig It","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who produced it?","criteria":{"a":"George Martin","b":"Phil Spector"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.5569, "probabilities": {"a": 0.908, "b": 0.092}}}, "usage": {"input_tokens": 36, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"No Reply","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"Yellow Submarine","c":"Beatles for Sale","none":"none of these"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"none","confidence":0.228,"probabilities":{"a":0.1942,"b":0.1632,"c":0.2216,"none":0.421}}},"usage":{"input_tokens":53,"output_tokens":73},"latency_ms":97.4}
-}

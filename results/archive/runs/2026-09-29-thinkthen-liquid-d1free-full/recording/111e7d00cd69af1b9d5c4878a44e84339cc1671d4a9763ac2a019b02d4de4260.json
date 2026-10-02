@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Jean-Paul Belmondo","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Paul Ronan","b":"Murry Wilson","c":"Elias Disney","d":"Paul Belmondo"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00012339130425739994,"b":0.000008396883633975942,"c":0.000017776202792621766,"d":0.9998504356093161},"confidence":0.9998005808124214}},"usage":{"input_tokens":93,"output_tokens":0}}
-}

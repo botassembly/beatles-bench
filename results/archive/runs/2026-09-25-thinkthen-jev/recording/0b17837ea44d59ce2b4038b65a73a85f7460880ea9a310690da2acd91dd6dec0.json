@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Prometheus","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Marc Streitenfeld","b":"Jocelyn Pook","c":"Harald Kloser","d":"György Ligeti"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.78,"probabilities":{"c":0.1,"a":0.84,"b":0.05,"d":0.01}}},"usage":{"input_tokens":353,"output_tokens":46}}
-}

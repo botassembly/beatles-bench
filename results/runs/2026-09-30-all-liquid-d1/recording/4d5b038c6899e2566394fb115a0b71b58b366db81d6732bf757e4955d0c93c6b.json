@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Baby It's You\"},{\"id\":\"u002\",\"evidence\":\"Another Girl\"},{\"id\":\"u003\",\"evidence\":\"Eleanor Rigby\"},{\"id\":\"u004\",\"evidence\":\"I'm a Loser\"},{\"id\":\"u005\",\"evidence\":\"You've Got to Hide Your Love Away\"},{\"id\":\"u006\",\"evidence\":\"Happiness Is a Warm Gun\"},{\"id\":\"u007\",\"evidence\":\"Ticket to Ride\"},{\"id\":\"u008\",\"evidence\":\"Her Majesty\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one has George Harrison on lead vocal, alone or with another Beatle?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null,"none":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u004","probabilities":{"u001":0.02777499952326076,"u002":0.020320623745203097,"u003":0.00353119407967432,"u004":0.5578757784659739,"u005":0.33836876395066606,"u006":0.002279910254072621,"u007":0.002583476777533585,"u008":0.0014720206959298286,"none":0.04579323250768594},"confidence":0.5026102507742206}},"usage":{"input_tokens":226,"output_tokens":0}}
-}

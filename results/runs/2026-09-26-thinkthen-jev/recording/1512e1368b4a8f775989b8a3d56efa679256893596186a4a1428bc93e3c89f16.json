@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"I Have a Dream","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"For No One","b":"A Hard Day's Night","c":"Helter Skelter","d":"She Loves You"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.14,"probabilities":{"d":0.18,"c":0.13,"a":0.36,"b":0.33}}},"usage":{"input_tokens":361,"output_tokens":46}}
-}

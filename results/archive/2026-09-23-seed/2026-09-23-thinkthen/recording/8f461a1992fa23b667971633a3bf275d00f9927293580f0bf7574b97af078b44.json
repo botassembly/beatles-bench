@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Why Don't We Do It in the Road?","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Beatles for Sale","b":"The Beatles (White Album)","c":"Abbey Road","d":"Sgt. Pepper's Lonely Hearts Club Band"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.87,"probabilities":{"d":0.02,"b":0.9,"c":0.06,"a":0.02}}},"usage":{"input_tokens":373,"output_tokens":46}}
-}

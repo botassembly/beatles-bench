@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Love You To","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"May 1966","b":"July 1967","c":"November 1965","d":"August 1966"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.6136937739216758,"b":0.011240192881446164,"c":0.0028419658249122367,"d":0.37222406737196573},"confidence":0.48492503189556774}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

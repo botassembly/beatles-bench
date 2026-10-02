@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Don't Pass Me By","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Let It Be","c":"Revolver","none":"none of these"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.004322204886362208,"b":0.8767883922270218,"c":0.014171964221549399,"none":0.10471743866506657},"confidence":0.8357178563026957}},"usage":{"input_tokens":100,"output_tokens":0}}
-}

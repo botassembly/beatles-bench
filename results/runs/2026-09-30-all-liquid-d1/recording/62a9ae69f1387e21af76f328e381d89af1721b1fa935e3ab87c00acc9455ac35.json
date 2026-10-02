@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Glass Onion\"},{\"id\":\"u002\",\"evidence\":\"Tell Me What You See\"},{\"id\":\"u003\",\"evidence\":\"Honey Don't\"},{\"id\":\"u004\",\"evidence\":\"I Want to Tell You\"},{\"id\":\"u005\",\"evidence\":\"Dizzy Miss Lizzy\"},{\"id\":\"u006\",\"evidence\":\"I'll Be Back\"},{\"id\":\"u007\",\"evidence\":\"For You Blue\"},{\"id\":\"u008\",\"evidence\":\"Wild Honey Pie\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one has Ringo Starr on lead vocal, alone or with another Beatle?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u003","probabilities":{"u001":0.07620605922151333,"u002":0.05237560748185601,"u003":0.3870063018990059,"u004":0.009101515852734757,"u005":0.18280883271708184,"u006":0.06725161122116374,"u007":0.20714954600031354,"u008":0.018100525606330835},"confidence":0.2994357735988639}},"usage":{"input_tokens":223,"output_tokens":0}}
-}

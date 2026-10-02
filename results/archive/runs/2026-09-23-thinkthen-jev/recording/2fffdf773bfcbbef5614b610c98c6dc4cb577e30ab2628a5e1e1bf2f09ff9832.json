@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Across the Universe","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"December 1969","b":"March 1969","c":"January 1969","d":"August 1969"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.2,"probabilities":{"a":0.32,"b":0.4,"c":0.13,"d":0.15}}},"usage":{"input_tokens":367,"output_tokens":46}}
-}

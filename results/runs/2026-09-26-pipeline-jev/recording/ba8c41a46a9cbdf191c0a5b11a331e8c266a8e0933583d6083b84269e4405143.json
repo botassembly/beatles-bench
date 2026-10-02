@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Come Together","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"Which of the Beatles sang lead vocals on the song?\n\nDetermine whether the label \"Lennon\" applies to this item.","criteria":{"true":"John Lennon sang lead."}},"q2":{"type":"noul","instructions":"Which of the Beatles sang lead vocals on the song?\n\nDetermine whether the label \"McCartney\" applies to this item.","criteria":{"true":"Paul McCartney sang lead."}},"q3":{"type":"noul","instructions":"Which of the Beatles sang lead vocals on the song?\n\nDetermine whether the label \"Harrison\" applies to this item.","criteria":{"true":"George Harrison sang lead."}},"q4":{"type":"noul","instructions":"Which of the Beatles sang lead vocals on the song?\n\nDetermine whether the label \"Starr\" applies to this item.","criteria":{"true":"Ringo Starr sang lead."}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.94},"q2":{"type":"noul","noul":0.08},"q3":{"type":"noul","noul":0.04},"q4":{"type":"noul","noul":0.04}},"usage":{"input_tokens":467,"output_tokens":72}}
-}

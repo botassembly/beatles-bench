@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Don't Pass Me By","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"a":"Lennon–McCartney","b":"George Harrison","c":"John Lennon","d":"Ringo Starr"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.5048,"probabilities":{"a":0.6286,"b":0.0892,"c":0.2463,"d":0.0359}}},"usage":{"input_tokens":55,"output_tokens":75},"latency_ms":83.9}
-}

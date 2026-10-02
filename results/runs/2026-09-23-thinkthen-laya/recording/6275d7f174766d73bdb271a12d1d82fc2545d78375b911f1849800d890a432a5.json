@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"The Beatles (White Album)","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Yer Blues","b":"The End","c":"Money (That's What I Want)","d":"Please Please Me"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0214, "probabilities": {"a": 0.1673, "b": 0.2377, "c": 0.2575, "d": 0.3375}}}, "usage": {"input_tokens": 63, "output_tokens": 0}}
-}

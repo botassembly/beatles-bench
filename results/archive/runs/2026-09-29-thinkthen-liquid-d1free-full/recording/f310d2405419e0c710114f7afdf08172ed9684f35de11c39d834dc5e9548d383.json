@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I'm Only Sleeping","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Revolver","b":"A Hard Day's Night","c":"Beatles for Sale","d":"Abbey Road"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9983629695121194,"b":0.000216236385386082,"c":0.0007547391448793159,"d":0.0006660549576153425},"confidence":0.9978172926828259}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

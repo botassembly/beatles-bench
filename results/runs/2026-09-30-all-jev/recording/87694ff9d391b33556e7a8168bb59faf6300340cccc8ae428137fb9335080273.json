@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"It's All Too Much\"},{\"id\":\"u002\",\"evidence\":\"A Taste of Honey\"},{\"id\":\"u003\",\"evidence\":\"The Word\"},{\"id\":\"u004\",\"evidence\":\"Till There Was You\"},{\"id\":\"u005\",\"evidence\":\"For You Blue\"},{\"id\":\"u006\",\"evidence\":\"Get Back\"},{\"id\":\"u007\",\"evidence\":\"Think for Yourself\"},{\"id\":\"u008\",\"evidence\":\"Chains\"}]","model":"jev-1.13.0","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one has John Lennon on lead vocal, alone or with another Beatle?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"u007","confidence":0.32,"probabilities":{"u008":0.04,"u001":0.08,"u006":0.11,"u005":0.13,"u004":0.02,"u002":0.01,"u007":0.39999999999999997,"u003":0.21}}},"usage":{"input_tokens":496,"output_tokens":101}}
-}

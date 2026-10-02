@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Lucio Quarantotto","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“Con te partirò” by Andrea Bocelli","b":"“The Nights” by Avicii","c":"“What Is Love” by Haddaway","d":"“Toxic” by Britney Spears"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.77,"probabilities":{"c":0.13,"a":0.83,"b":0.03,"d":0.01}}},"usage":{"input_tokens":377,"output_tokens":46}}
-}

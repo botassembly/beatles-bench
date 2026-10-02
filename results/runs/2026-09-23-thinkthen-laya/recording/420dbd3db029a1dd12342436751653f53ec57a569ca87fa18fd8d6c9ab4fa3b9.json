@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Assassination of John F. Kennedy","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Not a Second Time","b":"Anna (Go to Him)","c":"While My Guitar Gently Weeps","d":"I Forgot to Remember to Forget"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.1861, "probabilities": {"a": 0.2648, "b": 0.1088, "c": 0.5449, "d": 0.0815}}}, "usage": {"input_tokens": 74, "output_tokens": 0}}
-}

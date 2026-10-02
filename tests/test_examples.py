@@ -50,11 +50,6 @@ EXPONENT = re.compile(r"(?<![0-9A-Za-z_.])-?\d+(?:\.\d+)?e-?\d{1,3}(?![0-9A-Za-z
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
 import examples as gen  # noqa: E402
-from builds import bench_bin, bin_for, build_id, pinned_commit  # noqa: E402
-
-# recognize and relate keep old-form recordings: 0.1.0's planners ask different questions, so their answers cannot
-# be converted without changing them. They replay only under the build their run.txt names.
-OLD_FORM = {"recognize", "relate"}
 
 
 def answers(folder):
@@ -127,18 +122,14 @@ class ExamplesTest(unittest.TestCase):
                 self.assertIn(cell.strip(), ("the deck holds it", "no bench data"), name)
         self.assertEqual(linked, {n: 1 for n in FOLDERS + SLIDES})
 
-    def test_each_recording_is_a_question_store_or_its_pinned_old_form(self):
+    def test_each_recording_is_a_question_store(self):
         """0.1.0 replays a question store: one thinkthen.jsonl, every line parsing, no old entries, folder markers,
-        .locks, or thinkthen.sqlite. The folders in OLD_FORM keep the old form because 0.1.0 asks other questions."""
+        .locks, or thinkthen.sqlite."""
         for name in FOLDERS:
             rec = EXAMPLES / name / "recording"
             if not rec.is_dir():
                 continue
             names = [p.name for p in rec.iterdir()]
-            if name in OLD_FORM:
-                self.assertNotIn("thinkthen.jsonl", names, name)
-                self.assertTrue(any(n.endswith(".json") for n in names), name)
-                continue
             self.assertEqual(names, ["thinkthen.jsonl"], name)
             for i, line in enumerate(rec.joinpath("thinkthen.jsonl").open(encoding="utf-8"), 1):
                 self.assertIsInstance(json.loads(line), dict, f"{name} line {i}")
@@ -232,107 +223,45 @@ class ArgumentTest(unittest.TestCase):
             self.assertTrue(done.stderr.startswith("usage: ./run "), f"{name} {args}: {done.stderr}")
 
 
-def needed(command, cwd):
-    """The thinkthen a page command needs: BIN, or the BENCH_BIN_<build> for the run or folder whose recording the
-    command replays. Returns (command path, None) or (None, a reason naming the build and the variable)."""
-    m = re.search(r"--replay\s+(\S+)", command)
-    if m:
-        rec = (cwd / m.group(1)).resolve()
-        if str(rec).startswith(str(ROOT / "results")):
-            return bin_for(rec)
-        if rec.name == "recording" and rec.parent.is_dir():
-            if (rec / "thinkthen.jsonl").exists():
-                return BIN, None
-            commit = build_id(pinned_commit(rec.parent))
-            if commit:
-                bin = bench_bin(commit)
-                return (bin, None) if bin else (None, f"{rec.parent.relative_to(ROOT)} binds to thinkthen "
-                                                      f"{commit}; set BENCH_BIN_{commit}")
-        return BIN, None
-    fld = cwd if cwd.parent == EXAMPLES else None
-    if fld and (fld / "recording").is_dir() and not (fld / "recording" / "thinkthen.jsonl").exists():
-        commit = build_id(pinned_commit(fld))
-        if commit:
-            bin = bench_bin(commit)
-            return (bin, None) if bin else (None, f"{fld.relative_to(ROOT)} binds to thinkthen {commit}; "
-                                                  f"set BENCH_BIN_{commit}")
-    return BIN, None
-
-
-@unittest.skipUnless(shutil.which("jq"), "jq is missing")
 class ExamplePageTest(unittest.TestCase):
     def test_each_command_on_a_page_prints_the_block_below_it(self):
-        """A command that calls thinkthen runs only when a build is present, with no key and no address. Every such
-        command answers from a recording or reads saved answers, so it sends no request. A command that replays a
-        results/ recording or an old-form example folder runs only under the build that recorded it."""
+        """A command that calls thinkthen runs under BIN, with no key and no address. Every such command answers from
+        a recording or reads saved answers, so it sends no request. The suite needs jq and thinkthen 0.1.0."""
+        self.assertTrue(shutil.which("jq"), "jq is missing")
+        self.assertTrue(BIN and Path(BIN).exists(), "the thinkthen command is missing")
         env = {k: v for k, v in os.environ.items() if k not in ("THINKTHEN_API_KEY", "THINKTHEN_BASE_URL")}
-        bin_dirs = {}
-        skipped = []
+        d = Path(tempfile.mkdtemp())
+        self.addCleanup(shutil.rmtree, d, True)
+        (d / "thinkthen").symlink_to(Path(BIN).resolve())
+        env["PATH"] = f"{d}{os.pathsep}{os.environ.get('PATH', '')}"
         for page, cwd, text in pages():
             found = pairs(text)
             if folder(page) is not None:
                 self.assertTrue(found, page)
             for command, block, _ in found:
-                bin = None
-                if BUILD.search(command):
-                    bin, why = needed(command, cwd)
-                    if not bin:
-                        skipped.append(why or f"{page.relative_to(ROOT)}: no thinkthen")
-                        continue
-                if bin:
-                    key = str(Path(bin).resolve())
-                    if key not in bin_dirs:
-                        d = Path(tempfile.mkdtemp())
-                        (d / "thinkthen").symlink_to(Path(bin).resolve())
-                        bin_dirs[key] = d
-                    env["PATH"] = f"{bin_dirs[key]}{os.pathsep}{os.environ.get('PATH', '')}"
                 got = subprocess.run(["sh", "-c", command], cwd=cwd, env=env, capture_output=True, text=True)
                 self.assertEqual(got.stdout, block, f"{page.relative_to(ROOT)}: {command}\n{got.stderr}")
-        if skipped:
-            self.skipTest("; ".join(skipped))
 
 
-def example_bin(name):
-    """The command an example's recording replays under: BIN for a question store, else the BENCH_BIN_<build> of the
-    build its run.txt names. Returns (command, None) or (None, a reason naming the build and the variable)."""
-    here = EXAMPLES / name
-    if not (here / "recording").is_dir() or (here / "recording" / "thinkthen.jsonl").exists():
-        return BIN, None
-    commit = build_id(pinned_commit(here))
-    if not commit:
-        return BIN, None
-    bin = bench_bin(commit)
-    return (bin, None) if bin else (None, f"examples/{name} binds to thinkthen {commit}; set BENCH_BIN_{commit}")
-
-
-@unittest.skipUnless(BIN and Path(BIN).exists(), "the thinkthen command is missing")
 class ExampleReplayTest(unittest.TestCase):
     def setUp(self):
+        self.assertTrue(BIN and Path(BIN).exists(), "the thinkthen command is missing")
+        self.assertTrue(tunes(BIN), "this thinkthen has no audit or diff")
         self.env = {k: v for k, v in os.environ.items() if k != "THINKTHEN_API_KEY"}
         self.env["THINKTHEN_BIN"] = BIN
 
     def test_each_example_replays_with_no_key_byte_for_byte(self):
-        skipped = []
         for name in [n for n in FOLDERS if n not in TUNING]:
-            bin, why = example_bin(name)
-            if not bin:
-                skipped.append(why)
-                continue
             here = EXAMPLES / name
             shutil.rmtree(here / "replay", ignore_errors=True)
-            subprocess.run([str(EXAMPLE), name, "replay"], check=True, env={**self.env, "THINKTHEN_BIN": bin},
-                           capture_output=True)
+            subprocess.run([str(EXAMPLE), name, "replay"], check=True, env=self.env, capture_output=True)
             for committed in answers(here):
                 replayed = here / "replay" / committed.relative_to(here)
                 self.assertEqual(replayed.read_bytes(), committed.read_bytes(), str(committed.relative_to(ROOT)))
             self.assertEqual(sorted(p.name for p in (here / "replay" / "lists").glob("*")),
                              sorted(p.name for p in (here / "lists").glob("*")), name)
-        if skipped:
-            self.skipTest("; ".join(skipped))
 
     def test_audit_replays_and_regrades_with_no_key_byte_for_byte(self):
-        if not tunes(BIN):
-            self.skipTest("this thinkthen has no audit or diff")
         here = EXAMPLES / "audit"
         shutil.rmtree(here / "replay", ignore_errors=True)
         subprocess.run([str(EXAMPLE), "audit", "replay"], check=True, env=self.env, capture_output=True)
@@ -343,8 +272,6 @@ class ExampleReplayTest(unittest.TestCase):
             self.assertEqual(replayed.read_bytes(), committed.read_bytes(), str(committed.relative_to(ROOT)))
 
     def test_diff_writes_the_committed_flips_with_no_key(self):
-        if not tunes(BIN):
-            self.skipTest("this thinkthen has no audit or diff")
         here = EXAMPLES / "diff"
         shutil.rmtree(here / "replay", ignore_errors=True)
         subprocess.run([str(ROOT / "scripts" / "score" / "context_diff.sh"), str(EXAMPLES / "audit"), str(here / "replay")],
@@ -353,52 +280,37 @@ class ExampleReplayTest(unittest.TestCase):
 
 
 class RecognizeHowTest(unittest.TestCase):
-    """The recognize-how slide: each word's answers and the names they join into, from a replay with --details."""
-
-    def setUp(self):
-        bin, why = example_bin("recognize")
-        if not bin:
-            self.skipTest(why)
-        self.bin = bin
+    """The recognize-how page: each piece's place in a name and each name's kind, from a replay with --details."""
 
     def run_recognize(self, *args):
+        self.assertTrue(BIN and Path(BIN).exists(), "the thinkthen command is missing")
         here = EXAMPLES / "recognize"
         case = json.loads((here / "recognize-cold.jsonl").read_text(encoding="utf-8").splitlines()[0])
         env = {k: v for k, v in os.environ.items() if k not in ("THINKTHEN_API_KEY", "THINKTHEN_BASE_URL")}
-        done = subprocess.run([self.bin, "recognize", "person", "song", "album", "place", "--threshold", "0.01", *args],
+        done = subprocess.run([BIN, "recognize", "person", "song", "album", "place", "--threshold", "0.01",
+                               "--model", "jev-latest", *args],
                               input=case["records"][0]["input"], cwd=here, env=env, capture_output=True, text=True, check=True)
-        return json.loads(done.stdout.splitlines()[0])
+        return json.loads(done.stdout.splitlines()[0]), case["records"][0]["input"]
 
-    def test_the_page_shows_the_replayed_words_names_and_tokens(self):
+    def test_the_page_shows_the_replayed_pieces_names_and_tokens(self):
         page = (EXAMPLES / "recognize-how" / "README.md").read_text(encoding="utf-8")
-        got = self.run_recognize("--replay", "recording", "--details")
-        kinds = list(got["question"]["kinds"])
-        words = []
-        for i, t in enumerate(got["answer"]["tokens"], 1):
-            kp = t["kind_probabilities"]
-            self.assertEqual(sorted(kp)[-1] > sorted(kp)[-2], True, t["token"])  # one top kind
-            words.append((t["token"], t["detection_probability"], kinds[kp.index(max(kp))]))
-            self.assertIn(f"| {i} | {words[-1][0]} | {words[-1][1]} | {words[-1][2]} |\n", page)
-        self.assertEqual(len(re.findall(r"(?m)^\| \d+ \| ", page)), len(words))
-        names, i = [], 0
-        while i < len(words):  # each run of words above one half is one name, of its most common kind
-            if words[i][1] <= 0.5:
-                i += 1
-                continue
-            j = i
-            while j + 1 < len(words) and words[j + 1][1] > 0.5:
-                j += 1
-            ks = [w[2] for w in words[i:j + 1]]
-            names.append((" ".join(w[0] for w in words[i:j + 1]), max(ks, key=ks.count)))
-            i = j + 1
-        self.assertEqual(names, [(e["name"], e["kind"]) for e in got["value"]["entities"]])
-        for name, kind in names:
-            self.assertIn(f"| {name} | {kind} |\n", page)
+        got, text = self.run_recognize("--replay", "recording", "--details")
+        pieces = got["answer"]["pieces"]
+        for i, p in enumerate(pieces, 1):
+            place = max(p["tags"], key=p["tags"].get)
+            self.assertIn(f"| {i} | {text[p['start']:p['end']]} | {place} | {p['tags'][place]} |\n", page)
+        self.assertEqual(len(re.findall(r"(?m)^\| \d+ \| ", page)), len(pieces))
+        names = got["answer"]["names"]
+        for n in names:
+            kind = max(n["kinds"], key=n["kinds"].get)
+            self.assertIn(f"| {text[n['start']:n['end']]} | {kind} | {n['kinds'][kind]} |\n", page)
+        self.assertEqual([(text[n["start"]:n["end"]], max(n["kinds"], key=n["kinds"].get)) for n in names],
+                         [(e["text"], e["kind"]) for e in got["value"]["entities"]])
         usage = got["meta"]["usage"]
         self.assertIn(f"`{usage['input_tokens']}` input tokens and `{usage['output_tokens']}` output tokens", page)
         self.assertIn(f"`{got['meta']['model']}`", page)
-        plan = self.run_recognize("--dry-run")
-        self.assertEqual(plan.get("request_count", plan.get("requests")), 1)
+        plan, _ = self.run_recognize("--plan")
+        self.assertEqual(plan["request_count"], 1)
 
 
 if __name__ == "__main__":

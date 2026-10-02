@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Japan Air Lines Flight 351","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"March 1970","b":"November 1969","c":"March 1971","d":"August 1969"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7078852401641424,"b":0.2028125229778386,"c":0.07461054872138655,"d":0.014691688136632363},"confidence":0.6105136535521899}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

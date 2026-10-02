@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"May 1966 lunar eclipse","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"November 1965","b":"February 1966","c":"May 1967","d":"May 1966"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.000006143817292981114,"b":0.000020144801356963767,"c":0.00003763544369842271,"d":0.9999360759376515},"confidence":0.9999147679168687}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

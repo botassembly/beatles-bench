@@ -37,9 +37,11 @@ CUTS = [round(0.1 * i, 1) for i in range(1, 10)]
 
 def newest(label, runs=ROOT / "results" / "runs"):
     """The newest folder named DATE-LABEL in runs, where DATE is YYYY-MM-DD and LABEL matches the rest of the name
-    exactly. Code finds a dated run this way, so a fresh run of the same label takes over and the old one stays."""
+    exactly. Code finds a dated run this way, so a fresh run of the same label takes over and the old one stays.
+    A folder that holds only a README.md is a stub pointing to a run in Git history, not a run."""
     found = sorted(p for p in Path(runs).glob(f"*-{label}")
-                   if p.is_dir() and re.fullmatch(r"\d{4}-\d\d-\d\d-" + re.escape(label), p.name))
+                   if p.is_dir() and re.fullmatch(r"\d{4}-\d\d-\d\d-" + re.escape(label), p.name)
+                   and any(c.name != "README.md" for c in p.iterdir()))
     if not found:
         raise FileNotFoundError(f"no {Path(runs) / ('DATE-' + label)} folder")
     return found[-1]

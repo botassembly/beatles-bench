@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"All Together Now","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year did the first album to include it come out?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "1966", "confidence": 0.0057, "probabilities": {"1963": 0.1159, "1964": 0.1347, "1965": 0.0954, "1966": 0.1546, "1967": 0.1225, "1968": 0.1132, "1969": 0.1519, "1970": 0.1119}}}, "usage": {"input_tokens": 67, "output_tokens": 0}}
-}

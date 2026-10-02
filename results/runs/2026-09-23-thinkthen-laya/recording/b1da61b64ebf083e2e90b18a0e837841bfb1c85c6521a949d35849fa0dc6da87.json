@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"From Me to You / Mean Mr. Mustard","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"From Me to You","b":"Mean Mr. Mustard"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.4216, "probabilities": {"a": 0.8622, "b": 0.1378}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
-}

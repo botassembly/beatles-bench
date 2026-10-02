@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"I'll Follow the Sun / She's a Woman","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"I'll Follow the Sun","b":"She's a Woman"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.6696, "probabilities": {"a": 0.9393, "b": 0.0607}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
-}

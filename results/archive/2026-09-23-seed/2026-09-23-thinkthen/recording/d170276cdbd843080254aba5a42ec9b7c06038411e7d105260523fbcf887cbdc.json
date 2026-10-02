@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"The Beach Boys","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Rain","b":"Teddy Boy","c":"I'll Be Back","d":"Happy Birthday Dear Saturday Club"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.3,"probabilities":{"b":0.13,"d":0.21,"c":0.19,"a":0.47}}},"usage":{"input_tokens":357,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"George Harrison","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"I Forgot to Remember to Forget","b":"Money (That's What I Want)","c":"Tell Me Why","d":"Happiness Is a Warm Gun"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.43,"probabilities":{"b":0.08,"c":0.58,"d":0.18,"a":0.16}}},"usage":{"input_tokens":371,"output_tokens":46}}
-}

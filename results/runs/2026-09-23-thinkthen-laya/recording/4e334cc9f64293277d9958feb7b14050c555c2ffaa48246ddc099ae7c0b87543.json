@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Love You To","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"May 1966","b":"July 1967","c":"November 1965","d":"August 1966"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0822, "probabilities": {"a": 0.4698, "b": 0.166, "c": 0.1955, "d": 0.1687}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
-}

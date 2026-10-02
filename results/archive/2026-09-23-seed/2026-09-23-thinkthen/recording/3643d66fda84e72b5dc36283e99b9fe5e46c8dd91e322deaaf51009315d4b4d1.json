@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"All I've Got to Do","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who composed it?","criteria":{"a":"Paul McCartney","b":"Lennon–McCartney","c":"Ringo Starr","d":"George Harrison"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.75,"probabilities":{"d":0.01,"a":0.17,"c":0.01,"b":0.81}}},"usage":{"input_tokens":358,"output_tokens":46}}
-}

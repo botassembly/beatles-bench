@@ -74,31 +74,27 @@ jq -c 'select(.id == "forward-year-030") | {id, function, question, input, optio
 
 ## How Jev answered it
 
-The fresh run of 2026-09-26 recorded Jev's answer to every question. This command asks the question again from that recording, with no key:
+The fresh run of 2026-09-26 asked Jev every question. `results/answers.jsonl` keeps its answer to each one, with no key and no model call:
 
 ```sh
-jq -c 'select(.id == "forward-year-030")' questions/forward.jsonl |
-  thinkthen choose 'The text is the title of a song by the Beatles. In what year was it first released?' \
-    --jsonl --field /input --options /options --details --replay results/runs/2026-09-26-thinkthen-jev/recording |
-  jq -c '{song: .input.input, pick: .value, p: .answer.probabilities}'
+jq -c 'select(.run == "2026-09-26-thinkthen-jev" and .id == "forward-year-030") | {id, answer, probability, truth}' results/answers.jsonl
 ```
 
 ```json
-{"song":"Octopus's Garden","pick":"1967","p":{"1962":0.0,"1963":0.0,"1964":0.0,"1965":0.01,"1966":0.18,"1967":0.47,"1968":0.25,"1969":0.09,"1970":0.0}}
+{"id":"forward-year-030","answer":"1967","probability":0.47,"truth":"1969"}
 ```
 
-- `--jsonl` takes the question line as one record.
-- `--field /input` sends only the song title. The rest of the record stays on the machine.
-- `--options /options` reads the options from the record.
+- `answer` is the year Jev picked, and `probability` is the probability it gave that year.
+- `truth` is the right year, from the question.
 
-Jev picks 1967 at 0.47, and it is wrong. The right year, 1969, gets 0.09. Jev gets the singer of Octopus's Garden right in [the choose example](../examples/choose/). It misses the year here and the album in [the annotate example](../examples/annotate/).
+Jev picks 1967 at 0.47, and it is wrong. Jev gets the singer of Octopus's Garden right in [the choose example](../examples/choose/). It misses the year here and the album in [the annotate example](../examples/annotate/). The run's recording, with every option's probability, is at commit a6a6be71: [results/runs/2026-09-26-thinkthen-jev](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-26-thinkthen-jev). It replays only under thinkthen 02dc0b96.
 
 ## The catalog
 
 The context runs send a catalog entry built from the same row. `scripts/run/catalog.py` writes every song as one line under its first album:
 
 ```sh
-grep -F "Octopus's Garden (" results/runs/2026-09-26-thinkthen-jev-open-book/catalog.txt
+python3 scripts/run/catalog.py | grep -F "Octopus's Garden ("
 ```
 
 ```text

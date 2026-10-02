@@ -1,6 +1,6 @@
 # 0026 Delete the old runs and run the bench on 0.1.0 alone
 
-Owner: the queue owner. Status: open.
+Owner: the queue owner. Status: in progress. Ticket review 1 asked for ten fixes; done. Re-review asked to narrow the skip search; done, and accepted.
 
 ## Why
 
@@ -46,7 +46,7 @@ Ian ruled on 2026-10-02. He does not need the old runs, and they can be deleted.
 ## Proof
 
 - `env -u THINKTHEN_API_KEY python3 -m unittest discover -s tests` under `systemd-run --user --scope -p MemoryMax=4G -p MemorySwapMax=0`, on the committed tree, with 0.1.0 on `PATH`, `jq` and `git` present, and no key: 0 failures, 0 errors, 0 skipped. The record gives the count.
-- `grep -rn "skip" tests/` finds no skip call or decorator.
+- `grep -rnE "skipTest|skipIf|skipUnless|unittest\.skip|SkipTest" tests/` finds nothing.
 - `./run.sh` with no key exits 0 and replays all twelve example folders byte for byte.
 - `git ls-files results/runs results/archive` lists only `results/runs/README.md` and the two stub READMEs. The record gives the bytes deleted.
 - Each site path keeps a page at main: the two stubs exist and link a6a6be71.

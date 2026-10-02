@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Nothin' Shakin'","b":"Keep Your Hands off My Baby","c":"The Honeymoon Song","d":"Strawberry Fields Forever"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.1271,"probabilities":{"a":0.2386,"b":0.1826,"c":0.2335,"d":0.3453}}},"usage":{"input_tokens":66,"output_tokens":75},"latency_ms":65.8}
-}

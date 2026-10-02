@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I Call Your Name","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"May 1965","b":"September 1963","c":"June 1964","d":"March 1964"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.1651720879378119,"b":0.11352097812966426,"c":0.27232270224562477,"d":0.4489842316868991},"confidence":0.2653123089158655}},"usage":{"input_tokens":103,"output_tokens":0}}
-}

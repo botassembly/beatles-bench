@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Please Please Me","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"You Can't Do That","b":"Twist and Shout","c":"Honey Don't","d":"Don't Bother Me"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.087, "probabilities": {"a": 0.4728, "b": 0.1942, "c": 0.1913, "d": 0.1417}}}, "usage": {"input_tokens": 62, "output_tokens": 0}}
-}

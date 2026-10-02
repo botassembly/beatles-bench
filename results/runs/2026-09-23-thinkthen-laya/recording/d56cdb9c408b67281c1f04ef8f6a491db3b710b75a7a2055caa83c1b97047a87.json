@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Can't Buy Me Love / Get Back","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Can't Buy Me Love","b":"Get Back"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.1079, "probabilities": {"a": 0.3091, "b": 0.6909}}}, "usage": {"input_tokens": 42, "output_tokens": 0}}
-}

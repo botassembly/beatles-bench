@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Revolution 1","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: 1967 Detroit riot?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"after","probabilities":{"before":0.32082130082460697,"after":0.679178699175393},"confidence":0.35835739835078595}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

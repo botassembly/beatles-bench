@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"The Night Before","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"Yellow Submarine","c":"A Hard Day's Night","d":"Help!"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.18,"probabilities":{"c":0.27,"b":0.09,"a":0.25,"d":0.39}}},"usage":{"input_tokens":358,"output_tokens":46}}
-}

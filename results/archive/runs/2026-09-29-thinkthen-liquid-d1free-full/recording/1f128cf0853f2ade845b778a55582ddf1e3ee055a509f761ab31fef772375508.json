@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Wolf Albach-Retty","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Sergio Leone","b":"Romy Schneider","c":"Olivia de Havilland","d":"Judy Garland"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.0014085389306911762,"b":0.9973010790285781,"c":0.00062503536163869,"d":0.0006653466790921059},"confidence":0.9964014387047708}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

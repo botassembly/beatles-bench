@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":{"evidence":"She Said She Said first appeared on the album Revolver","entities":[{"id":"i1","name":"She Said She Said","kind":"song"},{"id":"i2","name":"album","kind":"album"},{"id":"i3","name":"Revolver","kind":"album"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 appears on i2?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 appears on i3?"}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.817574471748733},"q2":{"type":"noul","noul":0.9970189677130293}},"usage":{"input_tokens":350,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Donato Bramante","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"Sydney Opera House","b":"St. Peter's Basilica","c":"Prague Castle","d":"Ulm Minster"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.0000426436434226704,"b":0.999867777415972,"c":0.000027532805537363613,"d":0.00006204613506802536},"confidence":0.999823703221296}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

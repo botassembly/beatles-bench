@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Assassination of Robert F. Kennedy","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"June 1968","b":"August 1967","c":"April 1969","d":"July 1968"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":1.0,"probabilities":{"b":0.0,"c":0.0,"a":1.0,"d":0.0}}},"usage":{"input_tokens":365,"output_tokens":46}}
-}

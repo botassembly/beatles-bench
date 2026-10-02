@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Audrey Hepburn","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Ella van Heemstra","b":"Rachel Messerer","c":"Magda Schneider","d":"Katharine Martha Houghton Hepburn"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.91,"probabilities":{"c":0.0,"b":0.06,"a":0.9400000000000001,"d":0.0}}},"usage":{"input_tokens":357,"output_tokens":46}}
-}

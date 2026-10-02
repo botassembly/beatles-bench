@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Daniel Day-Lewis","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Dorothy Bridges","b":"Jill Balcon","c":"Teri Shields","d":"Linda Carroll"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.0005510974194691522,"b":0.9964078652406693,"c":0.00006183141683822442,"d":0.0029792059230230815},"confidence":0.995210486987559}},"usage":{"input_tokens":94,"output_tokens":0}}
-}

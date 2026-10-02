@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"1964 United States presidential election","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"January 1964","b":"November 1964","c":"July 1964","d":"November 1965"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.00002144412786242137,"b":0.9999404111222678,"c":0.000024299380314670007,"d":0.000013845369554903662},"confidence":0.9999205481630238}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

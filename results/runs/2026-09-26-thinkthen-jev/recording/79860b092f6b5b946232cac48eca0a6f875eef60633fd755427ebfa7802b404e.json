@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Anouk Aimée","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Geneviève Sorya","b":"Beatrice deMille","c":"Pebe Sebert","d":"Phyllida Law"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.81,"probabilities":{"d":0.01,"b":0.08,"a":0.86,"c":0.05}}},"usage":{"input_tokens":357,"output_tokens":46}}
-}

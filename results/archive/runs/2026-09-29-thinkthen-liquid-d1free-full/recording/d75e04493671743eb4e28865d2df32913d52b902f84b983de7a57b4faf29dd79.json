@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Revolution 1","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Magical Mystery Tour","b":"Let It Be","c":"The Beatles (White Album)","d":"A Hard Day's Night"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.18076428442642195,"b":0.008454460103114863,"c":0.8101293178213765,"d":0.0006519376490865293},"confidence":0.746839090428502}},"usage":{"input_tokens":105,"output_tokens":0}}
-}

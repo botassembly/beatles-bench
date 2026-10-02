@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Sylvia Plachy","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Christina Applegate","b":"Adrien Brody","c":"Cecil B. DeMille","d":"Christopher Plummer"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.04092260216786474,"b":0.5649190975131989,"c":0.0058954612138429775,"d":0.38826283910509335},"confidence":0.41989213001759856}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

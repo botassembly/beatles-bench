@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I'm So Tired","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1964","probabilities":{"1962":0.035147266561141664,"1963":0.22918899514068744,"1964":0.2597051553036103,"1965":0.17849256888691575,"1966":0.05794805980221404,"1967":0.05794805980221404,"1968":0.12267604356395939,"1969":0.04512998359160505,"1970":0.013763867347652383},"confidence":0.1671682997165616}},"usage":{"input_tokens":125,"output_tokens":0}}
-}

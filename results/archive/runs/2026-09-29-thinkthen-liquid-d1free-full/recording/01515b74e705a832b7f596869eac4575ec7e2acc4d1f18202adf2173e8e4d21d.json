@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Savoy Truffle","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"harrison","probabilities":{"lennon-mccartney":0.007571113387234176,"harrison":0.9916201019568501,"starr":0.0005152207319214733,"other":0.00029356392399415077},"confidence":0.9888268026091335}},"usage":{"input_tokens":107,"output_tokens":0}}
-}

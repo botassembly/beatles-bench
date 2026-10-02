@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Every Little Thing","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"Yellow Submarine","c":"Magical Mystery Tour","d":"Help!"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0195, "probabilities": {"a": 0.2432, "b": 0.2012, "c": 0.206, "d": 0.3497}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

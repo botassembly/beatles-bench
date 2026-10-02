@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Marlène Jobert","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Bruce Lee","b":"Katharine Hepburn","c":"Ralph Fiennes","d":"Eva Green"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0976, "probabilities": {"a": 0.1984, "b": 0.4567, "c": 0.0971, "d": 0.2478}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

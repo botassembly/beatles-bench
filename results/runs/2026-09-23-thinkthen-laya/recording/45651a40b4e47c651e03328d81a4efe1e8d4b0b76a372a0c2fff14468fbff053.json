@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Strawberry Fields Forever","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "lennon-mccartney", "confidence": 0.1267, "probabilities": {"lennon-mccartney": 0.4284, "harrison": 0.3551, "starr": 0.1212, "other": 0.0953}}}, "usage": {"input_tokens": 73, "output_tokens": 0}}
-}

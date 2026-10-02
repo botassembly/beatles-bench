@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Nowhere Man","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Rubber Soul","b":"Revolver","c":"Help!"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.815170840840157,"b":0.18188919484427393,"c":0.002939964315569072},"confidence":0.7227562612602356}},"usage":{"input_tokens":91,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"You Never Give Me Your Money","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"With the Beatles","b":"The Beatles (White Album)","c":"Abbey Road","d":"Rubber Soul"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0998, "probabilities": {"a": 0.1418, "b": 0.4111, "c": 0.3405, "d": 0.1066}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
-}

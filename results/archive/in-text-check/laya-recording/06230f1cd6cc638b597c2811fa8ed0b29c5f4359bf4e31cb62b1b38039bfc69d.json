@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Reminder: your invoice is due in 30 days","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"Is this urgent?"}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.5152}}, "usage": {"input_tokens": 40, "output_tokens": 0}}
-}

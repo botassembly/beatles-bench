@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Joe Yule","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Mickey Rooney","b":"Neil Young","c":"Brian Wilson","d":"Michael Collins"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0357, "probabilities": {"a": 0.2001, "b": 0.3772, "c": 0.2567, "d": 0.1659}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
-}

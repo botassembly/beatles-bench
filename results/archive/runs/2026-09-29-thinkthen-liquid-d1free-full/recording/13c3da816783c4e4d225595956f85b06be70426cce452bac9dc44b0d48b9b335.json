@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Carol","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"lennon-mccartney","probabilities":{"lennon-mccartney":0.7874715174805325,"harrison":0.07324625878348914,"starr":0.018519558880433645,"other":0.12076266485554463},"confidence":0.7166286899740433}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Marilyn Monroe","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Hannah Chaplin","b":"Gladys Pearl Baker","c":"Virginia Admiral","d":"Eva-Maria Hagen"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0101, "probabilities": {"a": 0.2161, "b": 0.314, "c": 0.262, "d": 0.2079}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
-}

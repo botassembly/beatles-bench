@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Yesterday","model":"laya-mlx","questions":{"q1":{"type":"score","instructions":"The text is the title of a song by the Beatles. How well known is it today?","criteria":["Almost unknown.","Known mostly to fans.","Well known.","Very well known.","One of the most famous songs ever recorded."]}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "score", "score": 2.1638, "confidence": 0.1422, "legend": {"0": "Almost unknown.", "1": "Known mostly to fans.", "2": "Well known.", "3": "Very well known.", "4": "One of the most famous songs ever recorded."}, "probabilities": {"0": 0.0261, "1": 0.2321, "2": 0.4103, "3": 0.2149, "4": 0.1166}}}, "usage": {"input_tokens": 71, "output_tokens": 0}}
-}

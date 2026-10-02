@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Revolution 1","b":"Being for the Benefit of Mr. Kite!","c":"It's Only Love","d":"You Never Give Me Your Money"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.39,"probabilities":{"c":0.55,"b":0.05,"a":0.14,"d":0.26}}},"usage":{"input_tokens":373,"output_tokens":46}}
-}

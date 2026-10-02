@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"the creation of Pakistan People's Party","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"The Fool on the Hill","b":"Fixing a Hole","c":"I Don't Want to Spoil the Party","d":"Keep Your Hands off My Baby"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.17,"probabilities":{"d":0.24,"c":0.37,"a":0.22,"b":0.17}}},"usage":{"input_tokens":372,"output_tokens":46}}
-}

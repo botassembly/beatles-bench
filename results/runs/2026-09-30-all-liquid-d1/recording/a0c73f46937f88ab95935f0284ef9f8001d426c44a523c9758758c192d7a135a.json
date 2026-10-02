@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"All My Loving\"},{\"id\":\"u002\",\"evidence\":\"Anna (Go to Him)\"},{\"id\":\"u003\",\"evidence\":\"Blue Jay Way\"},{\"id\":\"u004\",\"evidence\":\"Dear Prudence\"},{\"id\":\"u005\",\"evidence\":\"Dizzy Miss Lizzy\"},{\"id\":\"u006\",\"evidence\":\"I've Got a Feeling\"},{\"id\":\"u007\",\"evidence\":\"Within You Without You\"},{\"id\":\"u008\",\"evidence\":\"It's All Too Much\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Magical Mystery Tour?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u003","probabilities":{"u001":0.025382723618913396,"u002":0.0014319952766704423,"u003":0.8405603771082168,"u004":0.0026753193867015907,"u005":0.00532050790743337,"u006":0.0072722720741951324,"u007":0.028762394003394507,"u008":0.0885944106244747},"confidence":0.8177832881236764}},"usage":{"input_tokens":222,"output_tokens":0}}
-}

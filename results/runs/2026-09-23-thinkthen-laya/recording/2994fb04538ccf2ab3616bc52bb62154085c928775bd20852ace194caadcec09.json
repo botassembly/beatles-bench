@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Can't Buy Me Love","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Yellow Submarine","b":"Help!","c":"Abbey Road","d":"A Hard Day's Night"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0598, "probabilities": {"a": 0.2228, "b": 0.2661, "c": 0.3954, "d": 0.1158}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
-}

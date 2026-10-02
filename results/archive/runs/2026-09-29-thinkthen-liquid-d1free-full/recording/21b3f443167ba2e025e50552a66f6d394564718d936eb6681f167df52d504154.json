@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"François Merry Delabost","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"slow cooker","b":"cloud chamber","c":"shower","d":"traveling-wave tube"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.0691205611616367,"b":0.5107357040129006,"c":0.0691205611616367,"d":0.35102317366382585},"confidence":0.34764760535053413}},"usage":{"input_tokens":96,"output_tokens":0}}
-}
