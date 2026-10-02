@@ -1,55 +1,59 @@
-# 0025 Convert the committed recordings to the question store
+# 0025 Make the suite pass under 0.1.0: convert the examples, pin the old runs
 
-Owner: the queue owner. Status: deferred. Was: draft; ticket review 1 returned findings, not yet folded in. Paused 2026-09-30 for the next checkpoint.
-
-Review 1 findings to fold in before building:
-
-1. The question store covers only decide, choose, tag, score, filter, rank and annotate. find, recognize and relate still replay from digest entries, so those entries must stay.
-2. `timing.tsv` is keyed by request digest, but a store replay reports question keys. Every timed run's replay would lose `wall_s` and `sent`, and its byte check would fail. Either re-key the timing or narrow the scope.
-3. Exclude the GLM chat recordings, which `chat.py` owns.
-4. The replay tests' `same_build` gate would skip under the checkpoint binary.
-5. Recordings outside the globs exist: `results/archive/in-text-check/` and `archive/probes/`.
-6. `examples/audit` and `diff` outputs may differ under a newer build.
-7. Folders holding both forms convert with the newer answer winning.
-8. State the size impact.
-
-Narrowest scope that meets the site's need: the site's `pull-bench` reads `examples/{decide,choose,tag,score,filter,rank,find,annotate}` and `results/runs/2026-09-26-thinkthen-jev`. So convert the `examples/` recordings of the seven store functions first, keep find's digest entries, and defer `results/runs/`.
+Owner: the queue owner. Builder: one SWE-2 worker. Status: ready. Ticket review 2 found five gaps; they are fixed, and re-review accepted. Rewritten 2026-10-02 from a local probe on checkpoint 5 (0.1.0). The first draft's ticket review 1 findings are folded in below.
 
 ## Why
 
-Current ThinkThen replays only a question store: `thinkthen.jsonl`, or `thinkthen.sqlite`. It ignores the old digest entries (`DIGEST.json` files and folder markers) until `thinkthen cache convert` runs on them. Every committed recording in this repo is still in the old form, apart from some live `thinkthen.sqlite` files written beside the old entries. The thinkthen site copies bench files with `npm run pull-bench` and needs files that current ThinkThen can replay. The marketing lead asked for this on 2026-09-30.
+ThinkThen 0.1.0 is now the `thinkthen` on this machine's `PATH`. The bench suite's replay tests used to skip when no command was found. Now they run, and 16 tests fail: 9 failures and 7 errors, the same with and without bench `3912d74a`. Every committed recording is in the old digest form, and 0.1.0 replays only a question store. The site's `npm run pull-bench` copies `examples/` and needs files that current ThinkThen replays. The marketing lead asked for that on 2026-09-30.
 
-## Prior evidence
+## Prior evidence (local probe, 2026-10-02, in a throwaway worktree)
 
-- ThinkThen's specification (`specification/recording.md` at the first published checkpoint `checkpoint/surfaces/2026-09-30-1`, commit `1456300457`) says:
-  - `cache convert DIR` writes `DIR/thinkthen.jsonl` from everything the folder holds: an existing `thinkthen.jsonl`, a `thinkthen.sqlite`, and every old `thinkthen.recording/1` entry.
-  - A replay folder that holds both `thinkthen.jsonl` and `thinkthen.sqlite` is refused.
-  - An entry that does not rejoin byte for byte is skipped, with a named message.
-  - Converted answers take `taken_at` 0 and origin `converted`.
-- The site converted its own copy of these files in its ticket 0031.
-- Release QA converted a committed demo recording with that checkpoint's command. Replays hit afterwards (ThinkThen's QA notes on the replay cache).
-- The published command is a local debug build, `thinkthen-0.0.1-x86_64-unknown-linux-gnu-debug.tar.gz`, checked against its checkpoint's `SHA256SUMS`.
+- 61 committed folders hold old entries or a `thinkthen.sqlite`. `thinkthen cache convert --quote DIR`, run with checkpoint 5's command (`4e880cdf6`), converted 58 of them. It skipped 0 entries and left 0 answers unquoted, writing 167,943 answers. The three GLM chat folders refused, because `chat.py` wrote them, not thinkthen (review finding 3).
+- Without `--quote`, a converted single-record exchange stays unquoted, and every replay misses. `--quote` is required.
+- Converted folders replay, but their outputs differ in bytes from the committed ones, for three reasons:
+  - the result rows that 0.1.0 prints carry new fields;
+  - `tool` reads `thinkthen 0.1.0`;
+  - `wall_s` and `sent` come out `null` and `false`, because `timing.tsv` is keyed by request digest and a store replay reports question keys (review finding 2).
+- Size: converting every folder writes 362.5 MB of `thinkthen.jsonl`, where the old entries are 74.9 MB in 28,349 files. Three runs hold 226 MB of it: `2026-09-30-all-jev` (113 MB), `2026-09-30-relate-jev` (63 MB) and `2026-09-30-all-liquid-d1` (50 MB). The bench is about to go public, so converting everything is ruled out here (review finding 8).
+- `examples/` is 3.6 MB.
+- The 0.0.1 builds QA keeps (`aec7819bb`, `c22512868`) also fail the old-run replays. Those tests pass only under the exact build each run was recorded with.
 
 ## Retained behavior
 
-- Every run's answers, outputs, tables and reports keep their bytes. This ticket changes only the recording folders and the replay tooling.
-- Each run's `run.txt` keeps its build line. A new line records the conversion: the command's tag and commit, the date, and the counts of answers written and entries skipped.
+- Every run's answers, scores, tables and reports keep their numbers. No `results/runs/` file changes.
+- Each example's README keeps its claims. Its build line names the build that last replayed it.
 
 ## Changes
 
-1. For every recording folder under `results/runs/*/recording`, `results/archive/runs/*/recording` and `examples/*/recording`, run `thinkthen cache convert DIR` with the published checkpoint command. Commit the `thinkthen.jsonl` it writes. Then remove the old `DIGEST.json` entries, the folder markers, `.locks/` and any `thinkthen.sqlite`, because a folder holding both files is refused. Git history keeps the old form.
-2. Record each folder's skipped entries in its run's `run.txt`, with the convert command's own message. A folder that skips any entry a committed answer depends on stops the ticket for that run. Report it instead of committing.
-3. `run.sh` and `scripts/run/thinkthen.sh replay` take the command from `THINKTHEN_BIN` as today, and the README names the checkpoint folder as the supported source.
-4. Replay every converted run with the checkpoint command, and compare it byte for byte with its committed outputs, as `run.sh` does today. A run whose replay differs stops. Its difference is reported, and that run stays unconverted.
+Part A: the examples.
+1. For each `examples/*/recording` (decide, choose, tag, score, filter, rank, find, annotate, recognize, relate, audit), run `thinkthen cache convert --quote` with checkpoint 5's command. Remove the old entries, folder markers, `.locks/` and any `thinkthen.sqlite`. Git history keeps the old form.
+2. Re-key each example's `timing.tsv` from a first 0.1.0 replay: column 2 takes the question keys that `meta.requests` reports for each case id, so a store replay keeps `wall_s` and `sent`. If an example cannot be re-keyed, say why in the record, and leave those two fields out of the byte comparison for that example only, in both the tests and `run.sh`'s `same()`.
+3. Replay each example with checkpoint 5's command. Commit the regenerated outputs. Each example's README names the build `checkpoint/surfaces/2026-10-02-1` (`4e880cdf6`, 0.1.0) and states that no answer changed. A changed answer, value or probability stops the ticket for that example, and its difference is reported.
+
+Part B: the old runs, and the checks that read their outputs.
+4. Add `results/builds.tsv`, one row per folder under `results/runs/` and `results/archive/`, giving the run folder and the thinkthen commit that recorded it. A run's own `run.txt` names its build. A run without a `run.txt`, dated 2026-09-26 or earlier, takes 02dc0b96, as the README already states. A row whose build cannot be found says `unknown`. An undated folder, such as `results/archive/in-text-check/*-recording`, takes the build its test and record name, 02dc0b96 for in-text-check. The record says why.
+5. A replay or contract check that depends on a run's build runs only when `BENCH_BIN_<first 8 of the commit>` names a command for that build, such as `BENCH_BIN_02dc0b96`. Otherwise it skips, with a reason that names the build and the variable. This covers:
+   - the old-run replays in `test_replay_laya`, `test_rad_pipeline`, `test_in_text_check`, `test_suite` and `RunShTest`;
+   - the `audit` and `diff` contract checks in `test_audit_contract`, `test_leaning_no` and `test_diff_guard`, gated on the build that wrote the committed audit or diff output they compare against;
+   - each page command in `test_examples.ExamplePageTest` that replays a `results/` recording, such as `data/README.md`'s `--replay results/runs/2026-09-26-thinkthen-jev/recording`.
+   The examples themselves keep using `THINKTHEN_BIN`.
+6. `run.sh` replays `examples/` under `THINKTHEN_BIN`, the current checkpoint. It replays the newest Jev run under that run's `BENCH_BIN_*` command when one is set, and otherwise prints one line naming the build and skips that step. Its `audit --help` check names 0.1.0, and `same()` compares what the timing rule in step 2 allows.
+7. The README's install section names ThinkThen 0.1.0 as the command for `./run.sh` and the examples, and `BENCH_BIN_*` for old runs. `tests/README.md` states the rule: examples replay under the current checkpoint, and each old run replays under the build in `results/builds.tsv`.
+8. Each example's `run.txt` is rewritten for its new build: SHA-256, model and date, as `test_examples` requires. Its README's fenced blocks, and `recognize-how`'s table, are regenerated under 0.1.0.
+
+Coverage lost by this ticket: with only 0.1.0 installed, the old-run replays and the audit and diff contract checks skip. They run again wherever their pinned build is set. 02dc0b96 is not on this machine today, so the record names which checks no build here can run.
 
 ## Proof
 
-- A test asserts that no committed recording folder holds a `DIGEST.json`, a folder marker or a `thinkthen.sqlite`, and that each holds one `thinkthen.jsonl` whose lines parse.
-- The replay tests that skip today for lack of a binary run with `THINKTHEN_BIN` set to the checkpoint command, and pass. The parent records the exact count.
-- The full suite passes.
+- `env -u THINKTHEN_API_KEY python3 -m unittest discover -s tests`, with `thinkthen` 0.1.0 on `PATH` and with `THINKTHEN_BIN` set to checkpoint 5's command, has 0 failures and 0 errors. The record gives the exact pass and skip counts, and every skip reason.
+- The same suite, with `BENCH_BIN_c22512868` and `BENCH_BIN_aec7819bb` set to the builds QA keeps, runs the checks for those builds' runs. The record gives the counts, and any check that still fails with its reason.
+- `./run.sh` with no key exits 0 under 0.1.0 and prints the skip line for the old run.
+- A test asserts that no `examples/*/recording` holds an old entry, a folder marker or a `thinkthen.sqlite`, and that each holds one `thinkthen.jsonl` whose lines parse.
+- Each example's committed answers, before and after, compare equal on `value` and probabilities. The record lists the fields that changed.
 - No live call: conversion and replay read files only.
 
 ## Deferred gaps
 
-- Liquid d1's 513 rate-limited gaps (ticket 0023) are asked again after this ticket, into a converted folder.
-- A later checkpoint may change the fixture format. Conversion then reruns under that checkpoint.
+- Converting `results/runs/` and `results/archive/`, at a cost of about 290 MB net. It waits for a ruling on size, such as release assets or a separate data repo.
+- The GLM chat folders, which `chat.py` owns.
+- Liquid d1's 513 rate-limited gaps (ticket 0023), which are asked again into a converted folder once that ruling exists.
