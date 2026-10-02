@@ -1,6 +1,8 @@
 # 0023 Run Jev and Liquid d1 on the whole bench, and compare them
 
-Owner: the queue owner. Status: accepted after ticket review 1; waits for 0021 and 0022.
+Owner: the queue owner. Status: complete. Was: accepted after ticket review 1; waits for 0021 and 0022.
+
+Landed: 12fe1553
 
 ## Why
 

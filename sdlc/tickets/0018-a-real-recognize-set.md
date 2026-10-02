@@ -1,6 +1,8 @@
 # 0018 Give recognize a real test set, with text relations
 
-Owner: the queue owner. Status: ready for review.
+Owner: the queue owner. Status: complete. Was: ready for review.
+
+Landed: 32616683
 
 ## Why
 

@@ -1,6 +1,6 @@
 # 0025 Convert the committed recordings to the question store
 
-Owner: the queue owner. Status: draft; ticket review 1 returned findings, not yet folded in. Paused 2026-09-30 for the next checkpoint.
+Owner: the queue owner. Status: deferred. Was: draft; ticket review 1 returned findings, not yet folded in. Paused 2026-09-30 for the next checkpoint.
 
 Review 1 findings to fold in before building:
 
