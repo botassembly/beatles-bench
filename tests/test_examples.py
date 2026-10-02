@@ -44,7 +44,9 @@ BUILD = re.compile(r"(?:^|[\s|])thinkthen\s|run\.sh|example\.sh|^\./run\b")  # a
 BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
 DECIMAL = re.compile(r"-?\d+\.\d+")
 GROUPED = re.compile(r"(?<![\d.,])\d{1,3}(?:,\d{3})+(?![\d,]\d)")
-EXPONENT = re.compile(r"-?\d+(?:\.\d+)?e-?\d+")  # thinkthen writes a small p as 2e-6; jq prints 0.000002
+# thinkthen writes a small p as 2e-6; jq prints 0.000002. A whole token only, with at most three exponent digits: a hex
+# request key holds runs like 7e9877975802, and formatting that as a decimal would build a string of billions of digits.
+EXPONENT = re.compile(r"(?<![0-9A-Za-z_.])-?\d+(?:\.\d+)?e-?\d{1,3}(?![0-9A-Za-z_.])")
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(ROOT / "tests"))
 import examples as gen  # noqa: E402
@@ -165,6 +167,12 @@ class ExamplesTest(unittest.TestCase):
             for m in FENCE.finditer(text):
                 if m[1] == "json":
                     self.assertIn(m[2], printed, f"{page.relative_to(ROOT)}: a json block with no command above it")
+
+    def test_a_small_p_is_read_and_a_hex_key_is_not(self):
+        """A hex request key once matched as 7e9877975802, and formatting it ran the suite out of memory."""
+        for text, found in [("2e-6", ["2e-6"]), ("-1.5e3", ["-1.5e3"]), ('"p": 4e-05}', ["4e-05"]),
+                            ('"ab17e9877975802c"', []), ('"4e880cdf6"', []), ("1e9877975802", []), ("x2e-6", [])]:
+            self.assertEqual(EXPONENT.findall(text), found, text)
 
     def test_every_number_thinkthen_prints_on_a_page_is_in_its_answers(self):
         """The command check runs thinkthen only when a build is present. This check needs none."""

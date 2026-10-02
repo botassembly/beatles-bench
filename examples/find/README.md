@@ -35,6 +35,6 @@ find has no bar of its own. Here `jq` applies one. A pick under the bar reads nu
 
 - `find-cold.jsonl` and `find-context.jsonl`: the cases, cold and with each song's catalog entry.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- `run.txt`: the thinkthen build and the model that recorded the answers. Replayed under thinkthen 0.1.0, `checkpoint/surfaces/2026-10-02-1` (`4e880cdf6`), on 2026-10-02: no answer changed.
+- `run.txt`: the thinkthen build and the model that recorded the answers. Replayed under `thinkthen 0.1.0`, `checkpoint/surfaces/2026-10-02-1` (`4e880cdf6`), on 2026-10-02: no answer changed.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/find](https://thinkthen.dev/learn/beatles-bench/find/).

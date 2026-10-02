@@ -42,6 +42,6 @@ A band reads its middle as not sure:
 - `decide-love.jsonl`: the slide's four cases.
 - `decide-cold.jsonl` and `decide-context.jsonl`: six songs asked about Abbey Road, cold and with each song's catalog entry.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- `run.txt`: the thinkthen build and the model that recorded the answers. Replayed under thinkthen 0.1.0, `checkpoint/surfaces/2026-10-02-1` (`4e880cdf6`), on 2026-10-02: no answer changed.
+- `run.txt`: the thinkthen build and the model that recorded the answers. Replayed under `thinkthen 0.1.0`, `checkpoint/surfaces/2026-10-02-1` (`4e880cdf6`), on 2026-10-02: no answer changed.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/decide](https://thinkthen.dev/learn/beatles-bench/decide/).

@@ -62,6 +62,6 @@ Builds before ThinkThen main ce04682c print `unresolved` for a not sure answer. 
 - `key.jsonl`: the right answers, from `data/songs.tsv`.
 - `rows.jsonl`, `rows-context.jsonl`, and `audit-*.json`: the answers and audit's reports.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- `run.txt`: the thinkthen build and the model that recorded the answers. Replayed under thinkthen 0.1.0, `checkpoint/surfaces/2026-10-02-1` (`4e880cdf6`), on 2026-10-02: no answer changed.
+- `run.txt`: the thinkthen build and the model that recorded the answers. Replayed under `thinkthen 0.1.0`, `checkpoint/surfaces/2026-10-02-1` (`4e880cdf6`), on 2026-10-02: no answer changed.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/audit](https://thinkthen.dev/learn/beatles-bench/audit/).
