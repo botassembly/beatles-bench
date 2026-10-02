@@ -18,6 +18,7 @@ The tests that replay a recording need the `thinkthen` build that recorded it: a
 | `test_in_text_check.py` | the Jev replay | no `BENCH_BIN_02dc0b96` for the in-text-check recording |
 | `test_examples.py` | `ExampleReplayTest` and `RecognizeHowTest` | no `thinkthen` for `examples/`; the old-form `recognize` and `relate` folders also want `BENCH_BIN_02dc0b96` |
 | `test_examples.py` | a page command that replays a `results/` recording | no `BENCH_BIN_<id>` for the build that recorded it |
+| `test_run.py` | the all-jev replay | no `BENCH_BIN_aec7819bb` for `results/runs/2026-09-30-all-jev` |
 | `test_run_sh.py` | `RunShTest` | no `thinkthen` for the full `./run.sh` replay |
 | `test_suite.py` | each recorded-run replay | no `BENCH_BIN_<id>` for that run's build in `results/builds.tsv` |
 

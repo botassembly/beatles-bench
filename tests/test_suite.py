@@ -770,6 +770,8 @@ class ReplayTest(unittest.TestCase):
 
     def test_the_d1_suite_replays_with_the_key_unset(self):
         bin = self.bin(D1_ALL)
+        if pending(D1_ALL):  # the recording holds no answer for a rate-limited gap, and the replay still asks it
+            self.skipTest(f"{D1_ALL.name}: {pending(D1_ALL)}")
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(D1_ALL / "recording")
         shutil.copy(D1_ALL / "timing.tsv", tmp / "timing.tsv")
