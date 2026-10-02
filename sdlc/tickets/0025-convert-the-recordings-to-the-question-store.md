@@ -1,6 +1,6 @@
 # 0025 Make the suite pass under 0.1.0: convert the examples, pin the old runs
 
-Owner: the queue owner. Builder: one SWE-2 worker. Status: ready. Ticket review 2 found five gaps; they are fixed, and re-review accepted. Rewritten 2026-10-02 from a local probe on checkpoint 5 (0.1.0). The first draft's ticket review 1 findings are folded in below.
+Owner: the queue owner. Builder: one SWE-2 worker. Status: landed on 2026-10-02. Code review 1 asked to record the run script edits; done, and re-review accepted. Suite under 0.1.0: 242 tests, OK, 27 skipped. Record: [../records/0025-convert-the-recordings-to-the-question-store.md](../records/0025-convert-the-recordings-to-the-question-store.md).
 
 ## Why
 
