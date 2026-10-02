@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"She Came In Through the Bathroom Window\"},{\"id\":\"u002\",\"evidence\":\"Here, There and Everywhere\"},{\"id\":\"u003\",\"evidence\":\"I Wanna Be Your Man\"},{\"id\":\"u004\",\"evidence\":\"Only a Northern Song\"},{\"id\":\"u005\",\"evidence\":\"Chains\"},{\"id\":\"u006\",\"evidence\":\"Dizzy Miss Lizzy\"},{\"id\":\"u007\",\"evidence\":\"Words of Love\"},{\"id\":\"u008\",\"evidence\":\"What Goes On\"}]","model":"jev-1.13.0","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Please Please Me?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"u005","confidence":0.35,"probabilities":{"u003":0.24,"u006":0.08,"u007":0.06,"u001":0.16,"u004":0.0,"u005":0.44,"u002":0.01,"u008":0.01}}},"usage":{"input_tokens":500,"output_tokens":101}}
-}

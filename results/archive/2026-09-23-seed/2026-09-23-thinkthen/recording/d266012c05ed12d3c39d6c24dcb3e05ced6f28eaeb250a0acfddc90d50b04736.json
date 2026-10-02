@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"A Hard Day's Night","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Run for Your Life","b":"And I Love Her","c":"It's Only Love","d":"Baby's in Black"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.15,"probabilities":{"a":0.37,"d":0.19,"c":0.14,"b":0.3}}},"usage":{"input_tokens":360,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":{"evidence":"You've Got to Hide Your Love Away has John Lennon on lead","entities":[{"id":"i1","name":"You've Got","kind":"song"},{"id":"i2","name":"Hide Your Love Away","kind":"song"},{"id":"i3","name":"John Lennon","kind":"person"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i3?"},"q2":{"type":"noul","instructions":"Does the text itself state that i2 sung by i3?"}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.10669059394565118},"q2":{"type":"noul","noul":0.9046505351008906}},"usage":{"input_tokens":360,"output_tokens":0}}
-}

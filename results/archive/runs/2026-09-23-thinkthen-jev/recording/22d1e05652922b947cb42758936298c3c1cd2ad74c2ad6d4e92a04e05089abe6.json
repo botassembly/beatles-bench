@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Savoy Truffle","b":"Yesterday","c":"You Like Me Too Much","d":"Real Love"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.7,"probabilities":{"a":0.04,"c":0.12,"d":0.07,"b":0.77}}},"usage":{"input_tokens":362,"output_tokens":46}}
-}

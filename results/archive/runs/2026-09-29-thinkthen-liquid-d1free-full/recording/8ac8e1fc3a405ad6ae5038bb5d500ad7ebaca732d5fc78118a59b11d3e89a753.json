@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Frances Bergen","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Francis Ford Coppola","b":"Jackie Chan","c":"Måns Zelmerlöw","d":"Candice Bergen"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00011590470825316805,"b":0.00001777456269133569,"c":0.00010888239697461094,"d":0.9997574383320809},"confidence":0.9996765844427745}},"usage":{"input_tokens":100,"output_tokens":0}}
-}

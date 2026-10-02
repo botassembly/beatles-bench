@@ -1,7 +1,0 @@
-arm	right	of	input_tokens
-pick	0	1	1115
-answer	1	1	2181
-memory	4	18	8439
-glued	18	18	20317
-apart	18	18	20463
-annotate	18	18	22952

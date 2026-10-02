@@ -1,1 +1,0 @@
-2026-09-23: replay with ZAI_API_KEY unset: answers.jsonl byte-identical to the live run (629 answers). answers.jsonl was rebuilt from the recording after cached input tokens were added to each row.

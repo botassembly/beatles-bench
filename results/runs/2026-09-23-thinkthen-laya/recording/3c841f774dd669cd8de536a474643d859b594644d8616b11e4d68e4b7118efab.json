@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Savoy Truffle","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"September 1969","b":"June 1969","c":"November 1968","d":"April 1969"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0178, "probabilities": {"a": 0.2968, "b": 0.2734, "c": 0.2701, "d": 0.1597}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
-}

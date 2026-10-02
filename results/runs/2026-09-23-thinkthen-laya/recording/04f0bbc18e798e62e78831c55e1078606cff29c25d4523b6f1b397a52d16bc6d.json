@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Yellow Submarine","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"A Hard Day's Night","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Revolver","d":"Help!"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0663, "probabilities": {"a": 0.3824, "b": 0.3207, "c": 0.1739, "d": 0.1231}}}, "usage": {"input_tokens": 63, "output_tokens": 0}}
-}

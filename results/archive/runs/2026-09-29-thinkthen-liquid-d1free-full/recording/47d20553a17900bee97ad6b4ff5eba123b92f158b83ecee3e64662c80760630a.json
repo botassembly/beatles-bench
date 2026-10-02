@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Lee Hoi-chuen","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"John Lithgow","b":"Olivia Wilde","c":"Olivia de Havilland","d":"Bruce Lee"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00009925144098666591,"b":0.0005040404073742395,"c":0.029294547239282234,"d":0.9701021609123568},"confidence":0.960136214549809}},"usage":{"input_tokens":97,"output_tokens":0}}
-}

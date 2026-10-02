@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Yes It Is","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Assassination of Malcolm X?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"before","probabilities":{"before":0.7057850340255386,"after":0.29421496597446145},"confidence":0.4115700680510772}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Assassination of John F. Kennedy","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Savoy Truffle","b":"Paperback Writer","c":"This Boy","d":"The Ballad of John and Yoko"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0229, "probabilities": {"a": 0.2478, "b": 0.1956, "c": 0.2001, "d": 0.3565}}}, "usage": {"input_tokens": 66, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Tell Me What You See","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"Help!","c":"The Beatles (White Album)","none":"none of these"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"none","confidence":0.11,"probabilities":{"none":0.34,"a":0.26,"b":0.16,"c":0.24}}},"usage":{"input_tokens":360,"output_tokens":46}}
-}

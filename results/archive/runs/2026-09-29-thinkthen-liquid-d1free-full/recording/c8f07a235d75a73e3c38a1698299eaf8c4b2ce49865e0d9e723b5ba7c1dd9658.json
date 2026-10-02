@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Shulamit Lapid","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Nina Hagen","b":"Yair Lapid","c":"Rainer Werner Fassbinder","d":"William Shakespeare"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.016861294120087102,"b":0.9799687725912284,"c":0.002429099728125567,"d":0.0007408335605590167},"confidence":0.9732916967883045}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"1964 Summer Olympics","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"November 1964","b":"November 1963","c":"October 1964","d":"March 1964"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.00008480791695622619,"b":0.00001568788720178513,"c":0.9998780613963976,"d":0.00002144279944425473},"confidence":0.9998374151951968}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

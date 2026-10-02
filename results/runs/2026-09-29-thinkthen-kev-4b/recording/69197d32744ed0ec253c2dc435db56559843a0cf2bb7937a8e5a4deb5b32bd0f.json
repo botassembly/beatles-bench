@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"light-emitting diode","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"H. J. Round","b":"Jesse W. Reno","c":"Chester Moore Hall","d":"Rudolf Kompfner"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.1299,"probabilities":{"a":0.3474,"b":0.1257,"c":0.2247,"d":0.3022}}},"usage":{"input_tokens":54,"output_tokens":75},"latency_ms":97.6}
-}

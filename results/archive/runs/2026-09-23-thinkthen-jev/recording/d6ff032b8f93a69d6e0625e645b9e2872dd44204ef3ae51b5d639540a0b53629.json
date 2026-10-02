@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Selena","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Joe Toney","b":"Plácido Domingo Ferrer","c":"Edgar Ende","d":"Abraham Quintanilla"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.98,"probabilities":{"a":0.01,"b":0.0,"d":0.99,"c":0.0}}},"usage":{"input_tokens":353,"output_tokens":46}}
-}

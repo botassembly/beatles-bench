@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Why Don't We Do It in the Road?","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"The Beatles (White Album)","b":"Yellow Submarine","c":"Sgt. Pepper's Lonely Hearts Club Band","d":"Please Please Me"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0395, "probabilities": {"a": 0.3762, "b": 0.2272, "c": 0.2517, "d": 0.1449}}}, "usage": {"input_tokens": 72, "output_tokens": 0}}
-}

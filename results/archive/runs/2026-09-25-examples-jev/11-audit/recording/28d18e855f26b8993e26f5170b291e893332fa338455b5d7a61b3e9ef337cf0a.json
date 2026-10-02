@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nMagical Mystery Tour (1967-11-27)\nI Am the Walrus (lead: Lennon; written: Lennon–McCartney; 4:35; released 1967-11-24; first album: Magical Mystery Tour)\nText: I Am the Walrus","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.03}},"usage":{"input_tokens":359,"output_tokens":21}}
-}

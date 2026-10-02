@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Getting Better","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"With the Beatles","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Rubber Soul"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.62,"probabilities":{"c":0.75,"b":0.13,"a":0.12}}},"usage":{"input_tokens":346,"output_tokens":39}}
-}

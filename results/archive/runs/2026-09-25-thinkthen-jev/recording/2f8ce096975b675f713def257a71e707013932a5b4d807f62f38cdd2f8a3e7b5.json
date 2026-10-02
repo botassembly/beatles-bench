@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Good Morning Good Morning","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"Let It Be","c":"Sgt. Pepper's Lonely Hearts Club Band","d":"Revolver"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.79,"probabilities":{"b":0.01,"d":0.12,"c":0.84,"a":0.03}}},"usage":{"input_tokens":362,"output_tokens":46}}
-}

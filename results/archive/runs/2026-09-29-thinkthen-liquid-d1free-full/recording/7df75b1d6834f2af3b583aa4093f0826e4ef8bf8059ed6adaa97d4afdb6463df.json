@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Come Together","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Magical Mystery Tour","b":"A Hard Day's Night","c":"Rubber Soul","d":"Abbey Road"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00017951693363152575,"b":0.000010127652371046496,"c":0.000051432462603064516,"d":0.9997589229513942},"confidence":0.9996785639351923}},"usage":{"input_tokens":100,"output_tokens":0}}
-}

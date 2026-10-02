@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Thomas Markle","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Emma Thompson","b":"Orlando Bloom","c":"Meghan, Duchess of Sussex","d":"Angela Lansbury"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.2252, "probabilities": {"a": 0.1353, "b": 0.2441, "c": 0.5748, "d": 0.0457}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
-}

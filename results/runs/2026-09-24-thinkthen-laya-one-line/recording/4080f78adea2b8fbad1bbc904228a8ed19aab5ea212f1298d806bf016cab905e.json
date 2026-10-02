@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Catalog:\nThe Fool on the Hill (lead: McCartney; written: Lennon–McCartney; 3:00; released 1967-11-27)\nText: The Fool on the Hill","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Is Ringo Starr its only lead singer?"}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.914}}, "usage": {"input_tokens": 94, "output_tokens": 0}}
-}

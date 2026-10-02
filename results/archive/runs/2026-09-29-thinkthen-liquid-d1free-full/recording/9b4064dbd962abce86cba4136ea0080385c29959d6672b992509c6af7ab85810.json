@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Javier Bardem","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Pilar Bardem","b":"Elaine Madsen","c":"Galina Jovovich","d":"Virginia Admiral"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9973379430070759,"b":0.0016990847007893762,"c":0.00010861885093050349,"d":0.0008543534412042061},"confidence":0.9964505906761012}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

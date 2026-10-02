@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Till There Was You","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Yellow Submarine","b":"Beatles for Sale","c":"A Hard Day's Night","none":"none of these"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.48,"probabilities":{"b":0.61,"none":0.26,"a":0.04,"c":0.09}}},"usage":{"input_tokens":362,"output_tokens":46}}
-}

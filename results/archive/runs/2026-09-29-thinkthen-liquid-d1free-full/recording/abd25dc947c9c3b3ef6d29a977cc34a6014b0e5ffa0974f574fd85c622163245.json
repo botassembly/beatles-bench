@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Please Mr. Postman","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"With the Beatles","c":"Please Please Me","d":"Help!"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.002963592829044195,"b":0.15200338688211967,"c":0.8217225459332118,"d":0.023310474355624295},"confidence":0.762296727910949}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

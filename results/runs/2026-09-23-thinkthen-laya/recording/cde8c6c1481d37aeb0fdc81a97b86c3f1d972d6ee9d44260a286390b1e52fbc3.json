@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"With a Little Help from My Friends","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"lennon-mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "harrison", "confidence": 0.1258, "probabilities": {"lennon-mccartney": 0.3866, "harrison": 0.3979, "starr": 0.1234, "other": 0.092}}}, "usage": {"input_tokens": 74, "output_tokens": 0}}
-}

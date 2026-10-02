@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Spartacus","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Harald Kloser","b":"Alex North","c":"Marc Streitenfeld","d":"György Ligeti"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.98,"probabilities":{"d":0.0,"b":0.98,"c":0.01,"a":0.01}}},"usage":{"input_tokens":350,"output_tokens":46}}
-}

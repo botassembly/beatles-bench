@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"The Beatles (White Album)","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Maxwell's Silver Hammer","b":"Good Morning Good Morning","c":"And I Love Her","d":"Dear Prudence"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0195, "probabilities": {"a": 0.3319, "b": 0.2506, "c": 0.2486, "d": 0.1689}}}, "usage": {"input_tokens": 60, "output_tokens": 0}}
-}

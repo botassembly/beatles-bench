@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"John Wilkes Booth","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Chips Hardy","b":"Junius Brutus Booth","c":"John de Lancie","d":"Cecil Day-Lewis"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.4284, "probabilities": {"a": 0.0763, "b": 0.7687, "c": 0.0632, "d": 0.0919}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
-}

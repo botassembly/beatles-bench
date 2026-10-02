@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Pelé","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Jolie Gabor","b":"Sylvia Plachy","c":"Lula Mae Hardaway","d":"Dona Celeste"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0223, "probabilities": {"a": 0.3411, "b": 0.2469, "c": 0.2459, "d": 0.1662}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
-}

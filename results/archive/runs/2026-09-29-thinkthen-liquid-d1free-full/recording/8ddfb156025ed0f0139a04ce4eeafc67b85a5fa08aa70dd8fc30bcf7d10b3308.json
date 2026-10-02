@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Kansas City/Hey-Hey-Hey-Hey!","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Beatles for Sale","b":"With the Beatles","c":"Rubber Soul","d":"Help!"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.12332159003132985,"b":0.1397416689737428,"c":0.07026652391835997,"d":0.6666702170765674},"confidence":0.5555602894354231}},"usage":{"input_tokens":106,"output_tokens":0}}
-}

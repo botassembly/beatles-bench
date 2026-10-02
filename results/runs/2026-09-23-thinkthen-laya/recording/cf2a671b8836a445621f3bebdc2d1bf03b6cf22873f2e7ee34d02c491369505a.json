@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Eternal Sunshine of the Spotless Mind","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Marc Streitenfeld","b":"Harald Kloser","c":"Jon Brion","d":"Sammy Fain"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1417, "probabilities": {"a": 0.5303, "b": 0.2129, "c": 0.1483, "d": 0.1086}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

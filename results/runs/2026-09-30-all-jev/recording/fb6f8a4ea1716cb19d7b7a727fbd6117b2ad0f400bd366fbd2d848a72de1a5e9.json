@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"A Hard Day's Night first appeared on A Hard Day's Night in 1964","model":"jev-1.13.0","questions":{"q1":{"type":"choice","instructions":"In the text below, some words are wrapped in [[ ]]. Going by what they refer to in this text, which listed kind of name are they? Choose none of these when they are not a proper name, or when they name something that no listed kind covers.\n\nText: [[A Hard Day's Night]] first appeared on A Hard Day","criteria":{"song":null,"person":null,"album":null,"none of these":"They are not a proper name, or no listed kind covers what they name."}},"q2":{"type":"choice","instructions":"In the text below, some words are wrapped in [[ ]]. Going by what they refer to in this text, which listed kind of name are they? Choose none of these when they are not a proper name, or when they name something that no listed kind covers.\n\nText: 's Night first appeared on [[A Hard Day's Night]] in 1964","criteria":{"song":null,"person":null,"album":null,"none of these":"They are not a proper name, or no listed kind covers what they name."}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"song","confidence":0.87,"probabilities":{"none of these":0.03,"song":0.91,"album":0.06,"person":0.0}},"q2":{"type":"choice","choice":"album","confidence":0.87,"probabilities":{"song":0.08,"none of these":0.02,"album":0.9,"person":0.0}}},"usage":{"input_tokens":552,"output_tokens":93}}
-}

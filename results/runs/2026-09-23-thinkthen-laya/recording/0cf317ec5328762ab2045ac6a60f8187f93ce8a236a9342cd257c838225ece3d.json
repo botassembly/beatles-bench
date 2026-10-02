@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Boys","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"October 1962","b":"June 1962","c":"March 1963","d":"February 1964"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0231, "probabilities": {"a": 0.3318, "b": 0.2714, "c": 0.2369, "d": 0.1599}}}, "usage": {"input_tokens": 49, "output_tokens": 0}}
-}

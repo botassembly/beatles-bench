@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"The Day After Tomorrow","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Éric Serra","b":"Marc Streitenfeld","c":"Paul Smith","d":"Harald Kloser"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1174, "probabilities": {"a": 0.5149, "b": 0.1828, "c": 0.1502, "d": 0.1521}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
-}

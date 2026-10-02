@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"H. J. Round","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"escalator","b":"light-emitting diode","c":"pitot tube","d":"shower"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.000011478243367331432,"b":0.9999427781334639,"c":0.000024299441399324964,"d":0.000021444181769440167},"confidence":0.9999237041779518}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

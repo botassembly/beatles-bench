@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"George Harrison","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"There's a Place","b":"Savoy Truffle","c":"Any Time at All","d":"Cayenne"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.0532,"probabilities":{"a":0.234,"b":0.2571,"c":0.2899,"d":0.2189}}},"usage":{"input_tokens":58,"output_tokens":74},"latency_ms":83.0}
-}

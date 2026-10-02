@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Apollo 11","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1968","b":"April 1970","c":"July 1969","d":"January 1970"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.9664,"probabilities":{"a":0.0128,"b":0.0021,"c":0.9748,"d":0.0102}}},"usage":{"input_tokens":60,"output_tokens":75},"latency_ms":104.6}
-}

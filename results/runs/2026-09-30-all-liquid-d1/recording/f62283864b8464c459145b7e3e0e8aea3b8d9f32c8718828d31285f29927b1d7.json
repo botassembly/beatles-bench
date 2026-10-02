@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Being for the Benefit of Mr. Kite!\"},{\"id\":\"u002\",\"evidence\":\"In My Life\"},{\"id\":\"u003\",\"evidence\":\"Devil in Her Heart\"},{\"id\":\"u004\",\"evidence\":\"Mr. Moonlight\"},{\"id\":\"u005\",\"evidence\":\"Please Please Me\"},{\"id\":\"u006\",\"evidence\":\"Tomorrow Never Knows\"},{\"id\":\"u007\",\"evidence\":\"All Together Now\"},{\"id\":\"u008\",\"evidence\":\"Help!\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Rubber Soul?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u003","probabilities":{"u001":0.0009067421688919332,"u002":0.08162232887286508,"u003":0.8775227078382183,"u004":0.020637356640857297,"u005":0.011046380996441146,"u006":0.0018032721265257023,"u007":0.0009067421688919332,"u008":0.0055544691873087165},"confidence":0.8600259518151067}},"usage":{"input_tokens":218,"output_tokens":0}}
-}

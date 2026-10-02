@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Otto Griessing","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"light-emitting diode","b":"traveling-wave tube","c":"slow cooker","d":"Volksempfänger"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.3177,"probabilities":{"a":0.0615,"b":0.1822,"c":0.268,"d":0.4883}}},"usage":{"input_tokens":56,"output_tokens":74},"latency_ms":97.6}
-}

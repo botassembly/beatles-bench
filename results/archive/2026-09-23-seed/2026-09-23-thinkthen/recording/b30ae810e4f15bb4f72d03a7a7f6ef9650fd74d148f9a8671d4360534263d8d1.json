@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Brian De Palma","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Abraham Quintanilla","b":"Anthony Martin Sinatra","c":"Anthony F. DePalma","d":"Stephen Gyllenhaal"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":1.0,"probabilities":{"d":0.0,"c":1.0,"b":0.0,"a":0.0}}},"usage":{"input_tokens":356,"output_tokens":46}}
-}

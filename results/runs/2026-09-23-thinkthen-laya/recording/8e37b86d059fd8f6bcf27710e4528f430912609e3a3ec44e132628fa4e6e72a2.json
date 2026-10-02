@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Hans Oliva-Hagen","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Momoko Kōchi","b":"Meghan, Duchess of Sussex","c":"Ralph Fiennes","d":"Nina Hagen"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1473, "probabilities": {"a": 0.5024, "b": 0.2827, "c": 0.1121, "d": 0.1027}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
-}

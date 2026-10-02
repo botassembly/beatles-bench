@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Mary Shakespeare","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Mary Pickford","b":"Sergio Leone","c":"William Shakespeare","d":"Donald Trump"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.3978, "probabilities": {"a": 0.221, "b": 0.0489, "c": 0.7005, "d": 0.0296}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
-}

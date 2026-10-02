@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band (Reprise) / Eleanor Rigby","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band (Reprise)","b":"Eleanor Rigby"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.38,"probabilities":{"a":0.31,"b":0.69}}},"usage":{"input_tokens":57,"output_tokens":47},"latency_ms":109.3}
-}

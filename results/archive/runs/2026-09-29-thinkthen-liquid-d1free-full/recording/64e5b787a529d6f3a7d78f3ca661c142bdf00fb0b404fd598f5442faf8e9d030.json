@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Yellow Submarine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Yellow Submarine","b":"All Together Now","c":"Wait","d":"A Day in the Life"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9347590230318974,"b":0.016083415493111448,"c":0.015108970608885535,"d":0.03404859086610549},"confidence":0.9130120307091966}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

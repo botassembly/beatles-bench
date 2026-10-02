@@ -1,5 +1,7 @@
 """The results table prints a row for a model with no price in scripts/score/prices.tsv. A reader's own model has none
 on its first run, and the table must still print. The front page's table shows the cells table.py prints."""
+import json
+import shutil
 import sys
 import tempfile
 import unittest
@@ -13,13 +15,33 @@ import common  # noqa: E402
 import table  # noqa: E402
 
 SONGS = {s["title"]: s for s in analyze.read_tsv(ROOT / "data" / "songs.tsv")}
-JEV = ROOT / "results" / "archive" / "runs" / "2026-09-23-thinkthen-jev"
+
+
+def fake_run(wall_s=0.29):
+    """A run folder named like a Jev run that answers every question right at 0.8, each in WALL_S seconds."""
+    run = Path(tempfile.mkdtemp()) / "2026-09-23-thinkthen-jev"
+    run.mkdir()
+    with open(run / "answers.jsonl", "w", encoding="utf-8") as f:
+        for q in analyze.questions():
+            if q["options"] is None:
+                value, probs = q["truth"] == "yes", {"yes": 0.8 if q["truth"] == "yes" else 0.2}
+                probs["no"] = round(1 - probs["yes"], 1)
+            else:
+                rest = [k for k in q["options"] if k != q["truth"]]
+                value, probs = q["truth"], {k: (0.8 if k == q["truth"] else round(0.2 / len(rest), 4)) for k in q["options"]}
+            f.write(json.dumps({"id": q["id"], "value": value, "probabilities": probs,
+                                "backend": "https://api.typesafe.ai/v1/systemone", "model": "jev-1.13.0",
+                                "tool": "thinkthen 0.1.0", "input_tokens": 300, "output_tokens": 30,
+                                "wall_s": wall_s}) + "\n")
+    return run
 
 
 class UnpricedModelTest(unittest.TestCase):
     def test_a_model_with_no_price_prints_a_blank_cost_cell(self):
         qs = analyze.questions()
-        t = analyze.tables(qs, analyze.systems(qs, [JEV]), SONGS, lambda model, backend: (None, "no price"))
+        jev = fake_run()
+        self.addCleanup(shutil.rmtree, jev.parent, True)
+        t = analyze.tables(qs, analyze.systems(qs, [jev]), SONGS, lambda model, backend: (None, "no price"))
         out = Path(tempfile.mkdtemp())
         analyze.write(t, out)
         saved, common.TABLES = common.TABLES, out

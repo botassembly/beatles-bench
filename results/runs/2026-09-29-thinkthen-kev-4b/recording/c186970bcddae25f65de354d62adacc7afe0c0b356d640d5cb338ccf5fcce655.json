@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Octopus's Garden","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who sings the lead vocal on it?","criteria":{"john":"John Lennon","paul":"Paul McCartney","george":"George Harrison","ringo":"Ringo Starr"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"paul","confidence":0.2014,"probabilities":{"john":0.315,"paul":0.401,"george":0.167,"ringo":0.1169}}},"usage":{"input_tokens":55,"output_tokens":76},"latency_ms":95.7}
-}

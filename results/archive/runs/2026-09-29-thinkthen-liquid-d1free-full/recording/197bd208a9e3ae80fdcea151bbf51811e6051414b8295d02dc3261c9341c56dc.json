@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"It's Only Love / Mean Mr. Mustard","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"It's Only Love","b":"Mean Mr. Mustard"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.6076631698328917,"b":0.3923368301671084},"confidence":0.2153263396657834}},"usage":{"input_tokens":92,"output_tokens":0}}
-}

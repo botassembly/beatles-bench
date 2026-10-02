@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Savoy Truffle","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"With the Beatles","b":"The Beatles (White Album)","c":"Magical Mystery Tour","d":"Yellow Submarine"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.1036, "probabilities": {"a": 0.1676, "b": 0.494, "c": 0.2017, "d": 0.1366}}}, "usage": {"input_tokens": 62, "output_tokens": 0}}
-}

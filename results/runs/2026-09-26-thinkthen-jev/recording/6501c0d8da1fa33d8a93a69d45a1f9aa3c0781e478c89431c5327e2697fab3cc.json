@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"I Call Your Name","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who produced it?","criteria":{"a":"Phil Spector","b":"George Martin"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.74,"probabilities":{"a":0.13,"b":0.87}}},"usage":{"input_tokens":323,"output_tokens":32}}
-}

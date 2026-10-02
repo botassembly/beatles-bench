@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"And I Love Her","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"December 1963","b":"September 1963","c":"July 1964","d":"February 1964"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.032, "probabilities": {"a": 0.3494, "b": 0.2071, "c": 0.2871, "d": 0.1564}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
-}

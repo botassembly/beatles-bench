@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Back in the U.S.S.R.","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Revolver","b":"With the Beatles","c":"Sgt. Pepper's Lonely Hearts Club Band","none":"none of these"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"none","confidence":0.1355,"probabilities":{"a":0.2628,"b":0.2067,"c":0.1789,"none":0.3517}}},"usage":{"input_tokens":64,"output_tokens":75},"latency_ms":97.7}
-}

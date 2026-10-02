@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Phil Spector","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"Cry Baby Cry","b":"Every Little Thing","c":"Dig It","d":"I Don't Want to Spoil the Party"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.1506936046488241,"b":0.5259723617205622,"c":0.11736029730435689,"d":0.20597373632625673},"confidence":0.36796314896074955}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

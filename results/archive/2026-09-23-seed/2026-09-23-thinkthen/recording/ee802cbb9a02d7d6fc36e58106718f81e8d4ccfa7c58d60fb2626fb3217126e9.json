@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"“Con te partirò” by Andrea Bocelli","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a song and its performer. Who is a credited writer of it?","criteria":{"a":"Henrik Jonback","b":"Lucio Quarantotto","c":"Kevin Kadish","d":"Sandy Vee"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.99,"probabilities":{"a":0.01,"b":0.99,"c":0.0,"d":0.0}}},"usage":{"input_tokens":364,"output_tokens":46}}
-}

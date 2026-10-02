@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"It Won't Be Long","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"August 1964","b":"November 1964","c":"November 1963","d":"July 1964"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.28,"probabilities":{"c":0.14,"b":0.25,"a":0.46,"d":0.15}}},"usage":{"input_tokens":369,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":{"evidence":"For No One from the album Revolver has Paul McCartney singing lead","entities":[{"id":"i1","name":"For No","kind":"song"},{"id":"i2","name":"One","kind":"song"},{"id":"i3","name":"album","kind":"album"},{"id":"i4","name":"Revolver","kind":"album"},{"id":"i5","name":"Paul McCartney","kind":"person"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i5?"},"q2":{"type":"noul","instructions":"Does the text itself state that i2 sung by i5?"},"q3":{"type":"noul","instructions":"Does the text itself state that i1 appears on i3?"},"q4":{"type":"noul","instructions":"Does the text itself state that i1 appears on i4?"},"q5":{"type":"noul","instructions":"Does the text itself state that i2 appears on i3?"},"q6":{"type":"noul","instructions":"Does the text itself state that i2 appears on i4?"}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.16451645880021026},"q2":{"type":"noul","noul":0.24508500210441886},"q3":{"type":"noul","noul":0.13296425050508953},"q4":{"type":"noul","noul":0.2689414506674572},"q5":{"type":"noul","noul":0.11920291576401235},"q6":{"type":"noul","noul":0.5621765155565327}},"usage":{"input_tokens":1392,"output_tokens":0}}
-}

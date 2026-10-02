@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Plácido Domingo","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Colleen Farrington","b":"Katharine Martha Houghton Hepburn","c":"Bice Waleran","d":"Pepita Embil"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.5,"probabilities":{"d":0.35,"b":0.0,"a":0.02,"c":0.63}}},"usage":{"input_tokens":359,"output_tokens":46}}
-}

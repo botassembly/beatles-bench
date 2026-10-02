@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"You Like Me Too Much / I Am the Walrus","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"You Like Me Too Much","b":"I Am the Walrus"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.0503306439932806,"b":0.9496693560067193},"confidence":0.8993387120134386}},"usage":{"input_tokens":94,"output_tokens":0}}
-}

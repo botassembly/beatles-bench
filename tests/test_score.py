@@ -80,6 +80,8 @@ class NewestTest(unittest.TestCase):
                      "2026-10-02-old-thinkthen-jev", "latest-thinkthen-jev"):
             (runs / name).mkdir()
         (runs / "2026-10-03-thinkthen-jev").write_text("a file, not a run folder")
+        (runs / "2026-10-04-thinkthen-jev").mkdir()  # a stub that points to a run in Git history
+        (runs / "2026-10-04-thinkthen-jev" / "README.md").write_text("moved to history")
         cases = [("thinkthen-jev", "2026-09-30-thinkthen-jev"), ("thinkthen-jev-rad", "2026-10-01-thinkthen-jev-rad")]
         for label, want in cases:
             self.assertEqual(score.newest(label, runs), runs / want, label)

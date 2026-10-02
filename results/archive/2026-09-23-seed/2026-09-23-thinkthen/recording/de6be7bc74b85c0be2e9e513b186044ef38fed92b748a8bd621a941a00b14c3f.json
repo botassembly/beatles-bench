@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Vedat Dalokay","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"Brandenburg Gate","b":"Prague Castle","c":"United States Capitol","d":"Faisal Mosque"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.95,"probabilities":{"b":0.01,"d":0.96,"a":0.02,"c":0.01}}},"usage":{"input_tokens":354,"output_tokens":46}}
-}

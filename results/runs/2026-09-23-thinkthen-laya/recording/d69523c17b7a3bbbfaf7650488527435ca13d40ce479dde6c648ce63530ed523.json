@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Judy Garland","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"John Swinton of Kimmerghame","b":"Francis Avent Gumm","c":"James Lawton Collins","d":"Guðmundur Gunnarsson"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2055, "probabilities": {"a": 0.601, "b": 0.1562, "c": 0.1496, "d": 0.0932}}}, "usage": {"input_tokens": 60, "output_tokens": 0}}
-}

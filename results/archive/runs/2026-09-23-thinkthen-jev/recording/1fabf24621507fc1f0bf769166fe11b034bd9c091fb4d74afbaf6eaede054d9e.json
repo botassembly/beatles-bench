@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Adrien Brody","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Dona Celeste","b":"Bice Waleran","c":"Nelle Wilson Reagan","d":"Sylvia Plachy"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.75,"probabilities":{"d":0.81,"b":0.15,"a":0.04,"c":0.0}}},"usage":{"input_tokens":355,"output_tokens":46}}
-}

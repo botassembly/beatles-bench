@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Prince","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Chips Hardy","b":"Sandy McDonald","c":"John L. Nelson","d":"Thomas Markle"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.2407,"probabilities":{"a":0.1501,"b":0.1697,"c":0.2496,"d":0.4306}}},"usage":{"input_tokens":44,"output_tokens":75},"latency_ms":95.5}
-}

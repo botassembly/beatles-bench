@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Let It Be\"},{\"id\":\"u002\",\"evidence\":\"Nowhere Man\"},{\"id\":\"u003\",\"evidence\":\"Do You Want to Know a Secret\"},{\"id\":\"u004\",\"evidence\":\"Yer Blues\"},{\"id\":\"u005\",\"evidence\":\"Hello, Goodbye\"},{\"id\":\"u006\",\"evidence\":\"All Together Now\"},{\"id\":\"u007\",\"evidence\":\"Another Girl\"},{\"id\":\"u008\",\"evidence\":\"Eleanor Rigby\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Help!?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u003","probabilities":{"u001":0.0007118594027127887,"u002":0.08758634833125138,"u003":0.8309961853694255,"u004":0.0009729964404091565,"u005":0.00040560526128896043,"u006":0.0008586663448869174,"u007":0.07729468111102479,"u008":0.0011736577390004633},"confidence":0.8068527832793435}},"usage":{"input_tokens":211,"output_tokens":0}}
-}

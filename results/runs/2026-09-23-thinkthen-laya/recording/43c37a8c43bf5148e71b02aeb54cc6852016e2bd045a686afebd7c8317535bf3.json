@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Octopus's Garden / Hey Jude","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Octopus's Garden","b":"Hey Jude"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0997, "probabilities": {"a": 0.6837, "b": 0.3163}}}, "usage": {"input_tokens": 40, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Assassination of John F. Kennedy","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Not a Second Time","b":"The Ballad of John and Yoko","c":"While My Guitar Gently Weeps","d":"I Forgot to Remember to Forget"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.0801,"probabilities":{"a":0.2729,"b":0.1385,"c":0.2785,"d":0.3101}}},"usage":{"input_tokens":73,"output_tokens":75},"latency_ms":545.5}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Francis Ford Coppola","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Lilian Fontaine","b":"Grace Ho","c":"Patsy Swayze","d":"Italia Coppola"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0481, "probabilities": {"a": 0.3754, "b": 0.2013, "c": 0.1352, "d": 0.2881}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
-}

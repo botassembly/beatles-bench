@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Gladys Pearl Baker","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Marilyn Monroe","b":"Amitabh Bachchan","c":"Javier Bardem","d":"William Shakespeare"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0264, "probabilities": {"a": 0.2622, "b": 0.3578, "c": 0.1938, "d": 0.1861}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
-}

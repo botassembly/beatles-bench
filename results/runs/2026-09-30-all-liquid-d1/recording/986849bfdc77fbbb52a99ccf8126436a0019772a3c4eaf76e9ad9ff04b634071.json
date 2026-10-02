@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"I Am the Walrus\"},{\"id\":\"u002\",\"evidence\":\"Every Little Thing\"},{\"id\":\"u003\",\"evidence\":\"The Night Before\"},{\"id\":\"u004\",\"evidence\":\"The Word\"},{\"id\":\"u005\",\"evidence\":\"Eight Days a Week\"},{\"id\":\"u006\",\"evidence\":\"I've Got a Feeling\"},{\"id\":\"u007\",\"evidence\":\"Here, There and Everywhere\"},{\"id\":\"u008\",\"evidence\":\"Misery\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one has George Harrison on lead vocal, alone or with another Beatle?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null,"none":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u004","probabilities":{"u001":0.004138973674443387,"u002":0.0647444570039432,"u003":0.09420260662520033,"u004":0.29016449072924017,"u005":0.008762207337556073,"u006":0.025354287613944298,"u007":0.256069264308591,"u008":0.1994269435640492,"none":0.05713676914303245},"confidence":0.2014350520703952}},"usage":{"input_tokens":223,"output_tokens":0}}
-}

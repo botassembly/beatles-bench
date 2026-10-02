@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"She's Leaving Home / And Your Bird Can Sing","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"She's Leaving Home","b":"And Your Bird Can Sing"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.1021,"probabilities":{"a":0.5511,"b":0.4489}}},"usage":{"input_tokens":44,"output_tokens":53},"latency_ms":96.2}
-}

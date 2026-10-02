@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"I'll Get You","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"February 1964","b":"May 1964","c":"August 1963","d":"August 1964"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9375439927908982,"b":0.04119281094247118,"c":0.0029839972162304675,"d":0.01827919905040006},"confidence":0.9167253237211975}},"usage":{"input_tokens":103,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Yellow Submarine","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Yellow Submarine","b":"All Together Now","c":"Wait","d":"A Day in the Life"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.64,"probabilities":{"d":0.12,"a":0.72,"b":0.07,"c":0.09}}},"usage":{"input_tokens":359,"output_tokens":46}}
-}

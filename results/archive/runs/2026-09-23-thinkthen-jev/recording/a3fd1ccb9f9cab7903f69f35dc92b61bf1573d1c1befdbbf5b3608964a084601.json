@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Getting Better","b":"With a Little Help from My Friends","c":"I've Just Seen a Face","d":"While My Guitar Gently Weeps"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.5,"probabilities":{"a":0.07,"b":0.62,"c":0.18,"d":0.13}}},"usage":{"input_tokens":363,"output_tokens":46}}
-}

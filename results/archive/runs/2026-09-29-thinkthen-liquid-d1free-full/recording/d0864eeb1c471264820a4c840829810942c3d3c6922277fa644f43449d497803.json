@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"With a Little Help from My Friends","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"July 1967","b":"February 1967","c":"May 1967","d":"December 1966"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8975579007414844,"b":0.0068529387305764,"c":0.09460190109881438,"d":0.0009872594291249045},"confidence":0.8634105343219792}},"usage":{"input_tokens":106,"output_tokens":0}}
-}

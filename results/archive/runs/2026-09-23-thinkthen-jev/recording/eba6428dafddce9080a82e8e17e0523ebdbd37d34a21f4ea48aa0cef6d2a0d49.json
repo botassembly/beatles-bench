@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Please Please Me","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Piggies","b":"You're Going to Lose That Girl","c":"Misery","d":"If I Fell"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.9,"probabilities":{"c":0.93,"d":0.07,"a":0.0,"b":0.0}}},"usage":{"input_tokens":356,"output_tokens":46}}
-}

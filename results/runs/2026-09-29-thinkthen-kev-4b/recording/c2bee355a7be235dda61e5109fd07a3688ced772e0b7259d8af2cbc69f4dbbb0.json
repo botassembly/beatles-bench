@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Phil Spector","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"One After 909","b":"Honey Pie","c":"Little Child","d":"It's All Too Much"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.1096,"probabilities":{"a":0.3322,"b":0.2428,"c":0.1777,"d":0.2472}}},"usage":{"input_tokens":56,"output_tokens":75},"latency_ms":81.9}
-}

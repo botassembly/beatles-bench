@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Paul McCartney","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Blue Jay Way","b":"For You Blue","c":"Only a Northern Song","d":"Dig It"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0454, "probabilities": {"a": 0.4094, "b": 0.2189, "c": 0.179, "d": 0.1927}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
-}

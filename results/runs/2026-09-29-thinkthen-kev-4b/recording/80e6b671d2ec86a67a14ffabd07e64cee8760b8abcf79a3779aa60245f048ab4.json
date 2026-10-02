@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"A Day in the Life","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"The Beatles (White Album)","c":"Help!","d":"Rubber Soul"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.173,"probabilities":{"a":0.2424,"b":0.1083,"c":0.3797,"d":0.2695}}},"usage":{"input_tokens":63,"output_tokens":74},"latency_ms":82.9}
-}

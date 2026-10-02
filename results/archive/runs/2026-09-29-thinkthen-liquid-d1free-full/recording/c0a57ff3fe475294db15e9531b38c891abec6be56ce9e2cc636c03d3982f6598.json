@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Spartacus","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a film. Who composed its music?","criteria":{"a":"Éric Serra","b":"Sammy Fain","c":"Marc Streitenfeld","d":"Alex North"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.000008939490707929165,"b":0.000010783084106321935,"c":0.000012218835074368181,"d":0.9999680585901114},"confidence":0.9999574114534818}},"usage":{"input_tokens":90,"output_tokens":0}}
-}

@@ -1,5 +1,0 @@
-## 2026-09-30 job: the whole bench on Liquid's d1:free
-pinned binary: thinkthen-aec7819bb, SHA-256 41af203ef4bda363a6543e31b5246b6a0450265885ebc1756e46b3de7766e01d
-commands: scripts/run/thinkthen.sh live results/runs/2026-09-30-all-liquid-d1 ;
-  scripts/run/ask_suite.sh live results/runs/2026-09-30-all-liquid-d1 ;
-  BENCH_WORKERS=2, BENCH_THINKTHEN_ARGS="--backend liquid --timeout 90"

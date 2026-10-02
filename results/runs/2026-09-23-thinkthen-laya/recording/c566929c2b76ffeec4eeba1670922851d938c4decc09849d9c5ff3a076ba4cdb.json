@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Please Mr. Postman","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"With the Beatles","c":"Let It Be","d":"Help!"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2422, "probabilities": {"a": 0.6043, "b": 0.0714, "c": 0.2332, "d": 0.0911}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
-}

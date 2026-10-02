@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Andrew Cockburn","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Meghan, Duchess of Sussex","b":"Bryan Cranston","c":"Olivia Wilde","d":"Hugh Laurie"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0340432282111201,"b":0.028222827463879028,"c":0.8779862181151122,"d":0.05974772620988855},"confidence":0.8373149574868163}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Ariana Afghan Airlines Flight 701","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"June 1969","b":"July 1968","c":"October 1968","d":"January 1969"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0116, "probabilities": {"a": 0.3067, "b": 0.2724, "c": 0.2333, "d": 0.1876}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
-}

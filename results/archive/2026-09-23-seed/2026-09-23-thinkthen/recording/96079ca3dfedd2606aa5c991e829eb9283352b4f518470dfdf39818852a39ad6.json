@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Let It Be","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"It's Only Love","b":"Let It Be","c":"For No One","d":"And I Love Her"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.86,"probabilities":{"a":0.08,"b":0.9,"d":0.0,"c":0.02}}},"usage":{"input_tokens":356,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Good Morning Good Morning","b":"I'm Happy Just to Dance with You","c":"Dig a Pony","d":"I Need You"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.94,"probabilities":{"c":0.0,"b":0.04,"a":0.96,"d":0.0}}},"usage":{"input_tokens":369,"output_tokens":46}}
-}

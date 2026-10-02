@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Good Day Sunshine / Eight Days a Week","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Good Day Sunshine","b":"Eight Days a Week"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0023, "probabilities": {"a": 0.5283, "b": 0.4717}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
-}

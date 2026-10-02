@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Her Majesty","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"April 1969","b":"September 1969","c":"February 1969","d":"October 1969"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.32,"probabilities":{"a":0.2,"c":0.04,"b":0.26,"d":0.5}}},"usage":{"input_tokens":366,"output_tokens":46}}
-}

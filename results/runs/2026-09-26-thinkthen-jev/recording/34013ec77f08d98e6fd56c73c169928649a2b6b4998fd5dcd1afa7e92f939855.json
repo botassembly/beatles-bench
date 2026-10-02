@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Taxman","b":"I'll Be Back","c":"What Goes On","d":"When I'm Sixty-Four"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.79,"probabilities":{"c":0.01,"b":0.01,"a":0.14,"d":0.84}}},"usage":{"input_tokens":367,"output_tokens":46}}
-}

@@ -1,5 +1,5 @@
 """scripts/score/diff_guard.sh stops thinkthen diff when the pairing cannot support the comparison. Edge cases on ten
-rows of a local experiment's control run. No network, no model, no key. Skips without a thinkthen that has diff."""
+rows of a local experiment's control run. No network, no model, no key. Needs thinkthen 0.1.0."""
 import json
 import os
 import shutil
@@ -10,11 +10,9 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tests"))
-from builds import bench_bin  # noqa: E402
 
-# The edge-case expectations pin diff as the 2026-09-26 pinned build printed it: 0.0.1 at 02dc0b96.
-BIN = bench_bin("02dc0b96")
+# thinkthen 0.1.0: THINKTHEN_BIN, else thinkthen on PATH.
+BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
 GUARD = ROOT / "scripts" / "score" / "diff_guard.sh"
 ROWS = [json.loads(l) for l in open(ROOT / "tests" / "fixtures" / "audit" / "249" / "control.jsonl", encoding="utf-8")][:10]
 
@@ -47,9 +45,9 @@ CASES = [
 ]
 
 
-@unittest.skipUnless(has_diff(), "the edge-case messages pin diff under thinkthen 02dc0b96; set BENCH_BIN_02dc0b96")
 class DiffGuardTest(unittest.TestCase):
     def test_edge_cases(self):
+        self.assertTrue(has_diff(), "the suite needs thinkthen 0.1.0, which has diff")
         tmp = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, tmp, True)
         env = {k: v for k, v in os.environ.items() if k not in ("THINKTHEN_API_KEY", "THINKTHEN_BASE_URL")}
@@ -64,7 +62,8 @@ class DiffGuardTest(unittest.TestCase):
                 if code == 0:
                     self.assertIn("summary", json.loads(done.stdout.splitlines()[-1]))
                 else:
-                    self.assertTrue(done.stderr.startswith("diff_guard: "), done.stderr)
+                    # 0.1.0's diff may print its own warning first; the guard's stop line follows it
+                    self.assertTrue(any(l.startswith("diff_guard: ") for l in done.stderr.splitlines()), done.stderr)
 
 
 if __name__ == "__main__":

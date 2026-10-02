@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Magical Mystery Tour","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Fixing a Hole","b":"The Fool on the Hill","c":"Julia","d":"Eight Days a Week"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.39,"probabilities":{"d":0.05,"c":0.13,"a":0.28,"b":0.54}}},"usage":{"input_tokens":361,"output_tokens":46}}
-}

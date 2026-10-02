@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Lillian Gish","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Eva-Maria Hagen","b":"Line Marsa","c":"Mary Gish","d":"Nelle Wilson Reagan"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.96,"probabilities":{"a":0.01,"c":0.97,"d":0.0,"b":0.02}}},"usage":{"input_tokens":353,"output_tokens":46}}
-}

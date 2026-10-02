@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Rudolf Kompfner","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"traveling-wave tube","b":"achromatic lens","c":"shower","d":"slow cooker"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9998796620476146,"b":0.000037633330455525225,"c":0.00004264415018943109,"d":0.00004006047174053133},"confidence":0.9998395493968194}},"usage":{"input_tokens":97,"output_tokens":0}}
-}

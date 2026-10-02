@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Mr. Moonlight","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Beatles for Sale","b":"Help!","c":"A Hard Day's Night"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.41,"probabilities":{"b":0.18,"a":0.6,"c":0.22}}},"usage":{"input_tokens":346,"output_tokens":39}}
-}

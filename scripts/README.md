@@ -6,8 +6,8 @@ All the code, one folder per stage. The pipeline runs in this order: harvest, ge
 | --- | --- | --- |
 | `harvest/` | Fetch pinned Wikipedia pages, page views, and Wikidata answers, then write `data/`. | `harvest.py`, `wikitext.py`, and the Wikidata queries (`*.rq`, `reversal/`) |
 | `generate/` | Turn `data/` into `questions/`, `questions/suite/`, and the cases in `examples/`. | `generate.py`, `make_suite.py`, `examples.py` |
-| `run/` | Ask every question and record each exchange in `results/runs/RUN/`. | `thinkthen.sh` (wraps `ask.py`), `ask_suite.sh`, `example.sh`, `rad_pipeline.sh`, `chat.py`, `baselines.py`, `relation_vectors.py`, `catalog.py`, `rad.py`, `gaps.py`, `model_time.py`, `in_text_check.py` |
-| `score/` | Score the runs into `results/tables/` and `results/history.tsv`. | `analyze.py`, `score_suite.py`, `relate_audit.py`, `table.py`, `score.py`, `stats.py`, `open_book.py`, `rad_table.py`, `prices.tsv`, `tune.sh`, `context_diff.sh`, `diff_guard.sh`, `context.jq` |
+| `run/` | Ask every question and record each exchange in `results/runs/RUN/`. | `thinkthen.sh` (wraps `ask.py`), `ask_suite.sh`, `example.sh`, `chat.py`, `baselines.py`, `catalog.py`, `gaps.py`, `model_time.py` |
+| `score/` | Score the runs into `results/tables/` and `results/history.tsv`. | `analyze.py`, `score_suite.py`, `relate_audit.py`, `table.py`, `score.py`, `stats.py`, `prices.tsv`, `tune.sh`, `context_diff.sh`, `diff_guard.sh`, `context.jq` |
 | `answers/` | Write `results/answers.jsonl` (one row per case per committed run) and report from it into `reports/generated/` and `results/by-question.jsonl`. | `build.py`, `report.py`, `queries/` |
 | `figures/` | Draw `reports/figures/` from `results/tables/` with kuva. | `all.sh`, `common.py`, one numbered script per figure |
 
@@ -17,27 +17,23 @@ Python 3.12. The harvest, the generators, the scoring, and the Jev replays need 
 
 ## Replay
 
-`./run.sh` at the repository root replays the newest `results/runs/DATE-thinkthen-jev` with no key and compares `replay/answers.jsonl` with the committed answers. It does so only when `BENCH_BIN_<id>` names the build `results/builds.tsv` gives the run. Otherwise it prints a skip line. It then replays every folder in `examples/` under `THINKTHEN_BIN` and compares each replayed file with the committed one; a folder whose recording is not a question store replays under its `run.txt` build's `BENCH_BIN_<id>` or skips the same way. Last, it runs `analyze.py` and `table.py`. `./run.sh NAME` replays the newest `DATE-thinkthen-NAME` and the newest `DATE-examples-NAME` instead.
+`./run.sh` at the repository root replays every folder in `examples/` under `THINKTHEN_BIN`, or else `thinkthen` on `PATH`, and compares each replayed file with the committed one. Then it prints the results tables with `table.py`. `./run.sh NAME` replays the newest `DATE-thinkthen-NAME` and the newest `DATE-examples-NAME` a live run left, and stops with a message when none exists.
 
-A replay writes `RUN/replay/` and leaves the committed files alone. It passes `--replay RUN/recording` with no key, so the command answers from the recording alone and stops on any request the recording lacks. A committed recording replays only under the build that made it. `results/builds.tsv` names that build, and `BENCH_BIN_<id>` names its command. Each step also runs on its own with `THINKTHEN_BIN` set to that build's command:
+The result tables are frozen. The runs that made them, with their recordings, are at commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs). Build 02dc0b96 made the runs of 2026-09-23 to 2026-09-26. Builds c22512868 and aec7819bb made the runs of 2026-09-30. Builds aec7819bb and 2c5ac772b made the Kev and Nimble runs. The chat and search runs used no thinkthen build. `analyze.py`, `score_suite.py` and `build.py` read committed runs, so they stay for the next committed run, which will replace the frozen tables. `report.py` reads `results/answers.jsonl` alone and rebuilds `reports/generated/` and `results/by-question.jsonl` byte for byte.
+
+A replay writes `RUN/replay/` and leaves the committed files alone. It passes `--replay RUN/recording` with no key, so the command answers from the recording alone and stops on any request the recording lacks. Each step also runs on its own:
 
 ```sh
-env -u THINKTHEN_API_KEY scripts/run/thinkthen.sh replay "$(python3 scripts/score/score.py newest thinkthen-jev)"
-# the function suite grew after the run: BENCH_SUITE_ONLY names the case-id prefixes it recorded (or the new groups'
-# prefixes for results/runs/2026-09-30-recognize-jev, 2026-09-30-relate-jev and 2026-09-30-reading-jev)
-env -u THINKTHEN_API_KEY BENCH_SUITE_ONLY="tag-lead-,score-popularity-,filter-singer-,filter-album-,rank-popularity-,rank-date-,find-album-0,find-album-1,annotate-card-,relate-songs,recognize-0,recognize-1,recognize-2,recognize-3,recognize-4" \
-  scripts/run/ask_suite.sh replay "$(python3 scripts/score/score.py newest functions-jev)"
+env -u THINKTHEN_API_KEY scripts/run/thinkthen.sh replay "$(python3 scripts/score/score.py newest thinkthen-NAME)"
 env -u THINKTHEN_API_KEY scripts/run/example.sh decide replay        # examples/decide/replay/
-env -u ZAI_API_KEY .venv/bin/python scripts/run/chat.py replay results/runs/2026-09-23-glm-5.3-flash
-python3 scripts/score/analyze.py                      # results/tables/
+python3 scripts/score/score.py report RUN             # one run's scores
 python3 scripts/score/table.py                        # the results tables
-python3 scripts/answers/build.py                      # results/answers.jsonl
 python3 scripts/answers/report.py                     # reports/generated/, results/by-question.jsonl
 ```
 
 `scripts/run/example.sh NAME replay [OUT] [FROM]` replays one function folder. The cases come from `examples/NAME/`. The recording comes from FROM, a run folder, or else from the folder's own `recording/`. The replay writes to OUT, by default the folder's `replay/`. For `audit`, `example.sh` then runs `score/tune.sh` for the audit files. `score/context_diff.sh [IN [OUT]]` runs `diff` on the audit rows in `IN`, by default `examples/audit`.
 
-The open-book and section-picking runs replay the same way. [reports/open-book.md](../reports/open-book.md) and [reports/rad.md](../reports/rad.md) give the commands that print their tables. The Laya runs replay with no Mac: `tests/test_replay_laya.py` replays them from their recordings.
+The open-book and section-picking runs, the Laya runs, and their scripts are at commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs).
 
 Code finds a dated run by its label: `python3 scripts/score/score.py newest LABEL` prints the newest `results/runs/DATE-LABEL` folder. `analyze.py` scores the newest run of each label. [results/runs/README.md](../results/runs/README.md) lists the labels.
 

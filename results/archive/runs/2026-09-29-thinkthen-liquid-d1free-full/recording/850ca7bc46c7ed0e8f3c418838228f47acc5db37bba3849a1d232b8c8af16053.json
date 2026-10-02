@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"George Martin","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"Her Majesty","b":"I've Got a Feeling","c":"Two of Us","d":"One After 909"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.8261549250036627,"b":0.02655670654808199,"c":0.02826946696754091,"d":0.11901890148071437},"confidence":0.7682065666715503}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

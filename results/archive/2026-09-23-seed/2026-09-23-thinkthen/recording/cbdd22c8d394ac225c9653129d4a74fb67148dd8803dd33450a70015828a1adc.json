@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Help!","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Not a Second Time","b":"You're Going to Lose That Girl","c":"She Said She Said","d":"Nowhere Man"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.45,"probabilities":{"b":0.59,"c":0.01,"a":0.22,"d":0.18}}},"usage":{"input_tokens":359,"output_tokens":46}}
-}

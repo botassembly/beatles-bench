@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":{"evidence":"Words of Love is sung by John Lennon and Paul McCartney","entities":[{"id":"i1","name":"Words of Love","kind":"song"},{"id":"i2","name":"John Lennon","kind":"person"},{"id":"i3","name":"Paul McCartney","kind":"person"}]},"model":"jev-1.13.0","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i2?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 sung by i3?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.78},"q2":{"type":"noul","noul":0.82}},"usage":{"input_tokens":413,"output_tokens":38}}
-}

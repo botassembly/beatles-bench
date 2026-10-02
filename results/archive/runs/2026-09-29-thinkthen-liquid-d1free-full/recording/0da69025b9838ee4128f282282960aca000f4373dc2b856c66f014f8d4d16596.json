@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Matthias of Arras","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"Faisal Mosque","b":"St. Vitus Cathedral","c":"Brandenburg Gate","d":"United States Capitol"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.000014738310130185691,"b":0.9999402152830597,"c":0.000013845374264064158,"d":0.00003120103254605505},"confidence":0.9999202870440795}},"usage":{"input_tokens":100,"output_tokens":0}}
-}

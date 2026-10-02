@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Nancy Priddy","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Nancy Reagan","b":"Vanessa Redgrave","c":"Christina Applegate","d":"Lindsay Lohan"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0662, "probabilities": {"a": 0.31, "b": 0.0853, "c": 0.3258, "d": 0.2788}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
-}

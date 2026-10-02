@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Please Please Me","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"I Saw Her Standing There","b":"Girl","c":"She Said She Said","d":"I Should Have Known Better"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.1253203926640078,"b":0.003555065896498545,"c":0.001228597898631669,"d":0.869895943540862},"confidence":0.8265279247211493}},"usage":{"input_tokens":103,"output_tokens":0}}
-}

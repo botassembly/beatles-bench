@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"The Ballad of John and Yoko / We Can Work It Out","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"The Ballad of John and Yoko","b":"We Can Work It Out"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2395, "probabilities": {"a": 0.7798, "b": 0.2202}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

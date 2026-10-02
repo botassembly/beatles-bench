@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"With the Beatles","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"Ob-La-Di, Ob-La-Da","b":"A Taste of Honey","c":"Octopus's Garden","d":"Not a Second Time"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.43,"probabilities":{"a":0.1,"c":0.0,"b":0.32,"d":0.58}}},"usage":{"input_tokens":364,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"I'll Be Back","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"August 1963","b":"November 1964","c":"July 1964","d":"July 1965"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0539, "probabilities": {"a": 0.3971, "b": 0.2627, "c": 0.2089, "d": 0.1313}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
-}

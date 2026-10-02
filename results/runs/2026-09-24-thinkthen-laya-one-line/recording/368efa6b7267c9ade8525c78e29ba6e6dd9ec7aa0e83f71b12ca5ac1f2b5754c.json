@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Catalog:\nMailman, Bring Me No More Blues (lead: Lennon; written: Ruth Roberts, Bill Katz, Stanley Clayton; 1:56; released 1996-10-28)\nText: Mailman, Bring Me No More Blues","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Is Ringo Starr its only lead singer?"}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.9655}}, "usage": {"input_tokens": 99, "output_tokens": 0}}
-}

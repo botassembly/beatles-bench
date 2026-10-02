@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"I Forgot to Remember to Forget","b":"Sweet Little Sixteen","c":"I Call Your Name","d":"Let It Be"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.0067161808205961114,"b":0.018256472281271568,"c":0.03864895212274075,"d":0.9363783947753915},"confidence":0.9151711930338554}},"usage":{"input_tokens":111,"output_tokens":0}}
-}

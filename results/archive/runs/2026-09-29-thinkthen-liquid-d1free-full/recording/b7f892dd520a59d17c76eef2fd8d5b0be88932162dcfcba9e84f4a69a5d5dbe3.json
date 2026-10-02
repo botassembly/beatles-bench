@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Octopus's Garden","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"a":"George Harrison","b":"Ringo Starr","c":"Lennon–McCartney","d":"Paul McCartney"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.03248831478559681,"b":0.949447674276879,"c":0.017389737636276145,"d":0.0006742733012480895},"confidence":0.9325968990358388}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

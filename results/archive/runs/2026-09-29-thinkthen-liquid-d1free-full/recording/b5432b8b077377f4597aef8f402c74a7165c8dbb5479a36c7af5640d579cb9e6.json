@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Antonio Rizzo","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an architect. This person was an architect of which of these?","criteria":{"a":"Prague Castle","b":"Faisal Mosque","c":"Sydney Opera House","d":"Doge's Palace"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00007484405224031112,"b":0.000012217955662100423,"c":0.000016699965362538067,"d":0.9998962380267351},"confidence":0.9998616507023135}},"usage":{"input_tokens":97,"output_tokens":0}}
-}

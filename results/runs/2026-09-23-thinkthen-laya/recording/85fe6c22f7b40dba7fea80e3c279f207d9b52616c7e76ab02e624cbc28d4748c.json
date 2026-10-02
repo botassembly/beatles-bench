@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"“All About That Bass” by Meghan Trainor","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a song and its performer. Who is a credited writer of it?","criteria":{"a":"Joseíto Fernández","b":"Infinity","c":"Sandy Vee","d":"Kevin Kadish"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0165, "probabilities": {"a": 0.1958, "b": 0.1991, "c": 0.3152, "d": 0.29}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
-}

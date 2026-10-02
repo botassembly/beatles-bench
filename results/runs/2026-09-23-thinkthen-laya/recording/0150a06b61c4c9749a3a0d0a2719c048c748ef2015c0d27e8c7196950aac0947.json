@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"George Harrison","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Another Girl","b":"I'm Down","c":"It's Only Love","d":"Free as a Bird"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0074, "probabilities": {"a": 0.2346, "b": 0.1993, "c": 0.2778, "d": 0.2882}}}, "usage": {"input_tokens": 58, "output_tokens": 0}}
-}

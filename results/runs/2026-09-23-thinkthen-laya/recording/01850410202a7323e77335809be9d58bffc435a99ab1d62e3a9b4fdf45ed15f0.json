@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Lucy in the Sky with Diamonds","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Rubber Soul","b":"Yellow Submarine","c":"With the Beatles","none":"none of these"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0623, "probabilities": {"a": 0.379, "b": 0.3025, "c": 0.2074, "none": 0.1112}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
-}

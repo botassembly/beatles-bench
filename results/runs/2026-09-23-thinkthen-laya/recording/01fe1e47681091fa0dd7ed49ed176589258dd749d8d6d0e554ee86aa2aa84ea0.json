@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"A Hard Day's Night","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Glass Onion","b":"With a Little Help from My Friends","c":"When I Get Home","d":"Lucy in the Sky with Diamonds"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2816, "probabilities": {"a": 0.6693, "b": 0.1218, "c": 0.1154, "d": 0.0934}}}, "usage": {"input_tokens": 67, "output_tokens": 0}}
-}

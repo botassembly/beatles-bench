@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"And Your Bird Can Sing","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"A Hard Day's Night","c":"Please Please Me","none":"none of these"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"none","probabilities":{"a":0.0005860869984868795,"b":0.0035902181302054415,"c":0.00035547973384124424,"none":0.9954682151374664},"confidence":0.9939576201832886}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

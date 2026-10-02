@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Sexy Sadie","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Revolver","d":"Beatles for Sale"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.999877394913844,"b":0.0000582875260626689,"c":0.00004539437094090146,"d":0.000018923189152459573},"confidence":0.999836526551792}},"usage":{"input_tokens":109,"output_tokens":0}}
-}

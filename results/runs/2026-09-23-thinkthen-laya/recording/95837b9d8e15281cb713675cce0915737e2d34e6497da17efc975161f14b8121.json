@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Arundhati Roy","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Naomi Foner Gyllenhaal","b":"Mary Roy","c":"Dorothy Bridges","d":"Irmelin Indenbirken"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.2276, "probabilities": {"a": 0.3107, "b": 0.5423, "c": 0.0975, "d": 0.0495}}}, "usage": {"input_tokens": 59, "output_tokens": 0}}
-}

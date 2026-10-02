@@ -12,7 +12,7 @@ writes the same answers. A question answered from the recording keeps the time o
 question ids shift. A gap has no recording name and is keyed by its id.
 Open book: when RUN_DIR holds catalog.txt, the text sent is "Catalog:\n<catalog>\nText: <input>" and the question
 wording stays the same. When RUN_DIR holds ids.txt, only the questions it lists are asked. When RUN_DIR holds
-questions.jsonl, its questions are asked in place of questions/ (scripts/run/rad.py writes one). A question with its
+questions.jsonl, its questions are asked in place of questions/. A question with its
 own context field sends that in place of catalog.txt, in the same shape.
 Live mode appends a start and an end line to RUN_DIR/loadavg.txt: the UTC time and /proc/loadavg.
 

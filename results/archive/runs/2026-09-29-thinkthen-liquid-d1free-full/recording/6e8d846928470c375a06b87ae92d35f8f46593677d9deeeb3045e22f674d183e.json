@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Sandy Vee","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“Toxic” by Britney Spears","b":"“All About That Bass” by Meghan Trainor","c":"“Guantanamera” by The Sandpipers","d":"“Firework” by Katy Perry"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.17167922119782197,"b":0.16127766455528195,"c":0.5629144277810465,"d":0.10412868646584965},"confidence":0.41721923704139535}},"usage":{"input_tokens":124,"output_tokens":0}}
-}

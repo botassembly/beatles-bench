@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Do You Want to Know a Secret","b":"Mean Mr. Mustard","c":"You Won't See Me","d":"Crying, Waiting, Hoping"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.004771194598737007,"b":0.13098682079635418,"c":0.8541413655601203,"d":0.010100619044788548},"confidence":0.8055218207468271}},"usage":{"input_tokens":117,"output_tokens":0}}
-}

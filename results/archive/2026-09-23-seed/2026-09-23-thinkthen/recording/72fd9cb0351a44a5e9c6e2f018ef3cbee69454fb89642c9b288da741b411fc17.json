@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"The Inner Light","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Citroën?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"after","confidence":0.75,"probabilities":{"after":0.88,"before":0.12}}},"usage":{"input_tokens":337,"output_tokens":32}}
-}

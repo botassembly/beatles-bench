@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Phil Spector","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"Can You Dig It?","b":"I'm Looking Through You","c":"Why Don't We Do It in the Road?","d":"What's the New Mary Jane"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.29,"probabilities":{"a":0.27,"c":0.13,"d":0.14,"b":0.46}}},"usage":{"input_tokens":368,"output_tokens":46}}
-}

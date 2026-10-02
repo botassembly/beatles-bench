@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Glenn Close","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Anthony Martin Sinatra","b":"William Close","c":"Roberto Roberti","d":"Francis Lenn Taylor"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.96,"probabilities":{"b":0.96,"d":0.03,"a":0.01,"c":0.0}}},"usage":{"input_tokens":349,"output_tokens":46}}
-}

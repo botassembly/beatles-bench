@@ -4,11 +4,11 @@ Written 2026-09-23. Model: Jev 1.13.0 from TypeSafe, called through the `thinkth
 
 ## Setup
 
-`scripts/run/catalog.py` writes every song in `data/songs.tsv` as one line under its first album, in release order, with songs first out on a single under "Singles". Each line gives the lead singer, the credited writers, the length, the first release date, and for singles the first album. The catalog holds 306 songs in 30,098 characters. Jev counts it as about 11,850 input tokens. In open-book mode, `scripts/run/ask.py` sends "Catalog:", the catalog, and then "Text:" with the question's own input. The question wording stays the same. The catalog covers 1,075 questions: every Beatles-only question except the event questions and the reversal pairs about producers and subjects. The budget allowed 196 calls. `scripts/score/open_book.py pick` drew 134 of the 342 covered questions Jev missed closed book and 62 of the 733 it got right, each spread over the topics in proportion with a fixed seed. The run lives in `results/archive/runs/2026-09-23-thinkthen-jev-open-book/`, with its catalog, its question list, its recording, and its timing. A replay with no key gives the same answers byte for byte.
+`scripts/run/catalog.py` writes every song in `data/songs.tsv` as one line under its first album, in release order, with songs first out on a single under "Singles". Each line gives the lead singer, the credited writers, the length, the first release date, and for singles the first album. The catalog holds 306 songs in 30,098 characters. Jev counts it as about 11,850 input tokens. In open-book mode, `scripts/run/ask.py` sends "Catalog:", the catalog, and then "Text:" with the question's own input. The question wording stays the same. The catalog covers 1,075 questions: every Beatles-only question except the event questions and the reversal pairs about producers and subjects. The budget allowed 196 calls. `scripts/score/open_book.py pick` drew 134 of the 342 covered questions Jev missed closed book and 62 of the 733 it got right, each spread over the topics in proportion with a fixed seed. The run lives in [`results/archive/runs/2026-09-23-thinkthen-jev-open-book/`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/archive/runs/2026-09-23-thinkthen-jev-open-book), with its catalog, its question list, its recording, and its timing. A replay with no key gives the same answers byte for byte.
 
 ## Results
 
-Same 196 questions. A tie at the top counts as wrong here. `python3 scripts/score/open_book.py compare results/archive/runs/2026-09-23-thinkthen-jev results/archive/runs/2026-09-23-thinkthen-jev-open-book` prints this table.
+Same 196 questions. A tie at the top counts as wrong here. At commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71), `python3 scripts/score/open_book.py compare results/archive/runs/2026-09-23-thinkthen-jev results/archive/runs/2026-09-23-thinkthen-jev-open-book` printed this table.
 
 | Topic | n | closed right | open right | misses fixed | hits broken |
 | --- | --- | --- | --- | --- | --- |
@@ -58,7 +58,7 @@ Seven of nine misses are misreads, and five of those seven involve a title share
 
 Written 2026-09-24 for ticket 0005. Laya holds 512 tokens per request, too few for the catalog. One song's catalog line fits. This test asks whether a small local model gains from one line the way Jev does.
 
-The questions are the 45 lead-singer questions of the open-book sample, less the 7 that ask which of four songs a member sings alone. Those name four songs. No one line serves them. The other 38 each name one song. Each goes out with that song's line from the open-book catalog as its `context` field. `scripts/run/ask.py` sends it as "Catalog:\n<line>\nText: <input>". The longest request came to 88 tokens of text, question, and options by Laya's own tokenizer, and Laya's shim reported at most 111 input tokens. Every request fit in 512. None was dropped for size. `results/runs/2026-09-24-thinkthen-laya-one-line/build.py` writes the question file and the id list for both runs. A fresh Jev one-line run does not rebuild them. It copies `questions.jsonl` and `ids.txt` from the newest one-line Jev run, with the commands in [scripts/README.md](../scripts/README.md#rerun). `python3 results/runs/2026-09-24-thinkthen-laya-one-line/table.py` prints both tables below from the committed answers. The closed-book rows come from the 2026-09-23 runs of each model on the same questions.
+The questions are the 45 lead-singer questions of the open-book sample, less the 7 that ask which of four songs a member sings alone. Those name four songs. No one line serves them. The other 38 each name one song. Each goes out with that song's line from the open-book catalog as its `context` field. `scripts/run/ask.py` sends it as "Catalog:\n<line>\nText: <input>". The longest request came to 88 tokens of text, question, and options by Laya's own tokenizer, and Laya's shim reported at most 111 input tokens. Every request fit in 512. None was dropped for size. [`results/runs/2026-09-24-thinkthen-laya-one-line/build.py`](https://github.com/botassembly/beatles-bench/blob/a6a6be71/results/runs/2026-09-24-thinkthen-laya-one-line/build.py) writes the question file and the id list for both runs. A fresh Jev one-line run does not rebuild them. It copies `questions.jsonl` and `ids.txt` from the newest one-line Jev run, with the commands in [scripts/README.md](../scripts/README.md#rerun). `python3 results/runs/2026-09-24-thinkthen-laya-one-line/table.py` prints both tables below from the committed answers. The closed-book rows come from the 2026-09-23 runs of each model on the same questions.
 
 | Model | context | right of 38 | median input tokens |
 | --- | --- | --- | --- |
@@ -79,11 +79,11 @@ The line helps Laya on the pick-one questions. It names the singer on all 7 with
 
 Jev reads the line. It fixed 23 of 25 misses and broke none. One line did as well as the whole catalog on these 38 questions. It took 335 input tokens a call against 12,145. Its two misses are yes answers it called no: "She Loves You" with "lead: Lennon, McCartney" asked about Paul McCartney (0.42 yes), and "Boys" with "lead: Starr" asked whether Ringo Starr is its only lead singer (0.48 yes). The sample was drawn mostly from Jev's closed-book misses. Both closed-book rows sit low for that reason.
 
-Laya answered all 38 with no refusal, one call in flight, at a median 0.043 seconds per call through the tunnel. The Laya calls cost nothing. The Jev run made 38 live calls with no probe. They used 13,171 input tokens and returned 1,000 output tokens, about 0.0006 dollars. The guard reserved 30,000 tokens with a stop at 25,000. Both runs replay with no key and no tunnel (`tests/test_replay_laya.py`).
+Laya answered all 38 with no refusal, one call in flight, at a median 0.043 seconds per call through the tunnel. The Laya calls cost nothing. The Jev run made 38 live calls with no probe. They used 13,171 input tokens and returned 1,000 output tokens, about 0.0006 dollars. The guard reserved 30,000 tokens with a stop at 25,000. At commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71), both runs replayed with no key and no tunnel (`tests/test_replay_laya.py`).
 
 ## Fresh run of 2026-09-26
 
-Ticket 0014 asked every Jev run again from an empty recording (`sdlc/records/0014-shipped-recognize-and-relate.md`). Ticket 0009 had done the same on 2026-09-25. The open-book run took the same `ids.txt` and `catalog.txt`, so the 196 questions stay the same. `thinkthen diff` pairs all 196 with the 2026-09-25 run: four answers changed, and two of them lost a right answer. `python3 scripts/score/open_book.py compare results/runs/2026-09-26-thinkthen-jev results/runs/2026-09-26-thinkthen-jev-open-book` prints:
+Ticket 0014 asked every Jev run again from an empty recording (`sdlc/records/0014-shipped-recognize-and-relate.md`). Ticket 0009 had done the same on 2026-09-25. The open-book run took the same `ids.txt` and `catalog.txt`, so the 196 questions stay the same. `thinkthen diff` pairs all 196 with the 2026-09-25 run: four answers changed, and two of them lost a right answer. At commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71), `python3 scripts/score/open_book.py compare results/runs/2026-09-26-thinkthen-jev results/runs/2026-09-26-thinkthen-jev-open-book` printed:
 
 | Topic | n | closed right | open right | misses fixed | hits broken |
 | --- | --- | --- | --- | --- | --- |
@@ -156,13 +156,13 @@ One entry adds tens of input tokens to each question. In the audit example, 70 q
 
 ### What it costs
 
-The whole catalog is large. Each open-book question carries it, so each costs far more. This command adds up the input tokens of each run. It prices them at Jev's 0.042 dollars per million input tokens, from `results/tables/cost.tsv`:
+The whole catalog is large. Each open-book question carries it, so each costs far more. This command adds up the input tokens of each run from `results/answers.jsonl`. It prices them at Jev's 0.042 dollars per million input tokens, from `results/tables/cost.tsv`:
 
 ```sh
 for run in 2026-09-26-thinkthen-jev 2026-09-26-thinkthen-jev-open-book; do
-  jq -sc --arg run "$run" '(map(.input_tokens) | add) as $t
+  jq -sc --arg run "$run" 'map(select(.run == $run)) | (map(.input_tokens) | add) as $t
     | {run: $run, answers: length, input_tokens: $t, tokens_per_answer: ($t / length | round),
-       dollars_per_1000_answers: ($t / length * 0.042 | round / 1000)}' "results/runs/$run/answers.jsonl"
+       dollars_per_1000_answers: ($t / length * 0.042 | round / 1000)}' results/answers.jsonl
 done
 ```
 

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band (Reprise)","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Revolver","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Magical Mystery Tour"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.2322, "probabilities": {"a": 0.2951, "b": 0.6309, "c": 0.0741}}}, "usage": {"input_tokens": 68, "output_tokens": 0}}
-}

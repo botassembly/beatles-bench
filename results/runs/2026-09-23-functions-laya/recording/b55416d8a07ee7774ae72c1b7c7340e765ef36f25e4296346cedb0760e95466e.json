@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Octopus's Garden","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Which Beatles sang its lead vocal? Name every one who did, since some songs share the lead.\n\nDetermine whether the label \"john\" applies to this item.","criteria":{"true":"John Lennon"}},"q2":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Which Beatles sang its lead vocal? Name every one who did, since some songs share the lead.\n\nDetermine whether the label \"paul\" applies to this item.","criteria":{"true":"Paul McCartney"}},"q3":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Which Beatles sang its lead vocal? Name every one who did, since some songs share the lead.\n\nDetermine whether the label \"george\" applies to this item.","criteria":{"true":"George Harrison"}},"q4":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Which Beatles sang its lead vocal? Name every one who did, since some songs share the lead.\n\nDetermine whether the label \"ringo\" applies to this item.","criteria":{"true":"Ringo Starr"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.9093}, "q2": {"type": "noul", "noul": 0.9031}, "q3": {"type": "noul", "noul": 0.924}, "q4": {"type": "noul", "noul": 1.0}}, "usage": {"input_tokens": 300, "output_tokens": 0}}
-}

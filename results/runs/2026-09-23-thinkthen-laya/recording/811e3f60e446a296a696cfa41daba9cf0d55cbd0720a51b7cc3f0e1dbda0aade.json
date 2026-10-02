@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Selena Gomez","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Mandy Teefey","b":"Lela E. Rogers","c":"Sylvia Plachy","d":"Nina S. Gore"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0135, "probabilities": {"a": 0.3243, "b": 0.2544, "c": 0.19, "d": 0.2314}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

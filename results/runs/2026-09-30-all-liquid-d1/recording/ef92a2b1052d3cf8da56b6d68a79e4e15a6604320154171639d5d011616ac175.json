@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":{"evidence":"Tell Me Why first appeared on the album A Hard Day's Night","entities":[{"id":"i1","name":"Tell Me Why","kind":"song"},{"id":"i2","name":"album","kind":"album"},{"id":"i3","name":"A Hard Day's Night","kind":"album"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 appears on i2?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 appears on i3?"}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.8175744673038221},"q2":{"type":"noul","noul":0.9981897895123057}},"usage":{"input_tokens":356,"output_tokens":0}}
-}

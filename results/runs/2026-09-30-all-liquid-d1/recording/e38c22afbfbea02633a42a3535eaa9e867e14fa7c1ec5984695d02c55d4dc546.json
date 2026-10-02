@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"You Like Me Too Much\"},{\"id\":\"u002\",\"evidence\":\"Roll Over Beethoven\"},{\"id\":\"u003\",\"evidence\":\"If I Needed Someone\"},{\"id\":\"u004\",\"evidence\":\"Sexy Sadie\"},{\"id\":\"u005\",\"evidence\":\"Oh! Darling\"},{\"id\":\"u006\",\"evidence\":\"I Am the Walrus\"},{\"id\":\"u007\",\"evidence\":\"I Me Mine\"},{\"id\":\"u008\",\"evidence\":\"Please Please Me\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Rubber Soul?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u003","probabilities":{"u001":0.0029336301433909567,"u002":0.001671532866865874,"u003":0.9811651167118891,"u004":0.004543697417673558,"u005":0.00039702366636727986,"u006":0.00044988675337500293,"u007":0.00035037215582190426,"u008":0.008488740284616094},"confidence":0.9784744190993019}},"usage":{"input_tokens":215,"output_tokens":0}}
-}

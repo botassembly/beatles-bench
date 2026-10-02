@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Let It Be","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"Beatles for Sale","c":"Let It Be","d":"Help!"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.13160457866931347,"b":0.004793696427614684,"c":0.8581697552116483,"d":0.00543196969142355},"confidence":0.8108930069488643}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"The Continuing Story of Bungalow Bill","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"The Beatles (White Album)","b":"Please Please Me","c":"Magical Mystery Tour","d":"Rubber Soul"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.84,"probabilities":{"d":0.01,"c":0.11,"a":0.88,"b":0.0}}},"usage":{"input_tokens":365,"output_tokens":46}}
-}

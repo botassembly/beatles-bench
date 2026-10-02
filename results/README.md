@@ -1,24 +1,20 @@
 # Results
 
-Every run the bench made, and the tables scored from them.
+The frozen result tables, and the folder new live runs land in.
 
-- `runs/`: the current runs, one folder per run, named `DATE-LABEL`. They hold the newest run of each label: Jev, GLM-5.3 Flash, Laya, the four baselines, the three function suites, the open-book run, the section-picking runs, the one-line runs, the pipelines, and the relation-vector run. The Jev one-line run of 2026-09-24 stays beside its Laya pair. [runs/README.md](runs/README.md) explains each label.
-- `tables/`: the scored tables, one row per system and category. `scripts/score/analyze.py` and `scripts/score/score_suite.py` write them.
-- `answers.jsonl`: every committed run's every answer, one row per case. `scripts/answers/build.py` writes it and `scripts/answers/report.py` reports from it.
+- `runs/`: new live runs, one folder per run, named `DATE-LABEL`. [runs/README.md](runs/README.md) explains each label. The old runs, with their recordings, are at commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs). Two stub folders keep the links to them working.
+- `tables/`: the scored tables, one row per system and category. `scripts/score/analyze.py` and `scripts/score/score_suite.py` wrote them.
+- `answers.jsonl`: every old run's every answer, one row per case. `scripts/answers/build.py` wrote it and `scripts/answers/report.py` reports from it.
 - `by-question.jsonl`: one row per question with every run's answer, probability and score.
 - `history.tsv`: one dated row per run and per function measure, so drift in a model shows over time.
-- `archive/`: runs no table reads. Each still replays or keeps its answers.
-  - `archive/runs/`: superseded runs under their own names. They hold the Jev runs of 2026-09-23 and 2026-09-25 that a fresh run replaced, the first pipeline run of 2026-09-24, `2026-09-25-examples-jev`, the live run the function folders' recordings came from, and `2026-09-29-thinkthen-liquid-d1free-full`, the d1:free run the all-run of 2026-09-30 replaced. The 2026-09-25 runs replay with the thinkthen build their `run.txt` names.
-  - `archive/2026-09-23-seed/`: the 629-question seed set and its runs.
-  - `archive/2026-09-23-natural-phrasing/`: the baselines in the natural wording.
-  - `archive/in-text-check/`: the 20-question wiring check, with the Jev and Laya recordings and results.
-  - `archive/probes/`: one-off live probes, such as the Jev header probe of 2026-09-23.
+
+These tables are frozen. Build 02dc0b96 made the runs of 2026-09-23 to 2026-09-26. Builds c22512868 and aec7819bb made the runs of 2026-09-30. Builds aec7819bb and 2c5ac772b made the Kev and Nimble runs. The chat and search runs used no thinkthen build. The builders of `tables/` and `answers.jsonl` read committed runs, so a new committed run will replace the frozen tables.
 
 ## What a run folder holds
 
 Every run holds `answers.jsonl`: one row per question with the value, the probabilities, the backend, the model, the tokens, and the wall time. A run of a model holds more.
 
-- `recording/`: every request and response body, keyed by a hash of the request. No header is kept, so no key is stored.
+- `recording/`: every request and response body. No header is kept, so no key is stored.
 - `details.jsonl`: the command's full output per question.
 - `timing.tsv`: each request's wall time.
 - `ledger.txt`: the token guard's count for a live Jev run.
@@ -29,7 +25,7 @@ Every run holds `answers.jsonl`: one row per question with the value, the probab
 - `outputs.jsonl` and `lists/`: a function suite's output.
 - `gaps.tsv`: requests the backend refused.
 - `model-time.tsv` and `shim.log`: for Laya, the model's own time per call, paired from the shim's log.
-- `catalog.txt`, `questions.jsonl`, `rank-*.tsv`, `split.tsv`, and `loadavg.txt`: the open-book and section-picking runs' inputs, section ranks, split, and machine load.
+- `catalog.txt`, `questions.jsonl`, `rank-*.tsv`, `split.tsv`, and `loadavg.txt`: the old open-book and section-picking runs' inputs, section ranks, split, and machine load. A live run writes `loadavg.txt` too.
 
 ## How replay works
 

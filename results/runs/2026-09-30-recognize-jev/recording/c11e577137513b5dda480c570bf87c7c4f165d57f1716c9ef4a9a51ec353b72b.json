@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":{"evidence":"the album Let It Be carried One After 909 in 1970","entities":[{"id":"i1","name":"Let It Be","kind":"album"},{"id":"i2","name":"One After 909","kind":"song"}]},"model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i2 appears on i1?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.87}},"usage":{"input_tokens":372,"output_tokens":21}}
-}

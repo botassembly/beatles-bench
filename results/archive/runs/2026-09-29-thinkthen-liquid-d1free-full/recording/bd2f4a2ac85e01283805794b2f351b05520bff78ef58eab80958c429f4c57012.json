@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Free as a Bird","b":"You Know What to Do","c":"The Inner Light","d":"Octopus's Garden"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.32821418375217765,"b":0.15503740253972212,"c":0.03919959419276112,"d":0.4775488195153393},"confidence":0.30339842602045236}},"usage":{"input_tokens":107,"output_tokens":0}}
-}

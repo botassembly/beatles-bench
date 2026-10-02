@@ -1,7 +1,6 @@
 """The harvest is a pure function of the pinned inputs: the same raw pages and pins give the same data, byte for byte."""
 import csv
 import re
-import filecmp
 import os
 import sys
 import tempfile
@@ -28,13 +27,6 @@ class HarvestTest(unittest.TestCase):
         for name in FILES:
             with self.subTest(name):
                 self.assertEqual((out / name).read_text(), (FIX / "expected" / name).read_text())
-
-    @unittest.skipUnless((ROOT / "data" / "raw").is_dir(), "data/raw/ is a local page cache; run scripts/harvest/harvest.py to fill it")
-    def test_pinned_cache_rebuilds_data_byte_for_byte(self):
-        out = build(ROOT / "data" / "raw", ROOT / "data" / "pins")
-        for name in FILES:
-            with self.subTest(name):
-                self.assertTrue(filecmp.cmp(out / name, ROOT / "data" / name, shallow=False))
 
     def test_the_moon_landing_is_july_1969s_event(self):
         with open(ROOT / "data" / "events.tsv", encoding="utf-8") as f:

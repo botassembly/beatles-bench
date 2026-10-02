@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Ich bin ein Berliner","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"September 1963","b":"March 1963","c":"June 1963","d":"April 1964"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.1201,"probabilities":{"a":0.3253,"b":0.3098,"c":0.3401,"d":0.0248}}},"usage":{"input_tokens":60,"output_tokens":75},"latency_ms":110.4}
-}

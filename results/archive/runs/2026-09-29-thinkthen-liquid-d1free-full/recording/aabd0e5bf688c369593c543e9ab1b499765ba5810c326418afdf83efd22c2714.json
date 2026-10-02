@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"It's All Too Much","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"October 1969","b":"March 1969","c":"January 1969","d":"May 1969"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.1470609576570233,"b":0.18883005245464507,"c":0.35278094008533745,"d":0.31132804980299417},"confidence":0.1370412534471166}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

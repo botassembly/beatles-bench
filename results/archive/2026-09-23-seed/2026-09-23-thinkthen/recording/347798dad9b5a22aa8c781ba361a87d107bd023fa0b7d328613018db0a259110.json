@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Pepita Embil","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Jane Birkin","b":"Ronald Reagan","c":"J. J. Abrams","d":"Plácido Domingo"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.13,"probabilities":{"a":0.32,"c":0.27,"d":0.35,"b":0.06}}},"usage":{"input_tokens":356,"output_tokens":46}}
-}

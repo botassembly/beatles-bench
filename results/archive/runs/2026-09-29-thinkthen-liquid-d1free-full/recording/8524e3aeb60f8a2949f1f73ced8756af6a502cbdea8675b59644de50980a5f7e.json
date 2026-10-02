@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Yellow Submarine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Yellow Submarine","b":"Please Mr. Postman","c":"Twist and Shout","d":"Only a Northern Song"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9593679863962005,"b":0.0010552467866282197,"c":0.002378035342761647,"d":0.03719873147440969},"confidence":0.9458239818616007}},"usage":{"input_tokens":106,"output_tokens":0}}
-}

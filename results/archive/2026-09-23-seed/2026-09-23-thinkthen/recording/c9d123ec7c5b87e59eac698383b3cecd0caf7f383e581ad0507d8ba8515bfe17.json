@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Brooke Shields","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Clarence Holiday","b":"Stephen Gyllenhaal","c":"Francis Alexander Shields","d":"Lee Hoi-chuen"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.99,"probabilities":{"c":1.0,"b":0.0,"d":0.0,"a":0.0}}},"usage":{"input_tokens":353,"output_tokens":46}}
-}

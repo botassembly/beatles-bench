@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Another Girl\"},{\"id\":\"u002\",\"evidence\":\"Words of Love\"},{\"id\":\"u003\",\"evidence\":\"Please Please Me\"},{\"id\":\"u004\",\"evidence\":\"Golden Slumbers\"},{\"id\":\"u005\",\"evidence\":\"Girl\"},{\"id\":\"u006\",\"evidence\":\"Your Mother Should Know\"},{\"id\":\"u007\",\"evidence\":\"Two of Us\"},{\"id\":\"u008\",\"evidence\":\"Don't Bother Me\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album With the Beatles?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u008","probabilities":{"u001":0.1100744704890154,"u002":0.1601574286224141,"u003":0.26405499070821764,"u004":0.0033239609903654805,"u005":0.0971404024202695,"u006":0.005833733215695303,"u007":0.020361734499728553,"u008":0.33905327905429394},"confidence":0.24463231891919307}},"usage":{"input_tokens":208,"output_tokens":0}}
-}

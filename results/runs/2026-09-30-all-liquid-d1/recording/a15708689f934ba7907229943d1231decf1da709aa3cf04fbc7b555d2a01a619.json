@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"All You Need Is Love\"},{\"id\":\"u002\",\"evidence\":\"It's All Too Much\"},{\"id\":\"u003\",\"evidence\":\"Dig It\"},{\"id\":\"u004\",\"evidence\":\"Till There Was You\"},{\"id\":\"u005\",\"evidence\":\"A Taste of Honey\"},{\"id\":\"u006\",\"evidence\":\"Help!\"},{\"id\":\"u007\",\"evidence\":\"Any Time at All\"},{\"id\":\"u008\",\"evidence\":\"A Day in the Life\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album With the Beatles?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u004","probabilities":{"u001":0.0021889256120487693,"u002":0.002056305313485597,"u003":0.01519415531787425,"u004":0.47267631716324415,"u005":0.3681206859460423,"u006":0.05645313558818764,"u007":0.08213882760909025,"u008":0.0011716474500270296},"confidence":0.39734436247227906}},"usage":{"input_tokens":216,"output_tokens":0}}
-}

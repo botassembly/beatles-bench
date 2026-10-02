@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"George Harrison","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Wild Honey Pie","b":"Mother Nature's Son","c":"Any Time at All","d":"Dig It"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.04844907612260776,"b":0.8067493547031098,"c":0.04844907612260776,"d":0.09635249305167479},"confidence":0.7423324729374797}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

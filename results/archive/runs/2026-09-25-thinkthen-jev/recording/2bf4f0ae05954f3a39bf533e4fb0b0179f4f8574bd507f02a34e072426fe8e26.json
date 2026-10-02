@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Dig a Pony / Everybody's Got Something to Hide Except Me and My Monkey","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Dig a Pony","b":"Everybody's Got Something to Hide Except Me and My Monkey"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.29,"probabilities":{"b":0.65,"a":0.35}}},"usage":{"input_tokens":341,"output_tokens":32}}
-}

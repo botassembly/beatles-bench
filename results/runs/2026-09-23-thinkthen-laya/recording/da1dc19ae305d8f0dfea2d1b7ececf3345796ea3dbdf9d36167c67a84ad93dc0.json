@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"A Hard Day's Night","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. In what year was it first released?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "1970", "confidence": 0.0497, "probabilities": {"1963": 0.1151, "1964": 0.1275, "1965": 0.0682, "1966": 0.0925, "1967": 0.0737, "1968": 0.1161, "1969": 0.1281, "1970": 0.2789}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
-}

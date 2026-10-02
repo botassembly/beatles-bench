@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Paul McCartney","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"I Saw Her Standing There","b":"Being for the Benefit of Mr. Kite!","c":"Roll Over Beethoven","d":"Octopus's Garden"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0454, "probabilities": {"a": 0.3337, "b": 0.1131, "c": 0.2858, "d": 0.2674}}}, "usage": {"input_tokens": 73, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Thank You Girl / You Won't See Me","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Thank You Girl","b":"You Won't See Me"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0981,"probabilities":{"a":0.451,"b":0.549}}},"usage":{"input_tokens":42,"output_tokens":51},"latency_ms":95.1}
-}

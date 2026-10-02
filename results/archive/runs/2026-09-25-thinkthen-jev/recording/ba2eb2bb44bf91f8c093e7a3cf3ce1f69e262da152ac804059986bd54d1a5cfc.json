@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Emma Thompson","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Carol Ann Abrams","b":"Arlyn Phoenix","c":"Geneviève Sorya","d":"Phyllida Law"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.76,"probabilities":{"a":0.09,"d":0.83,"c":0.08,"b":0.0}}},"usage":{"input_tokens":352,"output_tokens":46}}
-}

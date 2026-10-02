@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Glenn Close","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Anthony Martin Sinatra","b":"William Close","c":"Roberto Roberti","d":"Francis Lenn Taylor"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.00013953841654980876,"b":0.997832103755479,"c":0.00010208848638630683,"d":0.0019262693415847472},"confidence":0.997109471673972}},"usage":{"input_tokens":91,"output_tokens":0}}
-}

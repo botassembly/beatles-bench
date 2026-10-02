@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Can't Buy Me Love\"},{\"id\":\"u002\",\"evidence\":\"Carry That Weight\"},{\"id\":\"u003\",\"evidence\":\"Hello, Goodbye\"},{\"id\":\"u004\",\"evidence\":\"Everybody's Trying to Be My Baby\"},{\"id\":\"u005\",\"evidence\":\"I Saw Her Standing There\"},{\"id\":\"u006\",\"evidence\":\"All Together Now\"},{\"id\":\"u007\",\"evidence\":\"The Night Before\"},{\"id\":\"u008\",\"evidence\":\"Let It Be\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one was first released on the album Beatles for Sale?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u004","probabilities":{"u001":0.03198974140403759,"u002":0.013335308210680314,"u003":0.013335308210680314,"u004":0.4416047057617527,"u005":0.0465447990987311,"u006":0.008609922095687512,"u007":0.4416047057617527,"u008":0.0029755094566777697},"confidence":0.3618339494420031}},"usage":{"input_tokens":218,"output_tokens":0}}
-}

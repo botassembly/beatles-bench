@@ -4,7 +4,7 @@
 
 The slide links seven songs to singers and albums. `relate.json` names the two relations, `sung_by` and `appears_on`. `relate` gives each possible edge a probability. `./run` keeps the edges at `0.5` or more, as the slide does.
 
-These answers are historical. The pinned build, thinkthen main at 02dc0b96, recorded them with relate's old choice planner. ThinkThen ticket 0167 replaced that planner. relate now asks one yes or no question for each pair a rule allows. The [relate page](https://thinkthen.dev/learn/beatles-bench/relate/) shows the pair planner.
+`thinkthen 0.1.0` recorded these answers on 2026-10-02. relate asks one yes or no question for each pair a rule allows, all in one request. The slide shows the answers of an older planner, recorded on 2026-09-25 with thinkthen main at 02dc0b96. Git history keeps that recording.
 
 ## Run it
 
@@ -13,20 +13,22 @@ These answers are historical. The pinned build, thinkthen main at 02dc0b96, reco
 ```
 
 ```json
-["sung_by","Octopus's Garden","Ringo Starr",0.97]
-["sung_by","Something","George Harrison",0.81]
-["sung_by","Come Together","John Lennon",0.89]
-["sung_by","Here Comes the Sun","George Harrison",0.93]
-["sung_by","Yesterday","Paul McCartney",0.93]
-["sung_by","Eleanor Rigby","Paul McCartney",0.81]
-["sung_by","Taxman","George Harrison",0.8]
-["appears_on","Octopus's Garden","Revolver",0.73]
-["appears_on","Something","Abbey Road",1.0]
-["appears_on","Come Together","Abbey Road",1.0]
-["appears_on","Here Comes the Sun","Abbey Road",1.0]
-["appears_on","Yesterday","Help!",0.56]
-["appears_on","Eleanor Rigby","Revolver",0.99]
-["appears_on","Taxman","Revolver",0.96]
+["sung_by","Octopus's Garden","Ringo Starr",0.92]
+["sung_by","Something","George Harrison",0.79]
+["sung_by","Come Together","John Lennon",0.72]
+["sung_by","Here Comes the Sun","George Harrison",0.79]
+["sung_by","Yesterday","Paul McCartney",0.86]
+["sung_by","Eleanor Rigby","Paul McCartney",0.53]
+["sung_by","Taxman","George Harrison",0.72]
+["appears_on","Octopus's Garden","Abbey Road",0.74]
+["appears_on","Octopus's Garden","Revolver",0.7]
+["appears_on","Something","Abbey Road",0.93]
+["appears_on","Come Together","Abbey Road",0.91]
+["appears_on","Here Comes the Sun","Abbey Road",0.94]
+["appears_on","Yesterday","Help!",0.77]
+["appears_on","Yesterday","Revolver",0.71]
+["appears_on","Eleanor Rigby","Revolver",0.91]
+["appears_on","Taxman","Revolver",0.95]
 ```
 
 A lower bar shows the edges under `0.5`. Here are Yesterday's:
@@ -36,19 +38,21 @@ A lower bar shows the edges under `0.5`. Here are Yesterday's:
 ```
 
 ```json
-["sung_by","Yesterday","John Lennon",0.01]
-["sung_by","Yesterday","Paul McCartney",0.93]
-["appears_on","Yesterday","Abbey Road",0.01]
-["appears_on","Yesterday","Help!",0.56]
-["appears_on","Yesterday","Revolver",0.3]
+["sung_by","Yesterday","John Lennon",0.37]
+["sung_by","Yesterday","Paul McCartney",0.86]
+["sung_by","Yesterday","George Harrison",0.06]
+["sung_by","Yesterday","Ringo Starr",0.06]
+["appears_on","Yesterday","Abbey Road",0.02]
+["appears_on","Yesterday","Help!",0.77]
+["appears_on","Yesterday","Revolver",0.71]
 ```
 
-`./run live` asks your own server. It sends 2 calls.
+`./run live` asks your own server. It sends 1 call.
 
 ## The lessons
 
-- **You control the bar.** At `0.5`, Yesterday links to Paul McCartney and to Help!. At `0.01`, Revolver joins at 0.3.
-- **The number is the number.** Yesterday's edge to Help! is 0.56. It is right, and barely over the bar. Octopus's Garden links to Revolver at 0.73. It is wrong. The song is on Abbey Road.
+- **You control the bar.** At `0.5`, Yesterday links to Paul McCartney, to Help! and to Revolver. At `0.01`, John Lennon joins at 0.37.
+- **The number is the number.** Octopus's Garden links to Abbey Road at 0.74 and to Revolver at 0.7. The first is right and the second is wrong, and the two numbers sit close. Yesterday's edge to Revolver is 0.71, and it is wrong too.
 
 ## The files
 

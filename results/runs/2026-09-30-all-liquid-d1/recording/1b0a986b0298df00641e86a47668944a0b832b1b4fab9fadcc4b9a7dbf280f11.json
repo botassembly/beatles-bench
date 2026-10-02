@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":{"evidence":"the album Revolver carried I'm Only Sleeping in 1966","entities":[{"id":"i1","name":"album","kind":"album"},{"id":"i2","name":"Revolver","kind":"album"},{"id":"i3","name":"I'm Only Sleeping","kind":"song"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i3 appears on i1?"},"q2":{"type":"noul","instructions":"Does the text itself state that i3 appears on i2?"}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.5312093882168609},"q2":{"type":"noul","noul":0.9770226314280634}},"usage":{"input_tokens":358,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Mercury-Atlas 9","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"May 1963","b":"May 1962","c":"November 1963","d":"July 1963"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.46981713183468266,"b":0.36589392836423407,"c":0.1525273001486881,"d":0.01176163965239528},"confidence":0.2930895091129102}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

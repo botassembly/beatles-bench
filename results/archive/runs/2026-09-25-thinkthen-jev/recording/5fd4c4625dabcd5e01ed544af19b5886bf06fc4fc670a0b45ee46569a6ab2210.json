@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Éric Serra","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"Lucy","b":"The Day After Tomorrow","c":"2001: A Space Odyssey","d":"2012"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.92,"probabilities":{"d":0.02,"a":0.94,"b":0.04,"c":0.0}}},"usage":{"input_tokens":357,"output_tokens":46}}
-}

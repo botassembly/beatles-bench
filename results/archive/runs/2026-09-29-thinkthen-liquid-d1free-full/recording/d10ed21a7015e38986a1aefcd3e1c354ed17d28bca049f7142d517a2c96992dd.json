@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Winona Ryder","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"James Lawton Collins","b":"Michael D. Horowitz","c":"Joe Toney","d":"Alfred Lennon"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.010978958095056099,"b":0.9882940178509786,"c":0.0006193901361485078,"d":0.00010763391781667356},"confidence":0.9843920238013047}},"usage":{"input_tokens":95,"output_tokens":0}}
-}

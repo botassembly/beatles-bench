@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Catalog:\nThe Ballad of John and Yoko (lead: Lennon; written: Lennon–McCartney; 3:00; released 1969-05-30; first album: Past Masters)\nText: The Ballad of John and Yoko","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Do two or more Beatles share the lead vocal on it?"}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.9603}}, "usage": {"input_tokens": 105, "output_tokens": 0}}
-}

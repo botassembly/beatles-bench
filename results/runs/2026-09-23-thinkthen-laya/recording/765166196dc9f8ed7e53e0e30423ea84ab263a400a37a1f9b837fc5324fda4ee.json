@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Paul Smith","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"2001: A Space Odyssey","b":"Lucy","c":"Spartacus","d":"The Three Caballeros"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0163, "probabilities": {"a": 0.2977, "b": 0.208, "c": 0.3067, "d": 0.1877}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
-}

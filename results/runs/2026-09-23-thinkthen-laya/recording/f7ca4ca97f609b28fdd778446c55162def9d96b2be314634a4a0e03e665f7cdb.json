@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Infinity","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“What Is Love” by Haddaway","b":"“Guantanamera” by The Sandpipers","c":"“The Nights” by Avicii","d":"“Con te partirò” by Andrea Bocelli"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0669, "probabilities": {"a": 0.4285, "b": 0.1863, "c": 0.2495, "d": 0.1357}}}, "usage": {"input_tokens": 81, "output_tokens": 0}}
-}

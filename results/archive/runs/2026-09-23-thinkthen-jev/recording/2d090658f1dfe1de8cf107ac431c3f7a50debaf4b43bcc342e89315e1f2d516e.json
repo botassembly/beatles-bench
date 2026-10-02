@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Ethel Marion Milne","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Amitabh Bachchan","b":"Zsa Zsa Gabor","c":"Robert De Niro","d":"Judy Garland"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.27,"probabilities":{"b":0.28,"c":0.15,"a":0.11,"d":0.46}}},"usage":{"input_tokens":361,"output_tokens":46}}
-}

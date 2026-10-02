@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"She Said She Said","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Death and state funeral of Winston Churchill?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"before","confidence":0.0212,"probabilities":{"before":0.5106,"after":0.4894}}},"usage":{"input_tokens":55,"output_tokens":53},"latency_ms":100.1}
-}

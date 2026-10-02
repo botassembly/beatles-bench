@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Otto Griessing","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"pitot tube","b":"pyrometer","c":"escalator","d":"Volksempfänger"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.83,"probabilities":{"c":0.01,"b":0.08,"a":0.03,"d":0.88}}},"usage":{"input_tokens":359,"output_tokens":46}}
-}

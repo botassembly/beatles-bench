@@ -28,7 +28,7 @@ Jev and four other kinds of system answer the same 1,313 Beatles questions. The 
 | Liquid d1, from memory | 64.3% | 0.31 s (load average 11.15 to 15.15 on 16 cores) | 0 (d1:free billed nothing) |
 | GLM-5.3 Flash, from memory | 96.2% | 8.24 s (build and load not recorded) | 0.056 |
 
-A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-30-all-jev`, and Liquid d1's from `results/runs/2026-09-30-all-liquid-d1`; each folder's `loadavg.txt` records the load.
+A uniform guess gets 31.4%. Jev's time comes from [`results/runs/2026-09-30-all-jev`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-30-all-jev), and Liquid d1's from [`results/runs/2026-09-30-all-liquid-d1`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-30-all-liquid-d1); each folder's `loadavg.txt` records the load.
 
 - Search sits near chance. Matching words cannot tell which album a song came out on.
 - Jev from memory gets about two in three. It knows a lot and misses fine detail. Its misses are near misses: one year off, a sibling album.
@@ -37,9 +37,11 @@ A uniform guess gets 31.4%. Jev's time comes from `results/runs/2026-09-30-all-j
 
 [reports/results.md](reports/results.md) has every category, the intervals, the tests, and the costs.
 
+The result tables are frozen. `results/tables/`, `results/answers.jsonl`, `results/by-question.jsonl`, `results/history.tsv` and `reports/` keep the numbers of the runs below. The runs themselves, with their recordings, are at commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs). Build 02dc0b96 made the runs of 2026-09-23 to 2026-09-26. Builds c22512868 and aec7819bb made the runs of 2026-09-30. Builds aec7819bb and 2c5ac772b made the Kev and Nimble runs. The chat and search runs used no thinkthen build. A new committed run will replace the frozen tables.
+
 ## Run it
 
-Install the `thinkthen` command first. `./run.sh` needs thinkthen 0.1.0, the current checkpoint: the example folders hold question-store recordings it replays, and it ships `audit` and `diff`. The runs under `results/` keep the form their builds wrote: `results/builds.tsv` names each run's build, and a run replays only when `BENCH_BIN_<id>` names that build's command. `BENCH_BIN_02dc0b96` covers the runs through 2026-09-26. `BENCH_BIN_c22512868` covers the recognize, relate, and reading runs of 2026-09-30. `BENCH_BIN_aec7819bb` covers the all-runs of 2026-09-30. Each run's `run.txt` names the SHA-256. Two examples keep their first recordings: `thinkthen` 0.1.0's recognize and relate ask different questions than the recorded ones, so `examples/recognize` and `examples/relate` replay under `BENCH_BIN_02dc0b96` too. Then:
+Install the `thinkthen` command first. `./run.sh` needs thinkthen 0.1.0: the example folders hold question-store recordings it replays, and it ships `audit` and `diff`. Then:
 
 ```sh
 git clone https://github.com/botassembly/beatles-bench
@@ -47,7 +49,7 @@ cd beatles-bench
 ./run.sh
 ```
 
-With no backend address set, `./run.sh` replays the converted folders in `examples/` under `thinkthen`. Three recordings keep the old form: the newest committed run and the `recognize` and `relate` examples. `./run.sh` replays each of them when `BENCH_BIN_<id>` names its build. Otherwise it prints one line naming the build and skips it. It needs no key, no network, and no spend. It checks every replayed answer and example file against the committed ones, byte for byte. A replay holds only under the build that made the recording: another build can replay every answer and still change an output's bytes. It then rescores every run into `results/tables/` and prints the results tables.
+With no backend address set, `./run.sh` replays every folder in `examples/` under `thinkthen`. It needs no key, no network, and no spend. It checks every replayed file against the committed one, byte for byte. It then prints the results tables.
 
 To ask your own backend:
 
@@ -65,10 +67,11 @@ Each function folder in `examples/` also runs by hand. `./run` in the folder ans
 
 ## What's new
 
+- 2026-10-02: The bench runs on thinkthen 0.1.0 alone. The old runs left the repository and stay at commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs). Their numbers stay in the frozen tables. `examples/recognize` and `examples/relate` were asked again under 0.1.0.
 - 2026-09-30: Five models answered the same 1,501 knowledge questions; [reports/models.md](reports/models.md) is the citable report, with the hard and easy split and the paired tests.
 - 2026-09-30: Every card-answerable function gained a reading test: the same questions with the facts written into the record as a short card. [reports/results.md](reports/results.md) opens with a by-function table of memory beside reading.
 - 2026-09-26: The function folders moved to `examples/`, and each slide of the ThinkThen talk that shows bench data has a folder there. The function suite moved to `questions/suite/`.
-- 2026-09-26: The walkthroughs moved to the website. Superseded runs moved to `results/archive/runs/`. `./run.sh NAME` names and replays a run of any backend.
+- 2026-09-26: The walkthroughs moved to the website. Superseded runs moved to [`results/archive/runs/`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/archive/runs). `./run.sh NAME` names and replays a run of any backend.
 - 2026-09-26: Every Jev run was asked again from an empty recording. `recognize` and `relate` are scored from the shipped commands, and the function table gained top pick rows.
 - 2026-09-25: Each function has its own folder in `examples/`, with its slide, its cases, and its recording.
 - 2026-09-24: `audit` and `diff` landed on thinkthen main. They grade a run and compare two runs with no model call.
@@ -91,7 +94,7 @@ The website's Beatles Bench section walks through each function and the open-boo
 - [questions/](questions/README.md): the benchmark itself, one file per category, plus the function suite.
 - [examples/](examples/README.md): one folder for each slide of the ThinkThen talk that shows bench data, indexed in the talk's order. Twelve hold a function example: [decide](examples/decide/), [choose](examples/choose/), [tag](examples/tag/), [score](examples/score/), [filter](examples/filter/), [rank](examples/rank/), [find](examples/find/), [annotate](examples/annotate/), [recognize](examples/recognize/), [relate](examples/relate/), [audit](examples/audit/), and [diff](examples/diff/).
 - [scripts/](scripts/README.md): all the code, by stage: harvest, generate, run, score, and figures.
-- [results/](results/README.md): every run with its recording, the scored tables, and the archive. [results/runs/README.md](results/runs/README.md) explains the run names.
+- [results/](results/README.md): the frozen result tables and new live runs. [results/runs/README.md](results/runs/README.md) explains the run names.
 - [reports/](reports/README.md): the write-ups and the figures.
 - [paper/](paper/README.md): notes toward the paper.
 - [tests/](tests/README.md): the test suite. It needs no network.

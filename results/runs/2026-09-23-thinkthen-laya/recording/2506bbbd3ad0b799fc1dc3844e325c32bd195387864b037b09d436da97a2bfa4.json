@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Come Together","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Magical Mystery Tour","b":"A Hard Day's Night","c":"Rubber Soul","d":"Abbey Road"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.2223, "probabilities": {"a": 0.1725, "b": 0.0938, "c": 0.1193, "d": 0.6144}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

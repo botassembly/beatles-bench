@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Dizzy Miss Lizzy","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"Magical Mystery Tour","c":"Sgt. Pepper's Lonely Hearts Club Band"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.7272452751087168,"b":0.26753855350848377,"c":0.005216171382799494},"confidence":0.5908679126630751}},"usage":{"input_tokens":104,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Golden Slumbers","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"September 1968","b":"September 1969","c":"August 1970","d":"October 1968"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.29,"probabilities":{"d":0.46,"c":0.04,"a":0.45,"b":0.05}}},"usage":{"input_tokens":368,"output_tokens":46}}
-}

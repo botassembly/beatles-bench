@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Benedict Cumberbatch","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Timothy Carlton","b":"John Swinton of Kimmerghame","c":"Charles H. Cooper","d":"Anthony F. DePalma"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9996232328325269,"b":0.0001686176188484297,"c":0.00012336328526527904,"d":0.0000847862633592586},"confidence":0.9994976437767025}},"usage":{"input_tokens":103,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"All My Loving","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"A Hard Day's Night","b":"Please Please Me","c":"With the Beatles"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0464, "probabilities": {"a": 0.2339, "b": 0.4847, "c": 0.2815}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
-}

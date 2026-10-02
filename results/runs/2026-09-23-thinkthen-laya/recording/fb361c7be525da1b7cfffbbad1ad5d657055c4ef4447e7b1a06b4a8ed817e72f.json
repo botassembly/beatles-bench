@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Amram Ducovny","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Glenn Close","b":"Rita Hayworth","c":"David Duchovny","d":"Steffi Graf"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0682, "probabilities": {"a": 0.3856, "b": 0.1811, "c": 0.3166, "d": 0.1167}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

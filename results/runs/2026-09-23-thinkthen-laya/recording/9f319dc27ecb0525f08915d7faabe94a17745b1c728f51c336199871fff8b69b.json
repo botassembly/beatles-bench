@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"1969 World Series","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"November 1969","b":"October 1968","c":"March 1970","d":"October 1969"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0999, "probabilities": {"a": 0.3373, "b": 0.2305, "c": 0.0635, "d": 0.3686}}}, "usage": {"input_tokens": 43, "output_tokens": 0}}
-}

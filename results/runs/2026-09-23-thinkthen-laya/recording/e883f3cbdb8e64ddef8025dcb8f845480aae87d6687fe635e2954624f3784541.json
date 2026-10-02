@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Rubber Soul","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Drive My Car","b":"Martha My Dear","c":"The Night Before","d":"Misery"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0232, "probabilities": {"a": 0.3411, "b": 0.257, "c": 0.2378, "d": 0.1641}}}, "usage": {"input_tokens": 55, "output_tokens": 0}}
-}

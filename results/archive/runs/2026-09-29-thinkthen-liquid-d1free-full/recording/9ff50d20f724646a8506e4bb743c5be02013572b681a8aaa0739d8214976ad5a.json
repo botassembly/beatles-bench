@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Sgt. Pepper's Lonely Hearts Club Band","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1967","probabilities":{"1962":0.00031071772776287895,"1963":0.0001378801558892828,"1964":0.00037479694354178577,"1965":0.0001467726619388722,"1966":0.012411570178122722,"1967":0.985973251896274,"1968":0.0004247005767885492,"1969":0.00016631521482853327,"1970":0.00005399464485331733},"confidence":0.9842199083833083}},"usage":{"input_tokens":131,"output_tokens":0}}
-}

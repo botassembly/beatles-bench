@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Northwest Orient Airlines Flight 705","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1962","b":"February 1964","c":"March 1962","d":"February 1963"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.009270762896671125,"b":0.14501913127821645,"c":0.011182674641174383,"d":0.834527431183938},"confidence":0.7793699082452507}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

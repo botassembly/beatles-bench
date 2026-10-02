@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Yesterday","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Yellow Submarine","b":"Magical Mystery Tour","c":"Help!","d":"Abbey Road"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.09301079421973046,"b":0.5028115430988678,"c":0.3915900235027397,"d":0.012587639178662116},"confidence":0.337082057465157}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

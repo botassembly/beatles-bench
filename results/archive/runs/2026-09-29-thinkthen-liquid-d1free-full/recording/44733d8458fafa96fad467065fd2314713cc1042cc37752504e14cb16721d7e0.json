@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Misery","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"Rubber Soul","c":"The Beatles (White Album)","d":"Please Please Me"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.183230303560762,"b":0.3878985556820786,"c":0.3423192739064726,"d":0.08655186685068682},"confidence":0.18386474090943813}},"usage":{"input_tokens":100,"output_tokens":0}}
-}

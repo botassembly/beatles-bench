@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Revolver","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"What Goes On","b":"I Want to Tell You","c":"Lucy in the Sky with Diamonds","d":"The Night Before"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0005788097026279573,"b":0.015890452846628565,"c":0.9831072712261149,"d":0.00042346622462857177},"confidence":0.9774763616348198}},"usage":{"input_tokens":107,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Nowhere Man","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year did the first album to include it come out?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"1963","confidence":0.2371,"probabilities":{"1963":0.3325,"1964":0.2302,"1965":0.2515,"1966":0.0846,"1967":0.0368,"1968":0.0311,"1969":0.0247,"1970":0.0088}}},"usage":{"input_tokens":127,"output_tokens":146},"latency_ms":109.7}
-}

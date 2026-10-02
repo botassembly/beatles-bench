@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Phyllida Law","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Nina Hagen","b":"Emma Thompson","c":"Christina Applegate","d":"Grace Kelly"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.95,"probabilities":{"c":0.0,"a":0.03,"d":0.0,"b":0.97}}},"usage":{"input_tokens":355,"output_tokens":46}}
-}

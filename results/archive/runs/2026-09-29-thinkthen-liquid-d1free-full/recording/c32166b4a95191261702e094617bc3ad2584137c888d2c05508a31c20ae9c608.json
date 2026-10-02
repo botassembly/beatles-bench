@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Maggie Mae","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Rubber Soul","b":"Abbey Road","c":"A Hard Day's Night","d":"Let It Be"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.002371958217151688,"b":0.2918429648367549,"c":0.005690031965447429,"d":0.7000950449806459},"confidence":0.6001267266408612}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

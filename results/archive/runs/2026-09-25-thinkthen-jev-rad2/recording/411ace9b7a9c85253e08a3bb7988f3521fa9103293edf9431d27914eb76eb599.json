@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nOn Air – Live at the BBC Volume 2 (2013-11-11)\nBeautiful Dreamer (lead: McCartney; written: Stephen Foster, Gerry Goffin, Jack Keller; 1:46; released 2013-11-11)\nHappy Birthday Dear Saturday Club (lead: none; written: Disputed; 0:33; released 2013-11-11)\nI'm Talking About You (lead: Lennon; written: Chuck Berry; 1:52; released 2013-11-11)\n\nThe Beatles Bootleg Recordings 1963\nBad to Me (lead: Lennon; written: Lennon, McCartney; released 2013)\nI'm in Love (lead: Lennon; written: Lennon, McCartney; released 2013)\n\nText: Mailman, Bring Me No More Blues","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Is Ringo Starr its only lead singer?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.18}},"usage":{"input_tokens":495,"output_tokens":21}}
-}

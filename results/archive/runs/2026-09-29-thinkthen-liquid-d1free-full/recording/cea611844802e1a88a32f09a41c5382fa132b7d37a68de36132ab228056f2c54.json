@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Paul Smith","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a composer. This person composed the music for which of these films?","criteria":{"a":"2001: A Space Odyssey","b":"Lucy","c":"Spartacus","d":"The Three Caballeros"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.1790355674890327,"b":0.42948399959081957,"c":0.26049521360784017,"d":0.1309852193123076},"confidence":0.23931199945442608}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

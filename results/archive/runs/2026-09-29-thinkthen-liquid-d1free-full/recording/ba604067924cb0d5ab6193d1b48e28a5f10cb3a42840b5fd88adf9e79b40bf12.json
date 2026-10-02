@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Do You Want to Know a Secret","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"March 1963","b":"November 1963","c":"March 1964","d":"October 1963"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.29884555494293796,"b":0.33863641865809185,"c":0.1812590131994851,"d":0.1812590131994851},"confidence":0.11818189154412247}},"usage":{"input_tokens":106,"output_tokens":0}}
-}

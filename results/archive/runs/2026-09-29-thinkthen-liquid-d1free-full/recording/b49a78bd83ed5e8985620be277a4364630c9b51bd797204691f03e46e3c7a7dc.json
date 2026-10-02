@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Björk","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Guðmundur Gunnarsson","b":"Stephen Gyllenhaal","c":"Robert Earl Jones","d":"Abraham Quintanilla"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9998008366099748,"b":0.00006604337265719113,"c":0.00007483694556181208,"d":0.00005828307180621133},"confidence":0.9997344488132996}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

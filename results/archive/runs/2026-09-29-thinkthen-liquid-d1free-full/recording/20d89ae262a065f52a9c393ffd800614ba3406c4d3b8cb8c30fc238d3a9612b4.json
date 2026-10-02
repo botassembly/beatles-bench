@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Let It Be","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Tell Me Why","b":"Rocky Raccoon","c":"Let It Be","d":"What Goes On"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.0011673170466391682,"b":0.0007080135783918576,"c":0.9969573523283298,"d":0.0011673170466391682},"confidence":0.9959431364377731}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

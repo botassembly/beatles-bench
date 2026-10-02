@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Abbey Road","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Revolution 9","b":"Oh! Darling","c":"Doctor Robert","d":"I'm Only Sleeping"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.1205, "probabilities": {"a": 0.2613, "b": 0.1493, "c": 0.103, "d": 0.4865}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
-}

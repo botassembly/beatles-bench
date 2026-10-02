@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"It's Only Love / Mean Mr. Mustard","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"It's Only Love","b":"Mean Mr. Mustard"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.5572, "probabilities": {"a": 0.9081, "b": 0.0919}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
-}

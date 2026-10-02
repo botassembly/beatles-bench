@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"1964 European Nations' Cup","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1964","b":"June 1964","c":"February 1964","d":"April 1965"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1026, "probabilities": {"a": 0.4363, "b": 0.2719, "c": 0.2144, "d": 0.0773}}}, "usage": {"input_tokens": 45, "output_tokens": 0}}
-}

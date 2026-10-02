@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"One After 909","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Yellow Submarine","b":"Let It Be","c":"Abbey Road"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0748, "probabilities": {"a": 0.2467, "b": 0.2232, "c": 0.5302}}}, "usage": {"input_tokens": 49, "output_tokens": 0}}
-}

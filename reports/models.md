@@ -25,22 +25,22 @@ answered right. `python3 scripts/score/table.py` prints the table from [results/
 ## The runs
 
 - **Jev** is `jev-1.13.0`, TypeSafe's small model, through the `thinkthen` command on build aec7819bb:
-  `results/runs/2026-09-30-all-jev`, a local Linux machine with 16 cores, 2026-09-30. The author of this
+  [`results/runs/2026-09-30-all-jev`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-30-all-jev), a local Linux machine with 16 cores, 2026-09-30. The author of this
   bench builds ThinkThen; weigh its row with that in mind.
 - **Liquid d1** is Liquid AI's `d1:free` through `thinkthen --backend liquid`, on the same build and machine
-  the same day: `results/runs/2026-09-30-all-liquid-d1`. It left three questions unanswered at the rate
+  the same day: [`results/runs/2026-09-30-all-liquid-d1`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-30-all-liquid-d1). It left three questions unanswered at the rate
   limit; they score wrong. An earlier full run of 2026-09-29 on build 2c5ac772b stays as history in
-  `results/archive/runs/2026-09-29-thinkthen-liquid-d1free-full`.
+  [`results/archive/runs/2026-09-29-thinkthen-liquid-d1free-full`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/archive/runs/2026-09-29-thinkthen-liquid-d1free-full).
 - **Nimble 9B** is the `nimble` model through Ollama 0.35 on an Apple Silicon Mac, reached over a loopback
-  SSH tunnel, on build aec7819bb: `results/runs/2026-09-30-thinkthen-nimble-9b`, 2026-09-30.
+  SSH tunnel, on build aec7819bb: [`results/runs/2026-09-30-thinkthen-nimble-9b`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-30-thinkthen-nimble-9b), 2026-09-30.
 - **Kev 4B** is `kev-latest` on an Apple Silicon Mac at a loopback System One address, on build 2c5ac772b:
-  `results/runs/2026-09-29-thinkthen-kev-4b`, 2026-09-29.
+  [`results/runs/2026-09-29-thinkthen-kev-4b`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-29-thinkthen-kev-4b), 2026-09-29.
 - **Laya** is `laya-mlx`, a small Jev-like model served by a local shim on an Apple Silicon Mac, reached over
-  an SSH tunnel: `results/runs/2026-09-23-thinkthen-laya`, 2026-09-23. The run predates the run.txt record,
+  an SSH tunnel: [`results/runs/2026-09-23-thinkthen-laya`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-23-thinkthen-laya), 2026-09-23. The run predates the run.txt record,
   so the table shows no build; the bench's pinned build of that day was thinkthen main 02dc0b96.
 - **GLM-5.3 Flash** is the reference chat model from Z.ai, `glm-5.3-flash` with thinking off and no search
   tool, asked through `scripts/run/chat.py` rather than a thinkthen build:
-  `results/runs/2026-09-23-glm-5.3-flash`, 2026-09-23.
+  [`results/runs/2026-09-23-glm-5.3-flash`](https://github.com/botassembly/beatles-bench/blob/a6a6be71/results/runs/2026-09-23-glm-5.3-flash), 2026-09-23.
 
 ## The hard set
 

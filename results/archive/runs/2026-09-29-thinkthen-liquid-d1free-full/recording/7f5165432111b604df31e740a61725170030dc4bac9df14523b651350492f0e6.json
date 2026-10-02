@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Beatles for Sale","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Baby's in Black","b":"When I'm Sixty-Four","c":"A Hard Day's Night","d":"Getting Better"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.338318547949229,"b":0.6320624102258904,"c":0.023022877098607068,"d":0.00659616472627354},"confidence":0.5094165469678539}},"usage":{"input_tokens":108,"output_tokens":0}}
-}

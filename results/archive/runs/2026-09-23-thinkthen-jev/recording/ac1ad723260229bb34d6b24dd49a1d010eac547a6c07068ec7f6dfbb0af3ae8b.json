@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Devil in Her Heart","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"A Hard Day's Night","b":"Yellow Submarine","c":"Help!","d":"With the Beatles"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.27,"probabilities":{"c":0.23,"b":0.04,"a":0.27,"d":0.46}}},"usage":{"input_tokens":360,"output_tokens":46}}
-}

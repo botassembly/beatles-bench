@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":{"evidence":"the song Yellow Submarine and the album Yellow Submarine share a title","entities":[{"id":"i1","name":"Yellow Submarine","kind":"song"},{"id":"i2","name":"Yellow Submarine","kind":"album"}]},"model":"jev-1.13.0","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 appears on i2?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.08}},"usage":{"input_tokens":369,"output_tokens":21}}
-}

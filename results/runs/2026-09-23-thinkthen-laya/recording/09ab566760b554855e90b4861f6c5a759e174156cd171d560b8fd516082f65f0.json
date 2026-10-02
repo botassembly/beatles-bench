@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Eight Days a Week","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Revolver","b":"Abbey Road","c":"With the Beatles","none":"none of these"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1145, "probabilities": {"a": 0.4827, "b": 0.2572, "c": 0.1078, "none": 0.1523}}}, "usage": {"input_tokens": 53, "output_tokens": 0}}
-}

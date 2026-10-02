@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Dua Lipa","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's father?","criteria":{"a":"Hutton Gibson","b":"Joe Toney","c":"Robert De Niro Sr.","d":"Dukagjin Lipa"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.5193, "probabilities": {"a": 0.0746, "b": 0.0451, "c": 0.0606, "d": 0.8196}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

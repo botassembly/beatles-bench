@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Words of Love","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Beatles for Sale","b":"Please Please Me","c":"Sgt. Pepper's Lonely Hearts Club Band","d":"Let It Be"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0528, "probabilities": {"a": 0.1157, "b": 0.2494, "c": 0.377, "d": 0.2578}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Olivia de Havilland","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Shulamit Lapid","b":"Lilian Fontaine","c":"Neetu Kapoor","d":"Geneviève Sorya"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1141, "probabilities": {"a": 0.449, "b": 0.1768, "c": 0.2941, "d": 0.0801}}}, "usage": {"input_tokens": 62, "output_tokens": 0}}
-}

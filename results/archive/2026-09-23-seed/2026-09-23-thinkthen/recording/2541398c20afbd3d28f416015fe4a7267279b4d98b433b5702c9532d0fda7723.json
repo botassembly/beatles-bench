@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Every Little Thing","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Statute of limitations?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"before","confidence":0.65,"probabilities":{"after":0.17,"before":0.83}}},"usage":{"input_tokens":338,"output_tokens":32}}
-}

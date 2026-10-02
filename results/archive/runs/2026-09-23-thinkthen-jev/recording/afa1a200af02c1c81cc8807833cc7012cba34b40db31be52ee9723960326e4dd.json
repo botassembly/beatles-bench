@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Rudolf Kompfner","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"pyrometer","b":"shower","c":"light-emitting diode","d":"traveling-wave tube"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":1.0,"probabilities":{"c":0.0,"a":0.0,"d":1.0,"b":0.0}}},"usage":{"input_tokens":360,"output_tokens":46}}
-}

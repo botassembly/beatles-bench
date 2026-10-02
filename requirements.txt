@@ -1,7 +1,7 @@
 # The chat backend (scripts/run/chat.py).
 instructor==1.17.0
 openai==3.3.0
-# The embedding baselines and scripts/run/relation_vectors.py. torch comes from the CPU index:
+# The embedding baselines. torch comes from the CPU index:
 # uv pip install --index-url https://download.pytorch.org/whl/cpu --extra-index-url https://pypi.org/simple --index-strategy unsafe-best-match -r requirements.txt
 torch==2.14.0
 transformers==5.17.0

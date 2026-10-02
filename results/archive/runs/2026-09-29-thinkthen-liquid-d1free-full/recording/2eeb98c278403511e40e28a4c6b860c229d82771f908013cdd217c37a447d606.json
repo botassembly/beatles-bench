@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Hey Jude","model":"d1:free","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Was it first released in the same month as this event: Warsaw Pact invasion of Czechoslovakia?"}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.29421496597446145}},"usage":{"input_tokens":87,"output_tokens":0}}
-}

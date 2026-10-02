@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Ringo Starr","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Ticket to Ride","b":"Don't Pass Me By","c":"What You're Doing","d":"I Feel Fine"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0505,"probabilities":{"a":0.248,"b":0.2879,"c":0.2428,"d":0.2212}}},"usage":{"input_tokens":62,"output_tokens":74},"latency_ms":66.0}
-}

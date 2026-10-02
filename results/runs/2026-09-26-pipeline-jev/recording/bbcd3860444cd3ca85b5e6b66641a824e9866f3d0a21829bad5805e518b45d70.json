@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Question: Who sang lead on Octopus's Garden?","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"Who sang lead on Octopus's Garden?","criteria":{"lennon":"John Lennon","mccartney":"Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"starr","confidence":0.94,"probabilities":{"harrison":0.04,"mccartney":0.0,"lennon":0.0,"starr":0.96}}},"usage":{"input_tokens":361,"output_tokens":55}}
-}

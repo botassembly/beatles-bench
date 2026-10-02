@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Cayenne","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who is credited with writing it?","criteria":{"a":"Ringo Starr","b":"Paul McCartney","c":"John Lennon","d":"George Harrison"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.12,"probabilities":{"d":0.32,"b":0.33,"c":0.22,"a":0.13}}},"usage":{"input_tokens":353,"output_tokens":46}}
-}

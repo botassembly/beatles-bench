@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Henri Pitot","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"light-emitting diode","b":"pitot tube","c":"Volksempfänger","d":"slow cooker"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.9137, "probabilities": {"a": 0.0088, "b": 0.98, "c": 0.0057, "d": 0.0055}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

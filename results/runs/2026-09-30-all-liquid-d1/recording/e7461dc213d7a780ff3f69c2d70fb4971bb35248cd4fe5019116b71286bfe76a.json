@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":{"evidence":"I've Got a Feeling is sung by Paul McCartney and John Lennon","entities":[{"id":"i1","name":"Got a Feeling","kind":"song"},{"id":"i2","name":"Paul McCartney","kind":"person"},{"id":"i3","name":"John Lennon","kind":"person"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i1 sung by i2?"},"q2":{"type":"noul","instructions":"Does the text itself state that i1 sung by i3?"}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.9875683502444729},"q2":{"type":"noul","noul":0.9840936123701212}},"usage":{"input_tokens":370,"output_tokens":0}}
-}

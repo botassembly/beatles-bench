@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Nadia Benois","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Eva Green","b":"Buster Keaton","c":"Peter Ustinov","d":"Rob Reiner"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9470622320422535,"b":0.0034156395300083803,"c":0.028598799641155356,"d":0.02092332878658287},"confidence":0.9294163093896713}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Thomas Markle","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the father of which of these people?","criteria":{"a":"Emma Thompson","b":"Orlando Bloom","c":"Meghan, Duchess of Sussex","d":"Angela Lansbury"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.000003726564379727435,"b":0.0000054221191785254205,"c":0.999976112468407,"d":0.000014738848034724935},"confidence":0.999968149957876}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

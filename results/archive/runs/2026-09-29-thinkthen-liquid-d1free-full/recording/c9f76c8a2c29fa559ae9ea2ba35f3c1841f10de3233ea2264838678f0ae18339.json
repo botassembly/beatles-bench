@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Estelle Reiner","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Martin Scorsese","b":"William Shakespeare","c":"Joan Fontaine","d":"Rob Reiner"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.00001568918502538551,"b":0.0000069620336523791795,"c":0.000016701034597104585,"d":0.9999606477467251},"confidence":0.9999475303289668}},"usage":{"input_tokens":96,"output_tokens":0}}
-}

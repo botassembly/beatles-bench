@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Catalog:\nDizzy Miss Lizzy (lead: Lennon; written: Larry Williams; 2:54; released 1965-08-06)\nText: Dizzy Miss Lizzy","model":"laya-mlx","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Does John Lennon sing a lead vocal on it?"}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "noul", "noul": 0.8789}}, "usage": {"input_tokens": 90, "output_tokens": 0}}
-}

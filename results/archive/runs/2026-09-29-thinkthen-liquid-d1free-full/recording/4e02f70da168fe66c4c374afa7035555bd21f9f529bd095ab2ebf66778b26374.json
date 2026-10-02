@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"Real Love","b":"Don't Pass Me By","c":"Cayenne","d":"Long, Long, Long"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.43898234219014043,"b":0.43898234219014043,"c":0.04083172806635803,"d":0.08120358755336111},"confidence":0.25197645625352055}},"usage":{"input_tokens":105,"output_tokens":0}}
-}

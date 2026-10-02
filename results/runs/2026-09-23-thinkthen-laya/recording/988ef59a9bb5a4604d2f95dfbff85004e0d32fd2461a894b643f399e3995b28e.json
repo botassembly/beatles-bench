@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Henrik Jonback","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“Toxic” by Britney Spears","b":"“What Is Love” by Haddaway","c":"“Con te partirò” by Andrea Bocelli","d":"“The Nights” by Avicii"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0137, "probabilities": {"a": 0.272, "b": 0.2821, "c": 0.1693, "d": 0.2765}}}, "usage": {"input_tokens": 80, "output_tokens": 0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"A Hard Day's Night","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"When I Get Home","b":"When I'm Sixty-Four","c":"Twist and Shout","d":"Honey Don't"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1321, "probabilities": {"a": 0.5282, "b": 0.122, "c": 0.1844, "d": 0.1654}}}, "usage": {"input_tokens": 61, "output_tokens": 0}}
-}

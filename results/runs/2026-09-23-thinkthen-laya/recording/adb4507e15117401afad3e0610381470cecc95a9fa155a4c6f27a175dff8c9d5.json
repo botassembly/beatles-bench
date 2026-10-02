@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Dolly Sinatra","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Zsa Zsa Gabor","b":"Romy Schneider","c":"Frank Sinatra","d":"Amitabh Bachchan"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.2406, "probabilities": {"a": 0.1794, "b": 0.1403, "c": 0.6186, "d": 0.0617}}}, "usage": {"input_tokens": 58, "output_tokens": 0}}
-}

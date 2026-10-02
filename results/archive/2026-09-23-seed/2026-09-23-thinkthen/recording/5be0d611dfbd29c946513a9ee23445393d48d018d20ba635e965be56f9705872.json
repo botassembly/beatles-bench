@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"I'm So Tired","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Japan Air Lines Flight 351?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"before","confidence":0.5,"probabilities":{"after":0.25,"before":0.75}}},"usage":{"input_tokens":344,"output_tokens":32}}
-}

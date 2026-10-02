@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Phil Spector","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a record producer. Which of these songs by the Beatles did this person produce?","criteria":{"a":"Cry Baby Cry","b":"Every Little Thing","c":"Dig It","d":"I Don't Want to Spoil the Party"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.15,"probabilities":{"b":0.23,"d":0.2,"a":0.36,"c":0.21}}},"usage":{"input_tokens":359,"output_tokens":46}}
-}

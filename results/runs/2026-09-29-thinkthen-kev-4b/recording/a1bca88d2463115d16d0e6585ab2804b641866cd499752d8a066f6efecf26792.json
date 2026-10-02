@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Help!","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. In what year was it first released?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"1964","confidence":0.1244,"probabilities":{"1963":0.1707,"1964":0.2338,"1965":0.1665,"1966":0.1278,"1967":0.0815,"1968":0.0954,"1969":0.073,"1970":0.0513}}},"usage":{"input_tokens":118,"output_tokens":145},"latency_ms":114.3}
-}

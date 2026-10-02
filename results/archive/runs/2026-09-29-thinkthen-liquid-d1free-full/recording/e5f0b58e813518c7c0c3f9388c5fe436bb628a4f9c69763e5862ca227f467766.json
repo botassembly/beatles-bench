@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Henri Pitot","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"light-emitting diode","b":"pitot tube","c":"Volksempfänger","d":"slow cooker"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.000003500825845994246,"b":0.9999885031989423,"c":0.000003500825845994246,"d":0.000004495149365653977},"confidence":0.999984670931923}},"usage":{"input_tokens":99,"output_tokens":0}}
-}

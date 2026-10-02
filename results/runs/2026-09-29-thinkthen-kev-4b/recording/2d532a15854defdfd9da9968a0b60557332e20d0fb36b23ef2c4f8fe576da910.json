@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"The Night Before","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"Help!","c":"Let It Be","d":"Revolver"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.1972,"probabilities":{"a":0.1997,"b":0.3979,"c":0.2307,"d":0.1717}}},"usage":{"input_tokens":58,"output_tokens":75},"latency_ms":96.6}
-}

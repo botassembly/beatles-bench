@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Let It Be","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"One After 909","b":"Dear Prudence","c":"Love You To","d":"Tell Me Why"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.0872,"probabilities":{"a":0.3154,"b":0.2243,"c":0.2206,"d":0.2397}}},"usage":{"input_tokens":59,"output_tokens":75},"latency_ms":66.0}
-}

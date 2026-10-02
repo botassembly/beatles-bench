@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Anjelica Huston","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Lilian Fontaine","b":"Bice Waleran","c":"Doris Tate","d":"Enrica Soma"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.22,"probabilities":{"b":0.41,"c":0.09,"d":0.33,"a":0.17}}},"usage":{"input_tokens":355,"output_tokens":46}}
-}

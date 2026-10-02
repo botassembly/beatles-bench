@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Let It Be","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"And Your Bird Can Sing","b":"Everybody's Got Something to Hide Except Me and My Monkey","c":"For You Blue","d":"Honey Pie"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.0699,"probabilities":{"a":0.281,"b":0.1745,"c":0.2421,"d":0.3024}}},"usage":{"input_tokens":65,"output_tokens":74},"latency_ms":82.9}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Yesterday","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"Magical Mystery Tour","c":"Please Please Me"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.4809059758482033,"b":0.09469599003133504,"c":0.42439803412046173},"confidence":0.22135896377230502}},"usage":{"input_tokens":92,"output_tokens":0}}
-}

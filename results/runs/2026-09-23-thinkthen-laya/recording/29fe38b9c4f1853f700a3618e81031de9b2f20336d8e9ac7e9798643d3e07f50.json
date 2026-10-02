@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Maggie Mae","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"October 1970","b":"November 1969","c":"May 1970","d":"March 1971"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0657, "probabilities": {"a": 0.4201, "b": 0.2498, "c": 0.2062, "d": 0.1239}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
-}

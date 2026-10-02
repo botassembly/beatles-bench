@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Little Child","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Rubber Soul","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"With the Beatles"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.1136,"probabilities":{"a":0.4091,"b":0.1997,"c":0.3912}}},"usage":{"input_tokens":51,"output_tokens":64},"latency_ms":99.6}
-}

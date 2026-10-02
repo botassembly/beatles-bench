@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"George Harrison","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Within You Without You","b":"Mean Mr. Mustard","c":"I Wanna Be Your Man","d":"That Means a Lot"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0336, "probabilities": {"a": 0.2397, "b": 0.1366, "c": 0.3318, "d": 0.2919}}}, "usage": {"input_tokens": 65, "output_tokens": 0}}
-}

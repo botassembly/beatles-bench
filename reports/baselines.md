@@ -28,7 +28,7 @@ Embeddings score best, so the figures draw them for the baselines. Jev beats emb
 
 ## Wording
 
-Each question goes to the baselines in its template wording. A natural phrasing (`scripts/run/baselines.py --phrasing natural`) scored lower for word overlap (31.6% against 33.2% Beatles-only) and BM25 (32.2% against 33.8%), so the tables keep the template runs. The natural-phrasing runs sit in `results/archive/2026-09-23-natural-phrasing/`.
+Each question goes to the baselines in its template wording. A natural phrasing (`scripts/run/baselines.py --phrasing natural`) scored lower for word overlap (31.6% against 33.2% Beatles-only) and BM25 (32.2% against 33.8%), so the tables keep the template runs. The natural-phrasing runs sit in [`results/archive/2026-09-23-natural-phrasing/`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/archive/2026-09-23-natural-phrasing).
 
 ## Relation-conditioned queries
 
@@ -56,4 +56,4 @@ The reranker picked George Harrison on all 8 singer questions and all 6 songwrit
 
 Verdict: no method clears the bar of 4 net right answers gained with at most 1 lost. Every method lost more than it gained. So the README and the deck drop vector search as a comparator, and this sample is the reason. Twenty questions cannot prove a small gain. They do show that naming the relation did not turn these models into fact finders.
 
-Rerun: `.venv/bin/python scripts/run/relation_vectors.py run`, then `python3 scripts/run/relation_vectors.py table`. `results/runs/2026-09-24-relation-vectors/` holds the sample, every query and score, and the times.
+Rerun at commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71): `.venv/bin/python scripts/run/relation_vectors.py run`, then `python3 scripts/run/relation_vectors.py table`. [`results/runs/2026-09-24-relation-vectors/`](https://github.com/botassembly/beatles-bench/tree/a6a6be71/results/runs/2026-09-24-relation-vectors) holds the sample, every query and score, and the times.

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Don't Pass Me By","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In what year was it first released?","criteria":{"1962":"1962","1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1968","probabilities":{"1962":0.001992788732598069,"1963":0.005416961399779262,"1964":0.03318291154439579,"1965":0.022806259343532406,"1966":0.061993840348648445,"1967":0.16851672969612225,"1968":0.6664965553175403,"1969":0.03760116488478542,"1970":0.001992788732598069},"confidence":0.6248086247322328}},"usage":{"input_tokens":125,"output_tokens":0}}
-}

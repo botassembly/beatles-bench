@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Sun King","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Was it first released before or after this event: Ariana Afghan Airlines Flight 701?","criteria":{"before":"first released before the event","after":"first released after the event"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"before","probabilities":{"before":0.8175744584140004,"after":0.1824255415859996},"confidence":0.6351489168280009}},"usage":{"input_tokens":101,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Warsaw Pact invasion of Czechoslovakia","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"August 1968","b":"May 1968","c":"October 1968","d":"February 1969"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.1103, "probabilities": {"a": 0.4966, "b": 0.1417, "c": 0.2222, "d": 0.1394}}}, "usage": {"input_tokens": 50, "output_tokens": 0}}
-}

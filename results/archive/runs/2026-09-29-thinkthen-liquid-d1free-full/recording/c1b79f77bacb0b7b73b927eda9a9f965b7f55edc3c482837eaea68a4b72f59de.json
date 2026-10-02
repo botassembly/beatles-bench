@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Honey Pie","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"November 1967","b":"May 1968","c":"December 1968","d":"November 1968"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"d","probabilities":{"a":0.3657660368239867,"b":0.07202361162969322,"c":0.03002390820849442,"d":0.5321864433378256},"confidence":0.3762485911171008}},"usage":{"input_tokens":102,"output_tokens":0}}
-}

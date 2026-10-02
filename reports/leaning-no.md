@@ -30,6 +30,8 @@ On the 138 held-out questions, with the current wording and the 0.5 rule:
 | AUC | 0.73 |
 | Calibration error | 0.092 |
 
+thinkthen 02dc0b96 printed these figures. `thinkthen 0.1.0` prints the same figures for the same answers, except a calibration error of 0.086.
+
 ## What we tried
 
 Held-out results, as changes from the starting point, in percentage points:
@@ -97,7 +99,7 @@ From the repository root:
 F=tests/fixtures/audit/249
 grep '"held"' $F/key.jsonl > held.jsonl
 
-# The starting point: accuracy 0.630, true "yes" caught 0.311, average p(yes) 0.397, AUC 0.725, calibration error 0.092
+# The starting point: accuracy 0.630, true "yes" caught 0.311, average p(yes) 0.397, AUC 0.725, calibration error 0.092 (0.086 under 0.1.0)
 thinkthen audit $F/control.jsonl held.jsonl --by verb --table
 
 # Test 1: the tuning half picks 0.42. Held out, accuracy goes from 0.630 to 0.645 and true "yes" caught from 0.311 to 0.607

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Norwegian Wood (This Bird Has Flown)","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Rubber Soul","b":"Sgt. Pepper's Lonely Hearts Club Band","c":"Yellow Submarine","d":"Abbey Road"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9895031967190618,"b":0.0006601440973774635,"c":0.008042201479494995,"d":0.0017944577040656577},"confidence":0.9860042622920825}},"usage":{"input_tokens":112,"output_tokens":0}}
-}

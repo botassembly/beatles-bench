@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Yellow Submarine","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. In what year was it first released?","criteria":{"1963":"1963","1964":"1964","1965":"1965","1966":"1966","1967":"1967","1968":"1968","1969":"1969","1970":"1970"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"1967","probabilities":{"1963":0.0003212459216037491,"1964":0.002094787546794098,"1965":0.005025134092114308,"1966":0.028917650093768624,"1967":0.9576209596856469,"1968":0.005349227396374909,"1969":0.00038749673291435993,"1970":0.00028349853078324237},"confidence":0.9515668110693107}},"usage":{"input_tokens":116,"output_tokens":0}}
-}

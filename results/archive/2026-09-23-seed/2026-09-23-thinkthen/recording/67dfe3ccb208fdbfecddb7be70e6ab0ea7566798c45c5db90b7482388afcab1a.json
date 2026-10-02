@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"slow cooker","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an invention. Who is credited with inventing it?","criteria":{"a":"Chester Moore Hall","b":"Rudolf Kompfner","c":"Irving Naxon","d":"Charles Thomson Rees Wilson"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":1.0,"probabilities":{"c":1.0,"a":0.0,"b":0.0,"d":0.0}}},"usage":{"input_tokens":357,"output_tokens":46}}
-}

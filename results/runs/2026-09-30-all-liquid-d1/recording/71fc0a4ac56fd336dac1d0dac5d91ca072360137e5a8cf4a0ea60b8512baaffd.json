@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":{"evidence":"the album Beatles for Sale carried Every Little Thing in 1964","entities":[{"id":"i1","name":"album","kind":"album"},{"id":"i2","name":"Beatles for Sale","kind":"album"},{"id":"i3","name":"Every Little Thing","kind":"song"}]},"model":"d1:free","questions":{"q1":{"type":"noul","instructions":"Does the text itself state that i3 appears on i1?"},"q2":{"type":"noul","instructions":"Does the text itself state that i3 appears on i2?"}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"noul","noul":0.5926665999540698},"q2":{"type":"noul","noul":0.9966233880194248}},"usage":{"input_tokens":356,"output_tokens":0}}
-}

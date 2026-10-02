@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Help!","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"With a Little Help from My Friends","b":"Another Girl","c":"All I've Got to Do","d":"Here Comes the Sun"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.5025337546573594,"b":0.10533682251823114,"c":0.3048021297401949,"d":0.08732729308421448},"confidence":0.3367116728764792}},"usage":{"input_tokens":107,"output_tokens":0}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Lennon–McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"If You've Got Trouble","b":"12-Bar Original","c":"The Continuing Story of Bungalow Bill","d":"Tomorrow Never Knows"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.22,"probabilities":{"a":0.22,"b":0.15,"c":0.22,"d":0.41}}},"usage":{"input_tokens":366,"output_tokens":46}}
-}

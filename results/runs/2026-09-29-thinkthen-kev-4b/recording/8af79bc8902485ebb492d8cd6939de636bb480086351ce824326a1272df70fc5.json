@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Owen Wilson","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Laura Wilson","b":"Sara Sothern","c":"Myra Keaton","d":"Nelle Wilson Reagan"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.1783,"probabilities":{"a":0.1591,"b":0.2653,"c":0.1919,"d":0.3837}}},"usage":{"input_tokens":48,"output_tokens":75},"latency_ms":95.1}
-}

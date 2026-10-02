@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Judy Garland","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Judy Campbell","b":"Ethel Marion Milne","c":"Line Marsa","d":"Irmelin Indenbirken"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.406, "probabilities": {"a": 0.7476, "b": 0.127, "c": 0.0772, "d": 0.0482}}}, "usage": {"input_tokens": 54, "output_tokens": 0}}
-}

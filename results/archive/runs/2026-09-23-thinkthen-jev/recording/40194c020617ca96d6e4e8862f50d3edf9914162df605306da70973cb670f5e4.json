@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"36th Academy Awards","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"January 1964","b":"April 1964","c":"October 1963","d":"March 1965"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.66,"probabilities":{"a":0.12,"c":0.0,"b":0.74,"d":0.14}}},"usage":{"input_tokens":362,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Beatles for Sale","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Good Night","b":"Roll Over Beethoven","c":"Savoy Truffle","d":"Everybody's Trying to Be My Baby"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.21,"probabilities":{"b":0.16,"c":0.04,"d":0.39,"a":0.41}}},"usage":{"input_tokens":366,"output_tokens":46}}
-}

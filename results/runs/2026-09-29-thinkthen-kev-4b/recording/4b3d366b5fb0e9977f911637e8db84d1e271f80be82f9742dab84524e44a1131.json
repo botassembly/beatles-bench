@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Young Blood","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who sings the lead vocal on it?","criteria":{"john":"John Lennon","paul":"Paul McCartney","george":"George Harrison","ringo":"Ringo Starr"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"john","confidence":0.139,"probabilities":{"john":0.3543,"paul":0.3509,"george":0.1721,"ringo":0.1228}}},"usage":{"input_tokens":53,"output_tokens":77},"latency_ms":96.6}
-}

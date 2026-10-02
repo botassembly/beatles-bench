@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Baby It's You","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Please Please Me","b":"Abbey Road","c":"Let It Be","d":"Revolver"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.85,"probabilities":{"c":0.03,"d":0.06,"b":0.02,"a":0.89}}},"usage":{"input_tokens":357,"output_tokens":46}}
-}

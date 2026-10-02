@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Margaret Majer","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Mary Pickford","b":"Rita Hayworth","c":"Grace Kelly","d":"Britney Spears"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.39,"probabilities":{"c":0.2,"a":0.14,"d":0.11,"b":0.54}}},"usage":{"input_tokens":354,"output_tokens":46}}
-}

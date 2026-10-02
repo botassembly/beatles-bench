@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Martha My Dear / Maxwell's Silver Hammer","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"Martha My Dear","b":"Maxwell's Silver Hammer"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.6784, "probabilities": {"a": 0.9415, "b": 0.0585}}}, "usage": {"input_tokens": 44, "output_tokens": 0}}
-}

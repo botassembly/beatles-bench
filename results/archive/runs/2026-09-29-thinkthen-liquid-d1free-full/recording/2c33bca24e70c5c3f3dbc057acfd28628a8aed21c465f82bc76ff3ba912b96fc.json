@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"You Won't See Me","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Help!","b":"Rubber Soul","c":"Revolver"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"b","probabilities":{"a":0.18002327071738816,"b":0.6283429551276823,"c":0.19163377415492944},"confidence":0.4425144326915236}},"usage":{"input_tokens":93,"output_tokens":0}}
-}

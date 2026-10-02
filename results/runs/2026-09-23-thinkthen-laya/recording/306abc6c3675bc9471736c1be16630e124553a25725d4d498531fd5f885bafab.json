@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Magical Mystery Tour","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Rubber Soul","b":"Magical Mystery Tour","c":"Beatles for Sale","none":"none of these"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.2762, "probabilities": {"a": 0.2186, "b": 0.6291, "c": 0.0455, "none": 0.1068}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

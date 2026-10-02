@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Paul McCartney","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Soldier of Love","b":"For You Blue","c":"What You're Doing","d":"You're Going to Lose That Girl"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0863, "probabilities": {"a": 0.4708, "b": 0.2135, "c": 0.1658, "d": 0.1499}}}, "usage": {"input_tokens": 67, "output_tokens": 0}}
-}

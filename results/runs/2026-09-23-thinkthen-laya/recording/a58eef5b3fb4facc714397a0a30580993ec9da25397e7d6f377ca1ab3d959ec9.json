@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"A Hard Day's Night","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"Can't Buy Me Love","b":"For You Blue","c":"What You're Doing","d":"I Want You (She's So Heavy)"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.3753, "probabilities": {"a": 0.7358, "b": 0.0922, "c": 0.0751, "d": 0.0968}}}, "usage": {"input_tokens": 67, "output_tokens": 0}}
-}

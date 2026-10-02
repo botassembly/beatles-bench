@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Stevie Wonder","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Moyna Macgill","b":"Nina S. Gore","c":"Lula Mae Hardaway","d":"Virginia Admiral"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.0108, "probabilities": {"a": 0.3003, "b": 0.1831, "c": 0.2613, "d": 0.2553}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
-}

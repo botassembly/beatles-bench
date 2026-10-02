@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nThe Beatles' First\nAin't She Sweet (lead: Lennon; written: Jack Yellen, Milton Ager; released 1964)\nCry for a Shadow (lead: instrumental; written: Lennon, Harrison; released 1964)\nNobody's Child (lead: Tony Sheridan; written: Cy Coben, Mel Foree; released 1964)\nTake Out Some Insurance on Me, Baby (lead: Tony Sheridan; written: Charles Singleton, Waldenese Hall; released 1964)\nWhy (lead: Tony Sheridan; written: Bill Crompton, Tony Sheridan; released 1964)\n\n1967–1970\nNow and Then (lead: Lennon, McCartney; written: Lennon, McCartney, Harrison, Starkey; released 2023)\n\nText: Savoy Truffle","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. In which month was it first released?","criteria":{"a":"September 1969","b":"June 1969","c":"November 1968","d":"April 1969"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.69,"probabilities":{"d":0.06,"c":0.77,"a":0.11,"b":0.06}}},"usage":{"input_tokens":551,"output_tokens":46}}
-}

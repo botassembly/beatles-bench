@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Arlyn Phoenix","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Diane Lane","b":"Candice Bergen","c":"Joaquin Phoenix","d":"Emilia Clarke"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.1375, "probabilities": {"a": 0.2715, "b": 0.1732, "c": 0.4848, "d": 0.0705}}}, "usage": {"input_tokens": 52, "output_tokens": 0}}
-}

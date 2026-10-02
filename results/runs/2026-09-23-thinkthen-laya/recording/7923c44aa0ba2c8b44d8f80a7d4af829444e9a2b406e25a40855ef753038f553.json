@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Death of Marilyn Monroe","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"July 1962","b":"August 1962","c":"May 1963","d":"June 1963"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "d", "confidence": 0.0045, "probabilities": {"a": 0.2046, "b": 0.266, "c": 0.2526, "d": 0.2768}}}, "usage": {"input_tokens": 46, "output_tokens": 0}}
-}

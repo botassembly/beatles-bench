@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Braniff International Airways Flight 352","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"May 1968","b":"March 1968","c":"February 1968","d":"July 1967"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "b", "confidence": 0.0121, "probabilities": {"a": 0.2164, "b": 0.3005, "c": 0.289, "d": 0.194}}}, "usage": {"input_tokens": 48, "output_tokens": 0}}
-}

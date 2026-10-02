@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Got to Get You into My Life","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Who sings the lead vocal on it?","criteria":{"john":"John Lennon","paul":"Paul McCartney","george":"George Harrison","ringo":"Ringo Starr"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"paul","probabilities":{"john":0.021823071582866213,"paul":0.9279406231819904,"george":0.046199442903467364,"ringo":0.0040368623316759025},"confidence":0.9039208309093206}},"usage":{"input_tokens":105,"output_tokens":0}}
-}

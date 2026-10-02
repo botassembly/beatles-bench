@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Everybody's Got Something to Hide Except Me and My Monkey","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Let It Be","b":"The Beatles (White Album)","c":"Help!","d":"Please Please Me"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2045, "probabilities": {"a": 0.5538, "b": 0.2753, "c": 0.0835, "d": 0.0874}}}, "usage": {"input_tokens": 65, "output_tokens": 0}}
-}

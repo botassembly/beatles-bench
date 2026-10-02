@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Joaquin Phoenix","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Arlyn Phoenix","b":"Line Marsa","c":"Geneviève Sorya","d":"Pilar Bardem"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.91,"probabilities":{"a":0.94,"b":0.03,"c":0.03,"d":0.0}}},"usage":{"input_tokens":354,"output_tokens":46}}
-}

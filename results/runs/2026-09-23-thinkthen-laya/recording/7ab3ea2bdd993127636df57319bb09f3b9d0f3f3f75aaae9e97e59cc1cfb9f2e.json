@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"I Don't Want to Spoil the Party / A Taste of Honey","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names two songs by the Beatles. Which one is longer?","criteria":{"a":"I Don't Want to Spoil the Party","b":"A Taste of Honey"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.5019, "probabilities": {"a": 0.8906, "b": 0.1094}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

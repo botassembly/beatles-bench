@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Lee-Lee Chan","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Jackie Chan","b":"Amitabh Bachchan","c":"Daniel Day-Lewis","d":"Martin Scorsese"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.3961, "probabilities": {"a": 0.743, "b": 0.0789, "c": 0.0533, "d": 0.1248}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

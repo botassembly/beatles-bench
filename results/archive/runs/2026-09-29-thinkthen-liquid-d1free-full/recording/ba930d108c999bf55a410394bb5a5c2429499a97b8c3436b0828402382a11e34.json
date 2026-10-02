@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Ringo Starr","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a member of the Beatles. Which of these songs by the Beatles has this member as its only lead singer?","criteria":{"a":"Blue Jay Way","b":"Everybody's Trying to Be My Baby","c":"Good Night","d":"Baby It's You"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"c","probabilities":{"a":0.005847355576932451,"b":0.0062244776109670365,"c":0.9833742395384073,"d":0.004553927273693161},"confidence":0.9778323193845431}},"usage":{"input_tokens":109,"output_tokens":0}}
-}

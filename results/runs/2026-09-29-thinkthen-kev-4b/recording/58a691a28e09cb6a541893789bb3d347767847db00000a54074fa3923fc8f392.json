@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"I Need You","b":"Love You To","c":"Only a Northern Song","d":"What Goes On"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"b","confidence":0.0493,"probabilities":{"a":0.1904,"b":0.287,"c":0.2471,"d":0.2755}}},"usage":{"input_tokens":57,"output_tokens":74},"latency_ms":82.6}
-}

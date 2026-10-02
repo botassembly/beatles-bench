@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"Ringo Starr","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter or a songwriting partnership. Which of these songs by the Beatles is credited to it?","criteria":{"a":"You Know What to Do","b":"Misery","c":"Flying","d":"Blue Jay Way"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"c","confidence":0.0475,"probabilities":{"a":0.2844,"b":0.1756,"c":0.2856,"d":0.2544}}},"usage":{"input_tokens":56,"output_tokens":75},"latency_ms":66.0}
-}

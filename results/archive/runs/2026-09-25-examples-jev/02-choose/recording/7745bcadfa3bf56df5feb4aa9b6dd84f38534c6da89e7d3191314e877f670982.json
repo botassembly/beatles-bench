@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nAbbey Road (1969-09-26)\nSomething (lead: Harrison; written: Harrison; 3:02; released 1969-09-26; first album: Abbey Road)\nText: Something","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text gives a catalog entry and then names a song by the Beatles. Who sings the lead vocal on it?","criteria":{"John":null,"Paul":null,"George":null,"Ringo":null,"John and Paul duet":null}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"George","confidence":0.99,"probabilities":{"George":1.0,"Paul":0.0,"John and Paul duet":0.0,"Ringo":0.0,"John":0.0}}},"usage":{"input_tokens":382,"output_tokens":57}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Good Day Sunshine","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. Which was the first album to include it?","criteria":{"a":"Abbey Road","b":"Yellow Submarine","c":"Beatles for Sale","none":"none of these"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.2812, "probabilities": {"a": 0.6445, "b": 0.0776, "c": 0.0722, "none": 0.2056}}}, "usage": {"input_tokens": 56, "output_tokens": 0}}
-}

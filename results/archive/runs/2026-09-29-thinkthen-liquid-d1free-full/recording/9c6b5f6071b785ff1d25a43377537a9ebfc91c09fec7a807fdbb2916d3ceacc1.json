@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Assassination of Robert F. Kennedy","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"June 1968","b":"August 1967","c":"April 1969","d":"July 1968"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9967669540451076,"b":0.00003310791056440655,"c":0.000027447421900005525,"d":0.0031724906224280002},"confidence":0.9956892720601435}},"usage":{"input_tokens":100,"output_tokens":0}}
-}

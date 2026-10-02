@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Lula Mae Hardaway","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names a person. This person is the mother of which of these people?","criteria":{"a":"Ginger Rogers","b":"Stevie Wonder","c":"J. J. Abrams","d":"Leonardo DiCaprio"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "a", "confidence": 0.4092, "probabilities": {"a": 0.7499, "b": 0.1283, "c": 0.0693, "d": 0.0525}}}, "usage": {"input_tokens": 57, "output_tokens": 0}}
-}

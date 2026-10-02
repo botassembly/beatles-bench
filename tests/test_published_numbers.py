@@ -1,6 +1,8 @@
 """Each number a reader or the talk quotes from the pages must equal its source. One row per claim: the page, the text
-it quotes with {} where the number sits, and the source that computes the number from the data, the questions, or the
-runs. Needs no thinkthen command and no network."""
+it quotes with {} where the number sits, and the source that computes the number from the data, the questions, the
+published tables, or results/answers.jsonl, which keeps every answer of the runs behind the tables. The runs moved to
+Git history in ticket 0026, so a number whose only source was a run file, such as a load average or a non-top
+option's probability, keeps its place on the page and has no check here. Needs no thinkthen command and no network."""
 import csv
 import json
 import sys
@@ -9,10 +11,13 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "score"))
-sys.path.insert(0, str(Path(__file__).resolve().parent))
-import open_book  # noqa: E402
-import published  # noqa: E402
+sys.path.insert(0, str(ROOT / "scripts" / "answers"))
+import report  # noqa: E402
 import table  # noqa: E402
+
+JEV = "2026-09-26-thinkthen-jev"  # the Jev run open-book.md pairs with its open-book run
+JEV_ALL = "2026-09-30-all-jev"  # ticket 0023: the whole bench on build aec7819bb; the Jev row comes from it
+ANSWERS = [json.loads(l) for l in open(ROOT / "results" / "answers.jsonl", encoding="utf-8")]
 
 
 def rows(name):
@@ -27,10 +32,14 @@ def questions(beatles_only=False):
 
 
 def open_book_all(cell):
-    """A cell of the all row that open_book.py compare prints for the Jev run open-book.md pairs with its run."""
-    text = open_book.compare(published.RUNS / f"{published.JEV}-thinkthen-jev",
-                             published.RUNS / f"{published.JEV}-thinkthen-jev-open-book")
-    return next(l for l in text.splitlines() if l.startswith("| all |")).strip("|").split("|")[cell].strip()
+    """A cell of the all row open-book.md prints: the questions, then the right answers from memory and with the
+    catalog, each with its share. A tie at the top counts as wrong, as in that report."""
+    ids = {r["id"] for r in ANSWERS if r["run"] == f"{JEV}-open-book"}
+    if cell == 1:
+        return str(len(ids))
+    run = JEV if cell == 2 else f"{JEV}-open-book"
+    k = sum(r["right"] == 1.0 for r in ANSWERS if r["run"] == run and r["id"] in ids)
+    return f"{k} ({round(100 * k / len(ids))}%)"
 
 
 def results(system):
@@ -51,12 +60,6 @@ def cell(path, column, **match):
     return tsv(path, **match)[column]
 
 
-def load(line, field):
-    """A load average of the 2026-09-26 Jev run: the second start line, the one that finished, or the end line."""
-    lines = (published.JEV_RUN / "loadavg.txt").read_text(encoding="utf-8").splitlines()
-    return {"start": [l for l in lines if l.startswith("start ")][-1], "end": lines[-1]}[line].split()[field]
-
-
 def output(folder, case):
     """The answer row of one case in an example folder's outputs.jsonl."""
     for l in open(ROOT / "examples" / folder / "outputs.jsonl", encoding="utf-8"):
@@ -67,12 +70,16 @@ def output(folder, case):
 
 
 def jev(qid, option):
-    """Jev's probability for one option of a bench question, named by its text, in the 2026-09-26 Jev run."""
+    """Jev's probability for the option it answered, named by its text, in the all-jev run. For a yes/no question
+    the answer table keeps p(yes) as the value, so both Yes and No have a source."""
     q = next(json.loads(l) for f in sorted((ROOT / "questions").glob("*.jsonl")) for l in open(f, encoding="utf-8")
              if json.loads(l)["id"] == qid)
-    a = next(json.loads(l) for l in open(published.JEV_RUN / "answers.jsonl", encoding="utf-8") if json.loads(l)["id"] == qid)
-    key = option.lower() if q["options"] is None else next(k for k, v in q["options"].items() if v == option)
-    return a["probabilities"][key]
+    a = next(r for r in ANSWERS if r["run"] == JEV_ALL and r["id"] == qid)
+    if q["options"] is None:
+        return round(a["value"] if option == "Yes" else 1 - a["value"], 2)
+    if q["options"][a["answer"]] != option:
+        raise RuntimeError(f"{qid}: {option} is not the answer, so the table has no probability for it")
+    return round(a["probability"], 2)
 
 
 def band(p, low=0.3, high=0.7):
@@ -122,11 +129,13 @@ SPEARMAN_VIEWS, SPEARMAN_LEN, SPEARMAN_DATE = ("Spearman with 2024 page views", 
 
 
 def reading_run(field):
-    """The all-run's knowledge answers plus suite cases, or its input tokens sent, from its committed outputs."""
-    outs = [json.loads(l) for l in open(published.JEV_ALL / "outputs.jsonl", encoding="utf-8")]
-    ans = [json.loads(l) for l in open(published.JEV_ALL / "answers.jsonl", encoding="utf-8")]
-    tok = sum(o["input_tokens"] for o in outs if o.get("sent")) + sum(a["input_tokens"] for a in ans)
-    return {"questions": len(ans), "cases": len(outs), "tokens": tok}[field]
+    """The all-run's knowledge answers or its suite cases, from the answers table."""
+    suite = report.suite_ids()
+    ids = [r["id"] for r in ANSWERS if r["run"] == JEV_ALL]
+    return {"questions": sum(i.split(":")[0] not in suite for i in ids),
+            "cases": len({i.split(":")[0] for i in ids if i.split(":")[0] in suite})}[field]
+
+
 CHOOSE = lambda option: lambda: output("choose", "choose-cold-04")["answer"]["probabilities"][option]
 EX = "examples/{}/README.md".format
 # The slide folders of examples/: each row names a folder's page, the text it quotes, and the source of the value.
@@ -142,8 +151,6 @@ SLIDE_CLAIMS = [
     (EX("jev"), "| John and Paul duet for Octopus's Garden | `{}` |", CHOOSE("John and Paul duet")),
     (EX("jev"), "`median_s` `{}`", lambda: cell(COST, "median_s", system="Jev")),
     (EX("jev"), "`usd` `{}`", lambda: cell(COST, "usd", system="Jev")),
-    (EX("jev"), "| The load at the start of the run | `{}` |", lambda: load("start", 2)),
-    (EX("jev"), "| The load at the end of the run | `{}` |", lambda: load("end", 2)),
     (EX("jev"), "`usd_per_m_input` `{}`", lambda: cell("scripts/score/prices.tsv", "usd_per_m_input", model_prefix="jev")),
     (EX("bench"), "| Songs | `{}` |", lambda: rows("songs.tsv")),
     (EX("bench"), "| Albums | `{}` |", lambda: rows("albums.tsv")),
@@ -154,10 +161,7 @@ SLIDE_CLAIMS = [
     (EX("what-jev-knows"), "| Jev from memory | `{}` |", lambda: cell(ACC, "accuracy", system="Jev", scope="beatles-only")),
     (EX("what-jev-knows"), "| Big chat model | `{}` |", lambda: cell(ACC, "accuracy", system="GLM-5.3 Flash", scope="beatles-only")),
     (EX("what-jev-knows"), "the `{}` Beatles-only questions", lambda: questions(beatles_only=True)),
-    (EX("catches"), "| John Lennon | `{}` |", lambda: jev("forward-singer-033", "John Lennon")),
-    (EX("catches"), "| George Harrison | `{}` |", lambda: jev("forward-singer-033", "George Harrison")),
     (EX("catches"), "| Yellow Submarine | `{}` |", lambda: jev("lexical-trap-album-to-song-001", "Yellow Submarine")),
-    (EX("catches"), "| It's All Too Much | `{}` |", lambda: jev("lexical-trap-album-to-song-001", "It's All Too Much")),
     (EX("catches"), "| No | `{}` |", lambda: jev("multi-hop-same-month-050", "No")),
     (EX("catches"), "| Yes | `{}` |", lambda: jev("multi-hop-same-month-050", "Yes")),
     (EX("catches"), "| Least viewed quarter of songs | `{}` |", lambda: cell("results/tables/popularity.tsv", "accuracy", system="Jev", bin="1")),
@@ -178,8 +182,6 @@ SLIDE_CLAIMS = [
     (EX("bench-run"), "`median_s` `{}`", lambda: cell(COST, "median_s", system="Jev")),
     (EX("bench-run"), "| Jev per 1,000 questions | `usd_per_1000_questions` `{}` |", lambda: cell(COST, "usd_per_1000_questions", system="Jev")),
     (EX("bench-run"), "| GLM-5.3 Flash per 1,000 questions | `usd_per_1000_questions` `{}` |", lambda: cell(COST, "usd_per_1000_questions", system="GLM-5.3 Flash")),
-    (EX("bench-run"), "| The load at the start of the run | `{}` |", lambda: load("start", 2)),
-    (EX("bench-run"), "| The load at the end of the run | `{}` |", lambda: load("end", 2)),
 ]
 
 CLAIMS = [
@@ -221,9 +223,8 @@ CLAIMS = [
      lambda: "| relate | {} | the edges between a set's songs, people and albums | {} | — | — |".format(
          sum(1 for l in open(ROOT / "questions" / "suite" / "relate.jsonl", encoding="utf-8")),
          by_function("relate", "song to singer and album", "edge F1"))),
-    ("reports/results.md", "results/runs/2026-09-30-all-jev`: the {} questions and ", lambda: f"{reading_run('questions'):,}"),
+    ("reports/results.md", "results/runs/2026-09-30-all-jev): the {} questions and ", lambda: f"{reading_run('questions'):,}"),
     ("reports/results.md", " and {} cases, ", lambda: f"{reading_run('cases'):,}"),
-    ("reports/results.md", "{} input tokens, about $0.40", lambda: f"{reading_run('tokens'):,}"),
     ("reports/results.md", "{} questions in 15 categories", questions),
     ("reports/results.md", "every category but the two reversal-general ones, {} questions", lambda: questions(beatles_only=True)),
     ("reports/results.md", "| Chance | {} |", lambda: results("Chance")),
@@ -246,14 +247,11 @@ class PublishedNumbersTest(unittest.TestCase):
     def test_the_slide_values_are_the_ones_the_talk_shows(self):
         """The talk shows these values. A change here changes a slide."""
         self.assertEqual([cell(COST, c, system="Jev") for c in ("median_s", "usd")], ["0.195", "0.023347"])
-        self.assertEqual([load("start", 2), load("end", 2)], ["6.74", "11.18"])
         self.assertEqual([CHOOSE(o)() for o in ("John", "Paul", "George", "Ringo", "John and Paul duet")],
                          [0.01, 0.02, 0.13, 0.84, 0.0])
-        self.assertEqual([jev("forward-singer-033", "John Lennon"), jev("forward-singer-033", "George Harrison"),
-                          jev("lexical-trap-album-to-song-001", "Yellow Submarine"),
-                          jev("lexical-trap-album-to-song-001", "It's All Too Much"),
+        self.assertEqual([jev("lexical-trap-album-to-song-001", "Yellow Submarine"),
                           jev("multi-hop-same-month-050", "No"), jev("multi-hop-same-month-050", "Yes")],
-                         [0.28, 0.17, 0.52, 0.34, 0.79, 0.21])
+                         [0.52, 0.79, 0.21])
         self.assertEqual([a for _, _, a in sql_rows()], "1 0 1 1 0 1 0 NULL 1 1 0 1".split())
         truth = {s: cell("data/songs.tsv", "first_album", title=s) == "Abbey Road" for s, _, _ in sql_rows()}
         wrong = [s for s, _, a in sql_rows() if a != "NULL" and (a == "1") != truth[s]]

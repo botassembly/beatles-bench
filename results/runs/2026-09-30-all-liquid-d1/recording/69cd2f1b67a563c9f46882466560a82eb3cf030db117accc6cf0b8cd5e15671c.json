@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"[{\"id\":\"u001\",\"evidence\":\"Think for Yourself\"},{\"id\":\"u002\",\"evidence\":\"I'm Happy Just to Dance with You\"},{\"id\":\"u003\",\"evidence\":\"Yer Blues\"},{\"id\":\"u004\",\"evidence\":\"What Goes On\"},{\"id\":\"u005\",\"evidence\":\"I'll Cry Instead\"},{\"id\":\"u006\",\"evidence\":\"Her Majesty\"},{\"id\":\"u007\",\"evidence\":\"Till There Was You\"},{\"id\":\"u008\",\"evidence\":\"One After 909\"}]","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"Each unit is the title of a song by the Beatles. Which one has Ringo Starr on lead vocal, alone or with another Beatle?","criteria":{"u001":null,"u002":null,"u003":null,"u004":null,"u005":null,"u006":null,"u007":null,"u008":null}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"u004","probabilities":{"u001":0.08438075687549755,"u002":0.15764402671035083,"u003":0.01466317687358847,"u004":0.48557778720450673,"u005":0.09561592412207802,"u006":0.003271797004088548,"u007":0.07446577433439239,"u008":0.08438075687549755},"confidence":0.4120888996622934}},"usage":{"input_tokens":223,"output_tokens":0}}
-}

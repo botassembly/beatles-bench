@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Infinity","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. This person is a credited writer of which of these songs?","criteria":{"a":"“What Is Love” by Haddaway","b":"“Guantanamera” by The Sandpipers","c":"“The Nights” by Avicii","d":"“Con te partirò” by Andrea Bocelli"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.25,"probabilities":{"a":0.44,"c":0.33,"d":0.17,"b":0.06}}},"usage":{"input_tokens":374,"output_tokens":46}}
-}

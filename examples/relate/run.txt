@@ -1,4 +1,4 @@
-thinkthen: thinkthen 0.0.1, release build of thinkthen main at 02dc0b9672dea909d64d6dd0e44820814e93d9de
-THINKTHEN_BIN SHA-256: eb4a571370527ec56c5fe0e10aec410ae906799c05b4de3d9a97ba6eaf48e255
+thinkthen: thinkthen 0.1.0, the 0.1.0 release binary on the build machine's PATH; its SHA-256 below names it
+THINKTHEN_BIN SHA-256: b322a349925dff94dce3a91b554ec7c94cbfef156687dfd92b520c2d508ba68c
 model the backend reported: jev-1.13.0
-date: 2026-09-25
+date: 2026-10-02

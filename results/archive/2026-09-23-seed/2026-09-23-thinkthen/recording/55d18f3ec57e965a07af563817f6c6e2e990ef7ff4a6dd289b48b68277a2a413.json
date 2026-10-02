@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Civil Rights Act of 1964","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. Which of these songs by the Beatles was first released in the same month?","criteria":{"a":"Act Naturally","b":"Roll Over Beethoven","c":"Being for the Benefit of Mr. Kite!","d":"I'll Be Back"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.12,"probabilities":{"c":0.31,"b":0.16,"a":0.35000000000000003,"d":0.18}}},"usage":{"input_tokens":370,"output_tokens":46}}
-}

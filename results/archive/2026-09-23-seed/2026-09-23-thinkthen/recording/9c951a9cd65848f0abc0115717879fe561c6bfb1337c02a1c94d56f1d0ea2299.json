@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Paul McCartney","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a songwriter. Which of these songs by the Beatles did this person compose?","criteria":{"a":"Everybody's Got Something to Hide Except Me and My Monkey","b":"Real Love","c":"Octopus's Garden","d":"Within You Without You"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"c","confidence":0.67,"probabilities":{"d":0.0,"c":0.76,"a":0.01,"b":0.23}}},"usage":{"input_tokens":364,"output_tokens":46}}
-}

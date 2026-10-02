@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"1963 Indiana State Fairgrounds Coliseum gas explosion","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"October 1963","b":"July 1964","c":"December 1962","d":"August 1963"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"d","confidence":0.3647,"probabilities":{"a":0.3828,"b":0.0309,"c":0.0627,"d":0.5236}}},"usage":{"input_tokens":68,"output_tokens":75},"latency_ms":111.6}
-}

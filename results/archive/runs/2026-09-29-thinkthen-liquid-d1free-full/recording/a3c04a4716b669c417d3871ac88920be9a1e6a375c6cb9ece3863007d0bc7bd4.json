@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.liquid.ai/decisions/v1/systemone",
-  "request": {"state":"Audrey Hepburn","model":"d1:free","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Ella van Heemstra","b":"Rachel Messerer","c":"Magda Schneider","d":"Katharine Martha Houghton Hepburn"}}}},
-  "response": {"model":"d1:free","answers":{"q1":{"type":"choice","choice":"a","probabilities":{"a":0.9949943074761339,"b":0.004607738499186979,"c":0.00008439363420279642,"d":0.0003135603904763115},"confidence":0.9933257433015119}},"usage":{"input_tokens":98,"output_tokens":0}}
-}

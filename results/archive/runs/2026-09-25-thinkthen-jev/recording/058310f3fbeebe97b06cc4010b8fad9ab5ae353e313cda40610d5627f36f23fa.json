@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Please Please Me","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs did it include before any other album did?","criteria":{"a":"You Can't Do That","b":"Twist and Shout","c":"Honey Don't","d":"Please Mr. Postman"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"b","confidence":0.28,"probabilities":{"b":0.45,"d":0.34,"c":0.03,"a":0.18}}},"usage":{"input_tokens":364,"output_tokens":46}}
-}

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8791/systemone",
-  "request": {"state":"Charles Thomson Rees Wilson","model":"laya-mlx","questions":{"q1":{"type":"choice","instructions":"The text names an inventor. This person is credited with inventing which of these?","criteria":{"a":"escalator","b":"slow cooker","c":"achromatic lens","d":"cloud chamber"}}}},
-  "response": {"model": "laya-mlx", "answers": {"q1": {"type": "choice", "choice": "c", "confidence": 0.0209, "probabilities": {"a": 0.2464, "b": 0.2881, "c": 0.3081, "d": 0.1573}}}, "usage": {"input_tokens": 51, "output_tokens": 0}}
-}

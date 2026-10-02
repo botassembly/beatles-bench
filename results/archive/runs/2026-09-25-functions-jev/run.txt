@@ -1,9 +1,0 @@
-thinkthen: thinkthen 0.0.1, release build of thinkthen main at 02dc0b9672dea909d64d6dd0e44820814e93d9de
-THINKTHEN_BIN SHA-256: eb4a571370527ec56c5fe0e10aec410ae906799c05b4de3d9a97ba6eaf48e255
-model the backend reported: jev-1.13.0 
-machine: a local Linux machine, 16 cores
-date: 2026-09-25
-guard jobs (thinkthen sdlc/scripts/live), BENCH_WORKERS=4:
-  function suite: --max-tokens 1264200, BENCH_MAX_INPUT_TOKENS=1071000, exit 1, input tokens sent 775879
-  function suite, resume 1: --max-tokens 488321, BENCH_MAX_INPUT_TOKENS=295121, exit 0, input tokens sent 157975
-input tokens sent in all: 933854

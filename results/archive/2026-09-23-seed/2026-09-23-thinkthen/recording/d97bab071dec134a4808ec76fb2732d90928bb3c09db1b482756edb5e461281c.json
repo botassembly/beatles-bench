@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"A Hard Day's Night","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"And I Love Her","b":"Misery","c":"Let It Be","d":"The Night Before"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.52,"probabilities":{"d":0.64,"b":0.07,"a":0.28,"c":0.01}}},"usage":{"input_tokens":356,"output_tokens":46}}
-}

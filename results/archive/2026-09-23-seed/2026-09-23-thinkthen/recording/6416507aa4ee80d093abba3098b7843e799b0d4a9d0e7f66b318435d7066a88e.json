@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Rubber Soul","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an album by the Beatles. Which of these songs was first released on it?","criteria":{"a":"I Am the Walrus","b":"I Will","c":"I'll Cry Instead","d":"You Won't See Me"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.92,"probabilities":{"d":0.94,"a":0.0,"b":0.05,"c":0.01}}},"usage":{"input_tokens":358,"output_tokens":46}}
-}

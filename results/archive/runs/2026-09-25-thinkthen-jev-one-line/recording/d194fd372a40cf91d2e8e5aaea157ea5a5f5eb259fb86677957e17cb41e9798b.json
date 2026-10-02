@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nThere's a Place (lead: Lennon, McCartney; written: Lennon–McCartney; 1:49; released 1963-03-22)\nText: There's a Place","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text is the title of a song by the Beatles. Do two or more Beatles share the lead vocal on it?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.76}},"usage":{"input_tokens":338,"output_tokens":21}}
-}

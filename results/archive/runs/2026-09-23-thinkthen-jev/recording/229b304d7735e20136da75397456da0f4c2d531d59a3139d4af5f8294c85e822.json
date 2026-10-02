@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Drive My Car","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text is the title of a song by the Beatles. On which album was it first released?","criteria":{"a":"Sgt. Pepper's Lonely Hearts Club Band","b":"Yellow Submarine","c":"The Beatles (White Album)","d":"Rubber Soul"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"d","confidence":0.86,"probabilities":{"d":0.89,"c":0.1,"a":0.01,"b":0.0}}},"usage":{"input_tokens":365,"output_tokens":46}}
-}

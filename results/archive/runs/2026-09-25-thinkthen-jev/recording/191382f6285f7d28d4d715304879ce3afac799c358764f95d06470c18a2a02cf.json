@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Japan Air Lines Flight 351","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"March 1970","b":"November 1969","c":"March 1971","d":"August 1969"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.73,"probabilities":{"d":0.08,"c":0.04,"a":0.8,"b":0.08}}},"usage":{"input_tokens":365,"output_tokens":46}}
-}

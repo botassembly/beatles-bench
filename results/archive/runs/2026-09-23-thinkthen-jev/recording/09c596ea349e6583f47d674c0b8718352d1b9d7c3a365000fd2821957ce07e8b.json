@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Eva Green","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"The text names a person. Who is this person's mother?","criteria":{"a":"Marlène Jobert","b":"Virginia Admiral","c":"Arlyn Phoenix","d":"Minnie Marx"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"a","confidence":0.73,"probabilities":{"d":0.0,"b":0.19,"c":0.01,"a":0.8}}},"usage":{"input_tokens":349,"output_tokens":46}}
-}

@@ -33,12 +33,10 @@ sys.path.insert(0, str(ROOT / "scripts" / "score"))
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import stats  # noqa: E402
-import score as core  # noqa: E402
 import score_suite as fscore  # noqa: E402
 import analyze  # noqa: E402
 import build  # noqa: E402
 
-RUNS = ROOT / "results" / "runs"
 QUERIES = Path(__file__).resolve().parent / "queries"
 TEST_ORDER = fscore.TESTS
 LEVEL_ORDER = ["memory", "reading", "text", "card", "context"]
@@ -57,38 +55,51 @@ def label(name):
     return analyze.LABELS.get(short, short)
 
 
+def suite_ids():
+    """The case ids of the function suite in questions/suite/."""
+    return {json.loads(l)["id"] for fn in fscore.TESTS
+            for l in open(ROOT / "questions" / "suite" / f"{fn}.jsonl", encoding="utf-8")}
+
+
+def knowledge_runs(answers):
+    """The runs whose answers outside the function suite cover exactly the questions in questions/: the runs
+    analyze.py scored into the published tables."""
+    suite, want, asked = suite_ids(), {q["id"] for q in analyze.questions()}, defaultdict(set)
+    for r in answers:
+        if r["id"].split(":")[0] not in suite:
+            asked[r["run"]].add(r["id"])
+    return {run for run, ids in asked.items() if ids == want}
+
+
 def systems(answers):
-    """{label: {id: row}} pooling each system's runs. The knowledge systems are the committed runs
-    analyze.py discovers; a suite run joins the system on its backend and model, or stands alone under
-    its own label. Part-question runs (open-book, section-picking, one-line) stay out."""
-    knowledge = {run.name for run in analyze.discover(analyze.questions())}
+    """{label: {id: row}} pooling each system's runs, from the answers table alone. A knowledge system is a
+    run whose non-suite answers cover exactly the questions in questions/; a suite run joins the system on
+    its backend and model, or stands alone under its own label. Part-question runs (open-book,
+    section-picking, one-line) stay out."""
+    suite = suite_ids()
     by_run = defaultdict(list)
     for r in answers:
         by_run[r["run"]].append(r)
+    knowledge = knowledge_runs(answers)
     # last writer wins a case two runs asked: name order across dates, and inside one date the wider run wins
     # (the all-run of 0023 covers the same-day partials' ids)
-    suite_runs = sorted({p.parent for p in core.tracked(RUNS)
-                         if p.name == "outputs.jsonl" and p.parent.parent == RUNS and p.is_file()},
-                        key=lambda p: (p.name[:10], len(by_run.get(p.name, []))))
+    suite_runs = sorted((run for run, got in by_run.items() if any(r["id"].split(":")[0] in suite for r in got)),
+                        key=lambda run: (run[:10], len(by_run[run])))
     pools, backend_model = {}, {}
     for name in sorted(knowledge):
         lab = label(name)
         pools[lab] = {r["id"]: r for r in by_run[name]}  # file order, like the scorer's case order
         first = next(iter(pools[lab].values()))
         backend_model[lab] = (first["backend"], first["model"])
-    suite_ids = {json.loads(l)["id"] for fn in fscore.TESTS
-                 for l in open(ROOT / "questions" / "suite" / f"{fn}.jsonl", encoding="utf-8")}
     for run in suite_runs:
-        got = by_run.get(run.name)
-        if not got:
-            continue
+        got = by_run[run]
         key = (got[0]["backend"], got[0]["model"])
-        lab = next((l for l, k in backend_model.items() if k == key), None) or label(run.name)
+        lab = next((l for l, k in backend_model.items() if k == key), None) or label(run)
         pool = pools.setdefault(lab, {})
         backend_model.setdefault(lab, key)
         for r in got:
             # a case the suite no longer names stays unscoreable, and a refused case carries no measures
-            if r["id"].split(":")[0] in suite_ids and not r.get("gap"):
+            if r["id"].split(":")[0] in suite and not r.get("gap"):
                 pool[r["id"]] = r  # the newer folder's answer wins for a case both asked
     return pools
 

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Question: Who wrote the Beatles song \"Taxman\"?","model":"jev-latest","questions":{"q1":{"type":"choice","instructions":"Who wrote the Beatles song \"Taxman\"?","criteria":{"lennon_mccartney":"John Lennon and Paul McCartney","harrison":"George Harrison","starr":"Ringo Starr","other":"a songwriter outside the Beatles"}}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"choice","choice":"harrison","confidence":0.99,"probabilities":{"lennon_mccartney":0.01,"other":0.0,"starr":0.0,"harrison":0.99}}},"usage":{"input_tokens":366,"output_tokens":57}}
-}

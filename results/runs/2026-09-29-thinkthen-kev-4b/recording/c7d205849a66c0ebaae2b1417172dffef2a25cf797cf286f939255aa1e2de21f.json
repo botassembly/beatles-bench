@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "http://127.0.0.1:8731/v1/systemone",
-  "request": {"state":"1969 Rhodesian constitutional referendum","model":"kev-latest","questions":{"q1":{"type":"choice","instructions":"The text names an event. In which month did it happen?","criteria":{"a":"December 1969","b":"October 1968","c":"June 1969","d":"June 1970"}}}},
-  "response": {"model":"kev-latest","answers":{"q1":{"type":"choice","choice":"a","confidence":0.2916,"probabilities":{"a":0.4687,"b":0.0498,"c":0.3718,"d":0.1097}}},"usage":{"input_tokens":64,"output_tokens":75},"latency_ms":115.0}
-}
