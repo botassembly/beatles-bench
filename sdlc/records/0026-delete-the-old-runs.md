@@ -30,6 +30,7 @@ Built on 2026-10-02 on `ticket/0026-delete-the-old-runs` from main at a6a6be71. 
 - `grep -rnE "skipTest|skipIf|skipUnless|unittest\.skip|SkipTest" tests/` finds nothing.
 - `git ls-files results/runs results/archive` lists only `results/runs/README.md` and the two stubs.
 - No private name and no home path appears in the added lines of the diff.
+- A fresh code review asked for three fixes: tie two more page lines to a6a6be71, and raise in place of three bare asserts. After the fixes it returned ACCEPT.
 
 ## Lost checks
 

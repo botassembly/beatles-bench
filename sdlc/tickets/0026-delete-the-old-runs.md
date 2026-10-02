@@ -1,6 +1,6 @@
 # 0026 Delete the old runs and run the bench on 0.1.0 alone
 
-Owner: the queue owner. Status: built; awaiting code review. Ticket review 1 asked for ten fixes; done. Re-review asked to narrow the skip search; done, and accepted.
+Owner: the queue owner. Status: landed. Code review asked for three fixes; done, and accepted. Ticket review 1 asked for ten fixes; done. Re-review asked to narrow the skip search; done, and accepted.
 
 ## Why
 
