@@ -5,6 +5,7 @@ the variable. The examples replay under THINKTHEN_BIN instead; a folder whose re
 is gated on the build its run.txt names."""
 import os
 import re
+import shutil
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -55,7 +56,7 @@ def bench_bin(build):
     if not build or build == "unknown":
         return None
     path = os.environ.get(f"BENCH_BIN_{build}")
-    return path if path and Path(path).exists() else None
+    return shutil.which(path) if path else None  # a path or a command on PATH, as run.sh's `command -v` takes
 
 
 def reason(folder, build):

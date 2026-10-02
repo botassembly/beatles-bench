@@ -6,7 +6,7 @@ The suite needs no network and no key. Run it from the top folder of the bench w
 env -u THINKTHEN_API_KEY python3 -m unittest discover -s tests
 ```
 
-The tests that replay a recording need the `thinkthen` build that recorded it: a replay binds to one build. The examples and the page commands replay under `THINKTHEN_BIN`, or `thinkthen` on `PATH` — the current checkpoint, thinkthen 0.1.0. Each old run replays under the build `results/builds.tsv` names for it, taken from `BENCH_BIN_<id>` such as `BENCH_BIN_02dc0b96`. A skip reason names the build and the variable. With no command and no BENCH_BIN, these tests skip and the rest still run:
+The tests that replay a recording need the `thinkthen` build that recorded it: a replay binds to one build. The examples and the page commands replay under `THINKTHEN_BIN`, or else `thinkthen` on `PATH`. That is the current checkpoint, `thinkthen 0.1.0`. Each old run replays under the build `results/builds.tsv` names for it, taken from `BENCH_BIN_<id>` such as `BENCH_BIN_02dc0b96`. A skip reason names the build and the variable. With no command and no BENCH_BIN, these tests skip and the rest still run:
 
 | File | What skips | Why |
 | --- | --- | --- |

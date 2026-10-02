@@ -16,9 +16,8 @@ while [ $# -gt 0 ]; do
   esac
   shift
 done
-# The recording holds the questions the case file's records send, so the run asks them as records too.
-answers=$(jq -c '.records[]' find-cold.jsonl |
-  thinkthen find 'These are songs by the Beatles. Which one did they release first?' --jsonl --field /input \
-    --details --model jev-latest $from)
+answers=$(printf '%s\n' 'She Loves You' 'I Saw Her Standing There' 'From Me to You' 'All My Loving' 'Love Me Do' \
+    'I Want to Hold Your Hand' 'Please Please Me' "Can't Buy Me Love" "A Hard Day's Night" 'I Feel Fine' |
+  thinkthen find 'These are songs by the Beatles. Which one did they release first?' --details --model jev-latest $from)
 printf '%s\n' "$answers" | jq -c --argjson bar "$bar" '([.answer.probabilities[]] | max) as $p
-  | {pick: (if $p >= $bar then .value.input // .value else null end), p: $p}'
+  | {pick: (if $p >= $bar then .value else null end), p: $p}'

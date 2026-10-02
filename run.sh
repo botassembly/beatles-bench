@@ -3,9 +3,9 @@
 #   ./run.sh [NAME]   with THINKTHEN_BASE_URL unset: replay the newest results/runs/DATE-thinkthen-NAME run with no key and
 #                     no network, under the command BENCH_BIN_<build> names for the build results/builds.tsv gives it;
 #                     when no such command is set it prints one line naming the build and skips that step. With NAME
-#                     jev (the default), then replay every function folder in examples/ under THINKTHEN_BIN — a folder
+#                     jev (the default), then replay every function folder in examples/ under THINKTHEN_BIN. A folder
 #                     whose recording is not a question store binds to the build its run.txt names, and skips the same
-#                     way — and the newest results/runs/DATE-examples-jev when one exists. With another NAME, replay
+#                     way. Then replay the newest results/runs/DATE-examples-jev when one exists. With another NAME, replay
 #                     the newest results/runs/DATE-examples-NAME when one exists. Each replay is checked byte for byte.
 #   ./run.sh [NAME]   with THINKTHEN_BASE_URL set: ask that backend into results/runs/<today>-thinkthen-NAME, then ask
 #                     each function folder's cases into results/runs/<today>-examples-NAME/<function>/
@@ -48,7 +48,7 @@ have() { command -v "$1" >/dev/null 2>&1; }
 build_of() { awk -F'\t' -v d="$1" 'NR > 1 && $1 == d { print $2 }' results/builds.tsv; }
 # rec_build DIR: the build id DIR/run.txt names, empty when none. A full commit becomes its first 8 hex.
 rec_build() {
-  c=$(sed -n 's/.*main at \([0-9a-f]\{40\}\).*/\1/p; s/.*from thinkthen main \([0-9a-f][0-9a-f]*\).*/\1/p' \
+  c=$(sed -n 's/.*main at \([0-9a-f]\{7,40\}\).*/\1/p; s/.*thinkthen main \([0-9a-f]\{7,40\}\).*/\1/p' \
       "$1/run.txt" 2>/dev/null | head -1)
   [ ${#c} -ge 20 ] && c=$(printf %s "$c" | cut -c1-8)
   printf %s "$c"
@@ -71,7 +71,7 @@ run_bin() {
 # example_bin DIR: like run_bin for an example folder. A folder whose recording is a question store
 # (thinkthen.jsonl) replays under THINKTHEN_BIN; an older recording binds to the build its run.txt names.
 example_bin() {
-  if [ -f "$1/recording/thinkthen.jsonl" ]; then printf %s "$TT"; return 0; fi
+  if [ ! -d "$1/recording" ] || [ -f "$1/recording/thinkthen.jsonl" ]; then printf %s "$TT"; return 0; fi
   b=$(rec_build "$1")
   [ -n "$b" ] || { printf %s "$TT"; return 0; }
   eval "bin=\${BENCH_BIN_$b:-}"
