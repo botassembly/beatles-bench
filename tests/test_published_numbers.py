@@ -77,7 +77,8 @@ def jev(qid, option):
     a = next(r for r in ANSWERS if r["run"] == JEV_ALL and r["id"] == qid)
     if q["options"] is None:
         return round(a["value"] if option == "Yes" else 1 - a["value"], 2)
-    assert q["options"][a["answer"]] == option, (qid, option, "not the answer, so the table has no probability for it")
+    if q["options"][a["answer"]] != option:
+        raise RuntimeError(f"{qid}: {option} is not the answer, so the table has no probability for it")
     return round(a["probability"], 2)
 
 

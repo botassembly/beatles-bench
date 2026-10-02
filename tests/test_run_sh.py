@@ -51,7 +51,8 @@ class RunShTest(unittest.TestCase):
 class LiveRunTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        assert shutil.which("jq") and shutil.which("git"), "the suite needs jq and git"
+        if not (shutil.which("jq") and shutil.which("git")):
+            raise RuntimeError("the suite needs jq and git")
         cls.tmp = Path(tempfile.mkdtemp())
         cls.bench = cls.tmp / "bench"
         subprocess.run(["git", "clone", "-q", str(ROOT), str(cls.bench)], check=True)

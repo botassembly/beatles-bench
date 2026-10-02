@@ -32,7 +32,8 @@ def run(*args):
 class LeaningNoTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
-        assert has_audit(), "the suite needs thinkthen 0.1.0, which has audit"
+        if not has_audit():
+            raise RuntimeError("the suite needs thinkthen 0.1.0, which has audit")
         cls.tmp = Path(tempfile.mkdtemp())
         cls.held = cls.tmp / "held.jsonl"
         cls.held.write_text("".join(l for l in open(F / "key.jsonl", encoding="utf-8") if '"held"' in l), encoding="utf-8")

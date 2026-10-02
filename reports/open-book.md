@@ -79,7 +79,7 @@ The line helps Laya on the pick-one questions. It names the singer on all 7 with
 
 Jev reads the line. It fixed 23 of 25 misses and broke none. One line did as well as the whole catalog on these 38 questions. It took 335 input tokens a call against 12,145. Its two misses are yes answers it called no: "She Loves You" with "lead: Lennon, McCartney" asked about Paul McCartney (0.42 yes), and "Boys" with "lead: Starr" asked whether Ringo Starr is its only lead singer (0.48 yes). The sample was drawn mostly from Jev's closed-book misses. Both closed-book rows sit low for that reason.
 
-Laya answered all 38 with no refusal, one call in flight, at a median 0.043 seconds per call through the tunnel. The Laya calls cost nothing. The Jev run made 38 live calls with no probe. They used 13,171 input tokens and returned 1,000 output tokens, about 0.0006 dollars. The guard reserved 30,000 tokens with a stop at 25,000. Both runs replay with no key and no tunnel (`tests/test_replay_laya.py`).
+Laya answered all 38 with no refusal, one call in flight, at a median 0.043 seconds per call through the tunnel. The Laya calls cost nothing. The Jev run made 38 live calls with no probe. They used 13,171 input tokens and returned 1,000 output tokens, about 0.0006 dollars. The guard reserved 30,000 tokens with a stop at 25,000. At commit [a6a6be71](https://github.com/botassembly/beatles-bench/tree/a6a6be71), both runs replayed with no key and no tunnel (`tests/test_replay_laya.py`).
 
 ## Fresh run of 2026-09-26
 
