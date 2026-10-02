@@ -45,6 +45,6 @@ A higher bar keeps fewer labels:
 
 - `tag-cold.jsonl`: the cases.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- `run.txt`: the thinkthen build and the model that recorded the answers.
+- `run.txt`: the thinkthen build and the model that recorded the answers. Replayed under thinkthen 0.1.0, `checkpoint/surfaces/2026-10-02-1` (`4e880cdf6`), on 2026-10-02: no answer changed.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/tag](https://thinkthen.dev/learn/beatles-bench/tag/).

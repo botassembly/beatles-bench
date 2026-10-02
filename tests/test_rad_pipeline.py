@@ -1,19 +1,21 @@
 """scripts/run/rad_pipeline.sh runs retrieval-augmented decisions with shipped ThinkThen commands and jq alone.
-The fake command checks the calls. The committed run replays with no key when THINKTHEN_BIN or thinkthen is present,
-and the replay test fails while that run's recording is missing."""
+The fake command checks the calls. The committed run replays with no key only under the build results/builds.tsv
+names for it: the replay test runs when BENCH_BIN_<build> names that command and skips otherwise."""
 import json
 import os
-import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT / "tests"))
+from builds import bin_for  # noqa: E402
+
 SCRIPT = ROOT / "scripts" / "run" / "rad_pipeline.sh"
 FAKE = ROOT / "tests" / "fixtures" / "fake-thinkthen"
 RUN = ROOT / "results" / "runs" / "2026-09-24-pipeline-jev2"
-BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
 CASES = ["octopus", "tomorrow"]
 ARMS = [f"{c}_{a}" for c in CASES for a in ("memory", "pick", "answer")] + ["memory", "glued", "apart", "annotate", "wrong_singer"]
 
@@ -69,13 +71,15 @@ class FakeTest(unittest.TestCase):
             self.assertEqual((run / "replay" / name).read_text(), (run / name).read_text())
 
 
-@unittest.skipUnless(BIN and Path(BIN).exists(), "the thinkthen command is missing")
 class ReplayTest(unittest.TestCase):
     def test_the_recorded_run_replays_to_the_saved_tables_with_no_key(self):
+        bin, why = bin_for(RUN)
+        if not bin:
+            self.skipTest(why)
         self.assertTrue((RUN / "recording").is_dir(), f"no recording in {RUN}")
         tmp = Path(tempfile.mkdtemp())
         (tmp / "recording").symlink_to(RUN / "recording")
-        subprocess.run([str(SCRIPT), "replay", str(tmp)], check=True, env=env(BIN))
+        subprocess.run([str(SCRIPT), "replay", str(tmp)], check=True, env=env(bin))
         for name in ("scores.tsv", "checks.tsv"):
             self.assertEqual((tmp / "replay" / name).read_text(), (RUN / name).read_text())
 

@@ -64,4 +64,4 @@ The call used `8092` input tokens and `1918` output tokens, from `meta.usage`. T
 
 ## The check
 
-`tests/test_examples.py`, `RecognizeHowTest`, replays the command above with no key. It checks each word row, each name, and both token counts against this page. It skips with no `THINKTHEN_BIN` and no `thinkthen` on `PATH`.
+`tests/test_examples.py`, `RecognizeHowTest`, replays the command above with no key. It checks each word row, each name, and both token counts against this page. The recording replays only under the build `../recognize/run.txt` names: it skips unless `BENCH_BIN_02dc0b96` names that command.

@@ -17,9 +17,9 @@ Python 3.12. The harvest, the generators, the scoring, and the Jev replays need 
 
 ## Replay
 
-`./run.sh` at the repository root replays the newest `results/runs/DATE-thinkthen-jev` with no key and compares `replay/answers.jsonl` with the committed answers. It then replays every folder in `examples/` and compares each replayed file with the committed one. Last, it runs `analyze.py` and `table.py`. `./run.sh NAME` replays the newest `DATE-thinkthen-NAME` and the newest `DATE-examples-NAME` instead.
+`./run.sh` at the repository root replays the newest `results/runs/DATE-thinkthen-jev` with no key and compares `replay/answers.jsonl` with the committed answers — only when `BENCH_BIN_<id>` names the build `results/builds.tsv` gives the run, else it prints a skip line. It then replays every folder in `examples/` under `THINKTHEN_BIN` and compares each replayed file with the committed one; a folder whose recording is not a question store replays under its `run.txt` build's `BENCH_BIN_<id>` or skips the same way. Last, it runs `analyze.py` and `table.py`. `./run.sh NAME` replays the newest `DATE-thinkthen-NAME` and the newest `DATE-examples-NAME` instead.
 
-A replay writes `RUN/replay/` and leaves the committed files alone. It passes `--replay RUN/recording` with no key, so the command answers from the recording alone and stops on any request the recording lacks. Each step also runs on its own:
+A replay writes `RUN/replay/` and leaves the committed files alone. It passes `--replay RUN/recording` with no key, so the command answers from the recording alone and stops on any request the recording lacks. A committed recording replays only under the build that made it — `results/builds.tsv` names it and `BENCH_BIN_<id>` hands it over. Each step also runs on its own with `THINKTHEN_BIN` set to that build's command:
 
 ```sh
 env -u THINKTHEN_API_KEY scripts/run/thinkthen.sh replay "$(python3 scripts/score/score.py newest thinkthen-jev)"

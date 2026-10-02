@@ -4,18 +4,23 @@ import json
 import os
 import shutil
 import subprocess
+import sys
 import tempfile
 import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
+sys.path.insert(0, str(ROOT / "tests"))
+from builds import bench_bin  # noqa: E402
+
+# The report's numbers pin audit and diff as the 2026-09-26 pinned build printed them: 0.0.1 at 02dc0b96.
+BIN = bench_bin("02dc0b96")
 F = ROOT / "tests" / "fixtures" / "audit" / "249"
 GUARD = ROOT / "scripts" / "score" / "diff_guard.sh"
 
 
 def has_audit():
-    return bool(BIN) and Path(BIN).exists() and subprocess.run([BIN, "audit", "--help"], capture_output=True).returncode == 0
+    return bool(BIN) and subprocess.run([BIN, "audit", "--help"], capture_output=True).returncode == 0
 
 
 def run(*args):
@@ -26,7 +31,7 @@ def run(*args):
     return [json.loads(l) for l in done.stdout.splitlines()]
 
 
-@unittest.skipUnless(has_audit(), "no thinkthen with audit")
+@unittest.skipUnless(has_audit(), "the leaning-no figures pin audit under thinkthen 02dc0b96; set BENCH_BIN_02dc0b96")
 class LeaningNoTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

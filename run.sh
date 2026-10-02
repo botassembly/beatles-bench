@@ -1,9 +1,12 @@
 #!/bin/sh
 # Run the bench with one command, then score every run and print the tables.
 #   ./run.sh [NAME]   with THINKTHEN_BASE_URL unset: replay the newest results/runs/DATE-thinkthen-NAME run with no key and
-#                     no network. With NAME jev (the default), then replay every function folder in examples/ and the
-#                     newest results/runs/DATE-examples-jev when one exists. With another NAME, replay the newest
-#                     results/runs/DATE-examples-NAME when one exists. Each replay is checked byte for byte.
+#                     no network, under the command BENCH_BIN_<build> names for the build results/builds.tsv gives it;
+#                     when no such command is set it prints one line naming the build and skips that step. With NAME
+#                     jev (the default), then replay every function folder in examples/ under THINKTHEN_BIN — a folder
+#                     whose recording is not a question store binds to the build its run.txt names, and skips the same
+#                     way — and the newest results/runs/DATE-examples-jev when one exists. With another NAME, replay
+#                     the newest results/runs/DATE-examples-NAME when one exists. Each replay is checked byte for byte.
 #   ./run.sh [NAME]   with THINKTHEN_BASE_URL set: ask that backend into results/runs/<today>-thinkthen-NAME, then ask
 #                     each function folder's cases into results/runs/<today>-examples-NAME/<function>/
 # NAME comes from the argument alone and defaults to jev. BEATLES_BENCH_MODEL sets only the model each request carries.
@@ -24,7 +27,7 @@ command -v "$TT" >/dev/null 2>&1 || {
   exit 2
 }
 "$TT" audit --help >/dev/null 2>&1 || {
-  echo "run.sh: this thinkthen has no audit command. Install the pinned build, thinkthen main at 02dc0b96." >&2
+  echo "run.sh: this thinkthen has no audit command. Install thinkthen 0.1.0 or set THINKTHEN_BIN to a build with audit." >&2
   exit 2
 }
 [ $# -le 1 ] || { echo "usage: ./run.sh [NAME]" >&2; exit 2; }
@@ -39,6 +42,51 @@ same() {
 names() { (cd "$1" 2>/dev/null && for f in $2; do [ -e "$f" ] && echo "$f"; done) || true; }
 # newest LABEL: the newest results/runs/DATE-LABEL folder, empty when none.
 newest() { python3 scripts/score/score.py newest "$1" 2>/dev/null | sed 's|.*/results/runs/|results/runs/|' || true; }
+# have CMD: CMD resolves to a command.
+have() { command -v "$1" >/dev/null 2>&1; }
+# build_of DIR: the build id results/builds.tsv gives DIR, empty when no row covers it.
+build_of() { awk -F'\t' -v d="$1" 'NR > 1 && $1 == d { print $2 }' results/builds.tsv; }
+# rec_build DIR: the build id DIR/run.txt names, empty when none. A full commit becomes its first 8 hex.
+rec_build() {
+  c=$(sed -n 's/.*main at \([0-9a-f]\{40\}\).*/\1/p; s/.*from thinkthen main \([0-9a-f][0-9a-f]*\).*/\1/p' \
+      "$1/run.txt" 2>/dev/null | head -1)
+  [ ${#c} -ge 20 ] && c=$(printf %s "$c" | cut -c1-8)
+  printf %s "$c"
+}
+# run_bin DIR: the command DIR's recording replays under: BENCH_BIN_<build> for a run results/builds.tsv lists,
+# else THINKTHEN_BIN. Prints the command, or prints nothing and returns 1 with a reason on stdout.
+run_bin() {
+  b=$(build_of "$1")
+  case $b in
+    "") printf %s "$TT"; return 0 ;;  # not a committed run: a live run replays under THINKTHEN_BIN
+    unknown)
+      echo "run.sh: skipping the replay of $1: results/builds.tsv names no thinkthen build for it"
+      return 1 ;;
+    *)  eval "bin=\${BENCH_BIN_$b:-}"
+        if [ -n "$bin" ] && have "$bin"; then printf %s "$bin"; return 0; fi
+        echo "run.sh: skipping the replay of $1: it was recorded with thinkthen $b; set BENCH_BIN_$b to its command"
+        return 1 ;;
+  esac
+}
+# example_bin DIR: like run_bin for an example folder. A folder whose recording is a question store
+# (thinkthen.jsonl) replays under THINKTHEN_BIN; an older recording binds to the build its run.txt names.
+example_bin() {
+  if [ -f "$1/recording/thinkthen.jsonl" ]; then printf %s "$TT"; return 0; fi
+  b=$(rec_build "$1")
+  [ -n "$b" ] || { printf %s "$TT"; return 0; }
+  eval "bin=\${BENCH_BIN_$b:-}"
+  if [ -n "$bin" ] && have "$bin"; then printf %s "$bin"; return 0; fi
+  return 1
+}
+# skipped_example DIR: print the skip line and return 0 when DIR's recording pins a build BENCH_BIN_<id> lacks.
+skipped_example() {
+  [ -d "$1/recording" ] && [ ! -f "$1/recording/thinkthen.jsonl" ] || return 1
+  b=$(rec_build "$1")
+  [ -n "$b" ] || return 1
+  eval "bin=\${BENCH_BIN_$b:-}"
+  { [ -z "$bin" ] || ! have "$bin"; } || return 1
+  echo "run.sh: skipping $1: its recording binds to thinkthen $b; set BENCH_BIN_$b to its command"
+}
 # quiet DIR CMD...: run CMD with no key, and with the base URL and model DIR/backend.txt names (the defaults when none).
 quiet() {
   dir=$1; shift
@@ -54,6 +102,7 @@ quiet() {
 }
 # example NAME SRC FROM BACKEND: replay one example into SRC/replay and check it against SRC, the folder that holds its
 # answers. FROM is the run folder whose recording answers, empty for the committed folder. BACKEND holds backend.txt.
+# An example whose recording is not a question store replays under its pinned BENCH_BIN_<build>; missing, it skips.
 example() {
   n=$1 src=$2 from=$3 backend=$4 out=$2/replay
   rm -rf "$out"
@@ -61,7 +110,8 @@ example() {
     quiet "$backend" scripts/score/context_diff.sh "${src%/diff}/audit" "$out"
     same "$src" "$out" diff.jsonl
   else
-    quiet "$backend" scripts/run/example.sh "$n" replay "$out" ${from:+"$from"}
+    bin=$(example_bin "$src")
+    quiet "$backend" env THINKTHEN_BIN="$bin" scripts/run/example.sh "$n" replay "$out" ${from:+"$from"}
     [ "$(names "$src" 'lists/* audit-*.json')" = "$(names "$out" 'lists/* audit-*.json')" ] || {
       echo "run.sh: the replay in $out writes other files than $src." >&2
       exit 1
@@ -74,6 +124,7 @@ example() {
 examples() {
   for n in $FUNCTIONS; do
     [ -d "$1/$n" ] || continue
+    skipped_example "$1/$n" && continue
     example "$n" "$1/$n" "$1/$n" "$1"
     echo "replayed $1/$n: every file matches the live run"
   done
@@ -84,14 +135,17 @@ if [ -z "${THINKTHEN_BASE_URL:-}" ]; then
   name=$(printf '%s' "${1:-jev}" | tr '/ ' '--')
   run=$(newest "thinkthen-$name")
   [ -n "$run" ] || { echo "run.sh: no results/runs/DATE-thinkthen-$name run to replay." >&2; exit 2; }
-  quiet "$run" scripts/run/thinkthen.sh replay "$run"
-  cmp -s "$run/replay/answers.jsonl" "$run/answers.jsonl" || {
-    echo "run.sh: the replay in $run/replay/ differs from $run/answers.jsonl." >&2
-    exit 1
-  }
-  echo "replayed $run: all answers match its answers.jsonl"
+  if bin=$(run_bin "$run"); then
+    quiet "$run" env THINKTHEN_BIN="$bin" scripts/run/thinkthen.sh replay "$run"
+    cmp -s "$run/replay/answers.jsonl" "$run/answers.jsonl" || {
+      echo "run.sh: the replay in $run/replay/ differs from $run/answers.jsonl." >&2
+      exit 1
+    }
+    echo "replayed $run: all answers match its answers.jsonl"
+  fi
   if [ "$name" = jev ]; then
     for n in $FUNCTIONS; do
+      skipped_example "examples/$n" && continue
       example "$n" "examples/$n" "" "examples/$n"
       echo "replayed examples/$n: every file matches the committed folder"
     done

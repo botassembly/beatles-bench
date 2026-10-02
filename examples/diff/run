@@ -21,9 +21,9 @@ trap 'rm -rf "$tmp"' EXIT
 title='.input = {id: (.input.input | split("\nText: ") | last)}'
 q='Is this song on the album Abbey Road?'
 jq -c '.records[]' ../audit/audit-cold.jsonl |
-  thinkthen decide "$q" --jsonl --field /input --details $from > "$tmp/cold"
+  thinkthen decide "$q" --jsonl --field /input --details --model jev-latest $from > "$tmp/cold"
 jq -c '.records[]' ../audit/audit-context.jsonl |
-  thinkthen decide "The text gives a catalog entry and then names a song by the Beatles. $q" --jsonl --field /input --details $from > "$tmp/context"
+  thinkthen decide "The text gives a catalog entry and then names a song by the Beatles. $q" --jsonl --field /input --details --model jev-latest $from > "$tmp/context"
 jq -c "$title" "$tmp/cold" > "$tmp/a.jsonl"
 jq -c "$title" "$tmp/context" > "$tmp/b.jsonl"
 thinkthen diff "$tmp/a.jsonl" "$tmp/b.jsonl" --threshold "$bar" --key ../audit/key.jsonl --table

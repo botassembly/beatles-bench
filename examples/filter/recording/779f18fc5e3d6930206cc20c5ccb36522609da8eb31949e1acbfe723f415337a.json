@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nAbbey Road (1969-09-26)\nCome Together (lead: Lennon; written: Lennon–McCartney; 4:19; released 1969-09-26; first album: Abbey Road)\nText: Come Together","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. It appears on the album Abbey Road."}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.95}},"usage":{"input_tokens":350,"output_tokens":21}}
-}

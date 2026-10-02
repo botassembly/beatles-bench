@@ -18,5 +18,5 @@ while [ $# -gt 0 ]; do
   esac
   shift
 done
-answers=$(printf '%s\n' Blackbird "Octopus's Garden" | thinkthen annotate "$card" --lines --details $from)
+answers=$(printf '%s\n' Blackbird "Octopus's Garden" | thinkthen annotate "$card" --lines --details --model jev-latest $from)
 printf '%s\n' "$answers" | jq -c '{song: .input, value, p: (.answers | map_values(.answer.probabilities))}'

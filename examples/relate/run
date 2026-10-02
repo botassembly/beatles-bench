@@ -15,5 +15,5 @@ while [ $# -gt 0 ]; do
   esac
   shift
 done
-answers=$(jq -c '.records[]' relate-cold.jsonl | thinkthen relate @relate.json --jsonl --threshold "$bar" $from)
+answers=$(jq -c '.records[]' relate-cold.jsonl | thinkthen relate @relate.json --jsonl --threshold "$bar" --model jev-latest $from)
 printf '%s\n' "$answers" | jq -c '[.relation, .source.name, .target.name, .probability]'

@@ -1,7 +1,0 @@
-{
-  "schema": "thinkthen.recording/1",
-  "adapter": "systemone",
-  "url": "https://api.typesafe.ai/v1/systemone",
-  "request": {"state":"Catalog:\nThe Beatles (White Album) (1968-11-22)\nBlackbird (lead: McCartney; written: Lennon–McCartney; 2:18; released 1968-11-22; first album: The Beatles (White Album))\nText: Blackbird","model":"jev-latest","questions":{"q1":{"type":"noul","instructions":"The text gives a catalog entry and then names a song by the Beatles. Is this song on the album Abbey Road?"}}},
-  "response": {"model":"jev-1.13.0","answers":{"q1":{"type":"noul","noul":0.02}},"usage":{"input_tokens":361,"output_tokens":21}}
-}

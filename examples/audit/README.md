@@ -12,10 +12,14 @@ The slide grades 70 answers to one question: "Is this song on the album Abbey Ro
 
 ```text
 Is this song on the album Abbey Road?  (decide, 70 rows, 70 labeled, 0 failed, rule as run)
-  agreement 0.714 (95% 0.599 to 0.807): 50 right, 20 wrong, 0 unresolved, 0 tied
+  agreement 0.714 (95% 0.599 to 0.807): 50 right, 20 wrong, 0 not sure, 0 tied
   said yes, key no: 20   said no, key yes: 0   yes recall 1.000   mean p(yes) 0.443   AUC 0.971
-  calibration error 0.343 (95% 0.293 to 0.406); the interval resamples the records; it does not cover rerun noise, so compare two runs of the same records
+  precision 0.259   f1 0.412
+  calibration error 0.081 (95% 0.017 to 0.165); the interval resamples the records; it does not cover rerun noise, so compare two runs of the same records
   suggested cut 0.78 (most agreement on the tuning part; seeded split, tuned on 35, checked on 35 held out): held agreement 0.771 as run -> 0.943 at the cut, yes recall 1.000 -> 1.000
+  steady: 0.78 on 7 of 20 splits, range 0.65 to 0.93; beat the run's rule on 20 of 20 held parts (seed 0)
+  crossed: cuts 0.78 and 0.73, each checked on the other part: agreement 0.914, 64 right of 70 answered
+  at the suggested cut on the held part: accuracy 0.943, precision 0.714, recall 1.000, f1 0.833
     cut  threshold  answered coverage accuracy
     0.5  0.5              70    1.000    0.714
    0.55  0.45:0.55        63    0.900    0.730
@@ -38,10 +42,10 @@ At the suggested cut:
 
 ```text
 Is this song on the album Abbey Road?  (decide, 70 rows, 70 labeled, 0 failed, rule 0.78)
-  agreement 0.943 (95% 0.862 to 0.978): 66 right, 4 wrong, 0 unresolved, 0 tied
+  agreement 0.943 (95% 0.862 to 0.978): 66 right, 4 wrong, 0 not sure, 0 tied
 ```
 
-The pinned build prints `unresolved` for a not sure answer. ThinkThen main at ce04682c prints `0 not sure` in this count.
+Builds before ThinkThen main ce04682c print `unresolved` for a not sure answer. This build prints `0 not sure` in this count.
 
 `./run threshold` also takes a band such as `0.3:0.7`.
 
@@ -58,6 +62,6 @@ The pinned build prints `unresolved` for a not sure answer. ThinkThen main at ce
 - `key.jsonl`: the right answers, from `data/songs.tsv`.
 - `rows.jsonl`, `rows-context.jsonl`, and `audit-*.json`: the answers and audit's reports.
 - `outputs.jsonl`, `timing.tsv`, and `recording/`: the recorded answers.
-- `run.txt`: the thinkthen build and the model that recorded the answers.
+- `run.txt`: the thinkthen build and the model that recorded the answers. Replayed under thinkthen 0.1.0, `checkpoint/surfaces/2026-10-02-1` (`4e880cdf6`), on 2026-10-02: no answer changed.
 
 The talk's page for this slide: [thinkthen.dev/learn/beatles-bench/audit](https://thinkthen.dev/learn/beatles-bench/audit/).

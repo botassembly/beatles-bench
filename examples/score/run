@@ -20,6 +20,6 @@ answers=$(printf '%s\n' 'Her Majesty' Yesterday "Octopus's Garden" Something 'Co
   thinkthen score 'The text is the title of a song by the Beatles. How long is the recording?' \
     'about 0 minutes' 'about 1 minute' 'about 2 minutes' 'about 3 minutes' 'about 4 minutes' \
     'about 5 minutes' 'about 6 minutes' 'about 7 minutes' 'about 8 minutes' 'about 9 minutes' \
-    --lines --details $from)
+    --lines --details --model jev-latest $from)
 printf '%s\n' "$answers" | jq -c --argjson bar "$bar" '.answer.probabilities[.answer.level] as $p
   | {song: .input, minutes: .value, level: (if $p >= $bar then .answer.level else null end), p: $p}'
