@@ -1,11 +1,9 @@
 """The function suite: scripts/generate/make_suite.py writes questions/suite/ from data/ alone, scripts/run/ask_suite.py asks every
 case through the command and records it, and scripts/score/score_suite.py scores it. No network: the runner test uses a fake
-command, and the replay test answers from the committed recording with the key unset."""
+command."""
 import csv
-import hashlib
 import json
 import os
-import re
 import shutil
 import subprocess
 import sys
@@ -15,10 +13,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
-sys.path.insert(0, str(ROOT / "tests"))
-from published import D1_ALL, JEV_ALL, JEV_FUNCTIONS, JEV_READING, JEV_RECOGNIZE, JEV_RELATE, JEV_RUN, \
-    pending  # noqa: E402
-from builds import bin_for  # noqa: E402
 import importlib.util  # noqa: E402
 
 import make_suite as gen  # noqa: E402
@@ -28,12 +22,6 @@ fscore = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(fscore)
 
 TESTS = ["decide", "choose", "tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
-NEW_GROUPS = ("recognize-varied-,recognize-song-or-album-,recognize-short-names-,recognize-case-,recognize-no-names-,"
-              "recognize-paragraphs-,recognize-punctuation-,recognize-relations-")
-RELATE_ONLY = "relate-songs,relate-solo-,relate-duet-,relate-wrong-album-only-,relate-links-"
-READING = ("decide-reading-,choose-reading-,tag-reading-,score-reading-,filter-reading-,rank-reading-,"
-           "find-reading-,find-more-,annotate-reading-")
-RUN = JEV_FUNCTIONS
 
 
 def songs():
@@ -43,15 +31,6 @@ def songs():
 
 def cases(name):
     return [json.loads(l) for l in open(ROOT / "questions" / "suite" / f"{name}.jsonl", encoding="utf-8")]
-
-
-def same_build(run, bin):
-    """True when BIN's SHA-256 is the one run.txt names as the build that recorded the run; the recording binds to it."""
-    if not (Path(run) / "run.txt").exists():
-        return False
-    text = (Path(run) / "run.txt").read_text(encoding="utf-8")
-    m = re.search(r"THINKTHEN_BIN SHA-256: ([0-9a-f]{64})", text)
-    return bool(bin and Path(bin).exists() and m and hashlib.sha256(Path(bin).read_bytes()).hexdigest() == m.group(1))
 
 
 class GenerateTest(unittest.TestCase):
@@ -437,35 +416,6 @@ class LevelsTest(unittest.TestCase):
         self.assertEqual({r["id"]: {k: r[k] for k in r if k != "id"} for r in cat}, seen)
 
 
-class TableTest(unittest.TestCase):
-    def test_the_committed_function_runs_score_to_the_published_tables_byte_for_byte(self):
-        runs = ROOT / "results" / "runs"
-        out = Path(tempfile.mkdtemp())
-        self.addCleanup(shutil.rmtree, out, True)
-        for suite, core, table in ((JEV_ALL, JEV_ALL, "functions.tsv"),
-                                   (D1_ALL, D1_ALL, "functions-liquid-d1.tsv"),
-                                   (runs / "2026-09-23-functions-laya", runs / "2026-09-23-thinkthen-laya", "functions-laya.tsv"),
-                                   (runs / "2026-09-23-functions-glm-5.3-flash", runs / "2026-09-23-glm-5.3-flash", "functions-glm.tsv")):
-            with self.subTest(table):
-                reason = pending(suite)  # a run its run.txt names pending has no table to check
-                if reason:
-                    self.skipTest(reason)
-                subprocess.run([sys.executable, str(ROOT / "scripts" / "score" / "score_suite.py"), "table", str(suite),
-                                str(core), str(out / table)], check=True, capture_output=True)
-                self.assertEqual((out / table).read_bytes(), (ROOT / "results" / "tables" / table).read_bytes(), table)
-
-    def test_the_d1_run_is_the_only_run_pending_its_function_table(self):
-        """The exclusion never grows silently: one run may defer its table, and only while its gaps stand."""
-        pend = {p.name: pending(p) for p in sorted((ROOT / "results" / "runs").iterdir())
-                if p.is_dir() and pending(p)}
-        self.assertEqual(list(pend), [D1_ALL.name])
-        self.assertIn("513 rate-limited gaps", pend[D1_ALL.name])
-        msgs = [r["message"] for r in csv.DictReader(open(D1_ALL / "gaps.tsv", encoding="utf-8"), delimiter="\t")]
-        self.assertEqual(len(msgs), 531)
-        self.assertEqual(sum("status 429" in m for m in msgs), 513)  # the rate-limited gaps the reason names
-        self.assertEqual(sum("status 422" in m for m in msgs), 18)
-
-
 class ScoreTest(unittest.TestCase):
     def test_spearman(self):
         self.assertAlmostEqual(fscore.spearman([1, 2, 3, 4], [10, 20, 30, 40]), 1.0)
@@ -740,79 +690,6 @@ class RunTest(unittest.TestCase):
         env.pop("FAKE_REFUSE")
         subprocess.run([sys.executable, str(script), "replay", str(run)], check=True, env=env)
         self.assertEqual((run / "replay" / "outputs.jsonl").read_text(), (run / "outputs.jsonl").read_text())
-
-
-@unittest.skipUnless((RUN / "recording").exists(), "the recorded run is missing")
-class ReplayTest(unittest.TestCase):
-    def bin(self, run):
-        """The command BENCH_BIN_<build> names for the build that recorded RUN, or a skip naming it."""
-        bin, why = bin_for(run)
-        if not bin:
-            self.skipTest(why)
-        if (Path(run) / "run.txt").exists():
-            self.assertTrue(same_build(run, bin), f"{run.name}: BENCH_BIN_* names a command that is not the run's build")
-        return bin
-
-    def test_the_recorded_suite_replays_with_the_key_unset_and_scores_to_the_saved_table(self):
-        bin = self.bin(RUN)
-        tmp = Path(tempfile.mkdtemp())
-        (tmp / "recording").symlink_to(RUN / "recording")
-        shutil.copy(RUN / "timing.tsv", tmp / "timing.tsv")
-        # the recording binds the model the run sent: it sits in the request hash a replay recomputes
-        env = {**os.environ, "THINKTHEN_BIN": bin, "BEATLES_BENCH_MODEL": "jev-1.13.0"}
-        env.pop("THINKTHEN_API_KEY", None)
-        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
-        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (RUN / "outputs.jsonl").read_text())
-        for p in sorted((RUN / "lists").glob("*.jsonl")):
-            self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)
-        # the byte-for-byte replay is the check. functions.tsv comes from the all-jev run since ticket 0023, so
-        # this recording's answers are no longer the published values to compare against.
-
-    def test_the_d1_suite_replays_with_the_key_unset(self):
-        bin = self.bin(D1_ALL)
-        if pending(D1_ALL):  # the recording holds no answer for a rate-limited gap, and the replay still asks it
-            self.skipTest(f"{D1_ALL.name}: {pending(D1_ALL)}")
-        tmp = Path(tempfile.mkdtemp())
-        (tmp / "recording").symlink_to(D1_ALL / "recording")
-        shutil.copy(D1_ALL / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": bin, "BEATLES_BENCH_MODEL": "d1:free",
-               "BENCH_THINKTHEN_ARGS": "--backend liquid --timeout 90"}
-        env.pop("THINKTHEN_API_KEY", None)
-        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
-        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (D1_ALL / "outputs.jsonl").read_text())
-
-    def test_the_new_recognize_groups_replay_with_the_key_unset(self):
-        bin = self.bin(JEV_RECOGNIZE)
-        tmp = Path(tempfile.mkdtemp())
-        (tmp / "recording").symlink_to(JEV_RECOGNIZE / "recording")
-        shutil.copy(JEV_RECOGNIZE / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": bin, "BENCH_SUITE_ONLY": NEW_GROUPS}
-        env.pop("THINKTHEN_API_KEY", None)
-        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
-        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RECOGNIZE / "outputs.jsonl").read_text())
-
-    def test_the_relate_run_replays_with_the_key_unset(self):
-        bin = self.bin(JEV_RELATE)
-        tmp = Path(tempfile.mkdtemp())
-        (tmp / "recording").symlink_to(JEV_RELATE / "recording")
-        shutil.copy(JEV_RELATE / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": bin, "BENCH_SUITE_ONLY": RELATE_ONLY}
-        env.pop("THINKTHEN_API_KEY", None)
-        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)],
-                       check=True, env=env)
-        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_RELATE / "outputs.jsonl").read_text())
-
-    def test_the_reading_run_replays_with_the_key_unset(self):
-        bin = self.bin(JEV_READING)
-        tmp = Path(tempfile.mkdtemp())
-        (tmp / "recording").symlink_to(JEV_READING / "recording")
-        shutil.copy(JEV_READING / "timing.tsv", tmp / "timing.tsv")
-        env = {**os.environ, "THINKTHEN_BIN": bin, "BENCH_SUITE_ONLY": READING}
-        env.pop("THINKTHEN_API_KEY", None)
-        subprocess.run([sys.executable, str(ROOT / "scripts" / "run" / "ask_suite.py"), "replay", str(tmp)], check=True, env=env)
-        self.assertEqual((tmp / "replay" / "outputs.jsonl").read_text(), (JEV_READING / "outputs.jsonl").read_text())
-        for p in sorted((JEV_READING / "lists").glob("*.jsonl")):
-            self.assertEqual((tmp / "replay" / "lists" / p.name).read_text(), p.read_text(), p.name)
 
 
 if __name__ == "__main__":

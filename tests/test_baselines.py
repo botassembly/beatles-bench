@@ -45,14 +45,21 @@ class NaturalTest(unittest.TestCase):
         self.assertIs(row["value"], row["probabilities"]["yes"] >= 0.5)
         self.assertEqual(row["model"], "overlap, natural question")
 
-    def test_template_phrasing_keeps_the_committed_answers(self):
+    def test_template_phrasing_keeps_the_published_answers(self):
+        """The BM25 run behind the published tables, from results/answers.jsonl: the same answer, the probability
+        of that answer, and p(yes) for a yes/no question."""
         bm25 = baselines.BM25(sorted({v for x in QUESTIONS for v in (x["options"] or {}).values()}
                                      | {x["question"] for x in QUESTIONS if x["function"] == "decide"}))
-        saved = {a["id"]: a for a in map(json.loads, open(ROOT / "results" / "runs" / "2026-09-23-baseline-bm25" / "answers.jsonl"))}
+        saved = {a["id"]: a for a in map(json.loads, open(ROOT / "results" / "answers.jsonl", encoding="utf-8"))
+                 if a["run"] == "2026-09-23-baseline-bm25"}
         for row in baselines.plain(QUESTIONS, "bm25", bm25, None, 0.0):
-            self.assertEqual((row["value"], row["probabilities"]), (saved[row["id"]]["value"], saved[row["id"]]["probabilities"]))
+            s = saved[row["id"]]
+            self.assertEqual(row["value"], s["answer"], row["id"])
+            if isinstance(row["value"], bool):
+                self.assertEqual(row["probabilities"]["yes"], s["value"], row["id"])
+            else:
+                self.assertEqual(row["probabilities"][row["value"]], s["probability"], row["id"])
             self.assertEqual((row["backend"], row["model"]), ("none", "bm25, template question"))
-
 
 if __name__ == "__main__":
     unittest.main()

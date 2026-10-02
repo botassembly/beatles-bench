@@ -1,5 +1,5 @@
 """reports/leaning-no.md reproduced with thinkthen audit and thinkthen diff on a local experiment's replayed answers in
-tests/fixtures/audit/249/. No network, no model, no key. Skips without a thinkthen that has audit."""
+tests/fixtures/audit/249/. No network, no model, no key. Needs thinkthen 0.1.0."""
 import json
 import os
 import shutil
@@ -10,11 +10,9 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tests"))
-from builds import bench_bin  # noqa: E402
 
-# The report's numbers pin audit and diff as the 2026-09-26 pinned build printed them: 0.0.1 at 02dc0b96.
-BIN = bench_bin("02dc0b96")
+# thinkthen 0.1.0: THINKTHEN_BIN, else thinkthen on PATH.
+BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
 F = ROOT / "tests" / "fixtures" / "audit" / "249"
 GUARD = ROOT / "scripts" / "score" / "diff_guard.sh"
 
@@ -31,10 +29,10 @@ def run(*args):
     return [json.loads(l) for l in done.stdout.splitlines()]
 
 
-@unittest.skipUnless(has_audit(), "the leaning-no figures pin audit under thinkthen 02dc0b96; set BENCH_BIN_02dc0b96")
 class LeaningNoTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        assert has_audit(), "the suite needs thinkthen 0.1.0, which has audit"
         cls.tmp = Path(tempfile.mkdtemp())
         cls.held = cls.tmp / "held.jsonl"
         cls.held.write_text("".join(l for l in open(F / "key.jsonl", encoding="utf-8") if '"held"' in l), encoding="utf-8")
@@ -47,7 +45,8 @@ class LeaningNoTest(unittest.TestCase):
         (g,) = run(BIN, "audit", F / "control.jsonl", self.held, "--by", "verb")
         self.assertEqual((g["labeled"], g["right"]), (138, 87))
         self.assertEqual((round(g["agreement"], 3), round(g["yes_recall"], 3), round(g["mean_probability"], 3),
-                          round(g["auc"], 3), round(g["calibration"]["error"], 3)), (0.630, 0.311, 0.397, 0.725, 0.092))
+                          round(g["auc"], 3), round(g["calibration"]["error"], 3)), (0.630, 0.311, 0.397, 0.725, 0.086))
+        # 02dc0b96's audit printed a calibration error of 0.092 for the same answers; the report keeps both
 
     def test_test_1_the_tuned_cut(self):
         (g,) = run(BIN, "audit", F / "control.jsonl", F / "key.jsonl", "--by", "verb")

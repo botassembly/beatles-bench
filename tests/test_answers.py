@@ -1,6 +1,7 @@
 """tests.test_answers — the one answers table, the reports, and the published figures it reproduces.
 
-No run happens here: the checks read the committed runs and results/answers.jsonl. The recompute test
+No run happens here: the checks read results/answers.jsonl, the frozen answers of the runs behind the published
+tables, which moved to Git history in ticket 0026. The recompute test
 derives every row of results/tables/functions*.tsv and accuracy.tsv from the answers table alone, so the
 unified file provably keeps every published figure reachable.
 """
@@ -15,8 +16,6 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts" / "score"))
 sys.path.insert(0, str(ROOT / "scripts" / "answers"))
 sys.path.insert(0, str(ROOT / "scripts" / "generate"))
-sys.path.insert(0, str(ROOT / "tests"))
-from published import D1_ALL, pending  # noqa: E402
 import analyze  # noqa: E402
 import build  # noqa: E402
 import relate_audit  # noqa: E402
@@ -59,12 +58,6 @@ class Build(unittest.TestCase):
     def setUpClass(cls):
         cls.rows = answers()
         cls.pools = report.systems(cls.rows)
-
-    def test_every_committed_run_folder_has_rows(self):
-        runs = {r["run"] for r in self.rows}
-        for p in core.tracked(ROOT / "results" / "runs"):
-            if p.name in ("answers.jsonl", "outputs.jsonl") and p.parent.parent == ROOT / "results" / "runs":
-                self.assertIn(p.parent.name, runs, p.parent)
 
     def test_untracked_run_folder_stays_out(self):
         fake = ROOT / "results" / "runs" / "2099-01-01-fake"
@@ -404,13 +397,13 @@ class Recompute(unittest.TestCase):
             self.relate_audit(pub, sel, t)
 
     def relate_audit(self, pub, sel, test):
-        """The tuned-cut rows: the cut is the audit's, and the held-half P/R/F1 recompute from the edges."""
-        run = next((ROOT / "results" / "runs" / r["run"] for r in sel
-                    if (ROOT / "results" / "runs" / r["run"] / "relate-audit" / f"{test}.json").is_file()), None)
-        if run is None:
+        """The tuned-cut rows: the cut is the one the published table holds from the run's audit, and the held-half
+        P/R/F1 recompute from the edges at that cut."""
+        row = next((r for r in pub if r["function"] == "relate" and r["test"] == test and r["measure"] == "tuned cut"),
+                   None)
+        if row is None:
             return
-        audit = json.loads((run / "relate-audit" / f"{test}.json").read_text(encoding="utf-8"))
-        cut = audit["suggested"]["cut"]
+        cut = float(row["value"])
         tune = relate_audit.tune_ids(test, [r["id"] for r in sel])
         held = [r for r in sel if r["id"] not in tune]
         tp = fp = fn = 0
@@ -472,21 +465,12 @@ class Recompute(unittest.TestCase):
                         {(r["function"], r["test"], r["measure"]) for r in pub} - self.checked)
         self.assertEqual(self.fails, [])
 
-    def test_functions_liquid_d1(self):
-        reason = pending(D1_ALL)
-        if reason:  # the run's run.txt defers its table until the rate-limited gaps are asked again
-            self.skipTest(reason)
-        pub = self.functions("Liquid d1", "functions-liquid-d1.tsv")
-        self.assertTrue(self.checked >= {(r["function"], r["test"], r["measure"]) for r in pub},
-                        {(r["function"], r["test"], r["measure"]) for r in pub} - self.checked)
-        self.assertEqual(self.fails, [])
-
     def test_accuracy(self):
         pub = published("accuracy.tsv")
         fails = []
         qs = {q["id"]: q for q in analyze.questions()}
         hard = set((ROOT / "questions" / "hard.txt").read_text(encoding="utf-8").split())
-        canonical = {report.label(run.name) for run in analyze.discover(analyze.questions())}
+        canonical = {report.label(run) for run in report.knowledge_runs(self.rows)}
         by_label = defaultdict(list)
         for lab, pool in self.pools.items():  # the pool keeps one row a question: the newest covering run's
             if lab not in canonical:

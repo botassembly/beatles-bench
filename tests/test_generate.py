@@ -52,10 +52,10 @@ class GenerateTest(unittest.TestCase):
             self.assertEqual(key, [{"id": q["id"], "value": q["truth"]} for q in qs], path.name)
         line = next(json.loads(l) for l in open(ROOT / "questions" / "keys" / "comparison.jsonl", encoding="utf-8")
                     if '"comparison-longer-001"' in l)
-        jev = next(json.loads(l) for l in open(ROOT / "results" / "archive" / "runs" / "2026-09-23-thinkthen-jev" / "answers.jsonl",
-                                               encoding="utf-8") if '"comparison-longer-001"' in l)
+        jev = next(json.loads(l) for l in open(ROOT / "results" / "answers.jsonl", encoding="utf-8")
+                   if '"2026-09-26-thinkthen-jev"' in l and '"comparison-longer-001"' in l)
         self.assertEqual(line, {"id": "comparison-longer-001", "value": "a"})
-        self.assertEqual(line["value"], jev["value"])
+        self.assertEqual(line["value"], jev["answer"])  # a key value has the shape of the answer a run gives
 
     def test_every_question_is_well_formed(self):
         ids = [q["id"] for q in self.questions]

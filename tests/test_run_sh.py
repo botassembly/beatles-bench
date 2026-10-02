@@ -1,14 +1,12 @@
-"""./run.sh with no backend address replays the newest committed Jev run and every example with no key and no network,
-checks each replay byte for byte against the committed files, and prints the results table with the committed Jev
-numbers. Rescoring leaves results/ unchanged. The run replays only under the build results/builds.tsv names for it
-(BENCH_BIN_<build>), and prints a skip line without it; an example whose recording is not a question store binds to
-the build its run.txt names and skips the same way. Skips without the thinkthen command, or when results/ already has
-uncommitted changes. A thinkthen without audit stops ./run.sh before it asks or replays anything.
+"""./run.sh with no backend address replays every example with no key and no network, checks each replay byte for byte
+against the committed files, and prints the published results table. It leaves results/ unchanged: the published
+tables are frozen, and run.sh never rewrites them. A thinkthen without audit stops ./run.sh before it asks or replays
+anything.
 
 LiveRunTest runs ./run.sh live against tests/fixtures/fake-thinkthen-run in one clone of this repository, with the
 working tree's run.sh, scripts/, and tests/fixtures/ committed over it. The clone has git history, so the guard against
 committed folders reads it. Each live run asks a few of the 1,501 questions (ids.txt in its run folder) and every
-example."""
+example, and ./run.sh NAME then replays it."""
 import csv
 import datetime
 import json
@@ -21,8 +19,6 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-sys.path.insert(0, str(ROOT / "tests"))
-from builds import bench_bin, bin_for, pinned_commit, build_id  # noqa: E402
 
 BIN = os.environ.get("THINKTHEN_BIN") or shutil.which("thinkthen")
 FUNCTIONS = "decide choose tag score filter rank find annotate recognize relate audit diff".split()
@@ -34,11 +30,10 @@ def dirty():
     return subprocess.run(["git", "status", "--porcelain", "results/"], cwd=ROOT, capture_output=True, text=True, check=True).stdout
 
 
-@unittest.skipUnless(BIN and Path(BIN).exists(), "the thinkthen command is missing")
 class RunShTest(unittest.TestCase):
-    def test_the_replay_checks_every_example_prints_the_committed_jev_row_and_leaves_results_unchanged(self):
-        if dirty():
-            self.skipTest("results/ has uncommitted changes")
+    def test_the_replay_checks_every_example_prints_the_published_jev_row_and_leaves_results_unchanged(self):
+        self.assertTrue(BIN and Path(BIN).exists(), "the thinkthen command is missing")
+        self.assertEqual(dirty(), "", "results/ has uncommitted changes, so this test cannot see whether run.sh left it alone")
         with open(ROOT / "results" / "tables" / "accuracy.tsv", encoding="utf-8", newline="") as f:
             share = next(float(r["accuracy"]) for r in csv.DictReader(f, delimiter="\t")
                          if r["system"] == "Jev" and r["scope"] == "beatles-only")
@@ -46,36 +41,17 @@ class RunShTest(unittest.TestCase):
         done = subprocess.run(["./run.sh"], cwd=ROOT, env={**env, "THINKTHEN_BIN": BIN}, capture_output=True, text=True)
         self.assertEqual(done.returncode, 0, done.stderr)
         lines = done.stdout.splitlines()
-        run = subprocess.run(["python3", "scripts/score/score.py", "newest", "thinkthen-jev"],
-                             cwd=ROOT, capture_output=True, text=True, check=True).stdout.strip()
-        run = "results/runs/" + run.rsplit("/", 1)[-1]
-        expect = []
-        bin, why = bin_for(run)
-        if bin:
-            expect.append(f"replayed {run}")
-        for n in FUNCTIONS:
-            ex = ROOT / "examples" / n
-            store = (ex / "recording" / "thinkthen.jsonl").exists()
-            if n != "diff" and not store:
-                commit = build_id(pinned_commit(ex))
-                if not bench_bin(commit):
-                    self.assertTrue(any(f"skipping examples/{n}" in l and f"BENCH_BIN_{commit}" in l
-                                        for l in lines), f"no skip line for examples/{n}")
-                    continue
-            expect.append(f"replayed examples/{n}")
-        self.assertEqual([l.split(":")[0] for l in lines if l.startswith("replayed ")], expect)
-        if not bin:
-            self.assertTrue(any("skipping the replay of" in l and "BENCH_BIN_" in l for l in lines),
-                            f"run.sh printed no skip line for the old run ({why})")
+        self.assertEqual([l.split(":")[0] for l in lines if l.startswith("replayed ")],
+                         [f"replayed examples/{n}" for n in FUNCTIONS])
         row = next(l for l in lines if l.startswith("| Jev |"))
         self.assertTrue(row.startswith(f"| Jev | {share:.1%} ("), row)
         self.assertEqual(dirty(), "")
 
 
-@unittest.skipUnless(shutil.which("jq") and shutil.which("git"), "jq or git is missing")
 class LiveRunTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
+        assert shutil.which("jq") and shutil.which("git"), "the suite needs jq and git"
         cls.tmp = Path(tempfile.mkdtemp())
         cls.bench = cls.tmp / "bench"
         subprocess.run(["git", "clone", "-q", str(ROOT), str(cls.bench)], check=True)
