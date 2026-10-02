@@ -28,7 +28,8 @@ TOOL = {"GLM-5.3 Flash": "chat script"}  # a system with no thinkthen build: scr
 
 
 def cell(r):
-    return f"{float(r['accuracy']):.1%} ({float(r['lo']):.1%} to {float(r['hi']):.1%})"
+    """The share from right and n, rounded once; the accuracy column is already rounded to four places."""
+    return f"{float(r['right']) / int(r['n']):.1%} ({float(r['lo']):.1%} to {float(r['hi']):.1%})"
 
 
 def results():
