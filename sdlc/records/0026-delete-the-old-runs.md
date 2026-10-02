@@ -26,7 +26,7 @@ Built on 2026-10-02 on `ticket/0026-delete-the-old-runs` from main at a6a6be71. 
 
 ## Proof
 
-- `env -u THINKTHEN_API_KEY python3 -m unittest discover -s tests` under `systemd-run --user --scope -p MemoryMax=4G -p MemorySwapMax=0`, on the committed tree, with 0.1.0 on `PATH`, `THINKTHEN_BIN` unset, `jq` and `git` present: RESULT_LINE.
+- `env -u THINKTHEN_API_KEY python3 -m unittest discover -s tests` under `systemd-run --user --scope -p MemoryMax=4G -p MemorySwapMax=0`, on the committed tree, with 0.1.0 on `PATH`, `THINKTHEN_BIN` unset, `jq` and `git` present: 180 tests, OK, 0 skipped, in 92 seconds.
 - `grep -rnE "skipTest|skipIf|skipUnless|unittest\.skip|SkipTest" tests/` finds nothing.
 - `git ls-files results/runs results/archive` lists only `results/runs/README.md` and the two stubs.
 - No private name and no home path appears in the added lines of the diff.
