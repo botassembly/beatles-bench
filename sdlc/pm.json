@@ -6,9 +6,5 @@
     "draft": "open"
   },
   "evidenceFromTicketNumber": 26,
-  "landedProofFromTicketNumber": 26,
-  "mailroom": {
-    "repo": "sdlc",
-    "name": "beatles-bench"
-  }
+  "landedProofFromTicketNumber": 26
 }
