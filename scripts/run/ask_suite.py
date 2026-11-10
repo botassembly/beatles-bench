@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Ask every case in questions/suite/ through the ThinkThen command and write RUN/outputs.jsonl.
 
-usage: ask_suite.py live RUN_DIR | replay RUN_DIR [OUT_DIR]
+usage: ask_suite.py live RUN_DIR | replay RUN_DIR [OUT_DIR] | packed-find NEW_RUN_DIR | validate-find CASES.jsonl
   live    --cache RUN_DIR/recording: answers from the recording where it can, asks the backend for the rest.
   replay  --replay RUN_DIR/recording: answers from the recording alone. No key, no connection. Writes OUT_DIR
           (default: RUN_DIR/replay/).
@@ -44,6 +44,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 import gaps
+import find_packing
 from ask import extra_args  # noqa: E402  (same folder)
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -95,8 +96,57 @@ def limit(mode):
     return int(cap) if cap and mode == "live" else None
 
 
+def packed_find(run):
+    """Run the migrated find arm only; no legacy cache/replay flags or silent resume."""
+    folder = Path(os.environ.get("BENCH_FUNCTIONS", ROOT / "questions" / "suite")).resolve()
+    todo = [json.loads(line) for line in (folder / "find.jsonl").read_text().split('\n') if line.strip()]
+    todo = [c for c in todo if not ONLY or c["id"].startswith(ONLY)]
+    find_packing.inventory(todo)  # Validate every selected case before the first command call.
+    run = Path(run).resolve()
+    run.mkdir(parents=True, exist_ok=False)
+    with (run / "outputs.jsonl").open('w', encoding='utf-8') as stream:
+        for case in todo:
+            record, packing = find_packing.pack(case)
+            args = [TT, 'find', case['args'][0], '--from', 'jsonl', '--json', '--field', '/input', '--model', MODEL]
+            args += extra_args(args)
+            def selected_option(name):
+                for i, token in enumerate(args):
+                    if token == '--' + name and i + 1 < len(args):
+                        return args[i + 1]
+                    if token.startswith('--' + name + '='):
+                        return token.split('=', 1)[1]
+                return os.environ.get('THINKTHEN_' + name.upper())
+            start = time.monotonic()
+            result = dict(id=case['id'], exit=None, rows=[], packing=packing,
+                          input_tokens=None, output_tokens=None, requests=None,
+                          threshold_argument=selected_option('threshold'),
+                          requested_backend=selected_option('backend'), model_argument=MODEL)
+            try:
+                done = subprocess.run(args, input=json.dumps(record, ensure_ascii=False) + '\n',
+                                      capture_output=True, text=True, cwd=folder)
+                result['exit'] = done.returncode
+                result['rows'] = [json.loads(line) for line in done.stdout.split('\n') if line.strip()]
+            except OSError as error:
+                result['harness_error'] = 'could not start command: ' + type(error).__name__
+            except (ValueError, TypeError, AttributeError):
+                result['parse_error'] = True
+            result['wall_s'] = round(time.monotonic() - start, 3)
+            result['outcome'] = find_packing.outcome(result, packing)
+            stream.write(json.dumps(result, ensure_ascii=False) + '\n')
+            stream.flush()
+
+
+
 def main(mode, run, out=None):
     global FOLDER
+    if mode == 'validate-find':
+        todo = [json.loads(line) for line in Path(run).read_text().split('\n') if line.strip()]
+        print(json.dumps(find_packing.inventory(todo), sort_keys=True))
+        return
+    if mode == 'packed-find':
+        if out is not None:
+            sys.exit('usage: ask_suite.py packed-find NEW_RUN_DIR')
+        return packed_find(run)
     if out is not None and mode != "replay":
         sys.exit("usage: ask_suite.py live RUN_DIR | replay RUN_DIR [OUT_DIR]")
     FOLDER = Path(os.environ.get("BENCH_FUNCTIONS", ROOT / "questions" / "suite")).resolve()

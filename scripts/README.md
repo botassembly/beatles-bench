@@ -90,3 +90,7 @@ Each figure is one script, drawn with kuva into `reports/figures/` as SVG and PN
 ```sh
 PYTHON=$PWD/.venv/bin/python scripts/figures/all.sh   # reports/figures/
 ```
+
+## 0.2 find migration arm
+
+The existing suite's separate packed-find mode validates and runs the per-record 0.2 contract without changing historical runs. Start with the [offline inventory, installed-command proof and comparison protocol](../reports/find-0-2-migration.md). The ordinary live/replay suite still targets the historical 0.1 contract.

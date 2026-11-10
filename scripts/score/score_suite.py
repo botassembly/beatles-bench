@@ -3,6 +3,7 @@
 
 usage:
   score_suite.py table RUN[,RUN...] [CORE_RUN [OUT]]   write OUT (default results/tables/functions.tsv) and print the README table
+  score_suite.py find RUN [CASES.jsonl]   migrated 0.2 find report; no historical table mutation
   score_suite.py history RUN DATE [CORE_RUN]   append one row per main measure to results/history.tsv
 RUN holds outputs.jsonl and lists/ from scripts/run/ask_suite.py. Several runs, comma-separated, merge by case id;
 a run need not cover every test, but it must cover each test it touches whole. CORE_RUN holds the answers.jsonl of a run over
@@ -27,6 +28,8 @@ ROOT = HERE.parents[1]
 sys.path.insert(0, str(HERE))
 import stats  # noqa: E402
 import score as core_score  # noqa: E402
+sys.path.insert(0, str(ROOT / "scripts" / "run"))
+import find_packing  # noqa: E402
 
 FOLDER = ROOT / "questions" / "suite"
 TESTS = ["decide", "choose", "tag", "score", "filter", "rank", "find", "annotate", "recognize", "relate"]
@@ -180,6 +183,10 @@ def usage(outs):
     """Requests actually sent: a case answered by an earlier identical request is not counted, timed, or charged.
     The relate call sends three requests. Time is per call. Cost counts input, cached input, and output tokens at the
     run's price."""
+    if any('packing' in o for o in outs):
+        walls = [o['wall_s'] for o in outs if isinstance(o.get('wall_s'), (int, float))]
+        return dict(requests=None, input_tokens=None, usd=None,
+                    median_s=stats.quantile(walls, 0.5), p90_s=stats.quantile(walls, 0.9))
     outs = [o for o in outs if o.get("sent", True)]
     walls = [o["wall_s"] for o in outs if isinstance(o.get("wall_s"), (int, float))]
     tok = {k: sum(o.get(k) or 0 for o in outs) for k in ("input_tokens", "cached_input_tokens", "output_tokens")}
@@ -311,6 +318,30 @@ def rank_rows(cases, outs, lists):
 def find_rows(cases, outs, label="album"):
     """exact match: the picked record's id equals the truth, or the pick is "none" on a none set (its value is
     then null). answer.pick pads the record ids, so the record's own id in value is the key."""
+    if any('packing' in outs[c['id']] for c in cases):
+        if not all('packing' in outs[c['id']] for c in cases):
+            raise ValueError('cannot pool historical aggregate and migrated per-record find')
+        counts = dict(answered=0, unsure=0, failed=0, missing=0, **{'call-failed': 0, 'harness-error': 0})
+        correct = correct_none = false_none = 0
+        for case in cases:
+            result = outs[case['id']]
+            _, packing = find_packing.pack(case)
+            if result['packing'] != packing:
+                raise ValueError('saved packing differs from original candidate identity/presentation')
+            outcome = find_packing.outcome(result, packing)
+            counts[outcome['status']] += 1
+            if outcome['status'] != 'answered':
+                continue
+            none = outcome['selection'] == 'none'
+            right = case['truth'] == 'none' if none else case['truth'] != 'none' and type(case['truth']) is type(outcome['candidate_id']) and case['truth'] == outcome['candidate_id']
+            correct += right
+            correct_none += none and right
+            false_none += none and not right
+        out = [share('find', label, 'exact match', correct, len(cases), True, usage([outs[c['id']] for c in cases])),
+               share('find', label, 'answered accuracy', correct, counts['answered']),
+               share('find', label, 'answered coverage', counts['answered'], len(cases))]
+        counts.update(gold_none=sum(c['truth'] == 'none' for c in cases), correct_none=correct_none, false_none=false_none)
+        return out + [row('find', label, key.replace('_', ' ') + ' cases', len(cases), count) for key, count in counts.items()]
     def right(c):
         r0 = (outs[c["id"]]["rows"] or [{}])[0]
         picked = (r0.get("value") or {}).get("id") or ("none" if (r0.get("answer") or {}).get("pick") == "none"
@@ -639,7 +670,22 @@ def history(rows, date, run):
 
 
 def main(cmd, run, *rest):
-    if cmd == "table":
+    if cmd == 'find':
+        cs = [json.loads(line) for line in Path(rest[0] if rest else FOLDER / 'find.jsonl').read_text().split('\n') if line.strip()]
+        find_packing.inventory(cs)
+        outputs = [json.loads(line) for line in (Path(run) / 'outputs.jsonl').read_text().split('\n') if line.strip()]
+        if any(not isinstance(o, dict) or 'packing' not in o for o in outputs):
+            raise ValueError('find migration report requires packed 0.2 outputs; historical rows cannot be relabeled')
+        if len({o['id'] for o in outputs}) != len(outputs):
+            raise ValueError('duplicate output case IDs')
+        outs = {o['id']: o for o in outputs}
+        if set(outs) - {c['id'] for c in cs}:
+            raise ValueError('output refers to unknown cases')
+        for c in cs:
+            if c['id'] not in outs:
+                outs[c['id']] = dict(id=c['id'], exit=None, rows=[], packing=find_packing.pack(c)[1])
+        print(json.dumps(dict(scope='thinkthen-0.2-packed-find-v1', rows=find_rows(cs, outs, 'all')), ensure_ascii=False))
+    elif cmd == "table":
         rows = table(run, *rest[:1])
         write(rows, *(Path(o) for o in rest[1:2]))
         print(readme(rows))

@@ -1,6 +1,6 @@
 # 0027 — validate-0-2-find-candidate-migration
 
-Status: OPEN.
+Status: COMPLETE.
 
 ## Outcome
 
@@ -13,6 +13,7 @@ Ian authorized implementing the November 10 ThinkThen assessment plan and assign
 ## Proof
 
 - Proof: validate all 700 suite cases offline, retaining 300 memory, 300 context and 100 card cases, including 90 gold-none and 400 multiline-candidate cases. Installed-command loopback cases prove one result per case, exact selected candidate identity with duplicate text, Unicode, escaped newlines, none, unsure and backend failures. No credentials or paid calls.
+- Evidence: [review and focused proof](../records/0027-validate-0-2-find-candidate-migration.md), accepted implementation `72db0a2c6beb7909aeec1a69bc7114f977433829`, passing job `j36806`.
 
 ## Starts from
 
